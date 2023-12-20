@@ -32,7 +32,7 @@ export default {
     methods: {
         tableRowClassName({ row, rowIndex }) {
             if (rowIndex % 2 == 0) {
-                return 'warning-row';
+                return 'success-row';
             } else {
                 return '';
             }
@@ -44,8 +44,8 @@ export default {
 
 <style lang="less">
 #political {
-    .el-table .warning-row {
-        background: oldlace;
+    .el-table .success-row {
+        background: #f0f9eb;
     }
 }
 </style>
