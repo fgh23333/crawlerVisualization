@@ -1,14 +1,8 @@
 <template>
     <div id="navMenu">
-        <el-menu class="el-menu-vertical-demo" :router="true">
-            <el-menu-item index="political">
-                <i class="el-icon-document"></i>
-                <span slot="title">思政</span>
-            </el-menu-item>
-            <el-menu-item index="introduction">
-                <i class="el-icon-document"></i>
-                <span slot="title">习概</span>
-            </el-menu-item>
+        <el-menu class="el-menu-vertical-demo" :router="true" mode="horizontal">
+            <el-menu-item index="political">思政</el-menu-item>
+            <el-menu-item index="introduction">习概</el-menu-item>
         </el-menu>
     </div>
 </template>
@@ -23,7 +17,7 @@ export default {
 #navMenu {
     .el-col {
         width: 100%;
-        
+
         .el-menu {
             margin: auto 0;
         }

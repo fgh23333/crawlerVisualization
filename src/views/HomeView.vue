@@ -1,9 +1,9 @@
 <template>
   <div id="home">
     <el-container>
-      <el-aside width="200px">
+      <el-header>
         <navMenu></navMenu>
-      </el-aside>
+      </el-header>
       <el-main>
         <router-view></router-view>
       </el-main>
@@ -24,11 +24,11 @@ export default {
 
 <style lang="less">
 #home {
-  .el-aside {
-    background-color: #D3DCE6;
+  .el-header {
+    background-color: #B3C0D1;
     color: #333;
     text-align: center;
-    height: 100vh;
+    line-height: 60px;
     padding: 0;
   }
 
@@ -36,7 +36,7 @@ export default {
     background-color: #E9EEF3;
     color: #333;
     text-align: center;
-    height: 100vh;
+    height: calc(100vh - 60px);
     padding: 0;
   }
 }
