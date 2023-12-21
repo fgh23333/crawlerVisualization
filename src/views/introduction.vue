@@ -27,7 +27,7 @@ export default {
         }
     },
     created() {
-        this.table = require('../assets/习概_rewrite.json')
+        this.table = require('../assets/introduction.json')
     },
     methods: {
         tableRowClassName({ row, rowIndex }) {

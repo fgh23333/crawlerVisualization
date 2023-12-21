@@ -27,7 +27,7 @@ export default {
         }
     },
     created() {
-        this.table = require('../assets/思政_rewrite.json')
+        this.table = require('../assets/political.json')
     },
     methods: {
         tableRowClassName({ row, rowIndex }) {
