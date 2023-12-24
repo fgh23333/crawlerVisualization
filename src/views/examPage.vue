@@ -19,9 +19,9 @@
                 </span>
                 <span class="problem" v-if="item.answer.length >= 2 && item.option.length > 2"
                     v-for="(opts, z) in item.option">
-                        <van-checkbox-group v-model="item.radio">
-                            <van-checkbox :name="z" shape="square">{{ item.option[z]}}</van-checkbox>
-                        </van-checkbox-group>
+                    <van-checkbox-group v-model="item.radio">
+                        <van-checkbox :name="z" shape="square">{{ item.option[z] }}</van-checkbox>
+                    </van-checkbox-group>
                 </span>
             </li>
         </ul>
