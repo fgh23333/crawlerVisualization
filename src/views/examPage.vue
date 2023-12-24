@@ -17,12 +17,11 @@
                         </van-radio>
                     </van-radio-group>
                 </span>
-                <span class="problem" v-if="item.answer.length >= 2 && item.option.length > 2" v-for="(opts, z) in item.option">
-                    <van-radio-group v-model="item.radio">
-                        <van-radio :name="z" @click="updateUserSelection(--i, z)">
-                            {{ option[z] }}、{{ item.option[z] }}
-                        </van-radio>
-                    </van-radio-group>
+                <span class="problem" v-if="item.answer.length >= 2 && item.option.length > 2"
+                    v-for="(opts, z) in item.option">
+                        <van-checkbox-group v-model="item.radio">
+                            <van-checkbox :name="z" shape="square">{{ item.option[z]}}</van-checkbox>
+                        </van-checkbox-group>
                 </span>
             </li>
         </ul>
