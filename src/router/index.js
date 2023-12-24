@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import introduction from '@/views/introduction.vue'
 import political from '@/views/political.vue'
+import examPage from '@/views/examPage.vue'
 
 Vue.use(VueRouter)
 
@@ -24,6 +25,11 @@ const routes = [
       }
     ]
   },
+  {
+    path: '/examPage',
+    name: 'examPage',
+    component: examPage
+  }
 
 ]
 
