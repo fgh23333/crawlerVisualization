@@ -10,14 +10,14 @@
                         </van-radio>
                     </van-radio-group>
                 </span>
-                <span class="problem" v-if="item.option.length == 2" v-for="(opts, y) in options">
+                <span class="problem" v-if="item.option.length == 2" v-for="(opts, y) in item.option">
                     <van-radio-group v-model="item.radio">
                         <van-radio :name="y" @click="updateUserSelection(--i, y)">
                             {{ item.option[y] }}
                         </van-radio>
                     </van-radio-group>
                 </span>
-                <span class="problem" v-if="item.answer.length >= 2 && item.option.length > 2" v-for="(opts, z) in option">
+                <span class="problem" v-if="item.answer.length >= 2 && item.option.length > 2" v-for="(opts, z) in item.option">
                     <van-radio-group v-model="item.radio">
                         <van-radio :name="z" @click="updateUserSelection(--i, z)">
                             {{ option[z] }}、{{ item.option[z] }}
@@ -35,8 +35,7 @@ export default {
     data() {
         return {
             list: [],
-            option: ["A", "B", "C", "D", "E"],
-            options: ["T", "F"],
+            option: ["A", "B", "C", "D", "E"]
         }
     },
     created() {
