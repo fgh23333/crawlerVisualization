@@ -26,11 +26,10 @@ const routes = [
     ]
   },
   {
-    path: '/examPage',
+    path: '/examPage/:id',
     name: 'examPage',
     component: examPage
   }
-
 ]
 
 const router = new VueRouter({
