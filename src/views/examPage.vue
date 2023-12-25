@@ -59,32 +59,32 @@ export default {
             }
             this.userSelections[questionIndex] = selectedOption
             this.content = JSON.stringify(this.userSelections)
-            console.log(this.userSelections)
+            // console.log(this.userSelections)
         },
         clickMe(selections, questionIndex) {
             this.userSelections[questionIndex] = selections.result
             this.content = JSON.stringify(this.userSelections)
             console.log(this.userSelections)
+        },
+        submitUserSelections() {
+            let notNull = this.userSelections.every(element => element !== null)
+            if (this.userSelections.length == this.list.length && notNull) {
+                axios({
+                    method: "post",
+                    url: "http://127.0.0.1:3000/exam/post",
+                    data: JSON.parse(this.content)
+                }).then(res => {
+                    this.sum = res.data.sum
+                    this.$alert(`得分${this.sum}`, '标题名称', {
+                        confirmButtonText: '确定'
+                    });
+                })
+            } else {
+                this.$alert('选项不可以为空', {
+                    confirmButtonText: '确定'
+                })
+            }
         }
-        // submitUserSelections() {
-        //     let notNull = this.userSelections.every(element => element !== null)
-        //     if (this.userSelections.length == this.list.length && notNull) {
-        //         axios({
-        //             method: "post",
-        //             url: "http://127.0.0.1:3000/exam/post",
-        //             data: JSON.parse(this.content)
-        //         }).then(res => {
-        //             this.sum = res.data.sum
-        //             this.$alert(`得分${this.sum}`, '标题名称', {
-        //                 confirmButtonText: '确定'
-        //             });
-        //         })
-        //     } else {
-        //         this.$alert('选项不可以为空', {
-        //             confirmButtonText: '确定'
-        //         })
-        //     }
-        // }
     }
 }
 </script>
