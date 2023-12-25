@@ -19,8 +19,8 @@
                 </span>
                 <span class="problem" v-if="item.answer.length >= 2 && item.option.length > 2"
                     v-for="(opts, z) in item.option">
-                    <van-checkbox-group v-model="item.radio">
-                        <van-checkbox :name="z" shape="square">{{ item.option[z] }}</van-checkbox>
+                    <van-checkbox-group v-model="item.result">
+                        <van-checkbox :name="z" shape="square" @click="clickMe(item, --i)">{{ item.option[z] }}</van-checkbox>
                     </van-checkbox-group>
                 </span>
             </li>
@@ -34,30 +34,38 @@ export default {
     data() {
         return {
             list: [],
-            option: ["A", "B", "C", "D", "E"]
+            option: ["A", "B", "C", "D", "E"],
+            userSelections: [],
+            content: null
         }
     },
     created() {
         this.list = require('../assets/political.json')
     },
     methods: {
-        // updateUserSelection(questionIndex, optionIndex) {
-        //     let selectedOption = this.option[optionIndex]
-        //     if (selectedOption == "A") {
-        //         selectedOption = 0
-        //     }
-        //     if (selectedOption == "B") {
-        //         selectedOption = 1
-        //     }
-        //     if (selectedOption == "C") {
-        //         selectedOption = 2
-        //     }
-        //     if (selectedOption == "D") {
-        //         selectedOption = 3
-        //     }
-        //     this.userSelections[questionIndex] = selectedOption
-        //     this.content = JSON.stringify(this.userSelections)
-        // },
+        updateUserSelection(questionIndex, optionIndex) {
+            let selectedOption = this.option[optionIndex]
+            if (selectedOption == "A") {
+                selectedOption = 0
+            }
+            if (selectedOption == "B") {
+                selectedOption = 1
+            }
+            if (selectedOption == "C") {
+                selectedOption = 2
+            }
+            if (selectedOption == "D") {
+                selectedOption = 3
+            }
+            this.userSelections[questionIndex] = selectedOption
+            this.content = JSON.stringify(this.userSelections)
+            console.log(this.userSelections)
+        },
+        clickMe(selections, questionIndex) {
+            this.userSelections[questionIndex] = selections.result
+            this.content = JSON.stringify(this.userSelections)
+            console.log(this.userSelections)
+        }
         // submitUserSelections() {
         //     let notNull = this.userSelections.every(element => element !== null)
         //     if (this.userSelections.length == this.list.length && notNull) {
