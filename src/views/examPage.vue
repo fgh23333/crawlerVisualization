@@ -40,7 +40,7 @@ export default {
         }
     },
     created() {
-        this.list = require('../assets/political_1.json')
+        this.list = require(`../assets/political_${seq}.json`)
     },
     methods: {
         updateUserSelection(questionIndex, optionIndex) {
@@ -95,7 +95,9 @@ export default {
                         sum += 0
                     }
                 }
-                console.log(sum)
+                this.$alert(`得分为${num}`, {
+                    confirmButtonText: '确定'
+                })
             } else {
                 this.$alert('选项不可以为空', {
                     confirmButtonText: '确定'
