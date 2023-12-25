@@ -81,7 +81,7 @@ export default {
                     }
                 }
                 for (let i = 11; i < 50; i++) {
-                    if (this.list[i].answer == this.option[this.userSelections[i]]) {
+                    if (this.list[i].answer == this.userSelections[i]) {
                         sum += 1
                     } else {
                         sum += 0
