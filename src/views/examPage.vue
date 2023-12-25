@@ -20,7 +20,8 @@
                 <span class="problem" v-if="item.answer.length >= 2 && item.option.length > 2"
                     v-for="(opts, z) in item.option">
                     <van-checkbox-group v-model="item.result">
-                        <van-checkbox :name="z" shape="square" @click="clickMe(item, --i)">{{ item.option[z] }}</van-checkbox>
+                        <van-checkbox :name="z" shape="square" @click="clickMe(item, --i)">{{ item.option[z]
+                        }}</van-checkbox>
                     </van-checkbox-group>
                 </span>
             </li>
@@ -58,30 +59,47 @@ export default {
                 selectedOption = 3
             }
             this.userSelections[questionIndex] = selectedOption
-            this.content = JSON.stringify(this.userSelections)
-            // console.log(this.userSelections)
         },
         clickMe(selections, questionIndex) {
             this.userSelections[questionIndex] = selections.result
-            this.content = JSON.stringify(this.userSelections)
-            console.log(this.userSelections)
         },
         submitUserSelections() {
             let notNull = this.userSelections.every(element => element !== null)
             if (this.userSelections.length == this.list.length && notNull) {
                 let sum = 0;
-                for (let i = 0; i < 60; i++) {
-                    if (this.list[i].answer == this.userSelections[i]) {
-                        
+                for (let i = 0; i < 10; i++) {
+                    if (this.list[i].answer == this.list.option[this.userSelections[i]]) {
+                        sum += 1
+                    } else {
+                        sum += 0
                     }
-                    
                 }
-                console.log(this.userSelections)
+                for (let i = 11; i < 50; i++) {
+                    if (this.list[i].answer == this.option[this.userSelections[i]]) {
+                        sum += 1
+                    } else {
+                        sum += 0
+                    }
+                }
+                for (let i = 51; i < 60; i++) {
+                    let result =  arraysHaveSameElements(this.list[i].answer, this.userSelections[i])
+                    if (result) {
+                        sum += 1
+                    } else {
+                        sum += 0
+                    }
+                }
             } else {
                 this.$alert('选项不可以为空', {
                     confirmButtonText: '确定'
                 })
             }
+        },
+        arraysHaveSameElements(answer, selection) {
+            if (answer.length !== selection.length) {
+                return false;
+            }
+            return answer.every(element => selection.includes(element));
         }
     }
 }
