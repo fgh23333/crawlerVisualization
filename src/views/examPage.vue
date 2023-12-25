@@ -61,7 +61,6 @@ export default {
         },
         clickMe(selections, questionIndex) {
             this.userSelections[questionIndex] = selections.result
-            console.log(this.userSelections);
         },
         submitUserSelections() {
             function arraysHaveSameElements(answer, selection) {
