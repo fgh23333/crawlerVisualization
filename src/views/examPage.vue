@@ -69,7 +69,14 @@ export default {
         submitUserSelections() {
             let notNull = this.userSelections.every(element => element !== null)
             if (this.userSelections.length == this.list.length && notNull) {
-                
+                let sum = 0;
+                for (let i = 0; i < 60; i++) {
+                    if (this.list[i].answer == this.userSelections[i]) {
+                        
+                    }
+                    
+                }
+                console.log(this.userSelections)
             } else {
                 this.$alert('选项不可以为空', {
                     confirmButtonText: '确定'
