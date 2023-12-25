@@ -20,8 +20,8 @@
                 <span class="problem" v-if="item.answer.length >= 2 && item.option.length > 2"
                     v-for="(opts, z) in item.option">
                     <van-checkbox-group v-model="item.result">
-                        <van-checkbox :name="z" shape="square" @click="clickMe(item, --i)">{{ item.option[z]
-                        }}</van-checkbox>
+                        <van-checkbox :name="option[z]" shape="square" @click="clickMe(item, --i)">{{ option[z] }}、{{
+                            item.option[z] }}</van-checkbox>
                     </van-checkbox-group>
                 </span>
             </li>
@@ -36,8 +36,7 @@ export default {
         return {
             list: [],
             option: ["A", "B", "C", "D", "E"],
-            userSelections: [],
-            content: null
+            userSelections: []
         }
     },
     created() {
@@ -62,6 +61,7 @@ export default {
         },
         clickMe(selections, questionIndex) {
             this.userSelections[questionIndex] = selections.result
+            console.log(this.userSelections);
         },
         submitUserSelections() {
             let notNull = this.userSelections.every(element => element !== null)
@@ -82,7 +82,7 @@ export default {
                     }
                 }
                 for (let i = 51; i < 60; i++) {
-                    let result =  arraysHaveSameElements(this.list[i].answer, this.userSelections[i])
+                    let result = arraysHaveSameElements(this.list[i].answer, this.userSelections[i])
                     if (result) {
                         sum += 1
                     } else {
