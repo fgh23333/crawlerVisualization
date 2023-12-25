@@ -80,14 +80,14 @@ export default {
                         sum += 0
                     }
                 }
-                for (let i = 11; i < 50; i++) {
+                for (let i = 10; i < 50; i++) {
                     if (this.list[i].answer == this.userSelections[i]) {
                         sum += 1
                     } else {
                         sum += 0
                     }
                 }
-                for (let i = 51; i < 60; i++) {
+                for (let i = 50; i < 60; i++) {
                     let result = arraysHaveSameElements(this.list[i].answer, this.userSelections[i])
                     if (result) {
                         sum += 1
