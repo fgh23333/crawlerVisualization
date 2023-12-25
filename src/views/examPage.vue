@@ -64,6 +64,12 @@ export default {
             console.log(this.userSelections);
         },
         submitUserSelections() {
+            function arraysHaveSameElements(answer, selection) {
+                if (answer.length !== selection.length) {
+                    return false;
+                }
+                return answer.every(element => selection.includes(element));
+            }
             let notNull = this.userSelections.every(element => element !== null)
             if (this.userSelections.length == this.list.length && notNull) {
                 let sum = 0;
@@ -89,17 +95,12 @@ export default {
                         sum += 0
                     }
                 }
+                console.log(sum)
             } else {
                 this.$alert('选项不可以为空', {
                     confirmButtonText: '确定'
                 })
             }
-        },
-        arraysHaveSameElements(answer, selection) {
-            if (answer.length !== selection.length) {
-                return false;
-            }
-            return answer.every(element => selection.includes(element));
         }
     }
 }
