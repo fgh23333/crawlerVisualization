@@ -3,7 +3,7 @@
         <ul>
             <li v-for="(item, i) in list" class="problemCover">
                 {{ ++i }}、{{ item.questionStem }}
-                <span v-if="item.answer.length == 1" v-for="(opt, x) in item.option" class="problem">
+                <span class="problem" v-if="item.answer.length == 1" v-for="(opt, x) in item.option">
                     <van-radio-group v-model="item.radio">
                         <van-radio :name="x" @click="updateUserSelection(--i, x)">
                             {{ option[x] }}、{{ item.option[x] }}
@@ -40,6 +40,7 @@ export default {
         }
     },
     created() {
+        console.log(this.$route)
         this.list = require(`../assets/${lesson}_${seq}.json`)
     },
     methods: {
