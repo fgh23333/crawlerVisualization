@@ -40,7 +40,7 @@ export default {
         }
     },
     created() {
-        this.list = require(`../assets/political_${seq}.json`)
+        this.list = require(`../assets/${lesson}_${seq}.json`)
     },
     methods: {
         updateUserSelection(questionIndex, optionIndex) {
