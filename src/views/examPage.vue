@@ -1,5 +1,6 @@
 <template>
     <div id="examPage">
+        <topBar></topBar>
         <ul>
             <li v-for="(item, i) in list" class="problemCover">
                 {{ ++i }}、{{ item.questionStem }}
@@ -31,6 +32,8 @@
 </template>
 
 <script>
+import topBar from '@/components/topBar.vue'
+
 export default {
     data() {
         return {
@@ -40,8 +43,12 @@ export default {
         }
     },
     created() {
-        console.log(this.$route)
+        let lesson = this.$route.params.lesson
+        let seq = this.$route.params.id
         this.list = require(`../assets/${lesson}_${seq}.json`)
+    },
+    components: {
+        topBar
     },
     methods: {
         updateUserSelection(questionIndex, optionIndex) {

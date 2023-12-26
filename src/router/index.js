@@ -26,7 +26,7 @@ const routes = [
     ]
   },
   {
-    path: '/examPage/:id',
+    path: '/examPage/:lesson/:id',
     name: 'examPage',
     component: examPage
   }
