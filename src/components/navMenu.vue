@@ -28,15 +28,13 @@ export default {
 <style lang="less">
 #navMenu {
     text-decoration: none;
-    color: black;
 
+    a {
+        color: black;
+    }
 
-    .el-col {
-        width: 100%;
-
-        .el-menu {
-            margin: auto 0;
-        }
+    .el-menu {
+        margin: auto 0;
     }
 
     .el-menu--horizontal>.el-submenu.is-active .el-submenu__title {
