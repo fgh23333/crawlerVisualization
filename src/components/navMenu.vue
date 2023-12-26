@@ -17,8 +17,6 @@
             </el-submenu>
             <el-menu-item index="political">思政题库</el-menu-item>
             <el-menu-item index="introduction">习概题库</el-menu-item>
-            <!-- :collapse="activeMenu !== 'political' + i" -->
-            <!-- :collapse="activeMenu !== 'introduction' + index" -->
         </el-menu>
     </div>
 </template>
