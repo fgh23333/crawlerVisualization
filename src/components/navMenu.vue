@@ -10,7 +10,7 @@
             <el-submenu index="introduction">
                 <template slot="title" class="title">习概</template>
                 <el-menu-item v-for="(item, i) in 8" :key="i">
-                    <router-link :to="'/examPage/' + 'introduction/' + index" v-for="(item, index) in 9" :key="index">
+                    <router-link :to="'/examPage/' + 'introduction/' + index" v-for="(item, index) in 9" :key="index" style="color: black;">
                         试卷{{ index }}
                     </router-link>
                 </el-menu-item>
@@ -28,10 +28,6 @@ export default {
 <style lang="less">
 #navMenu {
     text-decoration: none;
-
-    a {
-        color: black;
-    }
 
     .el-menu {
         margin: auto 0;
