@@ -108,7 +108,7 @@ export default {
                         sum += 0
                     }
                 }
-                this.$alert(`得分为${num}`, {
+                this.$alert(`得分为${sum}`, {
                     confirmButtonText: '确定'
                 })
             } else {
