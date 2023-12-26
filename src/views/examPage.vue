@@ -1,6 +1,12 @@
 <template>
     <div id="examPage">
-        <topBar></topBar>
+        <topBar>
+            <template v-slot:left>
+                <div class="goBack">
+                    <i class="el-icon-arrow-left" @click="goBack()"></i>
+                </div>
+            </template>
+        </topBar>
         <ul>
             <li v-for="(item, i) in list" class="problemCover">
                 {{ ++i }}、{{ item.questionStem }}
@@ -110,6 +116,9 @@ export default {
                     confirmButtonText: '确定'
                 })
             }
+        },
+        goBack() {
+            this.$router.go(-1)
         }
     }
 }
