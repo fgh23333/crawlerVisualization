@@ -126,6 +126,17 @@ export default {
 
 <style lang="less">
 #examPage {
+    .goBack {
+        text-align: left;
+        font-size: 32px;
+        margin: 0 50px;
+
+        .el-icon-arrow-left {
+            border: 3px solid #333;
+            border-radius: 50%;
+        }
+    }
+
     .problemCover {
         margin: 10px;
         padding: 20px;

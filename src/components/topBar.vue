@@ -61,6 +61,7 @@ export default {
 
     .grid-content {
         height: 60px;
+        line-height: 60px;
     }
 
     .row-bg {
