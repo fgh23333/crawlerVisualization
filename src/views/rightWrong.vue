@@ -26,6 +26,14 @@ export default {
         let temp = require(`../assets/${this.lesson}_wrong.json`)
         this.table = this.table.concat(temp)
     },
+    watch: {
+        '$route': function (to, from) {
+            this.lesson = to.params.lesson
+            this.table = require(`../assets/${this.lesson}_right.json`)
+            let temp = require(`../assets/${this.lesson}_wrong.json`)
+            this.table = this.table.concat(temp)
+        }
+    },
     methods: {
         tableRowClassName({ row, rowIndex }) {
             if (this.lesson == 'political') {
@@ -50,6 +58,10 @@ export default {
 #rightWrong {
     .el-table .success-row {
         background: #f0f9eb;
+    }
+
+    .el-table .warning-row {
+        background: oldlace;
     }
 }
 </style>
