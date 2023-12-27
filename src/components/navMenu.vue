@@ -19,6 +19,10 @@
             <el-menu-item index="/introduction">习概总题库</el-menu-item>
             <el-menu-item index="/rightWrong/political">思政判断题</el-menu-item>
             <el-menu-item index="/rightWrong/introduction">习概判断题</el-menu-item>
+            <el-menu-item index="/singleChoice/political">思政单选题</el-menu-item>
+            <el-menu-item index="/singleChoice/introduction">习概单选题</el-menu-item>
+            <el-menu-item index="/mutipleChoice/political">思政多选题</el-menu-item>
+            <el-menu-item index="/mutipleChoice/introduction">习概多选题</el-menu-item>
         </el-menu>
     </div>
 </template>

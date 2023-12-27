@@ -1,5 +1,5 @@
 <template>
-    <div id="political">
+    <div id="mutipleChoice">
         <el-table :data="table" :stripe="true" style="width: 100%" height="100%" :header-fixed="true"
             :row-class-name="tableRowClassName">
             <el-table-column type="index" width="50" :fixed="true">
@@ -26,18 +26,34 @@
 export default {
     data() {
         return {
-            table: []
+            table: [],
+            lesson: ''
         }
     },
     created() {
-        this.table = require('../assets/political.json')
+        this.lesson = this.$route.params.lesson
+        this.table = require(`../assets/${this.lesson}_mutipleChoice.json`)
+    },
+    watch: {
+        '$route': function (to, from) {
+            this.lesson = to.params.lesson
+            this.table = require(`../assets/${this.lesson}_mutipleChoice.json`)
+        }
     },
     methods: {
         tableRowClassName({ row, rowIndex }) {
-            if (rowIndex % 2 == 0) {
-                return 'success-row';
+            if (this.lesson == 'political') {
+                if (rowIndex % 2 == 0) {
+                    return 'success-row';
+                } else {
+                    return '';
+                }
             } else {
-                return '';
+                if (rowIndex % 2 == 0) {
+                    return 'warning-row';
+                } else {
+                    return '';
+                }
             }
         }
     },
@@ -45,9 +61,13 @@ export default {
 </script>
 
 <style lang="less">
-#political {
+#singleChoice {
     .el-table .success-row {
         background: #f0f9eb;
+    }
+
+    .el-table .warning-row {
+        background: oldlace;
     }
 }
 </style>
