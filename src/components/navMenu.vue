@@ -9,7 +9,7 @@
             </el-submenu>
             <el-submenu index="introduction">
                 <template slot="title" class="title">习概试卷</template>
-                <el-menu-item v-for="(item, index) in 8" :key="index">
+                <el-menu-item v-for="(item, index) in 9" :key="index">
                     <router-link :to="'/examPage/' + 'introduction/' + index" style="color: black;">
                         试卷{{ index }}
                     </router-link>
