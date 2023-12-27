@@ -1,6 +1,7 @@
 <template>
     <div id="rightWrong">
-        <el-table :data="table" :stripe="true" style="width: 100%" height="100%" :header-fixed="true" :row-class-name="tableRowClassName">
+        <el-table :data="table" :stripe="true" style="width: 100%" height="100%" :header-fixed="true"
+            :row-class-name="tableRowClassName">
             <el-table-column type="index" width="50" :fixed="true">
             </el-table-column>
             <el-table-column prop="questionStem" label="题干">
@@ -26,12 +27,19 @@ export default {
     },
     methods: {
         tableRowClassName({ row, rowIndex }) {
-            if (rowIndex % 2 == 0) {
-                return 'success-row';
+            if (lesson == 'political') {
+                if (rowIndex % 2 == 0) {
+                    return 'success-row';
+                } else {
+                    return '';
+                }
             } else {
-                return '';
+                if (rowIndex % 2 == 0) {
+                    return 'warning-row';
+                } else {
+                    return '';
+                }
             }
-
         }
     },
 }
