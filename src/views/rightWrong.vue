@@ -16,18 +16,19 @@
 export default {
     data() {
         return {
-            table: []
+            table: [],
+            lesson: ''
         }
     },
     created() {
-        let lesson = this.$route.params.lesson
-        this.table = require(`../assets/${lesson}_right.json`)
-        let temp = require(`../assets/${lesson}_wrong.json`)
-        this.table.push(temp)
+        this.lesson = this.$route.params.lesson
+        this.table = require(`../assets/${this.lesson}_right.json`)
+        let temp = require(`../assets/${this.lesson}_wrong.json`)
+        this.table = this.table.concat(temp)
     },
     methods: {
         tableRowClassName({ row, rowIndex }) {
-            if (lesson == 'political') {
+            if (this.lesson == 'political') {
                 if (rowIndex % 2 == 0) {
                     return 'success-row';
                 } else {
