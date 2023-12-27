@@ -1,5 +1,5 @@
 <template>
-    <div id="mutipleChoice">
+    <div id="multipleChoice">
         <el-table :data="table" :stripe="true" style="width: 100%" height="100%" :header-fixed="true"
             :row-class-name="tableRowClassName">
             <el-table-column type="index" width="50" :fixed="true">
@@ -32,12 +32,12 @@ export default {
     },
     created() {
         this.lesson = this.$route.params.lesson
-        this.table = require(`../assets/${this.lesson}_mutipleChoice.json`)
+        this.table = require(`../assets/${this.lesson}_multipleChoice.json`)
     },
     watch: {
         '$route': function (to, from) {
             this.lesson = to.params.lesson
-            this.table = require(`../assets/${this.lesson}_mutipleChoice.json`)
+            this.table = require(`../assets/${this.lesson}_multipleChoice.json`)
         }
     },
     methods: {
@@ -61,7 +61,7 @@ export default {
 </script>
 
 <style lang="less">
-#singleChoice {
+#multipleChoice {
     .el-table .success-row {
         background: #f0f9eb;
     }

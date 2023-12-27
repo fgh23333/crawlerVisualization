@@ -6,7 +6,7 @@ import political from '@/views/political.vue'
 import examPage from '@/views/examPage.vue'
 import rightWrong from '@/views/rightWrong.vue'
 import singleChoice from '@/views/singleChoice.vue'
-import mutipleChoice from '@/views/mutipleChoice.vue'
+import multipleChoice from '@/views/multipleChoice.vue'
 
 Vue.use(VueRouter)
 
@@ -37,9 +37,9 @@ const routes = [
         component: singleChoice
       },
       {
-        path: 'mutipleChoice/:lesson',
-        name: 'mutipleChoice',
-        component: mutipleChoice
+        path: 'multipleChoice/:lesson',
+        name: 'multipleChoice',
+        component: multipleChoice
       },
     ]
   },
