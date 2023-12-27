@@ -15,14 +15,14 @@
                     </router-link>
                 </el-menu-item>
             </el-submenu>
-            <el-menu-item index="/political">思政总题库</el-menu-item>
-            <el-menu-item index="/introduction">习概总题库</el-menu-item>
-            <el-menu-item index="/rightWrong/political">思政判断题</el-menu-item>
-            <el-menu-item index="/rightWrong/introduction">习概判断题</el-menu-item>
-            <el-menu-item index="/singleChoice/political">思政单选题</el-menu-item>
-            <el-menu-item index="/singleChoice/introduction">习概单选题</el-menu-item>
-            <el-menu-item index="/multipleChoice/political">思政多选题</el-menu-item>
-            <el-menu-item index="/multipleChoice/introduction">习概多选题</el-menu-item>
+            <el-menu-item class="list" index="/political">思政总题库</el-menu-item>
+            <el-menu-item class="list" index="/introduction">习概总题库</el-menu-item>
+            <el-menu-item class="list" index="/rightWrong/political">思政判断题</el-menu-item>
+            <el-menu-item class="list" index="/rightWrong/introduction">习概判断题</el-menu-item>
+            <el-menu-item class="list" index="/singleChoice/political">思政单选题</el-menu-item>
+            <el-menu-item class="list" index="/singleChoice/introduction">习概单选题</el-menu-item>
+            <el-menu-item class="list" index="/multipleChoice/political">思政多选题</el-menu-item>
+            <el-menu-item class="list" index="/multipleChoice/introduction">习概多选题</el-menu-item>
         </el-menu>
     </div>
 </template>
@@ -36,9 +36,17 @@ export default {
 <style lang="less">
 #navMenu {
     text-decoration: none;
+    
+    .el-submenu__title {
+        background-color: #ECECC7;
+    }
 
     .el-menu {
         margin: auto 0;
+
+        .list {
+            background-color: #E5E8E1;
+        }
     }
 
     .el-menu--horizontal>.el-submenu.is-active .el-submenu__title {
