@@ -15,8 +15,16 @@
                     </router-link>
                 </el-menu-item>
             </el-submenu>
-            <el-menu-item index="political">思政题库</el-menu-item>
-            <el-menu-item index="introduction">习概题库</el-menu-item>
+            <!-- <el-submenu index="political">
+                <template slot="title" class="title">思政试卷</template>
+                <el-menu-item>
+                    <router-link :to="'/examPage/' + 'political/' + i" style="color: black;">试卷{{ i }}</router-link>
+                </el-menu-item>
+            </el-submenu> -->
+            <el-menu-item index="/political">思政总题库</el-menu-item>
+            <el-menu-item index="/introduction">习概总题库</el-menu-item>
+            <el-menu-item index="/rightWrong/political">思政判断题</el-menu-item>
+            <el-menu-item index="/rightWrong/introduction">习概判断题</el-menu-item>
         </el-menu>
     </div>
 </template>

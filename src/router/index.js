@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import introduction from '@/views/introduction.vue'
 import political from '@/views/political.vue'
 import examPage from '@/views/examPage.vue'
+import rightWrong from '@/views/rightWrong.vue'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,11 @@ const routes = [
         path: 'political',
         name: 'political',
         component: political
+      },
+      {
+        path: 'rightWrong/:lesson',
+        name: 'rightWrong',
+        component: rightWrong
       }
     ]
   },
