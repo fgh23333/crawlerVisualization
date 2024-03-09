@@ -86,21 +86,21 @@ export default {
             let notNull = this.userSelections.every(element => element !== null)
             if (this.userSelections.length == this.list.length && notNull) {
                 let sum = 0;
-                for (let i = 0; i < 10; i++) {
+                for (let i = 0; i < 20; i++) {
                     if (this.list[i].answer == this.list[i].option[this.userSelections[i]]) {
                         sum += 1
                     } else {
                         sum += 0
                     }
                 }
-                for (let i = 10; i < 50; i++) {
+                for (let i = 20; i < 40; i++) {
                     if (this.list[i].answer == this.userSelections[i]) {
                         sum += 1
                     } else {
                         sum += 0
                     }
                 }
-                for (let i = 50; i < 60; i++) {
+                for (let i = 40; i < 60; i++) {
                     let result = arraysHaveSameElements(this.list[i].answer, this.userSelections[i])
                     if (result) {
                         sum += 1
