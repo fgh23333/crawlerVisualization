@@ -1,29 +1,23 @@
 const fs = require('fs');
 
-const readJSONFile = (filePath, callback) => {
-    fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-            console.error(err);
-            callback([]);
-        } else {
-            try {
-                const jsonData = JSON.parse(data);
-                callback(jsonData);
-            } catch (parseErr) {
-                console.error('解析 JSON 数据时出错:', parseErr);
-                callback([]);
-            }
-        }
-    });
+const readJSONFile = (filePath) => {
+    try {
+        const data = fs.readFileSync(filePath, 'utf8');
+        const jsonData = JSON.parse(data);
+        return jsonData;
+    } catch (err) {
+        console.error('读取或解析文件时出错:', err);
+        return [];
+    }
 };
 
 const writeJSONFile = (seq, data) => {
-    fs.writeFile(`${__dirname}/${subject}${seq}.json`, JSON.stringify(data), 'utf8', (err, data) => {
+    fs.writeFile(`${__dirname}/${subject}${seq}.json`, JSON.stringify(data), 'utf8', (err) => {
         if (err) {
             console.error(err);
         } else {
             try {
-                console.log(data);
+                console.log(`${subject}${seq} success`);
             } catch (writeErr) {
                 console.error("error:", writeErr);
             }
@@ -31,54 +25,53 @@ const writeJSONFile = (seq, data) => {
     })
 }
 
-let subject = 'political';
+let subject = 'introduction';
 const batchSize = 20;
 
-const processBatchData = (data, dataArray) => {
-    const numBatches = Math.ceil(data.length / batchSize);
-    for (let i = 0; i < numBatches; i++) {
-        const startIdx = i * batchSize;
-        const endIdx = Math.min(startIdx + batchSize, data.length);
-        const batchData = data.slice(startIdx, endIdx);
-        dataArray[i] = batchData;
-    }
+async function processBatchData(data) {
+    let dataArray = await new Promise((resolve, reject) => {
+        let tempArr = []
+        const numBatches = Math.ceil(data.length / batchSize);
+        for (let i = 0; i < numBatches; i++) {
+            const startIdx = i * batchSize;
+            const endIdx = Math.min(startIdx + batchSize, data.length);
+            const batchData = data.slice(startIdx, endIdx);
+            tempArr[i] = batchData;
+        }
+        resolve(tempArr)
+    })
+    return dataArray
 };
 
-const handleFileData = (filePath, dataArray) => {
-    readJSONFile(filePath, (data) => {
-        processBatchData(data, dataArray);
-    });
+const handleFileData = async (filePath) => {
+    let tempOne = await readJSONFile(filePath)
+    let tempTwo = await processBatchData(tempOne)
+    return tempTwo
 };
 
-const generateExam = async (typeOne, typeTwo, typeThree) => {
-    let min = [];
-    min.push(typeOne.length)
-    min.push(typeTwo.length)
-    min.push(typeThree.length)
-    for (let i = 0; i < Math.min(...min); i++) {
+async function generateExam(typeOne, typeTwo, typeThree) {
+    const min = Math.min(typeOne.length, typeTwo.length, typeThree.length);
+    for (let i = 0; i < min; i++) {
         let temp = [].concat(typeOne[i], typeTwo[i], typeThree[i])
         writeJSONFile(i, temp)
     }
 }
 
-let tempRight = [];
-let tempWrong = [];
-readJSONFile(`${__dirname}/${subject}_right.json`, (data) => {
-    tempRight = data
-})
-readJSONFile(`${__dirname}/${subject}_wrong.json`, (data) => {
-    tempWrong = data
-})
+async function rewriteTorF() {
+    let innerTempArr = await processBatchData(trueOrFalse)
+    return innerTempArr
+}
+
+let tempRight = readJSONFile(`${__dirname}/${subject}_right.json`)
+let tempWrong = readJSONFile(`${__dirname}/${subject}_wrong.json`)
 
 let trueOrFalse = tempRight.concat(tempWrong)
 
-let tempTorF = [];
-processBatchData(trueOrFalse, tempTorF);
+const main = async () => {
+    let tempTorF = await rewriteTorF()
+    let tempSingle = await handleFileData(`${__dirname}/${subject}_singleChoice.json`);
+    let tempMultiple = await handleFileData(`${__dirname}/${subject}_multipleChoice.json`);
+    await generateExam(tempTorF, tempSingle, tempMultiple);
+}
 
-let tempSingle = [];
-handleFileData(`${__dirname}/${subject}_singleChoice.json`, tempSingle);
-
-let tempMultiple = [];
-handleFileData(`${__dirname}/${subject}_multipleChoice.json`, tempMultiple);
-
-generateExam(tempTorF, tempSingle, tempMultiple)
+main();
