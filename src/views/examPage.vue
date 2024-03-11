@@ -51,7 +51,7 @@ export default {
     created() {
         let lesson = this.$route.params.lesson
         let seq = this.$route.params.id
-        this.list = require(`../assets/${lesson}_${seq}.json`)
+        this.list = require(`../assets/${lesson}${seq}.json`)
     },
     components: {
         topBar
