@@ -25,7 +25,8 @@ const writeJSONFile = (seq, data) => {
     })
 }
 
-let subject = 'introduction';
+// let subject = 'introduction';
+let subject = 'political';
 const batchSize = 20;
 
 async function processBatchData(data) {
