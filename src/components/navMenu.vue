@@ -6,15 +6,15 @@
                 <el-menu-item>
                     <router-link :to="'/subject/' + item.src" style="color: black;">总题库</router-link>
                 </el-menu-item>
-                <!-- <el-menu-item>
-                    <router-link :to="'/' + item.src" style="color: black;">判断题</router-link>
+                <el-menu-item>
+                    <router-link :to="'/rightWrong/' + item.src" style="color: black;">判断题</router-link>
                 </el-menu-item>
                 <el-menu-item>
-                    <router-link :to="'/' + item.src" style="color: black;">单选题</router-link>
+                    <router-link :to="'/singleChoice/' + item.src" style="color: black;">单选题</router-link>
                 </el-menu-item>
                 <el-menu-item>
-                    <router-link :to="'/' + item.src" style="color: black;">多选题</router-link>
-                </el-menu-item> -->
+                    <router-link :to="'/multipleChoice/' + item.src" style="color: black;">多选题</router-link>
+                </el-menu-item>
             </el-submenu>
         </el-menu>
     </div>

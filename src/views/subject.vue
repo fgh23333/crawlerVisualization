@@ -57,7 +57,7 @@ export default {
 <style lang="less">
 #subject {
     .el-table {
-        height: 100%;
+        height: 100vh;
     }
 
     .el-table .success-row {
