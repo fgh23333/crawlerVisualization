@@ -46,7 +46,7 @@ export default {
                     src: 'XiIntro'
                 },
                 {
-                    subject: '发展史',
+                    subject: '社主史',
                     src: 'SDH'
                 },
                 {
@@ -58,7 +58,7 @@ export default {
                     src: 'CCPH'
                 },
                 {
-                    subject: '开放史',
+                    subject: '改开史',
                     src: 'ORH'
                 }
             ]
