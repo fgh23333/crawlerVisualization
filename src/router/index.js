@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import introduction from '@/views/introduction.vue'
-import political from '@/views/political.vue'
+import subject from '@/views/subject.vue'
 import examPage from '@/views/examPage.vue'
 import rightWrong from '@/views/rightWrong.vue'
 import singleChoice from '@/views/singleChoice.vue'
@@ -17,14 +16,9 @@ const routes = [
     component: HomeView,
     children: [
       {
-        path: 'introduction',
-        name: 'introduction',
-        component: introduction
-      },
-      {
-        path: 'political',
-        name: 'political',
-        component: political
+        path: 'subject/:lesson',
+        name: 'subject',
+        component: subject
       },
       {
         path: 'rightWrong/:lesson',

@@ -1,5 +1,5 @@
 <template>
-    <div id="political">
+    <div id="subject">
         <el-table :data="table" :stripe="true" style="width: 100%" height="100%" :header-fixed="true"
             :row-class-name="tableRowClassName">
             <el-table-column type="index" width="50" :fixed="true">
@@ -30,9 +30,19 @@ export default {
         }
     },
     created() {
-        this.table = require('../assets/political.json')
+        this.updateTable();
+    },
+    watch: {
+        '$route.params.lesson': {
+            handler: 'updateTable',
+            immediate: true
+        }
     },
     methods: {
+        updateTable() {
+            let src = this.$route.params.lesson;
+            this.table = require(`../assets/${src}_Rewrite.json`);
+        },
         tableRowClassName({ row, rowIndex }) {
             if (rowIndex % 2 == 0) {
                 return 'success-row';
@@ -45,7 +55,11 @@ export default {
 </script>
 
 <style lang="less">
-#political {
+#subject {
+    .el-table {
+        height: 100%;
+    }
+
     .el-table .success-row {
         background: #f0f9eb;
     }

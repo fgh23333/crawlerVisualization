@@ -1,42 +1,76 @@
 <template>
     <div id="navMenu">
         <el-menu class="el-menu-vertical-demo" mode="horizontal" :router="true">
-            <el-submenu index="political">
-                <template slot="title" class="title">思政试卷</template>
-                <el-menu-item v-for="(item, i) in 10" :key="i">
-                    <router-link :to="'/examPage/' + 'political/' + i" style="color: black;">试卷{{ i }}</router-link>
+            <el-submenu :index="'subject' + i" v-for="(item, i) in list" :key="i">
+                <template slot="title" class="title">{{ list[i].subject }}</template>
+                <el-menu-item>
+                    <router-link :to="'/subject/' + item.src" style="color: black;">总题库</router-link>
                 </el-menu-item>
-            </el-submenu>
-            <el-submenu index="introduction">
-                <template slot="title" class="title">习概试卷</template>
-                <el-menu-item v-for="(item, index) in 18" :key="index">
-                    <router-link :to="'/examPage/' + 'introduction/' + index" style="color: black;">
-                        试卷{{ index }}
-                    </router-link>
+                <!-- <el-menu-item>
+                    <router-link :to="'/' + item.src" style="color: black;">判断题</router-link>
                 </el-menu-item>
+                <el-menu-item>
+                    <router-link :to="'/' + item.src" style="color: black;">单选题</router-link>
+                </el-menu-item>
+                <el-menu-item>
+                    <router-link :to="'/' + item.src" style="color: black;">多选题</router-link>
+                </el-menu-item> -->
             </el-submenu>
-            <el-menu-item class="list" index="/political">思政总题库</el-menu-item>
-            <el-menu-item class="list" index="/introduction">习概总题库</el-menu-item>
-            <el-menu-item class="list" index="/rightWrong/political">思政判断题</el-menu-item>
-            <el-menu-item class="list" index="/rightWrong/introduction">习概判断题</el-menu-item>
-            <el-menu-item class="list" index="/singleChoice/political">思政单选题</el-menu-item>
-            <el-menu-item class="list" index="/singleChoice/introduction">习概单选题</el-menu-item>
-            <el-menu-item class="list" index="/multipleChoice/political">思政多选题</el-menu-item>
-            <el-menu-item class="list" index="/multipleChoice/introduction">习概多选题</el-menu-item>
         </el-menu>
     </div>
 </template>
 
 <script>
 export default {
-
+    data() {
+        return {
+            list: [
+                {
+                    subject: '马原',
+                    src: 'Marx'
+                },
+                {
+                    subject: '近代史',
+                    src: 'CMH'
+                },
+                {
+                    subject: '思政',
+                    src: 'Political'
+                },
+                {
+                    subject: '毛概',
+                    src: 'MaoIntro'
+                },
+                {
+                    subject: '习概',
+                    src: 'XiIntro'
+                },
+                {
+                    subject: '发展史',
+                    src: 'SDH'
+                },
+                {
+                    subject: '新中国史',
+                    src: 'NCH'
+                },
+                {
+                    subject: '党史',
+                    src: 'CCPH'
+                },
+                {
+                    subject: '开放史',
+                    src: 'ORH'
+                }
+            ]
+        }
+    }
 }
 </script>
 
 <style lang="less">
 #navMenu {
     text-decoration: none;
-    
+
     .el-submenu__title {
         background-color: #ECECC7;
     }
