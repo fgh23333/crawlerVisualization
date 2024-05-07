@@ -6,6 +6,7 @@ import examPage from '@/views/examPage.vue'
 import rightWrong from '@/views/rightWrong.vue'
 import singleChoice from '@/views/singleChoice.vue'
 import multipleChoice from '@/views/multipleChoice.vue'
+import newPage from "@/views/new/home.vue";
 
 Vue.use(VueRouter)
 
@@ -35,12 +36,18 @@ const routes = [
         name: 'multipleChoice',
         component: multipleChoice
       },
+
     ]
   },
   {
     path: '/examPage/:lesson/:id',
     name: 'examPage',
     component: examPage
+  },
+  {
+    path: '/test',
+    name: 'new',
+    component: newPage
   }
 ]
 
