@@ -9,16 +9,16 @@
                         <span class="smallTitle">上海海洋大学</span>
                     </div>
                 </div>
-                <el-menu class="el-menu-vertical-demo" :unique-opened="true">
+                <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6">
                     <el-submenu index="1">
                         <template slot="title">
                             <span>马原</span>
                         </template>
                         <el-menu-item-group>
-                            <el-menu-item index="1-1">选项1</el-menu-item>
-                            <el-menu-item index="1-2">选项2</el-menu-item>
-                            <el-menu-item index="1-2">选项3</el-menu-item>
-                            <el-menu-item index="1-2">选项4</el-menu-item>
+                            <el-menu-item class="option" index="1-1">总题库</el-menu-item>
+                            <el-menu-item class="option" index="1-2">判断题</el-menu-item>
+                            <el-menu-item class="option" index="1-3">单选题</el-menu-item>
+                            <el-menu-item class="option" index="1-4">多选题</el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
                     <el-submenu index="2">
@@ -26,10 +26,10 @@
                             <span>近代史</span>
                         </template>
                         <el-menu-item-group>
-                            <el-menu-item index="1-1">选项1</el-menu-item>
-                            <el-menu-item index="1-2">选项2</el-menu-item>
-                            <el-menu-item index="1-2">选项3</el-menu-item>
-                            <el-menu-item index="1-2">选项4</el-menu-item>
+                            <el-menu-item class="option" index="2-1">总题库</el-menu-item>
+                            <el-menu-item class="option" index="2-2">判断题</el-menu-item>
+                            <el-menu-item class="option" index="2-3">单选题</el-menu-item>
+                            <el-menu-item class="option" index="2-4">多选题</el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
                     <el-submenu index="3">
@@ -37,10 +37,10 @@
                             <span>思政</span>
                         </template>
                         <el-menu-item-group>
-                            <el-menu-item index="1-1">选项1</el-menu-item>
-                            <el-menu-item index="1-2">选项2</el-menu-item>
-                            <el-menu-item index="1-2">选项3</el-menu-item>
-                            <el-menu-item index="1-2">选项4</el-menu-item>
+                            <el-menu-item class="option" index="3-1">总题库</el-menu-item>
+                            <el-menu-item class="option" index="3-2">判断题</el-menu-item>
+                            <el-menu-item class="option" index="3-3">单选题</el-menu-item>
+                            <el-menu-item class="option" index="3-4">多选题</el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
                     <el-submenu index="4">
@@ -48,10 +48,10 @@
                             <span>毛概</span>
                         </template>
                         <el-menu-item-group>
-                            <el-menu-item index="1-1">选项1</el-menu-item>
-                            <el-menu-item index="1-2">选项2</el-menu-item>
-                            <el-menu-item index="1-2">选项3</el-menu-item>
-                            <el-menu-item index="1-2">选项4</el-menu-item>
+                            <el-menu-item class="option" index="4-1">总题库</el-menu-item>
+                            <el-menu-item class="option" index="4-2">判断题</el-menu-item>
+                            <el-menu-item class="option" index="4-3">单选题</el-menu-item>
+                            <el-menu-item class="option" index="4-4">多选题</el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
                 </el-menu>
@@ -126,12 +126,21 @@ export default {
                 font-weight: bold;
                 color: #8F95B2;
 
-                .el-menu-item {
-                    font-size: 18px;
-                    color: #8F95B2;
-                }
             }
         }
+
+        .option {
+            font-size: 18px;
+            color: #8F95B2;
+        }
+
+        .option:hover {
+            background-color: white
+        }
+    }
+
+    .is-active {
+        background-color: white !important;
     }
 
     .el-main {
