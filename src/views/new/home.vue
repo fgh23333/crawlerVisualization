@@ -127,11 +127,17 @@ export default {
                 color: #8F95B2;
 
             }
+
+            .el-submenu__title:hover {
+                background-color: #6C5DD3;
+                color: white;
+            }
         }
 
         .option {
             font-size: 18px;
             color: #8F95B2;
+            font-weight: medium;
         }
 
         .option:hover {
