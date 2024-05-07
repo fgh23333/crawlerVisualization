@@ -2,7 +2,7 @@
     <div id="subject">
         <el-table :data="table" :stripe="true" style="width: 100%" height="100%" :header-fixed="true"
             :row-class-name="tableRowClassName">
-            <el-table-column type="index" width="50" :fixed="true">
+            <el-table-column type="index" width="80" :fixed="true">
             </el-table-column>
             <el-table-column prop="questionStem" label="题干" width="400">
             </el-table-column>
