@@ -1,1 +1,192 @@
-[{"questionStem":"随着科学技术的发展，人类已经制造出诸如醋酸纤维、聚苯乙烯、合成橡胶等自然界原本不存在的化合物，其数量已经达到数百万种。这说明物质世界是人类创造的。","option":[],"answer":"错误"},{"questionStem":"真象反映事物的本质，假象不反映事物的本质。","option":[],"answer":"错误"},{"questionStem":"唯物辩证法的因果联系是指一切前后相继的现象之间的联系。","option":[],"answer":"错误"},{"questionStem":"唯物辩证法对必然性和偶然性的认识是必然性意义重大，偶然性可以忽略不计。","option":[],"answer":"错误"},{"questionStem":"马克思主义认为，人的本质是永恒不变的。","option":[],"answer":"错误"},{"questionStem":"既然共产主义理想的实现是历史的必然，那么无论人们是否去努力奋斗追求，共产主义都会自动实现。","option":[],"answer":"错误"},{"questionStem":"在实际工作中坚持马克思主义认识论的基本原理，就是要坚持社会存在决定社会意识的理论。","option":[],"answer":"错误"},{"questionStem":"主观辩证法与客观辩证法的关系是唯心主义与唯物主义的关系。","option":[],"answer":"错误"},{"questionStem":"资本主义必然为社会主义所代替，意味着资本主义社会将在短期内自行消亡。","option":[],"answer":"错误"},{"questionStem":"社会主义的发展表明，社会主义的实践只有在落后国家才能进行。","option":[],"answer":"错误"},{"questionStem":"资本主义国家对资本主义生产关系的调整加剧了资本主义的基本矛盾。","option":[],"answer":"错误"},{"questionStem":"在共产主义社会，国家将会消亡，也不存在各种各样的社会管理机构。","option":[],"answer":"错误"},{"questionStem":"由于资源是有限的，所以共产主义的“按需分配”是不可能实现的。","option":[],"answer":"错误"},{"questionStem":"随着科学技术的发展，人工智能有可能取代或超越人类智能。","option":[],"answer":"错误"},{"questionStem":"正确地发挥意识能动作用的客观前提是个人积极性的充分调动。","option":[],"answer":"错误"},{"questionStem":"马克思主义认为：物质和意识的关系是“物质决定意识，意识完全受物质制约、影响和作用”。","option":[],"answer":"错误"},{"questionStem":"资本主义经济危机的根源在于生产过多超过劳动人民需要的矛盾。","option":[],"answer":"错误"},{"questionStem":"商品的价值是有各种生产要素共同创造的。","option":[],"answer":"错误"},{"questionStem":"苏联模式的失败，就是社会主义的失败。","option":[],"answer":"错误"},{"questionStem":"一些自然科学家没有学习马克思主义，也取得了伟大科学成就，这表明伟大科学成就的取得可以不需要哲学的指导。","option":[],"answer":"错误"},{"questionStem":"资本的利润是由资本家的经营管理劳动创造的。","option":[],"answer":"错误"},{"questionStem":"经济全球化创造了世界各国的经济“共赢”。","option":[],"answer":"错误"},{"questionStem":"商品的价值是由供求关系决定的。","option":[],"answer":"错误"},{"questionStem":"人类对自然界的全部“统治”力量在于人类能征服和改造自然界","option":[],"answer":"错误"},{"questionStem":"资本主义工资的本质是工人劳动的报酬","option":[],"answer":"错误"},{"questionStem":"逻辑证明是实践标准以外的又一个检验真理的标准。","option":[],"answer":"错误"},{"questionStem":"资本主义的基本矛盾是生产与消费之间的矛盾。","option":[],"answer":"错误"},{"questionStem":"资本主义国家阶级性质的直接表现是行政、立法、司法三权分立。","option":[],"answer":"错误"},{"questionStem":"商品的价值是由它所提供的效用大小决定的。","option":[],"answer":"错误"},{"questionStem":"演绎是从个别事实中概括出一般性结论，是由个别性前提过渡到一般性结论的推理形式。","option":[],"answer":"错误"},{"questionStem":"实现了人的“自由个性”的发展的是资本主义社会。","option":[],"answer":"错误"},{"questionStem":"检验真理的标准只能是客观事物。","option":[],"answer":"错误"},{"questionStem":"马克思主义最崇高的社会理想是实现人权。","option":[],"answer":"错误"},{"questionStem":"资本社会化的最高形式是生产社会化。","option":[],"answer":"错误"},{"questionStem":"生产力是社会历史发展的根本动力。","option":[],"answer":"错误"},{"questionStem":"社会再生产的核心问题是价值的创造。","option":[],"answer":"错误"},{"questionStem":"真理观上的相对主义，错误在于认为关于同一对象真理性的认识只有一个。","option":[],"answer":"错误"},{"questionStem":"金银天然就是货币。","option":[],"answer":"错误"}]
+[
+    {
+        "questionStem": "随着科学技术的发展，人类已经制造出诸如醋酸纤维、聚苯乙烯、合成橡胶等自然界原本不存在的化合物，其数量已经达到数百万种。这说明物质世界是人类创造的。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "真象反映事物的本质，假象不反映事物的本质。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "唯物辩证法的因果联系是指一切前后相继的现象之间的联系。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "唯物辩证法对必然性和偶然性的认识是必然性意义重大，偶然性可以忽略不计。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "马克思主义认为，人的本质是永恒不变的。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "既然共产主义理想的实现是历史的必然，那么无论人们是否去努力奋斗追求，共产主义都会自动实现。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "在实际工作中坚持马克思主义认识论的基本原理，就是要坚持社会存在决定社会意识的理论。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "主观辩证法与客观辩证法的关系是唯心主义与唯物主义的关系。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "资本主义必然为社会主义所代替，意味着资本主义社会将在短期内自行消亡。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "社会主义的发展表明，社会主义的实践只有在落后国家才能进行。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "资本主义国家对资本主义生产关系的调整加剧了资本主义的基本矛盾。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "在共产主义社会，国家将会消亡，也不存在各种各样的社会管理机构。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "由于资源是有限的，所以共产主义的“按需分配”是不可能实现的。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "随着科学技术的发展，人工智能有可能取代或超越人类智能。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "正确地发挥意识能动作用的客观前提是个人积极性的充分调动。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "马克思主义认为：物质和意识的关系是“物质决定意识，意识完全受物质制约、影响和作用”。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "资本主义经济危机的根源在于生产过多超过劳动人民需要的矛盾。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "商品的价值是有各种生产要素共同创造的。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "苏联模式的失败，就是社会主义的失败。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "一些自然科学家没有学习马克思主义，也取得了伟大科学成就，这表明伟大科学成就的取得可以不需要哲学的指导。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "资本的利润是由资本家的经营管理劳动创造的。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "经济全球化创造了世界各国的经济“共赢”。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "商品的价值是由供求关系决定的。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "人类对自然界的全部“统治”力量在于人类能征服和改造自然界",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "资本主义工资的本质是工人劳动的报酬",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "逻辑证明是实践标准以外的又一个检验真理的标准。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "资本主义的基本矛盾是生产与消费之间的矛盾。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "资本主义国家阶级性质的直接表现是行政、立法、司法三权分立。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "商品的价值是由它所提供的效用大小决定的。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "演绎是从个别事实中概括出一般性结论，是由个别性前提过渡到一般性结论的推理形式。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "实现了人的“自由个性”的发展的是资本主义社会。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "检验真理的标准只能是客观事物。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "马克思主义最崇高的社会理想是实现人权。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "资本社会化的最高形式是生产社会化。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "生产力是社会历史发展的根本动力。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "社会再生产的核心问题是价值的创造。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "真理观上的相对主义，错误在于认为关于同一对象真理性的认识只有一个。",
+        "option": [],
+        "answer": "错误"
+    },
+    {
+        "questionStem": "金银天然就是货币。",
+        "option": [],
+        "answer": "错误"
+    }
+]
