@@ -21,39 +21,6 @@
                             <el-menu-item class="option" :index="'multipleChoice/' + list[i].src">多选题</el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
-                    <!-- <el-submenu index="2">
-                        <template slot="title">
-                            <span>近代史</span>
-                        </template>
-                        <el-menu-item-group>
-                            <el-menu-item class="option" index="2-1">总题库</el-menu-item>
-                            <el-menu-item class="option" index="2-2">判断题</el-menu-item>
-                            <el-menu-item class="option" index="2-3">单选题</el-menu-item>
-                            <el-menu-item class="option" index="2-4">多选题</el-menu-item>
-                        </el-menu-item-group>
-                    </el-submenu>
-                    <el-submenu index="3">
-                        <template slot="title">
-                            <span>思政</span>
-                        </template>
-                        <el-menu-item-group>
-                            <el-menu-item class="option" index="3-1">总题库</el-menu-item>
-                            <el-menu-item class="option" index="3-2">判断题</el-menu-item>
-                            <el-menu-item class="option" index="3-3">单选题</el-menu-item>
-                            <el-menu-item class="option" index="3-4">多选题</el-menu-item>
-                        </el-menu-item-group>
-                    </el-submenu>
-                    <el-submenu index="4">
-                        <template slot="title">
-                            <span>毛概</span>
-                        </template>
-                        <el-menu-item-group>
-                            <el-menu-item class="option" index="4-1">总题库</el-menu-item>
-                            <el-menu-item class="option" index="4-2">判断题</el-menu-item>
-                            <el-menu-item class="option" index="4-3">单选题</el-menu-item>
-                            <el-menu-item class="option" index="4-4">多选题</el-menu-item>
-                        </el-menu-item-group>
-                    </el-submenu> -->
                 </el-menu>
             </el-aside>
             <el-container>
