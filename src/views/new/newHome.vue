@@ -14,6 +14,7 @@
                         :router="true">
                         <el-submenu v-for="(item, i) in list" :key="i" :index="list[i].src">
                             <template slot="title">
+                                <img :src="list[i].icon" class="menuIcon"></img>
                                 <span>{{ list[i].subject }}</span>
                             </template>
                             <el-menu-item-group>
@@ -52,39 +53,48 @@ export default {
             list: [
                 {
                     subject: '马原',
-                    src: 'Marx'
+                    src: 'Marx',
+                    icon: require('@/assets/icon/grape.svg')
                 },
                 {
                     subject: '近代史',
-                    src: 'CMH'
+                    src: 'CMH',
+                    icon: require('@/assets/icon/juice.svg')
                 },
                 {
                     subject: '思政',
-                    src: 'Political'
+                    src: 'Political',
+                    icon: require('@/assets/icon/pear.svg')
                 },
                 {
                     subject: '毛概',
-                    src: 'MaoIntro'
+                    src: 'MaoIntro',
+                    icon: require('@/assets/icon/lemon.svg')
                 },
                 {
                     subject: '习概',
-                    src: 'XiIntro'
+                    src: 'XiIntro',
+                    icon: require('@/assets/icon/cherry.svg')
                 },
                 {
                     subject: '社主史',
-                    src: 'SDH'
+                    src: 'SDH',
+                    icon: require('@/assets/icon/melon.svg')
                 },
                 {
                     subject: '新中国史',
-                    src: 'NCH'
+                    src: 'NCH',
+                    icon: require('@/assets/icon/bread.svg')
                 },
                 {
                     subject: '党史',
-                    src: 'CCPH'
+                    src: 'CCPH',
+                    icon: require('@/assets/icon/tomato.svg')
                 },
                 {
                     subject: '改开史',
-                    src: 'ORH'
+                    src: 'ORH',
+                    icon: require('@/assets/icon/lettuce.svg')
                 }
             ]
         }
@@ -164,6 +174,15 @@ export default {
             .el-submenu {
                 margin-top: 0px;
                 margin-bottom: 20px;
+                text-align: left;
+
+                .menuIcon {
+                    font-size: 24px;
+                    margin: 0px 10px;
+                    position: relative;
+                    left: -1000px;
+                    filter: drop-shadow(#8F95B2 1000px 0);
+                }
 
                 .el-submenu__title {
                     border-radius: 12px;
@@ -186,6 +205,10 @@ export default {
                 .el-submenu__title:hover>.el-submenu__icon-arrow {
                     color: white;
                 }
+
+                .el-submenu__title:hover .menuIcon {
+                    filter: drop-shadow(white 1000px 0);
+                }
             }
 
             .option {
@@ -205,6 +228,10 @@ export default {
 
             .is-opened .el-submenu__icon-arrow {
                 color: white;
+            }
+
+            .is-opened .menuIcon {
+                filter: drop-shadow(white 1000px 0);
             }
         }
 
