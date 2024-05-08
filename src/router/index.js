@@ -6,7 +6,7 @@ import examPage from '@/views/examPage.vue'
 import rightWrong from '@/views/rightWrong.vue'
 import singleChoice from '@/views/singleChoice.vue'
 import multipleChoice from '@/views/multipleChoice.vue'
-import newPage from "@/views/new/home.vue";
+import newHome from "@/views/new/newHome.vue";
 
 Vue.use(VueRouter)
 
@@ -47,7 +47,7 @@ const routes = [
   {
     path: '/test',
     name: 'new',
-    component: newPage
+    component: newHome
   }
 ]
 

@@ -1,5 +1,5 @@
 <template>
-    <div id="home">
+    <div id="newHome">
         <el-container>
             <el-aside width="262px">
                 <div class="title">
@@ -72,7 +72,7 @@ export default {
 </script>
 
 <style lang="less">
-#home {
+#newHome {
     .title {
         height: 72px;
         width: 222px;
