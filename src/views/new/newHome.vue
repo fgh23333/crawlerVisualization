@@ -269,6 +269,9 @@ export default {
                 margin-left: 16px
             }
         }
+        .tab:hover {
+            cursor: pointer;
+        }
     }
 }
 </style>
