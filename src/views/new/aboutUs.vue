@@ -40,7 +40,8 @@ export default {
     .info {
         width: 580px;
         height: 499px;
-        margin: 200px auto;
+        margin: 0px auto;
+        margin-top: 160px;
         background-color: #FFFFFF;
         border-radius: 24px;
         padding-top: 25px;

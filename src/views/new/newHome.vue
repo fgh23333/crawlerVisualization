@@ -207,7 +207,6 @@ export default {
                     font-size: 20px;
                     font-weight: bold;
                     color: #8F95B2;
-
                 }
 
                 .el-submenu__title:hover {
