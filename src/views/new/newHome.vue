@@ -47,6 +47,7 @@
             </el-aside>
             <el-container>
                 <el-main>
+                    <img src="@/assets/img/ship.svg" class="backgroundImg">
                     <router-view></router-view>
                 </el-main>
             </el-container>
@@ -112,8 +113,17 @@ export default {
 
 <style lang="less">
 #newHome {
+    .backgroundImg {
+        position: absolute;
+        right: 0px;
+        bottom: 20px;
+        z-index: 1;
+        width: 400px;
+        height: auto;
+    }
+
     .el-main {
-        background-color: #E6E8F0;
+        background-color: #FAFBFF;
         color: #333;
         text-align: center;
         height: 100vh;
