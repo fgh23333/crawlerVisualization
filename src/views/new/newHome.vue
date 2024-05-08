@@ -26,8 +26,14 @@
                     </el-menu>
                 </div>
                 <div class="buttonContainer">
-                    <button></button>
-                    <button></button>
+                    <div class="tab">
+                        <img class="image" src="@/assets/icon/icon-info.svg">
+                        <div class="text">关于</div>
+                    </div>
+                    <div class="tab">
+                        <img class="image" src="@/assets/icon/icon-setting.svg">
+                        <div class="text">设置</div>
+                    </div>
                 </div>
             </el-aside>
             <el-container>
@@ -89,6 +95,22 @@ export default {
 
 <style lang="less">
 #newHome {
+    .el-main {
+        background-color: #E9EEF3;
+        color: #333;
+        text-align: center;
+        height: 100vh;
+        padding: 0;
+    }
+
+    .el-aside {
+        background-color: white;
+        color: #333;
+        text-align: center;
+        line-height: 200px;
+        height: 100vh;
+    }
+
     .title {
         height: 72px;
         width: 222px;
@@ -189,25 +211,37 @@ export default {
         .is-active {
             background-color: white !important;
         }
-
-        .el-main {
-            background-color: #E9EEF3;
-            color: #333;
-            text-align: center;
-            height: 100vh;
-            padding: 0;
-        }
-
-        .el-aside {
-            background-color: white;
-            color: #333;
-            text-align: center;
-            line-height: 200px;
-        }
     }
 
     .nav::-webkit-scrollbar {
         display: none;
+    }
+
+    .buttonContainer {
+        position: absolute;
+        bottom: 10px;
+
+        .tab {
+            height: 56px;
+            text-align: left;
+            margin-left: 24px;
+            margin-bottom: 16px;
+
+            .image {
+                height: 56px;
+                width: 56px;
+                float: left;
+            }
+
+            .text {
+                color: #8F95B2;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: 56px;
+                float: left;
+                margin-left: 16px
+            }
+        }
     }
 }
 </style>
