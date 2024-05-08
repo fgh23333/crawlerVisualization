@@ -27,14 +27,18 @@
                     </el-menu>
                 </div>
                 <div class="buttonContainer">
-                    <div class="tab">
-                        <img class="image" src="@/assets/icon/icon-favorites.svg">
-                        <div class="text">收藏夹</div>
-                    </div>
-                    <div class="tab">
-                        <img class="image" src="@/assets/icon/icon-info.svg">
-                        <div class="text">关于</div>
-                    </div>
+                    <router-link to="/">
+                        <div class="tab">
+                            <img class="image" src="@/assets/icon/icon-favorites.svg">
+                            <div class="text">收藏夹</div>
+                        </div>
+                    </router-link>
+                    <router-link to="/test/aboutUs">
+                        <div class="tab">
+                            <img class="image" src="@/assets/icon/icon-info.svg">
+                            <div class="text">关于</div>
+                        </div>
+                    </router-link>
                     <div class="tab">
                         <img class="image" src="@/assets/icon/icon-setting.svg">
                         <div class="text">设置</div>
@@ -109,7 +113,7 @@ export default {
 <style lang="less">
 #newHome {
     .el-main {
-        background-color: #E9EEF3;
+        background-color: #E6E8F0;
         color: #333;
         text-align: center;
         height: 100vh;
@@ -273,6 +277,7 @@ export default {
                 margin-left: 16px
             }
         }
+
         .tab:hover {
             cursor: pointer;
         }

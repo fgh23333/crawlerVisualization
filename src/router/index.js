@@ -7,6 +7,7 @@ import rightWrong from '@/views/rightWrong.vue'
 import singleChoice from '@/views/singleChoice.vue'
 import multipleChoice from '@/views/multipleChoice.vue'
 import newHome from "@/views/new/newHome.vue";
+import aboutUs from "@/views/new/aboutUs.vue"
 
 Vue.use(VueRouter)
 
@@ -47,7 +48,14 @@ const routes = [
   {
     path: '/test',
     name: 'newHome',
-    component: newHome
+    component: newHome,
+    children: [
+      {
+        path: 'aboutUs',
+        name: 'aboutUs',
+        component: aboutUs
+      }
+    ]
   }
 ]
 
