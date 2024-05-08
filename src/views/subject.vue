@@ -56,8 +56,11 @@ export default {
 
 <style lang="less">
 #subject {
+    overflow: hidden;
+    height: calc(100vh - 60px);
+
     .el-table {
-        height: 100vh;
+        height: 100%;
     }
 
     .el-table .success-row {
