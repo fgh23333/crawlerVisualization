@@ -9,7 +9,7 @@
                         <span class="smallTitle">上海海洋大学</span>
                     </div>
                 </div>
-                <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6">
+                <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6" :router="true">
                     <el-submenu v-for="(item, i) in list" :key="i" :index="list[i].src">
                         <template slot="title">
                             <span>{{ list[i].subject }}</span>
@@ -151,12 +151,6 @@ export default {
             }
         }
 
-        .is-opened>.el-submenu__title,
-        .is-opened .el-submenu__icon-arrow {
-            background-color: #6C5DD3;
-            color: white;
-        }
-
         .option {
             font-size: 18px;
             color: #8F95B2;
@@ -165,6 +159,15 @@ export default {
 
         .option:hover {
             background-color: white
+        }
+
+        .is-opened>.el-submenu__title {
+            background-color: #6C5DD3;
+            color: white;
+        }
+
+        .is-opened .el-submenu__icon-arrow {
+            color: white;
         }
     }
 
