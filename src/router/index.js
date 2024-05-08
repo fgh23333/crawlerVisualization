@@ -8,6 +8,7 @@ import singleChoice from '@/views/singleChoice.vue'
 import multipleChoice from '@/views/multipleChoice.vue'
 import newHome from "@/views/new/newHome.vue";
 import aboutUs from "@/views/new/aboutUs.vue"
+import thehome from "@/views/new/thehome.vue";
 
 Vue.use(VueRouter)
 
@@ -54,6 +55,11 @@ const routes = [
         path: 'aboutUs',
         name: 'aboutUs',
         component: aboutUs
+      },
+      {
+        path: '/test',
+        name: 'thehome',
+        component: thehome
       }
     ]
   }
