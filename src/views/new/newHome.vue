@@ -25,6 +25,10 @@
                         </el-submenu>
                     </el-menu>
                 </div>
+                <div class="buttonContainer">
+                    <button></button>
+                    <button></button>
+                </div>
             </el-aside>
             <el-container>
                 <el-main>
@@ -124,7 +128,7 @@ export default {
     }
 
     .nav {
-        height: 380px;
+        height: 460px;
         overflow: auto;
         text-align: center;
         -ms-overflow-style: none;
