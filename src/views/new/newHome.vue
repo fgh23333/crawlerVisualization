@@ -128,8 +128,6 @@ export default {
 
             }
 
-
-
             .el-submenu__title:hover {
                 background-color: #6C5DD3;
                 color: white;

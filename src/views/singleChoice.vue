@@ -60,6 +60,13 @@ export default {
 
 <style lang="less">
 #singleChoice {
+    overflow: hidden;
+    height: calc(100vh - 60px);
+
+    .el-table {
+        height: 100%;
+    }
+
     .el-table .success-row {
         background: #f0f9eb;
     }
