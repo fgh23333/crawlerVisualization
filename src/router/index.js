@@ -8,7 +8,7 @@ import singleChoice from '@/views/singleChoice.vue'
 import multipleChoice from '@/views/multipleChoice.vue'
 import newHome from "@/views/new/newHome.vue";
 import aboutUs from "@/views/new/aboutUs.vue"
-import thehome from "@/views/new/thehome.vue";
+import theHome from "@/views/new/theHome.vue";
 
 Vue.use(VueRouter)
 
@@ -37,8 +37,7 @@ const routes = [
         path: 'multipleChoice/:lesson',
         name: 'multipleChoice',
         component: multipleChoice
-      },
-
+      }
     ]
   },
   {
@@ -58,8 +57,8 @@ const routes = [
       },
       {
         path: '/test',
-        name: 'thehome',
-        component: thehome
+        name: 'theHome',
+        component: theHome
       }
     ]
   }
