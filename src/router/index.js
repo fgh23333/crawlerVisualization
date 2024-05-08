@@ -46,7 +46,7 @@ const routes = [
   },
   {
     path: '/test',
-    name: 'new',
+    name: 'newHome',
     component: newHome
   }
 ]

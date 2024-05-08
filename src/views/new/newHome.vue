@@ -128,10 +128,26 @@ export default {
 
             }
 
+
+
             .el-submenu__title:hover {
                 background-color: #6C5DD3;
                 color: white;
             }
+
+            .el-submenu__icon-arrow {
+                font-weight: bold;
+            }
+
+            .el-submenu__title:hover>.el-submenu__icon-arrow {
+                color: white;
+            }
+        }
+
+        .is-opened>.el-submenu__title,
+        .is-opened .el-submenu__icon-arrow {
+            background-color: #6C5DD3;
+            color: white;
         }
 
         .option {
