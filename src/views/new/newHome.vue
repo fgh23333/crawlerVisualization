@@ -3,7 +3,7 @@
         <el-container>
             <el-aside width="262px">
                 <div class="title">
-                    <img src="@/assets/icon/icon1.png" class="icon">
+                    <img src="@/assets/icon/icon-title.png" class="icon">
                     <div class="titleCover">
                         <span class="bigTitle">马院题库</span>
                         <span class="smallTitle">上海海洋大学</span>
@@ -27,6 +27,10 @@
                     </el-menu>
                 </div>
                 <div class="buttonContainer">
+                    <div class="tab">
+                        <img class="image" src="@/assets/icon/icon-favorites.svg">
+                        <div class="text">收藏夹</div>
+                    </div>
                     <div class="tab">
                         <img class="image" src="@/assets/icon/icon-info.svg">
                         <div class="text">关于</div>
@@ -99,7 +103,6 @@ export default {
             ]
         }
     }
-
 }
 </script>
 
@@ -215,6 +218,7 @@ export default {
                 font-size: 18px;
                 color: #8F95B2;
                 font-weight: medium;
+                margin-left: 26px
             }
 
             .option:hover {
