@@ -10,18 +10,18 @@
                     </div>
                 </div>
                 <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6">
-                    <el-submenu index="1">
+                    <el-submenu v-for="(item, i) in list" :key="i" :index="list[i].src">
                         <template slot="title">
-                            <span>马原</span>
+                            <span>{{ list[i].subject }}</span>
                         </template>
                         <el-menu-item-group>
-                            <el-menu-item class="option" index="1-1">总题库</el-menu-item>
-                            <el-menu-item class="option" index="1-2">判断题</el-menu-item>
-                            <el-menu-item class="option" index="1-3">单选题</el-menu-item>
-                            <el-menu-item class="option" index="1-4">多选题</el-menu-item>
+                            <el-menu-item class="option" :index="'subject/' + list[i].src">总题库</el-menu-item>
+                            <el-menu-item class="option" :index="'rightWrong/' + list[i].src">判断题</el-menu-item>
+                            <el-menu-item class="option" :index="'singleChoice/' + list[i].src">单选题</el-menu-item>
+                            <el-menu-item class="option" :index="'multipleChoice/' + list[i].src">多选题</el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
-                    <el-submenu index="2">
+                    <!-- <el-submenu index="2">
                         <template slot="title">
                             <span>近代史</span>
                         </template>
@@ -53,7 +53,7 @@
                             <el-menu-item class="option" index="4-3">单选题</el-menu-item>
                             <el-menu-item class="option" index="4-4">多选题</el-menu-item>
                         </el-menu-item-group>
-                    </el-submenu>
+                    </el-submenu> -->
                 </el-menu>
             </el-aside>
             <el-container>
@@ -67,6 +67,48 @@
 
 <script>
 export default {
+    data() {
+        return {
+            list: [
+                {
+                    subject: '马原',
+                    src: 'Marx'
+                },
+                {
+                    subject: '近代史',
+                    src: 'CMH'
+                },
+                {
+                    subject: '思政',
+                    src: 'Political'
+                },
+                {
+                    subject: '毛概',
+                    src: 'MaoIntro'
+                },
+                {
+                    subject: '习概',
+                    src: 'XiIntro'
+                },
+                {
+                    subject: '社主史',
+                    src: 'SDH'
+                },
+                {
+                    subject: '新中国史',
+                    src: 'NCH'
+                },
+                {
+                    subject: '党史',
+                    src: 'CCPH'
+                },
+                {
+                    subject: '改开史',
+                    src: 'ORH'
+                }
+            ]
+        }
+    }
 
 }
 </script>
