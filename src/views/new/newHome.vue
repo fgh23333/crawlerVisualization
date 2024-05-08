@@ -9,19 +9,22 @@
                         <span class="smallTitle">上海海洋大学</span>
                     </div>
                 </div>
-                <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6" :router="true">
-                    <el-submenu v-for="(item, i) in list" :key="i" :index="list[i].src">
-                        <template slot="title">
-                            <span>{{ list[i].subject }}</span>
-                        </template>
-                        <el-menu-item-group>
-                            <el-menu-item class="option" :index="'subject/' + list[i].src">总题库</el-menu-item>
-                            <el-menu-item class="option" :index="'rightWrong/' + list[i].src">判断题</el-menu-item>
-                            <el-menu-item class="option" :index="'singleChoice/' + list[i].src">单选题</el-menu-item>
-                            <el-menu-item class="option" :index="'multipleChoice/' + list[i].src">多选题</el-menu-item>
-                        </el-menu-item-group>
-                    </el-submenu>
-                </el-menu>
+                <div class="nav">
+                    <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6"
+                        :router="true">
+                        <el-submenu v-for="(item, i) in list" :key="i" :index="list[i].src">
+                            <template slot="title">
+                                <span>{{ list[i].subject }}</span>
+                            </template>
+                            <el-menu-item-group>
+                                <el-menu-item class="option" :index="'subject/' + list[i].src">总题库</el-menu-item>
+                                <el-menu-item class="option" :index="'rightWrong/' + list[i].src">判断题</el-menu-item>
+                                <el-menu-item class="option" :index="'singleChoice/' + list[i].src">单选题</el-menu-item>
+                                <el-menu-item class="option" :index="'multipleChoice/' + list[i].src">多选题</el-menu-item>
+                            </el-menu-item-group>
+                        </el-submenu>
+                    </el-menu>
+                </div>
             </el-aside>
             <el-container>
                 <el-main>
@@ -120,74 +123,98 @@ export default {
         }
     }
 
-    .el-menu-vertical-demo {
-        width: 216px;
-        margin: 0px 23px;
-        border: none;
+    .nav {
+        height: 380px;
+        overflow: auto;
+        text-align: center;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
 
-        .el-submenu {
-            margin: 20px 0px;
+        .el-menu-vertical-demo {
+            width: 216px;
+            margin: 0px 23px;
+            border: none;
 
-            .el-submenu__title {
-                border-radius: 12px;
-                background-color: #F7F7F7;
-                font-size: 20px;
-                font-weight: bold;
-                color: #8F95B2;
+            .el-submenu {
+                margin-top: 0px;
+                margin-bottom: 20px;
 
+                .el-submenu__title {
+                    border-radius: 12px;
+                    background-color: #F7F7F7;
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #8F95B2;
+
+                }
+
+                .el-submenu__title:hover {
+                    background-color: #6C5DD3;
+                    color: white;
+                }
+
+                .el-submenu__icon-arrow {
+                    font-weight: bold;
+                }
+
+                .el-submenu__title:hover>.el-submenu__icon-arrow {
+                    color: white;
+                }
             }
 
-            .el-submenu__title:hover {
+            .option {
+                font-size: 18px;
+                color: #8F95B2;
+                font-weight: medium;
+            }
+
+            .option:hover {
+                background-color: white
+            }
+
+            .is-opened>.el-submenu__title {
                 background-color: #6C5DD3;
                 color: white;
             }
 
-            .el-submenu__icon-arrow {
-                font-weight: bold;
-            }
-
-            .el-submenu__title:hover>.el-submenu__icon-arrow {
+            .is-opened .el-submenu__icon-arrow {
                 color: white;
             }
         }
 
-        .option {
-            font-size: 18px;
-            color: #8F95B2;
-            font-weight: medium;
+        .is-active {
+            background-color: white !important;
         }
 
-        .option:hover {
-            background-color: white
+        .el-main {
+            background-color: #E9EEF3;
+            color: #333;
+            text-align: center;
+            height: 100vh;
+            padding: 0;
         }
 
-        .is-opened>.el-submenu__title {
-            background-color: #6C5DD3;
-            color: white;
-        }
-
-        .is-opened .el-submenu__icon-arrow {
-            color: white;
+        .el-aside {
+            background-color: white;
+            color: #333;
+            text-align: center;
+            line-height: 200px;
         }
     }
 
-    .is-active {
-        background-color: white !important;
+    .nav::-webkit-scrollbar {
+        display: none;
     }
 
-    .el-main {
-        background-color: #E9EEF3;
-        color: #333;
-        text-align: center;
-        height: 100vh;
-        padding: 0;
-    }
-
-    .el-aside {
-        background-color: white;
-        color: #333;
-        text-align: center;
-        line-height: 200px;
-    }
+    // .nav::after {
+    //     content: '';
+    //     position: absolute;
+    //     left: 0;
+    //     bottom: -5px;
+    //     width: 100%;
+    //     height: 5px;
+    //     background: linear-gradient(to right, rgba(0, 0, 255, 0.5), transparent, rgba(0, 0, 255, 0.5));
+    //     box-shadow: 0px -5px 10px rgba(0, 0, 255, 0.5);
+    // }
 }
 </style>
