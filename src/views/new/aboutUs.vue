@@ -8,6 +8,9 @@
             </div>
             <div class="projectAddress box">
                 <div class="title">项目地址</div>
+                <a href="https://github.com">
+                    <img src="@/assets/icon/github.svg" class="github">
+                </a>
                 <a href="https://github.com/fgh23333/crawler">https://github.com/fgh23333/crawler</a>
                 <a
                     href="https://github.com/fgh23333/crawlerVisualization">https://github.com/fgh23333/crawlerVisualization</a>
@@ -15,7 +18,7 @@
             <div class="members box">
                 <div class="title">制作成员</div>
                 <div class="member">爬虫 | 冯国昊</div>
-                <div class="member">网页 | 冯国昊</div>
+                <div class="member">网页 | 冯国昊 倪镭</div>
                 <div class="member">设计 | 倪镭</div>
             </div>
         </div>
@@ -47,6 +50,7 @@ export default {
             width: 462px;
             margin-left: 33px;
             margin-bottom: 25px;
+            position: relative;
 
             .title {
                 font-size: 20px;
@@ -58,6 +62,12 @@ export default {
                 color: white;
                 line-height: 39px;
                 margin: 0px 0px 14px 0px;
+            }
+
+            .github {
+                position: absolute;
+                top: -4px;
+                left: 155px;
             }
 
             a {
