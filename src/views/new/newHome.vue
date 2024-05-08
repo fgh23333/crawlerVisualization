@@ -205,16 +205,5 @@ export default {
     .nav::-webkit-scrollbar {
         display: none;
     }
-
-    // .nav::after {
-    //     content: '';
-    //     position: absolute;
-    //     left: 0;
-    //     bottom: -5px;
-    //     width: 100%;
-    //     height: 5px;
-    //     background: linear-gradient(to right, rgba(0, 0, 255, 0.5), transparent, rgba(0, 0, 255, 0.5));
-    //     box-shadow: 0px -5px 10px rgba(0, 0, 255, 0.5);
-    // }
 }
 </style>
