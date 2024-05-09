@@ -43,7 +43,12 @@
                 <div class="right">
                     <div class="questionType">多选</div>
                     <div class="questionStem">{{ list[i].questionStem }}</div>
-                    <div class="questionOpt"></div>
+                    <div class="questionOpt">
+                        <div class="optionCover" v-for="(item, k) in list[i].option" :key="k">
+                            <span class="dot"></span>
+                            <span class="option">{{ options[k] }}、{{ list[i].option[k] }}</span>
+                        </div>
+                    </div>
                     <div class="questionAnswer">
                         <span class="colorBefore"></span>
                         <span class="correctAnswer">正确答案：</span>
