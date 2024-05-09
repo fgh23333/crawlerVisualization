@@ -45,6 +45,7 @@ export default {
         background-color: #FFFFFF;
         border-radius: 24px;
         padding-top: 25px;
+        box-shadow: 0px 0px 12px 0 rgba(0, 0, 0, 0.15);
         font-family: 思源黑体;
 
         .box {
@@ -93,5 +94,9 @@ export default {
             }
         }
     }
+  .info{
+    opacity: 0;
+    animation: fadeInUp 0.3s ease-in-out forwards;
+  }
 }
 </style>
