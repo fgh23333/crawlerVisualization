@@ -301,6 +301,7 @@ export default {
                         .option {
                             display: inline-block;
                             font-size: 18px;
+                            letter-spacing: 1px;
                         }
                     }
 
