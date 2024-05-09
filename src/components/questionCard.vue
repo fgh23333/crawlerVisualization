@@ -2,13 +2,13 @@
     <div id="questionCard">
         <div class="questionCover" v-for="(item, i) in list" :key="i">
             <div class="questionTypeCover" v-if="list[i].option.length == 2">
-                <div class="seqAndType">
-                    <span class="seq"> {{ i + 1 }}</span>
-                    <span class="questionType">判断</span>
+                <div class="seq">{{ i + 1 }}</div>
+                <div class="rightCover">
+                    <div class="questionType">判断</div>
+                    <div class="questionStem">{{ list[i].questionStem }}</div>
+                    <div class="questionOpt"></div>
+                    <div class="questionAnswer">正确答案:{{ list[i].answer }}</div>
                 </div>
-                <div class="questionStem">{{ list[i].questionStem }}</div>
-                <div class="questionOpt"></div>
-                <div class="questionAnswer">正确答案:{{ list[i].answer }}</div>
             </div>
             <div class="questionTypeCover" v-if="list[i].option.length == 4 && list[i].answer.length == 1">
                 <div class="seqAndType">
@@ -217,27 +217,31 @@ export default {
             -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
             1px 0px 8px 0px rgba(230, 232, 240, 0.9),
             0px 1px 8px 0px rgba(230, 232, 240, 0.9);
-        text-align: left ;
+        text-align: left;
+
         .questionTypeCover {
-            .seqAndType {
-                .seq {
-                    height: 30px;
-                    font-size: 20px;
-                    font-weight: bold;
-                    color: white;
-                    background-color: #6C5DD3;
-                    border-radius: 10px;
-                    padding: 0px 10px;
-                    line-height: 30px;
-                    display: inline-block;
-                }
+            font-family: HarmonyOS Sans SC;
+
+            .seq {
+                height: 30px;
+                font-size: 20px;
+                font-weight: bold;
+                color: white;
+                background-color: #6C5DD3;
+                border-radius: 10px;
+                padding: 0px 10px;
+                line-height: 30px;
+                width: fit-content;
+            }
+
+            .rightCover {
+                float: left;
                 .questionType {
                     height: 30px;
                     line-height: 30px;
                     font-size: 18px;
                     font-weight: bold;
                     color: #877BD1;
-                    margin-left: 10px;
                 }
             }
         }
