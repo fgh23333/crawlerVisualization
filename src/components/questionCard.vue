@@ -40,7 +40,8 @@
                     <div class="questionStem">{{ list[i].questionStem }}</div>
                     <div class="questionOpt"></div>
                     <div class="questionAnswer">
-                        <span>正确答案:</span>
+                        <span class="colorBefore"></span>
+                        <span class="correctAnswer">正确答案：</span>
                         <span v-for="(ans, j) in list[i].answer" :key="j">{{ list[i].answer[j] }}</span>
                     </div>
                 </div>
