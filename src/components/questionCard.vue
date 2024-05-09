@@ -26,7 +26,7 @@
                     <div class="questionOpt">
                         <div class="optionCover" v-for="(item, k) in list[i].option" :key="k">
                             <span class="dot"></span>
-                            <span class="option">{{ list[i].option[k] }}</span>
+                            <span class="option">{{ options[k] }}、{{ list[i].option[k] }}</span>
                         </div>
                     </div>
                     <div class="questionAnswer">
@@ -219,7 +219,8 @@ export default {
                         "D"
                     ]
                 }
-            ]
+            ],
+            options: ['A', 'B', 'C', 'D']
         }
     }
 }
@@ -278,25 +279,31 @@ export default {
                     font-weight: medium;
                     letter-spacing: 1px;
                     font-size: 18px;
+                    margin-bottom: 4px;
+                    line-height: 30px;
                 }
 
                 .questionOpt {
                     .optionCover {
-                        
+                        height: 28px;
+                        line-height: 28px;
+
                         .dot {
-                        display: inline-block;
-                        width: 14px;
-                        height: 14px;
-                        border-radius: 50%;
-                        display: inline-block;
-                        background-color: #6C5DD3;
+                            display: inline-block;
+                            width: 14px;
+                            height: 14px;
+                            border-radius: 50%;
+                            display: inline-block;
+                            background-color: #6C5DD3;
+                            margin-right: 8px;
+                        }
+
+                        .option {
+                            display: inline-block;
+                            font-size: 18px;
+                        }
                     }
 
-                    .option {
-                        display: inline-block;
-                    }
-                    }
-                    
                 }
 
                 .questionAnswer {

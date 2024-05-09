@@ -47,7 +47,6 @@
             </el-aside>
             <el-container>
                 <el-main>
-                    <img src="@/assets/img/ship.svg" class="backgroundImg">
                     <router-view></router-view>
                 </el-main>
             </el-container>
