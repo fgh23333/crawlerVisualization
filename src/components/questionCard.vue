@@ -2,33 +2,47 @@
     <div id="questionCard">
         <div class="questionCover" v-for="(item, i) in list" :key="i">
             <div class="questionTypeCover" v-if="list[i].option.length == 2">
-                <div class="seq">{{ i + 1 }}</div>
-                <div class="rightCover">
+                <div class="left">
+                    <span class="seq">{{ i + 1 }}</span>
+                </div>
+                <div class="right">
                     <div class="questionType">判断</div>
                     <div class="questionStem">{{ list[i].questionStem }}</div>
-                    <div class="questionOpt"></div>
-                    <div class="questionAnswer">正确答案:{{ list[i].answer }}</div>
+                    <div class="questionAnswer">
+                        <span class="colorBefore"></span>
+                        <span class="correctAnswer">正确答案：</span>
+                        <span class="true" v-if="list[i].answer == '正确'">{{ list[i].answer }}</span>
+                        <span class="false" v-if="list[i].answer == '错误'">{{ list[i].answer }}</span>
+                    </div>
                 </div>
             </div>
             <div class="questionTypeCover" v-if="list[i].option.length == 4 && list[i].answer.length == 1">
-                <div class="seqAndType">
-                    <span class="seq"> {{ i + 1 }}</span>
-                    <span class="questionType">单选</span>
+                <div class="left">
+                    <span class="seq">{{ i + 1 }}</span>
                 </div>
-                <div class="questionStem">{{ list[i].questionStem }}</div>
-                <div class="questionOpt"></div>
-                <div class="questionAnswer">正确答案:{{ list[i].answer[0] }}</div>
+                <div class="right">
+                    <div class="questionType">单选</div>
+                    <div class="questionStem">{{ list[i].questionStem }}</div>
+                    <div class="questionOpt"></div>
+                    <div class="questionAnswer">
+                        <span class="colorBefore"></span>
+                        <span class="correctAnswer">正确答案：</span>
+                        <span class="answer">{{ list[i].answer[0] }}</span>
+                    </div>
+                </div>
             </div>
             <div class="questionTypeCover" v-if="list[i].option.length > 3 && list[i].answer.length > 1">
-                <div class="seqAndType">
-                    <span class="seq"> {{ i + 1 }}</span>
-                    <span class="questionType">多选</span>
+                <div class="left">
+                    <span class="seq">{{ i + 1 }}</span>
                 </div>
-                <div class="questionStem">{{ list[i].questionStem }}</div>
-                <div class="questionOpt"></div>
-                <div class="questionAnswer">
-                    <span>正确答案:</span>
-                    <span v-for="(ans, j) in list[i].answer" :key="j">{{ list[i].answer[j] }}</span>
+                <div class="right">
+                    <div class="questionType">多选</div>
+                    <div class="questionStem">{{ list[i].questionStem }}</div>
+                    <div class="questionOpt"></div>
+                    <div class="questionAnswer">
+                        <span>正确答案:</span>
+                        <span v-for="(ans, j) in list[i].answer" :key="j">{{ list[i].answer[j] }}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -217,31 +231,97 @@ export default {
             -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
             1px 0px 8px 0px rgba(230, 232, 240, 0.9),
             0px 1px 8px 0px rgba(230, 232, 240, 0.9);
-        text-align: left;
 
         .questionTypeCover {
             font-family: HarmonyOS Sans SC;
+            display: flex;
+            justify-content: flex-start;
 
-            .seq {
-                height: 30px;
-                font-size: 20px;
-                font-weight: bold;
-                color: white;
-                background-color: #6C5DD3;
-                border-radius: 10px;
-                padding: 0px 10px;
-                line-height: 30px;
+            .left {
                 width: fit-content;
+                margin-right: 10px;
+
+
+                .seq {
+                    height: 30px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: white;
+                    background-color: #6C5DD3;
+                    border-radius: 10px;
+                    padding: 0px 10px;
+                    line-height: 30px;
+                    display: inline-block;
+                }
             }
 
-            .rightCover {
-                float: left;
+            .right {
+                text-align: left;
+
                 .questionType {
+                    letter-spacing: 3px;
                     height: 30px;
                     line-height: 30px;
                     font-size: 18px;
                     font-weight: bold;
                     color: #877BD1;
+                    margin-bottom: 10px;
+                }
+
+                .questionStem {
+                    font-weight: medium;
+                    letter-spacing: 1px;
+                    font-size: 18px;
+                }
+
+                .questionAnswer {
+                    letter-spacing: 1px;
+                    height: 30px;
+                    line-height: 30px;
+                    margin-top: 18px;
+                    display: flex;
+                    justify-content: flex-start;
+
+                    .colorBefore {
+                        background-color: #6C5DD3;
+                        width: 8px;
+                        height: 30px;
+                        display: inline-block;
+                        border-radius: 4px;
+                        margin-right: 4px;
+                    }
+
+                    .correctAnswer {
+                        color: #707070;
+                        display: inline-block;
+                        height: 30px;
+                        line-height: 30px;
+                        font-size: 18px;
+                    }
+
+                    .true {
+                        color: #FF3B3B;
+                        display: inline-block;
+                        height: 30px;
+                        line-height: 30px;
+                        font-size: 18px;
+                    }
+
+                    .false {
+                        color: #0BDE00;
+                        display: inline-block;
+                        height: 30px;
+                        line-height: 30px;
+                        font-size: 18px;
+                    }
+
+                    .answer {
+                        display: inline-block;
+                        height: 30px;
+                        line-height: 30px;
+                        font-size: 18px;
+                        color: #5F89D3;
+                    }
                 }
             }
         }
