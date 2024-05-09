@@ -4,7 +4,7 @@
             <div class="questionTypeCover" v-if="list[i].option.length == 2">
                 <div class="seqAndType">
                     <span class="seq"> {{ i + 1 }}</span>
-                    <span class="questionType">判断题</span>
+                    <span class="questionType">判断</span>
                 </div>
                 <div class="questionStem">{{ list[i].questionStem }}</div>
                 <div class="questionOpt"></div>
@@ -13,7 +13,7 @@
             <div class="questionTypeCover" v-if="list[i].option.length == 4 && list[i].answer.length == 1">
                 <div class="seqAndType">
                     <span class="seq"> {{ i + 1 }}</span>
-                    <span class="questionType">单选题</span>
+                    <span class="questionType">单选</span>
                 </div>
                 <div class="questionStem">{{ list[i].questionStem }}</div>
                 <div class="questionOpt"></div>
@@ -22,7 +22,7 @@
             <div class="questionTypeCover" v-if="list[i].option.length > 3 && list[i].answer.length > 1">
                 <div class="seqAndType">
                     <span class="seq"> {{ i + 1 }}</span>
-                    <span class="questionType">多选题</span>
+                    <span class="questionType">多选</span>
                 </div>
                 <div class="questionStem">{{ list[i].questionStem }}</div>
                 <div class="questionOpt"></div>
@@ -205,4 +205,42 @@ export default {
 }
 </script>
 
-<style lang="less"></style>
+<style lang="less">
+#questionCard {
+    .questionCover {
+        background-color: #FFFFFF;
+        padding: 14px 18px;
+        margin: 15px 34px;
+        border-radius: 24px;
+        box-shadow:
+            0px -1px 8px 0px rgba(230, 232, 240, 0.9),
+            -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+            1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+            0px 1px 8px 0px rgba(230, 232, 240, 0.9);
+        text-align: left ;
+        .questionTypeCover {
+            .seqAndType {
+                .seq {
+                    height: 30px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: white;
+                    background-color: #6C5DD3;
+                    border-radius: 10px;
+                    padding: 0px 10px;
+                    line-height: 30px;
+                    display: inline-block;
+                }
+                .questionType {
+                    height: 30px;
+                    line-height: 30px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #877BD1;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+</style>
