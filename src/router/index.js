@@ -6,9 +6,10 @@ import examPage from '@/views/examPage.vue'
 import rightWrong from '@/views/rightWrong.vue'
 import singleChoice from '@/views/singleChoice.vue'
 import multipleChoice from '@/views/multipleChoice.vue'
-import newHome from "@/views/new/newHome.vue";
+import newHome from "@/views/new/newHome.vue"
 import aboutUs from "@/views/new/aboutUs.vue"
-import theHome from "@/views/new/theHome.vue";
+import theHome from "@/views/new/theHome.vue"
+import questionList from "@/views/new/questionList"
 
 Vue.use(VueRouter)
 
@@ -59,6 +60,11 @@ const routes = [
         path: '/test',
         name: 'theHome',
         component: theHome
+      },
+      {
+        path: 'questionList',
+        name: 'questionList',
+        component: questionList
       }
     ]
   }
