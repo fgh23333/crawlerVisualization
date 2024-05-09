@@ -1,15 +1,36 @@
 <template>
     <div id="questionCard">
         <div class="questionCover" v-for="(item, i) in list" :key="i">
-            <div class="seqAndType">
-                <span class="seq"> {{ i + 1 }}</span>
-                <span class="questionType" v-if="list[i].option.length == 2">判断题</span>
-                <span class="questionType" v-if="list[i].option.length == 4 && list[i].answer.length == 1">单选题</span>
-                <span class="questionType" v-if="list[i].option.length > 3 && list[i].answer.length > 1">多选题</span>
+            <div class="questionTypeCover" v-if="list[i].option.length == 2">
+                <div class="seqAndType">
+                    <span class="seq"> {{ i + 1 }}</span>
+                    <span class="questionType">判断题</span>
+                </div>
+                <div class="questionStem">{{ list[i].questionStem }}</div>
+                <div class="questionOpt"></div>
+                <div class="questionAnswer">正确答案:{{ list[i].answer }}</div>
             </div>
-            <div class="questionStem">{{ list[i].questionStem }}</div>
-            <div class="questionOpt"></div>
-            <div class="questionAnswer">正确答案:{{ list[i].answer }}</div>
+            <div class="questionTypeCover" v-if="list[i].option.length == 4 && list[i].answer.length == 1">
+                <div class="seqAndType">
+                    <span class="seq"> {{ i + 1 }}</span>
+                    <span class="questionType">单选题</span>
+                </div>
+                <div class="questionStem">{{ list[i].questionStem }}</div>
+                <div class="questionOpt"></div>
+                <div class="questionAnswer">正确答案:{{ list[i].answer[0] }}</div>
+            </div>
+            <div class="questionTypeCover" v-if="list[i].option.length > 3 && list[i].answer.length > 1">
+                <div class="seqAndType">
+                    <span class="seq"> {{ i + 1 }}</span>
+                    <span class="questionType">多选题</span>
+                </div>
+                <div class="questionStem">{{ list[i].questionStem }}</div>
+                <div class="questionOpt"></div>
+                <div class="questionAnswer">
+                    <span>正确答案:</span>
+                    <span v-for="(ans, j) in list[i].answer" :key="j">{{ list[i].answer[j] }}</span>
+                </div>
+            </div>
         </div>
     </div>
 </template>
