@@ -154,12 +154,15 @@ export default {
             right: 0px;
             top: 20px;
         }
+
+        .el-switch.is-checked .el-switch__core {
+            background-color: #6C5DD3;
+            border-color: #6C5DD3;
+        }
     }
 }
 
 #newHome {
-
-
     .el-main {
         background-color: #FAFBFF;
         color: #333;
