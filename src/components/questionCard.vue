@@ -24,9 +24,9 @@
                     <div class="questionType">单选</div>
                     <div class="questionStem">{{ list[i].questionStem }}</div>
                     <div class="questionOpt">
-                        <div class="optionCover" v-for="(item, k) in list[i].option" :key="k">
-                            <span class="dot"></span>
-                            <span class="option">{{ options[k] }}、{{ list[i].option[k] }}</span>
+                        <div class="option" v-for="(item, k) in list[i].option" :key="k">
+                            <div class="dot"></div>
+                            <div class="optText">{{ options[k] }}、{{ list[i].option[k] }}</div>
                         </div>
                     </div>
                     <div class="questionAnswer">
@@ -44,9 +44,9 @@
                     <div class="questionType">多选</div>
                     <div class="questionStem">{{ list[i].questionStem }}</div>
                     <div class="questionOpt">
-                        <div class="optionCover" v-for="(item, k) in list[i].option" :key="k">
-                            <span class="dot"></span>
-                            <span class="option">{{ options[k] }}、{{ list[i].option[k] }}</span>
+                        <div class="option" v-for="(item, k) in list[i].option" :key="k">
+                            <div class="dot"></div>
+                            <div class="optText">{{ options[k] }}、{{ list[i].option[k] }}</div>
                         </div>
                     </div>
                     <div class="questionAnswer">
@@ -289,27 +289,25 @@ export default {
                 }
 
                 .questionOpt {
-                    .optionCover {
-                        height: 28px;
+                    .option {
                         line-height: 28px;
+                        font-size: 18px;
+                        letter-spacing: 1px;
+                        position: relative;
 
                         .dot {
-                            display: inline-block;
                             width: 14px;
                             height: 14px;
                             border-radius: 50%;
-                            display: inline-block;
                             background-color: #6C5DD3;
-                            margin-right: 8px;
+                            position: absolute;
+                            top: 7px;
                         }
 
-                        .option {
-                            display: inline-block;
-                            font-size: 18px;
-                            letter-spacing: 1px;
+                        .optText {
+                            text-indent: 22px;
                         }
                     }
-
                 }
 
                 .questionAnswer {

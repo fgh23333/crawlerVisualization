@@ -289,6 +289,10 @@ export default {
         .tab:hover {
             cursor: pointer;
         }
+
+        .popOver {
+            display: block;
+        }
     }
 }
 </style>
