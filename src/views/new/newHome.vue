@@ -39,13 +39,15 @@
                             <div class="text">关于</div>
                         </div>
                     </router-link>
-                    <el-popover placement="top-start" title="标题" width="200" trigger="click">
+                    <el-popover placement="right" width="200" trigger="click">
                         <div class="menu">
                             <div class="selection">
-                                
+                                <span class="text">深色模式</span>
+                                <el-switch v-model="value1"></el-switch>
                             </div>
                             <div class="selection">
-
+                                <span class="text">隐藏答案</span>
+                                <el-switch v-model="value2"></el-switch>
                             </div>
                         </div>
                         <div slot="reference" class="tab">
@@ -114,22 +116,49 @@ export default {
                     src: 'ORH',
                     icon: require('@/assets/icon/lettuce.svg')
                 }
-            ]
+            ],
+            value1: false,
+            value2: false
         }
     }
 }
 </script>
 
 <style lang="less">
-#newHome {
-    .backgroundImg {
-        position: absolute;
-        right: 0px;
-        bottom: 20px;
-        z-index: 1;
-        width: 400px;
-        height: auto;
+.el-popover {
+    border-radius: 24px !important;
+    padding: 0 !important;
+    width: 240px !important;
+    color: #525252;
+}
+
+.menu {
+    height: 300px;
+    padding: 20px 0px;
+    font-family: 思源黑体;
+
+    .selection {
+        height: 60px;
+        width: 190px;
+        margin-left: 25px;
+        line-height: 60px;
+        position: relative;
+
+        .text {
+            font-size: 20px;
+            color: #525252;
+        }
+
+        .el-switch {
+            position: absolute;
+            right: 0px;
+            top: 20px;
+        }
     }
+}
+
+#newHome {
+
 
     .el-main {
         background-color: #FAFBFF;
@@ -273,6 +302,8 @@ export default {
     .buttonContainer {
         position: absolute;
         bottom: 10px;
+
+
 
         .tab {
             height: 56px;
