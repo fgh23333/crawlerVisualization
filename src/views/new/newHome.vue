@@ -39,10 +39,20 @@
                             <div class="text">关于</div>
                         </div>
                     </router-link>
-                    <div class="tab">
-                        <img class="image" src="@/assets/icon/icon-setting.svg">
-                        <div class="text">设置</div>
-                    </div>
+                    <el-popover placement="top-start" title="标题" width="200" trigger="click">
+                        <div class="menu">
+                            <div class="selection">
+                                
+                            </div>
+                            <div class="selection">
+
+                            </div>
+                        </div>
+                        <div slot="reference" class="tab">
+                            <img class="image" src="@/assets/icon/icon-setting.svg">
+                            <div class="text">设置</div>
+                        </div>
+                    </el-popover>
                 </div>
             </el-aside>
             <el-container>

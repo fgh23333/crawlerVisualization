@@ -317,6 +317,7 @@ export default {
                     margin-top: 18px;
                     display: flex;
                     justify-content: flex-start;
+                    margin-bottom: 10px;
 
                     .colorBefore {
                         background-color: #6C5DD3;
