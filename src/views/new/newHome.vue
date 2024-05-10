@@ -282,7 +282,7 @@ export default {
                 font-weight: bold;
                 line-height: 56px;
                 float: left;
-                margin-left: 16px
+                margin-left: 16px;
             }
         }
 
