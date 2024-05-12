@@ -227,6 +227,10 @@ export default {
             ],
             options: ['A', 'B', 'C', 'D', 'E']
         }
+    },
+    created() {
+        console.log('a');
+        // this.list = require('@/assets/')
     }
 }
 </script>

@@ -11,7 +11,6 @@
                         </div>
                     </div>
                 </router-link>
-
                 <div class="nav">
                     <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6"
                         :router="true">
@@ -30,12 +29,12 @@
                     </el-menu>
                 </div>
                 <div class="buttonContainer">
-                    <router-link to="/">
-                        <div class="tab">
-                            <img class="image" src="@/assets/icon/icon-favorites.svg">
-                            <div class="text">收藏夹</div>
-                        </div>
-                    </router-link>
+                    <!-- <router-link to="/"> -->
+                    <div class="tab" @click="open()">
+                        <img class="image" src="@/assets/icon/icon-favorites.svg">
+                        <div class="text">收藏夹</div>
+                    </div>
+                    <!-- </router-link> -->
                     <router-link to="/newHome/aboutUs">
                         <div class="tab">
                             <img class="image" src="@/assets/icon/icon-info.svg">
@@ -123,6 +122,14 @@ export default {
             value1: false,
             value2: false
         }
+    },
+    methods: {
+        open() {
+            this.$message({
+                showClose: true,
+                message: '开发中，敬请期待'
+            });
+        },
     }
 }
 </script>
