@@ -350,6 +350,14 @@ export default {
 
         .tab:hover {
             cursor: pointer;
+          .image{
+            transition: filter 0.2s;
+            filter: invert(10%);
+          }
+          .text{
+            transition: color 0.2s;
+            color: #6C5DD3;
+          }
         }
 
         .popOver {
