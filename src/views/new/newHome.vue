@@ -2,15 +2,15 @@
     <div id="newHome">
         <el-container>
             <el-aside width="262px">
-              <router-link to="/test">
-                <div class="title">
-                    <img src="@/assets/icon/icon-title.png" class="icon">
-                    <div class="titleCover">
-                        <span class="bigTitle">马院题库</span>
-                        <span class="smallTitle">上海海洋大学</span>
+                <router-link to="/newHome">
+                    <div class="title">
+                        <img src="@/assets/icon/icon-title.png" class="icon">
+                        <div class="titleCover">
+                            <span class="bigTitle">马院题库</span>
+                            <span class="smallTitle">上海海洋大学</span>
+                        </div>
                     </div>
-                </div>
-              </router-link>
+                </router-link>
                 <div class="nav">
                     <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6"
                         :router="true">
@@ -20,10 +20,14 @@
                                 <span>{{ list[i].subject }}</span>
                             </template>
                             <el-menu-item-group>
-                                <el-menu-item class="option" :index="'subject/' + list[i].src">总题库</el-menu-item>
-                                <el-menu-item class="option" :index="'rightWrong/' + list[i].src">判断题</el-menu-item>
-                                <el-menu-item class="option" :index="'singleChoice/' + list[i].src">单选题</el-menu-item>
-                                <el-menu-item class="option" :index="'multipleChoice/' + list[i].src">多选题</el-menu-item>
+                                <el-menu-item class="option"
+                                    :index="'/newHome/subject/' + list[i].src">总题库</el-menu-item>
+                                <el-menu-item class="option"
+                                    :index="'/newHome/rightWrong/' + list[i].src">判断题</el-menu-item>
+                                <el-menu-item class="option"
+                                    :index="'/newHome/singleChoice/' + list[i].src">单选题</el-menu-item>
+                                <el-menu-item class="option"
+                                    :index="'/newHome/multipleChoice/' + list[i].src">多选题</el-menu-item>
                             </el-menu-item-group>
                         </el-submenu>
                     </el-menu>
@@ -31,11 +35,17 @@
                 <div class="buttonContainer">
                     <router-link to="/">
                         <div class="tab">
-                            <img class="image" src="@/assets/icon/icon-favorites.svg">
-                            <div class="text">收藏夹</div>
+                            <img class="image" src="@/assets/icon/icon-back.svg">
+                            <div class="text">返回旧版</div>
                         </div>
                     </router-link>
-                    <router-link to="/test/aboutUs">
+                    <!-- <router-link to="/"> -->
+                    <div class="tab" @click="open()">
+                        <img class="image" src="@/assets/icon/icon-favorites.svg">
+                        <div class="text">收藏夹</div>
+                    </div>
+                    <!-- </router-link> -->
+                    <router-link to="/newHome/aboutUs">
                         <div class="tab">
                             <img class="image" src="@/assets/icon/icon-info.svg">
                             <div class="text">关于</div>
@@ -43,11 +53,11 @@
                     </router-link>
                     <el-popover placement="right" width="200" trigger="click">
                         <div class="menu">
-                            <div class="selection">
+                            <div class="selection" @click="open()">
                                 <span class="text">深色模式</span>
                                 <el-switch v-model="value1"></el-switch>
                             </div>
-                            <div class="selection">
+                            <div class="selection" @click="open()">
                                 <span class="text">隐藏答案</span>
                                 <el-switch v-model="value2"></el-switch>
                             </div>
@@ -122,6 +132,14 @@ export default {
             value1: false,
             value2: false
         }
+    },
+    methods: {
+        open() {
+            this.$message({
+                showClose: true,
+                message: '开发中，敬请期待'
+            });
+        },
     }
 }
 </script>
@@ -220,7 +238,7 @@ export default {
     }
 
     .nav {
-        height: 460px;
+        height: 410px;
         overflow: auto;
         text-align: center;
         -ms-overflow-style: none;
@@ -308,8 +326,6 @@ export default {
         position: absolute;
         bottom: 10px;
 
-
-
         .tab {
             height: 56px;
             text-align: left;
@@ -334,14 +350,6 @@ export default {
 
         .tab:hover {
             cursor: pointer;
-            .image{
-              transition: filter 0.2s;
-              filter: invert(10%);
-            }
-          .text{
-            transition: color 0.2s;
-            color: #6C5DD3;
-          }
         }
 
         .popOver {

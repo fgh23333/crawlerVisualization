@@ -47,27 +47,27 @@ const routes = [
     component: examPage
   },
   {
-    path: '/test',
+    path: '/newHome',
     name: 'newHome',
     component: newHome,
     children: [
+      {
+        path: '/',
+        component: theHome,
+      },
       {
         path: 'aboutUs',
         name: 'aboutUs',
         component: aboutUs
       },
       {
-        path: '/test',
-        name: 'theHome',
-        component: theHome
-      },
-      {
-        path: 'questionList',
+        path: ':type/:lesson',
         name: 'questionList',
         component: questionList
       }
     ]
-  }
+  },
+
 ]
 
 const router = new VueRouter({
