@@ -16,6 +16,9 @@
                     <router-link :to="'/multipleChoice/' + item.src" style="color: black;">多选题</router-link>
                 </el-menu-item>
             </el-submenu>
+            <el-menu-item index="newHome" class="newVer">
+                <el-button>点击体验新版</el-button>
+            </el-menu-item>
         </el-menu>
     </div>
 </template>
@@ -70,6 +73,10 @@ export default {
 <style lang="less">
 #navMenu {
     text-decoration: none;
+
+    .newVer {
+        color: black;
+    }
 
     .el-submenu__title {
         background-color: #ECECC7;
