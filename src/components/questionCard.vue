@@ -225,7 +225,7 @@ export default {
                     ]
                 }
             ],
-            options: ['A', 'B', 'C', 'D']
+            options: ['A', 'B', 'C', 'D', 'E']
         }
     }
 }
