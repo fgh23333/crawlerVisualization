@@ -34,8 +34,8 @@
                 </div>
                 <div class="buttonContainer">
                     <router-link to="/">
-                        <div class="tab" @click="open()">
-                            <img class="image" src="@/assets/icon/icon-favorites.svg">
+                        <div class="tab">
+                            <img class="image" src="@/assets/icon/icon-back.svg">
                             <div class="text">返回旧版</div>
                         </div>
                     </router-link>
@@ -325,8 +325,6 @@ export default {
     .buttonContainer {
         position: absolute;
         bottom: 10px;
-
-
 
         .tab {
             height: 56px;
