@@ -61,7 +61,7 @@ const routes = [
         component: aboutUs
       },
       {
-        path: 'questionList',
+        path: ':type/:lesson',
         name: 'questionList',
         component: questionList
       }
