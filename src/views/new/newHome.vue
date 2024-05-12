@@ -2,6 +2,7 @@
     <div id="newHome">
         <el-container>
             <el-aside width="262px">
+              <router-link to="/test">
                 <div class="title">
                     <img src="@/assets/icon/icon-title.png" class="icon">
                     <div class="titleCover">
@@ -9,6 +10,7 @@
                         <span class="smallTitle">上海海洋大学</span>
                     </div>
                 </div>
+              </router-link>
                 <div class="nav">
                     <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6"
                         :router="true">
@@ -332,6 +334,14 @@ export default {
 
         .tab:hover {
             cursor: pointer;
+            .image{
+              transition: filter 0.2s;
+              filter: invert(10%);
+            }
+          .text{
+            transition: color 0.2s;
+            color: #6C5DD3;
+          }
         }
 
         .popOver {
