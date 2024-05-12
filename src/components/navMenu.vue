@@ -16,9 +16,9 @@
                     <router-link :to="'/multipleChoice/' + item.src" style="color: black;">多选题</router-link>
                 </el-menu-item>
             </el-submenu>
-            <el-menu-item index="newHome" class="newVer">
-                <el-button>点击体验新版</el-button>
-            </el-menu-item>
+            <div class="newVer">
+                <el-button @click="goToNewHome">点击体验新版</el-button>
+            </div>
         </el-menu>
     </div>
 </template>
@@ -66,7 +66,12 @@ export default {
                 }
             ]
         }
-    }
+    },
+  methods:{
+      goToNewHome(){
+          this.$router.push('/newHome')
+      }
+  }
 }
 </script>
 
@@ -76,6 +81,10 @@ export default {
 
     .newVer {
         color: black;
+      text-align: left;
+      .el-button {
+          margin-left: 20px;
+      }
     }
 
     .el-submenu__title {
