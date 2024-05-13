@@ -32,45 +32,45 @@
                         </el-submenu>
                     </el-menu>
                 </div>
-                <div class="buttonContainer">
-                    <router-link to="/">
-                        <div class="tab">
-                            <img class="image" src="@/assets/icon/icon-back.svg">
-                            <div class="text">返回旧版</div>
-                        </div>
-                    </router-link>
-                    <!-- <router-link to="/"> -->
-                    <div class="tab" @click="open()">
-                        <img class="image" src="@/assets/icon/icon-favorites.svg">
-                        <div class="text">收藏夹</div>
-                    </div>
-                    <!-- </router-link> -->
-                    <router-link to="/newHome/aboutUs">
-                        <div class="tab">
-                            <img class="image" src="@/assets/icon/icon-info.svg">
-                            <div class="text">关于</div>
-                        </div>
-                    </router-link>
-                    <el-popover placement="right" width="200" trigger="click">
-                        <div class="menu">
-                            <div class="selection" @click="open()">
-                                <span class="text">深色模式</span>
-                                <el-switch v-model="value1"></el-switch>
-                            </div>
-                            <div class="selection" @click="open()">
-                                <span class="text">隐藏答案</span>
-                                <el-switch v-model="value2"></el-switch>
-                            </div>
-                        </div>
-                        <div slot="reference" class="tab">
-                            <img class="image" src="@/assets/icon/icon-setting.svg">
-                            <div class="text">设置</div>
-                        </div>
-                    </el-popover>
-                </div>
             </el-aside>
             <el-container>
                 <el-main>
+                    <div class="buttonContainer">
+                        <router-link to="/">
+                            <div class="tab">
+                                <img class="image" src="@/assets/icon/icon-back.svg">
+                                <div class="text">返回旧版</div>
+                            </div>
+                        </router-link>
+                        <!-- <router-link to="/"> -->
+                        <div class="tab" @click="open()">
+                            <img class="image" src="@/assets/icon/icon-favorites.svg">
+                            <div class="text">收藏夹</div>
+                        </div>
+                        <!-- </router-link> -->
+                        <router-link to="/newHome/aboutUs">
+                            <div class="tab">
+                                <img class="image" src="@/assets/icon/icon-info.svg">
+                                <div class="text">关于</div>
+                            </div>
+                        </router-link>
+                        <el-popover placement="right" width="200" trigger="click">
+                            <div class="menu">
+                                <div class="selection" @click="open()">
+                                    <span class="text">深色模式</span>
+                                    <el-switch v-model="value1"></el-switch>
+                                </div>
+                                <div class="selection" @click="open()">
+                                    <span class="text">隐藏答案</span>
+                                    <el-switch v-model="value2"></el-switch>
+                                </div>
+                            </div>
+                            <div slot="reference" class="tab" id="last">
+                                <img class="image" src="@/assets/icon/icon-setting.svg">
+                                <div class="text">设置</div>
+                            </div>
+                        </el-popover>
+                    </div>
                     <router-view></router-view>
                 </el-main>
             </el-container>
@@ -238,7 +238,7 @@ export default {
     }
 
     .nav {
-      height: calc(100vh - 72px - 224px - 32px - 88px);
+        height: calc(100vh - 72px - 88px);
         overflow: auto;
         text-align: center;
         -ms-overflow-style: none;
@@ -323,14 +323,24 @@ export default {
     }
 
     .buttonContainer {
-        position: absolute;
-        bottom: 10px;
+        position: fixed;
+        bottom: 24px;
+        right: 48px;
+        
 
         .tab {
             height: 56px;
             text-align: left;
-            margin-left: 24px;
-            margin-bottom: 8px;
+            margin-bottom: 16px;
+            margin-right: 8px;
+            border-radius: 12px;
+            padding-right: 16px;
+            box-shadow:
+            0px -1px 8px 0px rgba(230, 232, 240, 0.9),
+            -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+            1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+            0px 1px 8px 0px rgba(230, 232, 240, 0.9);
+            background-color: white;
 
             .image {
                 height: 56px;
@@ -350,14 +360,16 @@ export default {
 
         .tab:hover {
             cursor: pointer;
-          .image{
-            transition: filter 0.2s;
-            filter: invert(10%);
-          }
-          .text{
-            transition: color 0.2s;
-            color: #6C5DD3;
-          }
+
+            .image {
+                transition: filter 0.2s;
+                filter: invert(10%);
+            }
+
+            .text {
+                transition: color 0.2s;
+                color: #6C5DD3;
+            }
         }
 
         .popOver {
