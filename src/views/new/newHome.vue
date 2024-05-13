@@ -238,7 +238,7 @@ export default {
     }
 
     .nav {
-        height: 340px;
+      height: calc(100vh - 72px - 224px - 32px - 88px);
         overflow: auto;
         text-align: center;
         -ms-overflow-style: none;
