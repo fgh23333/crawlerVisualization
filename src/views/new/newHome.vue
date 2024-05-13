@@ -238,7 +238,7 @@ export default {
     }
 
     .nav {
-        height: 410px;
+        height: 340px;
         overflow: auto;
         text-align: center;
         -ms-overflow-style: none;
@@ -330,7 +330,7 @@ export default {
             height: 56px;
             text-align: left;
             margin-left: 24px;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
 
             .image {
                 height: 56px;
