@@ -6,6 +6,10 @@
                     <span class="seq">{{ i + 1 }}</span>
                 </div>
                 <div class="right">
+                    <div class="markAndLike">
+                        <img class="mark" src="@/assets/icon/icon-mark.svg">
+                        <img class="like" src="@/assets/icon/icon-like.svg">
+                    </div>
                     <div class="questionType">判断</div>
                     <div class="questionStem">{{ list[i].questionStem }}</div>
                     <div class="questionAnswer">
@@ -21,6 +25,10 @@
                     <span class="seq">{{ i + 1 }}</span>
                 </div>
                 <div class="right">
+                    <div class="markAndLike">
+                        <img class="mark" src="@/assets/icon/icon-mark.svg">
+                        <img class="like" src="@/assets/icon/icon-like.svg">
+                    </div>
                     <div class="questionType">单选</div>
                     <div class="questionStem">{{ list[i].questionStem }}</div>
                     <div class="questionOpt">
@@ -41,6 +49,10 @@
                     <span class="seq">{{ i + 1 }}</span>
                 </div>
                 <div class="right">
+                    <div class="markAndLike">
+                        <img class="mark" src="@/assets/icon/icon-mark.svg">
+                        <img class="like" src="@/assets/icon/icon-like.svg">
+                    </div>
                     <div class="questionType">多选</div>
                     <div class="questionStem">{{ list[i].questionStem }}</div>
                     <div class="questionOpt">
@@ -133,6 +145,25 @@ export default {
 
             .right {
                 text-align: left;
+                position: relative;
+                width: 100%;
+
+                .markAndLike {
+                    width: 72px;
+                    height: 32px;
+                    position: absolute;
+                    top: 0px;
+                    right: 0px;
+
+                    .mark {
+                        display: inline-block;
+                        margin-right: 8px;
+                    }
+
+                    .like {
+                        display: inline-block;
+                    }
+                }
 
                 .questionType {
                     letter-spacing: 3px;

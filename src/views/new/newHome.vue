@@ -35,6 +35,7 @@
             </el-aside>
             <el-container>
                 <el-main>
+                    <router-view></router-view>
                     <div class="buttonContainer">
                         <router-link to="/">
                             <div class="tab">
@@ -71,7 +72,6 @@
                             </div>
                         </el-popover>
                     </div>
-                    <router-view></router-view>
                 </el-main>
             </el-container>
         </el-container>
@@ -326,7 +326,7 @@ export default {
         position: fixed;
         bottom: 24px;
         right: 48px;
-        
+
 
         .tab {
             height: 56px;
@@ -336,10 +336,10 @@ export default {
             border-radius: 12px;
             padding-right: 16px;
             box-shadow:
-            0px -1px 8px 0px rgba(230, 232, 240, 0.9),
-            -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-            1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-            0px 1px 8px 0px rgba(230, 232, 240, 0.9);
+                0px -1px 8px 0px rgba(230, 232, 240, 0.9),
+                -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+                1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+                0px 1px 8px 0px rgba(230, 232, 240, 0.9);
             background-color: white;
 
             .image {
