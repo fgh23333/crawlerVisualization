@@ -7,8 +7,8 @@
                 </div>
                 <div class="right">
                     <div class="markAndLike">
-                        <img class="mark" src="@/assets/icon/icon-mark.svg">
-                        <img class="like" src="@/assets/icon/icon-like.svg">
+                        <img class="mark" src="@/assets/icon/icon-mark.svg" @click="open">
+                        <img class="like" src="@/assets/icon/icon-like.svg" @click="open">
                     </div>
                     <div class="questionType">判断</div>
                     <div class="questionStem">{{ list[i].questionStem }}</div>
@@ -103,6 +103,14 @@ export default {
                 this.list = require(`../assets/${this.lesson}_${this.type}.json`)
             }
         }
+    },
+    methods: {
+        open() {
+            this.$message({
+                showClose: true,
+                message: '开发中，敬请期待'
+            });
+        },
     }
 }
 </script>
