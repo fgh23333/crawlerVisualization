@@ -7,11 +7,15 @@
                 </div>
                 <div class="right">
                     <div class="markAndLike">
-                        <img class="mark" src="@/assets/icon/icon-mark.svg" @click="open">
+                        <transition name="fade" mode="out-in">
+                            <img class="mark"
+                                :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                                @click="changeFlag('markFlag', i)" :key="item.markFlag">
+                        </transition>
                         <transition name="fade" mode="out-in">
                             <img class="like"
                                 :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                                @click="changeFlag(i)" :key="item.likeFlag">
+                                @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
                         </transition>
                     </div>
                     <div class="questionType">判断</div>
@@ -30,11 +34,15 @@
                 </div>
                 <div class="right">
                     <div class="markAndLike">
-                        <img class="mark" src="@/assets/icon/icon-mark.svg">
+                        <transition name="fade" mode="out-in">
+                            <img class="mark"
+                                :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                                @click="changeFlag('markFlag', i)" :key="item.markFlag">
+                        </transition>
                         <transition name="fade" mode="out-in">
                             <img class="like"
                                 :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                                @click="changeFlag(i)" :key="item.likeFlag">
+                                @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
                         </transition>
                     </div>
                     <div class="questionType">单选</div>
@@ -58,11 +66,15 @@
                 </div>
                 <div class="right">
                     <div class="markAndLike">
-                        <img class="mark" src="@/assets/icon/icon-mark.svg">
+                        <transition name="fade" mode="out-in">
+                            <img class="mark"
+                                :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                                @click="changeFlag('markFlag', i)" :key="item.markFlag">
+                        </transition>
                         <transition name="fade" mode="out-in">
                             <img class="like"
                                 :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                                @click="changeFlag(i)" :key="item.likeFlag">
+                                @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
                         </transition>
                     </div>
                     <div class="questionType">多选</div>
@@ -101,11 +113,13 @@ export default {
             this.list = this.list.concat(temp);
             for (let i = 0; i < this.list.length; i++) {
                 this.$set(this.list, i, { ...this.list[i], likeFlag: false });
+                this.$set(this.list, i, { ...this.list[i], markFlag: false });
             }
         } else {
             this.list = require(`../assets/${this.lesson}_${this.type}.json`);
             for (let i = 0; i < this.list.length; i++) {
                 this.$set(this.list, i, { ...this.list[i], likeFlag: false });
+                this.$set(this.list, i, { ...this.list[i], markFlag: false });
             }
         }
     },
@@ -119,24 +133,20 @@ export default {
                 this.list = this.list.concat(temp);
                 for (let i = 0; i < this.list.length; i++) {
                     this.$set(this.list, i, { ...this.list[i], likeFlag: false });
+                    this.$set(this.list, i, { ...this.list[i], markFlag: false });
                 }
             } else {
                 this.list = require(`../assets/${this.lesson}_${this.type}.json`);
                 for (let i = 0; i < this.list.length; i++) {
                     this.$set(this.list, i, { ...this.list[i], likeFlag: false });
+                    this.$set(this.list, i, { ...this.list[i], markFlag: false });
                 }
             }
         }
     },
     methods: {
-        open() {
-            this.$message({
-                showClose: true,
-                message: '开发中，敬请期待'
-            });
-        },
-        changeFlag(i) {
-            this.list[i].likeFlag = !this.list[i].likeFlag
+        changeFlag(flagType, i) {
+            this.list[i][flagType] = !this.list[i][flagType]
         }
     }
 }
@@ -145,7 +155,7 @@ export default {
 <style lang="less">
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 0.05s;
+    transition: opacity 0.15s;
 }
 
 .fade-enter,
