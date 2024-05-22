@@ -8,9 +8,11 @@
                 <div class="right">
                     <div class="markAndLike">
                         <img class="mark" src="@/assets/icon/icon-mark.svg" @click="open">
-                        <img class="like"
-                            :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                            @click="changeFlag(i)">
+                        <transition name="fade" mode="out-in">
+                            <img class="like"
+                                :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                                @click="changeFlag(i)" :key="item.likeFlag">
+                        </transition>
                     </div>
                     <div class="questionType">判断</div>
                     <div class="questionStem">{{ list[i].questionStem }}</div>
@@ -29,9 +31,11 @@
                 <div class="right">
                     <div class="markAndLike">
                         <img class="mark" src="@/assets/icon/icon-mark.svg">
-                        <img class="like"
-                            :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                            @click="changeFlag(i)">
+                        <transition name="fade" mode="out-in">
+                            <img class="like"
+                                :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                                @click="changeFlag(i)" :key="item.likeFlag">
+                        </transition>
                     </div>
                     <div class="questionType">单选</div>
                     <div class="questionStem">{{ list[i].questionStem }}</div>
@@ -55,9 +59,11 @@
                 <div class="right">
                     <div class="markAndLike">
                         <img class="mark" src="@/assets/icon/icon-mark.svg">
-                        <img class="like"
-                            :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                            @click="changeFlag(i)">
+                        <transition name="fade" mode="out-in">
+                            <img class="like"
+                                :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                                @click="changeFlag(i)" :key="item.likeFlag">
+                        </transition>
                     </div>
                     <div class="questionType">多选</div>
                     <div class="questionStem">{{ list[i].questionStem }}</div>
@@ -137,6 +143,16 @@ export default {
 </script>
 
 <style lang="less">
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.05s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
 #questionCard {
     .questionCover {
         background-color: #FFFFFF;
