@@ -8,7 +8,9 @@
                 <div class="right">
                     <div class="markAndLike">
                         <img class="mark" src="@/assets/icon/icon-mark.svg" @click="open">
-                        <img class="like" src="@/assets/icon/icon-like.svg" @click="open">
+                        <img class="like"
+                            :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                            @click="changeFlag(i)">
                     </div>
                     <div class="questionType">判断</div>
                     <div class="questionStem">{{ list[i].questionStem }}</div>
@@ -27,7 +29,9 @@
                 <div class="right">
                     <div class="markAndLike">
                         <img class="mark" src="@/assets/icon/icon-mark.svg">
-                        <img class="like" src="@/assets/icon/icon-like.svg">
+                        <img class="like"
+                            :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                            @click="changeFlag(i)">
                     </div>
                     <div class="questionType">单选</div>
                     <div class="questionStem">{{ list[i].questionStem }}</div>
@@ -51,7 +55,9 @@
                 <div class="right">
                     <div class="markAndLike">
                         <img class="mark" src="@/assets/icon/icon-mark.svg">
-                        <img class="like" src="@/assets/icon/icon-like.svg">
+                        <img class="like"
+                            :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                            @click="changeFlag(i)">
                     </div>
                     <div class="questionType">多选</div>
                     <div class="questionStem">{{ list[i].questionStem }}</div>
@@ -81,26 +87,38 @@ export default {
         }
     },
     created() {
-        this.lesson = this.$route.params.lesson
-        this.type = this.$route.params.type
+        this.lesson = this.$route.params.lesson;
+        this.type = this.$route.params.type;
         if (this.type == 'rightWrong') {
-            this.list = require(`../assets/${this.lesson}_right.json`)
-            let temp = require(`../assets/${this.lesson}_wrong.json`)
-            this.list = this.list.concat(temp)
+            this.list = require(`../assets/${this.lesson}_right.json`);
+            let temp = require(`../assets/${this.lesson}_wrong.json`);
+            this.list = this.list.concat(temp);
+            for (let i = 0; i < this.list.length; i++) {
+                this.$set(this.list, i, { ...this.list[i], likeFlag: false });
+            }
         } else {
-            this.list = require(`../assets/${this.lesson}_${this.type}.json`)
+            this.list = require(`../assets/${this.lesson}_${this.type}.json`);
+            for (let i = 0; i < this.list.length; i++) {
+                this.$set(this.list, i, { ...this.list[i], likeFlag: false });
+            }
         }
     },
     watch: {
         '$route': function (to, from) {
-            this.lesson = to.params.lesson
-            this.type = to.params.type
+            this.lesson = to.params.lesson;
+            this.type = to.params.type;
             if (this.type == 'rightWrong') {
-                this.list = require(`../assets/${this.lesson}_right.json`)
-                let temp = require(`../assets/${this.lesson}_wrong.json`)
-                this.list = this.list.concat(temp)
+                this.list = require(`../assets/${this.lesson}_right.json`);
+                let temp = require(`../assets/${this.lesson}_wrong.json`);
+                this.list = this.list.concat(temp);
+                for (let i = 0; i < this.list.length; i++) {
+                    this.$set(this.list, i, { ...this.list[i], likeFlag: false });
+                }
             } else {
-                this.list = require(`../assets/${this.lesson}_${this.type}.json`)
+                this.list = require(`../assets/${this.lesson}_${this.type}.json`);
+                for (let i = 0; i < this.list.length; i++) {
+                    this.$set(this.list, i, { ...this.list[i], likeFlag: false });
+                }
             }
         }
     },
@@ -111,6 +129,9 @@ export default {
                 message: '开发中，敬请期待'
             });
         },
+        changeFlag(i) {
+            this.list[i].likeFlag = !this.list[i].likeFlag
+        }
     }
 }
 </script>
