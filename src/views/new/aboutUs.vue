@@ -3,7 +3,7 @@
         <div class="info">
             <div class="officalLink box">
                 <div class="title">官网链接</div>
-                <a href="http://222.73.57.150:6571/exam_exercise.html">http://222.73.57.150:6571/exam_exercise.html</a>
+                <a href="http://222.73.57.150:6571/exam_exercise.html">http://222.73.57.153:6571//file/student/html/practiceLogin.html</a>
                 <a href="https://my.shou.edu.cn">https://my.shou.edu.cn</a>
             </div>
             <div class="projectAddress box">
