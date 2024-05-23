@@ -41,7 +41,7 @@ export default {
     methods: {
         updateTable() {
             let src = this.$route.params.lesson;
-            this.table = require(`../assets/${src}_Rewrite.json`);
+            this.table = require(`../assets/${src}_subject.json`);
         },
         tableRowClassName({ row, rowIndex }) {
             if (rowIndex % 2 == 0) {
