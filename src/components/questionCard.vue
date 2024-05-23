@@ -1,7 +1,7 @@
 <template>
     <div id="questionCard">
         <div class="questionCover" v-for="(item, i) in list" :key="i">
-            <div class="questionTypeCover" v-if="list[i].option.length == 2 || list[i].option == ''">
+            <div class="questionTypeCover" v-if="list[i].option.length == 2">
                 <div class="left">
                     <span class="seq">{{ i + 1 }}</span>
                 </div>
@@ -25,6 +25,32 @@
                         <span class="correctAnswer">正确答案：</span>
                         <span class="true" v-if="list[i].answer == '正确'">{{ list[i].answer }}</span>
                         <span class="false" v-if="list[i].answer == '错误'">{{ list[i].answer }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="questionTypeCover" v-if="list[i].option == ''">
+                <div class="left">
+                    <span class="seq">{{ i + 1 }}</span>
+                </div>
+                <div class="right">
+                    <div class="markAndLike">
+                        <transition name="fade" mode="out-in">
+                            <img class="mark"
+                                :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                                @click="changeFlag('markFlag', i)" :key="item.markFlag">
+                        </transition>
+                        <transition name="fade" mode="out-in">
+                            <img class="like"
+                                :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                                @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                        </transition>
+                    </div>
+                    <div class="questionType">填空</div>
+                    <div class="questionStem">{{ list[i].questionStem }}</div>
+                    <div class="questionAnswer">
+                        <span class="colorBefore"></span>
+                        <span class="correctAnswer">正确答案：</span>
+                        <span class="answer">{{ list[i].answer }}</span>
                     </div>
                 </div>
             </div>

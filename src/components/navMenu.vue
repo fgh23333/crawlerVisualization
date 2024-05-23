@@ -15,6 +15,9 @@
                 <el-menu-item>
                     <router-link :to="'/multipleChoice/' + item.src" style="color: black;">多选题</router-link>
                 </el-menu-item>
+                <el-menu-item v-if="newSubject.includes(item.src)">
+                    <router-link :to="'/fillingBlank/' + item.src" style="color: black;">填空题</router-link>
+                </el-menu-item>
             </el-submenu>
             <div class="newVer">
                 <el-button @click="goToNewHome">点击体验新版</el-button>
@@ -27,6 +30,7 @@
 export default {
     data() {
         return {
+            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro'],
             list: [
                 {
                     subject: '马原',

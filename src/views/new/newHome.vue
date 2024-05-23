@@ -28,6 +28,8 @@
                                     :index="'/newHome/singleChoice/' + list[i].src">单选题</el-menu-item>
                                 <el-menu-item class="option"
                                     :index="'/newHome/multipleChoice/' + list[i].src">多选题</el-menu-item>
+                                <el-menu-item class="option"
+                                    :index="'/newHome/fillingBlank/' + list[i].src" v-if="newSubject.includes(item.src)">填空题</el-menu-item>
                             </el-menu-item-group>
                         </el-submenu>
                     </el-menu>
@@ -82,6 +84,7 @@
 export default {
     data() {
         return {
+            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro'],
             list: [
                 {
                     subject: '马原',
