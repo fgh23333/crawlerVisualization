@@ -17,7 +17,7 @@
             </div>
             <div class="members box">
                 <div class="title">制作成员</div>
-                <div class="member">爬虫 | 冯国昊</div>
+                <div class="member">爬虫 | 冯国昊 倪镭</div>
                 <div class="member">网页 | 冯国昊 倪镭</div>
                 <div class="member">设计 | 倪镭</div>
             </div>
