@@ -101,16 +101,21 @@ export default {
     data() {
         return {
             list: [],
-            options: ['A', 'B', 'C', 'D', 'E']
+            options: ['A', 'B', 'C', 'D', 'E'],
+            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro']
         }
     },
     created() {
         this.lesson = this.$route.params.lesson;
         this.type = this.$route.params.type;
         if (this.type == 'rightWrong') {
-            this.list = require(`../assets/${this.lesson}_right.json`);
-            let temp = require(`../assets/${this.lesson}_wrong.json`);
-            this.list = this.list.concat(temp);
+            if (this.newSubject.includes(this.lesson)) {
+                this.list = require(`../assets/${this.lesson}_rightWrong.json`)
+            } else {
+                this.list = require(`../assets/${this.lesson}_right.json`);
+                let temp = require(`../assets/${this.lesson}_wrong.json`);
+                this.list = this.list.concat(temp);
+            }
             for (let i = 0; i < this.list.length; i++) {
                 this.$set(this.list, i, { ...this.list[i], likeFlag: false });
                 this.$set(this.list, i, { ...this.list[i], markFlag: false });
@@ -128,9 +133,13 @@ export default {
             this.lesson = to.params.lesson;
             this.type = to.params.type;
             if (this.type == 'rightWrong') {
-                this.list = require(`../assets/${this.lesson}_right.json`);
-                let temp = require(`../assets/${this.lesson}_wrong.json`);
-                this.list = this.list.concat(temp);
+                if (this.newSubject.includes(this.lesson)) {
+                    this.list = require(`../assets/${this.lesson}_rightWrong.json`)
+                } else {
+                    this.list = require(`../assets/${this.lesson}_right.json`);
+                    let temp = require(`../assets/${this.lesson}_wrong.json`);
+                    this.list = this.list.concat(temp);
+                }
                 for (let i = 0; i < this.list.length; i++) {
                     this.$set(this.list, i, { ...this.list[i], likeFlag: false });
                     this.$set(this.list, i, { ...this.list[i], markFlag: false });
