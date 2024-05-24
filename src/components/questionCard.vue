@@ -1,5 +1,8 @@
 <template>
     <div id="questionCard">
+        <div class="breadCrumb">
+            {{ subjectList[lesson] }} - {{ questionType[type] }} - 共{{ list.length }}题
+        </div>
         <div class="questionCover" v-for="(item, i) in list" :key="i">
             <div class="questionTypeCover" v-if="list[i].option.length == 2">
                 <div class="left">
@@ -128,7 +131,27 @@ export default {
         return {
             list: [],
             options: ['A', 'B', 'C', 'D', 'E'],
-            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro']
+            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro'],
+            subjectList: {
+                'Marx': '马克思主义基本原理',
+                'XiIntro': '习近平新时代中国特色社会主义思想概论',
+                'CMH': '中国近现代史纲要',
+                'Political': '思想道德与法治',
+                'MaoIntro': '毛泽东思想和中国特色社会主义理论体系概论',
+                'CCPH': '中国共产党史',
+                'ORH': '改革开放史',
+                'SDH': '社会主义发展史',
+                'NCH': '新中国史'
+            },
+            questionType: {
+                'subject': '总题库',
+                'rightWrong': '判断题',
+                'singleChoice': '单选题',
+                'multipleChoice': '多选题',
+                'fillingBlank': '填空题'
+            },
+            lesson: '',
+            type: ''
         }
     },
     created() {
@@ -199,6 +222,17 @@ export default {
 }
 
 #questionCard {
+    .breadCrumb {
+        color: #898799;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: left;
+        line-height: 68px;
+        font-family: 思源黑体;
+        margin-left: 34px;
+        height: 68px;
+    }
+
     .questionCover {
         background-color: #FFFFFF;
         padding: 14px 18px;
