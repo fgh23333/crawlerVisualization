@@ -225,7 +225,7 @@ export default {
     .breadCrumb {
         color: #898799;
         font-size: 18px;
-        font-weight: 600;
+        font-weight: medium;
         text-align: left;
         line-height: 68px;
         font-family: 思源黑体;
