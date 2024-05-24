@@ -6,13 +6,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-
+    wrongQuestions: []
   },
   getters: {
   },
   mutations: {
+    ADD_WRONG_QUESTION(state, question) {
+      state.wrongQuestions.push(question);
+    }
   },
   actions: {
+    
   },
   modules: {
   },
