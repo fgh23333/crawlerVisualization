@@ -10,7 +10,8 @@ import fillingBlank from '@/views/fillingBlank.vue'
 import newHome from "@/views/new/newHome.vue"
 import aboutUs from "@/views/new/aboutUs.vue"
 import theHome from "@/views/new/theHome.vue"
-import questionList from "@/views/new/questionList"
+import questionList from "@/views/new/questionList.vue"
+import favorites from "@/views/new/favorites.vue"
 
 Vue.use(VueRouter)
 
@@ -70,10 +71,15 @@ const routes = [
         path: ':type/:lesson',
         name: 'questionList',
         component: questionList
+      },
+      {
+          path: 'favorites',
+          name: 'favorites',
+          component: favorites
       }
     ]
   },
-
+  
 ]
 
 const router = new VueRouter({
