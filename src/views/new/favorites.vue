@@ -3,16 +3,19 @@
         <div class="titleCover">
             <div class="title">收藏夹</div>
             <div class="selector">
-                <el-select v-model="value" placeholder="请选择">
+                <el-select v-model="value" placeholder="请选择" class="select">
                     <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                     </el-option>
                 </el-select>
             </div>
         </div>
+        <!-- <questionCard></questionCard> -->
     </div>
 </template>
 
 <script>
+import questionCard from '@/components/questionCard.vue';
+
 export default {
     data() {
         return {
@@ -32,6 +35,42 @@ export default {
             ],
             value: ''
         }
+    },
+    components: {
+        questionCard
     }
 }
 </script>
+
+<style lang="less" scoped>
+#favorites {
+    .titleCover {
+        .selector {
+            .select {
+                width: 188px;
+                height: 50px;
+                color: #5A5E70;
+                font-size: 24px;
+                line-height: 24px;
+            }
+
+            .select ::v-deep .el-input__inner {
+                border: 3px solid #6C5DD3 !important;
+                border-radius: 10px !important;
+                color: #5A5E70;
+                font-size: 24px;
+                line-height: 24px;
+                font-family: '思源黑体';
+                height: 50px;
+                font-weight: medium;
+            }
+
+            .select ::v-deep .el-input__inner::placeholder {
+                color: #5A5E70;
+                font-family: '思源黑体';
+                font-weight: medium;
+            }
+        }
+    }
+}
+</style>

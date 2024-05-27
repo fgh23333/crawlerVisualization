@@ -1,6 +1,6 @@
 <template>
     <div id="questionCard">
-        <div class="breadCrumb">
+        <div class="breadCrumb" v-if="subjectShow.includes(lesson)">
             {{ subjectList[lesson] }} - {{ questionType[type] }} - 共{{ list.length }}题
         </div>
         <div class="questionCover" v-for="(item, i) in list" :key="i">
@@ -151,7 +151,8 @@ export default {
                 'fillingBlank': '填空题'
             },
             lesson: '',
-            type: ''
+            type: '',
+            subjectShow: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro', 'CCPH', 'ORH', 'SDH', 'NCH']
         }
     },
     created() {
