@@ -3,7 +3,7 @@
         <div class="info">
             <div class="officalLink box">
                 <div class="title">官网链接</div>
-                <a href="http://222.73.57.150:6571/exam_exercise.html">http://222.73.57.153:6571//file/student/html/practiceLogin.html?id=1705139277953761280</a>
+                <a href="http://222.73.57.153:6571/file/student/html/practiceLogin.html?id=1705139277953761280">http://222.73.57.153:6571/file/student/html/practiceLogin.html?id=1705139277953761280</a>
                 <a href="https://my.shou.edu.cn">https://my.shou.edu.cn</a>
             </div>
             <div class="projectAddress box">
@@ -38,7 +38,7 @@ export default {
 <style lang="less">
 #aboutUs {
     .info {
-        width: 580px;
+        width: max-content;
         height: 499px;
         margin: 0px auto;
         margin-top: 160px;
@@ -47,6 +47,8 @@ export default {
         padding-top: 25px;
         box-shadow: 0px 0px 12px 0 rgba(0, 0, 0, 0.15);
         font-family: 思源黑体;
+        padding-right: 25px;
+        padding-bottom: 10px;
 
         .box {
             width: 462px;
@@ -79,6 +81,7 @@ export default {
                 text-align: left;
                 line-height: 37px;
                 margin-left: 14px;
+                overflow-wrap: break-word;
             }
 
             a:visited {
