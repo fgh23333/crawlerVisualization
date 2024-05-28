@@ -9,7 +9,7 @@
                 </el-select>
             </div>
         </div>
-        <!-- <questionCard></questionCard> -->
+        <questionCard></questionCard>
     </div>
 </template>
 
