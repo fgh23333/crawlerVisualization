@@ -14,16 +14,16 @@ export default new Vuex.Store({
     ADD_WRONG_QUESTION(state, question) {
       state.wrongQuestions.push(question);
     },
-    REMOVE_FAVORITE_QUESTION(state, questionId) {
-      state.favoriteQuestions = state.favoriteQuestions.filter(q => q.id !== questionId);
+    REMOVE_WRONG_QUESTION(state, questionId) {
+      state.wrongQuestions = state.wrongQuestions.filter(q => q.id !== questionId);
     },
   },
   actions: {
     addFavoriteQuestion({ commit }, question) {
-      commit('ADD_FAVORITE_QUESTION', question);
+      commit('ADD_WRONG_QUESTION', question)
     },
     removeFavoriteQuestion({ commit }, questionId) {
-      commit('REMOVE_FAVORITE_QUESTION', questionId);
+      commit('REMOVE_WRONG_QUESTION', questionId);
     }
   },
   modules: {

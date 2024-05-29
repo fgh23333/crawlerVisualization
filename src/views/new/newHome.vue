@@ -45,12 +45,12 @@
                                 <div class="text">返回旧版</div>
                             </div>
                         </router-link>
-                        <!-- <router-link to="/"> -->
-                        <div class="tab" @click="open()">
+                        <router-link to="/newHome/favorites">
+                        <div class="tab">
                             <img class="image" src="@/assets/icon/icon-favorites.svg">
                             <div class="text">收藏夹</div>
                         </div>
-                        <!-- </router-link> -->
+                        </router-link>
                         <router-link to="/newHome/aboutUs">
                             <div class="tab">
                                 <img class="image" src="@/assets/icon/icon-info.svg">

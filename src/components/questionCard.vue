@@ -1,131 +1,137 @@
 <template>
     <div id="questionCard">
-        <div class="breadCrumb" v-if="subjectShow.includes(lesson)">
-            {{ subjectList[lesson] }} - {{ questionType[type] }} - 共{{ list.length }}题
-        </div>
-        <div class="questionCover" v-for="(item, i) in list" :key="i">
-            <div class="questionTypeCover" v-if="list[i].option.length == 2">
-                <div class="left">
-                    <span class="seq">{{ i + 1 }}</span>
-                </div>
-                <div class="right">
-                    <div class="markAndLike">
-                        <transition name="fade" mode="out-in">
-                            <img class="mark"
-                                :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                                @click="changeFlag('markFlag', i)" :key="item.markFlag">
-                        </transition>
-                        <transition name="fade" mode="out-in">
-                            <img class="like"
-                                :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                                @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
-                        </transition>
-                    </div>
-                    <div class="questionType">判断</div>
-                    <div class="questionStem">{{ list[i].questionStem }}</div>
-                    <div class="questionAnswer">
-                        <span class="colorBefore"></span>
-                        <span class="correctAnswer">正确答案：</span>
-                        <span class="true" v-if="list[i].answer == '正确'">{{ list[i].answer }}</span>
-                        <span class="false" v-if="list[i].answer == '错误'">{{ list[i].answer }}</span>
-                    </div>
-                </div>
+        <div v-if="list == 0">暂无数据</div>
+        <div v-else>
+            <div class="breadCrumb" v-if="subjectShow.includes(lesson)">
+                {{ subjectList[lesson] }} - {{ questionType[type] }} - 共{{ list.length }}题
             </div>
-            <div class="questionTypeCover" v-if="list[i].option == ''">
-                <div class="left">
-                    <span class="seq">{{ i + 1 }}</span>
-                </div>
-                <div class="right">
-                    <div class="markAndLike">
-                        <transition name="fade" mode="out-in">
-                            <img class="mark"
-                                :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                                @click="changeFlag('markFlag', i)" :key="item.markFlag">
-                        </transition>
-                        <transition name="fade" mode="out-in">
-                            <img class="like"
-                                :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                                @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
-                        </transition>
+            <div class="questionCover" v-for="(item, i) in list" :key="i">
+                <div class="questionTypeCover" v-if="list[i].option.length == 2">
+                    <div class="left">
+                        <span class="seq">{{ i + 1 }}</span>
                     </div>
-                    <div class="questionType">填空</div>
-                    <div class="questionStem">{{ list[i].questionStem }}</div>
-                    <div class="questionAnswer">
-                        <span class="colorBefore"></span>
-                        <span class="correctAnswer">正确答案：</span>
-                        <span class="answer">{{ list[i].answer }}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="questionTypeCover" v-if="list[i].option.length == 4 && list[i].answer.length == 1">
-                <div class="left">
-                    <span class="seq">{{ i + 1 }}</span>
-                </div>
-                <div class="right">
-                    <div class="markAndLike">
-                        <transition name="fade" mode="out-in">
-                            <img class="mark"
-                                :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                                @click="changeFlag('markFlag', i)" :key="item.markFlag">
-                        </transition>
-                        <transition name="fade" mode="out-in">
-                            <img class="like"
-                                :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                                @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
-                        </transition>
-                    </div>
-                    <div class="questionType">单选</div>
-                    <div class="questionStem">{{ list[i].questionStem }}</div>
-                    <div class="questionOpt">
-                        <div class="option" v-for="(item, k) in list[i].option" :key="k">
-                            <div class="dot"></div>
-                            <div class="optText">{{ options[k] }}、{{ list[i].option[k] }}</div>
+                    <div class="right">
+                        <div class="markAndLike">
+                            <transition name="fade" mode="out-in">
+                                <img class="mark"
+                                    :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                                    @click="changeFlag('markFlag', i)" :key="item.markFlag">
+                            </transition>
+                            <transition name="fade" mode="out-in">
+                                <img class="like"
+                                    :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                                    @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                            </transition>
+                        </div>
+                        <div class="questionType">判断</div>
+                        <div class="questionStem">{{ list[i].questionStem }}</div>
+                        <div class="questionAnswer">
+                            <span class="colorBefore"></span>
+                            <span class="correctAnswer">正确答案：</span>
+                            <span class="true" v-if="list[i].answer == '正确'">{{ list[i].answer }}</span>
+                            <span class="false" v-if="list[i].answer == '错误'">{{ list[i].answer }}</span>
                         </div>
                     </div>
-                    <div class="questionAnswer">
-                        <span class="colorBefore"></span>
-                        <span class="correctAnswer">正确答案：</span>
-                        <span class="answer">{{ list[i].answer }}</span>
-                    </div>
                 </div>
-            </div>
-            <div class="questionTypeCover" v-if="list[i].option.length > 3 && list[i].answer.length > 1">
-                <div class="left">
-                    <span class="seq">{{ i + 1 }}</span>
-                </div>
-                <div class="right">
-                    <div class="markAndLike">
-                        <transition name="fade" mode="out-in">
-                            <img class="mark"
-                                :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                                @click="changeFlag('markFlag', i)" :key="item.markFlag">
-                        </transition>
-                        <transition name="fade" mode="out-in">
-                            <img class="like"
-                                :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                                @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
-                        </transition>
+                <div class="questionTypeCover" v-if="list[i].option == ''">
+                    <div class="left">
+                        <span class="seq">{{ i + 1 }}</span>
                     </div>
-                    <div class="questionType">多选</div>
-                    <div class="questionStem">{{ list[i].questionStem }}</div>
-                    <div class="questionOpt">
-                        <div class="option" v-for="(item, k) in list[i].option" :key="k">
-                            <div class="dot"></div>
-                            <div class="optText">{{ options[k] }}、{{ list[i].option[k] }}</div>
+                    <div class="right">
+                        <div class="markAndLike">
+                            <transition name="fade" mode="out-in">
+                                <img class="mark"
+                                    :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                                    @click="changeFlag('markFlag', i)" :key="item.markFlag">
+                            </transition>
+                            <transition name="fade" mode="out-in">
+                                <img class="like"
+                                    :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                                    @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                            </transition>
+                        </div>
+                        <div class="questionType">填空</div>
+                        <div class="questionStem">{{ list[i].questionStem }}</div>
+                        <div class="questionAnswer">
+                            <span class="colorBefore"></span>
+                            <span class="correctAnswer">正确答案：</span>
+                            <span class="answer">{{ list[i].answer }}</span>
                         </div>
                     </div>
-                    <div class="questionAnswer">
-                        <span class="colorBefore"></span>
-                        <span class="correctAnswer">正确答案：</span>
-                        <span class="answer">{{ list[i].answer }}</span>
+                </div>
+                <div class="questionTypeCover" v-if="list[i].option.length == 4 && list[i].answer.length == 1">
+                    <div class="left">
+                        <span class="seq">{{ i + 1 }}</span>
+                    </div>
+                    <div class="right">
+                        <div class="markAndLike">
+                            <transition name="fade" mode="out-in">
+                                <img class="mark"
+                                    :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                                    @click="changeFlag('markFlag', i)" :key="item.markFlag">
+                            </transition>
+                            <transition name="fade" mode="out-in">
+                                <img class="like"
+                                    :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                                    @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                            </transition>
+                        </div>
+                        <div class="questionType">单选</div>
+                        <div class="questionStem">{{ list[i].questionStem }}</div>
+                        <div class="questionOpt">
+                            <div class="option" v-for="(item, k) in list[i].option" :key="k">
+                                <div class="dot"></div>
+                                <div class="optText">{{ options[k] }}、{{ list[i].option[k] }}</div>
+                            </div>
+                        </div>
+                        <div class="questionAnswer">
+                            <span class="colorBefore"></span>
+                            <span class="correctAnswer">正确答案：</span>
+                            <span class="answer">{{ list[i].answer }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="questionTypeCover" v-if="list[i].option.length > 3 && list[i].answer.length > 1">
+                    <div class="left">
+                        <span class="seq">{{ i + 1 }}</span>
+                    </div>
+                    <div class="right">
+                        <div class="markAndLike">
+                            <transition name="fade" mode="out-in">
+                                <img class="mark"
+                                    :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                                    @click="changeFlag('markFlag', i)" :key="item.markFlag">
+                            </transition>
+                            <transition name="fade" mode="out-in">
+                                <img class="like"
+                                    :src="list[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                                    @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                            </transition>
+                        </div>
+                        <div class="questionType">多选</div>
+                        <div class="questionStem">{{ list[i].questionStem }}</div>
+                        <div class="questionOpt">
+                            <div class="option" v-for="(item, k) in list[i].option" :key="k">
+                                <div class="dot"></div>
+                                <div class="optText">{{ options[k] }}、{{ list[i].option[k] }}</div>
+                            </div>
+                        </div>
+                        <div class="questionAnswer">
+                            <span class="colorBefore"></span>
+                            <span class="correctAnswer">正确答案：</span>
+                            <span class="answer">{{ list[i].answer }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
     data() {
         return {
@@ -158,23 +164,27 @@ export default {
     created() {
         this.lesson = this.$route.params.lesson;
         this.type = this.$route.params.type;
-        if (this.type == 'rightWrong') {
-            if (this.newSubject.includes(this.lesson)) {
-                this.list = require(`../assets/${this.lesson}_rightWrong.json`)
-            } else {
-                this.list = require(`../assets/${this.lesson}_right.json`);
-                let temp = require(`../assets/${this.lesson}_wrong.json`);
-                this.list = this.list.concat(temp);
-            }
-            for (let i = 0; i < this.list.length; i++) {
-                this.$set(this.list, i, { ...this.list[i], likeFlag: false });
-                this.$set(this.list, i, { ...this.list[i], markFlag: false });
-            }
+        if (this.$route.path == "/newHome/favorites") {
+            this.list = this.$store.state.wrongQuestions
         } else {
-            this.list = require(`../assets/${this.lesson}_${this.type}.json`);
-            for (let i = 0; i < this.list.length; i++) {
-                this.$set(this.list, i, { ...this.list[i], likeFlag: false });
-                this.$set(this.list, i, { ...this.list[i], markFlag: false });
+            if (this.type == 'rightWrong') {
+                if (this.newSubject.includes(this.lesson)) {
+                    this.list = require(`../assets/${this.lesson}_rightWrong.json`)
+                } else {
+                    this.list = require(`../assets/${this.lesson}_right.json`);
+                    let temp = require(`../assets/${this.lesson}_wrong.json`);
+                    this.list = this.list.concat(temp);
+                }
+                for (let i = 0; i < this.list.length; i++) {
+                    this.$set(this.list, i, { ...this.list[i], likeFlag: false });
+                    this.$set(this.list, i, { ...this.list[i], markFlag: false });
+                }
+            } else {
+                this.list = require(`../assets/${this.lesson}_${this.type}.json`);
+                for (let i = 0; i < this.list.length; i++) {
+                    this.$set(this.list, i, { ...this.list[i], likeFlag: false });
+                    this.$set(this.list, i, { ...this.list[i], markFlag: false });
+                }
             }
         }
     },
@@ -204,9 +214,18 @@ export default {
         }
     },
     methods: {
+        ...mapActions(['addFavoriteQuestion', 'removeFavoriteQuestion']),
         changeFlag(flagType, i) {
             this.list[i][flagType] = !this.list[i][flagType]
-        }
+            if (this.list[i][flagType]) {
+                this.addFavoriteQuestion(this.list[i]);
+            } else {
+                this.removeFavoriteQuestion(this.list[i].id)
+                if (this.$route.path == "/newHome/favorites") {
+                    this.list = this.$store.state.wrongQuestions
+                }
+            }
+        },
     }
 }
 </script>

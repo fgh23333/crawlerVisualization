@@ -45,6 +45,8 @@ export default {
 <style lang="less" scoped>
 #favorites {
     .titleCover {
+        text-align: left;
+
         .title {
             font-weight: bold;
             font-size: 36px;
@@ -52,8 +54,14 @@ export default {
             color: #6C5DD3;
             height: 36px;
             letter-spacing: 3px;
+            display: inline-block;
+            width: fit-content;
+            margin-right: 36px;
         }
+
         .selector {
+            display: inline-block;
+
             .select {
                 width: 188px;
                 height: 50px;
@@ -77,6 +85,10 @@ export default {
                 color: #5A5E70;
                 font-family: '思源黑体';
                 font-weight: 500;
+            }
+
+            .select ::v-deep .el-input__icon {
+                height: auto;
             }
         }
     }
