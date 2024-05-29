@@ -175,16 +175,8 @@ export default {
                     let temp = require(`../assets/${this.lesson}_wrong.json`);
                     this.list = this.list.concat(temp);
                 }
-                for (let i = 0; i < this.list.length; i++) {
-                    this.$set(this.list, i, { ...this.list[i], likeFlag: false });
-                    this.$set(this.list, i, { ...this.list[i], markFlag: false });
-                }
             } else {
                 this.list = require(`../assets/${this.lesson}_${this.type}.json`);
-                for (let i = 0; i < this.list.length; i++) {
-                    this.$set(this.list, i, { ...this.list[i], likeFlag: false });
-                    this.$set(this.list, i, { ...this.list[i], markFlag: false });
-                }
             }
         }
     },
@@ -200,16 +192,8 @@ export default {
                     let temp = require(`../assets/${this.lesson}_wrong.json`);
                     this.list = this.list.concat(temp);
                 }
-                for (let i = 0; i < this.list.length; i++) {
-                    this.$set(this.list, i, { ...this.list[i], likeFlag: false });
-                    this.$set(this.list, i, { ...this.list[i], markFlag: false });
-                }
             } else {
                 this.list = require(`../assets/${this.lesson}_${this.type}.json`);
-                for (let i = 0; i < this.list.length; i++) {
-                    this.$set(this.list, i, { ...this.list[i], likeFlag: false });
-                    this.$set(this.list, i, { ...this.list[i], markFlag: false });
-                }
             }
         }
     },
