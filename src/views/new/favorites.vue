@@ -2,12 +2,12 @@
     <div id="favorites">
         <div class="titleCover">
             <div class="title">收藏夹</div>
-            <div class="selector">
+            <!-- <div class="selector">
                 <el-select v-model="value" placeholder="请选择" class="select">
                     <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                     </el-option>
                 </el-select>
-            </div>
+            </div> -->
         </div>
         <questionCard></questionCard>
     </div>

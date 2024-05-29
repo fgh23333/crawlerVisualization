@@ -232,7 +232,6 @@ export default {
                     message: '该学科收藏功能开发中'
                 });
             }
-
         },
     }
 }
