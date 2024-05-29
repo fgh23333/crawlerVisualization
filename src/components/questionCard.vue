@@ -170,13 +170,52 @@ export default {
             if (this.type == 'rightWrong') {
                 if (this.newSubject.includes(this.lesson)) {
                     this.list = require(`../assets/${this.lesson}_rightWrong.json`)
+                    if (this.$store.state.wrongQuestions) {
+                        this.$store.state.wrongQuestions.forEach(subsetItem => {
+                            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
+                            if (supersetItem) {
+                                supersetItem.likeFlag = true;
+                            }
+                        });
+                    } else {
+                        this.$message({
+                            showClose: true,
+                            message: '收藏夹是空的哦'
+                        });
+                    }
                 } else {
                     this.list = require(`../assets/${this.lesson}_right.json`);
                     let temp = require(`../assets/${this.lesson}_wrong.json`);
                     this.list = this.list.concat(temp);
+                    if (this.$store.state.wrongQuestions) {
+                        this.$store.state.wrongQuestions.forEach(subsetItem => {
+                            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
+                            if (supersetItem) {
+                                supersetItem.likeFlag = true;
+                            }
+                        });
+                    } else {
+                        this.$message({
+                            showClose: true,
+                            message: '收藏夹是空的哦'
+                        });
+                    }
                 }
             } else {
                 this.list = require(`../assets/${this.lesson}_${this.type}.json`);
+                if (this.$store.state.wrongQuestions) {
+                    this.$store.state.wrongQuestions.forEach(subsetItem => {
+                        let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
+                        if (supersetItem) {
+                            supersetItem.likeFlag = true;
+                        }
+                    });
+                } else {
+                    this.$message({
+                        showClose: true,
+                        message: '收藏夹是空的哦'
+                    });
+                }
             }
         }
     },
@@ -187,13 +226,52 @@ export default {
             if (this.type == 'rightWrong') {
                 if (this.newSubject.includes(this.lesson)) {
                     this.list = require(`../assets/${this.lesson}_rightWrong.json`)
+                    if (this.$store.state.wrongQuestions) {
+                        this.$store.state.wrongQuestions.forEach(subsetItem => {
+                            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
+                            if (supersetItem) {
+                                supersetItem.likeFlag = true;
+                            }
+                        });
+                    } else {
+                        this.$message({
+                            showClose: true,
+                            message: '收藏夹是空的哦'
+                        });
+                    }
                 } else {
                     this.list = require(`../assets/${this.lesson}_right.json`);
                     let temp = require(`../assets/${this.lesson}_wrong.json`);
                     this.list = this.list.concat(temp);
+                    if (this.$store.state.wrongQuestions) {
+                        this.$store.state.wrongQuestions.forEach(subsetItem => {
+                            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
+                            if (supersetItem) {
+                                supersetItem.likeFlag = true;
+                            }
+                        });
+                    } else {
+                        this.$message({
+                            showClose: true,
+                            message: '收藏夹是空的哦'
+                        });
+                    }
                 }
             } else {
                 this.list = require(`../assets/${this.lesson}_${this.type}.json`);
+                if (this.$store.state.wrongQuestions) {
+                    this.$store.state.wrongQuestions.forEach(subsetItem => {
+                        let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
+                        if (supersetItem) {
+                            supersetItem.likeFlag = true;
+                        }
+                    });
+                } else {
+                    this.$message({
+                        showClose: true,
+                        message: '收藏夹是空的哦'
+                    });
+                }
             }
         }
     },
