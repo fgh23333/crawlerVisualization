@@ -170,7 +170,7 @@ export default {
             if (this.type == 'rightWrong') {
                 if (this.newSubject.includes(this.lesson)) {
                     this.list = require(`../assets/${this.lesson}_rightWrong.json`)
-                    if (this.$store.state.wrongQuestions) {
+                    if (this.$store.state.wrongQuestions !== '') {
                         this.$store.state.wrongQuestions.forEach(subsetItem => {
                             let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
                             if (supersetItem) {
@@ -187,7 +187,7 @@ export default {
                     this.list = require(`../assets/${this.lesson}_right.json`);
                     let temp = require(`../assets/${this.lesson}_wrong.json`);
                     this.list = this.list.concat(temp);
-                    if (this.$store.state.wrongQuestions) {
+                    if (this.$store.state.wrongQuestions !== '') {
                         this.$store.state.wrongQuestions.forEach(subsetItem => {
                             let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
                             if (supersetItem) {
@@ -203,7 +203,7 @@ export default {
                 }
             } else {
                 this.list = require(`../assets/${this.lesson}_${this.type}.json`);
-                if (this.$store.state.wrongQuestions) {
+                if (this.$store.state.wrongQuestions !== '') {
                     this.$store.state.wrongQuestions.forEach(subsetItem => {
                         let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
                         if (supersetItem) {
@@ -226,7 +226,7 @@ export default {
             if (this.type == 'rightWrong') {
                 if (this.newSubject.includes(this.lesson)) {
                     this.list = require(`../assets/${this.lesson}_rightWrong.json`)
-                    if (this.$store.state.wrongQuestions) {
+                    if (this.$store.state.wrongQuestions !== '') {
                         this.$store.state.wrongQuestions.forEach(subsetItem => {
                             let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
                             if (supersetItem) {
@@ -243,7 +243,7 @@ export default {
                     this.list = require(`../assets/${this.lesson}_right.json`);
                     let temp = require(`../assets/${this.lesson}_wrong.json`);
                     this.list = this.list.concat(temp);
-                    if (this.$store.state.wrongQuestions) {
+                    if (this.$store.state.wrongQuestions !== '') {
                         this.$store.state.wrongQuestions.forEach(subsetItem => {
                             let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
                             if (supersetItem) {
@@ -259,7 +259,7 @@ export default {
                 }
             } else {
                 this.list = require(`../assets/${this.lesson}_${this.type}.json`);
-                if (this.$store.state.wrongQuestions) {
+                if (this.$store.state.wrongQuestions !== '') {
                     this.$store.state.wrongQuestions.forEach(subsetItem => {
                         let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
                         if (supersetItem) {
