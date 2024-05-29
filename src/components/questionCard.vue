@@ -85,7 +85,7 @@
                     <div class="questionAnswer">
                         <span class="colorBefore"></span>
                         <span class="correctAnswer">正确答案：</span>
-                        <span class="answer">{{ list[i].answer[0] }}</span>
+                        <span class="answer">{{ list[i].answer }}</span>
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                     <div class="questionAnswer">
                         <span class="colorBefore"></span>
                         <span class="correctAnswer">正确答案：</span>
-                        <span class="answer" v-for="(ans, j) in list[i].answer" :key="j">{{ list[i].answer[j] }}</span>
+                        <span class="answer">{{ list[i].answer }}</span>
                     </div>
                 </div>
             </div>
