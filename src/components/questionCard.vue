@@ -15,7 +15,7 @@
                             <transition name="fade" mode="out-in">
                                 <img class="mark"
                                     :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                                    @click="changeFlag('markFlag', i)" :key="item.markFlag">
+                                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
                             </transition>
                             <transition name="fade" mode="out-in">
                                 <img class="like"
@@ -42,7 +42,7 @@
                             <transition name="fade" mode="out-in">
                                 <img class="mark"
                                     :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                                    @click="changeFlag('markFlag', i)" :key="item.markFlag">
+                                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
                             </transition>
                             <transition name="fade" mode="out-in">
                                 <img class="like"
@@ -68,7 +68,7 @@
                             <transition name="fade" mode="out-in">
                                 <img class="mark"
                                     :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                                    @click="changeFlag('markFlag', i)" :key="item.markFlag">
+                                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
                             </transition>
                             <transition name="fade" mode="out-in">
                                 <img class="like"
@@ -100,7 +100,7 @@
                             <transition name="fade" mode="out-in">
                                 <img class="mark"
                                     :src="list[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                                    @click="changeFlag('markFlag', i)" :key="item.markFlag">
+                                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
                             </transition>
                             <transition name="fade" mode="out-in">
                                 <img class="like"
@@ -233,6 +233,9 @@ export default {
                 });
             }
         },
+        changeFlagIcon(flagType, i) {
+            this.list[i][flagType] = !this.list[i][flagType]
+        }
     }
 }
 </script>
