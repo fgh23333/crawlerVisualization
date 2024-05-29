@@ -200,7 +200,7 @@ export default {
     methods: {
         ...mapActions(['addFavoriteQuestion', 'removeFavoriteQuestion']),
         changeFlag(flagType, i) {
-            if (this.newSubject.includes(this.$route.params.lesson)) {
+            if (this.newSubject.includes(this.$route.params.lesson) || this.$route.path == "/newHome/favorites") {
                 this.list[i][flagType] = !this.list[i][flagType]
                 if (this.list[i][flagType]) {
                     this.addFavoriteQuestion(this.list[i]);
