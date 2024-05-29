@@ -216,15 +216,23 @@ export default {
     methods: {
         ...mapActions(['addFavoriteQuestion', 'removeFavoriteQuestion']),
         changeFlag(flagType, i) {
-            this.list[i][flagType] = !this.list[i][flagType]
-            if (this.list[i][flagType]) {
-                this.addFavoriteQuestion(this.list[i]);
-            } else {
-                this.removeFavoriteQuestion(this.list[i].id)
-                if (this.$route.path == "/newHome/favorites") {
-                    this.list = this.$store.state.wrongQuestions
+            if (this.newSubject.includes(this.$route.params.lesson)) {
+                this.list[i][flagType] = !this.list[i][flagType]
+                if (this.list[i][flagType]) {
+                    this.addFavoriteQuestion(this.list[i]);
+                } else {
+                    this.removeFavoriteQuestion(this.list[i].id)
+                    if (this.$route.path == "/newHome/favorites") {
+                        this.list = this.$store.state.wrongQuestions
+                    }
                 }
+            } else {
+                this.$message({
+                    showClose: true,
+                    message: '该学科收藏功能开发中'
+                });
             }
+
         },
     }
 }
