@@ -23,7 +23,12 @@
                                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
                             </transition>
                         </div>
-                        <div class="questionType"><span v-if="$route.path == '/newHome/favorites'">{{  }} - </span>判断</div>
+                        <div class="questionType">
+                            <span v-if="$route.path == '/newHome/favorites'">
+                                {{ abbreviationSubjectList[list[i][abbreviationSubject]] }} -
+                            </span>
+                            <span>判断</span>
+                        </div>
                         <div class="questionStem">{{ list[i].questionStem }}</div>
                         <div class="questionAnswer">
                             <span class="colorBefore"></span>
@@ -158,7 +163,18 @@ export default {
             },
             lesson: '',
             type: '',
-            subjectShow: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro', 'CCPH', 'ORH', 'SDH', 'NCH']
+            subjectShow: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro', 'CCPH', 'ORH', 'SDH', 'NCH'],
+            abbreviationSubjectList: {
+                'Marx': '马原',
+                'CMH': '近代史',
+                'Political': '思政',
+                'MaoIntro': '毛概',
+                'XiIntro': '习概',
+                'SDH': '社主史',
+                'NCH': '新中国史',
+                'CCPH': '党史',
+                'ORH': '改开史'
+            }
         }
     },
     created() {
@@ -281,6 +297,7 @@ export default {
             if (this.newSubject.includes(this.$route.params.lesson) || this.$route.path == "/newHome/favorites") {
                 this.list[i][flagType] = !this.list[i][flagType]
                 if (this.list[i][flagType]) {
+                    this.list[i]["abbreviationSubject"] = this.$route.params.subject
                     this.addFavoriteQuestion(this.list[i]);
                 } else {
                     this.removeFavoriteQuestion(this.list[i].id)
@@ -447,7 +464,7 @@ export default {
                         font-size: 18px;
                     }
 
-                    .true {
+                    .false {
                         color: #FF3B3B;
                         display: inline-block;
                         height: 30px;
@@ -455,7 +472,7 @@ export default {
                         font-size: 18px;
                     }
 
-                    .false {
+                    .true {
                         color: #0BDE00;
                         display: inline-block;
                         height: 30px;
