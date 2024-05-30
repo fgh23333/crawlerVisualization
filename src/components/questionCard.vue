@@ -348,7 +348,7 @@ export default {
     .breadCrumb {
         color: #898799;
         font-size: 18px;
-        font-weight: medium;
+        font-weight: 500;
         text-align: left;
         line-height: 68px;
         font-family: 思源黑体;
@@ -423,7 +423,7 @@ export default {
                 }
 
                 .questionStem {
-                    font-weight: medium;
+                    font-weight: 500;
                     letter-spacing: 1px;
                     font-size: 18px;
                     margin-bottom: 4px;
