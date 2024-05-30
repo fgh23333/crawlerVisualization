@@ -23,7 +23,7 @@
                                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
                             </transition>
                         </div>
-                        <div class="questionType"><span></span>判断</div>
+                        <div class="questionType"><span v-if="$route.path == '/newHome/favorites'">{{  }} - </span>判断</div>
                         <div class="questionStem">{{ list[i].questionStem }}</div>
                         <div class="questionAnswer">
                             <span class="colorBefore"></span>
