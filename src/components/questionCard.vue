@@ -25,7 +25,7 @@
                         </div>
                         <div class="questionType">
                             <span v-if="$route.path == '/newHome/favorites'">
-                                {{ abbreviationSubjectList[list[i][abbreviationSubject]] }} -
+                                {{ abbreviationSubjectList[list[i].abbreviationSubject] }} -
                             </span>
                             <span>判断</span>
                         </div>
@@ -297,7 +297,6 @@ export default {
             if (this.newSubject.includes(this.$route.params.lesson) || this.$route.path == "/newHome/favorites") {
                 this.list[i][flagType] = !this.list[i][flagType]
                 if (this.list[i][flagType]) {
-                    this.list[i]["abbreviationSubject"] = this.$route.params.subject
                     this.addFavoriteQuestion(this.list[i]);
                 } else {
                     this.removeFavoriteQuestion(this.list[i].id)
