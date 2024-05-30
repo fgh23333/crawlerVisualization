@@ -55,7 +55,12 @@
                                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
                             </transition>
                         </div>
-                        <div class="questionType">填空</div>
+                        <div class="questionType">
+                            <span v-if="$route.path == '/newHome/favorites'">
+                                {{ abbreviationSubjectList[list[i].abbreviationSubject] }} -
+                            </span>
+                            <span>填空</span>
+                        </div>
                         <div class="questionStem">{{ list[i].questionStem }}</div>
                         <div class="questionAnswer">
                             <span class="colorBefore"></span>
@@ -81,7 +86,12 @@
                                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
                             </transition>
                         </div>
-                        <div class="questionType">单选</div>
+                        <div class="questionType">
+                            <span v-if="$route.path == '/newHome/favorites'">
+                                {{ abbreviationSubjectList[list[i].abbreviationSubject] }} -
+                            </span>
+                            <span>单选</span>
+                        </div>
                         <div class="questionStem">{{ list[i].questionStem }}</div>
                         <div class="questionOpt">
                             <div class="option" v-for="(item, k) in list[i].option" :key="k">
@@ -113,7 +123,12 @@
                                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
                             </transition>
                         </div>
-                        <div class="questionType">多选</div>
+                        <div class="questionType">
+                            <span v-if="$route.path == '/newHome/favorites'">
+                                {{ abbreviationSubjectList[list[i].abbreviationSubject] }} -
+                            </span>
+                            <span>多选</span>
+                        </div>
                         <div class="questionStem">{{ list[i].questionStem }}</div>
                         <div class="questionOpt">
                             <div class="option" v-for="(item, k) in list[i].option" :key="k">
