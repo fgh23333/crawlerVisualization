@@ -478,7 +478,7 @@ export default {
                         font-size: 18px;
                     }
 
-                    .true {
+                    .false {
                         color: #FF3B3B;
                         display: inline-block;
                         height: 30px;
@@ -486,7 +486,7 @@ export default {
                         font-size: 18px;
                     }
 
-                    .false {
+                    .true {
                         color: #0BDE00;
                         display: inline-block;
                         height: 30px;
