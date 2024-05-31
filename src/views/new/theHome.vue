@@ -79,6 +79,7 @@
   font-family: HarmonyOSSansSC;
   font-weight: 900;
   line-height: 46px;
+  letter-spacing: 1px;
 }
 
 .text_11 {
@@ -89,6 +90,7 @@
   font-weight: 700;
   line-height: 43px;
   text-align: left;
+  letter-spacing: 1px;
 }
 
 .group_5 {
