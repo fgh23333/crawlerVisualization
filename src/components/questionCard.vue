@@ -157,7 +157,7 @@ export default {
         return {
             list: [],
             options: ['A', 'B', 'C', 'D', 'E'],
-            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro'],
+            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro', 'NCH', 'ORH'],
             subjectList: {
                 'Marx': '马克思主义基本原理',
                 'XiIntro': '习近平新时代中国特色社会主义思想概论',
