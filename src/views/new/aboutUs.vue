@@ -54,12 +54,12 @@ export default {
         padding-top: 25px;
         box-shadow: 0px 0px 12px 0 rgba(0, 0, 0, 0.15);
         font-family: 思源黑体;
-        padding-right: 36px;
+        padding-right: 30px;
         padding-bottom: 10px;
 
         .box {
             width: 462px;
-            margin-left: 36px;
+            margin-left: 32px;
             margin-bottom: 15px;
             position: relative;
 
