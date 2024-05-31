@@ -18,7 +18,7 @@ export default {
         return {
             table: [],
             lesson: '',
-            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro']
+            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro', 'ORH', 'NCH']
         }
     },
     created() {

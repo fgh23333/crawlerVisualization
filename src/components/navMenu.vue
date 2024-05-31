@@ -30,7 +30,7 @@
 export default {
     data() {
         return {
-            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro'],
+            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro', 'NCH', 'ORH'],
             list: [
                 {
                     subject: '马原',
