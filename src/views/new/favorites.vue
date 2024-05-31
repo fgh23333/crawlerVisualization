@@ -21,17 +21,45 @@ export default {
         return {
             options: [
                 {
-                    value: 'all',
+                    value: '',
                     label: '全部题目'
                 },
                 {
-                    value: 'myFavorites',
-                    label: '我收藏的'
+                    value: 'Marx',
+                    label: '马原'
                 },
                 {
-                    value: 'wrongData',
-                    label: '错题集'
-                }
+                    value: 'CMH',
+                    label: '近代史'
+                },
+                {
+                    value: 'Political',
+                    label: '思政'
+                },
+                {
+                    value: 'MaoIntro',
+                    label: '毛概'
+                },
+                {
+                    value: 'XiIntro',
+                    label: '习概'
+                },
+                {
+                    value: 'ORH',
+                    label: '改开史'
+                },
+                {
+                    value: 'NCH',
+                    label: '新中国史'
+                },
+                // {
+                //     value: '社主史',
+                //     label: 'SDH',
+                // },
+                // {
+                //     value: '党史',
+                //     label: 'CCPH',
+                // }
             ],
             value: ''
         }
