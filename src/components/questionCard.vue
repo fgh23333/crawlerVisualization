@@ -157,7 +157,6 @@ export default {
         return {
             list: [],
             options: ['A', 'B', 'C', 'D', 'E'],
-            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro', 'NCH', 'ORH'],
             subjectList: {
                 'Marx': '马克思主义基本原理',
                 'XiIntro': '习近平新时代中国特色社会主义思想概论',
@@ -199,38 +198,19 @@ export default {
             this.list = this.$store.state.wrongQuestions
         } else {
             if (this.type == 'rightWrong') {
-                if (this.newSubject.includes(this.lesson)) {
-                    this.list = require(`../assets/${this.lesson}_rightWrong.json`)
-                    if (this.$store.state.wrongQuestions !== '') {
-                        this.$store.state.wrongQuestions.forEach(subsetItem => {
-                            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
-                            if (supersetItem) {
-                                supersetItem.likeFlag = true;
-                            }
-                        });
-                    } else {
-                        this.$message({
-                            showClose: true,
-                            message: '收藏夹是空的哦'
-                        });
-                    }
+                this.list = require(`../assets/${this.lesson}_rightWrong.json`)
+                if (this.$store.state.wrongQuestions !== '') {
+                    this.$store.state.wrongQuestions.forEach(subsetItem => {
+                        let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
+                        if (supersetItem) {
+                            supersetItem.likeFlag = true;
+                        }
+                    });
                 } else {
-                    this.list = require(`../assets/${this.lesson}_right.json`);
-                    let temp = require(`../assets/${this.lesson}_wrong.json`);
-                    this.list = this.list.concat(temp);
-                    if (this.$store.state.wrongQuestions !== '') {
-                        this.$store.state.wrongQuestions.forEach(subsetItem => {
-                            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
-                            if (supersetItem) {
-                                supersetItem.likeFlag = true;
-                            }
-                        });
-                    } else {
-                        this.$message({
-                            showClose: true,
-                            message: '收藏夹是空的哦'
-                        });
-                    }
+                    this.$message({
+                        showClose: true,
+                        message: '收藏夹是空的哦'
+                    });
                 }
             } else {
                 this.list = require(`../assets/${this.lesson}_${this.type}.json`);
@@ -255,38 +235,19 @@ export default {
             this.lesson = to.params.lesson;
             this.type = to.params.type;
             if (this.type == 'rightWrong') {
-                if (this.newSubject.includes(this.lesson)) {
-                    this.list = require(`../assets/${this.lesson}_rightWrong.json`)
-                    if (this.$store.state.wrongQuestions !== '') {
-                        this.$store.state.wrongQuestions.forEach(subsetItem => {
-                            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
-                            if (supersetItem) {
-                                supersetItem.likeFlag = true;
-                            }
-                        });
-                    } else {
-                        this.$message({
-                            showClose: true,
-                            message: '收藏夹是空的哦'
-                        });
-                    }
+                this.list = require(`../assets/${this.lesson}_rightWrong.json`)
+                if (this.$store.state.wrongQuestions !== '') {
+                    this.$store.state.wrongQuestions.forEach(subsetItem => {
+                        let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
+                        if (supersetItem) {
+                            supersetItem.likeFlag = true;
+                        }
+                    });
                 } else {
-                    this.list = require(`../assets/${this.lesson}_right.json`);
-                    let temp = require(`../assets/${this.lesson}_wrong.json`);
-                    this.list = this.list.concat(temp);
-                    if (this.$store.state.wrongQuestions !== '') {
-                        this.$store.state.wrongQuestions.forEach(subsetItem => {
-                            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
-                            if (supersetItem) {
-                                supersetItem.likeFlag = true;
-                            }
-                        });
-                    } else {
-                        this.$message({
-                            showClose: true,
-                            message: '收藏夹是空的哦'
-                        });
-                    }
+                    this.$message({
+                        showClose: true,
+                        message: '收藏夹是空的哦'
+                    });
                 }
             } else {
                 this.list = require(`../assets/${this.lesson}_${this.type}.json`);
@@ -309,21 +270,14 @@ export default {
     methods: {
         ...mapActions(['addFavoriteQuestion', 'removeFavoriteQuestion']),
         changeFlag(flagType, i) {
-            if (this.newSubject.includes(this.$route.params.lesson) || this.$route.path == "/newHome/favorites") {
-                this.list[i][flagType] = !this.list[i][flagType]
-                if (this.list[i][flagType]) {
-                    this.addFavoriteQuestion(this.list[i]);
-                } else {
-                    this.removeFavoriteQuestion(this.list[i].id)
-                    if (this.$route.path == "/newHome/favorites") {
-                        this.list = this.$store.state.wrongQuestions
-                    }
-                }
+            this.list[i][flagType] = !this.list[i][flagType]
+            if (this.list[i][flagType]) {
+                this.addFavoriteQuestion(this.list[i]);
             } else {
-                this.$message({
-                    showClose: true,
-                    message: '该学科收藏功能开发中'
-                });
+                this.removeFavoriteQuestion(this.list[i].id)
+                if (this.$route.path == "/newHome/favorites") {
+                    this.list = this.$store.state.wrongQuestions
+                }
             }
         },
         changeFlagIcon(flagType, i) {

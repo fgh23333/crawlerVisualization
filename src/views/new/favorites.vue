@@ -52,14 +52,14 @@ export default {
                     value: 'NCH',
                     label: '新中国史'
                 },
-                // {
-                //     value: '社主史',
-                //     label: 'SDH',
-                // },
-                // {
-                //     value: '党史',
-                //     label: 'CCPH',
-                // }
+                {
+                    value: '社主史',
+                    label: 'SDH',
+                },
+                {
+                    value: '党史',
+                    label: 'CCPH',
+                }
             ],
             value: ''
         }

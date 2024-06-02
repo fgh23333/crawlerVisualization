@@ -84,7 +84,7 @@
 export default {
     data() {
         return {
-            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro'],
+            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro', 'CCPH', 'SDH'],
             list: [
                 {
                     subject: '马原',

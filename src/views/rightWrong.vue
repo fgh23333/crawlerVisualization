@@ -17,31 +17,17 @@ export default {
     data() {
         return {
             table: [],
-            lesson: '',
-            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro', 'ORH', 'NCH']
+            lesson: ''
         }
     },
     created() {
         this.lesson = this.$route.params.lesson
-        if (this.newSubject.includes(this.lesson)) {
-            this.table = require(`../assets/${this.lesson}_rightWrong.json`)
-        } else {
-            this.table = require(`../assets/${this.lesson}_right.json`)
-            let temp = require(`../assets/${this.lesson}_wrong.json`)
-            this.table = this.table.concat(temp)
-        }
-
+        this.table = require(`../assets/${this.lesson}_rightWrong.json`)
     },
     watch: {
         '$route': function (to, from) {
             this.lesson = to.params.lesson
-            if (this.newSubject.includes(this.lesson)) {
-                this.table = require(`../assets/${this.lesson}_rightWrong.json`)
-            } else {
-                this.table = require(`../assets/${this.lesson}_right.json`)
-                let temp = require(`../assets/${this.lesson}_wrong.json`)
-                this.table = this.table.concat(temp)
-            }
+            this.table = require(`../assets/${this.lesson}_rightWrong.json`)
         }
     },
     methods: {
