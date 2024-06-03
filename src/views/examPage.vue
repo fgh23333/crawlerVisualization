@@ -8,28 +8,47 @@
             </template>
         </topBar>
         <ul>
-            <li v-for="(item, i) in list" class="problemCover">
-                {{ ++i }}、{{ item.questionStem }}
-                <span class="problem" v-if="item.answer.length == 1" v-for="(opt, x) in item.option">
+            <li v-for="(item, i) in list" v-if="item.option.length == 4 && item.answer.length == 1"
+                class="problemCover">
+                {{ i + 1 }}、{{ item.questionStem }}
+                <span class="problem" v-for="(opts, x) in item.option">
                     <van-radio-group v-model="item.radio">
-                        <van-radio :name="x" @click="updateUserSelection(--i, x)">
-                            {{ option[x] }}、{{ item.option[x] }}
+                        <van-radio :name="x" @click="updateUserSelection(i, x)">
+                            {{ option[x] }}、{{ opts }}
                         </van-radio>
                     </van-radio-group>
                 </span>
-                <span class="problem" v-if="item.option.length == 2" v-for="(opts, y) in item.option">
-                    <van-radio-group v-model="item.radio">
-                        <van-radio :name="y" @click="updateUserSelection(--i, y)">
-                            {{ item.option[y] }}
-                        </van-radio>
-                    </van-radio-group>
-                </span>
-                <span class="problem" v-if="item.answer.length >= 2 && item.option.length > 2"
-                    v-for="(opts, z) in item.option">
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(item, j) in list" v-if="item.answer.length >= 2 && item.option.length > 2" class="problemCover">
+                {{ j + 1 }}、{{ item.questionStem }}
+                <span class="problem" v-for="(opts, y) in item.option">
                     <van-checkbox-group v-model="item.result">
-                        <van-checkbox :name="option[z]" shape="square" @click="clickMe(item, --i)">{{ option[z] }}、{{
-                            item.option[z] }}</van-checkbox>
+                        <van-checkbox :name="option[y]" shape="square" @click="clickMe(item, j)">
+                            {{ option[y] }}、{{ opts }}
+                        </van-checkbox>
                     </van-checkbox-group>
+                </span>
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(item, k) in list" v-if="item.answer == '正确' || item.answer == '错误'" class="problemCover">
+                {{ k + 1 }}、{{ item.questionStem }}
+                <span class="problem" v-for="(opt, z) in item.option">
+                    <van-radio-group v-model="item.radio">
+                        <van-radio :name="z" @click="updateUserSelection(k, z + 5)">
+                            {{ opt }}
+                        </van-radio>
+                    </van-radio-group>
+                </span>
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(item, l) in list" v-if="item.option == ''" class="problemCover">
+                {{ l + 1 }}、{{ item.questionStem }}
+                <span class="problem">
+                    <el-input v-model="input[l - 50]" placeholder="请输入内容"></el-input>
                 </span>
             </li>
         </ul>
@@ -44,66 +63,68 @@ export default {
     data() {
         return {
             list: [],
-            option: ["A", "B", "C", "D", "E"],
-            userSelections: []
+            option: ["A", "B", "C", "D", "E", "正确", "错误"],
+            userSelections: [],
+            input: []
         }
     },
     created() {
         let lesson = this.$route.params.lesson
         let seq = this.$route.params.id
-        this.list = require(`../assets/${lesson}${seq}.json`)
+        this.list = require(`../assets/cura/${lesson}_${seq}.json`)
+        this.userSelections = []
     },
     components: {
         topBar
     },
     methods: {
         updateUserSelection(questionIndex, optionIndex) {
-            let selectedOption = this.option[optionIndex]
-            if (selectedOption == "A") {
-                selectedOption = 0
-            }
-            if (selectedOption == "B") {
-                selectedOption = 1
-            }
-            if (selectedOption == "C") {
-                selectedOption = 2
-            }
-            if (selectedOption == "D") {
-                selectedOption = 3
-            }
-            this.userSelections[questionIndex] = selectedOption
+            this.userSelections[questionIndex] = this.option[optionIndex]
+            console.log(this.userSelections);
         },
         clickMe(selections, questionIndex) {
             this.userSelections[questionIndex] = selections.result
+            console.log(this.input);
         },
         submitUserSelections() {
             function arraysHaveSameElements(answer, selection) {
+                answer = answer.split("")
                 if (answer.length !== selection.length) {
                     return false;
                 }
                 return answer.every(element => selection.includes(element));
             }
             let notNull = this.userSelections.every(element => element !== null)
-            if (this.userSelections.length == this.list.length && notNull) {
+            for (let i = 0; i < this.input.length; i++) {
+                this.userSelections[i + 50] = this.input[i]
+            }
+            if (this.userSelections.length == 60 && notNull) {
                 let sum = 0;
                 for (let i = 0; i < 20; i++) {
-                    if (this.list[i].answer == this.list[i].option[this.userSelections[i]]) {
-                        sum += 1
+                    if (this.list[i].answer == this.list[i]) {
+                        sum += 0.5
                     } else {
                         sum += 0
                     }
                 }
-                for (let i = 20; i < 40; i++) {
-                    if (this.list[i].answer == this.userSelections[i]) {
-                        sum += 1
-                    } else {
-                        sum += 0
-                    }
-                }
-                for (let i = 40; i < 60; i++) {
+                for (let i = 20; i < 35; i++) {
                     let result = arraysHaveSameElements(this.list[i].answer, this.userSelections[i])
                     if (result) {
-                        sum += 1
+                        sum += 0.5
+                    } else {
+                        sum += 0
+                    }
+                }
+                for (let i = 36; i < 50; i++) {
+                    if (this.list[i].answer == this.userSelections[i]) {
+                        sum += 0.5
+                    } else {
+                        sum += 0
+                    }
+                }
+                for (let i = 51; i < 60; i++) {
+                    if (this.list[i].answer == this.userSelections[i]) {
+                        sum += 0.5
                     } else {
                         sum += 0
                     }

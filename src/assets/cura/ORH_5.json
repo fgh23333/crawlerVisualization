@@ -1,0 +1,602 @@
+[
+    {
+        "questionStem": "（）是党的基础组织，担负直接教育党员、管理党员、监督党员和组织群众、宣传群众、凝聚群众、服务群众的职责。",
+        "option": [
+            "党小组",
+            "党支部",
+            "党委会",
+            "党总支"
+        ],
+        "answer": "B",
+        "id": "1752933775039266816",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "科学发展观是马克思主义关于发展的()的集中体现。",
+        "option": [
+            "战略方针",
+            "基本政策",
+            "体制机制",
+            "世界观和方法论"
+        ],
+        "answer": "D",
+        "id": "1752933778033999872",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "党的二十大报告指出（）是国家治理的一场深刻革命，关系党执政兴国，关系人民幸福安康，关系党和国家长治久安。",
+        "option": [
+            "依法治国",
+            "建设社会主义法治国家",
+            "全面依法治国",
+            "全面建设社会主义法治国家"
+        ],
+        "answer": "C",
+        "id": "1752933776402415616",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "江泽民在十六大报告中指出，一个国家兴旺发达的不竭动力，一个政党永葆生机的源泉是（）。",
+        "option": [
+            "革命",
+            "改革",
+            "发展",
+            "创新"
+        ],
+        "answer": "D",
+        "id": "1752933779963379712",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "中国特色社会主义文化,源自于()。",
+        "option": [
+            "党领导人民在革命、建设、改革中创造的革命文化",
+            "党领导人民在革命、建设、改革中创造的社会主义先进文化",
+            "中华民族五千多年文明历史所孕育的中华优秀传统文化",
+            "中华民族长期以来积淀的古今中外文化交融的结果"
+        ],
+        "answer": "C",
+        "id": "1752933774103937024",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "1990年3月9日至12日，（）通过《中共中央关于加强党同人民群众联系的决定》。",
+        "option": [
+            "党的十三届四中全会",
+            "党的十三届五中全会",
+            "党的十三届六中全会",
+            "党的十三届七中全会"
+        ],
+        "answer": "C",
+        "id": "1752933781062287360",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "（）年开始中国成为世界第二大经济体。",
+        "option": [
+            "2018",
+            "2012",
+            "2008",
+            "2010"
+        ],
+        "answer": "D",
+        "id": "1752933777727815680",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "（）是中国特色社会主义最本质的特征。",
+        "option": [
+            "以经济建设为中心",
+            "以人为本",
+            "“五位一体总体布局”",
+            "中国共产党的领导"
+        ],
+        "answer": "D",
+        "id": "1752933774355595264",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "科学发展观是用来指导发展的，不能离开发展这个主题，离开了发展这个主题就没有意义了。这告诉我们，树立和落实科学发展观，必须始终坚持（）。",
+        "option": [
+            "以经济建设为中心",
+            "以保护环境为中心",
+            "以调整结构为重点",
+            "以节约资源为重点"
+        ],
+        "answer": "A",
+        "id": "1752933777857839104",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "习近平总书记指出，要加快构建以（）为主体，国内国际双循环相互促进的新发展格局。",
+        "option": [
+            "国内大循环",
+            "国际大循环",
+            "自主创新",
+            "自力更生"
+        ],
+        "answer": "A",
+        "id": "1752933776477913088",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "加快建立绿色生产和消费的法律制度和政策导向，建立健全（）的经济体系。",
+        "option": [
+            "绿色低碳循环发展",
+            "绿色节约循环发展",
+            "绿色低碳节约发展",
+            "节约低碳循环发展"
+        ],
+        "answer": "A",
+        "id": "1752933775412559872",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "十九大报告中指出，坚持和平发展道路，推动构建人类命运共同体，中国共产党是为中国人民谋幸福的政党，也是为人类进步事业而奋斗的政党。中国共产党始终把（）作为自己的使命。",
+        "option": [
+            "为人类作出新的更大的贡献",
+            "为中国人民谋发展，为中华民族谋复兴",
+            "全心全意为人民服务",
+            "人民对美好生活的向往"
+        ],
+        "answer": "A",
+        "id": "1752933774582087680",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "1981年6月，党的十一届六中全会通过了（），标志着党胜利地完成指导思想的拨乱反正。",
+        "option": [
+            "《关于若干历史问题的决议》",
+            "《关于建国以来党的若干历史问题的决议》",
+            "《中共中央关于社会主义精神文明建设指导方针的决议》",
+            "《中共中央关于经济体制改革的决定》"
+        ],
+        "answer": "B",
+        "id": "1752933783260102656",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "改革发展的主体和动力是（）。",
+        "option": [
+            "政府",
+            "企业",
+            "人民群众",
+            "国家"
+        ],
+        "answer": "C",
+        "id": "1752933782077308928",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "构建人类命运共同体思想，核心是“建设持久和平、普遍安全、共同繁荣、（）的世界”。",
+        "option": [
+            "合作共赢、持续发展",
+            "开放包容、合作共赢",
+            "合作共赢、清洁美丽",
+            "开放包容、清洁美丽"
+        ],
+        "answer": "D",
+        "id": "1752933774431092736",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "发展社会主义先进文化，就是发展（）的社会主义文化。",
+        "option": [
+            "面向现代化",
+            "面向世界",
+            "面向未来的",
+            "民族的科学的大众的"
+        ],
+        "answer": "ABCD",
+        "id": "1752933779590086656",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "下列选项哪些是党的十八届三中全会提出的新发展理念（）。",
+        "option": [
+            "共同富裕",
+            "共享",
+            "创新、协调",
+            "绿色、开放"
+        ],
+        "answer": "BCD",
+        "id": "1752933773231521792",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "当下，国际安全形势动荡复杂，各国应树立()的新安全观。",
+        "option": [
+            "共同",
+            "综合",
+            "合作",
+            "可持续"
+        ],
+        "answer": "ABCD",
+        "id": "1752933772283609088",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "坚持统筹兼顾，必须认真考虑和对待各方面的发展需要，正确反映和兼顾各阶层各群体前利益要求，（）。",
+        "option": [
+            "正确处理中央和地方的关系，善于发挥两个积极性",
+            "正确处理个人利益和集体利益、局部利益和整体利益、当前利益和长远利益的关系",
+            "正确处理人民内部矛盾，善于化解不和谐因素",
+            "正确处理国内国际两个大局的关系"
+        ],
+        "answer": "ABCD",
+        "id": "1752933777547460608",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "在处理国际关系和外交关系方面，我们坚持怎样的外交工作布局（）。",
+        "option": [
+            "大国是关键",
+            "周边是首要",
+            "发展中国家是基础",
+            "多边是舞台"
+        ],
+        "answer": "ABCD",
+        "id": "1752933772333940736",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "经济全球化浪潮的表述，以下选项正确的是（）。",
+        "option": [
+            "通过对外贸易、资本流动、技术转移、提供服务、相互依存、相互联系而形成的全球范围的有机经济整体的过程",
+            "是世界经济发展的重要趋势",
+            "世界经济活动超越国界",
+            "经济全球化是当代世界经济的重要特征之一"
+        ],
+        "answer": "ABCD",
+        "id": "1752933779816579072",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "新时代中国共产党的历史使命，就是统揽（），在全面建成小康社会的基础上全面建成社会主义现代化强国，实现中华民族伟大复兴。",
+        "option": [
+            "伟大斗争",
+            "伟大工程",
+            "伟大事业",
+            "伟大梦想"
+        ],
+        "answer": "ABCD",
+        "id": "1752933772233277440",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "树立绿色发展理念，必须坚持（）。",
+        "option": [
+            "节约资源和保护环境的基本国策",
+            "坚定走生产发展、生活富裕、生态良好的文明发展道路",
+            "可持续发展",
+            "加快建设资源节约型、环境友好型社会"
+        ],
+        "answer": "ABCD",
+        "id": "1752933773256687616",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "2002年11月8日中国共产党第十六次全国代表大会在北京胜利召开，这次大会的主题是（）",
+        "option": [
+            "高举邓小平理论伟大旗帜，全面贯彻“三个代表”重要思想",
+            "继往开来，与时俱进，全面建设小康社会",
+            "加快推进社会主义现代化，为开创中国特色社会主义事业新局面而奋斗",
+            "进一步团结动员全党和全国各族人民，同心同德，艰苦奋斗，把中国特色社会主义伟大事业继续推向前进"
+        ],
+        "answer": "ABC",
+        "id": "1752933778889637888",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "如何理解科学发展观的基本要求（）。",
+        "option": [
+            "科学发展观强调全面发展",
+            "科学发展观强调协调发展",
+            "科学发展观强调优先发展经济",
+            "科学发展观主张可持续发展"
+        ],
+        "answer": "ABD",
+        "id": "1752933777677484032",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "独立自主、自力更生与对外开放的正确关系是（）。",
+        "option": [
+            "相辅相成的",
+            "独立自主、自力更生是立足点",
+            "独立自主、自力更生是对外开放的基础",
+            "对外开放是为了增强独立自主、自力更生的能力"
+        ],
+        "answer": "ABCD",
+        "id": "1752933781775319040",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "中国外交工作的根本任务和基本目标（）",
+        "option": [
+            "维护中国发展的重要战略机遇期",
+            "争取和平稳定的国际环境",
+            "睦邻友好的周边环境",
+            "平等互利的合作环境和客观友善的舆论环境"
+        ],
+        "answer": "ABCD",
+        "id": "1752933772384272384",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "邓小平在1992年南方谈话中明确指出，社会主义的本质是（）。",
+        "option": [
+            "解放生产力，发展生产力",
+            "消灭剥削",
+            "消除两极分化",
+            "最终达到共同富裕"
+        ],
+        "answer": "ABCD",
+        "id": "1752933779791413248",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "乡村振兴的总要求是（）。",
+        "option": [
+            "产业兴旺",
+            "生态宜居",
+            "乡风文明",
+            "治理有效"
+        ],
+        "answer": "ABCD",
+        "id": "1752933772707233792",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "完善党的领导方式和执政方式，我们党要总揽全局、协调各方，必须坚持（）",
+        "option": [
+            "民主执政",
+            "依法执政",
+            "执政为民",
+            "科学执政"
+        ],
+        "answer": "ABD",
+        "id": "1752933772036145152",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "十一届三中全会形成了以邓小平为核心的党中央第二代领导集体。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933782584819712",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "坚持中国共产党的领导，就是要坚持党在建设中国特色社会主义事业中的领导核心地位，发挥党总揽全局、协调各方的作用。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933771859984384",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "发展社会主义民主政治，最根本的是要把坚持党的建设、以德治国和依法治国有机统一起来。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752933778436653056",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "高质量发展是全面建设社会主义现代化国家的首要任务。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933771151147008",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "科学发展观最鲜明的精神实质是解放思想、实事求是、与时俱进、求真务实。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933777299996672",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "开放也是改革，改革和放开密不可分、相互相成。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933781452357632",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "随着国民经济调整的深入进行，中国改革开放的步伐也大大加快。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933780789657600",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "一带一路所勾勒的不仅应该是一个贸易圈，还应该是一个个文化圈和信仰圈。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933771306336256",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "新时代第一个百年奋斗目标是建党一百年时，全面建成小康社会。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933771532828672",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "合理的收入分配制度是社会公平的重要体现。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933777153196032",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "社会主义初级阶段的基本路线是以政治建设为中心。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752933781527855104",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "十九大报告指出，提拔重用牢固树立“四个意识”和“四个自信”、坚决维护党中央权威、全面贯彻执行党的理论和路线方针政策、忠诚干净担当的干部。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933771683823616",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "习近平新时代中国特色社会主义思想秉持人民至上、彰显历史自觉、坚持实事求是、突出问题导向、强化战略思维、发扬斗争精神。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933771025317888",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "全面、协调、可持续发展的发展观，即社会主义物质文明、精神文明的协调发展。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752933777325162496",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "脱贫攻坚取得胜利以后，要全面推进美丽乡村建设，这是“三农”工作重心的历史性转移。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752933770735910912",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    }
+]

@@ -1,0 +1,762 @@
+[
+    {
+        "questionStem": "（）是危害党的生命力和战斗力的最大毒瘤，（）是最彻底的自我革命。",
+        "option": [
+            "贪污；反贪污",
+            "腐败；反腐败",
+            "腐败；反贪污",
+            "贪污；反腐败"
+        ],
+        "answer": "B",
+        "id": "1738833364862894080",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "（）是第一生产力，是先进生产力的集中体现和主要标志",
+        "option": [
+            "劳动工具",
+            "科学技术",
+            "生产工具",
+            "科技革命"
+        ],
+        "answer": "B",
+        "id": "1738833356361039872",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "（），标志社会主义基本制度的确立。",
+        "option": [
+            "新中国的成立",
+            "土地改革的完成",
+            "社会主义改造的完成",
+            "过渡时期的结束"
+        ],
+        "answer": "C",
+        "id": "1738833361142546432",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "江山就是人民，人民就是江山。中国共产党领导人民打江山、守江山，守的是（）。",
+        "option": [
+            "人民的梦",
+            "人民的权",
+            "人民的心",
+            "人民的情"
+        ],
+        "answer": "C",
+        "id": "1738833364992917504",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "邓小平理论的精髓是（）。",
+        "option": [
+            "想信群众，依靠群众",
+            "发展和解放生产力",
+            "解放思想，实事求是",
+            "以经济建设为中心"
+        ],
+        "answer": "C",
+        "id": "1738833357648691200",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "对毛泽东和毛泽东思想的历史地位做出科学评价的重要文献是（）。",
+        "option": [
+            "《中国的红色政权为什么能够存在？》",
+            "《井冈山的斗争》",
+            "《关于建国以来党的若干历史问题的决议》",
+            "《反对本本主义》"
+        ],
+        "answer": "C",
+        "id": "1738833363944341504",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "毛泽东思想的精髓是（）。",
+        "option": [
+            "实事求是",
+            "群众路线",
+            "独立自主",
+            "解放思想"
+        ],
+        "answer": "A",
+        "id": "1738833364170833920",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "推进祖国统一，提出发展两岸关系八项主张的是（）。",
+        "option": [
+            "邓小平",
+            "江泽民",
+            "胡锦涛",
+            "习近平"
+        ],
+        "answer": "B",
+        "id": "1738833356180684800",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "邓小平理论走向成熟的标志是：（）",
+        "option": [
+            "党十三大报告",
+            "南方谈话",
+            "党十五大报告",
+            "《邓小平文选》的出版发行"
+        ],
+        "answer": "B",
+        "id": "1738833359045394432",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "1956年毛泽东提出的文化工作基本方针是（）。",
+        "option": [
+            "发展无产阶级的思想文化",
+            "百花齐放，百家争鸣",
+            "古为今用，洋为中用",
+            "去粗取精，去伪存真"
+        ],
+        "answer": "B",
+        "id": "1738833360496623616",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "党的二十大报告指出，实践告诉我们，中国共产党为什么能，中国特色社会主义为什么好，归根到底是（）行，是中国化时代化的（）行。",
+        "option": [
+            "中国共产党",
+            "马克思主义",
+            "社会主义",
+            "毛泽东思想"
+        ],
+        "answer": "B",
+        "id": "1738833365093580800",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "2021年11月11日中国共产党第十九届六中全会通过了（）。",
+        "option": [
+            "关于党的百年奋斗重大成就和历史经验的决议",
+            "关于建国以来党的若干历史问题的决议",
+            "关于若干历史问题的决议",
+            "关于全面建设社会主义现代化国家的决议"
+        ],
+        "answer": "A",
+        "id": "1738833352808464384",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "（）是社会主义民主政治的本质要求。",
+        "option": [
+            "党的领导",
+            "人民当家作主",
+            "依法治国",
+            "坚持党的领导、人民当家作主和依法治国的有机统一"
+        ],
+        "answer": "B",
+        "id": "1738833356256182272",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "具有土地入股和统一经营特点的是（）。",
+        "option": [
+            "互助组",
+            "初级社",
+            "高级社",
+            "人民公社"
+        ],
+        "answer": "B",
+        "id": "1738833360907665408",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "“三个代表”重要思想形成的现实依据是",
+        "option": [
+            "世界格局有了深刻变化",
+            "改革开放进入攻坚阶段",
+            "十三届四中全会以来中国特色社会主义建设取得重大成果",
+            "中国共产党的建设面临新形势和新任务"
+        ],
+        "answer": "D",
+        "id": "1738833356935659520",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "毛泽东提出“须知政权是由枪杆子中取得的”著名论断是在（）。",
+        "option": [
+            "大革命时期",
+            "大革命失败后",
+            "抗日战争时期",
+            "解放战争时期"
+        ],
+        "answer": "B",
+        "id": "1738833362518278144",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "坚持群众路线，就是要坚持（）的根本宗旨。",
+        "option": [
+            "为人民服务",
+            "全心全意为人民服务",
+            "一切为了人民",
+            "自觉接受群众监督"
+        ],
+        "answer": "B",
+        "id": "1738833364057587712",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "毛泽东思想产生不是偶然的，它是现实需要的必然产物。这种现实需要主要表现为（）。",
+        "option": [
+            "近代中国无产阶级发展的需要",
+            "近代中国社会矛盾发展的需要",
+            "近代激进知识分子活动的需要",
+            "近代中国资产阶级革命的需要"
+        ],
+        "answer": "B",
+        "id": "1738833364326023168",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "毛泽东思想关于（）的理论，为开创和发展中国特色社会主义作了重要的理论准备。",
+        "option": [
+            "新民主主义革命",
+            "社会主义建设",
+            "人民群众是历史的创造者",
+            "改革开放"
+        ],
+        "answer": "B",
+        "id": "1738833363734626304",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "马克思主义同中国实际相结合第二次历史性飞跃的理论成果是（）。",
+        "option": [
+            "社会主义市场经济理论",
+            "社会主义本质理论",
+            "社会主义初级阶段理论",
+            "中国特色社会主义理论体系"
+        ],
+        "answer": "D",
+        "id": "1738833357661274112",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "在资本主义工商业改造中，初级形式的国家资本主义包括了以下形式（）。",
+        "option": [
+            "委托加工",
+            "统购包销",
+            "计划订货",
+            "经销代销"
+        ],
+        "answer": "ABCD",
+        "id": "1738833360777641984",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "建设社会主义民主政治，必须坚持下列政治制度（）。",
+        "option": [
+            "人民代表大会制度",
+            "中国共产党领导的多党合作和政治协商制度",
+            "民族区域自治制度",
+            "基层群众自治制度"
+        ],
+        "answer": "ABCD",
+        "id": "1738833355866112000",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "当下，国际安全形势动荡复杂，各国应树立()的新安全观。",
+        "option": [
+            "共同",
+            "综合",
+            "合作",
+            "可持续"
+        ],
+        "answer": "ABCD",
+        "id": "1738833354284859392",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "江泽民指出，加强文化建设，必须（）。",
+        "option": [
+            "以科学的理论武装人",
+            "以正确的舆论引导人",
+            "以高尚的精神塑造人",
+            "以优秀的作品鼓舞人"
+        ],
+        "answer": "ABCD",
+        "id": "1738833357250232320",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "毛泽东在《关于正确处理人民内部矛盾的问题》中认为矛盾是普遍存在的。在社会主义社会中，基本的矛盾是（）。",
+        "option": [
+            "人民日益增长的物质文化生活的需要同落后的社会生产力之间的矛盾",
+            "无产阶级同资产阶级之间的矛盾",
+            "生产力和生产关系之间的矛盾",
+            "上层建筑和经济基础之间的矛盾"
+        ],
+        "answer": "CD",
+        "id": "1738833359997501440",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "着力防范化解重大风险，要完善风险防控机制,建立健全（）。",
+        "option": [
+            "风险研判机制",
+            "决策风险评估机制",
+            "风险防控协同机制",
+            "风险防控责任机制"
+        ],
+        "answer": "ABCD",
+        "id": "1738833352561000448",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "全面深化改革总目标是()。",
+        "option": [
+            "发挥市场在资源配置中的决定性作用",
+            "全面建成小康社会?",
+            "完善和发展中国特色社会主义制度?",
+            "推进国家治理体系和治理能力现代化"
+        ],
+        "answer": "CD",
+        "id": "1738833353957703680",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "中国外交工作的根本任务和基本目标()。",
+        "option": [
+            "维护中国发展的重要战略机遇期",
+            "争取和平稳定的国际环境",
+            "睦邻友好的周边环境",
+            "平等互利的合作环境和客观友善的舆论环境"
+        ],
+        "answer": "ABCD",
+        "id": "1738833354180001792",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "党的十七大报告指出，科学发展观是提出来的（）。",
+        "option": [
+            "立足社会主义初级阶段基本国情",
+            "总结我国发展实践",
+            "借鉴国外发展经验",
+            "适应新的发展要求"
+        ],
+        "answer": "ABCD",
+        "id": "1738833355463458816",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "新民主主义文化是（）。",
+        "option": [
+            "无产阶级领导的",
+            "民族的",
+            "科学的",
+            "大众的"
+        ],
+        "answer": "ABCD",
+        "id": "1738833362870599680",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "在当代中国，坚持发展是硬道理的本质要求就是坚持科学发展，（）。",
+        "option": [
+            "坚持科学发展，必须加快转变经济发展方式",
+            "坚持科学发展，必须加快经济增长速度",
+            "坚持科学发展，必须善于抓住和用好机遇",
+            "坚持科学发展，必须加强政府主导作用"
+        ],
+        "answer": "AC",
+        "id": "1738833355505401856",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "党的领导制度明确了我国政治生活的领导关系、领导主体、领导对象。党的领导制度（）。",
+        "option": [
+            "是中国特色社会主义制度的“根”和“源”",
+            "是国家治理体系和治理能力现代化的“心脏”和“引擎”",
+            "管根本、管全局、管长远，发挥着提纲挈领，无可替代的作用",
+            "是中国的根本政治制度"
+        ],
+        "answer": "ABC",
+        "id": "1738833352699412480",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "社会主义改造基本完成后，我国社会的阶级关系发生了根本的变化，主要表现有（）。",
+        "option": [
+            "帝国主义侵略势力已被清除出中国大陆",
+            "官僚资产阶级已经在中国内地被消灭",
+            "原来的地主和富农正在被改造，成为自食其力的劳动者",
+            "知识界已经成为一支为社会主义服务的队伍"
+        ],
+        "answer": "ABCD",
+        "id": "1738833361712971776",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "在社会主义经济建设方面，毛泽东指出，在优先发展重工业的条件下，坚持（）等“两条腿”走路的方针。",
+        "option": [
+            "农业与工业并举",
+            "重工业与轻工业并举",
+            "中央工业和地方工业并举",
+            "大中型企业并举"
+        ],
+        "answer": "ABCD",
+        "id": "1738833360010084352",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "下列属于构建社会主义和谐社会的总要求内容的是（）",
+        "option": [
+            "充满活力",
+            "诚信友爱",
+            "公平正义",
+            "民主法治"
+        ],
+        "answer": "ABCD",
+        "id": "1738833355824168960",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "实现社会主义工业化是国家独立和富强的必然要求和必要条件。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833361348067328",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "解放思想、实事求是、与时俱进是党坚持先进性和增强创造力的决定性因素。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833356650446848",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "推动城乡发展一体化，是解决“三农”问题的根本途径。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833355689951232",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "中国共产党从新的实践和时代特征出发坚持和发展马克思主义，形成、发展了中国特色社会主义理论体系，系统回答了在中国这样一个十几亿入口的发展中大国如何加快实现现代化、巩固和发展社会主义、建设长期执政的马克思主义政党等一系列重大课题，开辟了马克思主义中国化时代化新境界。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833358441414656",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "毛泽东精辟地论证了革命斗争中政策和策略问题的极端重要性，指出路线、方针、政策是党的生命。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738833363055149056",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "习近平新时代中国特色社会主义思想秉持人民至上、彰显历史自觉。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833353164980224",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "三大改造的目的是为了尽快形成“苏联模式”。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738833361259986944",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "在习近平新时代中国特色社会主义思想指导下，中国共产党领导全国各族人民，统揽伟大斗争、伟大工程、伟大事业、伟大梦想，推动中国特色社会主义进入新时代，实现第一个百年奋斗目标，开启了实现第二个百年奋斗目标新征程。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833358483357696",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "党的十五大报告明确指出：“实践证明，作为毛泽东思想的继承和发展的邓小平理论，是指导中国人民在改革开放中胜利实现社会主义现代化的正确理论。”",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833358252670976",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "从全面建成小康社会，到基本实现现代化，再到全面建成社会主义现代化强国，是新时代，中国特色社会主义发展的战略安排。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833353571827712",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "我国农业合作化过程中建立的初级农业生产合作社的性质是完全社会主义性质。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738833360635035648",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "建国初期，社会主义性质的国营经济和合作社经济，为新民主主义向社会主义的转变奠定了强有力的经济基础。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833360706338816",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "构建人类命运共同体思想，继承和发展了新中国不同时期重大外交思想和主张，反映了中外优秀文化和全人类共同价值追求，适应了新时代中国与世界关系的历史性变化。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833354330996736",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "我们党之所以赢得人民的拥护，是因为我们党作为中国工人阶级的先锋队和中国人民、中华民族的先锋队，代表中国先进生产力的发展要求，代表中国先进文化的前进方向，代表中国最广大人民的根本利益，并通过制定正确的路线方针政策，为实现国家和人民的根本利益而不懈奋斗。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833358156201984",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "中国军队的最高领导权和指挥权属于党中央、中央军委。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833354016423936",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "“自力更生，____”是实现奋斗目标的根本立足点。",
+        "option": "",
+        "answer": "艰苦创业",
+        "id": "1781196879682338816",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "____是第一生产力，是先进生产力的集中体现和主要标志。",
+        "option": "",
+        "answer": "科学技术",
+        "id": "1781196880219209728",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "群众路线，就是____，____，____，____，把党的正确主张变为群众的自觉行动。",
+        "option": "",
+        "answer": "一切为了群众，一切依靠群众，从群众中来，到群众中去",
+        "id": "1781196877752958976",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "对于共产党和民主党派的矛盾，实行在坚持社会主义道路和共产党领导的前提下“____、____”的方针。",
+        "option": "",
+        "answer": "长期共存，互相监督",
+        "id": "1781196878818312192",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "____是经济社会发展中最活跃、最具革命性的因素，是先进生产力的集中体现和主要标志。",
+        "option": "",
+        "answer": "科学技术",
+        "id": "1781196880751886336",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "____是一个民族最根本的事业，要面向现代化，面向世界，面向未来。",
+        "option": "",
+        "answer": "教育",
+        "id": "1781196879913025536",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "毛泽东思想的活的灵魂，是贯串于上述各个组成部分的立场、观点和方法，它们有三个基本方面，即____、____、____。",
+        "option": "",
+        "answer": "实事求是，群众路线，独立自主",
+        "id": "1781196877690044416",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "“____”是邓小平在坚持四项基本原则的基础上，从中国的实际出发提出的实现祖国和平统一的伟大构想。",
+        "option": "",
+        "answer": "一国两制",
+        "id": "1781196880080797696",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "____是中国革命的主要形式，是农村根据地建设和土地革命的强有力保证",
+        "option": "",
+        "answer": "武装斗争",
+        "id": "1781196878319190016",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "____是党执政兴国的第一要务。",
+        "option": "",
+        "answer": "发展",
+        "id": "1781196880454090752",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    }
+]

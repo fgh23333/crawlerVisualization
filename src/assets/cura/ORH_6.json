@@ -1,0 +1,602 @@
+[
+    {
+        "questionStem": "胡锦涛在（），深刻阐明了科学发展观提出的背景、意义，明确界定了“以人为本”“全面发展”“协调发展”“可持续发展”的深刻内涵和基本要求，标志着科学发展观的形成。",
+        "option": [
+            "2003年7月，在全面总结抗击非典斗争经验时",
+            "2003年10月，党的十六届三中全会上",
+            "2004年3月，中央人口资源环境座谈会上",
+            "2004年5月，胡锦涛在江苏考察工作时"
+        ],
+        "answer": "C",
+        "id": "1752933779216793600",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "从()开局之年开始，我国开启全面建设社会主义现代化国家新征程。",
+        "option": [
+            "“十二五”",
+            "“十三五”",
+            "“十四五”",
+            "“十五五”"
+        ],
+        "answer": "C",
+        "id": "1752933773978107904",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "邓小平曾指出，决定中国命运的一招是（）。",
+        "option": [
+            "惩治腐败",
+            "实现四个现代化",
+            "发展生产力",
+            "改革开放"
+        ],
+        "answer": "D",
+        "id": "1752933782307995648",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "2006年党的十六届六中全会强调构建社会主义和谐社会的根本着眼点是（）。",
+        "option": [
+            "解决执政能力建设的关键问题",
+            "解决人民群众最关心、最直接、最现实的利益问题",
+            "解决新世纪、新阶段的不和谐问题",
+            "解决中国经济增长和社会发展的可持续问题"
+        ],
+        "answer": "B",
+        "id": "1752933779116130304",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "科学发展观的实质是（）",
+        "option": [
+            "实现科技的飞跃",
+            "实现综合国力的增长",
+            "实现精神文明的进步",
+            "实现经济社会更好更快的发展"
+        ],
+        "answer": "D",
+        "id": "1752933778084331520",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "党的十九大报告指出，深化国家监察体制改革，将试点工作在全国推开，组建国家、省、市、县（），同党的纪律检查机关合署办公，实现对所有行使公权力的公职人员监察全覆盖。",
+        "option": [
+            "巡视委员会",
+            "巡察委员会",
+            "监察委员会",
+            "检察委员会"
+        ],
+        "answer": "C",
+        "id": "1752933775186067456",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "中国共产党第二十次全国代表大会于()在北京开幕。",
+        "option": [
+            "2022年10月13日",
+            "2022年10月14日",
+            "2022年10月15日",
+            "2022年10月16日"
+        ],
+        "answer": "D",
+        "id": "1752933776800874496",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "2001年，中国、俄罗斯、哈萨克斯坦、吉尔吉斯斯坦和塔吉克斯坦在5国元首会晤机制基础上正式建立（）",
+        "option": [
+            "亚洲经合组织",
+            "亚太经合组织",
+            "太平洋合作组织",
+            "上海合作组织"
+        ],
+        "answer": "D",
+        "id": "1752933780265369600",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "首届中国国际进出口博览会举办时间（）。",
+        "option": [
+            "2018年11月",
+            "2018年10月",
+            "2017年11月",
+            "2017年10月"
+        ],
+        "answer": "A",
+        "id": "1752933776113008640",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "1992年召开的中共十四大明确提出，我国经济体制改革的目标是建立（）。",
+        "option": [
+            "社会主义市场经济体制",
+            "社会主义有计划商品经济体制",
+            "计划为主、市场为辅的经济体制",
+            "市场为主、计划为辅的经济体制"
+        ],
+        "answer": "A",
+        "id": "1752933780441530368",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "关于科学技术的极端重要性，邓小平有一著名论断，这就是（）。",
+        "option": [
+            "科学技术是第一生产力",
+            "科技工作要面向经济建设",
+            "中国在高科技领域要占有一席之地",
+            "中国的农业最终要靠科技解决问题"
+        ],
+        "answer": "A",
+        "id": "1752933781372665856",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "正确处理改革、发展、稳定三者关系的重要结合点是()",
+        "option": [
+            "改善人民生活",
+            "改革力度、发展速度和社会可承受程度统一",
+            "在社会政治稳定中推进改革和发展",
+            "靠深化改革和继续发展解决改革和发展中产生的新问题与新矛盾"
+        ],
+        "answer": "A",
+        "id": "1752933778939969536",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "军队是要准备打仗的，一切工作都必须坚持（）标准，向能打仗、打胜仗聚焦。",
+        "option": [
+            "战斗力",
+            "斗争力",
+            "战争力",
+            "硬实力"
+        ],
+        "answer": "A",
+        "id": "1752933774837940224",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "1978年中共十一届三中全会果断地停止使用“以阶级斗争为纲”的口号，作出把党和国家工作中心转移到（A）上来、实行改革开放的历史性决策。",
+        "option": [
+            "经济建设",
+            "现代化建设",
+            "社会主义建设",
+            "国民经济建设"
+        ],
+        "answer": "A",
+        "id": "1752933783511760896",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "是否实现（），是社会主义与资本主义的本质区别。",
+        "option": [
+            "人民当家作主",
+            "共同富裕",
+            "发展生产力",
+            "社会主义精神文明"
+        ],
+        "answer": "B",
+        "id": "1752933781221670912",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "全面推进依法治国的总方针是（）。",
+        "option": [
+            "科学立法",
+            "严格执法",
+            "公正司法",
+            "全民守法"
+        ],
+        "answer": "ABCD",
+        "id": "1752933772883394560",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "中国特色社会主义进入新时代，我国社会主要矛盾已经转化为人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾。但是，我国社会主要矛盾的变化没有改变我们对我国社会主义所处历史阶段的判断,依据是()。",
+        "option": [
+            "我国仍然面临极其复杂的国际环境",
+            "我国仍然是世界上最大的发展中国家",
+            "我国仍处于社会主义初级阶段",
+            "我国发展仍然呈现不平衡样态"
+        ],
+        "answer": "BC",
+        "id": "1752933773206355968",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "（）问题时关系国计民生的根本性问题。",
+        "option": [
+            "农业",
+            "农村",
+            "农田",
+            "农民"
+        ],
+        "answer": "ABD",
+        "id": "1752933772933726208",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "从市场经济运行的一般规律和要求看，社会主义市场经济与资本主义市场经济两者具有共性，其主要表现是（）。",
+        "option": [
+            "市场主体行为自主化",
+            "经营管理法制化",
+            "经济关系市场化",
+            "宏观调控间接化"
+        ],
+        "answer": "ABCD",
+        "id": "1752933779841744896",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "党的十八大提出中国特色社会主义的“五位一体”是指经济建设、（）。",
+        "option": [
+            "政治建设",
+            "文化建设",
+            "社会建设",
+            "生态文明建设"
+        ],
+        "answer": "ABCD",
+        "id": "1752933777476157440",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "新时代的新指的是（）",
+        "option": [
+            "新的社会阶层出现",
+            "新的奋斗目标",
+            "新的发展阶段",
+            "新的社会主要矛盾"
+        ],
+        "answer": "BCD",
+        "id": "1752933773353156608",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "四个全面的提出为推动改革开放和社会主义现代化建设迈上新台阶提供了强力保障。以下表述正确的有（）",
+        "option": [
+            "2014年10月十八届四中全会提出全面推进依法治国",
+            "2014年10月党的群众路线教育实践活动总结大会上提出全面推进从严治党",
+            "2012年11月十八大提出全面建成小康社会",
+            "2013年11月十八届三中全会提出全面深化改革"
+        ],
+        "answer": "ABCD",
+        "id": "1752933773277659136",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "党的十六大报告强调，要坚持和完善公的制为主体，多种所有制经济共同发展的基本经济制度，就必须（）",
+        "option": [
+            "毫不动摇地巩固和发展公有制经济",
+            "毫不动摇地鼓励、支持和引导非公有制经济",
+            "坚持公有制为主体，促进非公有制经济发展",
+            "在发展公有制经济的同时，鼓励民营经济的发展"
+        ],
+        "answer": "ABC",
+        "id": "1752933778864472064",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "1989年12月30日中共中央制定《关于坚持和完善中国共产党领导的多党合作和政治协商制度的意见》，指出“（）”是中国共产党同各民主党派合作的基本方针。",
+        "option": [
+            "长期共存",
+            "互相监督",
+            "肝胆相照",
+            "荣辱与共"
+        ],
+        "answer": "ABCD",
+        "id": "1752933781011955712",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "社会主义初级阶段的主要特征是()。",
+        "option": [
+            "生产力落后，并且具有多层次性、不平衡性",
+            "商品经济不发达，市场体系不完善",
+            "实行以公有制为主体的多种所有制",
+            "实行以按劳分配为主体的多种分配方式"
+        ],
+        "answer": "ABCD",
+        "id": "1752933781850816512",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "一百年来，为了实现中华民族伟大复兴，中国共产党团结带领中国人民创造了哪些成就？（）",
+        "option": [
+            "党领导人民浴血奋战、百折不挠，创造了新民主主义革命的伟大成就",
+            "党领导人民自力更生、发愤图强，创造了社会主义革命和建设的伟大成就",
+            "党领导人民解放思想、锐意进取，创造了改革开放和社会主义现代化建设的伟大成就",
+            "党领导人民自信自强、守正创新，创造了新时代中国特色社会主义的伟大成"
+        ],
+        "answer": "ABCD",
+        "id": "1752933772132614144",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "在社会主义初级阶段，必须坚持以经济建设为中心，这是因为只有坚持以经济建设为中心，才能（）。",
+        "option": [
+            "增强综合国力",
+            "促成各种社会矛盾的解决",
+            "保证社会主义精神文明的顺利发展",
+            "体现社会主义的优越性"
+        ],
+        "answer": "ABCD",
+        "id": "1752933780961624064",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "党的十四届三中全会后，（）等逐步展开，全国呈现出改革开放全面推进、经济建设迅猛发展的蓬勃景象。",
+        "option": [
+            "财税体制改革",
+            "投资体制改革",
+            "住房改革",
+            "国有企业继续改革"
+        ],
+        "answer": "ABCD",
+        "id": "1752933779766247424",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "坚持人与自然的和谐共生，就必须（）。",
+        "option": [
+            "迫于经济发展压力，要走先污染后治理的发展道路",
+            "树立和践行绿水青山就是金山银山的理念",
+            "坚持节约资源和保护环境的基本国策",
+            "像对待生命一样对待生态环境"
+        ],
+        "answer": "BCD",
+        "id": "1752933773478985728",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "我国的改革是社会主义制度的自我完善和发展，因为它()。",
+        "option": [
+            "是在党的领导下，坚持社会主义基本制度的前提下进行的",
+            "是自觉调整和改革生产关系同生产力、上层建筑同经济基础、之间的不相适应的方面和环节",
+            "是促进生产力的发展和各项事业的全面进步",
+            "能更好地实现最广大人民群众的利益"
+        ],
+        "answer": "ABCD",
+        "id": "1752933780936458240",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "科学发展观是全面建设小康社会、加快推进社会主义现代化的根本指针。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933777274830848",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "新时代是全国各族人民团结奋斗、不断创造美好生活、逐步实现全体人民共同富裕的时代，这是新时代的民族性。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752933771482497024",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "改革开放初期，中国对外开放的第一个地方是在香港。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752933782509322240",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "邓小平理论的基本理论问题是什么是社会主义，怎样建设社会主义的问题。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933779564920832",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "社会实践并不是检验真理的唯一标准。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752933782656122880",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "解放思想，是指在马克思主义指导下打破习惯势力和主观偏见的束缚，研究新情况，解决新问题。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933782756786176",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "当代经济全球化是发达资本主义国家主导的，因此，中国加入经济全球化必然被纳入世界资本主义体系。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752933771176312832",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "科学发展观提出的实质为了实现国民经济又好又快发展。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933777425825792",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "伟大梦想指明方向、伟大斗争提供保证，伟大工程开创新局，伟大事业凝聚力量。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752933770710745088",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "党的十七大提出要建设资源节约型、环境友好型社会。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933777077698560",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "2006年1月1日起，我国全面取消农业税。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933778239520768",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "人类命运共同体的概念最早出现在2011年9月6日《中国和平发展》白皮书中。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933771281170432",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "社会主义精神文明建设为经济建设和改革开放提供强大的精神动力和智力支持。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933778486984704",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "独立自主、自力更生是我国实行对外开放政策必须坚持的基本原则。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933780617691136",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    },
+    {
+        "questionStem": "小岗村的村民是冒着大无畏的精神，实施包干到户的生产模式，反映出的正是广大农民渴求富裕，呼唤变革的迫切心愿。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752933782559653888",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "ORH"
+    }
+]

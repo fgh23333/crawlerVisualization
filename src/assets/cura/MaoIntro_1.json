@@ -1,0 +1,762 @@
+[
+    {
+        "questionStem": "胡锦涛在党的十七大报告中提出，发展中国特色社会主义的一大法宝是（）。",
+        "option": [
+            "实事求是",
+            "解放思想",
+            "理论联系实际",
+            "与时俱进"
+        ],
+        "answer": "B",
+        "id": "1738833355153080320",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "“三个代表”重要思想中体现最高价值标准和评价标准的是（）。",
+        "option": [
+            "发展先进生产力",
+            "发展先进文化",
+            "实现最广大人民的根本利益",
+            "实现工人阶级的根本利益"
+        ],
+        "answer": "C",
+        "id": "1738833356163907584",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "全党要坚定道路自信、理论自信、制度自信、()。",
+        "option": [
+            "政治自信",
+            "文化自信",
+            "经济自信",
+            "军事自信"
+        ],
+        "answer": "B",
+        "id": "1738833353756377088",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "中国共产党在发展问题上的经验总结和思想结晶是（）。",
+        "option": [
+            "五个“统筹”",
+            "西部大开放战略",
+            "“三步走”战略",
+            "科学发展观"
+        ],
+        "answer": "D",
+        "id": "1738833355119525888",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "十六大政治报告强调加强和改进党的建设必须进一步解决（）这两大历史性课题。",
+        "option": [
+            "坚持和健全民主集中制增强党的活力和团结统一",
+            "加强和改进党的作风建设深入开展反腐败斗争",
+            "保证党的线方针政策全面反映人民的根本利益和时代发展的要求",
+            "提高党的领导水平和执政水平提高拒腐防变和抵御风险的能力"
+        ],
+        "answer": "D",
+        "id": "1738833356495257600",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "中共八大提出我国国内的主要矛盾是（）。",
+        "option": [
+            "无产阶级与资产阶级的矛盾",
+            "社会主义道路与资本主义道路的矛盾",
+            "先进的生产关系与落后的生产力之间的矛盾",
+            "人民对于经济文化迅速发展的需要同当前经济文化不能满足人民需要状况之间的矛盾"
+        ],
+        "answer": "D",
+        "id": "1738833360467263488",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "党的二十大报告指出，经过不懈努力，党找到了（）这一跳出治乱兴衰历史周期率的第二个答案，确保党永远不变质、不变色、不变味。",
+        "option": [
+            "自我斗争",
+            "自我监督",
+            "自我革命",
+            "自我净化"
+        ],
+        "answer": "C",
+        "id": "1738833365106163712",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "把邓小平理论确立为党的指导思想是在：（）",
+        "option": [
+            "党的十三大上",
+            "党的十四大上",
+            "党的十五大上",
+            "党的十六大上"
+        ],
+        "answer": "C",
+        "id": "1738833359087337472",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "下列关于我国社会主要矛盾正确的表述为（）",
+        "option": [
+            "工业国同农业国之间的矛盾",
+            "人民日益增长的物质文化需要同落后的社会生产之间的矛盾",
+            "生产力同生产关系之间的矛盾",
+            "人民日益增长的美好生活需要同不平衡不充分发展之间的矛盾"
+        ],
+        "answer": "D",
+        "id": "1738833354783981568",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "新民主主义社会向社会主义社会转变的根本保证是（）。",
+        "option": [
+            "马克思主义指导思想地位的确立",
+            "人民民主专政政权在全国范围的建立",
+            "社会主义国营经济领导地位的确立",
+            "共产党领导的人民武装力量的壮大"
+        ],
+        "answer": "B",
+        "id": "1738833361578754048",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "最早提出“使马克思主义在中国具体化”的著作是（）。",
+        "option": [
+            "《（共产党人）发刊词》",
+            "《新民主主义论》",
+            "《中国共产党在民族战争中的地位》",
+            "《中国革命和中国共产党》"
+        ],
+        "answer": "C",
+        "id": "1738833364158251008",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "在社会主义改造的过程中对农民不采取剥夺办法的原因是（）。",
+        "option": [
+            "农民是私有者",
+            "农民是社会的主人",
+            "农民既是私有者又是劳动者",
+            "农民是被雇佣者"
+        ],
+        "answer": "C",
+        "id": "1738833360865722368",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "邓小平理论首要的基本理论问题是：（）",
+        "option": [
+            "社会主义的根本任务问题",
+            "社会主义的发展阶段问题",
+            "社会主义的发展动力问题",
+            "什么是社会主义，怎样建设社会主义的问题"
+        ],
+        "answer": "D",
+        "id": "1738833359074754560",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "开辟世界无产阶级社会主义革命新纪元的是（）。",
+        "option": [
+            "五四运动",
+            "俄国十月革命",
+            "第一次世界大战",
+            "辛亥革命"
+        ],
+        "answer": "B",
+        "id": "1738833362476335104",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "在社会主义建设道路的问题上，毛泽东提出关于人民内部要在政治上怎样（）。",
+        "option": [
+            "实行“长期共存、互相监督”政策",
+            "实行“统筹兼顾、适当安排”政策",
+            "实行“团结—批评—团结”政策",
+            "实行“百花齐放、百家争鸣”政策"
+        ],
+        "answer": "C",
+        "id": "1738833363873038336",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "社会主义初级阶段基本纲领和基本路线的关系，党的基本纲领是基本路线的",
+        "option": [
+            "展开",
+            "重要内容",
+            "核心内容",
+            "重要补充"
+        ],
+        "answer": "A",
+        "id": "1738833357736771584",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "邓小平理论形成的现实依据是：（）",
+        "option": [
+            "经济全球化迅猛发展",
+            "冷战格局结束",
+            "改革开放和现代化建设的实践",
+            "社会主义初级阶段的基本国情"
+        ],
+        "answer": "C",
+        "id": "1738833359171223552",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "新民主主义国家的政体是（）。",
+        "option": [
+            "民主集中制的人民代表大会制度",
+            "议会制",
+            "共产党领导的多党合作制度",
+            "政治协商制"
+        ],
+        "answer": "A",
+        "id": "1738833362589581312",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "党的十八大以来，我们党的全部理论和实践探索都是围绕（）这个主题来展开、深化和拓展的。",
+        "option": [
+            "什么是社会主义，怎样建设社会主义",
+            "建设一个什么样的党，怎样建设党",
+            "实现什么样发展，怎样发展",
+            "坚持和发展中国特色社会主义"
+        ],
+        "answer": "D",
+        "id": "1738833358764376064",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "我国农业合作化过程中建立的初级农业生产合作社的性质是（）。",
+        "option": [
+            "具有社会主义萌芽性质",
+            "完全社会主义性质",
+            "半社会主义性质",
+            "新民主主义性质"
+        ],
+        "answer": "C",
+        "id": "1738833360995745792",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "鸦片战争后，帝国主义的不断入侵，改变了中国社会发展的轨道，使社会性质发生了两个根本性的变化（）。",
+        "option": [
+            "独立的中国逐步沦为半殖民地的国家",
+            "资本主义发展壮大",
+            "完全沦为殖民地国家",
+            "封建的中国逐步变为半封建的中国"
+        ],
+        "answer": "AD",
+        "id": "1738833362715410432",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "社会主义改造完成后，我国的社会阶级关系发生了根本的变化（）",
+        "option": [
+            "官僚资产阶级在中国内地已经被消灭",
+            "工人阶级已经成为国家的领导阶级",
+            "亿万农民和其他个体劳动者已经变成社会主义的集体劳动者",
+            "原来的地主和富农正在被改造成为自食其力的新人"
+        ],
+        "answer": "ABCD",
+        "id": "1738833361754914816",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "适合我国情况的农业社会主义改造道路是（）。",
+        "option": [
+            "积极引导农民组织起来，走互助合作道路",
+            "遵循自愿互利、典型示范和国家帮助的原则",
+            "正确分析农村的阶级和阶级状况，制定正确的阶级政策",
+            "坚持积极领导、稳步前进的方针，采取循序渐进的步骤"
+        ],
+        "answer": "ABCD",
+        "id": "1738833362052710400",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "在推进全面深化改革中，必须充分发挥党总揽全局，协调各方的领导核心作用，不断提高党（）的能力和定力，为全面深化改革纵深推进提供根本保证。",
+        "option": [
+            "把方向",
+            "谋大局",
+            "定政策",
+            "促改革"
+        ],
+        "answer": "ABCD",
+        "id": "1738833352993013760",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "我国对资本主义工商业实行和平赎买有利于（）。",
+        "option": [
+            "发挥私营工商业在国计民生方面的积极作用，促进国民经济发展",
+            "争取和团结民族资产阶级，团结各民主党派和各界爱国民主人士，巩固和发展统一战线",
+            "发挥民族资产阶级中大多数人的知识、才能、技术专长和管理经验",
+            "争取和团结那些原来同资产阶级相联系的知识分子为社会主义建设服务"
+        ],
+        "answer": "ABCD",
+        "id": "1738833360748281856",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "在世界大变局中，中国成为世界格局演变的主要推动力量，中国特色社会主义取得举世瞩目的伟大成就，（）。\nA.",
+        "option": [
+            "彰显了科学社会主义的鲜活生命力",
+            "人们正在见证“历史终结论”的终结，“中国崩溃论”的崩溃，“社会主义失败论”的失败",
+            "使世界上正视和相信马克思主义和社会主义的人多了起来",
+            "中国特色社会主义成为振兴世界社会主义的中流砥柱"
+        ],
+        "answer": "ABCD",
+        "id": "1738833353219506176",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "在探索社会主义建设道路的初期，以毛泽东为代表的党的第一代领导人在所有制调整方面的思想有（）。",
+        "option": [
+            "“三个主体，三个补充”的思想",
+            "把资本主义经济作为社会主义经济的补充",
+            "注意发展手工业和农业多种经营",
+            "发展社会主义商品生产，重视价值规律"
+        ],
+        "answer": "ABC",
+        "id": "1738833359901032448",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "以毛泽东为代表的中国共产党人初步探索我国社会主义建设道路过程中形成的许多思想观点（）。",
+        "option": [
+            "有的还是不够成熟的设想",
+            "有的在实践中没能坚持下去",
+            "具有十分重要的理论和实践价值",
+            "为中国特色社会主义理论体系的形成提供了基础"
+        ],
+        "answer": "ABCD",
+        "id": "1738833359699705856",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "邓小平在强调马克思主义要与中国实际相结合时，指出（）。",
+        "option": [
+            "我国建设有中国特色的社会主义，是真正坚持了马克思主义",
+            "只有结合中国实际的马克思主义，才是我们所需要的真正的马克思主义",
+            "我们要坚持的马克思主义，必须是同中国实际相结合的马克思主义",
+            "真正的马克思主义者必须根据现在的情况，认识、继承和发展马列主义"
+        ],
+        "answer": "ABCD",
+        "id": "1738833357795491840",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "领导干部“三讲”是指（）",
+        "option": [
+            "讲学习",
+            "讲政治",
+            "讲正气",
+            "讲党性"
+        ],
+        "answer": "ABC",
+        "id": "1738833355941609472",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "党的二十大主题：高举中国特色社会主义伟大旗帜，全面贯彻新时代中国特色社会主义思想，弘扬伟大建党精神，（），（），为全面建设社会主义现代化国家、全面推进中华民族伟大复兴而团结奋斗",
+        "option": [
+            "中国之问",
+            "民族之问",
+            "历史之问",
+            "人民之问"
+        ],
+        "answer": "AD",
+        "id": "1738833364674150400",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "一百年来，党领导人民（）。",
+        "option": [
+            "浴血奋战、百折不挠，创造了新民主主义革命的伟大成就",
+            "自力更生、发愤图强，创造了社会主义革命和建设的伟大成就",
+            "解放思想、锐意进取，创造了改革开放和社会主义现代化建设的伟大成就",
+            "自信自强、守正创新，创造了新时代中国特色社会主义的伟大成就"
+        ],
+        "answer": "ABCD",
+        "id": "1738833352779104256",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "以习近平同志为核心的党中央旗帜鲜明的回答了（）等一系列重大理论和实践问题，形成了习近平外交思想。",
+        "option": [
+            "新时代中国应当推动建设什么样的世界、构建什么样的国际关系",
+            "中国需要什么样的外交、怎样办好新时代外交",
+            "倡导什么样的人类共同价值、怎样倡导人类共同价值",
+            "构建一个什么样的人类命运共同体、怎样构建人类命运共同体"
+        ],
+        "answer": "AB",
+        "id": "1738833352623915008",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "毛泽东思想从1928年到1930年提出和阐述农村包围城市、武装夺取政权道路理论的主要文章是（）。",
+        "option": [
+            "《井冈山的斗争》",
+            "《中国的红色政权为什么能够存在》",
+            "《中国革命战争的战略问题》",
+            "《星星之火，可以燎原》"
+        ],
+        "answer": "ABD",
+        "id": "1738833363663323136",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "过渡时期总路线体现的同时并举包括（）。",
+        "option": [
+            "工业化和社会主义改造同时并举",
+            "对经济制度的改造和对阶级的改造同时并举",
+            "社会主义建设和社会主义改造同时并举",
+            "发展生产力和变革生产关系同时并举"
+        ],
+        "answer": "ABCD",
+        "id": "1738833361641668608",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "毛泽东在《星星之火，可以燎原》一文中，回答了“红旗到底打得多久”的疑问。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833362446974976",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "毛泽东思想的活的灵魂是实事求是、群众路线、独立自主。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833363357138944",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "毛泽东特别注重从组织上建党，指出党员不仅要在思想上入党，而且要在组织上入党。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738833363029983232",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "必须坚持国家利益至上，以国家安全为宗旨，以政治安全为根本，加强国家安全能力建设，坚决维护国家主权、安全、发展利益。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738833354029006848",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "中国特色社会主义最本质的特征是人民当家作主。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738833354695901184",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "中国共产党的执政地位是在长期革命斗争中逐步形成的，是近现代中国历史发展的必然，是人民的选择。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833354708484096",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "中国特色社会主义制度的最大优势是人民代表大会制度。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738833353357918208",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "中国共产党的初心使命是建设社会主义现代化强国。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738833354721067008",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "中国梦是中华民族伟大复兴的形象表达。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833353559244800",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "中华人民共和国的建立实现了从新民主主义到社会主义社会的转变。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738833360723116032",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "毛泽东思想就是毛泽东的思想，所以，毛泽东的科学著作是毛泽东思想的集中概括。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738833363214532608",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "毛泽东思想和中国特色社会主义理论体系都根于中国实际、源于马克思列宁主义。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833363185172480",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "过渡时期的总路线是“一化三改”。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833361373233152",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "解放思想，是指在马克思主义指导下打破习惯势力和主观偏见的束缚，研究新情况，解决新问题。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833357376061440",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "习近平新时代中国特色社会主义思想是对马克思列宁主义、毛泽东思想、邓小平理论、“三个代表”重要思想、科学发展观的继承和发展，是当代中国马克思主义、21世纪马克思主义，是中华文化和中国精神的时代精华，是党和人民实践经验和集体智慧的结晶，是中国特色社会主义理论体系的重要组成部分，是全党全国人民为实现中华民族伟大复兴而奋斗的行动指南。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738833358537883648",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "建设____，发展社会主义民主政治，是社会主义现代化建设的重要目标。",
+        "option": "",
+        "answer": "社会主义政治文明",
+        "id": "1781196880521199616",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "____，和人民群众紧密地联系在一起的作风，以及自我批评的作风，是中国共产党区别于其他任何政党的显著标志。",
+        "option": "",
+        "answer": "理论和实践相结合的作风",
+        "id": "1781196877656489984",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "“____”回答了社会主义的发展动力和外部条件问题。",
+        "option": "",
+        "answer": "坚持改革开放",
+        "id": "1781196879615229952",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "____是社会主义的生命，是我们党始终高扬的光辉旗帜。",
+        "option": "",
+        "answer": "人民民主",
+        "id": "1781196880953212928",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "毛泽东思想是中国革命和____的科学指南。",
+        "option": "",
+        "answer": "建设",
+        "id": "1781196877920731136",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "____是我国改革开放和社会主义现代化建设的总设计师。",
+        "option": "",
+        "answer": "邓小平",
+        "id": "1781196880114352128",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "____是历史的创造者，是推动社会发展的决定性力量。",
+        "option": "",
+        "answer": "人民群众",
+        "id": "1781196880818995200",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "实现____，建设美好社会，始终是人类孜孜以求的一个社会理想。",
+        "option": "",
+        "answer": "社会和谐",
+        "id": "1781196881087430656",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "社会主义最大的优越性就是____，这是体现社会主义本质的一个东西。",
+        "option": "",
+        "answer": "共同富裕",
+        "id": "1781196879418097664",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    },
+    {
+        "questionStem": "1945年党的七大通过的《中国共产党党章》明确规定，“中国共产党，以马克思列宁主义的理论与中国革命的实践之统一的思想——____，作为自己一切工作的指针”。",
+        "option": "",
+        "answer": "毛泽东思想",
+        "id": "1781196877522272256",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "MaoIntro"
+    }
+]

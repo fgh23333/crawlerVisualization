@@ -1,0 +1,762 @@
+[
+    {
+        "questionStem": "()是我们党立党为公、执政为民的本质要求。",
+        "option": [
+            "思想建设",
+            "政治建设",
+            "组织建设",
+            "增进人民福祉、促进人的全面发展"
+        ],
+        "answer": "D",
+        "id": "1752929446895026176",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "（）从来都是治理中国这样的大国必解决的一个重大问题。",
+        "option": [
+            "统筹城乡发展",
+            "统筹区域发展",
+            "统筹东西部共同发展",
+            "统筹南北共同发展"
+        ],
+        "answer": "B",
+        "id": "1752929452024659971",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "道路自信、理论自信、制度自信、文化自信中最基础的是（）。",
+        "option": [
+            "道路自信",
+            "理论自信",
+            "制度自信",
+            "文化自信"
+        ],
+        "answer": "D",
+        "id": "1752929446324600832",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党的二十大报告指出，十年来，我们深入贯彻（）的发展思想，在幼有所育、学有所教、劳有所得、病有所医、老有所养、住有所居、弱有所扶上持续用力，建成世界上规模最大的教育体系、社会保障体系、医疗卫生体系，人民群众获得感、幸福感、安全感更加充实、更有保障、更可持续，共同富裕取得新成效",
+        "option": [
+            "以人民为中心",
+            "以稳定为中心",
+            "以发展为中心",
+            "以安全为中心"
+        ],
+        "answer": "A",
+        "id": "1752929444785291264",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "干部最基本的政治要求是（）。",
+        "option": [
+            "以人民为中心",
+            "爱岗敬业",
+            "坚守群众路线",
+            "做到忠诚干净担当"
+        ],
+        "answer": "D",
+        "id": "1752929445892587520",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "我们党面临的最威胁是（）。",
+        "option": [
+            "脱离实际",
+            "脱离群众",
+            "腐败问题",
+            "纪律问题"
+        ],
+        "answer": "C",
+        "id": "1752929445972279296",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党的十九大明确提出党的根本性建设是（）。",
+        "option": [
+            "党的建设",
+            "党的组织建设",
+            "党的政治建设",
+            "党的队伍建设"
+        ],
+        "answer": "C",
+        "id": "1752929445825478656",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "习近平新时代中国特色社会主义思想的历史使命是（）。",
+        "option": [
+            "实现中华民族伟大复兴",
+            "实现两个“一百年”奋斗目标",
+            "坚持与发展马克思主义",
+            "坚持与发展中国特色社会主义"
+        ],
+        "answer": "C",
+        "id": "1752929445020172288",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "（）、（）、（），是全面建设社会主义现代化国家的内在要求。",
+        "option": [
+            "尊重自然、顺应自然、保护自然",
+            "亲近自然、尊重自然、顺应自然",
+            "尊重自然、亲近自然、爱护自然",
+            "亲近自然、顺应自然、爱护自然"
+        ],
+        "answer": "A",
+        "id": "1752929444525244416",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "江山就是人民，人民就是江山。中国共产党领导人民打江山、守江山，守的是（）。",
+        "option": [
+            "人民的梦",
+            "人民的权",
+            "人民的心",
+            "人民的情"
+        ],
+        "answer": "C",
+        "id": "1752929444600741888",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党的二十大报告指出，实践告诉我们，中国共产党为什么能，中国特色社会主义为什么好，归根到底是（）行，是中国化时代化的（）行。",
+        "option": [
+            "中国共产党",
+            "马克思主义",
+            "社会主义",
+            "毛泽东思想"
+        ],
+        "answer": "B",
+        "id": "1752929444718182400",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "决定着我国基本经济制度根本性质和发展方向的是（）。",
+        "option": [
+            "国家性质",
+            "国家制度",
+            "公有制为主体、多种所有制经济共同发展",
+            "社会主义市场经济制度"
+        ],
+        "answer": "C",
+        "id": "1752929446022610944",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "新时代习近平总书记团结带领全党全国人民，把（）摆在治国理政突出位置。",
+        "option": [
+            "党的建设",
+            "社会治理",
+            "法制建设",
+            "脱贫攻坚"
+        ],
+        "answer": "D",
+        "id": "1752929445422825472",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "（）是具有强大生命力和巨大优越性的制度和治理体系，是能够持续推动拥有近十四亿人口大国进步和发展、确保拥有五千多年文明史的中华民族实现“两个一百年”奋斗目标进而实现伟大复兴的制度和治理体系。",
+        "option": [
+            "社会主义制度和社会治理体系",
+            "中国特色社会主义制度和国家治理体系",
+            "社会主义制度",
+            "中国特色社会主义社会治理体系"
+        ],
+        "answer": "B",
+        "id": "1752929446727254016",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党的团结统一首先在于（）。",
+        "option": [
+            "指导思想的团结统一",
+            "思想观念的团结统一",
+            "法制法规的团结统一",
+            "意识形态的团结统一"
+        ],
+        "answer": "A",
+        "id": "1752929446370738176",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "在我国基本制度体系中具有基础性决定性地位的是（）。",
+        "option": [
+            "市场经济制度",
+            "社会主义基本经济制度",
+            "改革开放",
+            "对待开放"
+        ],
+        "answer": "B",
+        "id": "1752929446005833728",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "事关马克思主义政党和社会主义国家的精神力量和前途命运的根本问题是（）。",
+        "option": [
+            "坚持以人民为中心",
+            "群众路线",
+            "坚持党的领导",
+            "坚定理想信念"
+        ],
+        "answer": "D",
+        "id": "1752929445859033088",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "全会开创我国改革开放新局面的会议是（）。",
+        "option": [
+            "党的十一届三中全会",
+            "党的十九届四中全会",
+            "党的十八届三中全会",
+            "党的十九届五中全会"
+        ],
+        "answer": "A",
+        "id": "1752929445523488768",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "加快形成完善的（）体系，全面推进科学立法、严格执法、公正司法、全民守法，推进法治中国建设。",
+        "option": [
+            "党内纪律",
+            "党内监督",
+            "党内法规",
+            "党内党规"
+        ],
+        "answer": "C",
+        "id": "1752929446945357824",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "我国的根本政治制度是（）。",
+        "option": [
+            "人民代表大会制度",
+            "多党合作与政治协商制度",
+            "人民民主专政",
+            "基层群众自治制度"
+        ],
+        "answer": "A",
+        "id": "1752929446240714752",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "目前党内出现的作风问题集中表现为（）",
+        "option": [
+            "现实主义",
+            "形式主义",
+            "官僚主义",
+            "奢靡主义"
+        ],
+        "answer": "BC",
+        "id": "1752929451391320064",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "我们推进全面依法治国是为了（）",
+        "option": [
+            "进一步巩固党的执政地位",
+            "改善党的执政方式",
+            "提高党的执政能力",
+            "保证党和国家长治久安"
+        ],
+        "answer": "ABCD",
+        "id": "1752929451127078912",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "综合判断，我国发展仍然处于大有可为的战略机遇期。为此需要明晰（）",
+        "option": [
+            "最大的机遇就是自身不断发展壮大",
+            "要重视各种风险",
+            "要重视各种挑战",
+            "善于化危为机、转危为安"
+        ],
+        "answer": "ABCD",
+        "id": "1752929451793973250",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "新时代继续推进改革具有鲜明的特征（）",
+        "option": [
+            "复杂性",
+            "敏感性",
+            "联动性",
+            "阶段性"
+        ],
+        "answer": "ABC",
+        "id": "1752929451789778948",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "中国梦的基本内涵是（）",
+        "option": [
+            "实现国家富强",
+            "实现民族振兴",
+            "实现人民幸福",
+            "实现世界大同"
+        ],
+        "answer": "ABC",
+        "id": "1752929449965256704",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "以人民为中心彰显了（）",
+        "option": [
+            "立党为公",
+            "执政为民",
+            "全心全意为人民服务",
+            "党的性质"
+        ],
+        "answer": "ABC",
+        "id": "1752929451827527683",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党的二十大报告指出，我们要落实新时代党的建设总要求，健全全面从严治党体系，全面推进党的（）、（）、（）、（），使我们党坚守初心使命，始终成为中国特色社会主义事业的坚强领导核心。",
+        "option": [
+            "自我净化",
+            "自我完善",
+            "自我革新",
+            "自我提高"
+        ],
+        "answer": "ABCD",
+        "id": "1752929444151951360",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党员干部要做到忠诚干净担当，就要（）",
+        "option": [
+            "对党的信仰忠诚",
+            "对党组织忠诚",
+            "对党的理论忠诚",
+            "对党的路线方针政策忠诚"
+        ],
+        "answer": "ABCD",
+        "id": "1752929451273879552",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "正确处理改革开放前后两个历史时期的关系，是（）",
+        "option": [
+            "历史问题",
+            "政治问题",
+            "文化问题",
+            "国际问题"
+        ],
+        "answer": "AB",
+        "id": "1752929449138978816",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "中国的政治制度具有深厚的（）",
+        "option": [
+            "文化基础",
+            "理论基础",
+            "实践基础",
+            "制度基础"
+        ],
+        "answer": "ABCD",
+        "id": "1752929451785584645",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "人民是否享有民主权利，要看（）",
+        "option": [
+            "人民是否在选举时有投票的权利",
+            "人民在日常生活中是否有持续参与的权利",
+            "人民是否有进行民主选举的权利",
+            "人民有没有进行民主决策的权利"
+        ],
+        "answer": "ABCD",
+        "id": "1752929450455990272",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "习近平新时代中国特色社会主义思想反映了（）",
+        "option": [
+            "中国特色社会主义的理论逻辑",
+            "中国特色社会主义的历史逻辑",
+            "中国特色社会主义的实践逻辑",
+            "中国特色社会主义的制度逻辑"
+        ],
+        "answer": "ABC",
+        "id": "1752929451903025159",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "面对世界百年未有之大变局，我们应当树立（）",
+        "option": [
+            "正确的发展观",
+            "正确的历史观",
+            "正确的大局观",
+            "正确的角色观"
+        ],
+        "answer": "ABCD",
+        "id": "1752929451886247936",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党的二十大指出：全党同志务必（），务必（），务必（），坚定历史自信，增强历史主动，谱写新时代中国特色社会主义更加绚丽的华章。",
+        "option": [
+            "不忘初心、牢记使命",
+            "敢于斗争、勇于胜利",
+            "谦虚谨慎、艰苦奋斗",
+            "敢于斗争、善于斗争"
+        ],
+        "answer": "ACD",
+        "id": "1752929444185505792",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "社会主义与资本主义具有决定性的差别主要包括（）",
+        "option": [
+            "在生产资料公有制基础上组织生产",
+            "对社会生产进行有计划的指导和调节",
+            "合乎自然规律地改造和利用自然",
+            "实现人的自由全面发展为目标"
+        ],
+        "answer": "ABCD",
+        "id": "1752929451865276418",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "伟大梦想与伟大斗争、伟大工程、伟大事业是一个紧密联系、相互贯通、相互作用、有机统一的整体。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929448069431296",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "全民守法是维护社会公平正义的最后一道防线。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752929448828600320",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "把社会主义分配制度确立为社会主义基本经济制度，即能发挥市场经济的长处，又能发挥社会主义制度的优越性。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752929449306750976",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "制度好可以使坏人无法任意横行，制度不好可以使好人无法充分做好事，甚至会走向反面。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929449189310464",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "人民民主是社会主义的生命，是全面建设社会主义现代化国家的应有之义。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929443963207680",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "从严治党靠自觉，也要靠制度，两者一柔一刚，要同向发力，同时发力。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752929449206087680",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "形式主义的实质是主观主义、功利主义。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929451554897920",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "正确理解和把握社会主要矛盾的“没有变”与社会主义初级阶段的“变”，要求我们在继续推动发展的基础上，着力解决好发展不平衡不充分问题，更好推动人的全面发展、社会全面进步。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752929447457062912",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "坚持党的领导是新型举国体制的最本质特征和最显著优势，为我国经济社会发展提供了根本保证。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929451504566272",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "我国经济发展由高速增长转为高质量发展，这是我们必须要迈过去的坎。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929449369665536",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "人类命运共同体倡议，吸收了“天地与我并生，而万物与我为一”的中国智慧。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752929447226376192",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "全面依法治国既要深刻的社会变革，也要长期而重大的历史任务。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929448711159808",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "意识形态工作是为国家立心、为民族立魂的工作。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929444047093760",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "必须健全幼有所育、学有所教、劳有所得、病有所医、老有所养、住有所居、弱有所扶等方面国家基本公共服务制度体系，尽力而为，量力而行，注重加强保障性、基础性、普惠性民生建设，保障群众基本生活。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752929449717792768",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "把权力关进制度的笼子里，健全党和国家的监督制度，坚持和完善党和国家监督体系使重点。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929449222864896",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党的性质宗旨、理想信念、初心使命赋予中国特色社会主义事业以____、____、团结奋斗的力量，决定着中国特色社会主义事业的前途命运。",
+        "option": "",
+        "answer": "信仰的力量，真理的力量",
+        "id": "1781201437787684864",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "坚持外交大权在____，改革和完善对外工作体制机制。",
+        "option": "",
+        "answer": "党中央",
+        "id": "1781201442741157888",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "在新中国成立特别是改革开放以来取得重大成就的基础上,我国发展站在了新的历史起点上，社会主要矛盾已由人民日益增长的物质文化需要同落后的社会生产之间的矛盾，转化为____和不平衡不充分的发展之间的矛盾。",
+        "option": "",
+        "answer": "人民日益增长的美好生活需要",
+        "id": "1781201437217259520",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "要毫不动摇巩固和发展____经济，毫不动摇鼓励、支持、引导____经济发展。",
+        "option": "",
+        "answer": "公有制，非公有制",
+        "id": "1781201439083724800",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "时代是出卷人，我们是答卷人，____是阅卷人。",
+        "option": "",
+        "answer": "人民",
+        "id": "1781201438291001344",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "以习近平同志为核心的党中央团结带领全党全国各族人民砥砺前行，推动党和国家事业取得____、发生历史性变革，使中国特色社会主义展现出强大生命力。",
+        "option": "",
+        "answer": "历史性成就",
+        "id": "1781201436948824064",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "习近平新时代中国特色社会主义思想，是全党全国各族人民为实现中华民族伟大复兴而奋斗的____，是新时代党和国家事业发展的根本遵循。",
+        "option": "",
+        "answer": "行动指南",
+        "id": "1781201436873326592",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "历史和实践充分证明，只有社会主义才能救中国，只有社会主义才能发展中国，只有坚持和发展____才能实现中华民族伟大复兴。",
+        "option": "",
+        "answer": "中国特色社会主义",
+        "id": "1781201436990767104",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "我国是工人阶级领导的、以工农联盟为基础的人民民主专政的社会主义国家，工人阶级领导是通过其先锋队——____实现的。",
+        "option": "",
+        "answer": "中国共产党领导",
+        "id": "1781201437989011456",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "习近平指出：“实践证明，____是我们认识世界、把握规律、追求真理、改造世界的强大思想武器，是我们党和国家必须始终遵循的指导思想。”",
+        "option": "",
+        "answer": "马克思主义",
+        "id": "1781201437825433600",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    }
+]
