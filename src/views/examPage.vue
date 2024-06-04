@@ -240,6 +240,9 @@ export default {
             this.$router.push({path: '/newHome/examPage/' + this.$route.params.lesson + '/' + newval})
             this.list = require(`../assets/cura/${this.$route.params.lesson}_${this.$route.params.id}.json`)
             this.seq = this.$route.params.id
+        },
+        '$route': function (to, from) {
+            this.list = require(`../assets/cura/${to.params.lesson}_${to.params.id}.json`)
         }
     }
 }
