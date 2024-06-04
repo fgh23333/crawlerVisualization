@@ -98,7 +98,7 @@ export default {
             for (let i = 0; i < this.input.length; i++) {
                 this.userSelections[i + 50] = this.input[i]
             }
-            if (this.userSelections.length == 60 && notNull) {
+            if (notNull) {
                 let sum = 0;
                 for (let i = 0; i < 20; i++) {
                     if (this.list[i].answer == this.list[i]) {
