@@ -6,6 +6,17 @@
                     <i class="el-icon-arrow-left" @click="goBack()"></i>
                 </div>
             </template>
+            <template v-slot:middle>
+                <div class="paperTitle">
+                    {{ lesson }} - 试卷 {{ seq }}
+                </div>
+            </template>
+            <template v-slot:right>
+                <el-select v-model="value" placeholder="试卷1">
+                    <el-option v-for="item in paperOptions" :key="item.value" :label="item.label" :value="item.value">
+                    </el-option>
+                </el-select>
+            </template>
         </topBar>
         <ul>
             <li v-for="(item, i) in list" v-if="item.option.length == 4 && item.answer.length == 1"
@@ -65,14 +76,80 @@ export default {
             list: [],
             option: ["A", "B", "C", "D", "E", "正确", "错误"],
             userSelections: [],
-            input: []
+            input: [],
+            lesson: '',
+            seq: '',
+            subjectList: {
+                'Marx': {
+                    name: '马克思主义基本原理',
+                    num: 8
+                },
+                'XiIntro': {
+                    name: '习近平新时代中国特色社会主义思想概论',
+                    num: 8
+                },
+                'CMH': {
+                    name: '中国近现代史纲要',
+                    num: 14
+                },
+                'Political': {
+                    name: '思想道德与法治',
+                    num: 11
+                },
+                'MaoIntro': {
+                    name: '毛泽东思想和中国特色社会主义理论体系概论',
+                    num: 11
+                },
+                'CCPH': {
+                    name: '中国共产党历史',
+                    num: 6
+                },
+                'ORH': {
+                    name: '改革开放史',
+                    num: 8
+                },
+                'SDH': {
+                    name: '社会主义发展史',
+                    num: 6
+                },
+                'NCH': {
+                    name: '新中国史',
+                    num: 5
+                }
+            },
+            abbreviationSubjectList: {
+                'Marx': '马原',
+                'CMH': '近代史',
+                'Political': '思政',
+                'MaoIntro': '毛概',
+                'XiIntro': '习概',
+                'SDH': '社主史',
+                'NCH': '新中国史',
+                'CCPH': '党史',
+                'ORH': '改开史'
+            },
+            paperOptions: [],
+            value: ''
         }
     },
     created() {
         let lesson = this.$route.params.lesson
-        let seq = this.$route.params.id
-        this.list = require(`../assets/cura/${lesson}_${seq}.json`)
-        this.userSelections = []
+        this.lesson = this.abbreviationSubjectList[lesson]
+        this.seq = this.$route.params.id
+        for (let i = 0; i < this.subjectList[lesson].num; i++) {
+            let temp = {
+                value: i + 1,
+                label: '试卷' + (i + 1)
+            }
+            this.paperOptions.push(temp)
+        }
+        let rest = {
+            value: 'residual',
+            label: '剩余题目'
+        }
+        this.paperOptions.push(rest)
+        this.list = require(`../assets/cura/${lesson}_${this.$route.params.id}.json`)
+        this.userSelections.fill(0)
     },
     components: {
         topBar
@@ -94,11 +171,11 @@ export default {
                 }
                 return answer.every(element => selection.includes(element));
             }
-            let notNull = this.userSelections.every(element => element !== null)
+            let isNull = this.userSelections.find(element => element == 0)
             for (let i = 0; i < this.input.length; i++) {
                 this.userSelections[i + 50] = this.input[i]
             }
-            if (notNull) {
+            if (!isNull) {
                 let sum = 0;
                 for (let i = 0; i < 20; i++) {
                     if (this.list[i].answer == this.list[i]) {
@@ -138,13 +215,31 @@ export default {
                 this.userSelections = []
                 this.input = []
             } else {
-                this.$alert('选项不可以为空', {
+                this.$alert('还有未做的题，确定提交吗', {
                     confirmButtonText: '确定'
                 })
+                this.$confirm('还有未做的题，确定提交吗', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    this.$alert(`得分为${sum}`, {
+                        confirmButtonText: '确定'
+                    })
+                }).catch(() => {
+
+                });
             }
         },
         goBack() {
             this.$router.go(-1)
+        }
+    },
+    watch: {
+        value: function(newval, oldval) {
+            this.$router.push({path: '/newHome/examPage/' + this.$route.params.lesson + '/' + newval})
+            this.list = require(`../assets/cura/${this.$route.params.lesson}_${this.$route.params.id}.json`)
+            this.seq = this.$route.params.id
         }
     }
 }

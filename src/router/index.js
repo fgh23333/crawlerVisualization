@@ -49,11 +49,6 @@ const routes = [
     ]
   },
   {
-    path: '/examPage/:lesson/:id',
-    name: 'examPage',
-    component: examPage
-  },
-  {
     path: '/newHome',
     name: 'newHome',
     component: newHome,
@@ -76,7 +71,12 @@ const routes = [
           path: 'favorites',
           name: 'favorites',
           component: favorites
-      }
+      },
+      {
+    path: 'examPage/:lesson/:id',
+    name: 'examPage',
+    component: examPage
+  },
     ]
   },
   

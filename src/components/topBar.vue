@@ -52,11 +52,11 @@ export default {
     }
 
     .bg-purple {
-        background: #d3dce6;
+        background: #FAFBFF;
     }
 
     .bg-purple-light {
-        background: #e5e9f2;
+        background: #FAFBFF;
     }
 
     .grid-content {

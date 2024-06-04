@@ -30,6 +30,8 @@
                                     :index="'/newHome/multipleChoice/' + list[i].src">多选题</el-menu-item>
                                 <el-menu-item class="option"
                                     :index="'/newHome/fillingBlank/' + list[i].src" v-if="newSubject.includes(item.src)">填空题</el-menu-item>
+                                <el-menu-item class="option"
+                                    :index="'/newHome/examPage/' + list[i].src + '/1'">在线练习</el-menu-item>
                             </el-menu-item-group>
                         </el-submenu>
                     </el-menu>
