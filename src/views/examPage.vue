@@ -48,7 +48,7 @@
             <li v-for="(item, l) in list" v-if="item.option == ''" class="problemCover">
                 {{ l + 1 }}、{{ item.questionStem }}
                 <span class="problem">
-                    <el-input v-model="input[l - 50]" placeholder="请输入内容"></el-input>
+                    <el-input v-model="input[l - 50]" placeholder="多空用中文逗号分隔，不要有多余的字符"></el-input>
                 </span>
             </li>
         </ul>
