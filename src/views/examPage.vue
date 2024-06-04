@@ -132,6 +132,11 @@ export default {
                 this.$alert(`得分为${sum}`, {
                     confirmButtonText: '确定'
                 })
+                this.list.forEach(item => {
+                    item.radio = ''
+                })
+                this.userSelections = []
+                this.input = []
             } else {
                 this.$alert('选项不可以为空', {
                     confirmButtonText: '确定'
