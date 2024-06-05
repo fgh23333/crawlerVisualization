@@ -215,9 +215,6 @@ export default {
                 this.userSelections = []
                 this.input = []
             } else {
-                this.$alert('还有未做的题，确定提交吗', {
-                    confirmButtonText: '确定'
-                })
                 this.$confirm('还有未做的题，确定提交吗', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
