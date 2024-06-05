@@ -184,6 +184,7 @@ export default {
                         sum += 0.5
                     } else {
                         sum += 0
+                        this.addFavoriteQuestion(this.list[i])
                     }
                 }
                 for (let i = 20; i < 35; i++) {
@@ -192,6 +193,7 @@ export default {
                         sum += 0.5
                     } else {
                         sum += 0
+                        this.addFavoriteQuestion(this.list[i])
                     }
                 }
                 for (let i = 36; i < 50; i++) {
@@ -199,6 +201,7 @@ export default {
                         sum += 0.5
                     } else {
                         sum += 0
+                        this.addFavoriteQuestion(this.list[i])
                     }
                 }
                 for (let i = 51; i < 60; i++) {
@@ -206,6 +209,7 @@ export default {
                         sum += 0.5
                     } else {
                         sum += 0
+                        this.addFavoriteQuestion(this.list[i])
                     }
                 }
                 this.$alert(`得分为${sum}`, {
