@@ -69,6 +69,7 @@
 
 <script>
 import topBar from '@/components/topBar.vue'
+import { mapActions } from "vuex";
 
 export default {
     data() {
@@ -155,6 +156,7 @@ export default {
         topBar
     },
     methods: {
+        ...mapActions(['addFavoriteQuestion']),
         updateUserSelection(questionIndex, optionIndex) {
             this.userSelections[questionIndex] = this.option[optionIndex]
             console.log(this.userSelections);
