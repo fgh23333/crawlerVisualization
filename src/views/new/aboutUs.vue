@@ -30,7 +30,7 @@
             </div>
             <div class="contact box">
                 <div class="title">特别鸣谢</div>
-                <div class="contactWay">汤奇红</div>
+                <div class="contactWay">汤奇红------党史新题库贡献者</div>
             </div>
         </div>
     </div>
@@ -52,7 +52,7 @@ export default {
         width: max-content;
         height: auto;
         margin: 0px auto;
-        margin-top: 120px;
+        margin-top: 90px;
         background-color: #FFFFFF;
         border-radius: 24px;
         padding-top: 25px;
