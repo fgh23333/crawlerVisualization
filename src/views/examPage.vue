@@ -130,7 +130,8 @@ export default {
                 'ORH': '改开史'
             },
             paperOptions: [],
-            value: ''
+            value: '',
+            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro']
         }
     },
     created() {
@@ -150,8 +151,13 @@ export default {
         }
         this.paperOptions.push(rest)
         this.list = require(`../assets/cura/${lesson}_${this.$route.params.id}.json`)
-        let temp = new Array(50).fill(0);
-        this.userSelections = temp
+        if (this.newSubject.includes(lesson)) {
+            let temp = new Array(50).fill(0)
+            this.userSelections = temp
+        } else {
+            let temp = new Array(45).fill(0)
+            this.userSelections = temp
+        }
     },
     components: {
         topBar
@@ -172,74 +178,19 @@ export default {
                 }
                 return answer.every(element => selection.includes(element));
             }
-            for (let i = 0; i < this.input.length; i++) {
-                this.userSelections[i + 50] = this.input[i]
-            }
-            let isNull = this.userSelections.find(element => element == 0)
-            if (!isNull) {
-                let sum = 0;
-                for (let i = 0; i < 20; i++) {
-                    if (this.list[i].answer == this.list[i]) {
-                        sum += 0.5
-                    } else {
-                        sum += 0
-                        this.list[i].likeFlag = true
-                        this.addFavoriteQuestion(this.list[i])
-                    }
+            if (this.newSubject.includes(this.$route.params.lesson)) {
+                for (let i = 0; i < this.input.length; i++) {
+                    this.userSelections[i + 50] = this.input[i]
                 }
-                for (let i = 20; i < 35; i++) {
-                    let result = arraysHaveSameElements(this.list[i].answer, this.userSelections[i])
-                    if (result) {
-                        sum += 0.5
-                    } else {
-                        sum += 0
-                        this.list[i].likeFlag = true
-                        this.addFavoriteQuestion(this.list[i])
-                    }
-                }
-                for (let i = 36; i < 50; i++) {
-                    if (this.list[i].answer == this.userSelections[i]) {
-                        sum += 0.5
-                    } else {
-                        sum += 0
-                        this.list[i].likeFlag = true
-                        this.addFavoriteQuestion(this.list[i])
-                    }
-                }
-                for (let i = 51; i < 60; i++) {
-                    if (this.list[i].answer == this.userSelections[i]) {
-                        sum += 0.5
-                    } else {
-                        sum += 0
-                        this.list[i].likeFlag = true
-                        this.addFavoriteQuestion(this.list[i])
-                    }
-                }
-                this.$alert(`得分为${sum}`, {
-                    confirmButtonText: '确定'
-                })
-                this.list.forEach(item => {
-                    item.radio = ''
-                })
-                this.userSelections = []
-                this.input = []
-                this.list.forEach(element => {
-                    if (element.hasOwnProperty('result')) {
-                        delete element['result']
-                    }
-                })
-            } else {
-                this.$confirm('还有未做的题，确定提交吗', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
-                    type: 'warning'
-                }).then(() => {
+                let isNull = this.userSelections.find(element => element == 0)
+                if (!isNull) {
                     let sum = 0;
                     for (let i = 0; i < 20; i++) {
                         if (this.list[i].answer == this.list[i]) {
                             sum += 0.5
                         } else {
                             sum += 0
+                            this.list[i].likeFlag = true
                             this.addFavoriteQuestion(this.list[i])
                         }
                     }
@@ -249,6 +200,7 @@ export default {
                             sum += 0.5
                         } else {
                             sum += 0
+                            this.list[i].likeFlag = true
                             this.addFavoriteQuestion(this.list[i])
                         }
                     }
@@ -257,6 +209,7 @@ export default {
                             sum += 0.5
                         } else {
                             sum += 0
+                            this.list[i].likeFlag = true
                             this.addFavoriteQuestion(this.list[i])
                         }
                     }
@@ -265,11 +218,15 @@ export default {
                             sum += 0.5
                         } else {
                             sum += 0
+                            this.list[i].likeFlag = true
                             this.addFavoriteQuestion(this.list[i])
                         }
                     }
                     this.$alert(`得分为${sum}`, {
                         confirmButtonText: '确定'
+                    })
+                    this.list.forEach(item => {
+                        item.radio = ''
                     })
                     this.userSelections = []
                     this.input = []
@@ -278,7 +235,167 @@ export default {
                             delete element['result']
                         }
                     })
-                })
+                } else {
+                    this.$confirm('还有未做的题，确定提交吗', '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        let sum = 0;
+                        for (let i = 0; i < 20; i++) {
+                            if (this.list[i].answer == this.list[i]) {
+                                sum += 0.5
+                            } else {
+                                sum += 0
+                                this.addFavoriteQuestion(this.list[i])
+                            }
+                        }
+                        for (let i = 20; i < 35; i++) {
+                            let result = arraysHaveSameElements(this.list[i].answer, this.userSelections[i])
+                            if (result) {
+                                sum += 0.5
+                            } else {
+                                sum += 0
+                                this.addFavoriteQuestion(this.list[i])
+                            }
+                        }
+                        for (let i = 36; i < 50; i++) {
+                            if (this.list[i].answer == this.userSelections[i]) {
+                                sum += 0.5
+                            } else {
+                                sum += 0
+                                this.addFavoriteQuestion(this.list[i])
+                            }
+                        }
+                        for (let i = 51; i < 60; i++) {
+                            if (this.list[i].answer == this.userSelections[i]) {
+                                sum += 0.5
+                            } else {
+                                sum += 0
+                                this.addFavoriteQuestion(this.list[i])
+                            }
+                        }
+                        this.$alert(`得分为${sum}`, {
+                            confirmButtonText: '确定'
+                        })
+                        this.userSelections = []
+                        this.input = []
+                        this.list.forEach(element => {
+                            if (element.hasOwnProperty('result')) {
+                                delete element['result']
+                            }
+                        })
+                    })
+                }
+            } else {
+                for (let i = 0; i < this.input.length; i++) {
+                    this.userSelections[i + 45] = this.input[i]
+                }
+                let isNull = this.userSelections.find(element => element == 0)
+                if (!isNull) {
+                    let sum = 0;
+                    for (let i = 0; i < 15; i++) {
+                        if (this.list[i].answer == this.list[i]) {
+                            sum += 0.5
+                        } else {
+                            sum += 0
+                            this.list[i].likeFlag = true
+                            this.addFavoriteQuestion(this.list[i])
+                        }
+                    }
+                    for (let i = 16; i < 30; i++) {
+                        let result = arraysHaveSameElements(this.list[i].answer, this.userSelections[i])
+                        if (result) {
+                            sum += 0.5
+                        } else {
+                            sum += 0
+                            this.list[i].likeFlag = true
+                            this.addFavoriteQuestion(this.list[i])
+                        }
+                    }
+                    for (let i = 31; i < 45; i++) {
+                        if (this.list[i].answer == this.userSelections[i]) {
+                            sum += 0.5
+                        } else {
+                            sum += 0
+                            this.list[i].likeFlag = true
+                            this.addFavoriteQuestion(this.list[i])
+                        }
+                    }
+                    for (let i = 46; i < 50; i++) {
+                        if (this.list[i].answer == this.userSelections[i]) {
+                            sum += 0.5
+                        } else {
+                            sum += 0
+                            this.list[i].likeFlag = true
+                            this.addFavoriteQuestion(this.list[i])
+                        }
+                    }
+                    this.$alert(`得分为${sum}`, {
+                        confirmButtonText: '确定'
+                    })
+                    this.list.forEach(item => {
+                        item.radio = ''
+                    })
+                    this.userSelections = []
+                    this.input = []
+                    this.list.forEach(element => {
+                        if (element.hasOwnProperty('result')) {
+                            delete element['result']
+                        }
+                    })
+                } else {
+                    this.$confirm('还有未做的题，确定提交吗', '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        let sum = 0;
+                        for (let i = 0; i < 15; i++) {
+                            if (this.list[i].answer == this.list[i]) {
+                                sum += 0.5
+                            } else {
+                                sum += 0
+                                this.addFavoriteQuestion(this.list[i])
+                            }
+                        }
+                        for (let i = 16; i < 30; i++) {
+                            let result = arraysHaveSameElements(this.list[i].answer, this.userSelections[i])
+                            if (result) {
+                                sum += 0.5
+                            } else {
+                                sum += 0
+                                this.addFavoriteQuestion(this.list[i])
+                            }
+                        }
+                        for (let i = 31; i < 45; i++) {
+                            if (this.list[i].answer == this.userSelections[i]) {
+                                sum += 0.5
+                            } else {
+                                sum += 0
+                                this.addFavoriteQuestion(this.list[i])
+                            }
+                        }
+                        for (let i = 46; i < 50; i++) {
+                            if (this.list[i].answer == this.userSelections[i]) {
+                                sum += 0.5
+                            } else {
+                                sum += 0
+                                this.addFavoriteQuestion(this.list[i])
+                            }
+                        }
+                        this.$alert(`得分为${sum}`, {
+                            confirmButtonText: '确定'
+                        })
+                        this.userSelections = []
+                        this.input = []
+                        this.list.forEach(element => {
+                            if (element.hasOwnProperty('result')) {
+                                delete element['result']
+                            }
+                        })
+                    })
+                }
             }
         },
         goBack() {
