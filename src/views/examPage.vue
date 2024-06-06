@@ -150,7 +150,8 @@ export default {
         }
         this.paperOptions.push(rest)
         this.list = require(`../assets/cura/${lesson}_${this.$route.params.id}.json`)
-        this.userSelections.fill(0)
+        let temp = new Array(60).fill(0);
+        this.userSelections = temp
     },
     components: {
         topBar
@@ -159,11 +160,9 @@ export default {
         ...mapActions(['addFavoriteQuestion']),
         updateUserSelection(questionIndex, optionIndex) {
             this.userSelections[questionIndex] = this.option[optionIndex]
-            console.log(this.userSelections);
         },
         clickMe(selections, questionIndex) {
             this.userSelections[questionIndex] = selections.result
-            console.log(this.input);
         },
         submitUserSelections() {
             function arraysHaveSameElements(answer, selection) {
@@ -173,10 +172,10 @@ export default {
                 }
                 return answer.every(element => selection.includes(element));
             }
-            let isNull = this.userSelections.find(element => element == 0)
             for (let i = 0; i < this.input.length; i++) {
                 this.userSelections[i + 50] = this.input[i]
             }
+            let isNull = this.userSelections.find(element => element == 0)
             if (!isNull) {
                 let sum = 0;
                 for (let i = 0; i < 20; i++) {
@@ -220,18 +219,62 @@ export default {
                 })
                 this.userSelections = []
                 this.input = []
+                this.list.forEach(element => {
+                    if (element.hasOwnProperty('result')) {
+                        delete element['result']
+                    }
+                })
             } else {
                 this.$confirm('还有未做的题，确定提交吗', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     type: 'warning'
                 }).then(() => {
+                    let sum = 0;
+                    for (let i = 0; i < 20; i++) {
+                        if (this.list[i].answer == this.list[i]) {
+                            sum += 0.5
+                        } else {
+                            sum += 0
+                            this.addFavoriteQuestion(this.list[i])
+                        }
+                    }
+                    for (let i = 20; i < 35; i++) {
+                        let result = arraysHaveSameElements(this.list[i].answer, this.userSelections[i])
+                        if (result) {
+                            sum += 0.5
+                        } else {
+                            sum += 0
+                            this.addFavoriteQuestion(this.list[i])
+                        }
+                    }
+                    for (let i = 36; i < 50; i++) {
+                        if (this.list[i].answer == this.userSelections[i]) {
+                            sum += 0.5
+                        } else {
+                            sum += 0
+                            this.addFavoriteQuestion(this.list[i])
+                        }
+                    }
+                    for (let i = 51; i < 60; i++) {
+                        if (this.list[i].answer == this.userSelections[i]) {
+                            sum += 0.5
+                        } else {
+                            sum += 0
+                            this.addFavoriteQuestion(this.list[i])
+                        }
+                    }
                     this.$alert(`得分为${sum}`, {
                         confirmButtonText: '确定'
                     })
-                }).catch(() => {
-
-                });
+                    this.userSelections = []
+                    this.input = []
+                    this.list.forEach(element => {
+                        if (element.hasOwnProperty('result')) {
+                            delete element['result']
+                        }
+                    })
+                })
             }
         },
         goBack() {
@@ -239,8 +282,8 @@ export default {
         }
     },
     watch: {
-        value: function(newval, oldval) {
-            this.$router.push({path: '/newHome/examPage/' + this.$route.params.lesson + '/' + newval})
+        value: function (newval, oldval) {
+            this.$router.push({ path: '/newHome/examPage/' + this.$route.params.lesson + '/' + newval })
             this.list = require(`../assets/cura/${this.$route.params.lesson}_${this.$route.params.id}.json`)
             this.seq = this.$route.params.id
         },
