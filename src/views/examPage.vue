@@ -150,7 +150,7 @@ export default {
         }
         this.paperOptions.push(rest)
         this.list = require(`../assets/cura/${lesson}_${this.$route.params.id}.json`)
-        let temp = new Array(60).fill(0);
+        let temp = new Array(50).fill(0);
         this.userSelections = temp
     },
     components: {
