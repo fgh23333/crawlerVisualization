@@ -183,6 +183,7 @@ export default {
                         sum += 0.5
                     } else {
                         sum += 0
+                        this.list[i].likeFlag = true
                         this.addFavoriteQuestion(this.list[i])
                     }
                 }
@@ -192,6 +193,7 @@ export default {
                         sum += 0.5
                     } else {
                         sum += 0
+                        this.list[i].likeFlag = true
                         this.addFavoriteQuestion(this.list[i])
                     }
                 }
@@ -200,6 +202,7 @@ export default {
                         sum += 0.5
                     } else {
                         sum += 0
+                        this.list[i].likeFlag = true
                         this.addFavoriteQuestion(this.list[i])
                     }
                 }
@@ -208,6 +211,7 @@ export default {
                         sum += 0.5
                     } else {
                         sum += 0
+                        this.list[i].likeFlag = true
                         this.addFavoriteQuestion(this.list[i])
                     }
                 }
