@@ -144,8 +144,8 @@
                     </div>
                 </div>
             </div>
+            <div class="bottomAlert">--- 已经到底啦 ---</div>
         </div>
-
     </div>
 </template>
 
@@ -458,6 +458,15 @@ export default {
                 }
             }
         }
+    }
+
+    .bottomAlert {
+        color: #999;
+        font-size: 16px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        line-height: 40px;
+        height: 40px;
     }
 }
 </style>

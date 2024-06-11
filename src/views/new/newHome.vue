@@ -59,7 +59,7 @@
                                 <div class="text">关于</div>
                             </div>
                         </router-link>
-                        <el-popover placement="right" width="200" trigger="click">
+                        <!-- <el-popover placement="right" width="200" trigger="click">
                             <div class="menu">
                                 <div class="selection" @click="open()">
                                     <span class="text">深色模式</span>
@@ -74,7 +74,7 @@
                                 <img class="image" src="@/assets/icon/icon-setting.svg">
                                 <div class="text">设置</div>
                             </div>
-                        </el-popover>
+                        </el-popover> -->
                     </div>
                 </el-main>
             </el-container>
@@ -328,14 +328,13 @@ export default {
 
     .buttonContainer {
         position: fixed;
-        bottom: 24px;
+        bottom: 16px;
         right: 48px;
-
 
         .tab {
             height: 56px;
             text-align: left;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             margin-right: 8px;
             border-radius: 12px;
             padding-right: 16px;
