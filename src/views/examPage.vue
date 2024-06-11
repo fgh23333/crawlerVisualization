@@ -186,7 +186,7 @@ export default {
                 if (!isNull) {
                     let sum = 0;
                     for (let i = 0; i < 20; i++) {
-                        if (this.list[i].answer == this.list[i]) {
+                        if (this.list[i].answer == this.userSelections[i]) {
                             sum += 0.5
                         } else {
                             sum += 0
@@ -243,7 +243,7 @@ export default {
                     }).then(() => {
                         let sum = 0;
                         for (let i = 0; i < 20; i++) {
-                            if (this.list[i].answer == this.list[i]) {
+                            if (this.list[i].answer == this.userSelections[i]) {
                                 sum += 0.5
                             } else {
                                 sum += 0
@@ -295,7 +295,7 @@ export default {
                 if (!isNull) {
                     let sum = 0;
                     for (let i = 0; i < 15; i++) {
-                        if (this.list[i].answer == this.list[i]) {
+                        if (this.list[i].answer == this.userSelections[i]) {
                             sum += 0.5
                         } else {
                             sum += 0
@@ -352,7 +352,7 @@ export default {
                     }).then(() => {
                         let sum = 0;
                         for (let i = 0; i < 15; i++) {
-                            if (this.list[i].answer == this.list[i]) {
+                            if (this.list[i].answer == this.userSelections[i]) {
                                 sum += 0.5
                             } else {
                                 sum += 0
