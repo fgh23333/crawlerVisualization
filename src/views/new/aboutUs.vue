@@ -6,7 +6,7 @@
                 <a
                     href="http://222.73.57.153:6571/file/student/html/practiceLogin.html?id=1705139277953761280">http://222.73.57.153:6571/file/student/html/practiceLogin.html?id=1705139277953761280</a>
             </div>
-            <div class="projectAddress box">
+            <!-- <div class="projectAddress box">
                 <div class="title">项目地址</div>
                 <a href="https://github.com">
                     <img src="@/assets/icon/github.svg" class="github">
@@ -14,7 +14,7 @@
                 <!-- <a href="https://github.com/fgh23333/crawler">https://github.com/fgh23333/crawler</a> -->
                 <a
                     href="https://github.com/fgh23333/crawlerVisualization">https://github.com/fgh23333/crawlerVisualization</a>
-            </div>
+            </div> -->
             <div class="members box">
                 <div class="title">制作成员</div>
                 <!-- <div class="member">爬虫 | 冯国昊 倪镭</div> -->
