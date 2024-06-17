@@ -11,7 +11,7 @@
                 <a href="https://github.com">
                     <img src="@/assets/icon/github.svg" class="github">
                 </a>
-                <!-- <a href="https://github.com/fgh23333/crawler">https://github.com/fgh23333/crawler</a> -->
+                <a href="https://github.com/fgh23333/crawler">https://github.com/fgh23333/crawler</a>
                 <a
                     href="https://github.com/fgh23333/crawlerVisualization">https://github.com/fgh23333/crawlerVisualization</a>
             </div> -->
