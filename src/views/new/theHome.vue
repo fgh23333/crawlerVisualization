@@ -13,7 +13,7 @@
           <span class="text_8">欢迎使用上海海洋大学马克思主义学院题库</span>
         </div>
         <div class="group_7">
-          <span class="mt-48 text_11">这是一个由信院23级学生搭建的第三方题库，题目完全从官网获取，仅供参考学习。</span>
+          <span class="mt-48 text_11">这是一个由信院23级学生搭建的第三方题库，仅供参考学习。</span>
         </div>
       </div>
     </div>
