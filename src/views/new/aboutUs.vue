@@ -11,13 +11,13 @@
                 <a href="https://github.com">
                     <img src="@/assets/icon/github.svg" class="github">
                 </a>
-                <a href="https://github.com/fgh23333/crawler">https://github.com/fgh23333/crawler</a>
+                <!-- <a href="https://github.com/fgh23333/crawler">https://github.com/fgh23333/crawler</a> -->
                 <a
                     href="https://github.com/fgh23333/crawlerVisualization">https://github.com/fgh23333/crawlerVisualization</a>
             </div>
             <div class="members box">
                 <div class="title">制作成员</div>
-                <div class="member">爬虫 | 冯国昊 倪镭</div>
+                <!-- <div class="member">爬虫 | 冯国昊 倪镭</div> -->
                 <div class="member">网页 | 冯国昊 倪镭</div>
                 <div class="member">设计 | 倪镭</div>
 
