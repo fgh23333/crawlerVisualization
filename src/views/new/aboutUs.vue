@@ -28,10 +28,10 @@
                 <div class="contactWay">倪镭 Yutian_0525</div>
                 <div class="contactWay">冯国昊 635262140</div>
             </div>
-            <div class="contact box">
+            <!-- <div class="contact box">
                 <div class="title">特别鸣谢</div>
                 <div class="contactWay">汤奇红------党史新题库贡献者</div>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
