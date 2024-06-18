@@ -9,9 +9,9 @@
         <span class="self-start text_6">HELLO...</span>
       </div>
       <div class="flex-col self-start group_4">
-        <div class="group_6">
-          <!-- <span class="text_8">欢迎使用上海海洋大学马克思主义学院题库</span> -->
-        </div>
+        <!-- <div class="group_6">
+          <span class="text_8">欢迎使用上海海洋大学马克思主义学院题库</span>
+        </div> -->
         <div class="group_7">
           <span class="mt-48 text_11">这是一个第三方题库，仅供参考学习。</span>
         </div>
