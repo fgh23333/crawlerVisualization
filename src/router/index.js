@@ -57,11 +57,11 @@ const routes = [
         path: '/',
         component: theHome,
       },
-      // {
-      //   path: 'aboutUs',
-      //   name: 'aboutUs',
-      //   component: aboutUs
-      // },
+      {
+        path: 'aboutUs',
+        name: 'aboutUs',
+        component: aboutUs
+      },
       {
         path: ':type/:lesson',
         name: 'questionList',
