@@ -53,12 +53,12 @@
                             <div class="text">收藏夹</div>
                         </div>
                         </router-link>
-                        <router-link to="/newHome/aboutUs">
+                        <!-- <router-link to="/newHome/aboutUs">
                             <div class="tab">
                                 <img class="image" src="@/assets/icon/icon-info.svg">
                                 <div class="text">关于</div>
                             </div>
-                        </router-link>
+                        </router-link> -->
                         <!-- <el-popover placement="right" width="200" trigger="click">
                             <div class="menu">
                                 <div class="selection" @click="open()">
