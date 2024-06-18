@@ -5,10 +5,10 @@
                 <router-link to="/newHome">
                     <div class="title">
                         <img src="@/assets/icon/icon-title.png" class="icon">
-                        <div class="titleCover">
+                        <!-- <div class="titleCover">
                             <span class="bigTitle">马院题库</span>
                             <span class="smallTitle">上海海洋大学</span>
-                        </div>
+                        </div> -->
                     </div>
                 </router-link>
                 <div class="nav">
