@@ -1,2 +1,2 @@
 # crawlerVisualization
-上海海洋大学马克思主义学院题库可视化
+题库可视化

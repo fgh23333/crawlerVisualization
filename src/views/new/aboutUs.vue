@@ -20,17 +20,6 @@
                 <div class="member">爬虫 | 冯国昊 倪镭</div>
                 <div class="member">网页 | 冯国昊 倪镭</div>
                 <div class="member">设计 | 倪镭</div>
-
-            </div> -->
-            <!-- <div class="contact box">
-                <div class="title">联系我们</div>
-                <div class="contactTitle">作者微信号：</div>
-                <div class="contactWay">倪镭 Yutian_0525</div>
-                <div class="contactWay">冯国昊 635262140</div>
-            </div> -->
-            <!-- <div class="contact box">
-                <div class="title">特别鸣谢</div>
-                <div class="contactWay">汤奇红------党史新题库贡献者</div>
             </div> -->
         </div>
     </div>
