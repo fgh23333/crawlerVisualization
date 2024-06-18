@@ -4,11 +4,11 @@
             <el-aside width="262px">
                 <router-link to="/newHome">
                     <div class="title">
-                        <img src="@/assets/icon/icon-title.png" class="icon">
-                        <!-- <div class="titleCover">
-                            <span class="bigTitle">马院题库</span>
-                            <span class="smallTitle">上海海洋大学</span>
-                        </div> -->
+                        <img src="@/assets/icon/github.svg" class="icon">
+                        <div class="titleCover">
+                            <span class="bigTitle">GitHub</span>
+                            <span class="smallTitle">Question Set</span>
+                        </div>
                     </div>
                 </router-link>
                 <div class="nav">
@@ -53,12 +53,12 @@
                             <div class="text">收藏夹</div>
                         </div>
                         </router-link>
-                        <!-- <router-link to="/newHome/aboutUs">
+                        <router-link to="/newHome/aboutUs">
                             <div class="tab">
                                 <img class="image" src="@/assets/icon/icon-info.svg">
                                 <div class="text">关于</div>
                             </div>
-                        </router-link> -->
+                        </router-link>
                         <!-- <el-popover placement="right" width="200" trigger="click">
                             <div class="menu">
                                 <div class="selection" @click="open()">
@@ -209,8 +209,8 @@ export default {
         margin: 34px 20px;
 
         .icon {
-            width: 72px;
-            height: 72px;
+            width: 64px;
+            height: 64px;
             float: left;
         }
 
@@ -234,7 +234,7 @@ export default {
             .smallTitle {
                 font-weight: medium;
                 color: #7A7A7A;
-                font-size: 18px;
+                font-size: 14px;
                 float: left;
                 line-height: 28px
             }
