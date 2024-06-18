@@ -1,6 +1,7 @@
 <template>
     <div id="aboutUs">
         <div class="info">
+<<<<<<< Updated upstream
             <!-- <div class="officalLink box">
                 <div class="title">官网链接</div>
                 <a
@@ -21,6 +22,16 @@
                 <div class="member">网页 | 冯国昊 倪镭</div>
                 <div class="member">设计 | 倪镭</div>
             </div> -->
+=======
+            <div class="members box">
+                <div class="title">Member</div>
+                <div class="member">idiotSHOUmy</div>
+            </div>
+            <div class="contact box">
+                <div class="title">Contact Us</div>
+                <div class="contactWay">info@idiotSHOUmy.com</div>
+            </div>
+>>>>>>> Stashed changes
         </div>
     </div>
 </template>
@@ -68,35 +79,7 @@ export default {
                 margin: 0px 0px 14px 0px;
             }
 
-            .github {
-                position: absolute;
-                top: -4px;
-                left: 155px;
-            }
-
-            a {
-                color: #4F4F4F;
-                font-size: 18px;
-                display: block;
-                text-align: left;
-                line-height: 37px;
-                margin-left: 14px;
-                overflow-wrap: break-word;
-            }
-
-            a:visited {
-                color: #4F4F4F;
-            }
-
             .member {
-                text-align: left;
-                margin-left: 14px;
-                font-size: 18px;
-                font-weight: 500;
-                line-height: 32px;
-            }
-
-            .contactTitle {
                 text-align: left;
                 margin-left: 14px;
                 font-size: 18px;
