@@ -10,7 +10,7 @@
       </div>
       <div class="flex-col self-start group_4">
         <div class="group_6">
-          <span class="text_8">这是一个第三方题库，仅供参考学习。</span>
+          <span class="text_8">这是一个第三方题库，仅供海大学生复习备考。</span>
         </div>
       </div>
     </div>
@@ -28,21 +28,17 @@
   height: 98vh;
   display: flex;
   justify-content: center;
-  /* 水平居中 */
   align-items: center;
-  /* 垂直居中 */
 }
 
 .group_5 {
   display: flex;
   justify-content: left;
-  /* 水平居中 */
 }
 
 .group_6 {
   display: flex;
   justify-content: left;
-  /* 水平居中 */
 }
 
 .flex-col {
@@ -61,7 +57,7 @@
 
 .group_4 {
   margin-top: 64px;
-  width: 931px;
+  width: 1100px;
 }
 
 .text_8 {
@@ -70,17 +66,6 @@
   font-family: HarmonyOSSansSC;
   font-weight: 900;
   line-height: 46px;
-  letter-spacing: 1px;
-}
-
-.text_11 {
-  margin-top: 37px;
-  color: #828282;
-  font-size: 36px;
-  font-family: HarmonyOSSansSC;
-  font-weight: 700;
-  line-height: 43px;
-  text-align: left;
   letter-spacing: 1px;
 }
 
@@ -94,12 +79,6 @@
   opacity: 0;
   animation: fadeInUp 0.5s ease-in-out forwards;
   animation-delay: 1s;
-}
-
-.group_7 {
-  opacity: 0;
-  animation: fadeInUp 0.5s ease-in-out forwards;
-  animation-delay: 1.5s;
 }
 
 @keyframes fadeInUp {

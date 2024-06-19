@@ -4,10 +4,10 @@
             <el-aside width="262px">
                 <router-link to="/newHome">
                     <div class="title">
-                        <img src="@/assets/icon/github.svg" class="icon">
+                        <img src="@/assets/icon/icon-title.png" class="icon">
                         <div class="titleCover">
-                            <span class="bigTitle">GitHub</span>
-                            <span class="smallTitle">Question Set</span>
+                            <span class="bigTitle">思政题库</span>
+                            <span class="smallTitle">复习备考专区</span>
                         </div>
                     </div>
                 </router-link>
@@ -52,12 +52,6 @@
                             <img class="image" src="@/assets/icon/icon-favorites.svg">
                             <div class="text">收藏夹</div>
                         </div>
-                        </router-link>
-                        <router-link to="/newHome/aboutUs">
-                            <div class="tab">
-                                <img class="image" src="@/assets/icon/icon-info.svg">
-                                <div class="text">关于</div>
-                            </div>
                         </router-link>
                         <!-- <el-popover placement="right" width="200" trigger="click">
                             <div class="menu">
@@ -216,8 +210,9 @@ export default {
 
         .titleCover {
             height: 100%;
-            width: 130px;
+            width: 120px;
             padding: 10px 10px;
+            margin-left: 10px;
             float: left;
             text-align: left;
             letter-spacing: 3px;
@@ -226,8 +221,8 @@ export default {
             .bigTitle {
                 color: #6C5DD3;
                 font-weight: bold;
-                font-size: 24px;
-                line-height: 36px;
+                font-size: 18px;
+                line-height: 24px;
                 float: left;
             }
 
@@ -236,7 +231,7 @@ export default {
                 color: #7A7A7A;
                 font-size: 14px;
                 float: left;
-                line-height: 28px
+                line-height: 32px
             }
         }
     }

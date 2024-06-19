@@ -8,7 +8,6 @@ import singleChoice from '@/views/singleChoice.vue'
 import multipleChoice from '@/views/multipleChoice.vue'
 import fillingBlank from '@/views/fillingBlank.vue'
 import newHome from "@/views/new/newHome.vue"
-import aboutUs from "@/views/new/aboutUs.vue"
 import theHome from "@/views/new/theHome.vue"
 import questionList from "@/views/new/questionList.vue"
 import favorites from "@/views/new/favorites.vue"
@@ -56,11 +55,6 @@ const routes = [
       {
         path: '/',
         component: theHome,
-      },
-      {
-        path: 'aboutUs',
-        name: 'aboutUs',
-        component: aboutUs
       },
       {
         path: ':type/:lesson',
