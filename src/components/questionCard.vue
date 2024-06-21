@@ -330,7 +330,6 @@ export default {
                 width: fit-content;
                 margin-right: 10px;
 
-
                 .seq {
                     height: 30px;
                     font-size: 20px;
