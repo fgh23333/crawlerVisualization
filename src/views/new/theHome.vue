@@ -14,7 +14,7 @@
         </div>
         <div class="group_7">
           <span class="mt-48 text_11">
-            <a href="https://github.com/fgh23333/crawlerVisualization">更多详情请前往GitHub项目主页</a>
+            <a class="GitHub_link" href="https://github.com/fgh23333/crawlerVisualization">更多详情请前往GitHub项目主页</a>
           </span>
         </div>
       </div>
@@ -23,6 +23,15 @@
 </template>
 
 <style>
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
 .self-start {
   align-self: flex-start;
 }
