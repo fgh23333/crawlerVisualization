@@ -10,7 +10,12 @@
       </div>
       <div class="flex-col self-start group_4">
         <div class="group_6">
-          <span class="text_8">这是一个第三方题库，仅供海大学生复习备考。</span>
+          <span class="text_8">这是一个第三方题库，仅供海大学生复习备考</span>
+        </div>
+        <div class="group_7">
+          <span class="mt-48 text_11">
+            <a href="https://github.com/fgh23333/crawlerVisualization">更多详情请前往GitHub项目主页</a>
+          </span>
         </div>
       </div>
     </div>
@@ -55,6 +60,17 @@
   letter-spacing: 8px;
 }
 
+.text_11 {
+  margin-top: 40px;
+  color: #828282;
+  font-size: 24px;
+  font-family: HarmonyOSSansSC;
+  font-weight: 700;
+  line-height: 48px;
+  text-align: left;
+  letter-spacing: 1px;
+}
+
 .group_4 {
   margin-top: 64px;
   width: 1100px;
@@ -79,6 +95,15 @@
   opacity: 0;
   animation: fadeInUp 0.5s ease-in-out forwards;
   animation-delay: 1s;
+}
+
+.group_7 {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-in-out forwards;
+  animation-delay: 1.5s;
+  display: flex;
+  justify-content: left;
+  margin-top: 20px
 }
 
 @keyframes fadeInUp {
