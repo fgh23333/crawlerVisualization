@@ -36,24 +36,26 @@
                         </el-submenu>
                     </el-menu>
                 </div>
+                <div class="buttonContainer">
+                    <router-link to="/">
+                        <div class="tab">
+                            <img class="image" src="@/assets/icon/icon-back.svg">
+                            <div class="text">返回旧版</div>
+                        </div>
+                    </router-link>
+                    <router-link to="/newHome/favorites">
+                        <div class="tab">
+                            <img class="image" src="@/assets/icon/icon-favorites.svg">
+                            <div class="text">收藏夹</div>
+                        </div>
+                    </router-link>
+                </div>
             </el-aside>
             <el-container>
                 <el-main>
                     <router-view></router-view>
-                    <div class="buttonContainer">
-                        <router-link to="/">
-                            <div class="tab">
-                                <img class="image" src="@/assets/icon/icon-back.svg">
-                                <div class="text">返回旧版</div>
-                            </div>
-                        </router-link>
-                        <router-link to="/newHome/favorites">
-                            <div class="tab">
-                                <img class="image" src="@/assets/icon/icon-favorites.svg">
-                                <div class="text">收藏夹</div>
-                            </div>
-                        </router-link>
-                        <!-- <el-popover placement="right" width="200" trigger="click">
+
+                    <!-- <el-popover placement="right" width="200" trigger="click">
                             <div class="menu">
                                 <div class="selection" @click="open()">
                                     <span class="text">深色模式</span>
@@ -69,7 +71,7 @@
                                 <div class="text">设置</div>
                             </div>
                         </el-popover> -->
-                    </div>
+
                 </el-main>
             </el-container>
         </el-container>
@@ -237,16 +239,22 @@ export default {
     }
 
     .nav {
-        height: calc(100vh - 72px - 88px);
+        height: calc(70vh - 72px * 0.7 - 88px * 0.7);
         overflow: auto;
         text-align: center;
         -ms-overflow-style: none;
         scrollbar-width: none;
+        box-shadow:
+                0px -1px 8px 0px rgba(230, 232, 240, 0.9),
+                -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+                1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+                0px 1px 8px 0px rgba(230, 232, 240, 0.9);
 
         .el-menu-vertical-demo {
             width: 216px;
             margin: 0px 23px;
             border: none;
+            padding-top: 20px;
 
             .el-submenu {
                 margin-top: 0px;
@@ -322,9 +330,8 @@ export default {
     }
 
     .buttonContainer {
-        position: fixed;
-        bottom: 16px;
-        right: 48px;
+        width: 216px;
+        margin: 20px auto;
 
         .tab {
             height: 56px;
