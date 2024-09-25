@@ -31,7 +31,7 @@ export default {
     data() {
         return {
             radio: '',
-            checkList: '',
+            checkList: [],
             options: ['A', 'B', 'C', 'D', 'E'],
         }
     },
@@ -98,8 +98,8 @@ export default {
     .right {
         text-align: justify;
         position: relative;
-        width: 94%;
-        
+        width: 92%;
+
         .markAndLike {
             width: 72px;
             height: 32px;
@@ -137,19 +137,43 @@ export default {
 
         .questionAnswer {
             letter-spacing: 1px;
-            height: fit-content;
             line-height: 30px;
             margin-top: 8px;
-            display: flex;
-            justify-content: flex-start;
             margin-bottom: 10px;
 
             .answer {
                 line-height: 30px;
                 color: #5F89D3;
 
+                span {
+                    word-wrap: break-word;
+                    word-break: break-all;
+                    white-space: normal;
+                    line-height: 22px;
+                }
+
+                .el-radio__input {
+                    margin-top: -2px;
+
+                    .el-radio__inner {
+                        border: 1px solid #999;
+                    }
+                }
+
                 .el-radio__label {
-                    font-size: 18px !important;
+                    font-size: 18px;
+                }
+
+                .el-checkbox__input {
+                    margin-top: -2px;
+
+                    .el-checkbox__inner {
+                        border: 1px solid #999;
+                    }
+                }
+
+                .el-checkbox__label {
+                    font-size: 18px;
                 }
             }
         }
