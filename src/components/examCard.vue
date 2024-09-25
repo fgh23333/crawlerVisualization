@@ -19,7 +19,7 @@
                 </div>
                 <div class="single" v-else>
                     <div v-for="(item, i) in question.option" class="answer">
-                        <el-radio v-if="item.length == 2" v-model="radio" :label="item" :key="i" class="option"
+                        <el-radio v-if="question.option.length == 2" v-model="radio" :label="item" :key="i" class="option"
                             @click="updateOption(seq, options[i])">{{ options[i] + '、' + item }}</el-radio>
                         <el-radio v-else v-model="radio" :label="options[i]" :key="i" class="option"
                             @click="updateOption(seq, options[i])">{{ options[i] + '、' + item }}</el-radio>
