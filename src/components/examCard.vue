@@ -10,29 +10,37 @@
             <div class="questionStem">{{ question.questionStem }}</div>
             <div class="questionAnswer" v-if="questionType !== '填空'">
                 <div class="multiple" v-if="questionType == '多选'">
-                    <el-checkbox-group v-model="checkList">
+                    <el-checkbox-group v-model="checkList" class="checkbox-group">
                         <div v-for="(item, i) in question.option" class="answer">
-                            <el-checkbox :label="options[i] + '、' + item" :key="i" class="option"></el-checkbox>
+                            <el-checkbox :label="options[i]" :key="i"
+                                class="option checkbox-item">{{ options[i] + '、' + item }}</el-checkbox>
                         </div>
                     </el-checkbox-group>
                 </div>
                 <div class="single" v-else>
                     <div v-for="(item, i) in question.option" class="answer">
-                        <el-radio v-model="radio" :label="options[i] + '、' + item" :key="i" class="option"></el-radio>
+                        <el-radio v-if="item.length == 2" v-model="radio" :label="item" :key="i" class="option" @click="updateOption(seq, options[i])">{{ options[i] + '、' + item }}</el-radio>
+                        <el-radio v-else v-model="radio" :label="options[i]" :key="i" class="option" @click="updateOption(seq, options[i])">{{ options[i] + '、' + item }}</el-radio>
                     </div>
                 </div>
+            </div>
+            <div class="questionAnswer" v-else>
+                <el-input v-model="input" placeholder="请输入答案"></el-input>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
     data() {
         return {
             radio: '',
             checkList: [],
             options: ['A', 'B', 'C', 'D', 'E'],
+            input: ''
         }
     },
     props: {
@@ -59,11 +67,35 @@ export default {
                 return '多选'
             }
         }
+    },
+    methods: {
+        ...mapActions(['addToAnswerList']),
+        updateOption(questionIndex, option) {
+            this.$store.addAnswer(questionIndex, option)
+        }
     }
 }
 </script>
 
 <style lang="less">
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    /* 确保复选框靠上对齐 */
+    margin-bottom: 10px;
+    /* 调整每个选项的间距 */
+}
+
+.el-checkbox {
+    align-items: flex-start;
+    /* 让复选框靠上对齐 */
+}
+
 #examCard {
     background-color: #FFFFFF;
     padding: 14px 18px;
@@ -174,6 +206,7 @@ export default {
 
                 .el-checkbox__label {
                     font-size: 18px;
+                    display: inline;
                 }
             }
         }

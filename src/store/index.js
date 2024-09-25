@@ -6,11 +6,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    wrongQuestions: []
+    wrongQuestions: [],
+    answerList: []
   },
   getters: {
   },
   mutations: {
+    addAnswer(state, questionIndex, option) {
+      state.answerList[questionIndex] = option
+      console.log(state.answerList);
+
+    },
+    addMultipleAnswer(questionIndex, option) {
+
+    },
+    checkAnswer() {
+
+    },
     ADD_WRONG_QUESTION(state, question) {
       state.wrongQuestions.push(question);
     },
@@ -24,6 +36,9 @@ export default new Vuex.Store({
     },
     removeFavoriteQuestion({ commit }, questionId) {
       commit('REMOVE_WRONG_QUESTION', questionId);
+    },
+    addToAnswerList({ commit }, questionIndex, option) {
+      commit('addAnswer', questionIndex, option)
     }
   },
   modules: {
