@@ -12,15 +12,17 @@
                 <div class="multiple" v-if="questionType == '多选'">
                     <el-checkbox-group v-model="checkList" class="checkbox-group">
                         <div v-for="(item, i) in question.option" class="answer">
-                            <el-checkbox :label="options[i]" :key="i"
-                                class="option checkbox-item">{{ options[i] + '、' + item }}</el-checkbox>
+                            <el-checkbox :label="options[i]" :key="i" class="option checkbox-item">{{ options[i] + '、' +
+                                item }}</el-checkbox>
                         </div>
                     </el-checkbox-group>
                 </div>
                 <div class="single" v-else>
                     <div v-for="(item, i) in question.option" class="answer">
-                        <el-radio v-if="item.length == 2" v-model="radio" :label="item" :key="i" class="option" @click="updateOption(seq, options[i])">{{ options[i] + '、' + item }}</el-radio>
-                        <el-radio v-else v-model="radio" :label="options[i]" :key="i" class="option" @click="updateOption(seq, options[i])">{{ options[i] + '、' + item }}</el-radio>
+                        <el-radio v-if="item.length == 2" v-model="radio" :label="item" :key="i" class="option"
+                            @click="updateOption(seq, options[i])">{{ options[i] + '、' + item }}</el-radio>
+                        <el-radio v-else v-model="radio" :label="options[i]" :key="i" class="option"
+                            @click="updateOption(seq, options[i])">{{ options[i] + '、' + item }}</el-radio>
                     </div>
                 </div>
             </div>
@@ -71,7 +73,7 @@ export default {
     methods: {
         ...mapActions(['addToAnswerList']),
         updateOption(questionIndex, option) {
-            this.$store.addAnswer(questionIndex, option)
+            this.addToAnswerList(questionIndex, option)
         }
     }
 }
@@ -184,16 +186,14 @@ export default {
                     line-height: 22px;
                 }
 
-                .el-radio__input {
-                    margin-top: -2px;
-
-                    .el-radio__inner {
-                        border: 1px solid #999;
-                    }
+                .el-radio__inner {
+                    border: 1px solid #999;
                 }
+
 
                 .el-radio__label {
                     font-size: 18px;
+                    display: inline;
                 }
 
                 .el-checkbox__input {
