@@ -12,13 +12,13 @@
                 <div class="multiple" v-if="questionType == '多选'">
                     <el-checkbox-group v-model="checkList">
                         <div v-for="(item, i) in question.option" class="answer">
-                            <el-checkbox :label="item" :key="i" class="option"></el-checkbox>
+                            <el-checkbox :label="options[i] + '、' + item" :key="i" class="option"></el-checkbox>
                         </div>
                     </el-checkbox-group>
                 </div>
                 <div class="single" v-else>
                     <div v-for="(item, i) in question.option" class="answer">
-                        <el-radio v-model="radio" :label="item" :key="i" class="option"></el-radio>
+                        <el-radio v-model="radio" :label="options[i] + '、' + item" :key="i" class="option"></el-radio>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,8 @@ export default {
     data() {
         return {
             radio: '',
-            checkList: ''
+            checkList: '',
+            options: ['A', 'B', 'C', 'D', 'E'],
         }
     },
     props: {
