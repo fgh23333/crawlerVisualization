@@ -1,6 +1,6 @@
 <template>
     <div id="examView">
-        <examCard v-for="(item, i) in questionList" :question="questionList[i]" :key="i"></examCard>
+        <examCard v-for="(item, i) in questionList" :question="item" :key="i" :seq="i"></examCard>
     </div>
 </template>
 

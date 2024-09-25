@@ -344,9 +344,9 @@ export default {
             }
 
             .right {
-                text-align: left;
+                text-align: justify;
                 position: relative;
-                width: 100%;
+                width: 94%;
 
                 .markAndLike {
                     width: 72px;
