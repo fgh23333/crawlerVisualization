@@ -1,6 +1,6 @@
 <template>
     <div id="questionCard">
-        <div v-if="list == 0">暂无数据</div>
+        <div v-if="list == ''">暂无数据</div>
         <div v-else>
             <div class="breadCrumb" v-if="subjectShow.includes(lesson)">
                 {{ subjectList[lesson] }} - {{ questionType[type] }} - 共{{ list.length }}题

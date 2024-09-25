@@ -11,6 +11,7 @@ import newHome from "@/views/new/newHome.vue"
 import theHome from "@/views/new/theHome.vue"
 import questionList from "@/views/new/questionList.vue"
 import favorites from "@/views/new/favorites.vue"
+import examView from '@/views/new/examView.vue'
 
 Vue.use(VueRouter)
 
@@ -62,18 +63,21 @@ const routes = [
         component: questionList
       },
       {
-          path: 'favorites',
-          name: 'favorites',
-          component: favorites
+        path: 'favorites',
+        name: 'favorites',
+        component: favorites
       },
       {
-    path: 'examPage/:lesson/:id',
-    name: 'examPage',
-    component: examPage
-  },
+        path: 'examPage/:lesson/:id',
+        name: 'examPage',
+        component: examPage
+      },
+      {
+        path: 'exam',
+        component: examView
+      }
     ]
-  },
-  
+  }
 ]
 
 const router = new VueRouter({
