@@ -12,8 +12,8 @@ export default new Vuex.Store({
   getters: {
   },
   mutations: {
-    addAnswer(state, questionIndex, option) {
-      state.answerList[questionIndex] = option
+    addAnswer(state, payload) {
+      state.answerList[payload.questionIndex] = payload.option
       console.log(state.answerList);
 
     },
@@ -37,11 +37,15 @@ export default new Vuex.Store({
     removeFavoriteQuestion({ commit }, questionId) {
       commit('REMOVE_WRONG_QUESTION', questionId);
     },
-    addToAnswerList({ commit }, questionIndex, option) {
-      commit('addAnswer', questionIndex, option)
+    addToAnswerList({ commit }, { questionIndex, option }) {
+      commit('addAnswer', { questionIndex, option })
     }
   },
   modules: {
   },
-  plugins: [createPersistedState()]
+  plugins: [
+    createPersistedState({
+      paths: ['wrongQuestions']
+    })
+  ]
 })

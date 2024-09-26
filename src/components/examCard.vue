@@ -8,7 +8,7 @@
                 <span>{{ questionType }}</span>
             </div>
             <div class="questionStem">{{ question.questionStem }}</div>
-            <div class="questionAnswer" v-if="questionType !== '填空'">
+            <div class="questionAnswer">
                 <div class="multiple" v-if="questionType == '多选'">
                     <el-checkbox-group v-model="checkList" class="checkbox-group">
                         <div v-for="(item, i) in question.option" class="answer">
@@ -17,18 +17,17 @@
                         </div>
                     </el-checkbox-group>
                 </div>
-                <div class="single" v-else>
-                    <div v-for="(item, i) in question.option" class="answer">
-                        <el-radio v-if="question.option.length == 2" v-model="radio" :label="item" :key="i" class="option"
-                            @click="updateOption(seq, options[i])">{{ options[i] + '、' + item }}</el-radio>
-                        <el-radio v-else v-model="radio" :label="options[i]" :key="i" class="option"
-                            @click="updateOption(seq, options[i])">{{ options[i] + '、' + item }}</el-radio>
+                <div class="single" v-if="questionType == '判断' || questionType == '单选'">
+                    <div v-for="(item, i) in question.option" :key="i" class="answer">
+                        <el-radio v-model="radio" :label="question.option.length == 2 ? item : options[i]"
+                            class="option" @change="updateOption(seq, radio)">{{ options[i] + '、' + item }}</el-radio>
                     </div>
                 </div>
+                <div class="fillingBlank" v-if="questionType == '填空'">
+                    <el-input v-model="input" @change="fillBlank(seq, input)" placeholder="请输入答案"></el-input>
+                </div>
             </div>
-            <div class="questionAnswer" v-else>
-                <el-input v-model="input" placeholder="请输入答案"></el-input>
-            </div>
+
         </div>
     </div>
 </template>
@@ -73,7 +72,10 @@ export default {
     methods: {
         ...mapActions(['addToAnswerList']),
         updateOption(questionIndex, option) {
-            this.addToAnswerList(questionIndex, option)
+            this.addToAnswerList({ questionIndex, option })
+        },
+        fillBlank(seq, input) {
+            this.addToAnswerList({ seq, input })
         }
     }
 }
