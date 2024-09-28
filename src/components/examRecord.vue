@@ -6,7 +6,7 @@
                 <div class="question-grid">
                     <span class="answer-status unactive" v-for="(question, index) in questions" :key="index"
                         :type="getAnswerStatus(index) ? 'primary' : 'default'" @click="toggleAnswerStatus(index)" round>
-                        {{ index + 1 }} <!-- 用索引作为题目顺序 -->
+                        {{ findQuestionIndex(question.id) + 1 }} <!-- 用索引作为题目顺序 -->
                     </span>
                 </div>
             </div>
@@ -20,7 +20,7 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
     computed: {
-        ...mapGetters(['getQuestionsByType', 'getAnswerStatus']),
+        ...mapGetters(['getAllQuestions', 'getQuestionsByType', 'getAnswerStatus']),
 
         questionTypes() {
             return {
@@ -45,6 +45,11 @@ export default {
         toggleAnswerStatus(index) {
             const currentStatus = this.getAnswerStatus(index);
             this.updateAnswerStatus({ index, status: !currentStatus });
+        },
+
+        // 找到题目在整个题库数组中的索引
+        findQuestionIndex(id) {
+            return this.getAllQuestions.findIndex(question => question.id === id);
         }
     },
     created() {
@@ -80,7 +85,8 @@ export default {
             grid-template-columns: repeat(auto-fill, 28px);
             gap: 10px;
             margin-bottom: 20px;
-            justify-content: space-between; /* 使按钮左右对齐 */
+            justify-content: space-between;
+            /* 使按钮左右对齐 */
 
             .answer-status {
                 width: 28px;

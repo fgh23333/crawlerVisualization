@@ -31,6 +31,9 @@ export default new Vuex.Store({
     },
     getAnswerStatus: (state) => (index) => {
       return state.answerStatus[index] || false;
+    },
+    getAllQuestions: (state) => {
+      return state.questionBank;
     }
   },
   mutations: {
