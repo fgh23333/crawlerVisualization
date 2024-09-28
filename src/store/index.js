@@ -8,12 +8,10 @@ export default new Vuex.Store({
   state: {
     wrongQuestions: [],
     answerList: [],
-    questionBank: [],
-    answerStatus: {}, // 题目回答状态
+    questionBank: []
   },
   getters: {
     getQuestionsByType: (state) => (type) => {
-      // 手动判断题型
       return state.questionBank.filter(question => {
         if (type === 'singleChoice') {
           return question.option && question.answer.length === 1;
@@ -28,9 +26,6 @@ export default new Vuex.Store({
           return !question.option;
         }
       });
-    },
-    getAnswerStatus: (state) => (index) => {
-      return state.answerStatus[index] || false;
     },
     getAllQuestions: (state) => {
       return state.questionBank;
@@ -53,14 +48,10 @@ export default new Vuex.Store({
     setQuestionBank(state, questions) {
       state.questionBank = questions;
     },
-    setAnswerStatus(state, { questionId, status }) {
-      Vue.set(state.answerStatus, questionId, status);
-    },
     async compareAnswers() {
-      const questions = this.$store.state.questions; // 从 store 获取题目列表
-      const userAnswers = this.$store.state.answerList; // 从 store 获取用户的答案
+      const questions = this.$store.state.questionBank;
+      const userAnswers = this.$store.state.answerList;
 
-      // 使用 Promise.all 并行比对所有题目
       const results = await Promise.all(
         questions.map((question, index) => {
           const userAnswer = userAnswers[index] // 获取用户的答案
@@ -74,17 +65,14 @@ export default new Vuex.Store({
     checkAnswer(userAnswer, correctAnswer, questionType) {
       return new Promise((resolve) => {
         if (questionType === '多选') {
-          // 多选题：判断用户答案和正确答案是否相同
           const isCorrect =
             Array.isArray(userAnswer) &&
             userAnswer.length === correctAnswer.length &&
             userAnswer.every((answer) => correctAnswer.includes(answer));
           resolve(isCorrect);
         } else if (questionType === '单选' || questionType === '判断') {
-          // 单选题或判断题：直接比对用户答案和正确答案
           resolve(userAnswer === correctAnswer);
         } else if (questionType === '填空') {
-          // 填空题：将用户输入的答案和正确答案进行字符串比对
           resolve(userAnswer.trim() === correctAnswer.trim());
         }
       });
@@ -110,9 +98,6 @@ export default new Vuex.Store({
   actions: {
     loadQuestionBank({ commit }, questionBank) {
       commit('setQuestionBank', questionBank);
-    },
-    updateAnswerStatus({ commit }, { questionId, status }) {
-      commit('setAnswerStatus', { questionId, status });
     },
     addFavoriteQuestion({ commit }, question) {
       commit('ADD_WRONG_QUESTION', question)

@@ -10,7 +10,8 @@
             <div class="questionStem">{{ question.questionStem }}</div>
             <div class="questionAnswer">
                 <div class="multiple" v-if="questionType == '多选'">
-                    <el-checkbox-group v-model="checkList" class="checkbox-group" @change="updateOption(seq, checkList)">
+                    <el-checkbox-group v-model="checkList" class="checkbox-group"
+                        @change="updateOption(seq, checkList)">
                         <div v-for="(item, i) in question.option" class="answer">
                             <el-checkbox :label="options[i]" :key="i" class="option checkbox-item">{{ options[i] + '、' +
                                 item }}</el-checkbox>

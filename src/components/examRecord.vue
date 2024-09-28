@@ -4,8 +4,9 @@
             <div v-for="(questions, type) in questionTypes" :key="type">
                 <div class="typeTitle">{{ typeLabels[type] }}</div>
                 <div class="question-grid">
-                    <span class="answer-status unactive" v-for="(question, index) in questions" :key="index"
-                        :type="getAnswerStatus(index) ? 'primary' : 'default'" @click="toggleAnswerStatus(index)" round>
+                    <span class="answer-status"
+                        :class="getAnswerStatus(findQuestionIndex(question.id) + 1) ? 'active' : 'unactive'"
+                        v-for="(question, index) in questions" :key="index">
                         {{ findQuestionIndex(question.id) + 1 }} <!-- 用索引作为题目顺序 -->
                     </span>
                 </div>
@@ -16,11 +17,11 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
     computed: {
-        ...mapGetters(['getAllQuestions', 'getQuestionsByType', 'getAnswerStatus']),
+        ...mapGetters(['getAllQuestions', 'getQuestionsByType']),
 
         questionTypes() {
             return {
@@ -37,23 +38,17 @@ export default {
                 trueOrFalse: '判断题',
                 fillInTheBlank: '填空题'
             };
-        }
-    },
-    methods: {
-        ...mapActions(['updateAnswerStatus']),
-
-        toggleAnswerStatus(index) {
-            const currentStatus = this.getAnswerStatus(index);
-            this.updateAnswerStatus({ index, status: !currentStatus });
         },
-
-        // 找到题目在整个题库数组中的索引
-        findQuestionIndex(id) {
-            return this.getAllQuestions.findIndex(question => question.id === id);
+        findQuestionIndex() {
+            return (id) => {
+                return this.getAllQuestions.findIndex(question => question.id === id);
+            };
+        },
+        getAnswerStatus() {
+            return (index) => {
+                return this.$store.state.answerList[index] == 'undefined';
+            };
         }
-    },
-    created() {
-        this.$store.dispatch('loadQuestionBank', questionBank);
     }
 };
 </script>
@@ -86,7 +81,6 @@ export default {
             gap: 10px;
             margin-bottom: 20px;
             justify-content: space-between;
-            /* 使按钮左右对齐 */
 
             .answer-status {
                 width: 28px;
@@ -101,6 +95,11 @@ export default {
 
             .unactive {
                 color: #5F89D3;
+            }
+
+            .active {
+                background-color: #5F89D3;
+                color: #fff;
             }
         }
     }
