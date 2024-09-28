@@ -7,9 +7,31 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     wrongQuestions: [],
-    answerList: []
+    answerList: [],
+    questionBank: [],
+    answerStatus: {}, // 题目回答状态
   },
   getters: {
+    getQuestionsByType: (state) => (type) => {
+      // 手动判断题型
+      return state.questionBank.filter(question => {
+        if (type === 'singleChoice') {
+          return question.option && question.answer.length === 1;
+        }
+        if (type === 'multipleChoice') {
+          return question.option.length > 2 && question.answer.length > 1;
+        }
+        if (type === 'trueOrFalse') {
+          return question.option && question.option.length === 2;
+        }
+        if (type === 'fillInTheBlank') {
+          return !question.option;
+        }
+      });
+    },
+    getAnswerStatus: (state) => (index) => {
+      return state.answerStatus[index] || false;
+    }
   },
   mutations: {
     addAnswer(state, payload) {
@@ -24,6 +46,12 @@ export default new Vuex.Store({
         }
         return answer.every(element => selection.includes(element));
       }
+    },
+    setQuestionBank(state, questions) {
+      state.questionBank = questions;
+    },
+    setAnswerStatus(state, { questionId, status }) {
+      Vue.set(state.answerStatus, questionId, status);
     },
     async compareAnswers() {
       const questions = this.$store.state.questions; // 从 store 获取题目列表
@@ -77,6 +105,12 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    loadQuestionBank({ commit }, questionBank) {
+      commit('setQuestionBank', questionBank);
+    },
+    updateAnswerStatus({ commit }, { questionId, status }) {
+      commit('setAnswerStatus', { questionId, status });
+    },
     addFavoriteQuestion({ commit }, question) {
       commit('ADD_WRONG_QUESTION', question)
     },

@@ -27,7 +27,6 @@
                     <el-input v-model="input" @change="updateOption(seq, input)" placeholder="请输入答案"></el-input>
                 </div>
             </div>
-
         </div>
     </div>
 </template>
@@ -100,7 +99,7 @@ export default {
 #examCard {
     background-color: #FFFFFF;
     padding: 14px 18px;
-    margin: 15px 34px;
+    margin: 15px 20px;
     border-radius: 24px;
     box-shadow:
         0px -1px 8px 0px rgba(230, 232, 240, 0.9),
