@@ -10,7 +10,7 @@
             <div class="questionStem">{{ question.questionStem }}</div>
             <div class="questionAnswer">
                 <div class="multiple" v-if="questionType == '多选'">
-                    <el-checkbox-group v-model="checkList" class="checkbox-group">
+                    <el-checkbox-group v-model="checkList" class="checkbox-group" @change="updateOption(seq, checkList)">
                         <div v-for="(item, i) in question.option" class="answer">
                             <el-checkbox :label="options[i]" :key="i" class="option checkbox-item">{{ options[i] + '、' +
                                 item }}</el-checkbox>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="fillingBlank" v-if="questionType == '填空'">
-                    <el-input v-model="input" @change="fillBlank(seq, input)" placeholder="请输入答案"></el-input>
+                    <el-input v-model="input" @change="updateOption(seq, input)" placeholder="请输入答案"></el-input>
                 </div>
             </div>
 
@@ -74,9 +74,6 @@ export default {
         updateOption(questionIndex, option) {
             this.addToAnswerList({ questionIndex, option })
         },
-        fillBlank(seq, input) {
-            this.addToAnswerList({ seq, input })
-        }
     }
 }
 </script>
