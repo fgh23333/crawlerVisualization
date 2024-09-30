@@ -7,7 +7,7 @@
                     <span class="answer-status"
                         :class="getAnswerStatus(findQuestionIndex(question.id) + 1) ? 'active' : 'unactive'"
                         v-for="(question, index) in questions" :key="index">
-                        {{ findQuestionIndex(question.id) + 1 }} <!-- 用索引作为题目顺序 -->
+                        {{ findQuestionIndex(question.id) + 1 }}
                     </span>
                 </div>
             </div>
