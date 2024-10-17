@@ -32,10 +32,6 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    addAnswer(state, payload) {
-      state.answerList[payload.questionIndex] = payload.option
-      console.log(state.answerList);
-    },
     checkAnswer(state) {
       function arraysHaveSameElements(answer, selection) {
         answer = answer.split('')
@@ -93,7 +89,7 @@ export default new Vuex.Store({
     },
     REMOVE_WRONG_QUESTION(state, questionId) {
       state.wrongQuestions = state.wrongQuestions.filter(q => q.id !== questionId);
-    },
+    }
   },
   actions: {
     loadQuestionBank({ commit }, questionBank) {
@@ -104,9 +100,6 @@ export default new Vuex.Store({
     },
     removeFavoriteQuestion({ commit }, questionId) {
       commit('REMOVE_WRONG_QUESTION', questionId);
-    },
-    addToAnswerList({ commit }, { questionIndex, option }) {
-      commit('addAnswer', { questionIndex, option })
     },
     checkAnswer({ commit }) {
       commit('checkAnswer')

@@ -70,9 +70,8 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['addToAnswerList']),
         updateOption(questionIndex, option) {
-            this.addToAnswerList({ questionIndex, option })
+            this.$set(this.$store.state.answerList, questionIndex, option)
         },
     }
 }

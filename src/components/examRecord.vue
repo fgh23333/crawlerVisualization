@@ -4,8 +4,7 @@
             <div v-for="(questions, type) in questionTypes" :key="type">
                 <div class="typeTitle">{{ typeLabels[type] }}</div>
                 <div class="question-grid">
-                    <span class="answer-status"
-                        :class="getAnswerStatus(findQuestionIndex(question.id) + 1) ? 'active' : 'unactive'"
+                    <span class="answer-status" :class="status[findQuestionIndex(question.id)] ? 'active' : 'unactive'"
                         v-for="(question, index) in questions" :key="index">
                         {{ findQuestionIndex(question.id) + 1 }}
                     </span>
@@ -20,6 +19,11 @@
 import { mapGetters } from 'vuex';
 
 export default {
+    data() {
+        return {
+            status: []
+        }
+    },
     computed: {
         ...mapGetters(['getAllQuestions', 'getQuestionsByType']),
 
@@ -46,9 +50,20 @@ export default {
         },
         getAnswerStatus() {
             return (index) => {
-                return this.$store.state.answerList[index] == 'undefined';
+                return this.$store.state.answerList[index];
             };
         }
+    },
+    watch: {
+        '$store.state.answerList': {
+            handler(newValue, oldValue) {
+                this.status = newValue.map(item => item !== undefined && item !== null && item !== '');
+            },
+            deep: true
+        }
+    },
+    created() {
+        this.status = new Array(this.questionTypes.length).fill(false)
     }
 };
 </script>
