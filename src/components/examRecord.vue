@@ -67,8 +67,15 @@ export default {
     },
     methods: {
         ...mapActions(['checkAnswer']),
-        submitAnswer() {
-            this.checkAnswer()
+        async submitAnswer() {
+            const score = await this.checkAnswer()
+
+            this.$message({
+                message: `提交成功，得分为${score}`,
+                type: 'success'
+            });
+
+            state.answerList = [];
         }
     },
     created() {

@@ -114,14 +114,7 @@ export default new Vuex.Store({
       // 计算得分，累加所有正确题目的数量
       const score = state.results.filter(result => result.isCorrect).length;
 
-      // 提示信息
-      this.$message({
-        message: `提交成功，得分为${score}`,
-        type: 'success'
-      });
-
-      // 清空题库
-      state.questionBank = [];
+      return score
     }
   },
   actions: {
