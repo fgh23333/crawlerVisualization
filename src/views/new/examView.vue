@@ -7,7 +7,7 @@
                 </div>
             </el-col>
             <el-col :span="6">
-                <div class="grid-content">
+                <div class="grid-content examRecord">
                     <examRecord></examRecord>
                 </div>
             </el-col>
@@ -46,5 +46,10 @@ export default {
 <style lang="less">
 #examView {
     margin-right: 20px;
+
+    .examRecord {
+        position: fixed;
+        width: 20%;
+    }
 }
 </style>

@@ -4,11 +4,23 @@ import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
 
+function getType(question) {
+  if (!question.option || question.option.length === 0) {
+    return '填空';
+  } else if (question.option.length === 2) {
+    return '判断';
+  } else if (question.answer.length > 1) {
+    return '多选';
+  } else {
+    return '单选';
+  }
+}
 export default new Vuex.Store({
   state: {
     wrongQuestions: [],
     answerList: [],
-    questionBank: []
+    questionBank: [],
+    results: []
   },
   getters: {
     getQuestionsByType: (state) => (type) => {
@@ -32,46 +44,8 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    checkAnswer(state) {
-      function arraysHaveSameElements(answer, selection) {
-        answer = answer.split('')
-        if (answer.length !== selection.length) {
-          return false;
-        }
-        return answer.every(element => selection.includes(element));
-      }
-    },
     setQuestionBank(state, questions) {
       state.questionBank = questions;
-    },
-    async compareAnswers() {
-      const questions = this.$store.state.questionBank;
-      const userAnswers = this.$store.state.answerList;
-
-      const results = await Promise.all(
-        questions.map((question, index) => {
-          const userAnswer = userAnswers[index] // 获取用户的答案
-          const correctAnswer = question.answer // 获取当前题目的正确答案
-          const questionType = this.getQuestionType(question) // 获取题目类型
-          return this.checkAnswer(userAnswer, correctAnswer, questionType)
-        })
-      )
-      return results
-    },
-    checkAnswer(userAnswer, correctAnswer, questionType) {
-      return new Promise((resolve) => {
-        if (questionType === '多选') {
-          const isCorrect =
-            Array.isArray(userAnswer) &&
-            userAnswer.length === correctAnswer.length &&
-            userAnswer.every((answer) => correctAnswer.includes(answer));
-          resolve(isCorrect);
-        } else if (questionType === '单选' || questionType === '判断') {
-          resolve(userAnswer === correctAnswer);
-        } else if (questionType === '填空') {
-          resolve(userAnswer.trim() === correctAnswer.trim());
-        }
-      });
     },
     getQuestionType(question) {
       if (!question.option || question.option.length === 0) {
@@ -89,6 +63,46 @@ export default new Vuex.Store({
     },
     REMOVE_WRONG_QUESTION(state, questionId) {
       state.wrongQuestions = state.wrongQuestions.filter(q => q.id !== questionId);
+    },
+    evaluateAnswers(state) {
+      // 清空上次的评估结果
+      state.results = [];
+
+      // 假设只评估第一个试卷
+      const questions = state.questionBank;
+
+      questions.forEach((question, index) => {
+        const userAnswer = state.answerList[index]; // 获取用户答案
+        let isCorrect = false;
+
+        switch (getType(question)) {
+          case '单选':
+          case '判断':
+            // 单选题和判断题直接比较
+            isCorrect = userAnswer === question.answer;
+            break;
+          case '多选':
+            // 多选题：将标准答案切割成数组并比较
+            const correctAnswers = question.answer.split(',').map(answer => answer.trim());
+            isCorrect = Array.isArray(userAnswer) &&
+              userAnswer.length === correctAnswers.length &&
+              correctAnswers.every(answer => userAnswer.includes(answer));
+            break;
+          case '填空':
+            // 填空题：全字匹配
+            isCorrect = userAnswer === question.answer;
+            break;
+        }
+
+        state.results.push({
+          questionId: question.id,
+          isCorrect
+        });
+
+        if (!isCorrect) {
+          state.wrongQuestions.push(question);
+        }
+      });
     }
   },
   actions: {
@@ -102,7 +116,7 @@ export default new Vuex.Store({
       commit('REMOVE_WRONG_QUESTION', questionId);
     },
     checkAnswer({ commit }) {
-      commit('checkAnswer')
+      commit('evaluateAnswers')
     }
   },
   modules: {

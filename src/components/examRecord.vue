@@ -10,13 +10,13 @@
                     </span>
                 </div>
             </div>
-            <el-button type="primary" class="submit-btn">提交</el-button>
+            <el-button type="primary" class="submit-btn" @click="submitAnswer">提交</el-button>
         </div>
     </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
     data() {
@@ -57,9 +57,18 @@ export default {
     watch: {
         '$store.state.answerList': {
             handler(newValue, oldValue) {
-                this.status = newValue.map(item => item !== undefined && item !== null && item !== '');
+                this.status = newValue.map(item => {
+                    // 检查是否为数组且长度为0，或者是null、undefined或空字符串
+                    return !(Array.isArray(item) && item.length === 0) && item !== undefined && item !== null && item !== '';
+                });
             },
             deep: true
+        }
+    },
+    methods: {
+        ...mapActions(['checkAnswer']),
+        submitAnswer() {
+            this.checkAnswer()
         }
     },
     created() {
