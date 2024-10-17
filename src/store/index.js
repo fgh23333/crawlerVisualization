@@ -59,50 +59,69 @@ export default new Vuex.Store({
       }
     },
     ADD_WRONG_QUESTION(state, question) {
+      question.likeflag = true
       state.wrongQuestions.push(question);
     },
     REMOVE_WRONG_QUESTION(state, questionId) {
       state.wrongQuestions = state.wrongQuestions.filter(q => q.id !== questionId);
     },
-    evaluateAnswers(state) {
+    async evaluateAnswers(state) {
       // 清空上次的评估结果
       state.results = [];
 
       // 假设只评估第一个试卷
       const questions = state.questionBank;
 
-      questions.forEach((question, index) => {
-        const userAnswer = state.answerList[index]; // 获取用户答案
-        let isCorrect = false;
+      // 并行处理每道题目的评估
+      await Promise.all(
+        questions.map(async (question, index) => {
+          const userAnswer = state.answerList[index];
+          let isCorrect = false;
 
-        switch (getType(question)) {
-          case '单选':
-          case '判断':
-            // 单选题和判断题直接比较
-            isCorrect = userAnswer === question.answer;
-            break;
-          case '多选':
-            // 多选题：将标准答案切割成数组并比较
-            const correctAnswers = question.answer.split(',').map(answer => answer.trim());
-            isCorrect = Array.isArray(userAnswer) &&
-              userAnswer.length === correctAnswers.length &&
-              correctAnswers.every(answer => userAnswer.includes(answer));
-            break;
-          case '填空':
-            // 填空题：全字匹配
-            isCorrect = userAnswer === question.answer;
-            break;
-        }
+          switch (getType(question)) {
+            case '单选':
+            case '判断':
+              // 单选题和判断题直接比较
+              isCorrect = userAnswer === question.answer;
+              break;
+            case '多选':
+              // 多选题：将标准答案切割成数组并比较
+              const correctAnswers = question.answer.split('').map(answer => answer.trim());
+              isCorrect = Array.isArray(userAnswer) &&
+                userAnswer.length === correctAnswers.length &&
+                correctAnswers.every(answer => userAnswer.includes(answer));
+              break;
+            case '填空':
+              // 填空题：全字匹配
+              isCorrect = userAnswer === question.answer;
+              break;
+          }
 
-        state.results.push({
-          questionId: question.id,
-          isCorrect
-        });
+          // 保存结果到 results 数组
+          state.results.push({
+            questionId: question.id,
+            isCorrect
+          });
 
-        if (!isCorrect) {
-          state.wrongQuestions.push(question);
-        }
+          // 处理错误题目
+          if (!isCorrect) {
+            question.likeflag = true;
+            state.wrongQuestions.push(question);
+          }
+        })
+      );
+
+      // 计算得分，累加所有正确题目的数量
+      const score = state.results.filter(result => result.isCorrect).length;
+
+      // 提示信息
+      this.$message({
+        message: `提交成功，得分为${score}`,
+        type: 'success'
       });
+
+      // 清空题库
+      state.questionBank = [];
     }
   },
   actions: {
