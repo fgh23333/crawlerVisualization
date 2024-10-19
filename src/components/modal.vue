@@ -3,7 +3,7 @@
         <div v-if="showModal" class="modal">
             <div class="modal-content">
                 <span @click="closeModal" class="close">&times;</span>
-                <h2>问卷二维码</h2>
+                <h2>题库功能扩展意见征集表</h2>
 
                 <div class="qr-code">
                     <img src="../assets/img/modal.png" alt="问卷二维码" />
