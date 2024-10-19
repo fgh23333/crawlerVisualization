@@ -1,5 +1,6 @@
 <template>
     <div id="newHome">
+        <modal></modal>
         <el-container>
             <el-aside width="262px">
                 <router-link to="/newHome">
@@ -79,6 +80,8 @@
 </template>
 
 <script>
+import modal from '@/components/modal.vue'
+
 export default {
     data() {
         return {
@@ -140,6 +143,9 @@ export default {
                 message: '开发中，敬请期待'
             });
         },
+    },
+    components: {
+        modal
     }
 }
 </script>
@@ -245,10 +251,10 @@ export default {
         -ms-overflow-style: none;
         scrollbar-width: none;
         box-shadow:
-                0px -1px 8px 0px rgba(230, 232, 240, 0.9),
-                -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-                1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-                0px 1px 8px 0px rgba(230, 232, 240, 0.9);
+            0px -1px 8px 0px rgba(230, 232, 240, 0.9),
+            -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+            1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+            0px 1px 8px 0px rgba(230, 232, 240, 0.9);
 
         .el-menu-vertical-demo {
             width: 216px;
