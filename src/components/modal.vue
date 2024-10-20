@@ -42,7 +42,6 @@ export default {
             this.showModal = false;
         },
         goToSurvey() {
-            // 点击前往按钮，跳转到问卷链接
             window.open(this.surveyLink, '_blank');
         },
         handleSubmit() {

@@ -105,7 +105,7 @@ export default new Vuex.Store({
 
           // 处理错误题目
           if (!isCorrect) {
-            question.likeflag = true;
+            question.likeFlag = true;
             state.wrongQuestions.push(question);
           }
         })
