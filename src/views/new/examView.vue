@@ -96,6 +96,7 @@ export default {
             paperOptions: [],
             lesson: '',
             seq: '',
+            value: ''
         }
     },
     components: {
@@ -115,19 +116,20 @@ export default {
     watch: {
         value: function (newval, oldval) {
             this.$router.push({ path: '/newHome/exam/' + this.$route.params.lesson + '/' + newval })
-            this.loadQuestionBank(require(`@/assets/cura/${lesson}_${this.$route.params.id}.json`))
+            this.getQuestion(this.$route.params.lesson)
+            this.questionList = this.$store.state.questionBank
             this.seq = this.$route.params.id
         },
         '$route': function (to, from) {
-            this.loadQuestionBank(require(`@/assets/cura/${lesson}_${this.$route.params.id}.json`))
+            this.getQuestion(this.$route.params.lesson)
+            this.questionList = this.$store.state.questionBank
         }
     },
     created() {
-        const lesson = this.$route.params.lesson
-        this.lesson = this.abbreviationSubjectList[lesson]
+        this.lesson = this.abbreviationSubjectList[this.$route.params.lesson]
         this.seq = this.$route.params.id
-        this.paper = '试卷' + this.seq
-        for (let i = 0; i < this.subjectList[lesson].num; i++) {
+        this.paper = '试卷' + this.$route.params.id
+        for (let i = 0; i < this.subjectList[this.$route.params.lesson].num; i++) {
             let temp = {
                 value: i + 1,
                 label: '试卷' + (i + 1)
@@ -139,7 +141,7 @@ export default {
             label: '剩余题目'
         }
         this.paperOptions.push(rest)
-        this.getQuestion(lesson)
+        this.getQuestion(this.$route.params.lesson)
         this.questionList = this.$store.state.questionBank
     }
 }
@@ -148,6 +150,17 @@ export default {
 <style lang="less">
 #examView {
     margin-right: 20px;
+
+    .goBack {
+        text-align: left;
+        font-size: 32px;
+        margin: 0 50px;
+
+        .el-icon-arrow-left {
+            border: 3px solid #333;
+            border-radius: 50%;
+        }
+    }
 
     .examRecord {
         position: fixed;
