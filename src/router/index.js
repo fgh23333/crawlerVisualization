@@ -68,12 +68,8 @@ const routes = [
         component: favorites
       },
       {
-        path: 'examPage/:lesson/:id',
-        name: 'examPage',
-        component: examPage
-      },
-      {
-        path: 'exam',
+        path: 'exam/:lesson/:id',
+        name: 'examView',
         component: examView
       }
     ]
