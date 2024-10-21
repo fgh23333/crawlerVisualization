@@ -20,7 +20,8 @@ export default new Vuex.Store({
     wrongQuestions: [],
     answerList: [],
     questionBank: [],
-    results: []
+    results: [],
+    score: null
   },
   getters: {
     getQuestionsByType: (state) => (type) => {
@@ -68,6 +69,7 @@ export default new Vuex.Store({
     async evaluateAnswers(state) {
       // 清空上次的评估结果
       state.results = [];
+      state.score = null
 
       // 假设只评估第一个试卷
       const questions = state.questionBank;
@@ -112,9 +114,8 @@ export default new Vuex.Store({
       );
 
       // 计算得分，累加所有正确题目的数量
-      const score = state.results.filter(result => result.isCorrect).length;
-
-      return score
+      state.score = state.results.filter(result => result.isCorrect).length;
+      state.answerList = [];
     }
   },
   actions: {
