@@ -63,19 +63,24 @@ export default {
                 });
             },
             deep: true
+        },
+        '$store.state.score': {
+            handler(newValue, oldValue) {
+                if (newValue == null) {
+                    this.$message({
+                        type: 'success',
+                        message: `提交成功，得分为${newValue}`
+                    })
+                } else {
+                    return
+                }
+            }
         }
     },
     methods: {
         ...mapActions(['checkAnswer']),
         async submitAnswer() {
-            const score = await this.checkAnswer()
-
-            this.$message({
-                message: `提交成功，得分为${score}`,
-                type: 'success'
-            });
-
-            state.answerList = [];
+            this.checkAnswer()
         }
     },
     created() {
