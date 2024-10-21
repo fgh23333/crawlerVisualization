@@ -50,6 +50,12 @@
                             <div class="text">收藏夹</div>
                         </div>
                     </router-link>
+                    <router-link to="/newHome/about">
+                        <div class="tab">
+                            <img class="image" src="@/assets/icon/icon-info.svg">
+                            <div class="text">关于</div>
+                        </div>
+                    </router-link>
                 </div>
             </el-aside>
             <el-container>

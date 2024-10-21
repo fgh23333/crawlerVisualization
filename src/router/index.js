@@ -12,6 +12,7 @@ import theHome from "@/views/new/theHome.vue"
 import questionList from "@/views/new/questionList.vue"
 import favorites from "@/views/new/favorites.vue"
 import examView from '@/views/new/examView.vue'
+import about from '@/views/new/about.vue'
 
 Vue.use(VueRouter)
 
@@ -71,6 +72,11 @@ const routes = [
         path: 'exam/:lesson/:id',
         name: 'examView',
         component: examView
+      },
+      {
+        path: 'about',
+        name: 'about',
+        component: about
       }
     ]
   }
