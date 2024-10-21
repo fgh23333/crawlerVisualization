@@ -69,10 +69,9 @@ export default {
                 if (newValue == null) {
                     return
                 } else {
-                    this.$message({
-                        type: 'success',
-                        message: `提交成功，得分为${newValue}`
-                    })
+                    this.$alert(`得分为${newValue}`, '提交成功', {
+                        confirmButtonText: '确定',
+                    });
                 }
             }
         }
@@ -80,11 +79,29 @@ export default {
     methods: {
         ...mapActions(['checkAnswer']),
         async submitAnswer() {
-            this.checkAnswer()
+            if (this.status.includes(false)) {
+                this.$alert('还有未做的题目，确定提交吗？', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消'
+                }).then(() => {
+                    this.checkAnswer()
+                }).catch(() => {
+                    return
+                });
+            } else {
+                this.$alert('确认提交吗？', '提示', {
+                    confirmButtonText: '确定',
+                    callback: () => {
+                        this.checkAnswer()
+                    }
+                });
+            }
         }
     },
     created() {
-        this.status = new Array(this.questionTypes.length).fill(false)
+        const length = this.questionTypes.fillInTheBlank.length + this.questionTypes.multipleChoice.length + this.questionTypes.singleChoice.length + this.questionTypes.trueOrFalse.length
+        this.$store.state.answerList = new Array(length).fill('')
+        this.status = new Array(length).fill(false)
     }
 };
 </script>

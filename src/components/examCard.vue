@@ -73,6 +73,20 @@ export default {
         updateOption(questionIndex, option) {
             this.$set(this.$store.state.answerList, questionIndex, option)
         },
+    },
+    watch: {
+        '$store.state.answerList': {
+            handler(newValue, oldValue) {
+                if (newValue == '') {
+                    this.checkList = [],
+                    this.input = '',
+                    this.radio = ''
+                    this.$store.state.clearStatus = false
+                } else {
+                    return
+                }
+            }
+        }
     }
 }
 </script>

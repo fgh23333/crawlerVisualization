@@ -9,13 +9,8 @@
         <div class="breadCrumb" v-if="subjectShow.includes(lesson) && onSearch">
           {{ subjectList[lesson] }} - {{ questionType[type] }} - 搜索结果共{{ showList.length }}题
         </div>
-        <el-input
-            class="input"
-            placeholder="搜索题目（回车以搜索）"
-            v-model="searchWord"
-            @change = "serach"
-            @input = "changeInput"
-            clearable>
+        <el-input class="input" placeholder="搜索题目（回车以搜索）" v-model="searchWord" @change="search" @input="changeInput"
+          clearable>
         </el-input>
       </div>
       <div v-if="showList == '' && onSearch">
@@ -30,19 +25,19 @@
             <div class="markAndLike">
               <transition name="fade" mode="out-in">
                 <img class="mark"
-                     :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                  :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                  @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
               </transition>
               <transition name="fade" mode="out-in">
                 <img class="like"
-                     :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                  :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                  @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
               </transition>
             </div>
             <div class="questionType">
-                            <span v-if="$route.path == '/newHome/favorites'">
-                                {{ abbreviationSubjectList[showList[i].abbreviationSubject] }} -
-                            </span>
+              <span v-if="$route.path == '/newHome/favorites'">
+                {{ abbreviationSubjectList[showList[i].abbreviationSubject] }} -
+              </span>
               <span>判断</span>
             </div>
             <div class="questionStem">{{ showList[i].questionStem }}</div>
@@ -62,19 +57,19 @@
             <div class="markAndLike">
               <transition name="fade" mode="out-in">
                 <img class="mark"
-                     :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                  :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                  @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
               </transition>
               <transition name="fade" mode="out-in">
                 <img class="like"
-                     :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                  :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                  @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
               </transition>
             </div>
             <div class="questionType">
-                            <span v-if="$route.path == '/newHome/favorites'">
-                                {{ abbreviationSubjectList[showList[i].abbreviationSubject] }} -
-                            </span>
+              <span v-if="$route.path == '/newHome/favorites'">
+                {{ abbreviationSubjectList[showList[i].abbreviationSubject] }} -
+              </span>
               <span>填空</span>
             </div>
             <div class="questionStem">{{ showList[i].questionStem }}</div>
@@ -93,19 +88,19 @@
             <div class="markAndLike">
               <transition name="fade" mode="out-in">
                 <img class="mark"
-                     :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                  :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                  @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
               </transition>
               <transition name="fade" mode="out-in">
                 <img class="like"
-                     :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                  :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                  @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
               </transition>
             </div>
             <div class="questionType">
-                            <span v-if="$route.path == '/newHome/favorites'">
-                                {{ abbreviationSubjectList[showList[i].abbreviationSubject] }} -
-                            </span>
+              <span v-if="$route.path == '/newHome/favorites'">
+                {{ abbreviationSubjectList[showList[i].abbreviationSubject] }} -
+              </span>
               <span>单选</span>
             </div>
             <div class="questionStem">{{ showList[i].questionStem }}</div>
@@ -130,19 +125,19 @@
             <div class="markAndLike">
               <transition name="fade" mode="out-in">
                 <img class="mark"
-                     :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                  :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                  @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
               </transition>
               <transition name="fade" mode="out-in">
                 <img class="like"
-                     :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                  :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                  @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
               </transition>
             </div>
             <div class="questionType">
-                            <span v-if="$route.path == '/newHome/favorites'">
-                                {{ abbreviationSubjectList[showList[i].abbreviationSubject] }} -
-                            </span>
+              <span v-if="$route.path == '/newHome/favorites'">
+                {{ abbreviationSubjectList[showList[i].abbreviationSubject] }} -
+              </span>
               <span>多选</span>
             </div>
             <div class="questionStem">{{ showList[i].questionStem }}</div>
@@ -166,14 +161,14 @@
 </template>
 
 <script>
-import {mapActions} from "vuex";
+import { mapActions } from "vuex";
 import Fuse from 'fuse.js';
 export default {
   data() {
     return {
       searchWord: "",
       list: [],
-      showList:[],
+      showList: [],
       onSearch: false,
       options: ['A', 'B', 'C', 'D', 'E'],
       subjectList: {
@@ -308,13 +303,13 @@ export default {
     changeFlagIcon(flagType, i) {
       this.showList[i][flagType] = !this.showList[i][flagType]
     },
-    changeInput(){
-      if(this.searchWord === ""){
+    changeInput() {
+      if (this.searchWord === "") {
         this.showList = [...this.list]
         this.onSearch = false
       }
     },
-    serach(){
+    search() {
       // console.log(this.searchWord)
       // console.log(this.list)
       // console.log(this.type)
@@ -344,17 +339,19 @@ export default {
 }
 
 #questionCard {
-  .header{
+  .header {
     display: flex;
     justify-content: space-between;
     margin: 10px 34rpx;
     //padding-left: 30px;
     align-items: center;
     height: 68px;
-    .input{
+
+    .input {
       width: 30%;
       margin-right: 40px;
     }
+
     .breadCrumb {
       color: #898799;
       font-size: 18px;
@@ -374,9 +371,9 @@ export default {
     margin: 15px 34px;
     border-radius: 24px;
     box-shadow: 0px -1px 8px 0px rgba(230, 232, 240, 0.9),
-    -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-    1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-    0px 1px 8px 0px rgba(230, 232, 240, 0.9);
+      -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+      1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+      0px 1px 8px 0px rgba(230, 232, 240, 0.9);
 
     .questionTypeCover {
       font-family: HarmonyOS Sans SC;

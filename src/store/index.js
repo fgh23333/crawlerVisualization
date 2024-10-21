@@ -15,6 +15,11 @@ function getType(question) {
     return '单选';
   }
 }
+
+function isExists(list, question) {
+  return list.some(favorite => favorite.id === question.id);
+}
+
 export default new Vuex.Store({
   state: {
     wrongQuestions: [],
@@ -60,7 +65,7 @@ export default new Vuex.Store({
       }
     },
     ADD_WRONG_QUESTION(state, question) {
-      question.likeflag = true
+      question.likeFlag = true
       state.wrongQuestions.push(question);
     },
     REMOVE_WRONG_QUESTION(state, questionId) {
@@ -107,8 +112,12 @@ export default new Vuex.Store({
 
           // 处理错误题目
           if (!isCorrect) {
-            question.likeFlag = true;
-            state.wrongQuestions.push(question);
+            if (isExists(state.wrongQuestions, question)) {
+              return
+            } else {
+              question.likeFlag = true;
+              state.wrongQuestions.push(question);
+            }
           }
         })
       );
