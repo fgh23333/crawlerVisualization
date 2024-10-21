@@ -67,12 +67,12 @@ export default {
         '$store.state.score': {
             handler(newValue, oldValue) {
                 if (newValue == null) {
+                    return
+                } else {
                     this.$message({
                         type: 'success',
                         message: `提交成功，得分为${newValue}`
                     })
-                } else {
-                    return
                 }
             }
         }
