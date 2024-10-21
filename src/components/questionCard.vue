@@ -160,7 +160,7 @@
           </div>
         </div>
       </div>
-      <div class="bottomAlert" v-if="!onSearch">--- 已经到底啦 ---</div>
+      <div class="bottomAlert" v-if="showList.length !== 0">--- 已经到底啦 ---</div>
     </div>
   </div>
 </template>
