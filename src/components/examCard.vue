@@ -81,7 +81,6 @@ export default {
                     this.checkList = [],
                     this.input = '',
                     this.radio = ''
-                    this.$store.state.clearStatus = false
                 } else {
                     return
                 }
