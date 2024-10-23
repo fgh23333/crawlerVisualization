@@ -27,6 +27,11 @@
                 <div class="fillingBlank" v-if="questionType == '填空'">
                     <el-input v-model="input" @change="updateOption(seq, input)" placeholder="请输入答案"></el-input>
                 </div>
+                <div class="trueAnswer" v-if="$store.state.answerList == ''">
+                    <span class="colorBefore"></span>
+                    <span class="correctAnswer">正确答案：</span>
+                    <span class="answer">{{ question.answer }}</span>
+                </div>
             </div>
         </div>
     </div>
@@ -73,19 +78,6 @@ export default {
         updateOption(questionIndex, option) {
             this.$set(this.$store.state.answerList, questionIndex, option)
         },
-    },
-    watch: {
-        '$store.state.answerList': {
-            handler(newValue, oldValue) {
-                if (newValue == '') {
-                    this.checkList = [],
-                    this.input = '',
-                    this.radio = ''
-                } else {
-                    return
-                }
-            }
-        }
     }
 }
 </script>
@@ -219,6 +211,57 @@ export default {
                     font-size: 18px;
                     display: inline;
                 }
+            }
+        }
+
+        .trueAnswer {
+            letter-spacing: 1px;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 18px;
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 10px;
+
+            .colorBefore {
+                background-color: #6C5DD3;
+                width: 8px;
+                height: 30px;
+                display: inline-block;
+                border-radius: 4px;
+                margin-right: 4px;
+            }
+
+            .correctAnswer {
+                color: #707070;
+                display: inline-block;
+                height: 30px;
+                line-height: 30px;
+                font-size: 18px;
+            }
+
+            .false {
+                color: #FF3B3B;
+                display: inline-block;
+                height: 30px;
+                line-height: 30px;
+                font-size: 18px;
+            }
+
+            .true {
+                color: #0BDE00;
+                display: inline-block;
+                height: 30px;
+                line-height: 30px;
+                font-size: 18px;
+            }
+
+            .answer {
+                display: inline-block;
+                height: 30px;
+                line-height: 30px;
+                font-size: 18px;
+                color: #5F89D3;
             }
         }
     }
