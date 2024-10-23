@@ -29,6 +29,8 @@
                 </div>
                 <div class="trueAnswer" v-if="$store.state.answerList == ''">
                     <span class="colorBefore"></span>
+                    <span class="answerStatus true" v-if="$store.state.results[seq].isCorrect">回答正确</span>
+                    <span class="answerStatus false" v-else>回答错误</span>
                     <span class="correctAnswer">正确答案：</span>
                     <span class="answer">{{ question.answer }}</span>
                 </div>
@@ -238,6 +240,7 @@ export default {
                 height: 30px;
                 line-height: 30px;
                 font-size: 18px;
+                margin-left: 20px;
             }
 
             .false {
