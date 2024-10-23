@@ -21,7 +21,8 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
     data() {
         return {
-            status: []
+            status: [],
+            length: ''
         }
     },
     computed: {
@@ -68,8 +69,12 @@ export default {
             handler(newValue, oldValue) {
                 if (newValue == null) {
                     return
+                } else if (newValue == this.length) {
+                    this.$alert(`得分为${newValue}，恭喜获得满分`, '提交成功', {
+                        confirmButtonText: '确定',
+                    });
                 } else {
-                    this.$alert(`得分为${newValue}`, '提交成功', {
+                    this.$alert(`得分为${newValue}，错题已推送至收藏夹`, '提交成功', {
                         confirmButtonText: '确定',
                     });
                 }
@@ -100,6 +105,7 @@ export default {
     },
     created() {
         const length = this.questionTypes.fillInTheBlank.length + this.questionTypes.multipleChoice.length + this.questionTypes.singleChoice.length + this.questionTypes.trueOrFalse.length
+        this.length = length
         this.$store.state.answerList = new Array(length).fill('')
         this.status = new Array(length).fill(false)
     }
