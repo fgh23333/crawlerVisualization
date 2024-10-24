@@ -143,6 +143,13 @@ export default {
         this.paperOptions.push(rest)
         this.getQuestion(this.$route.params.lesson)
         this.questionList = this.$store.state.questionBank
+        this.questionList.forEach(item => {
+            const temp = {
+                questionId: item.id,
+                isCorrect: null
+            }
+            this.$store.state.results.push(temp)
+        })
     }
 }
 </script>

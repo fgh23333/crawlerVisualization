@@ -29,8 +29,8 @@
                 </div>
                 <div class="trueAnswer" v-if="$store.state.answerList == ''">
                     <span class="colorBefore"></span>
-                    <span class="answerStatus true" v-if="$store.state.results[seq].isCorrect">回答正确</span>
-                    <span class="answerStatus false" v-else>回答错误</span>
+                    <span class="answerStatus true" v-if="$store.state.results[seq].questionId == question.id && $store.state.results[seq].isCorrect">回答正确</span>
+                    <span class="answerStatus false" v-if="$store.state.results[seq].questionId == question.id && !$store.state.results[seq].isCorrect">回答错误</span>
                     <span class="correctAnswer">正确答案：</span>
                     <span class="answer">{{ question.answer }}</span>
                 </div>

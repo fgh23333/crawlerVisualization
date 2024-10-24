@@ -4,7 +4,7 @@
             <div v-for="(questions, type) in questionTypes" :key="type">
                 <div class="typeTitle">{{ typeLabels[type] }}</div>
                 <div class="question-grid">
-                    <span class="answer-status" :class="status[findQuestionIndex(question.id)] ? 'active' : 'unactive'"
+                    <span class="answer-status" :class="status[findQuestionIndex(question.id)]"
                         v-for="(question, index) in questions" :key="index">
                         {{ findQuestionIndex(question.id) + 1 }}
                     </span>
@@ -58,22 +58,38 @@ export default {
     watch: {
         '$store.state.answerList': {
             handler(newValue, oldValue) {
-                this.status = newValue.map(item => {
-                    // 检查是否为数组且长度为0，或者是null、undefined或空字符串
-                    return !(Array.isArray(item) && item.length === 0) && item !== undefined && item !== null && item !== '';
-                });
+                if (newValue === '') {       
+                    return
+                } else {
+                    this.status = newValue.map(item => {
+                        if (!(Array.isArray(item) && item.length === 0) && item !== undefined && item !== null && item !== '') {
+                            return 'active'
+                        } else {
+                            return 'unactive'
+                        }
+                    })
+                }
             },
             deep: true
         },
         '$store.state.score': {
-            handler(newValue, oldValue) {
+            async handler(newValue, oldValue) {
+                const results = this.$store.state.results
                 if (newValue == null) {
                     return
                 } else if (newValue == this.length) {
+                    this.status = new Array(this.length).fill('true')
                     this.$alert(`得分为${newValue}，恭喜获得满分`, '提交成功', {
                         confirmButtonText: '确定',
                     });
                 } else {
+                    await results.map(item => {
+                        if (item.isCorrect) {
+                            this.status[this.findQuestionIndex(item.questionId)] = 'true'
+                        } else {
+                            this.status[this.findQuestionIndex(item.questionId)] = 'false'
+                        }
+                    })
                     this.$alert(`得分为${newValue}，错题已推送至收藏夹`, '提交成功', {
                         confirmButtonText: '确定',
                     });
@@ -107,7 +123,7 @@ export default {
         const length = this.questionTypes.fillInTheBlank.length + this.questionTypes.multipleChoice.length + this.questionTypes.singleChoice.length + this.questionTypes.trueOrFalse.length
         this.length = length
         this.$store.state.answerList = new Array(length).fill('')
-        this.status = new Array(length).fill(false)
+        this.status = new Array(length).fill('unactive')
     }
 };
 </script>
@@ -144,7 +160,7 @@ export default {
             .answer-status {
                 width: 28px;
                 height: 28px;
-                border: 3px solid #5F89D3;
+                
                 font-weight: bold;
                 line-height: 28px;
                 border-radius: 8px;
@@ -153,12 +169,26 @@ export default {
             }
 
             .unactive {
+                border: 3px solid #5F89D3;
                 color: #5F89D3;
             }
 
             .active {
+                border: 3px solid #5F89D3;
                 background-color: #5F89D3;
                 color: #fff;
+            }
+
+            .true {
+                border: 3px solid #ABFF9E;
+                background-color: #ABFF9E;
+                color: #787878;
+            }
+
+            .false {
+                border: 3px solid #FFA1A1;
+                background-color: #FFA1A1;
+                color: #787878;
             }
         }
     }
