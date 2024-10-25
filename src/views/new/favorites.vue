@@ -1,13 +1,11 @@
 <template>
     <div id="favorites">
         <div class="titleCover">
-            <div class="title">收藏夹</div>
-            <!-- <div class="selector">
-                <el-select v-model="value" placeholder="请选择" class="select">
-                    <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-                    </el-option>
-                </el-select>
-            </div> -->
+            <span class="title">收藏夹</span>
+            <el-select v-model="value" placeholder="全部题目">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+            </el-select>
         </div>
         <questionCard></questionCard>
     </div>
@@ -20,6 +18,20 @@ export default {
     data() {
         return {
             options: [
+                {
+                    value: '',
+                    label: '全部题目'
+                },
+                {
+                    value: 'wrong',
+                    label: '错题'
+                },
+                {
+                    value: 'favorites',
+                    label: '我的收藏'
+                }
+            ],
+            subjects: [
                 {
                     value: '',
                     label: '全部题目'
@@ -71,6 +83,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.el-selector {
+    top: -8px;
+}
+
 #favorites {
     .titleCover {
         text-align: left;
@@ -78,18 +94,16 @@ export default {
         .title {
             font-weight: bold;
             font-size: 36px;
-            line-height: 36px;
+            line-height: 104px;
             color: #6C5DD3;
             height: 36px;
             letter-spacing: 3px;
-            display: inline-block;
             width: fit-content;
             margin-right: 36px;
+            margin-left: 50px;
         }
 
         .selector {
-            display: inline-block;
-
             .select {
                 width: 188px;
                 height: 50px;

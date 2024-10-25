@@ -26,6 +26,7 @@ export default new Vuex.Store({
     answerList: [],
     questionBank: [],
     results: [],
+    likeList: [],
     score: null
   },
   getters: {
