@@ -7,7 +7,7 @@
                 </el-option>
             </el-select>
         </div>
-        <questionCard></questionCard>
+        <questionCard :subjectOptions="value"></questionCard>
     </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
         return {
             options: [
                 {
-                    value: '',
+                    value: 'all',
                     label: '全部题目'
                 },
                 {

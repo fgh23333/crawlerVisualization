@@ -72,6 +72,13 @@ export default new Vuex.Store({
     REMOVE_WRONG_QUESTION(state, questionId) {
       state.wrongQuestions = state.wrongQuestions.filter(q => q.id !== questionId);
     },
+    ADD_LIKE_QUESTION(state, question) {
+      question.likeFlag = true
+      state.likeList.push(question);
+    },
+    REMOVE_LIKE_QUESTION(state, questionId) {
+      state.likeList = state.likeList.filter(q => q.id !== questionId);
+    },
     async evaluateAnswers(state) {
       // 清空上次的评估结果
       state.results = [];
@@ -138,6 +145,12 @@ export default new Vuex.Store({
     removeFavoriteQuestion({ commit }, questionId) {
       commit('REMOVE_WRONG_QUESTION', questionId);
     },
+    addLikeQuestion({ commit }, question) {
+      commit('ADD_LIKE_QUESTION', question)
+    },
+    removeLikeQuestion({ commit }, questionId) {
+      commit('REMOVE_LIKE_QUESTION', questionId);
+    },
     checkAnswer({ commit }) {
       commit('evaluateAnswers')
     }
@@ -146,7 +159,7 @@ export default new Vuex.Store({
   },
   plugins: [
     createPersistedState({
-      paths: ['wrongQuestions']
+      paths: ['wrongQuestions', 'likeList']
     })
   ]
 })

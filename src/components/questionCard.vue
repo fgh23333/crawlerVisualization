@@ -163,6 +163,7 @@
 <script>
 import { mapActions } from "vuex";
 import Fuse from 'fuse.js';
+
 export default {
   data() {
     return {
@@ -205,11 +206,17 @@ export default {
       }
     }
   },
+  props: {
+    subjectOptions: {
+      type: String,
+      default: ''
+    }
+  },
   created() {
     this.lesson = this.$route.params.lesson;
     this.type = this.$route.params.type;
     if (this.$route.path == "/newHome/favorites") {
-      this.list = this.$store.state.wrongQuestions
+      this.list = this.$store.state.likeList
     } else {
       if (this.type == 'rightWrong') {
         this.list = require(`../assets/${this.lesson}_rightWrong.json`)
@@ -248,6 +255,30 @@ export default {
     this.onSearch = false
   },
   watch: {
+    subjectOptions: {
+      handler(newValue, oldValue) {
+        if (this.$route.path == '/newHome/favorites') {
+          switch (newValue) {
+            case 'all': 
+              this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
+              this.showList = [...this.list]
+              break
+            case 'favorites':
+              this.list = this.$store.state.likeList
+              this.showList = [...this.list]
+              break
+            case 'wrong':
+              this.list = this.$store.state.wrongQuestions
+              this.showList = [...this.list]
+              break
+            default:
+              return
+          }
+        } else {
+          return
+        }
+      }
+    },
     '$route': function (to, from) {
       this.lesson = to.params.lesson;
       this.type = to.params.type;
@@ -288,15 +319,33 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['addFavoriteQuestion', 'removeFavoriteQuestion']),
+    ...mapActions(['addLikeQuestion', 'removeLikeQuestion', 'addFavoriteQuestion', 'removeFavoriteQuestion']),
     changeFlag(flagType, i) {
       this.showList[i][flagType] = !this.showList[i][flagType]
-      if (this.showList[i][flagType]) {
-        this.addFavoriteQuestion(this.showList[i]);
+      if (this.subjectOptions == 'favorites') {
+        if (this.showList[i][flagType]) {
+          this.addLikeQuestion(this.showList[i])
+        } else {
+          this.removeLikeQuestion(this.showList[i].id)
+          this.removeFavoriteQuestion(this.showList[i].id)
+          this.list = this.$store.state.wrongQuestions
+          this.showList = [...this.list]
+        }
+      } else if (this.subjectOptions == 'wrong') {
+        if (this.showList[i][flagType]) {
+          this.addFavoriteQuestion(this.showList[i])
+        } else {
+          this.removeFavoriteQuestion(this.showList[i].id)
+          this.removeLikeQuestion(this.showList[i].id)
+          this.list = this.$store.state.wrongQuestions
+          this.showList = [...this.list]
+        }
       } else {
-        this.removeFavoriteQuestion(this.showList[i].id)
-        if (this.$route.path == "/newHome/favorites") {
-          this.showList = this.$store.state.wrongQuestions
+        if (this.showList[i][flagType]) {
+          this.addLikeQuestion(this.showList[i])
+        } else {
+          this.removeLikeQuestion(this.showList[i].id)
+          this.removeFavoriteQuestion(this.showList[i].id)
         }
       }
     },
@@ -304,24 +353,23 @@ export default {
       this.showList[i][flagType] = !this.showList[i][flagType]
     },
     changeInput() {
-      if (this.searchWord === "") {
-        this.showList = [...this.list]
-        this.onSearch = false
+      if (this.$route.path == '/newHome/favorites') {
+        return
+      } else {
+        if (this.searchWord === "") {
+          this.showList = [...this.list]
+          this.onSearch = false
+        }
       }
     },
     search() {
-      // console.log(this.searchWord)
-      // console.log(this.list)
-      // console.log(this.type)
       const fuseOptions = {
         keys: ['questionStem']
       };
       const fuse = new Fuse(this.list, fuseOptions);
       let temp = this.searchWord ? fuse.search(this.searchWord).map(result => result.item) : this.list;
-      // console.log(temp)
       this.showList = [...temp]
       this.onSearch = this.searchWord === "" ? false : true
-
     }
   }
 }
