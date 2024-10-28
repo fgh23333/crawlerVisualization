@@ -209,7 +209,7 @@ export default {
   props: {
     subjectOptions: {
       type: String,
-      default: ''
+      default: 'all'
     }
   },
   created() {
@@ -218,36 +218,20 @@ export default {
     if (this.$route.path == "/newHome/favorites") {
       this.list = this.$store.state.likeList
     } else {
-      if (this.type == 'rightWrong') {
-        this.list = require(`../assets/${this.lesson}_rightWrong.json`)
-        if (this.$store.state.wrongQuestions !== '') {
-          this.$store.state.wrongQuestions.forEach(subsetItem => {
-            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
-            if (supersetItem) {
-              supersetItem.likeFlag = true;
-            }
-          });
-        } else {
-          this.$message({
-            showClose: true,
-            message: '收藏夹是空的哦'
-          });
-        }
-      } else {
-        this.list = require(`../assets/${this.lesson}_${this.type}.json`);
-        if (this.$store.state.wrongQuestions !== '') {
-          this.$store.state.wrongQuestions.forEach(subsetItem => {
-            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
-            if (supersetItem) {
-              supersetItem.likeFlag = true;
-            }
-          });
-        } else {
-          this.$message({
-            showClose: true,
-            message: '收藏夹是空的哦'
-          });
-        }
+      this.list = require(`../assets/${this.lesson}_${this.type}.json`);
+      if (this.$store.state.wrongQuestions !== '' || this.$store.state.likeList !== '') {
+        this.$store.state.wrongQuestions.forEach(subsetItem => {
+          let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
+          if (supersetItem) {
+            supersetItem.likeFlag = true;
+          }
+        });
+        this.$store.state.likeList.forEach(subsetItem => {
+          let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
+          if (supersetItem) {
+            supersetItem.likeFlag = true;
+          }
+        });
       }
     }
     this.showList = [...this.list]
@@ -259,7 +243,7 @@ export default {
       handler(newValue, oldValue) {
         if (this.$route.path == '/newHome/favorites') {
           switch (newValue) {
-            case 'all': 
+            case 'all':
               this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
               this.showList = [...this.list]
               break
@@ -282,34 +266,22 @@ export default {
     '$route': function (to, from) {
       this.lesson = to.params.lesson;
       this.type = to.params.type;
-      if (this.type == 'rightWrong') {
-        this.list = require(`../assets/${this.lesson}_rightWrong.json`)
-        if (this.$store.state.wrongQuestions !== '') {
-          this.$store.state.wrongQuestions.forEach(subsetItem => {
-            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
-            if (supersetItem) {
-              supersetItem.likeFlag = true;
-            }
-          });
-        } else {
-          this.$message({
-            showClose: true,
-            message: '收藏夹是空的哦'
-          });
-        }
+      if (this.$route.path == "/newHome/favorites") {
+        this.list = this.$store.state.likeList
       } else {
         this.list = require(`../assets/${this.lesson}_${this.type}.json`);
-        if (this.$store.state.wrongQuestions !== '') {
+        if (this.$store.state.wrongQuestions !== '' || this.$store.state.likeList !== '') {
           this.$store.state.wrongQuestions.forEach(subsetItem => {
             let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
             if (supersetItem) {
               supersetItem.likeFlag = true;
             }
           });
-        } else {
-          this.$message({
-            showClose: true,
-            message: '收藏夹是空的哦'
+          this.$store.state.likeList.forEach(subsetItem => {
+            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
+            if (supersetItem) {
+              supersetItem.likeFlag = true;
+            }
           });
         }
       }
@@ -322,23 +294,32 @@ export default {
     ...mapActions(['addLikeQuestion', 'removeLikeQuestion', 'addFavoriteQuestion', 'removeFavoriteQuestion']),
     changeFlag(flagType, i) {
       this.showList[i][flagType] = !this.showList[i][flagType]
-      if (this.subjectOptions == 'favorites') {
-        if (this.showList[i][flagType]) {
-          this.addLikeQuestion(this.showList[i])
+      if (this.$route.path == '/newHome/favorites') {
+        if (this.subjectOptions == 'favorites') {
+          if (this.showList[i][flagType]) {
+            this.addLikeQuestion(this.showList[i])
+          } else {
+            this.removeLikeQuestion(this.showList[i].id)
+            this.list = this.$store.state.likeList
+            this.showList = [...this.list]
+          }
+        } else if (this.subjectOptions == 'wrong') {
+          if (this.showList[i][flagType]) {
+            this.addFavoriteQuestion(this.showList[i])
+          } else {
+            this.removeFavoriteQuestion(this.showList[i].id)
+            this.list = this.$store.state.wrongQuestions
+            this.showList = [...this.list]
+          }
         } else {
-          this.removeLikeQuestion(this.showList[i].id)
-          this.removeFavoriteQuestion(this.showList[i].id)
-          this.list = this.$store.state.wrongQuestions
-          this.showList = [...this.list]
-        }
-      } else if (this.subjectOptions == 'wrong') {
-        if (this.showList[i][flagType]) {
-          this.addFavoriteQuestion(this.showList[i])
-        } else {
-          this.removeFavoriteQuestion(this.showList[i].id)
-          this.removeLikeQuestion(this.showList[i].id)
-          this.list = this.$store.state.wrongQuestions
-          this.showList = [...this.list]
+          if (this.showList[i][flagType]) {
+            this.addLikeQuestion(this.showList[i])
+          } else {
+            this.removeLikeQuestion(this.showList[i].id)
+            this.removeFavoriteQuestion(this.showList[i].id)
+            this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
+            this.showList = [...this.list]
+          }
         }
       } else {
         if (this.showList[i][flagType]) {

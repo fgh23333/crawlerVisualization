@@ -73,7 +73,7 @@ export default {
                     label: 'CCPH',
                 }
             ],
-            value: ''
+            value: 'all'
         }
     },
     components: {
