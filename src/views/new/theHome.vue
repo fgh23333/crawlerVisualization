@@ -20,6 +20,11 @@
             </a>
           </span>
         </div>
+        <div class="group_7">
+          <span class="mt-48 text_12">
+            题库内容全部免费，从未授权任何人进行任何形式的收费，请各位访客谨慎识别，以免上当受骗
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -76,6 +81,17 @@ a:active {
   margin-top: 40px;
   color: #828282;
   font-size: 24px;
+  font-family: HarmonyOSSansSC;
+  font-weight: 700;
+  line-height: 48px;
+  text-align: left;
+  letter-spacing: 1px;
+}
+
+.text_12 {
+  margin-top: 40px;
+  color: #828282;
+  font-size: 20px;
   font-family: HarmonyOSSansSC;
   font-weight: 700;
   line-height: 48px;
