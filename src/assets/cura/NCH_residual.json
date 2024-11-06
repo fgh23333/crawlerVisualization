@@ -1,1890 +1,28 @@
 [
     {
-        "questionStem": "要尊崇党章，严格执行新形势下党内政治生活若干准则，增强党内政治生活的（）。",
+        "questionStem": "党的二十大报告指出，十年来，我们确立和坚持（）在意识形态领域指导?地位的根本制度，社会主义核心价值观广泛传播，中华优秀传统文化得到创造性转化、创新性发展，文化事业日益繁荣，网络生态持续向好，意识形态领域形势?发生全局性、根本性转变。",
         "option": [
-            "政治性、思想性、时代性、战斗性",
-            "思想性、政治性、时代性、原则性",
-            "政治性、思想性、时代性、原则性",
-            "政治性、时代性、原则性、战斗性"
-        ],
-        "answer": "D",
-        "id": "1798736707504308225",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中共八大确定的我国社会主义经济建设的方针是（）。",
-        "option": [
-            "在综合平衡中稳步前进",
-            "鼓足干劲、力争上游、多快好省",
-            "调整、巩固、充实、提高",
-            "以农业为基础、以工业为主导"
-        ],
-        "answer": "A",
-        "id": "1798736707286204416",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的二十大报告指出，十九大以来的五年，是极不寻常、极不平凡的五年。党中央统筹中华民族伟大复兴战略全局和世界百年未有之大变局，就党和国家事业发展作出重大战略部署，团结带领全党全军全国各族人民有效应对严峻复杂的国际形势和接踵而至的巨大风险挑战，以（）的精神把新时代中国特色社会主义不断推向前进。",
-        "option": [
-            "只争朝夕",
-            "锐意创新",
-            "精益求精",
-            "奋发有为"
-        ],
-        "answer": "D",
-        "id": "1798736707139403776",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "我国第一个五年计划的期限是（）。",
-        "option": [
-            "1949—1954年",
-            "1953—1957年",
-            "1952—1956年",
-            "1954—1958年"
-        ],
-        "answer": "B",
-        "id": "1798736707265232896",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "我国第一颗人造地球卫星“东方红一号”成功发射是在（）4月。",
-        "option": [
-            "1969年",
-            "1970年",
-            "1972年",
-            "1976年"
-        ],
-        "answer": "B",
-        "id": "1798736707282010112",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "习近平新时代中国特色社会主义思想的核心要义是（）。",
-        "option": [
-            "实现中华民族伟大复兴的中国梦",
-            "坚持和发展中国特色社会主义",
-            "“五位一体”的总体布局和“四个全面”的战略布局",
-            "把中国特色社会主义推向前进"
-        ],
-        "answer": "B",
-        "id": "1798736707399450625",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国特色社会主义道路、理论、制度、文化不断发展，拓展了发展中国家走向现代化的途径，给世界上那些既希望加快发展又希望保持自身独立性的国家和民族提供了全新选择，为解决人类问题贡献了中国智慧和（）。",
-        "option": [
-            "中国方案",
-            "中国模式",
-            "中国思想",
-            "中国观点"
-        ],
-        "answer": "A",
-        "id": "1798736707437199361",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国化时代化马克思主义的“魂脉”是什么？",
-        "option": [
-            "马克思主义",
-            "全人类共同价值",
-            "中华优秀传统文化",
-            "社会主义核心价值观"
-        ],
-        "answer": "A",
-        "id": "1798736707000991744",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "新中国成立初期的“银圆之战”和“米棉之战”的直接目的是（）。",
-        "option": [
-            "恢复发展国民经济",
-            "巩固人民民主政权",
-            "解决财政困难",
-            "平抑物价，稳定市场"
-        ],
-        "answer": "D",
-        "id": "1798736707231678465",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国新民主主义革命区别于旧民主主义革命的最根本特征是（）。",
-        "option": [
-            "它有新的革命性质即社会主义革命的性质",
-            "资产阶级领导的、以建立资本主义社会和资产阶级专政的国家为目的",
-            "反封建反侵略的爱国主义运动",
-            "中国共产党成为无产阶级的先锋队，成为中国革命新的领导核心力量"
-        ],
-        "answer": "D",
-        "id": "1798736707420422145",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1927年12月11日，张太雷、叶挺、叶剑英等领导了（）起义，是中国共产党和中国人民继南昌起义、湘赣边界秋收起义之后对国民党反动派的又一次英勇反击。",
-        "option": [
-            "武昌起义",
-            "上海工人武装起义",
-            "右江起义",
-            "广州起义"
-        ],
-        "answer": "D",
-        "id": "1798736707500113921",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的组织优势主要是指（）。",
-        "option": [
-            "有分布在全国各条战线上的数百万个党组织",
-            "党内集中了中华民族的众多优秀分子",
-            "在马克思主义指导下按照民主集中制组成统一的整体，为实现共同的目标而奋斗",
-            "党的各级组织的力量集成"
-        ],
-        "answer": "C",
-        "id": "1798736707407839233",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国式现代化，是（）领导的社会主义现代化，既有各国现代化的共同特征，更有基于自己国情的中国特色。",
-        "option": [
-            "党和国家",
-            "党和政府",
-            "中国共产党",
-            "党和人民"
-        ],
-        "answer": "C",
-        "id": "1798736707063906305",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（）是民族复兴的根基，（）是国家强盛的前提。",
-        "option": [
-            "国家安全经济稳定",
-            "经济安全社会稳定",
-            "国家安全社会稳定",
-            "文化安全社会稳定"
-        ],
-        "answer": "C",
-        "id": "1798736707105849344",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "五四运动以全民族的力量高举起爱国主义的伟大旗帜，孕育了以爱国、进步、民主、科学为主要内容的伟大“五四精神”，其核心是（）。",
-        "option": [
-            "反对封建主义精神",
-            "科学精神",
-            "民主主义精神",
-            "爱国主义精神"
-        ],
-        "answer": "D",
-        "id": "1798736707420422144",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1928年6月，中国共产党在共产国际的帮助下在（）举行第六次全国代表大会。",
-        "option": [
-            "香港",
-            "莫斯科",
-            "上海",
-            "柏林"
-        ],
-        "answer": "B",
-        "id": "1798736707168763905",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国政府在2014年新设立了三个国家级纪念日，即确定每年的9月3日为\"（）\",9月30日为“中国烈士纪念日“,12月13日为“南京大屠杀死难者国家公祭日”。",
-        "option": [
-            "中国人民抗日战争胜利纪念日",
-            "全民阅读日",
-            "尊老爱幼日",
-            "勿忘国耻日"
-        ],
-        "answer": "A",
-        "id": "1798736707374284800",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "秋收起义部队在到达江西省永新县时，毛泽东决定将党的支部建立在连上，班、排设党小组，营、团设党委，成立各级士兵委员会，实行民主管理，从而从组织上确立了党对军队的领导，是建设无产阶级领导的新型人民军队的重要开端。这就是著名的（）。",
-        "option": [
-            "井岗山会师",
-            "古田会议",
-            "八七会议",
-            "三湾改编"
-        ],
-        "answer": "D",
-        "id": "1798736707504308224",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "在1949年庆祝中国共产党成立28周年的时候，毛泽东指出:在过去28年的长时期中，我们仅仅做了一件事，这就是（）。",
-        "option": [
-            "取得了革命战争的基本胜利",
-            "取得了新民主主义革命的彻底胜利",
-            "取得了民族的彻底解放与独立",
-            "取得了社会主义革命的基本胜利"
-        ],
-        "answer": "A",
-        "id": "1798736707210706945",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（）是无产阶级领导的中心问题，必须放手发动农民，坚决依靠农民，建立巩固的工农联盟。",
-        "option": [
-            "阶级斗争问题",
-            "路线问题",
-            "农民问题",
-            "统一战线问题"
-        ],
-        "answer": "C",
-        "id": "1798736707156180993",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "坚持马克思列宁主义的基本原理，走中国人民自愿选择的（）的道路，中国的社会主义事业必将取得最终的胜利。",
-        "option": [
-            "符合国际形势",
-            "具有中国特色",
-            "适合中国国情",
-            "共同富裕"
-        ],
-        "answer": "C",
-        "id": "1798736707068100609",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1971年10月25日,第（）联合国大会通过决议，恢复中华人民共和国在联合国的合法席位。",
-        "option": [
-            "22届",
-            "24届",
-            "25届",
-            "26届"
-        ],
-        "answer": "D",
-        "id": "1798736707282010113",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1925年1月，中国共产党第四次全国代表大会在上海召开，第一次提出（）在民主革命中的领导权和工农联盟问题。",
-        "option": [
-            "工人",
-            "农民",
-            "知识分子",
-            "无产阶级"
-        ],
-        "answer": "D",
-        "id": "1798736707470753793",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "一百年来，党领导人民（??）（??），创造了社会主义革命和建设的伟大成就。",
-        "option": [
-            "浴血奋战、百折不挠",
-            "自力更生、发愤图强",
-            "解放思想、锐意进取",
-            "自信自强、守正创新"
-        ],
-        "answer": "B",
-        "id": "1798736707021963264",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1927年4月27日至5月9日，中国共产党第五次全国代表大会在武汉召开，在党的历史上第一次选举产生了（）。",
-        "option": [
-            "中央纪律委员会",
-            "中央立法委员会",
-            "中央执法委员会",
-            "中央监察委员会"
-        ],
-        "answer": "D",
-        "id": "1798736707483336704",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1926年8月4日，中共中央扩大会议发布的（）通告，是迄今为止发现的中共最早的反贪文件。",
-        "option": [
-            "《消费合作社办事公约》",
-            "《关于惩治贪污浪费行为》",
-            "《陕甘宁边区政府公布边区惩治贪污暂行条例》",
-            "《坚决清理贪污腐化分子》"
-        ],
-        "answer": "D",
-        "id": "1798736707479142400",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（）是危害党的生命力和战斗力的最大毒瘤，（）是最彻底的自我革命。",
-        "option": [
-            "贪污；反贪污",
-            "腐败；反腐败",
-            "腐败；反贪污",
-            "贪污；反腐败"
-        ],
-        "answer": "B",
-        "id": "1798736707084877825",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的二十大报告指出，经过不懈努力，党找到了（）这一跳出治乱兴衰历史周期率的第二个答案，确保党永远不变质、不变色、不变味。",
-        "option": [
-            "自我斗争",
-            "自我监督",
-            "自我革命",
-            "自我净化"
-        ],
-        "answer": "C",
-        "id": "1798736707126820864",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1978年5月1日，《光明日报》发表了题为（）的特约评论员文章，从根本上、理论上否定了“两个凡是＂的错误方针，揭开了真理标准问题讨论的序幕。",
-        "option": [
-            "“实践是检验真理的唯一标准”",
-            "“一切主观世界的东西都要接受实践的检验”",
-            "“马克思主义的一个最基本的原则”",
-            "“解放思想，实事求是”"
-        ],
-        "answer": "A",
-        "id": "1798736707286204417",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（??）是全面建设社会主义现代化国家的首要任务。",
-        "option": [
-            "高水平开放",
-            "高质量发展",
-            "全领域开放",
-            "全方位发展"
-        ],
-        "answer": "B",
-        "id": "1798736707118432256",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "新中国成立以来，“三农”问题始终是关系党和人民事业发展的全局性和根本性问题。“三农”问题的基本含义是（）。",
-        "option": [
-            "农村联产承包责任制问题、农业投入问题、农产品加工问题",
-            "农产品问题、农民工问题、农村基层组织问题",
-            "农村问题、农民问题、农业问题",
-            "农村医疗、农村住房、农村教育"
-        ],
-        "answer": "C",
-        "id": "1798736707344924672",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中共十一届三中全会以后，率先进行经济体制改革的是（）。",
-        "option": [
-            "农村",
-            "城市",
-            "沿海地区",
-            "内地"
-        ],
-        "answer": "A",
-        "id": "1798736707294593024",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "全党要牢牢把握社会主义初级阶段这个基本国情，牢牢立足社会主义初级阶段这个最大实际，牢牢坚持（）这个党和国家的生命线、人民的幸福线。",
-        "option": [
-            "党的基本路线",
-            "党的基本原则",
-            "党的基本方针",
-            "党的基本政策"
-        ],
-        "answer": "A",
-        "id": "1798736707420422146",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（）是中华民族永续发展的千年大计。",
-        "option": [
-            "民主法制建设",
-            "全面建成小康社会",
-            "增进民生福祉",
-            "建设生态文明"
-        ],
-        "answer": "D",
-        "id": "1798736707449782274",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "一百年来，党领导人民（??）（??），创造了新时代中国特色社会主义的伟大成就。",
-        "option": [
-            "浴血奋战、百折不挠\r\n",
-            "自力更生、发愤图强",
-            "解放思想、锐意进取",
-            "自信自强、守正创新"
-        ],
-        "answer": "D",
-        "id": "1798736707017768960",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的二十大报告指出，实践告诉我们，中国共产党为什么能，中国特色社会主义为什么好，归根到底是（）行，是中国化时代化的（）行。",
-        "option": [
-            "中国共产党",
-            "马克思主义",
             "社会主义",
-            "毛泽东思想"
-        ],
-        "answer": "B",
-        "id": "1798736707122626561",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "土地革命时期，中国共产党建立的第一个红色政权是（）。",
-        "option": [
-            "井冈山根据地茶陵县工农兵政府",
-            "右江工农民主政府",
-            "闽西工农民主政府",
-            "瑞金中华苏维埃共和国"
-        ],
-        "answer": "A",
-        "id": "1798736707168763904",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1986年，科学家王大珩、王涂昌、陈芳允等上书中共中央，提出发展高科技的建议。这一建议后来被称为著名的（）。",
-        "option": [
-            "星火计划",
-            "菜篮子工程",
-            "\"863\"计划",
-            "\"985\"计划"
-        ],
-        "answer": "C",
-        "id": "1798736707311370241",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国政府第一次公开提出和平解决台湾问题的方针，是在（）中。",
-        "option": [
-            "全国人大常委会《告台湾同胞书》",
-            "《论十大关系》",
-            "第26届联合国大会",
-            "中美上海公报"
-        ],
-        "answer": "A",
-        "id": "1798736707831463936",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "南昌起义、秋收起义、广州起义使我党总结出最突出的教训是（）。",
-        "option": [
-            "必须建立人民军队",
-            "必须进行武装斗争",
-            "必须把党的工作重心转到农村",
-            "必须坚持革命的领导权"
-        ],
-        "answer": "C",
-        "id": "1798736707156180992",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（）是一个国家、一个民族发展中更基本、更深沉、更持久的力量。",
-        "option": [
-            "道路自信",
-            "理论自信",
-            "制度自信",
-            "文化自信"
+            "共产主义",
+            "列宁主义",
+            "马克思主义"
         ],
         "answer": "D",
-        "id": "1798736707445587969",
+        "id": "1798736707131015168",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1927年3月毛泽东公开发表（），文中科学分析了农民的各个阶层，充分估计了农民在中国民主革命中的伟大作用，明确指出在农村建立革命政权和农民武装的必要性，着重宣传了放手发动群众、组织群众、依靠群众的革命思想。",
+        "questionStem": "我国社会主义改造提前完成，开始进入社会主义初级阶段的时间是（）。",
         "option": [
-            "《中国社会各阶级的分析》",
-            "《中国的红色政权为什么能够存在》",
-            "《反对本本主义》",
-            "《湖南农民运动考察报告》"
+            "1956年春",
+            "1956年夏",
+            "1956年秋",
+            "1956年底"
         ],
         "answer": "D",
-        "id": "1798736707491725313",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "伟大斗争，伟大工程，伟大事业，伟大梦想，紧密联系、相互贯通、相互作用，其中起决定性作用的是（）。",
-        "option": [
-            "具有许多新的历史特点的伟大斗争",
-            "中国特色社会主义伟大事业",
-            "党的建设新的伟大工程",
-            "中华民族伟大复兴梦想"
-        ],
-        "answer": "C",
-        "id": "1798736707437199360",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "新文化运动的两大口号是（）。",
-        "option": [
-            "新道德和新文学",
-            "民权和平等",
-            "自由和平等",
-            "民主和科学"
-        ],
-        "answer": "D",
-        "id": "1798736707433005056",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "实现中国梦必须弘扬中国精神。这就是以（）为核心的民族精神，以（）为核心的时代精神。",
-        "option": [
-            "爱国主义顽强拼搏",
-            "爱国主义开拓创新",
-            "爱国主义改革创新",
-            "民族自尊改革开放"
-        ],
-        "answer": "C",
-        "id": "1798736707391062017",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（）通过宪法修正案，郑重地把习近平新时代中国特色社会主义思想载入宪法。",
-        "option": [
-            "十二届全国人民代表大会第五次会议",
-            "十二届全国人大六次会议",
-            "十二届全国人大三次会议",
-            "十三届全国人大一次会议"
-        ],
-        "answer": "D",
-        "id": "1798736707378479104",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "必须完整、准确、全面贯彻新发展理念，坚持社会主义市场经济改革方向，坚持高水平对外开放，加快构建以国内大循环为主体、（??）的新发展格局。",
-        "option": [
-            "城市与农村相互促进",
-            "国内国际双循环相互促进",
-            "国内国际双循环相互作用",
-            "发达国家与发展中国家相互促进"
-        ],
-        "answer": "B",
-        "id": "1798736707114237952",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1936年6月，美国记者埃德加·斯诺访问陕北，并根据对毛泽东、周恩来、朱德等中共领导人和红军将士进行的访谈，撰成（）一书，第一次向外界详细介绍了中国共产党和红军的事迹，对中国国内和世界产生了重大影响。",
-        "option": [
-            "《来自红色中国的报道》",
-            "《中国未完成的革命》",
-            "《西行漫记》",
-            "《红色中国的挑战》"
-        ],
-        "answer": "C",
-        "id": "1798736707181346817",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国早期信仰马克思主义的人物中，有一位留法勤工俭学的学生（）说，自己到欧洲以后，“对于一切主义开始推求比较”，到1921年秋，终于“定妥了我的目标”即共产主义。他表示，“我认的主义一定是不变了，并且很坚决地要为他宣传奔走”。",
-        "option": [
-            "陈毅",
-            "邓小平",
-            "蔡和森",
-            "周恩来"
-        ],
-        "answer": "D",
-        "id": "1798736707512696832",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国共产党开始在实践中探索本国建设社会主义道路的标志是（）。",
-        "option": [
-            "第一个五年计划的制定",
-            "中共八大的召开",
-            "过渡时期总路线和总任务的公布",
-            "《论十大关系》的报告"
-        ],
-        "answer": "D",
-        "id": "1798736707273621504",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中华人民共和国第一届全国人民代表大会召开时间是（）。",
-        "option": [
-            "1949年10月",
-            "1950年9月",
-            "1953年10月",
-            "1954年9月"
-        ],
-        "answer": "D",
-        "id": "1798736707244261377",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "标志着红军二万五千里长征胜利结束的是（）。",
-        "option": [
-            "红军穿越大草地进入甘肃、陕西",
-            "中央红军同陕北红军会师",
-            "红军三大主力在会宁会师",
-            "遵义会议召开"
-        ],
-        "answer": "C",
-        "id": "1798736707177152514",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "“任何一个民族、一个国家都要学习别的民族、别的国家的长处，学习人家的先进科学技术。”邓小平的这一席话主要强调了（）。",
-        "option": [
-            "实现民族伟大复兴的重要性",
-            "实行对外开放的重要性",
-            "赶超先进国家的重要性",
-            "进行国有企业改革的重要性"
-        ],
-        "answer": "B",
-        "id": "1798736707302981632",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的二十大报告指出，中国坚持在和平共处五项原则基础上同各国发展友好合作，推动构建新型国际关系，深化拓展平等、开放、合作的全球伙伴关系，致力于扩大同各国利益的汇合点。促进大国协调和良性互动，推动构建（）的大国关系格局。",
-        "option": [
-            "和平共处",
-            "总体稳定",
-            "均衡发展",
-            "以上都是"
-        ],
-        "answer": "D",
-        "id": "1798736707093266432",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "必须以党章为根本遵循，把党的政治建设摆在首位，思想建党和（）同向发力。",
-        "option": [
-            "从严治党",
-            "党内文化建设",
-            "制度治党",
-            "制度建设"
-        ],
-        "answer": "C",
-        "id": "1798736707458170880",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "为了驳斥＂亡国论”和“速胜论”的错误观点，系统阐述党的抗日持久战方针，毛泽东于1938年5月写了（）这篇重要文章。",
-        "option": [
-            "《论持久战》",
-            "《论联合政府》",
-            "《中国革命和中国共产党》",
-            "《目前抗日统一战线中的策略问题》"
-        ],
-        "answer": "A",
-        "id": "1798736707189735425",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "在（）时期，毛泽东、朱德把红军的作战经验概括为“敌进我退，敌驻我扰，敌疲我打，敌退我追”的十六字诀。",
-        "option": [
-            "红军三次反“围剿”",
-            "红军第四次反“围剿”",
-            "长征",
-            "井冈山斗争"
-        ],
-        "answer": "D",
-        "id": "1798736707479142402",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中共十三大报告在总结中共十一届三中全会以来取得的历史成就的基础上，首次比较系统地阐明了（）。",
-        "option": [
-            "有计划的商品经济理论",
-            "社会主义初级阶段理论",
-            "社会主义市场经济理论",
-            "有市场的计划经济理论"
-        ],
-        "answer": "B",
-        "id": "1798736707315564544",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（），为了抗美援朝、保家卫国，中共中央命令中国人民志愿军出兵朝鲜作战，并任命彭德怀为志愿军司令员兼政治委员。",
-        "option": [
-            "1950年10月",
-            "1951年10月",
-            "1952年10月",
-            "1953年10月"
-        ],
-        "answer": "A",
-        "id": "1798736707235872768",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "邓小平著名的南方谈话发表于（）年。",
-        "option": [
-            "1991",
-            "1992",
-            "1993",
-            "1994"
-        ],
-        "answer": "B",
-        "id": "1798736707319758848",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "严明党的纪律，强化党内监督，发展积极健康的党内政治文化，全面净化党内（）。",
-        "option": [
-            "政治文明",
-            "政治生活",
-            "政治生态",
-            "政治环境"
-        ],
-        "answer": "C",
-        "id": "1798736707466559489",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的十九大报告提出，在党的建设过程中，用（）思想武装全党。",
-        "option": [
-            "习近平新时代中国特色社会主义",
-            "新时代中国社会主义",
-            "新时代马克思列宁主义",
-            "习近平治国理政新方针"
-        ],
-        "answer": "A",
-        "id": "1798736707386867712",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1924年5月，在苏联和中国共产党的帮助下，国民党陆军军官学校在广州黄埔创办黄埔军校，党代表是（）。",
-        "option": [
-            "孙中山",
-            "蒋介石",
-            "汪精卫",
-            "廖仲恺"
-        ],
-        "answer": "D",
-        "id": "1798736707466559488",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（）说，“我是一个知识分子，当一个小学教员，也没学过军事，怎么知道打仗呢？就是由于国民党搞白色恐怖，把工会、农会都打掉了，把五万共产党员杀了一大批，抓了一大批，我们才拿起枪来，上山打游击。”",
-        "option": [
-            "刘少奇",
-            "周恩来",
-            "邓小平",
-            "毛泽东"
-        ],
-        "answer": "D",
-        "id": "1798736707512696833",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "我国第一部社会主义类型的宪法通过并颁布实施是在（）年。",
-        "option": [
-            "1949",
-            "1952",
-            "1954",
-            "1982"
-        ],
-        "answer": "C",
-        "id": "1798736707256844289",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "科学发展观的提出，标志着我们党（）。",
-        "option": [
-            "对改革开放和现代化建设规律的认识进一步深化",
-            "完全掌握了社会主义建设的发展规律",
-            "改变了新中国成立以来传统的发展模式和发展战略",
-            "第一次找到建设社会主义的道路"
-        ],
-        "answer": "A",
-        "id": "1798736707349118977",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "践行全心全意为人民服务的根本宗旨，把党的（）贯彻到治国理政全部活动之中，把人民对美好生活的向往作为奋斗目标，依靠人民创造历史伟业。",
-        "option": [
-            "政治路线",
-            "思想路线",
-            "组织路线",
-            "群众路线"
-        ],
-        "answer": "D",
-        "id": "1798736707441393664",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国共产党制定民主革命纲领的主要依据是（）。",
-        "option": [
-            "对中国社会性质和革命性质的认识",
-            "对帝国主义侵略中国的认识",
-            "对北洋军阀统治的认识",
-            "对资产阶级两面性的认识"
-        ],
-        "answer": "A",
-        "id": "1798736707147792385",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的二十大报告指出，十年来，我们深入推进全面从严治党，坚持打铁还须自身硬，提出和落实新时代党的建设总要求，以党的（）统领党的建设各项工作。",
-        "option": [
-            "经济建设",
-            "文化建设",
-            "组织建设",
-            "政治建设"
-        ],
-        "answer": "D",
-        "id": "1798736707126820865",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "如期实现建军一百年奋斗目标，加快把人民军队建成世界一流军队，是全面建设社会主义现代化国家的（）。",
-        "option": [
-            "战略要求",
-            "重要基础",
-            "应有之义",
-            "关键举措"
-        ],
-        "answer": "A",
-        "id": "1798736707093266433",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国第一个共产主义小组建立在：（）",
-        "option": [
-            "北京",
-            "长沙",
-            "武汉",
-            "上海"
-        ],
-        "answer": "D",
-        "id": "1798736707441393665",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的十九大提出实施乡村振兴战略，是以习近平同志为核心的党中央着眼于党和国家事业全局，深刻把握现代化建设和城乡关系变化特征，顺应亿万农民对美好生活的向往，对“三农“工作作出的重大战略决策，是新时代做好”三农”工作的总抓手。实施乡村振兴战略的根本目的是（）。",
-        "option": [
-            "确保国家粮食安全",
-            "建立新型的土地承包关系",
-            "转移农村富余劳动力",
-            "推进农业农村现代化"
-        ],
-        "answer": "D",
-        "id": "1798736707382673409",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（）是党永葆生机活力、走好新的赶考之路的必由之路。",
-        "option": [
-            "全面从严治党",
-            "坚持党的全面领导",
-            "团结奋斗",
-            "中国特色社会主义"
-        ],
-        "answer": "A",
-        "id": "1798736707076489216",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中共一大通过了中国共产党的第一个纲领，纲领确定党的名称是“中国共产党＂。第一个提出党的名称为“中国共产党”的是（）。",
-        "option": [
-            "蔡和森",
-            "毛泽东",
-            "陈独秀",
-            "陈望道"
-        ],
-        "answer": "A",
-        "id": "1798736707143598081",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国共产党人的初心和使命，就是（）。",
-        "option": [
-            "为中国人民谋幸福，为中华民族谋复兴",
-            "建设共产主义",
-            "实现国家富强，民族复兴",
-            "建设社会主义现代化强国"
-        ],
-        "answer": "A",
-        "id": "1798736707391062018",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1923年6月，（）确定了与国民党合作，建立革命统一战线的方针政策，拉开了第一次国共合作的序幕，是中国共产党走向成熟的重要开端。会上，毛泽东当选为中央局秘书，第一次进入党的中央领导核心层。",
-        "option": [
-            "中国共产党第二次全国代表大会",
-            "中国共产党第四次全国代表大会",
-            "中国共产党第五次全国代表大会",
-            "中国共产党第三次全国代表大会"
-        ],
-        "answer": "D",
-        "id": "1798736707458170881",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国共产党的最高理想和最终目标是（）。",
-        "option": [
-            "实现四个现代化",
-            "实现小康社会",
-            "建设新农村",
-            "实现共产主义"
-        ],
-        "answer": "D",
-        "id": "1798736707403644928",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "习近平总书记在党的十九大报告中作出中国特色社会主义进入新时代的重大政治论断，最关键的理论和实践基础是我国社会主要矛盾已经从“人民日益增长的物质文化需要同落后的社会生产之间的矛盾“转化为“（）”。我国社会主要矛盾的变化，是中国特色社会主义进入新时代的重要标志，也是新时代的重要特征。",
-        "option": [
-            "人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾",
-            "人民日益增长的美好生活需要和经济文化发展不完善不充分之间的矛盾",
-            "人民群众日益增长的物质文化更高层次的需求与当前社会发展无法满足之间的矛盾",
-            "人民群众物质文化的全方位需求与不平衡不充分的发展之间的矛盾"
-        ],
-        "answer": "A",
-        "id": "1798736707386867713",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "解放战争时期统一战线的名称是（）。",
-        "option": [
-            "民主的统一战线",
-            "人民民主统一战线",
-            "大革命的统一战线",
-            "工农民主统一战线"
-        ],
-        "answer": "B",
-        "id": "1798736707202318337",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "国民经济恢复任务完成后，中国社会的主要矛盾是（）。",
-        "option": [
-            "工人阶级同资产阶级的矛盾",
-            "农民阶级同资产阶级的矛盾",
-            "人民同地主资产阶级的矛盾",
-            "先进社会制度同落后的生产力的矛盾"
-        ],
-        "answer": "A",
-        "id": "1798736707248455682",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国化时代化马克思主义的“根脉”是什么？",
-        "option": [
-            "马克思主义",
-            "全人类共同价值",
-            "中华优秀传统文化",
-            "社会主义核心价值观"
-        ],
-        "answer": "C",
-        "id": "1798736706996797441",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "新中国成立之初，被毛泽东高度评价这个胜利”不亚于淮海战役”的胜利的是（）。",
-        "option": [
-            "解放海南岛",
-            "新解放区进行土地改革",
-            "稳定物价和统一财经",
-            "镇压反革命"
-        ],
-        "answer": "C",
-        "id": "1798736707219095552",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "第一次国共合作的政治基础是：（）",
-        "option": [
-            "三民主义",
-            "反帝反封建",
-            "联俄、联共、扶助农工的三大政策",
-            "新三民主义"
-        ],
-        "answer": "D",
-        "id": "1798736707462365185",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "2008年北京奥运会是（）夏季奥林匹克运动会。",
-        "option": [
-            "第26届",
-            "第29届",
-            "第30届",
-            "第32届"
-        ],
-        "answer": "B",
-        "id": "1798736707365896192",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "在中共八大发言中，陈云提出了（）的重要意见，受到重视，为大会决议所采纳，这是探索我国经济体制改革的尝试。",
-        "option": [
-            "既反保守，又反冒进",
-            "给地方和企业适当下放权力",
-            "加强宏观调控，保持综合平衡",
-            "“三个主体，三个补充\""
-        ],
-        "answer": "D",
-        "id": "1798736707269427201",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中共十七大关于党章（修正案）决议，第一次将（）写入党章。",
-        "option": [
-            "科学发展观",
-            "“三个代表”重要思想",
-            "全面建设小康社会",
-            "中国特色社会主义理论体系"
-        ],
-        "answer": "A",
-        "id": "1798736707357507584",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1955年率团出席亚非会议（万隆会议）的是（）。",
-        "option": [
-            "刘少奇",
-            "周恩来",
-            "陈毅",
-            "宋庆龄"
-        ],
-        "answer": "B",
-        "id": "1798736707265232897",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "第一个五年计划开始实施的年份是（）。",
-        "option": [
-            "1949年",
-            "1951年",
-            "1953年",
-            "1955年"
-        ],
-        "answer": "C",
-        "id": "1798736707248455680",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "在对资本主义工商业的社会主义改造中，所谓初、中级国家资本主义的主要含义是，社会主义国家对资本主义工商业采取（）。",
-        "option": [
-            "公私合营的方式进行所有制改造",
-            "加工订货的方式纳入国家计划轨道",
-            "民主改革的方式使工人当家做主",
-            "通过财政税收信贷等手段干预生产过程"
-        ],
-        "answer": "B",
-        "id": "1798736707240067073",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1964年10月16日，我国成功地爆炸了第一颗（），有力地打破了超级大国的核垄断和核讹诈，提高了我国的国际地位。",
-        "option": [
-            "中子弹",
-            "导弹",
-            "原子弹",
-            "氢弹"
-        ],
-        "answer": "C",
-        "id": "1798736707277815809",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "坚持反腐败无禁区、全覆盖、零容忍，坚定不移“打虎”“拍蝇＂＂猎狐\",（）的目标初步实现，（）的笼子越扎越牢，（）的堤坝正在构筑，反腐败斗争压倒性态势已经形成并巩固发展。",
-        "option": [
-            "不敢腐不能腐不想腐",
-            "不能腐不敢腐不想腐",
-            "不想腐不敢腐不能腐",
-            "不敢腐不想腐不能腐"
-        ],
-        "answer": "A",
-        "id": "1798736707395256321",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "标志着全国性抗日战争开始的事件是（）。",
-        "option": [
-            "九一八事变",
-            "一·二八事件",
-            "七七卢沟桥事变",
-            "八一三事件"
-        ],
-        "answer": "C",
-        "id": "1798736707185541121",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "必须认识到，我国社会主要矛盾的变化，没有改变我们对我国社会主义所处历史阶段的判断，我国仍处于并将长期处于()的基本国情没有变，我国是世界最大发展中国家的国际地位没有变。",
-        "option": [
-            "社会主义阶段",
-            "社会主义初级阶段",
-            "社会主义中级阶段",
-            "社会主义高级阶段"
-        ],
-        "answer": "B",
-        "id": "1798736707416227841",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "在第一个五年计划实施中，成就最突出的行业是（）。",
-        "option": [
-            "交通运输业",
-            "商业",
-            "农业",
-            "工矿业"
-        ],
-        "answer": "D",
-        "id": "1798736707248455681",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的二十大报告指出，我们要坚持（）在意识形态领域指导地位的根本制度。",
-        "option": [
-            "中国特色社会主义",
-            "马克思主义",
-            "毛泽东思想",
-            "马列主义"
-        ],
-        "answer": "B",
-        "id": "1798736707101655040",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（）中国对香港恢复行使主权，中华人民共和国香港特别行政区正式成立。",
-        "option": [
-            "1997年7月1日",
-            "1999年12月20日",
-            "1993年1月1日",
-            "1997年7月7日"
-        ],
-        "answer": "A",
-        "id": "1798736707332341761",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国特色社会主义进入新时代，我国社会主要矛盾已经转化为人民日益增长的()的发展之间的矛盾。",
-        "option": [
-            "美好生活需要和不充分不平衡",
-            "幸福生活需要和不平衡不充分",
-            "幸福生活需要和不充分不平衡",
-            "美好生活需要和不平衡不充分"
-        ],
-        "answer": "D",
-        "id": "1798736707416227840",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的二十大报告指出，拥有（）理论指导是我们党坚定信仰信念、把握历史主动的根本所在。",
-        "option": [
-            "毛泽东思想",
-            "社会主义科学",
-            "改革开放",
-            "马克思主义科学"
-        ],
-        "answer": "D",
-        "id": "1798736707122626560",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "下列事件发生的先后顺序是（）。①提出社会主义初级阶段的理论②作出实行改革开放的决策③提出建立社会主义市场经济体制④上海浦东成为对外开放区",
-        "option": [
-            "②①④③",
-            "③②①④",
-            "④③②①",
-            "①④③②"
-        ],
-        "answer": "A",
-        "id": "1798736707294593025",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1939年7月,刘少奇在延安马列学院的重要讲演,详细阐述了共产党员修养的内容和方法,第一次提出加强共产党员党性修养的必要性和重要意义。（）",
-        "option": [
-            "《关于党性问题的报告大纲》",
-            "《我的修养要则》",
-            "《论共产党员的修养》",
-            "《目前任务和战略部署》"
-        ],
-        "answer": "C",
-        "id": "1798736707516891137",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（）是中国人民创造历史伟业的必由之路。",
-        "option": [
-            "全面从严治党",
-            "坚持党的全面领导",
-            "团结奋斗",
-            "中国特色社会主义"
-        ],
-        "answer": "C",
-        "id": "1798736707080683520",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "曾是毛泽东和田汉等著名人士的老师，“中国杰出的革命教育家”，被毛泽东称赞为“坚强的老战士”、“革命第一，工作第一，他人第一”，被称为“延安五老”之一的湘籍革命家是（）。",
-        "option": [
-            "林伯渠",
-            "谢觉哉",
-            "董必武",
-            "徐特立"
-        ],
-        "answer": "D",
-        "id": "1798736707508502529",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "改革开放与社会主义现代化建设的关系是（）。",
-        "option": [
-            "改革开放是社会主义现代化建设的目的",
-            "改革开放是社会主义现代化建设的动力",
-            "社会主义现代化建设是改革开放的前提",
-            "改革开放保证了现代化建设的方向"
-        ],
-        "answer": "B",
-        "id": "1798736707302981633",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1979年4月5日至28日,中共中央召开工作会议，主要讨论经济调整问题。会议通过了中央提出的调整国民经济的八字方针，即（）。",
-        "option": [
-            "调整、巩固、充实、提高",
-            "调整、改革、充实、提高",
-            "调整、改革、整顿、提高",
-            "调整、改革、整顿、发展"
-        ],
-        "answer": "C",
-        "id": "1798736707298787328",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1927年，中国共产党确定开展土地革命和武装推翻国民党反动统治总方针的会议是（）。",
-        "option": [
-            "中共六大",
-            "洛川会议",
-            "遵义会议",
-            "八七会议"
-        ],
-        "answer": "D",
-        "id": "1798736707156180994",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "下列对中共七届二中全会的表述，正确的是（）。①1949年在延安召开②规定了革命胜利后党在政治、经济、外交方面的基本政策③毛泽东告诫全党要保持艰苦奋斗的作风④这次大会为争取抗日战争的胜利和新民主主义革命在全国的胜利做了重要准备",
-        "option": [
-            "②③",
-            "①③④",
-            "①④",
-            "①②④"
-        ],
-        "answer": "A",
-        "id": "1798736707210706944",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "实现伟大梦想，必须推进伟大事业。（）是改革开放以来党的全部理论和实践的主题，是党和人民历尽千辛万苦、付出巨大代价取得的根本成就。",
-        "option": [
-            "中国特色社会主义",
-            "社会主义",
-            "新时代中国特色社会主义",
-            "共产主义"
-        ],
-        "answer": "A",
-        "id": "1798736707428810753",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国共产党第三次全国代表大会决定共产党员以个人身份加入国民党，实现国共合作，同时必须在政治上、思想上、组织上（）。",
-        "option": [
-            "保持自己的革命性",
-            "保持自己的先进性",
-            "保持自己的平等性",
-            "保持自己的独立性"
-        ],
-        "answer": "D",
-        "id": "1798736707462365184",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的二十大报告的完整题目是高举中国特色社会主义伟大旗帜，（）而团结奋斗。",
-        "option": [
-            "为决胜全面建成小康社会",
-            "为夺取新时代中国特色社会主义伟大胜利",
-            "为全面建设社会主义现代化国家",
-            "为全面建成社会主义现代化强国"
-        ],
-        "answer": "C",
-        "id": "1798736707143598080",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的十八大以来，我们党形成并积极推进全面建成小康社会、全面深化改革、（）、全面从严治党”四个全面”战略布局。",
-        "option": [
-            "全面实现现代化",
-            "全面对外开放",
-            "全面平衡发展",
-            "全面依法治国"
-        ],
-        "answer": "D",
-        "id": "1798736707391062016",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1925年12月，毛泽东发表（），用马克思主义的阶级分析方法，全面分析了中国社会各阶级，指出了谁是中国革命的敌人、谁是中国革命的朋友。",
-        "option": [
-            "《湖南农民运动考察报告》",
-            "《星星之火，可以燎原》",
-            "《中国的红色政权为什么能够存在》",
-            "《中国社会各阶级的分析》"
-        ],
-        "answer": "D",
-        "id": "1798736707474948097",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "江山就是人民，人民就是江山。中国共产党领导人民打江山、守江山，守的是（）。",
-        "option": [
-            "人民的梦",
-            "人民的权",
-            "人民的心",
-            "人民的情"
-        ],
-        "answer": "C",
-        "id": "1798736707105849345",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "2013年9月和10月，中国国家主席习近平分别提出建设（）的合作倡议。",
-        "option": [
-            "新丝绸之路经济带和海上丝绸之路",
-            "海上丝绸之路、新丝绸之路经济带",
-            "新丝绸之路经济带、海上丝绸之路经济带",
-            "海上丝绸之路经济带、新丝绸之路经济带"
-        ],
-        "answer": "A",
-        "id": "1798736707370090497",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的二十大报告指出，十年来，我们深入贯彻（）的发展思想，在幼有所育、学有所教、劳有所得、病有所医、老有所养、住有所居、弱有所扶上持续用力，建成世界上规模最大的教育体系、社会保障体系、医疗卫生体系，人民群众获得感、幸福感、安全感更加充实、更有保障、更可持续，共同富裕取得新成效",
-        "option": [
-            "以人民为中心",
-            "以稳定为中心",
-            "以发展为中心",
-            "以安全为中心"
-        ],
-        "answer": "A",
-        "id": "1798736707131015169",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国特色社会主义进入新时代，意味着中国特色社会主义道路、理论、制度、文化不断发展，拓展了发展中国家走向现代化的途径，给世界上那些既希望加快发展又希望保持自身独立性的国家和民族提供了全新选择，为解决人类问题贡献了（）。",
-        "option": [
-            "中国道路和中国模式",
-            "中国智慧和中国模式",
-            "中国智慧和中国方案",
-            "中国模式和中国方案"
-        ],
-        "answer": "C",
-        "id": "1798736707382673408",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "关于俄国十月革命对中国的影响，不正确的是（）。",
-        "option": [
-            "十月革命发生在国情与中国相同（封建压迫严重）或近似（经济文化落后）的俄国，因而对中国的先进分子具有特殊的吸引力。",
-            "十月革命诞生的社会主义俄国号召反对帝国主义，并以新的平等的态度对待中国，有力地推动了社会主义思想在中国的传播。",
-            "十月革命中俄国工人、农民和士兵群众被广泛发动并由此赢得胜利的事实，给予中国先进分子以新的革命方法的启示，推动他们去研究这个革命所遵循的主义。",
-            "无政府主义、工团主义、基尔特（行会）社会主义、社会民主主义以及新村主义、泛劳动主义等比马克思列宁主义在中国的影响更大。"
-        ],
-        "answer": "D",
-        "id": "1798736707433005057",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1996年4月，中国和俄罗斯、哈萨克斯坦、吉尔吉斯斯坦、塔吉克斯坦共和国在上海共同签署协定，建立了（）组织。",
-        "option": [
-            "中亚经济合作",
-            "上海文化交流",
-            "中亚科技合作",
-            "上海合作"
-        ],
-        "answer": "D",
-        "id": "1798736707328147456",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "标志第一次国共合作全面破裂、大革命最后失败的事件是（）。",
-        "option": [
-            "四·一二反革命政变",
-            "马日事变",
-            "皖南事变",
-            "七·一五“分共”事件"
-        ],
-        "answer": "D",
-        "id": "1798736707487531009",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "毛泽东在《中国革命和中国共产党》中论述了民主革命和社会主义革命的关系。他指出:“民主革命是社会主义革命的必要准备，社会主义革命是民主革命的必然趋势。”这两个革命阶段能够有机连接的原因是（）。",
-        "option": [
-            "资本主义道路在中国行不通",
-            "俄国十月革命为中国提供了经验",
-            "民主革命中包含了社会主义因素",
-            "中国国情决定中国革命必须分两步走"
-        ],
-        "answer": "C",
-        "id": "1798736707214901249",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "新中国成立第一个起到临时宪法作用的是（）。",
-        "option": [
-            "《中华民国临时约法》",
-            "《中华人民共和国宪法》",
-            "《土地改革法》",
-            "《共同纲领》"
-        ],
-        "answer": "D",
-        "id": "1798736707214901248",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "解放战争时期，战略决战的第一次战役是（）。",
-        "option": [
-            "淮海战役",
-            "平津战役",
-            "辽沈战役",
-            "解放济南"
-        ],
-        "answer": "C",
-        "id": "1798736707202318338",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "高度重视和不断加强党的自身建设，是中国共产党从小到大、由弱变强，从挫折中奋起，在战胜困难中不断成熟的一大法宝，也是党领导的伟大事业不断取得胜利的根本保证。中国特色社会主义进入新时代，党的建设的根本方针是（）。",
-        "option": [
-            "全面加强党的执政本领",
-            "坚持党要管党、全面从严治党",
-            "坚持解放思想、改革创新",
-            "全面推进党的政治建设"
-        ],
-        "answer": "B",
-        "id": "1798736707378479105",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国革命最后一个农村指挥所是（??）。",
-        "option": [
-            "延安",
-            "正定",
-            "西柏坡",
-            "沈阳"
-        ],
-        "answer": "C",
-        "id": "1798736707013574657",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1918年4月，毛泽东、蔡和森等人在湖南长沙刘家台子发起成立（）。该会最初以“革新学术，砥砺品行，改良人心风俗”为宗旨，后确定以“改造中国和世界”为宗旨，在五四运动中组织和领导湖南人民的反帝爱国运动，成为中国共产党成立前湖南革命运动的核心。",
-        "option": [
-            "文化书社",
-            "工读同志会",
-            "工读学校",
-            "新民学会"
-        ],
-        "answer": "D",
-        "id": "1798736707424616449",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的二十大报告指出，从现在起，中国共产党的中心任务就是团结带领全国各族人民全面建成社会主义现代化强国、实现第二个百年奋斗目标，（）中华民族伟大复兴。",
-        "option": [
-            "以中国式现代化全面推进",
-            "实现社会主义现代化",
-            "在全面建成小康社会的基础上实现",
-            "分两步走实现"
-        ],
-        "answer": "A",
-        "id": "1798736707118432257",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党领导人民治理国家的基本方略是（）。",
-        "option": [
-            "依法治国",
-            "坚持改革开放",
-            "以经济建设为中心",
-            "坚持社会主义民主"
-        ],
-        "answer": "A",
-        "id": "1798736707344924673",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的二十大报告指出，我们党作为世界上最大的马克思主义执政党，要始终赢得人民拥护、巩固长期执政地位，必须时刻保持（）的清醒和坚定。",
-        "option": [
-            "解决大党独有难题",
-            "赶考",
-            "为民造福，执政为民",
-            "发展"
-        ],
-        "answer": "A",
-        "id": "1798736707089072128",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1980年5月16日，中共中央、国务院作出《关于广东、福建两省会议纪要》，决定在（）各划出一定范围的区域试办经济特区。",
-        "option": [
-            "深圳、珠海、汕头、福州",
-            "深圳、珠海、海南、厦门",
-            "深圳、珠海、汕头、厦门",
-            "深圳、东莞、厦门、海南"
-        ],
-        "answer": "C",
-        "id": "1798736707307175936",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中共十一届三中全会重新确立的思想路线是（）。",
-        "option": [
-            "解放思想，实事求是",
-            "一切从实际出发",
-            "理论联系实际",
-            "从中国的国情出发"
-        ],
-        "answer": "A",
-        "id": "1798736707294593026",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "改革开放以来我们取得一切成绩和进步的根本原因，归结起来就是（）。",
-        "option": [
-            "形成了以经济建设为中心的正确路线",
-            "全面推进党的建设新的伟大工程",
-            "开辟了中国特色社会主义道路，形成了中国特色社会主义理论体系",
-            "以人为本，以最广大人民群众的根本利益为出发点和落脚点"
-        ],
-        "answer": "C",
-        "id": "1798736707370090496",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（）是新时代我国发展壮大的必由之路。",
-        "option": [
-            "贯彻新发展理念",
-            "坚持党的全面领导",
-            "团结奋斗",
-            "中国特色社会主义"
-        ],
-        "answer": "A",
-        "id": "1798736707076489217",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的二十大报告指出，十年来，我们创立了（），明确坚持和发展中国特色社会主义的基本方略，提出一系列治国理政新理念新思想新战略，实现了马克思主义中国化时代化新的飞跃。",
-        "option": [
-            "中国特色社会主义思想",
-            "新时代中国特色社会主义思想",
-            "科学发展观",
-            "人类命运共同体理念"
-        ],
-        "answer": "B",
-        "id": "1798736707135209474",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "新中国成立后制定的第一部基本法律是（）。",
-        "option": [
-            "《中华人民共和国民族区域自治实施纲要》",
-            "《中华人民共和国婚姻法》",
-            "《中华人民共和国土地改革法》",
-            "《中华人民共和国工会法》"
-        ],
-        "answer": "B",
-        "id": "1798736707227484160",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "我国目前农业生产的主要经营方式是（）。",
-        "option": [
-            "家庭联产承包责任制",
-            "社会化服务体系",
-            "集约化经营",
-            "土地租赁制"
-        ],
-        "answer": "A",
-        "id": "1798736707336536065",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "新中国成立时，中国与外国政府建立外交关系的原则是（）。①原有外交关系有效②遵循平等互利原则③互相尊重领土主权④互相给予最惠国待遇",
-        "option": [
-            "②③",
-            "①④",
-            "①②③",
-            "②③④"
-        ],
-        "answer": "A",
-        "id": "1798736707231678466",
+        "id": "1798736707269427200",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
@@ -1904,183 +42,15 @@
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1954年9月，第一届全国人民代表大会第一次会议召开，标志着（）在我国的建立。",
+        "questionStem": "解放战争时期统一战线的名称是（）。",
         "option": [
-            "人民代表大会制度",
-            "社会主义制度",
-            "人民民主专政",
-            "人民政府"
-        ],
-        "answer": "A",
-        "id": "1798736707256844288",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "新时期党的基本路线的思想开始形成于（）。",
-        "option": [
-            "中共八大",
-            "中共十二大",
-            "中共十一届三中全会",
-            "中共十三大"
-        ],
-        "answer": "C",
-        "id": "1798736707298787329",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "发展社会主义先进文化，不忘本来、吸收外来、面向未来，更好构筑（）、中国价值、中国力量，为人民提供精神指引。",
-        "option": [
-            "中国文明",
-            "中国精神",
-            "中国气质",
-            "中国风格"
+            "民主的统一战线",
+            "人民民主统一战线",
+            "大革命的统一战线",
+            "工农民主统一战线"
         ],
         "answer": "B",
-        "id": "1798736707449782272",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "第一个宣布与新中国建立外交关系的社会主义国家是（）。",
-        "option": [
-            "苏联",
-            "蒙古",
-            "朝鲜",
-            "罗马尼亚"
-        ],
-        "answer": "A",
-        "id": "1798736707223289857",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1992年10月，中共十四大明确提出，我国经济体制改革目标是建立（）。",
-        "option": [
-            "社会主义市场经济体制",
-            "社会主义计划与市场经济体制",
-            "社会主义商品经济体制",
-            "社会主义贸易经济体制"
-        ],
-        "answer": "A",
-        "id": "1798736707319758849",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（）是坚持和发展中国特色社会主义的必由之路。",
-        "option": [
-            "坚持党的全面领导",
-            "中国特色社会主义",
-            "团结奋斗",
-            "全面从严治党"
-        ],
-        "answer": "A",
-        "id": "1798736707084877824",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "全面建设社会主义现代化国家、全面推进中华民族伟大复兴，关键在（）。",
-        "option": [
-            "人民",
-            "党",
-            "制度",
-            "干部"
-        ],
-        "answer": "B",
-        "id": "1798736707089072129",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1926年9月，毛泽东在《国民革命与农民运动》一文中指出：“（）问题乃国民革命的中心问题。”",
-        "option": [
-            "阶级斗争",
-            "联合",
-            "农民",
-            "领导权"
-        ],
-        "answer": "C",
-        "id": "1798736707449782273",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的十八大以来，党的()全面推进，马克思主义在意识形态领域的指导地位更加鲜明，中国特色社会主义和中国梦深入人心，社会主义核心价值观和中华优秀传统文化广泛弘扬，群众性精神文明创建活动扎实开展。",
-        "option": [
-            "制度创新",
-            "理论创新",
-            "体制创新",
-            "机制创新"
-        ],
-        "answer": "B",
-        "id": "1798736707412033537",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "为了鼓励广大科技人员建功立业，从2000年起设立国家最高科技奖。2001年颁布的“2000年度国家科学技术奖”获奖者是（）。",
-        "option": [
-            "吴文俊袁隆平",
-            "王选黄昆",
-            "金怡濂刘东生",
-            "李振声谷超豪"
-        ],
-        "answer": "A",
-        "id": "1798736707340730368",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（），中国正式成为世贸组织即WTO第143个成员。",
-        "option": [
-            "2000年12月1日",
-            "2001年11月11日",
-            "2001年12月11日",
-            "2002年12月30日"
-        ],
-        "answer": "C",
-        "id": "1798736707340730369",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1925年爆发的震惊中外的（），标志着大革命高潮的到来。",
-        "option": [
-            "五卅运动",
-            "广州沙面工人罢工",
-            "香港海员大罢工",
-            "青岛日资纱厂工人大罢工"
-        ],
-        "answer": "A",
-        "id": "1798736707151986688",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "一百年来，党领导人民（??）（??），创造了新民主主义革命的伟大成就。",
-        "option": [
-            "浴血奋战、百折不挠",
-            "自力更生、发愤图强",
-            "解放思想、锐意进取",
-            "自信自强、守正创新"
-        ],
-        "answer": "A",
-        "id": "1798736707021963265",
+        "id": "1798736707202318337",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
@@ -2100,29 +70,141 @@
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "中国共产党的第一个农村革命根据地是（??）。",
+        "questionStem": "全面推进党的政治建设、思想建设、组织建设、作风建设、纪律建设，把制度建设贯穿其中，深入推进反腐败斗争，不断提高党的建设（）。",
         "option": [
-            "井冈山革命根据地",
-            "湘鄂西革命根据地",
-            "鄂豫皖革命根据地\r\n",
-            "海陆丰革命根据地"
+            "规模",
+            "数量",
+            "质量",
+            "效益"
         ],
-        "answer": "A",
-        "id": "1798736707013574658",
+        "answer": "C",
+        "id": "1798736707495919616",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "九一八事变后，东北抗日武装力量的核心是（）。",
+        "questionStem": "中国共产党的最高理想和最终目标是（）。",
         "option": [
-            "各地抗日义勇军",
-            "未撤走的东北军",
-            "东北人民革命军",
-            "东北抗日联军"
+            "实现四个现代化",
+            "实现小康社会",
+            "建设新农村",
+            "实现共产主义"
         ],
         "answer": "D",
-        "id": "1798736707172958209",
+        "id": "1798736707403644928",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（）是危害党的生命力和战斗力的最大毒瘤，（）是最彻底的自我革命。",
+        "option": [
+            "贪污；反贪污",
+            "腐败；反腐败",
+            "腐败；反贪污",
+            "贪污；反腐败"
+        ],
+        "answer": "B",
+        "id": "1798736707084877825",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "正式把邓小平理论作为国家的指导思想写入宪法是在（）上。",
+        "option": [
+            "八届全国人大一次会议",
+            "八届全国人大二次会议",
+            "九届全国人大一次会议",
+            "九届全国人大二次会议"
+        ],
+        "answer": "D",
+        "id": "1798736707336536064",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "下列各阶级中，新民主主义革命的领导力量是（）。",
+        "option": [
+            "民族资产阶级",
+            "农民阶级",
+            "知识分子",
+            "工人阶级"
+        ],
+        "answer": "D",
+        "id": "1798736707424616448",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（），中国正式成为世贸组织即WTO第143个成员。",
+        "option": [
+            "2000年12月1日",
+            "2001年11月11日",
+            "2001年12月11日",
+            "2002年12月30日"
+        ],
+        "answer": "C",
+        "id": "1798736707340730369",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1925年12月，毛泽东发表（），用马克思主义的阶级分析方法，全面分析了中国社会各阶级，指出了谁是中国革命的敌人、谁是中国革命的朋友。",
+        "option": [
+            "《湖南农民运动考察报告》",
+            "《星星之火，可以燎原》",
+            "《中国的红色政权为什么能够存在》",
+            "《中国社会各阶级的分析》"
+        ],
+        "answer": "D",
+        "id": "1798736707474948097",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "在1927年八七会议上，毛泽东提出了（）的思想。",
+        "option": [
+            "党指挥枪",
+            "农村包围城市",
+            "创建农村革命根据地",
+            "枪杆子里出政权"
+        ],
+        "answer": "D",
+        "id": "1798736707160375296",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的二十大的主题是：高举中国特色社会主义伟大旗帜，全面贯彻新时代中国特色社会主义思想，弘扬（），自信自强、守正创新，踔厉奋发、勇毅前行，为全面建设社会主义现代化国家、全面推进中华民族伟大复兴而团结奋斗。",
+        "option": [
+            "伟大建党精神",
+            "伟大红船精神",
+            "伟大长征精神",
+            "伟大抗疫精神"
+        ],
+        "answer": "A",
+        "id": "1798736707139403777",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中共八大确定的我国社会主义经济建设的方针是（）。",
+        "option": [
+            "在综合平衡中稳步前进",
+            "鼓足干劲、力争上游、多快好省",
+            "调整、巩固、充实、提高",
+            "以农业为基础、以工业为主导"
+        ],
+        "answer": "A",
+        "id": "1798736707286204416",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
@@ -2142,71 +224,365 @@
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "党的二十大报告指出，十年来，我们统筹发展和安全，明确我国社会主要矛盾是（），并紧紧围绕这个社会主要矛盾推进各项工作，不断丰富和发展人类文明新形态。",
+        "questionStem": "一百年来，党领导人民（??）（??），创造了新民主主义革命的伟大成就。",
         "option": [
-            "人民日益增长的美好生活需要和落后的社会生产之间的矛盾",
-            "人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾",
-            "人民日益增长的物质文化需要和落后的社会生产之间的矛盾",
-            "人民日益增长的物质文化需要和不平衡不充分的发展之间的矛盾"
-        ],
-        "answer": "B",
-        "id": "1798736707135209472",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国共产党解决我国民族问题的基本政策是（）。",
-        "option": [
-            "民族自治",
-            "民族区域自治",
-            "民族平等",
-            "民族团结"
-        ],
-        "answer": "B",
-        "id": "1798736707277815808",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1940年，由彭德怀等指挥的（）给了日本侵略军以沉重的打击，大大提高了共产党和八路军的威望，坚定了全国人民抗战胜利的信心。",
-        "option": [
-            "百团大战",
-            "大原会战",
-            "徐州会战",
-            "长沙会战"
+            "浴血奋战、百折不挠",
+            "自力更生、发愤图强",
+            "解放思想、锐意进取",
+            "自信自强、守正创新"
         ],
         "answer": "A",
-        "id": "1798736707198124032",
+        "id": "1798736707021963265",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "马克思列宁主义揭示了（?）的规律，它的基本原理是正确的，具有强大的生命力。",
+        "questionStem": "中共十七大关于党章（修正案）决议，第一次将（）写入党章。",
         "option": [
-            "共产主义",
-            "人类社会历史发展",
-            "资本主义",
-            "劳动是第一生产力"
-        ],
-        "answer": "B",
-        "id": "1798736707072294913",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（）是中央红军长征途中最壮烈的一战，此战后，中央红军人数从长征出发时的8.6万余人锐减至3万余人。",
-        "option": [
-            "湘江战役",
-            "乌江之战",
-            "飞夺泸定桥",
-            "四渡赤水"
+            "科学发展观",
+            "“三个代表”重要思想",
+            "全面建设小康社会",
+            "中国特色社会主义理论体系"
         ],
         "answer": "A",
-        "id": "1798736707177152512",
+        "id": "1798736707357507584",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "“四马分肥”是社会主义改造中对资本主义企业的赎买方式，指企业利润按国家征收的所得税金、企业公积金、职工福利奖金和（）四部分。",
+        "option": [
+            "职工股份红利",
+            "资方红利",
+            "城市建设附加费",
+            "企业发展税后留存"
+        ],
+        "answer": "B",
+        "id": "1798736707240067072",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（）是新时代我国发展壮大的必由之路。",
+        "option": [
+            "贯彻新发展理念",
+            "坚持党的全面领导",
+            "团结奋斗",
+            "中国特色社会主义"
+        ],
+        "answer": "A",
+        "id": "1798736707076489217",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1949年3月中共中央在（）召开七届二中全会，决定了党对取得全国胜利以及在全国胜利以后的基本政策。",
+        "option": [
+            "延安",
+            "西柏坡",
+            "原平",
+            "涞源"
+        ],
+        "answer": "B",
+        "id": "1798736707206512640",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的二十大报告的完整题目是高举中国特色社会主义伟大旗帜，（）而团结奋斗。",
+        "option": [
+            "为决胜全面建成小康社会",
+            "为夺取新时代中国特色社会主义伟大胜利",
+            "为全面建设社会主义现代化国家",
+            "为全面建成社会主义现代化强国"
+        ],
+        "answer": "C",
+        "id": "1798736707143598080",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "把（）作为党的指导思想并写入党章，是中共七大的历史性贡献。",
+        "option": [
+            "列宁主义",
+            "新民主主义",
+            "中国特色社会主义",
+            "毛泽东思想"
+        ],
+        "answer": "D",
+        "id": "1798736707202318336",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "在中共十一届三中全会前夕召开的中央工作会议上，邓小平作了（）的讲话，这实际上成为党的十一届三中全会的主题报告。",
+        "option": [
+            "《解放思想，实事求是，团结一致向前看》",
+            "《高举毛泽东思想旗帜，坚持实事求是的原则》",
+            "《坚持党的路线，改进工作方法》",
+            "《反对教条主义，坚持和发展马克思主义》"
+        ],
+        "answer": "A",
+        "id": "1798736707290398720",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（??）是社会主义民主政治的本质属性，是最广泛、最真实、最管用的民主。",
+        "option": [
+            "全过程人民民主",
+            "全方位人民民主",
+            "全要素人民民主",
+            "全周期人民民主"
+        ],
+        "answer": "A",
+        "id": "1798736707110043649",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中国共产党制定民主革命纲领的主要依据是（）。",
+        "option": [
+            "对中国社会性质和革命性质的认识",
+            "对帝国主义侵略中国的认识",
+            "对北洋军阀统治的认识",
+            "对资产阶级两面性的认识"
+        ],
+        "answer": "A",
+        "id": "1798736707147792385",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1927年，毛泽东领导的秋收起义部队进军井冈山时，在江西永新县进行了著名的“三湾改编＂，把支部建在（）上，加强了党对军队的领导。",
+        "option": [
+            "团",
+            "营",
+            "连",
+            "排"
+        ],
+        "answer": "C",
+        "id": "1798736707164569601",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "一百年来，党领导人民（??）（??），创造了改革开放和社会主义现代化建设的伟大成就。",
+        "option": [
+            "浴血奋战、百折不挠",
+            "自力更生、发愤图强",
+            "解放思想、锐意进取",
+            "自信自强、守正创新"
+        ],
+        "answer": "C",
+        "id": "1798736707017768961",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1927年12月11日，张太雷、叶挺、叶剑英等领导了（）起义，是中国共产党和中国人民继南昌起义、湘赣边界秋收起义之后对国民党反动派的又一次英勇反击。",
+        "option": [
+            "武昌起义",
+            "上海工人武装起义",
+            "右江起义",
+            "广州起义"
+        ],
+        "answer": "D",
+        "id": "1798736707500113921",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "九一八事变后，东北抗日武装力量的核心是（）。",
+        "option": [
+            "各地抗日义勇军",
+            "未撤走的东北军",
+            "东北人民革命军",
+            "东北抗日联军"
+        ],
+        "answer": "D",
+        "id": "1798736707172958209",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1953年，党先后作出关于农业生产互助合作的决议和关于发展农业生产合作社的决议。两个决议要求按照积极发展、稳步前进的方针和（）的原则，采取典型示范和逐步推广的方法，把农业互助合作当作一件大事去做。",
+        "option": [
+            "集体所有",
+            "自愿互利",
+            "统一经营",
+            "民主讨论"
+        ],
+        "answer": "B",
+        "id": "1798736707244261376",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中国共产党建立的第一个敌后抗日根据地是（）抗日根据地。",
+        "option": [
+            "晋察冀",
+            "晋绥",
+            "晋冀豫",
+            "苏南"
+        ],
+        "answer": "A",
+        "id": "1798736707189735426",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1922年7月16日至23日，中共（）召开。",
+        "option": [
+            "二大",
+            "一大",
+            "三大",
+            "四大"
+        ],
+        "answer": "A",
+        "id": "1798736707151986689",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "至1956年底，我国基本上完成了对生产资料私有制的社会主义改造，初步建立起（）占绝对优势的社会主义经济制度。",
+        "option": [
+            "公有制",
+            "共有制",
+            "私有制",
+            "集体所有制"
+        ],
+        "answer": "A",
+        "id": "1798736707269427202",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1924年5月，在苏联和中国共产党的帮助下，国民党陆军军官学校在广州黄埔创办黄埔军校，党代表是（）。",
+        "option": [
+            "孙中山",
+            "蒋介石",
+            "汪精卫",
+            "廖仲恺"
+        ],
+        "answer": "D",
+        "id": "1798736707466559488",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "新中国成立之初，被毛泽东高度评价这个胜利”不亚于淮海战役”的胜利的是（）。",
+        "option": [
+            "解放海南岛",
+            "新解放区进行土地改革",
+            "稳定物价和统一财经",
+            "镇压反革命"
+        ],
+        "answer": "C",
+        "id": "1798736707219095552",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（）说，“我是一个知识分子，当一个小学教员，也没学过军事，怎么知道打仗呢？就是由于国民党搞白色恐怖，把工会、农会都打掉了，把五万共产党员杀了一大批，抓了一大批，我们才拿起枪来，上山打游击。”",
+        "option": [
+            "刘少奇",
+            "周恩来",
+            "邓小平",
+            "毛泽东"
+        ],
+        "answer": "D",
+        "id": "1798736707512696833",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "实现中国梦必须弘扬中国精神。这就是以（）为核心的民族精神，以（）为核心的时代精神。",
+        "option": [
+            "爱国主义顽强拼搏",
+            "爱国主义开拓创新",
+            "爱国主义改革创新",
+            "民族自尊改革开放"
+        ],
+        "answer": "C",
+        "id": "1798736707391062017",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中国人民政治协商会议第一届全体会议决定，以《义勇军进行曲》为（）。",
+        "option": [
+            "国歌",
+            "临时国歌",
+            "代国歌",
+            "会歌"
+        ],
+        "answer": "C",
+        "id": "1798736707227484161",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "在1949年庆祝中国共产党成立28周年的时候，毛泽东指出:在过去28年的长时期中，我们仅仅做了一件事，这就是（）。",
+        "option": [
+            "取得了革命战争的基本胜利",
+            "取得了新民主主义革命的彻底胜利",
+            "取得了民族的彻底解放与独立",
+            "取得了社会主义革命的基本胜利"
+        ],
+        "answer": "A",
+        "id": "1798736707210706945",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "关于俄国十月革命对中国的影响，不正确的是（）。",
+        "option": [
+            "十月革命发生在国情与中国相同（封建压迫严重）或近似（经济文化落后）的俄国，因而对中国的先进分子具有特殊的吸引力。",
+            "十月革命诞生的社会主义俄国号召反对帝国主义，并以新的平等的态度对待中国，有力地推动了社会主义思想在中国的传播。",
+            "十月革命中俄国工人、农民和士兵群众被广泛发动并由此赢得胜利的事实，给予中国先进分子以新的革命方法的启示，推动他们去研究这个革命所遵循的主义。",
+            "无政府主义、工团主义、基尔特（行会）社会主义、社会民主主义以及新村主义、泛劳动主义等比马克思列宁主义在中国的影响更大。"
+        ],
+        "answer": "D",
+        "id": "1798736707433005057",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "我国第一个五年计划的期限是（）。",
+        "option": [
+            "1949—1954年",
+            "1953—1957年",
+            "1952—1956年",
+            "1954—1958年"
+        ],
+        "answer": "B",
+        "id": "1798736707265232896",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
@@ -2226,183 +602,183 @@
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1937年8月22日至25日，中共中央召开著名的洛川会议，通过了（），提出了全面抗战路线。",
+        "questionStem": "党的组织优势主要是指（）。",
         "option": [
-            "《抗日救国十大纲领》",
-            "《中共中央为公布国共合作宣言》",
-            "《抗日救国告全体同胞书》",
-            "《中国共产党在抗日时期的任务》"
-        ],
-        "answer": "A",
-        "id": "1798736707185541120",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1926年3月，蒋介石制造（），在广州实行紧急戒严，逮捕海军局代局长、共产党员李之龙，监视和软禁大批共产党人，解除省港罢工委员会的工人纠察队的武装，包围苏联领事馆，监视苏联顾问。",
-        "option": [
-            "三·一八惨案",
-            "四·一二反革命政变",
-            "“七一五”分共事件",
-            "中山舰事件"
-        ],
-        "answer": "D",
-        "id": "1798736707479142401",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "（）、（）、（），是全面建设社会主义现代化国家的内在要求。",
-        "option": [
-            "尊重自然、顺应自然、保护自然",
-            "亲近自然、尊重自然、顺应自然",
-            "尊重自然、亲近自然、爱护自然",
-            "亲近自然、顺应自然、爱护自然"
-        ],
-        "answer": "A",
-        "id": "1798736707097460736",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "关于新中国的对外关系，毛泽东在1949年的上半年先后提出了三条基本原则，并形象地概括为:＂另起炉灶”“打扫干净屋子再请客”和（）。",
-        "option": [
-            "“独辟蹊径”",
-            "“一边倒”",
-            "“礼尚往来”",
-            "＂赶鸭子上架”"
-        ],
-        "answer": "B",
-        "id": "1798736707219095553",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中共十二届三中全会通过的《关于经济体制改革的决定》明确指出要加快以（）为重点的整个经济体制改革的步伐。",
-        "option": [
-            "农村",
-            "国有企业",
-            "城市",
-            "沿海地区"
+            "有分布在全国各条战线上的数百万个党组织",
+            "党内集中了中华民族的众多优秀分子",
+            "在马克思主义指导下按照民主集中制组成统一的整体，为实现共同的目标而奋斗",
+            "党的各级组织的力量集成"
         ],
         "answer": "C",
-        "id": "1798736707311370240",
+        "id": "1798736707407839233",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "国民大革命中，由共产党直接领导的、共产党员（）任团长的第四军独立团，在北伐中战功卓著，赢得了“铁军”的称号。",
+        "questionStem": "党中央提出社会主义初级阶段理论的主要依据是由于我国（）。",
         "option": [
-            "恽代英",
-            "贺龙",
-            "项英",
-            "叶挺"
-        ],
-        "answer": "D",
-        "id": "1798736707495919617",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "解决台湾问题、实现祖国完全统一，是党矢志不渝的历史任务，是全体中华儿女的共同愿望，是实现中华民族伟大复兴的??。",
-        "option": [
-            "必然要求",
-            "绝对要求",
-            "崇高使命",
-            "历史使命"
+            "生产力落后，商品经济不发达",
+            "社会主义经济体制不成熟",
+            "存在着多种经济成分",
+            "曾经历过严重的经济挫折"
         ],
         "answer": "A",
-        "id": "1798736707063906306",
+        "id": "1798736707307175937",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "全面推进党的政治建设、思想建设、组织建设、作风建设、纪律建设，把制度建设贯穿其中，深入推进反腐败斗争，不断提高党的建设（）。",
+        "questionStem": "秋收起义部队在到达江西省永新县时，毛泽东决定将党的支部建立在连上，班、排设党小组，营、团设党委，成立各级士兵委员会，实行民主管理，从而从组织上确立了党对军队的领导，是建设无产阶级领导的新型人民军队的重要开端。这就是著名的（）。",
         "option": [
-            "规模",
-            "数量",
-            "质量",
-            "效益"
-        ],
-        "answer": "C",
-        "id": "1798736707495919616",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "为了实现党的十八大确定的奋斗目标，2013年中共中央部署并在全党开展了党的群众路线教育实践活动。这次活动的主要内容是（）。",
-        "option": [
-            "保持共产党员先进性",
-            "讲学习、讲政治、讲正气",
-            "建设学习型党组织",
-            "为民、务实、清廉"
+            "井岗山会师",
+            "古田会议",
+            "八七会议",
+            "三湾改编"
         ],
         "answer": "D",
-        "id": "1798736707365896193",
+        "id": "1798736707504308224",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "2007年10月24日,我国在西昌卫星发射中心用长征三号甲运载火箭将（）卫星成功送入太空，标志着我国月球探测工程迈出了重要的一步。",
+        "questionStem": "中国式现代化，是（）领导的社会主义现代化，既有各国现代化的共同特征，更有基于自己国情的中国特色。",
         "option": [
-            "“神舟”一号",
-            "“神舟”二号",
-            "“嫦娥”一号",
-            "“嫦娥”二号"
+            "党和国家",
+            "党和政府",
+            "中国共产党",
+            "党和人民"
         ],
         "answer": "C",
-        "id": "1798736707361701889",
+        "id": "1798736707063906305",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1953年至1957年是中国共产党和政府实施第一个五年计划的时期，也被称为新中国工业化的起步时期。在当时的历史条件下，“一五”计划把（）作为经济建设的中心环节。",
+        "questionStem": "全面建设社会主义现代化国家、全面推进中华民族伟大复兴，关键在（）。",
         "option": [
-            "优先发展轻工业",
-            "优先发展重工业",
-            "轻工业、重工业并举",
-            "工业、农业并举"
+            "人民",
+            "党",
+            "制度",
+            "干部"
         ],
         "answer": "B",
-        "id": "1798736707252649985",
+        "id": "1798736707089072129",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "中国梦的基本内涵是实现（）。",
+        "questionStem": "实现伟大梦想，必须推进伟大事业。（）是改革开放以来党的全部理论和实践的主题，是党和人民历尽千辛万苦、付出巨大代价取得的根本成就。",
         "option": [
-            "国家富强、民族振兴、人民幸福",
-            "国家强大、民族振兴",
-            "经济发展、社会和谐",
-            "民族复兴"
+            "中国特色社会主义",
+            "社会主义",
+            "新时代中国特色社会主义",
+            "共产主义"
         ],
         "answer": "A",
-        "id": "1798736707407839232",
+        "id": "1798736707428810753",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "2005年12月，十届全国人大常委会第十九次会议高票通过决定，自2006年1月1日起废止（），这意味着在中国延续两千多年的农业税已经成为历史。",
+        "questionStem": "严明党的纪律，强化党内监督，发展积极健康的党内政治文化，全面净化党内（）。",
         "option": [
-            "《农业税征收管理条例》",
-            "《农业税条例》",
-            "《农业税征收办法规定》",
-            "《关于对农林特产收入征收农业税的若干规定》"
+            "政治文明",
+            "政治生活",
+            "政治生态",
+            "政治环境"
+        ],
+        "answer": "C",
+        "id": "1798736707466559489",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中国新民主主义革命区别于旧民主主义革命的最根本特征是（）。",
+        "option": [
+            "它有新的革命性质即社会主义革命的性质",
+            "资产阶级领导的、以建立资本主义社会和资产阶级专政的国家为目的",
+            "反封建反侵略的爱国主义运动",
+            "中国共产党成为无产阶级的先锋队，成为中国革命新的领导核心力量"
+        ],
+        "answer": "D",
+        "id": "1798736707420422145",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的二十大报告指出，实践告诉我们，中国共产党为什么能，中国特色社会主义为什么好，归根到底是（）行，是中国化时代化的（）行。",
+        "option": [
+            "中国共产党",
+            "马克思主义",
+            "社会主义",
+            "毛泽东思想"
         ],
         "answer": "B",
-        "id": "1798736707353313281",
+        "id": "1798736707122626561",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1986年，科学家王大珩、王涂昌、陈芳允等上书中共中央，提出发展高科技的建议。这一建议后来被称为著名的（）。",
+        "option": [
+            "星火计划",
+            "菜篮子工程",
+            "\"863\"计划",
+            "\"985\"计划"
+        ],
+        "answer": "C",
+        "id": "1798736707311370241",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的十八大、十八届三中全会对党的建设制度改革与经济体制、政治体制、文化体制、社会体制、生态文明体制改革一道作出重要部署，十八届四中全会明确提出形成完善的（），并作为全面推进依法治国总目标的重要内容。",
+        "option": [
+            "党外法规体系",
+            "党内法规体系",
+            "党外法律体系",
+            "党内法律体系"
+        ],
+        "answer": "B",
+        "id": "1798736707374284801",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "高度重视和不断加强党的自身建设，是中国共产党从小到大、由弱变强，从挫折中奋起，在战胜困难中不断成熟的一大法宝，也是党领导的伟大事业不断取得胜利的根本保证。中国特色社会主义进入新时代，党的建设的根本方针是（）。",
+        "option": [
+            "全面加强党的执政本领",
+            "坚持党要管党、全面从严治党",
+            "坚持解放思想、改革创新",
+            "全面推进党的政治建设"
+        ],
+        "answer": "B",
+        "id": "1798736707378479105",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "邓小平著名的南方谈话发表于（）年。",
+        "option": [
+            "1991",
+            "1992",
+            "1993",
+            "1994"
+        ],
+        "answer": "B",
+        "id": "1798736707319758848",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
@@ -2422,99 +798,1709 @@
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "毛泽东指出，新民主主义革命的对象是()。",
+        "questionStem": "党的二十大报告指出，拥有（）理论指导是我们党坚定信仰信念、把握历史主动的根本所在。",
         "option": [
-            "民族资产阶级",
-            "帝国主义",
-            "买办资产阶级",
-            "封建主义"
+            "毛泽东思想",
+            "社会主义科学",
+            "改革开放",
+            "马克思主义科学"
         ],
-        "answer": "BD",
-        "id": "1798736707542056960",
+        "answer": "D",
+        "id": "1798736707122626560",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "红军长征开始于()，结束于()。",
+        "questionStem": "大革命失败后，中共将工作重心由城市转向农村，标志着向农村进军新起点的是（）。",
         "option": [
-            "1933年10月",
-            "1934年10月",
-            "1935年10月",
-            "1936年10月"
+            "南昌起义后部队转入农村",
+            "秋收起义后建立了井冈山根据地",
+            "洪湖根据地的创建",
+            "左右江根据地的创建"
         ],
-        "answer": "BD",
-        "id": "1798736707550445568",
+        "answer": "B",
+        "id": "1798736707160375297",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "党的二十大指出：全党同志务必（），务必（），务必（），坚定历史自信，增强历史主动，谱写新时代中国特色社会主义更加绚丽的华章。",
+        "questionStem": "中国共产党解决我国民族问题的基本政策是（）。",
         "option": [
-            "不忘初心、牢记使命",
-            "敢于斗争、勇于胜利",
-            "谦虚谨慎、艰苦奋斗",
-            "敢于斗争、善于斗争"
+            "民族自治",
+            "民族区域自治",
+            "民族平等",
+            "民族团结"
         ],
-        "answer": "ACD",
-        "id": "1798736707059712000",
+        "answer": "B",
+        "id": "1798736707277815808",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "2018年12月18日，习近平在庆祝改革开放四十周年大会上指出，（）是五四运动以来我国发生的三大历史性事件，是近代以来实现中华民族伟大复兴的三大里程碑。",
+        "questionStem": "1927年3月毛泽东公开发表（），文中科学分析了农民的各个阶层，充分估计了农民在中国民主革命中的伟大作用，明确指出在农村建立革命政权和农民武装的必要性，着重宣传了放手发动群众、组织群众、依靠群众的革命思想。",
         "option": [
-            "建立中国共产党",
-            "成立中华人民共和国",
-            "推进改革开放和中国特色社会主义事业",
-            "完成祖国统一"
+            "《中国社会各阶级的分析》",
+            "《中国的红色政权为什么能够存在》",
+            "《反对本本主义》",
+            "《湖南农民运动考察报告》"
         ],
-        "answer": "ABC",
-        "id": "1798736707617554432",
+        "answer": "D",
+        "id": "1798736707491725313",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "人民解放战争的三大战役是：()、淮海战役和()。其中历时最长、规模最大、歼敌数量最多的是淮海战役。",
+        "questionStem": "中国梦的基本内涵是实现（）。",
         "option": [
-            "济南战役",
-            "鲁南战役",
+            "国家富强、民族振兴、人民幸福",
+            "国家强大、民族振兴",
+            "经济发展、社会和谐",
+            "民族复兴"
+        ],
+        "answer": "A",
+        "id": "1798736707407839232",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1940年，由彭德怀等指挥的（）给了日本侵略军以沉重的打击，大大提高了共产党和八路军的威望，坚定了全国人民抗战胜利的信心。",
+        "option": [
+            "百团大战",
+            "大原会战",
+            "徐州会战",
+            "长沙会战"
+        ],
+        "answer": "A",
+        "id": "1798736707198124032",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "坚持马克思列宁主义的基本原理，走中国人民自愿选择的（）的道路，中国的社会主义事业必将取得最终的胜利。",
+        "option": [
+            "符合国际形势",
+            "具有中国特色",
+            "适合中国国情",
+            "共同富裕"
+        ],
+        "answer": "C",
+        "id": "1798736707068100609",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "土地革命战争后期，中国共产党确立抗日民族统一战线策略的会议是（）。",
+        "option": [
+            "古田会议",
+            "遵义会议",
+            "八七会议",
+            "瓦窑堡会议"
+        ],
+        "answer": "D",
+        "id": "1798736707181346816",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的十八大以来，党的()全面推进，马克思主义在意识形态领域的指导地位更加鲜明，中国特色社会主义和中国梦深入人心，社会主义核心价值观和中华优秀传统文化广泛弘扬，群众性精神文明创建活动扎实开展。",
+        "option": [
+            "制度创新",
+            "理论创新",
+            "体制创新",
+            "机制创新"
+        ],
+        "answer": "B",
+        "id": "1798736707412033537",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的二十大报告指出，十年来，我们统筹发展和安全，明确我国社会主要矛盾是（），并紧紧围绕这个社会主要矛盾推进各项工作，不断丰富和发展人类文明新形态。",
+        "option": [
+            "人民日益增长的美好生活需要和落后的社会生产之间的矛盾",
+            "人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾",
+            "人民日益增长的物质文化需要和落后的社会生产之间的矛盾",
+            "人民日益增长的物质文化需要和不平衡不充分的发展之间的矛盾"
+        ],
+        "answer": "B",
+        "id": "1798736707135209472",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中共十六届三中全会以邓小平理论和“三个代表”重要思想为指导，提出了（）的科学发展观。",
+        "option": [
+            "统筹经济社会发展",
+            "以人为本、全面协调可持续发展",
+            "以经济建设为中心",
+            "人与社会和谐发展"
+        ],
+        "answer": "B",
+        "id": "1798736707353313280",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的二十大报告指出，我们党作为世界上最大的马克思主义执政党，要始终赢得人民拥护、巩固长期执政地位，必须时刻保持（）的清醒和坚定。",
+        "option": [
+            "解决大党独有难题",
+            "赶考",
+            "为民造福，执政为民",
+            "发展"
+        ],
+        "answer": "A",
+        "id": "1798736707089072128",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "过渡时期总路线所指的“过渡时期”是（）。",
+        "option": [
+            "从新中国成立到国民经济恢复",
+            "从国民经济恢复到社会主义改造基本完成",
+            "从新中国成立到社会主义改造基本完成",
+            "从新中国成立到社会主义现代化实现"
+        ],
+        "answer": "C",
+        "id": "1798736707252649984",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "习近平总书记在十九大报告中指出，五年来，我们统筹推进”（）“总体布局、协调推进”（）\"战略布局，“十二五”规划胜利完成，“十三五”规划顺利实施，党和国家事业全面开创新局面。",
+        "option": [
+            "五位一体四个全面",
+            "四位一体五个全面",
+            "五个全面四位一体",
+            "四个全面五位一体"
+        ],
+        "answer": "A",
+        "id": "1798736707395256320",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "新文化运动的两大口号是（）。",
+        "option": [
+            "新道德和新文学",
+            "民权和平等",
+            "自由和平等",
+            "民主和科学"
+        ],
+        "answer": "D",
+        "id": "1798736707433005056",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（），为了抗美援朝、保家卫国，中共中央命令中国人民志愿军出兵朝鲜作战，并任命彭德怀为志愿军司令员兼政治委员。",
+        "option": [
+            "1950年10月",
+            "1951年10月",
+            "1952年10月",
+            "1953年10月"
+        ],
+        "answer": "A",
+        "id": "1798736707235872768",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中共十五大载入史册的标志是（）。",
+        "option": [
+            "在理论认识上突破姓“资＂姓“社”和姓“公”姓“私”的束缚",
+            "提出社会主义初级阶段的基本纲领",
+            "高举邓小平理论的伟大旗帜",
+            "制定跨世纪的宏伟蓝图"
+        ],
+        "answer": "C",
+        "id": "1798736707332341760",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的十九大报告指出，从全面建成小康社会到基本实现现代化，再到（），是新时代中国特色社会主义发展的战略安排。",
+        "option": [
+            "全面建成社会主义现代化强国",
+            "建成社会主义现代化强国",
+            "实现中华民族伟大复兴",
+            "建设社会主义现代化国家"
+        ],
+        "answer": "A",
+        "id": "1798736707399450624",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（）是一个国家、一个民族发展中更基本、更深沉、更持久的力量。",
+        "option": [
+            "道路自信",
+            "理论自信",
+            "制度自信",
+            "文化自信"
+        ],
+        "answer": "D",
+        "id": "1798736707445587969",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "必须完整、准确、全面贯彻新发展理念，坚持社会主义市场经济改革方向，坚持高水平对外开放，加快构建以国内大循环为主体、（??）的新发展格局。",
+        "option": [
+            "城市与农村相互促进",
+            "国内国际双循环相互促进",
+            "国内国际双循环相互作用",
+            "发达国家与发展中国家相互促进"
+        ],
+        "answer": "B",
+        "id": "1798736707114237952",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1964年10月16日，我国成功地爆炸了第一颗（），有力地打破了超级大国的核垄断和核讹诈，提高了我国的国际地位。",
+        "option": [
+            "中子弹",
+            "导弹",
+            "原子弹",
+            "氢弹"
+        ],
+        "answer": "C",
+        "id": "1798736707277815809",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的二十大报告指出，经过不懈努力，党找到了（）这一跳出治乱兴衰历史周期率的第二个答案，确保党永远不变质、不变色、不变味。",
+        "option": [
+            "自我斗争",
+            "自我监督",
+            "自我革命",
+            "自我净化"
+        ],
+        "answer": "C",
+        "id": "1798736707126820864",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "为了鼓励广大科技人员建功立业，从2000年起设立国家最高科技奖。2001年颁布的“2000年度国家科学技术奖”获奖者是（）。",
+        "option": [
+            "吴文俊袁隆平",
+            "王选黄昆",
+            "金怡濂刘东生",
+            "李振声谷超豪"
+        ],
+        "answer": "A",
+        "id": "1798736707340730368",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中共十一届三中全会以后，率先进行经济体制改革的是（）。",
+        "option": [
+            "农村",
+            "城市",
+            "沿海地区",
+            "内地"
+        ],
+        "answer": "A",
+        "id": "1798736707294593024",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "2006年9月联合国大会期间，（）举行了首次金砖国家外长会晤。",
+        "option": [
+            "中国、俄罗斯、巴西、南非",
+            "中国、俄罗斯、印度、南非",
+            "中国、俄罗斯、印度、巴西",
+            "中国、巴西、南非、印度"
+        ],
+        "answer": "C",
+        "id": "1798736707353313282",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "关于新中国的对外关系，毛泽东在1949年的上半年先后提出了三条基本原则，并形象地概括为:＂另起炉灶”“打扫干净屋子再请客”和（）。",
+        "option": [
+            "“独辟蹊径”",
+            "“一边倒”",
+            "“礼尚往来”",
+            "＂赶鸭子上架”"
+        ],
+        "answer": "B",
+        "id": "1798736707219095553",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "标志第一次国共合作全面破裂、大革命最后失败的事件是（）。",
+        "option": [
+            "四·一二反革命政变",
+            "马日事变",
+            "皖南事变",
+            "七·一五“分共”事件"
+        ],
+        "answer": "D",
+        "id": "1798736707487531009",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的二十大报告指出，十年来，我们经过接续奋斗，实现了（）这个中华民族的千年梦想，打赢了人类历史上规模最大的脱贫攻坚战，历史性地解决了绝对贫困问题，为全球减贫事业作出了重大贡献。",
+        "option": [
+            "脱贫",
+            "温饱",
+            "富裕",
+            "小康"
+        ],
+        "answer": "D",
+        "id": "1798736707135209473",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "“任何一个民族、一个国家都要学习别的民族、别的国家的长处，学习人家的先进科学技术。”邓小平的这一席话主要强调了（）。",
+        "option": [
+            "实现民族伟大复兴的重要性",
+            "实行对外开放的重要性",
+            "赶超先进国家的重要性",
+            "进行国有企业改革的重要性"
+        ],
+        "answer": "B",
+        "id": "1798736707302981632",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中国共产党人追求的共产主义最高理想，只有在社会主义社会（?）的基础上才能实现。",
+        "option": [
+            "充分发展",
+            "高度繁荣",
+            "全面繁荣",
+            "充分发展和高度发达"
+        ],
+        "answer": "D",
+        "id": "1798736707072294912",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "实现社会主义现代化目标分“三步走”的战略部署是在（）。",
+        "option": [
+            "中共十一届三中全会提出的",
+            "中共十三届四中全会提出的",
+            "中共十四大提出的",
+            "中共十三大提出的"
+        ],
+        "answer": "D",
+        "id": "1798736707323953152",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "我国第一颗人造地球卫星“东方红一号”成功发射是在（）4月。",
+        "option": [
+            "1969年",
+            "1970年",
+            "1972年",
+            "1976年"
+        ],
+        "answer": "B",
+        "id": "1798736707282010112",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "发展社会主义先进文化，不忘本来、吸收外来、面向未来，更好构筑（）、中国价值、中国力量，为人民提供精神指引。",
+        "option": [
+            "中国文明",
+            "中国精神",
+            "中国气质",
+            "中国风格"
+        ],
+        "answer": "B",
+        "id": "1798736707449782272",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（）是中国特色社会主义的本质要求和重要保障。",
+        "option": [
+            "全面依法治国",
+            "全面从严治党",
+            "全面发展经济",
+            "全面可持续发展"
+        ],
+        "answer": "A",
+        "id": "1798736707445587968",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "从（）开始，武装斗争成为中国革命的主要方式。",
+        "option": [
+            "中共三大",
+            "遵义会议",
+            "古田会议",
+            "八七会议"
+        ],
+        "answer": "D",
+        "id": "1798736707491725312",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "全党同志一定要永远与人民同呼吸、共命运、心连心，永远把（）作为奋斗目标，以永不懈怠的精神状态和一往无前的奋斗姿态，继续朝着实现中华民族伟大复兴的宏伟目标奋勇前进。",
+        "option": [
+            "实现共产主义",
+            "建设社会主义现代化强国",
+            "人民对美好生活的向往",
+            "实现共同富裕"
+        ],
+        "answer": "C",
+        "id": "1798736707412033536",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "深刻认识党面临的精神懈怠危险、能力不足危险、脱离群众危险、（）的尖锐性和严峻性，坚持问题导向，保持战略定力，推动全面从严治党向纵深发展。",
+        "option": [
+            "消极腐败危险",
+            "封闭僵化危险",
+            "官僚主义危险",
+            "腐化堕落危险"
+        ],
+        "answer": "A",
+        "id": "1798736707483336705",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1930年5月，毛泽东在（）一文中提出了“没有调查，没有发言权”的重要论断。",
+        "option": [
+            "《反对本本主义》",
+            "《星星之火可以燎原》",
+            "《中国红色政权为什么能存在？》",
+            "《中国革命战争的战略问题》"
+        ],
+        "answer": "A",
+        "id": "1798736707521085441",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的十九大提出实施乡村振兴战略，是以习近平同志为核心的党中央着眼于党和国家事业全局，深刻把握现代化建设和城乡关系变化特征，顺应亿万农民对美好生活的向往，对“三农“工作作出的重大战略决策，是新时代做好”三农”工作的总抓手。实施乡村振兴战略的根本目的是（）。",
+        "option": [
+            "确保国家粮食安全",
+            "建立新型的土地承包关系",
+            "转移农村富余劳动力",
+            "推进农业农村现代化"
+        ],
+        "answer": "D",
+        "id": "1798736707382673409",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1955年9月，中华人民共和国主席授予中国人民解放军军官以中华人民共和国元帅军衔及授予有功人员勋章典礼在北京隆重举行，朱德等10人被授予元帅军衔。十大元帅不包括（）。",
+        "option": [
+            "林彪",
+            "罗荣桓",
+            "叶剑英",
+            "粟裕"
+        ],
+        "answer": "D",
+        "id": "1798736707261038593",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1922年7月，中国共产党第二次全国代表大会在上海召开，第一次提出明确的（）的民主革命纲领，为中国人民的革命斗争指明了方向和道路。",
+        "option": [
+            "反殖民反封建",
+            "反帝反殖民",
+            "反封建反专制",
+            "反帝反封建"
+        ],
+        "answer": "D",
+        "id": "1798736707453976576",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中国特色社会主义进入新时代，我国社会主要矛盾已经转化为人民日益增长的()的发展之间的矛盾。",
+        "option": [
+            "美好生活需要和不充分不平衡",
+            "幸福生活需要和不平衡不充分",
+            "幸福生活需要和不充分不平衡",
+            "美好生活需要和不平衡不充分"
+        ],
+        "answer": "D",
+        "id": "1798736707416227840",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "新中国成立时，中国与外国政府建立外交关系的原则是（）。①原有外交关系有效②遵循平等互利原则③互相尊重领土主权④互相给予最惠国待遇",
+        "option": [
+            "②③",
+            "①④",
+            "①②③",
+            "②③④"
+        ],
+        "answer": "A",
+        "id": "1798736707231678466",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中共七届二中全会上解决的由新民主主义革命向社会主义革命转变的重大问题中最重要的一项是（）。",
+        "option": [
+            "指出了党的工作重心的转移",
+            "规定了革命胜利后党的总任务",
+            "提出了促进全国革命胜利的方针",
+            "强调了党的工作作风"
+        ],
+        "answer": "A",
+        "id": "1798736707206512641",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中国特色社会主义道路、理论、制度、文化不断发展，拓展了发展中国家走向现代化的途径，给世界上那些既希望加快发展又希望保持自身独立性的国家和民族提供了全新选择，为解决人类问题贡献了中国智慧和（）。",
+        "option": [
+            "中国方案",
+            "中国模式",
+            "中国思想",
+            "中国观点"
+        ],
+        "answer": "A",
+        "id": "1798736707437199361",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1928年6月，中国共产党在共产国际的帮助下在（）举行第六次全国代表大会。",
+        "option": [
+            "香港",
+            "莫斯科",
+            "上海",
+            "柏林"
+        ],
+        "answer": "B",
+        "id": "1798736707168763905",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "新中国成立初期的“银圆之战”和“米棉之战”的直接目的是（）。",
+        "option": [
+            "恢复发展国民经济",
+            "巩固人民民主政权",
+            "解决财政困难",
+            "平抑物价，稳定市场"
+        ],
+        "answer": "D",
+        "id": "1798736707231678465",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "“延安五老”之一，在新中国建立后被任命为中央人民政府秘书长，曾在1949年10月1日主持过年开国大典的湘籍革命家是（）。",
+        "option": [
+            "徐特立",
+            "谢觉哉",
+            "董必武",
+            "林伯渠"
+        ],
+        "answer": "D",
+        "id": "1798736707508502528",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（）是无产阶级领导的中心问题，必须放手发动农民，坚决依靠农民，建立巩固的工农联盟。",
+        "option": [
+            "阶级斗争问题",
+            "路线问题",
+            "农民问题",
+            "统一战线问题"
+        ],
+        "answer": "C",
+        "id": "1798736707156180993",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1926年8月4日，中共中央扩大会议发布的（）通告，是迄今为止发现的中共最早的反贪文件。",
+        "option": [
+            "《消费合作社办事公约》",
+            "《关于惩治贪污浪费行为》",
+            "《陕甘宁边区政府公布边区惩治贪污暂行条例》",
+            "《坚决清理贪污腐化分子》"
+        ],
+        "answer": "D",
+        "id": "1798736707479142400",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "江山就是人民，人民就是江山。中国共产党领导人民打江山、守江山，守的是（）。",
+        "option": [
+            "人民的梦",
+            "人民的权",
+            "人民的心",
+            "人民的情"
+        ],
+        "answer": "C",
+        "id": "1798736707105849345",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1937年9月，八路军第一一五师在（）伏击侵华日军，取得抗战以来的首次大捷，粉碎了日军”不可战胜”的神话，极大地鼓舞了全国人民的抗战信心。",
+        "option": [
+            "平型关",
+            "娘子关",
+            "忻口",
+            "太原"
+        ],
+        "answer": "A",
+        "id": "1798736707189735424",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "2009年被评为“100位为新中国成立作出突出贡献的英雄模范人物”之一，因从事革命工作于1928年在汉口英勇就义，牺牲前写下“砍头不要紧，只要主义真”，体现视死如归、宁折不弯精神的湘籍革命家是（）。",
+        "option": [
+            "邓中夏",
+            "蔡和森",
+            "向警予",
+            "夏明瀚"
+        ],
+        "answer": "D",
+        "id": "1798736707508502530",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "解放战争时期，战略决战的第一次战役是（）。",
+        "option": [
+            "淮海战役",
+            "平津战役",
             "辽沈战役",
-            "平津战役"
+            "解放济南"
         ],
-        "answer": "CD",
-        "id": "1798736707558834177",
+        "answer": "C",
+        "id": "1798736707202318338",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1927年，中国共产党领导的“三大起义”是()。",
+        "questionStem": "为了培养农运骨干，经（）等提议，国民党中央执行委员会决定在广州开办农民运动讲习所。从1924年7月起，广州农民运动讲习所在共产党人彭湃、罗绮园、阮啸仙、谭植棠、毛泽东相继主持下连续举办六届。",
         "option": [
-            "南昌起义",
-            "秋收起义",
-            "平江起义",
-            "广州起义"
+            "罗绮园",
+            "谭植棠",
+            "毛泽东",
+            "彭湃"
         ],
-        "answer": "ABD",
-        "id": "1798736707546251264",
+        "answer": "D",
+        "id": "1798736707470753792",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "中华人民共和国成立的伟大意义是()。",
+        "questionStem": "马克思列宁主义揭示了（?）的规律，它的基本原理是正确的，具有强大的生命力。",
         "option": [
-            "结束了100多年来帝国主义勾结封建统治者剥削压迫中国各族人民和内外战乱频繁、国家四分五裂的局面",
-            "实现了梦寐以求的民族解放和国家独立，开辟了中国历史的新纪元",
-            "深刻影响了世界历史发展进程，在约占世界人口1/4、领土面积位于世界第三的中国，冲破了帝国主义的东方战线",
-            "大大加强了世界和平民主和社会主义阵营的力量，极大地改变了世界政治格局"
+            "共产主义",
+            "人类社会历史发展",
+            "资本主义",
+            "劳动是第一生产力"
+        ],
+        "answer": "B",
+        "id": "1798736707072294913",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（）中国对香港恢复行使主权，中华人民共和国香港特别行政区正式成立。",
+        "option": [
+            "1997年7月1日",
+            "1999年12月20日",
+            "1993年1月1日",
+            "1997年7月7日"
+        ],
+        "answer": "A",
+        "id": "1798736707332341761",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（）通过宪法修正案，郑重地把习近平新时代中国特色社会主义思想载入宪法。",
+        "option": [
+            "十二届全国人民代表大会第五次会议",
+            "十二届全国人大六次会议",
+            "十二届全国人大三次会议",
+            "十三届全国人大一次会议"
+        ],
+        "answer": "D",
+        "id": "1798736707378479104",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "一百年来，党领导人民（??）（??），创造了新时代中国特色社会主义的伟大成就。",
+        "option": [
+            "浴血奋战、百折不挠\r\n",
+            "自力更生、发愤图强",
+            "解放思想、锐意进取",
+            "自信自强、守正创新"
+        ],
+        "answer": "D",
+        "id": "1798736707017768960",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的二十大报告指出，中国坚持在和平共处五项原则基础上同各国发展友好合作，推动构建新型国际关系，深化拓展平等、开放、合作的全球伙伴关系，致力于扩大同各国利益的汇合点。促进大国协调和良性互动，推动构建（）的大国关系格局。",
+        "option": [
+            "和平共处",
+            "总体稳定",
+            "均衡发展",
+            "以上都是"
+        ],
+        "answer": "D",
+        "id": "1798736707093266432",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中共十二届三中全会通过的《关于经济体制改革的决定》明确指出要加快以（）为重点的整个经济体制改革的步伐。",
+        "option": [
+            "农村",
+            "国有企业",
+            "城市",
+            "沿海地区"
+        ],
+        "answer": "C",
+        "id": "1798736707311370240",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1918年4月，毛泽东、蔡和森等人在湖南长沙刘家台子发起成立（）。该会最初以“革新学术，砥砺品行，改良人心风俗”为宗旨，后确定以“改造中国和世界”为宗旨，在五四运动中组织和领导湖南人民的反帝爱国运动，成为中国共产党成立前湖南革命运动的核心。",
+        "option": [
+            "文化书社",
+            "工读同志会",
+            "工读学校",
+            "新民学会"
+        ],
+        "answer": "D",
+        "id": "1798736707424616449",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1995年5月，中共中央、国务院作出《关于加速科学技术进步的决定》，根据邓小平科学技术是第一生产力的思想，提出了（）战略。",
+        "option": [
+            "可持续发展",
+            "科教兴国",
+            "西部大开发",
+            "人才强国"
+        ],
+        "answer": "B",
+        "id": "1798736707323953153",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党提出了过渡时期总路线是在（）年。",
+        "option": [
+            "1956",
+            "1952",
+            "1953",
+            "1955"
+        ],
+        "answer": "C",
+        "id": "1798736707235872769",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "国民大革命中，由共产党直接领导的、共产党员（）任团长的第四军独立团，在北伐中战功卓著，赢得了“铁军”的称号。",
+        "option": [
+            "恽代英",
+            "贺龙",
+            "项英",
+            "叶挺"
+        ],
+        "answer": "D",
+        "id": "1798736707495919617",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1927年，中国共产党确定开展土地革命和武装推翻国民党反动统治总方针的会议是（）。",
+        "option": [
+            "中共六大",
+            "洛川会议",
+            "遵义会议",
+            "八七会议"
+        ],
+        "answer": "D",
+        "id": "1798736707156180994",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "解决台湾问题、实现祖国完全统一，是党矢志不渝的历史任务，是全体中华儿女的共同愿望，是实现中华民族伟大复兴的??。",
+        "option": [
+            "必然要求",
+            "绝对要求",
+            "崇高使命",
+            "历史使命"
+        ],
+        "answer": "A",
+        "id": "1798736707063906306",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "科学发展观的提出，标志着我们党（）。",
+        "option": [
+            "对改革开放和现代化建设规律的认识进一步深化",
+            "完全掌握了社会主义建设的发展规律",
+            "改变了新中国成立以来传统的发展模式和发展战略",
+            "第一次找到建设社会主义的道路"
+        ],
+        "answer": "A",
+        "id": "1798736707349118977",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中国共产党人的初心和使命，就是（）。",
+        "option": [
+            "为中国人民谋幸福，为中华民族谋复兴",
+            "建设共产主义",
+            "实现国家富强，民族复兴",
+            "建设社会主义现代化强国"
+        ],
+        "answer": "A",
+        "id": "1798736707391062018",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的二十大报告指出，从现在起，中国共产党的中心任务就是团结带领全国各族人民全面建成社会主义现代化强国、实现第二个百年奋斗目标，（）中华民族伟大复兴。",
+        "option": [
+            "以中国式现代化全面推进",
+            "实现社会主义现代化",
+            "在全面建成小康社会的基础上实现",
+            "分两步走实现"
+        ],
+        "answer": "A",
+        "id": "1798736707118432257",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1978年12月，中共中央召开了党的十一届三中全会，全会的中心议题是讨论（）。",
+        "option": [
+            "全党工作的重点转移到社会主义现代化建设上来",
+            "通过建立社会主义市场经济体制纲领",
+            "拨乱反正",
+            "确立解放思想、实事求是的思想路线"
+        ],
+        "answer": "A",
+        "id": "1798736707290398721",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "确立党对军队的绝对领导的历史大事件是（）。",
+        "option": [
+            "八七会议",
+            "三湾改编",
+            "文家市决策",
+            "井冈山会师"
+        ],
+        "answer": "B",
+        "id": "1798736707164569600",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（）、（）、（），是全面建设社会主义现代化国家的内在要求。",
+        "option": [
+            "尊重自然、顺应自然、保护自然",
+            "亲近自然、尊重自然、顺应自然",
+            "尊重自然、亲近自然、爱护自然",
+            "亲近自然、顺应自然、爱护自然"
+        ],
+        "answer": "A",
+        "id": "1798736707097460736",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中共十一届三中全会重新确立的思想路线是（）。",
+        "option": [
+            "解放思想，实事求是",
+            "一切从实际出发",
+            "理论联系实际",
+            "从中国的国情出发"
+        ],
+        "answer": "A",
+        "id": "1798736707294593026",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（）是中华民族永续发展的千年大计。",
+        "option": [
+            "民主法制建设",
+            "全面建成小康社会",
+            "增进民生福祉",
+            "建设生态文明"
+        ],
+        "answer": "D",
+        "id": "1798736707449782274",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1996年4月，中国和俄罗斯、哈萨克斯坦、吉尔吉斯斯坦、塔吉克斯坦共和国在上海共同签署协定，建立了（）组织。",
+        "option": [
+            "中亚经济合作",
+            "上海文化交流",
+            "中亚科技合作",
+            "上海合作"
+        ],
+        "answer": "D",
+        "id": "1798736707328147456",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "新中国成立以来，“三农”问题始终是关系党和人民事业发展的全局性和根本性问题。“三农”问题的基本含义是（）。",
+        "option": [
+            "农村联产承包责任制问题、农业投入问题、农产品加工问题",
+            "农产品问题、农民工问题、农村基层组织问题",
+            "农村问题、农民问题、农业问题",
+            "农村医疗、农村住房、农村教育"
+        ],
+        "answer": "C",
+        "id": "1798736707344924672",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "坚持反腐败无禁区、全覆盖、零容忍，坚定不移“打虎”“拍蝇＂＂猎狐\",（）的目标初步实现，（）的笼子越扎越牢，（）的堤坝正在构筑，反腐败斗争压倒性态势已经形成并巩固发展。",
+        "option": [
+            "不敢腐不能腐不想腐",
+            "不能腐不敢腐不想腐",
+            "不想腐不敢腐不能腐",
+            "不敢腐不想腐不能腐"
+        ],
+        "answer": "A",
+        "id": "1798736707395256321",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1923年6月，（）确定了与国民党合作，建立革命统一战线的方针政策，拉开了第一次国共合作的序幕，是中国共产党走向成熟的重要开端。会上，毛泽东当选为中央局秘书，第一次进入党的中央领导核心层。",
+        "option": [
+            "中国共产党第二次全国代表大会",
+            "中国共产党第四次全国代表大会",
+            "中国共产党第五次全国代表大会",
+            "中国共产党第三次全国代表大会"
+        ],
+        "answer": "D",
+        "id": "1798736707458170881",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "习近平总书记在党的十九大报告中作出中国特色社会主义进入新时代的重大政治论断，最关键的理论和实践基础是我国社会主要矛盾已经从“人民日益增长的物质文化需要同落后的社会生产之间的矛盾“转化为“（）”。我国社会主要矛盾的变化，是中国特色社会主义进入新时代的重要标志，也是新时代的重要特征。",
+        "option": [
+            "人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾",
+            "人民日益增长的美好生活需要和经济文化发展不完善不充分之间的矛盾",
+            "人民群众日益增长的物质文化更高层次的需求与当前社会发展无法满足之间的矛盾",
+            "人民群众物质文化的全方位需求与不平衡不充分的发展之间的矛盾"
+        ],
+        "answer": "A",
+        "id": "1798736707386867713",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "必须认识到，我国社会主要矛盾的变化，没有改变我们对我国社会主义所处历史阶段的判断，我国仍处于并将长期处于()的基本国情没有变，我国是世界最大发展中国家的国际地位没有变。",
+        "option": [
+            "社会主义阶段",
+            "社会主义初级阶段",
+            "社会主义中级阶段",
+            "社会主义高级阶段"
+        ],
+        "answer": "B",
+        "id": "1798736707416227841",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "第一个五年计划开始实施的年份是（）。",
+        "option": [
+            "1949年",
+            "1951年",
+            "1953年",
+            "1955年"
+        ],
+        "answer": "C",
+        "id": "1798736707248455680",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "2013年9月和10月，中国国家主席习近平分别提出建设（）的合作倡议。",
+        "option": [
+            "新丝绸之路经济带和海上丝绸之路",
+            "海上丝绸之路、新丝绸之路经济带",
+            "新丝绸之路经济带、海上丝绸之路经济带",
+            "海上丝绸之路经济带、新丝绸之路经济带"
+        ],
+        "answer": "A",
+        "id": "1798736707370090497",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1979年4月5日至28日,中共中央召开工作会议，主要讨论经济调整问题。会议通过了中央提出的调整国民经济的八字方针，即（）。",
+        "option": [
+            "调整、巩固、充实、提高",
+            "调整、改革、充实、提高",
+            "调整、改革、整顿、提高",
+            "调整、改革、整顿、发展"
+        ],
+        "answer": "C",
+        "id": "1798736707298787328",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "在（）时期，毛泽东、朱德把红军的作战经验概括为“敌进我退，敌驻我扰，敌疲我打，敌退我追”的十六字诀。",
+        "option": [
+            "红军三次反“围剿”",
+            "红军第四次反“围剿”",
+            "长征",
+            "井冈山斗争"
+        ],
+        "answer": "D",
+        "id": "1798736707479142402",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "下列事件发生的先后顺序是（）。①提出社会主义初级阶段的理论②作出实行改革开放的决策③提出建立社会主义市场经济体制④上海浦东成为对外开放区",
+        "option": [
+            "②①④③",
+            "③②①④",
+            "④③②①",
+            "①④③②"
+        ],
+        "answer": "A",
+        "id": "1798736707294593025",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "标志着中国新民主主义革命伟大开端的是（）。",
+        "option": [
+            "新文化运动",
+            "中国共产党成立",
+            "国共第一次合作",
+            "五四运动"
+        ],
+        "answer": "D",
+        "id": "1798736707147792384",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中国化时代化马克思主义的“魂脉”是什么？",
+        "option": [
+            "马克思主义",
+            "全人类共同价值",
+            "中华优秀传统文化",
+            "社会主义核心价值观"
+        ],
+        "answer": "A",
+        "id": "1798736707000991744",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "改革开放与社会主义现代化建设的关系是（）。",
+        "option": [
+            "改革开放是社会主义现代化建设的目的",
+            "改革开放是社会主义现代化建设的动力",
+            "社会主义现代化建设是改革开放的前提",
+            "改革开放保证了现代化建设的方向"
+        ],
+        "answer": "B",
+        "id": "1798736707302981633",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1980年5月16日，中共中央、国务院作出《关于广东、福建两省会议纪要》，决定在（）各划出一定范围的区域试办经济特区。",
+        "option": [
+            "深圳、珠海、汕头、福州",
+            "深圳、珠海、海南、厦门",
+            "深圳、珠海、汕头、厦门",
+            "深圳、东莞、厦门、海南"
+        ],
+        "answer": "C",
+        "id": "1798736707307175936",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "按照《中国人民政治协商会议共同纲领》规定，中华人民共和国实行的是工人阶级领导的，以工农联盟基础的、团结各民主阶级和国内各民族的（）的国家。",
+        "option": [
+            "人民民主专政",
+            "无产阶级专政",
+            "工农民主专政",
+            "工人阶级专政"
+        ],
+        "answer": "A",
+        "id": "1798736707214901250",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（??）是全面建设社会主义现代化国家的首要任务。",
+        "option": [
+            "高水平开放",
+            "高质量发展",
+            "全领域开放",
+            "全方位发展"
+        ],
+        "answer": "B",
+        "id": "1798736707118432256",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（）是中央红军长征途中最壮烈的一战，此战后，中央红军人数从长征出发时的8.6万余人锐减至3万余人。",
+        "option": [
+            "湘江战役",
+            "乌江之战",
+            "飞夺泸定桥",
+            "四渡赤水"
+        ],
+        "answer": "A",
+        "id": "1798736707177152512",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中共一大通过了中国共产党的第一个纲领，纲领确定党的名称是“中国共产党＂。第一个提出党的名称为“中国共产党”的是（）。",
+        "option": [
+            "蔡和森",
+            "毛泽东",
+            "陈独秀",
+            "陈望道"
+        ],
+        "answer": "A",
+        "id": "1798736707143598081",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "土地革命时期，中国共产党建立的第一个红色政权是（）。",
+        "option": [
+            "井冈山根据地茶陵县工农兵政府",
+            "右江工农民主政府",
+            "闽西工农民主政府",
+            "瑞金中华苏维埃共和国"
+        ],
+        "answer": "A",
+        "id": "1798736707168763904",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1925年爆发的震惊中外的（），标志着大革命高潮的到来。",
+        "option": [
+            "五卅运动",
+            "广州沙面工人罢工",
+            "香港海员大罢工",
+            "青岛日资纱厂工人大罢工"
+        ],
+        "answer": "A",
+        "id": "1798736707151986688",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（）在中国早期马克思主义传播中起着重要作用，他于1919年在《新青年》发表《我的马克思主义观》，肯定马克思主义为“世界改造原动的学说”，对马克思主义作了比较全面系统介绍。",
+        "option": [
+            "陈独秀",
+            "陈望道",
+            "刘仁静",
+            "李大钊"
+        ],
+        "answer": "D",
+        "id": "1798736707428810752",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1927年8月1日，在以（）为书记的中共中央前敌委员会领导下，在南昌城头打响了武装反抗国民党反动派的第一枪。",
+        "option": [
+            "贺龙",
+            "刘伯承",
+            "周恩来",
+            "叶挺"
+        ],
+        "answer": "C",
+        "id": "1798736707500113920",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "新中国成立后制定的第一部基本法律是（）。",
+        "option": [
+            "《中华人民共和国民族区域自治实施纲要》",
+            "《中华人民共和国婚姻法》",
+            "《中华人民共和国土地改革法》",
+            "《中华人民共和国工会法》"
+        ],
+        "answer": "B",
+        "id": "1798736707227484160",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的二十大报告指出，十年来，我们深入推进全面从严治党，坚持打铁还须自身硬，提出和落实新时代党的建设总要求，以党的（）统领党的建设各项工作。",
+        "option": [
+            "经济建设",
+            "文化建设",
+            "组织建设",
+            "政治建设"
+        ],
+        "answer": "D",
+        "id": "1798736707126820865",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（）是党永葆生机活力、走好新的赶考之路的必由之路。",
+        "option": [
+            "全面从严治党",
+            "坚持党的全面领导",
+            "团结奋斗",
+            "中国特色社会主义"
+        ],
+        "answer": "A",
+        "id": "1798736707076489216",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中共十七大报告指出，我们党召开具有重大历史意义的十一届三中全会，开启了改革开放历史新时期。新时期最显著的成就是（）。",
+        "option": [
+            "改革开放",
+            "快速发展",
+            "与时俱进",
+            "社会和谐"
+        ],
+        "answer": "B",
+        "id": "1798736707357507585",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的二十大报告指出，我们要坚持（）在意识形态领域指导地位的根本制度。",
+        "option": [
+            "中国特色社会主义",
+            "马克思主义",
+            "毛泽东思想",
+            "马列主义"
+        ],
+        "answer": "B",
+        "id": "1798736707101655040",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中华人民共和国第一届全国人民代表大会召开时间是（）。",
+        "option": [
+            "1949年10月",
+            "1950年9月",
+            "1953年10月",
+            "1954年9月"
+        ],
+        "answer": "D",
+        "id": "1798736707244261377",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "2019年4月30日，习近平在纪念五四运动一百周年大会上指出，，是中国旧民主主义革命走向新民主主义革命的转折点，在近代以来中华民族追求民族独立和发展进步的历史进程中具有里程碑意义。（）",
+        "option": [
+            "五卅运动",
+            "中国共产党的成立",
+            "五四运动",
+            "国民革命"
+        ],
+        "answer": "C",
+        "id": "1798736707516891136",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "坚持和加强党的全面领导，坚持党要管党、全面从严治党，以加强党的长期执政能力建设、先进性和纯洁性建设为主线，以党的（）为统领。",
+        "option": [
+            "组织建设",
+            "政治建设",
+            "思想建设",
+            "作风建设"
+        ],
+        "answer": "B",
+        "id": "1798736707487531008",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中国共产党的第一个农村革命根据地是（??）。",
+        "option": [
+            "井冈山革命根据地",
+            "湘鄂西革命根据地",
+            "鄂豫皖革命根据地\r\n",
+            "海陆丰革命根据地"
+        ],
+        "answer": "A",
+        "id": "1798736707013574658",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（）是中国人民创造历史伟业的必由之路。",
+        "option": [
+            "全面从严治党",
+            "坚持党的全面领导",
+            "团结奋斗",
+            "中国特色社会主义"
+        ],
+        "answer": "C",
+        "id": "1798736707080683520",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "在中共八大发言中，陈云提出了（）的重要意见，受到重视，为大会决议所采纳，这是探索我国经济体制改革的尝试。",
+        "option": [
+            "既反保守，又反冒进",
+            "给地方和企业适当下放权力",
+            "加强宏观调控，保持综合平衡",
+            "“三个主体，三个补充\""
+        ],
+        "answer": "D",
+        "id": "1798736707269427201",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "综合分析国际国内形势和我国发展条件，党的十九大对2020年以后的30年，分两个阶段作出战略安排，即前15年基本实现（）、后15年全面建成富强民主文明和谐美丽的社会主义现代化强国。",
+        "option": [
+            "全面小康",
+            "四个现代化",
+            "社会主义现代化",
+            "世界中等发展水平"
+        ],
+        "answer": "C",
+        "id": "1798736707403644929",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1939年7月,刘少奇在延安马列学院的重要讲演,详细阐述了共产党员修养的内容和方法,第一次提出加强共产党员党性修养的必要性和重要意义。（）",
+        "option": [
+            "《关于党性问题的报告大纲》",
+            "《我的修养要则》",
+            "《论共产党员的修养》",
+            "《目前任务和战略部署》"
+        ],
+        "answer": "C",
+        "id": "1798736707516891137",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "南昌起义、秋收起义、广州起义使我党总结出最突出的教训是（）。",
+        "option": [
+            "必须建立人民军队",
+            "必须进行武装斗争",
+            "必须把党的工作重心转到农村",
+            "必须坚持革命的领导权"
+        ],
+        "answer": "C",
+        "id": "1798736707156180992",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "（）是坚持和发展中国特色社会主义的必由之路。",
+        "option": [
+            "坚持党的全面领导",
+            "中国特色社会主义",
+            "团结奋斗",
+            "全面从严治党"
+        ],
+        "answer": "A",
+        "id": "1798736707084877824",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1937年8月22日至25日，中共中央召开著名的洛川会议，通过了（），提出了全面抗战路线。",
+        "option": [
+            "《抗日救国十大纲领》",
+            "《中共中央为公布国共合作宣言》",
+            "《抗日救国告全体同胞书》",
+            "《中国共产党在抗日时期的任务》"
+        ],
+        "answer": "A",
+        "id": "1798736707185541120",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中国化时代化马克思主义的“根脉”是什么？",
+        "option": [
+            "马克思主义",
+            "全人类共同价值",
+            "中华优秀传统文化",
+            "社会主义核心价值观"
+        ],
+        "answer": "C",
+        "id": "1798736706996797441",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1936年6月，美国记者埃德加·斯诺访问陕北，并根据对毛泽东、周恩来、朱德等中共领导人和红军将士进行的访谈，撰成（）一书，第一次向外界详细介绍了中国共产党和红军的事迹，对中国国内和世界产生了重大影响。",
+        "option": [
+            "《来自红色中国的报道》",
+            "《中国未完成的革命》",
+            "《西行漫记》",
+            "《红色中国的挑战》"
+        ],
+        "answer": "C",
+        "id": "1798736707181346817",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "新文化运动的代表人物有()。",
+        "option": [
+            "李大钊",
+            "陈独秀",
+            "胡适",
+            "鲁迅"
         ],
         "answer": "ABCD",
-        "id": "1798736707571417088",
+        "id": "1798736707529474049",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "从1949年10月中华人民共和国成立到1956年基本完成社会主义改造，我国相继实现了()，()的两个历史性转变。",
+        "option": [
+            "从半殖民地半封建社会到民族独立、人民当家作主的新社会",
+            "从资本主义社会到民族独立、人民当家作主的新社会",
+            "从新民主主义到社会主义",
+            "从旧民主主义到新民主主义"
+        ],
+        "answer": "AC",
+        "id": "1798736707579805696",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中国共产党第一次代表大会的长沙代表是()。",
+        "option": [
+            "毛泽东",
+            "何叔衡",
+            "王尽美",
+            "邓恩铭"
+        ],
+        "answer": "AB",
+        "id": "1798736707537862657",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中国共产党的三大历史任务是()。",
+        "option": [
+            "推进现代化建设",
+            "完成祖国统一",
+            "维护世界和平与促进共同发展",
+            "推动世界共同富裕"
+        ],
+        "answer": "ABC",
+        "id": "1798736707651108865",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中共中央政治局关于改进工作作风、密切联系群众的“八项规定”内容主要包括：要改进调查研究，注重实效;();要精简文件简报，能不发的尽量不发;();要改进警卫工作，走进群众;要改进新闻报道，突出基层;();()。",
+        "option": [
+            "要精简会议活动，少讲空话",
+            "要规范出访活动，压缩随行",
+            "要严格文稿发表，少出著作",
+            "要厉行勤俭节约，廉洁从政"
+        ],
+        "answer": "ABCD",
+        "id": "1798736707630137344",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "“一个中心、两个基本点”的关系是()",
+        "option": [
+            "经济建设是中心",
+            "改革开放是动力",
+            "四项基本原则是政治保证",
+            "经济建设是目的"
+        ],
+        "answer": "ABC",
+        "id": "1798736707600777218",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
@@ -2534,293 +2520,67 @@
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "中共十一届三中全会以来，以邓小平为主要代表的中国共产党人初步回答的首要的基本理论问题是()。",
+        "questionStem": "中国共产党第十三次全国代表大会的重要贡献是()",
         "option": [
-            "什么是社会主义",
-            "建设什么样的党",
-            "怎样建设社会主义",
-            "怎样建设党"
+            "分析了当前中国的国情，提出了社会主义初级阶段的理论",
+            "制定了社会主义初级阶段党的基本路线",
+            "提出了社会主义初级阶段经济发展的战略部署",
+            "制定了一部有中国特色的中华人民共和国宪法"
         ],
-        "answer": "AC",
-        "id": "1798736707588194305",
+        "answer": "ABC",
+        "id": "1798736707604971520",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "在20世纪，中国发生了三次历史性的巨变，这三次是()。",
+        "questionStem": "全党要坚定执行党的政治路线，严格遵守政治纪律和政治规矩，在()上同党中央保持高度一致。",
         "option": [
-            "孙中山领导的推翻封建专制统治、建立共和政体的辛亥革命",
-            "中国无产阶级第一次作为独立的政治力量参加的五四运动",
-            "中国共产党及其领袖毛泽东领导的中华人民共和国的成立和社会主义制度的建立",
-            "以邓小平为核心的第二代中央领导集体领导的改革开放"
+            "政治立场",
+            "政治方向",
+            "政治原则",
+            "政治道路"
         ],
-        "answer": "ACD",
-        "id": "1798736707525279744",
+        "answer": "ABCD",
+        "id": "1798736707651108864",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "社会主义制度的发展和完善是一个长期的历史过程。",
+        "questionStem": "全面建成小康社会决胜期，要突出抓重点、补短板、强弱项，特别是要坚决打好()的攻坚战，使全面建成小康社会得到人民认可、经得起历史检验。",
         "option": [
-            "正确",
-            "错误"
+            "防范化解重大风险",
+            "精准脱贫",
+            "污染防治",
+            "金融风险"
         ],
-        "answer": "正确",
-        "id": "1798736707038740480",
+        "answer": "ABC",
+        "id": "1798736707642720256",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1950年5月1日颁行的《中华人民共和国婚姻法》是新中国制定的第一部法律。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "正确",
-        "id": "1798736707709829120",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的十八届五中全会提出，要实现“十三五”时期发展目标，必须把发展基点放在创新上。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "正确",
-        "id": "1798736707810492418",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的二十大提出：要坚守中华文化立场，提炼展示中华文明的精神标识和文化精髓，加快构建中国话语和中国叙事体系，讲好中国故事、传播好中国声音，展现可信、可爱、可敬的中国形象。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "正确",
-        "id": "1798736707038740481",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "按照十九届五中全会确定的2035年远景目标，届时我国人均国内生产总值达到上中等发达国家水平。",
+        "questionStem": "按照党的十八大要求，建设中国特色社会主义总布局是“四位一体”。",
         "option": [
             "正确",
             "错误"
         ],
         "answer": "错误",
-        "id": "1798736707827269633",
+        "id": "1798736707789520897",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "中国新民主主义革命取得胜利的原因主要是有了无产阶级政党的领导。",
+        "questionStem": "在我们党内，毛泽东最早提出了马克思主义中国化的思想。",
         "option": [
             "正确",
             "错误"
         ],
         "answer": "正确",
-        "id": "1798736707722412033",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的十八大报告深化了对中国特色社会主义的认识，首次将“中国特色社会主义制度”写入党的全国代表大会报告中。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "正确",
-        "id": "1798736707793715201",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "我国社会主义制度初步建立起来是在农业合作化基本完成以后。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "错误",
-        "id": "1798736707730800640",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "确立了邓小平建设有中国特色社会主义理论在全党的指导地位是在中共十五大上。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "错误",
-        "id": "1798736707760160768",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "农业合作化运动中，采取了依靠贫下中农、团结中农、限制富农的政策。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "错误",
-        "id": "1798736707709829121",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "半殖民地半封建的社会性质决定了中国共产党领导的革命包括民主主义革命和社会主义革命两个阶段，这是两个性质相同的革命过程。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "错误",
-        "id": "1798736707709829122",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "民主革命时期党的中心任务是进行武装斗争。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "正确",
-        "id": "1798736707684663297",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中共七大特别强调，党的群众路线是党的根本的政治路线和组织路线。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "正确",
-        "id": "1798736707680468993",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中共十七大指出，国家发展战略的核心、提高综合国力的关键是提高自主创新能力，建设创新型国家。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "正确",
-        "id": "1798736707781132288",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中共十六大关于我国进入和建设小康社会的判断，是根据我国现代化建设的客观进程和社会经济发展阶段性变化的实际作出的。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "正确",
-        "id": "1798736707764355072",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "坚持马克思主义基本原理同中国具体实际相结合，是对待马克思主义唯一正确和科学的态度。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "正确",
-        "id": "1798736707776937986",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "我国目前农业生产的主要经营方式是集约化经营。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "错误",
-        "id": "1798736707747577857",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "第一届全国人民代表大会选举的人大常委会委员长是董必武。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "错误",
-        "id": "1798736707705634816",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "十一届三中全会后农村实行家庭联产承包责任制与农业合作化以前的小私有经济相同。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "错误",
-        "id": "1798736707734994944",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国共产党是中国工人阶级的先锋队，同时又是中国人民和中华民族的先锋队。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "正确",
-        "id": "1798736707672080384",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "党的十八届四中全会提出，法律的生命力和法律的权威在于实施。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "正确",
-        "id": "1798736707810492417",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国新民主主义革命胜利的标志是中华人民共和国成立。",
-        "option": [
-            "正确",
-            "错误"
-        ],
-        "answer": "正确",
-        "id": "1798736707693051905",
+        "id": "1798736707688857600",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
@@ -2838,154 +2598,277 @@
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "党的十八届四中全会强调，社会主义法治最根本的保证是党的领导。",
+        "questionStem": "1949年的《共同纲领》起了中华人民共和国临时宪法的作用。",
         "option": [
             "正确",
             "错误"
         ],
         "answer": "正确",
-        "id": "1798736707810492416",
+        "id": "1798736707701440512",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "第一个五年计划的完成完全改变了我国工农业总产值中以农业为主的局面。",
+        "questionStem": "党的十八届四中全会提出，法律的生命力和法律的权威在于实施。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1798736707810492417",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "党的十八届四中全会审议通过了《中共中央关于全面推进依法治国若干重大问题的决定》，指出全面推进依法治国的总目标是建设中国特色社会主义法治体系，建设社会主义法治国家。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1798736707806298113",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1935年1月召开的遵义会议是我党的历史上一个生死攸关的转折点。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1798736707672080385",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "“一国两制”是中国特色社会主义的伟大创举，是香港、澳门回归后保持长期繁荣稳定的最佳制度安排。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1798736707026157568",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "新民主主义革命的性质是无产阶级社会主义革命。",
         "option": [
             "正确",
             "错误"
         ],
         "answer": "错误",
-        "id": "1798736707718217728",
+        "id": "1798736707676274690",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "按照党的十九届五中全会要求，到2035年时我国的关键核心技术实现重大突破，进入创新型国家前列。",
+        "questionStem": "社会主义市场经济本质上是法治经济。",
         "option": [
             "正确",
             "错误"
         ],
         "answer": "正确",
-        "id": "1798736707823075329",
+        "id": "1798736707802103809",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1954年第一届全国人大选举_____为中华人民共和国主席",
-        "option": "",
-        "answer": "毛泽东",
-        "id": "1798736713099509760",
+        "questionStem": "1956年，社会主义基本制度的全面确立标志着中国进入开始全面建设社会主义的历史阶段。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1798736707659497474",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "揭开了改革开放的序幕，标志着中国进入了改革开放和社会主义现代化建设新时期的重大事件是____。",
-        "option": "",
-        "answer": "中共十一届三中全会",
-        "id": "1798736713162424320",
+        "questionStem": "构建社会主义和谐社会的重点是解决社会矛盾。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1798736707785326592",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1984年10月中共十二届三中全会通过《关于经济体制改革的决定》，突破了把计划经济同商品经济对立起来的观点，指出我国社会主义经济是公有制基础上有计划的____。",
-        "option": "",
-        "answer": "商品经济",
-        "id": "1798736713170812929",
+        "questionStem": "党的二十大提出：社会主义核心价值观是凝聚人心、汇聚民力的强大力量。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1798736707038740482",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1956年1月，中共中央召开关于知识分子问题会议，动员全党和全国人民，特别是广大知识分子____",
-        "option": "",
-        "answer": "向现代科学进军",
-        "id": "1798736713120481281",
+        "questionStem": "全面深化改革总目标是完善和发展中国社会主义市场经济体制、推进国家治理体系和治理能力现代化。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1798736707814686721",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "习近平指出：“中国特色社会主义，既坚持了科学社会主义基本原则，又根据时代条件赋予其鲜明的____。”",
-        "option": "",
-        "answer": "中国特色",
-        "id": "1798736713221144576",
+        "questionStem": "农业合作化运动中，采取了依靠贫下中农、团结中农、限制富农的政策。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1798736707709829121",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1988年，中共中央和国务院决定建立____省，加快其发展。",
-        "option": "",
-        "answer": "海南",
-        "id": "1798736713166618625",
+        "questionStem": "中共十六届三中全会以邓小平理论和“三个代表”重要思想为指导，提出了以人为本、全面协调可持续发展的科学发展观。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1798736707772743681",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "中国人民解放军完成全国大陆解放的标志性事件是",
-        "option": "",
-        "answer": "西藏和平解放",
-        "id": "1798736713086926848",
+        "questionStem": "“十四五”时期经济社会发展的主题是推动高质量发展。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1798736707827269632",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "习近平新时代中国特色社会主义思想，正是在党不断实现自我净化、自我完善、____、自我提高，以伟大自我革命引领伟大社会革命的过程中创立并不断丰富发展的。",
-        "option": "",
-        "answer": "自我革新",
-        "id": "1798736713208561666",
+        "questionStem": "中国工农红军进行的二万五千里长征是在第五次反“围”剿失败的背景下进行的。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1798736707676274688",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1999年12月20日，____回归祖国。",
-        "option": "",
-        "answer": "澳门",
-        "id": "1798736713191784448",
+        "questionStem": "社会主义三大改造是指新中国成立初期，中国共产党在全国范围内组织的对于农业、手工业和资本主义工商业进行的社会主义改造。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1798736707705634817",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "____是中国特色社会主义理论体系的开篇之作。",
-        "option": "",
-        "answer": "邓小平理论",
-        "id": "1798736713149841409",
+        "questionStem": "“枪杆子里面出政权”是毛泽东在遵义会议上第一次提出的。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1798736707676274689",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "新时代坚持和发展中国特色社会主义，必须坚定道路自信、____、____、文化自信。",
-        "option": "",
-        "answer": "理论自信，制度自信",
-        "id": "1798736713221144578",
+        "questionStem": "中共十一届三中全会以前，我们党对时代主题的认识可归结为:战争与革命。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1798736707739189248",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "我国对资本主义工商业的社会主义改造所釆取的基本政策是____",
-        "option": "",
-        "answer": "和平赎买",
-        "id": "1798736713070149632",
+        "questionStem": "我国社会主义制度初步建立起来是在农业合作化基本完成以后。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1798736707730800640",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "2008年8月至9月，中国____成功举办第29届夏季奥运会、第13届残疾人奥运会。",
-        "option": "",
-        "answer": "北京",
-        "id": "1798736713204367361",
+        "questionStem": "在四项基本原则中，核心是要坚持中国共产党的领导地位。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1798736707768549377",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "在抗美援朝前，毛泽东提出了“一切反动派都是纸老虎”的著名论断。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1798736707693051904",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "十一届三中全会后农村实行家庭联产承包责任制与农业合作化以前的小私有经济相同。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1798736707734994944",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "按照党的十九大要求，到新中国成立一百年时，基本实现现代化，把我国建成社会主义现代化国家。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1798736707814686720",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
@@ -3000,64 +2883,19 @@
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "毛泽东在《关于正确处理人民内部矛盾的问题》中强调：在我们面前有两类社会矛盾，这就是____和人民内部矛盾，这是两类性质完全不同的矛盾。",
+        "questionStem": "社会主义制度在中国确立的主要标志是____",
         "option": "",
-        "answer": "敌我矛盾",
-        "id": "1798736713103704064",
+        "answer": "社会主义改造的基本完成",
+        "id": "1798736713061761025",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "新时代全面深化改革开放是一场深刻____。",
+        "questionStem": "____是决定当代中国命运的关键一招。",
         "option": "",
-        "answer": "革命",
-        "id": "1798736713242116096",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "以习近平同志为核心的党中央团结带领全党全国各族人民砥砺前行，推动党和国家事业取得____、发生历史性变革，使中国特色社会主义展现出强大生命力。",
-        "option": "",
-        "answer": "历史性成就",
-        "id": "1798736713216950272",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "习近平新时代中国特色社会主义思想，是全党全国各族人民为实现中华民族伟大复兴而奋斗的____，是新时代党和国家事业发展的根本遵循。",
-        "option": "",
-        "answer": "行动指南",
-        "id": "1798736713212755968",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "____、____，是邓小平理论的精髓。",
-        "option": "",
-        "answer": "解放思想，实事求是",
-        "id": "1798736713141452802",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1961年我国对国民经济实行“调整、巩固、充实、____”的方针",
-        "option": "",
-        "answer": "提高",
-        "id": "1798736713133064193",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "“____”是邓小平在坚持四项基本原则的基础上，从中国的实际出发提出的实现祖国和平统一的伟大构想。",
-        "option": "",
-        "answer": "一国两制",
-        "id": "1798736713145647105",
+        "answer": "改革开放",
+        "id": "1798736713237921793",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
@@ -3072,19 +2910,37 @@
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "治理好我们这个大党和大国，必须坚持____特别是党中央集中统一领导，发扬党的自我革命精神，解决好大党独有难题。",
+        "questionStem": "周恩来提出知识分子中的绝大部分已经是____一部分的观点。",
         "option": "",
-        "answer": "党的全面领导",
-        "id": "1798736713208561665",
+        "answer": "工人阶级",
+        "id": "1798736713116286976",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1978年12月召开的党的十一届三中全会，作出实行____的重大决策。",
+        "questionStem": "实现中华民族伟大复兴的中国梦，本质是国家富强、民族振兴、____。",
         "option": "",
-        "answer": "改革开放",
-        "id": "1798736713158230017",
+        "answer": "人民幸福",
+        "id": "1798736713233727489",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "2006年7月1日，全长1956公里的____铁路全线通车，结束了西藏不通铁路的历史。",
+        "option": "",
+        "answer": "青藏",
+        "id": "1798736713195978752",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "2006年1月1日，我国废止《中华人民共和国____条例》，在我国存在2600年的____成为历史。",
+        "option": "",
+        "answer": "农业税，农业税",
+        "id": "1798736713195978753",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
@@ -3099,19 +2955,37 @@
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "过渡时期的总路线简称_____",
+        "questionStem": "治理好我们这个大党和大国，必须坚持____特别是党中央集中统一领导，发扬党的自我革命精神，解决好大党独有难题。",
         "option": "",
-        "answer": "一化三改",
-        "id": "1798736713095315457",
+        "answer": "党的全面领导",
+        "id": "1798736713208561665",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "社会主义最大的优越性就是____，这是体现社会主义本质的一个东西。",
+        "questionStem": "____是民生之源，是改善民生、实现发展成果由人民共享最重要最直接的方式。",
         "option": "",
-        "answer": "共同富裕",
-        "id": "1798736713154035714",
+        "answer": "收入分配",
+        "id": "1798736713246310402",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1988年，中共中央和国务院决定建立____省，加快其发展。",
+        "option": "",
+        "answer": "海南",
+        "id": "1798736713166618625",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "毛泽东在《论十大关系》中提出的中国社会主义建设的基本方针是____为社会主义事业服务",
+        "option": "",
+        "answer": "调动一切积极因素",
+        "id": "1798736713124675584",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
@@ -3126,15 +3000,6 @@
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1964年底，周恩来在三届全国人大一次会议上所作的政府工作报告中正式宣布，“把我国建设成为一个具有现代农业|现代工业|现代国防和____的社会主义强国”。",
-        "option": "",
-        "answer": "现代科学技术",
-        "id": "1798736713112092674",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
         "questionStem": "党的十八大以来，我们党形成并统筹推进“____”总体布局，形成并协调推进“____”战略布局。",
         "option": "",
         "answer": "五位一体，四个全面",
@@ -3144,37 +3009,19 @@
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "在中共八大上作《政治报告》的是____",
+        "questionStem": "____事关人民的生存生活生计，事关民心所向、民情所系、民意所指，决定党的事业成败和国家命运兴衰。",
         "option": "",
-        "answer": "刘少奇",
-        "id": "1798736713124675585",
+        "answer": "民生",
+        "id": "1798736713246310400",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1978年12月召开的党的十一届三中全会，重新确立了____的思想路线。",
+        "questionStem": "中共十三大，明确了“一个中心，两个基本点”的党的基本路线，其中“一个中心”是指以____为中心。",
         "option": "",
-        "answer": "实事求是",
-        "id": "1798736713137258497",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "“____”回答了解放和发展生产力的政治保证问题。",
-        "option": "",
-        "answer": "坚持四项基本原则",
-        "id": "1798736713158230016",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1952年，为了打击不法资本家严重的“五毒”行为而开展的是____",
-        "option": "",
-        "answer": ".五反运动",
-        "id": "1798736713078538242",
+        "answer": "经济建设",
+        "id": "1798736713166618624",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
@@ -3189,55 +3036,73 @@
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1954年9月，中华人民共和国第一届全国人民代表大会通过了_____",
+        "questionStem": "1978年12月召开的党的十一届三中全会，作出实行____的重大决策。",
         "option": "",
-        "answer": "中华人民共和国宪法",
-        "id": "1798736713091121153",
+        "answer": "改革开放",
+        "id": "1798736713158230017",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1950年10月，中国共产党和人民政府作出了派遭___入朝作战，抗美援朝、保家卫国。",
+        "questionStem": "毛泽东在《关于正确处理人民内部矛盾的问题》中强调：在我们面前有两类社会矛盾，这就是____和人民内部矛盾，这是两类性质完全不同的矛盾。",
         "option": "",
-        "answer": "中国人民志愿军",
-        "id": "1798736713091121152",
+        "answer": "敌我矛盾",
+        "id": "1798736713103704064",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "全面建成小康社会是实现中华民族伟大复兴中国梦的关键一步。要在全面建成小康社会的基础上，分____全面建成富强民主文明和谐美丽的社会主义现代化强国，全面推进中华民族伟大复兴。",
+        "questionStem": "1956年1月，中共中央召开关于知识分子问题会议，动员全党和全国人民，特别是广大知识分子____",
         "option": "",
-        "answer": "两步走",
-        "id": "1798736713229533185",
+        "answer": "向现代科学进军",
+        "id": "1798736713120481281",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1956年，中国共产党第八次全国人民代表大会在北京开幕，会议明确了全党和全国人民的主要任务是____",
+        "questionStem": "“____”回答了解放和发展生产力的政治保证问题。",
         "option": "",
-        "answer": "发展生产力",
-        "id": "1798736713128869888",
+        "answer": "坚持四项基本原则",
+        "id": "1798736713158230016",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "共同富裕是全体人民共同富裕，是人民群众____和____都富裕。",
+        "questionStem": "“一国两制”构想最早提出时针对____问题。",
         "option": "",
-        "answer": "物质生活，精神生活",
-        "id": "1798736713233727490",
+        "answer": "台湾",
+        "id": "1798736713170812928",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "对于共产党和民主党派的矛盾，实行在坚持社会主义道路和共产党领导的前提下“____、互相监督”的方针。",
+        "questionStem": "对于政治思想领域的人民内部矛盾，实行“团结一批评—团结”的方针，坚持____、讨论的方法；",
         "option": "",
-        "answer": "长期共存",
-        "id": "1798736713107898369",
+        "answer": "说服教育",
+        "id": "1798736713103704065",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "____、____，是邓小平理论的精髓。",
+        "option": "",
+        "answer": "解放思想，实事求是",
+        "id": "1798736713141452802",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "《____》的发表标志着党探索中国社会主义建设道路的良好开端。",
+        "option": "",
+        "answer": "论十大关系",
+        "id": "1798736713099509761",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
@@ -3252,6 +3117,60 @@
         "abbreviationSubject": "NCH"
     },
     {
+        "questionStem": "“____”是邓小平在坚持四项基本原则的基础上，从中国的实际出发提出的实现祖国和平统一的伟大构想。",
+        "option": "",
+        "answer": "一国两制",
+        "id": "1798736713145647105",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "新时代全面深化改革开放是一场深刻____。",
+        "option": "",
+        "answer": "革命",
+        "id": "1798736713242116096",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "习近平指出，以____为中心是我们党的根本执政理念，让人们生活幸福是“国之大者”。",
+        "option": "",
+        "answer": "人民",
+        "id": "1798736713242116097",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "家庭联产承包责任制实行以后，农民对集体所有的土地具有充分的____。",
+        "option": "",
+        "answer": "经营自主权",
+        "id": "1798736713162424322",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "习近平指出：“中国特色社会主义，既坚持了科学社会主义基本原则，又根据时代条件赋予其鲜明的____。”",
+        "option": "",
+        "answer": "中国特色",
+        "id": "1798736713221144576",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "新时代坚持和发展中国特色社会主义，必须坚定道路自信、____、____、文化自信。",
+        "option": "",
+        "answer": "理论自信，制度自信",
+        "id": "1798736713221144578",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
         "questionStem": "毛泽东在《关于正确处理人民内部矛盾的问题》中强调，关于正确处理人民内部矛盾的问题是社会主义国家____的主题。",
         "option": "",
         "answer": "政治生活",
@@ -3261,19 +3180,154 @@
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "中共中央正式提出过渡时期总路线是在____年",
+        "questionStem": "1950年6月，中央人民政府颁布的土地法是____",
         "option": "",
-        "answer": "1953",
-        "id": "1798736713074343936",
+        "answer": "中华人民共和国土地改革法",
+        "id": "1798736713082732545",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "1997年7月1日，____回归祖国。",
+        "questionStem": "坚持尽力而为、____，是保障和改善民生的重要方针。",
         "option": "",
-        "answer": "香港",
-        "id": "1798736713187590146",
+        "answer": "量力而行",
+        "id": "1798736713246310401",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "对于共产党和民主党派的矛盾，实行在坚持社会主义道路和共产党领导的前提下“____、互相监督”的方针。",
+        "option": "",
+        "answer": "长期共存",
+        "id": "1798736713107898369",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1964年底，周恩来在三届全国人大一次会议上所作的政府工作报告中正式宣布，“把我国建设成为一个具有现代农业|现代工业|现代国防和____的社会主义强国”。",
+        "option": "",
+        "answer": "现代科学技术",
+        "id": "1798736713112092674",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1956年，中国共产党第八次全国人民代表大会在北京开幕，会议明确了全党和全国人民的主要任务是____",
+        "option": "",
+        "answer": "发展生产力",
+        "id": "1798736713128869888",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "习近平新时代中国特色社会主义思想，正是在党不断实现自我净化、自我完善、____、自我提高，以伟大自我革命引领伟大社会革命的过程中创立并不断丰富发展的。",
+        "option": "",
+        "answer": "自我革新",
+        "id": "1798736713208561666",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "共同富裕是全体人民共同富裕，是人民群众____和____都富裕。",
+        "option": "",
+        "answer": "物质生活，精神生活",
+        "id": "1798736713233727490",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "在中共八大上作《政治报告》的是____",
+        "option": "",
+        "answer": "刘少奇",
+        "id": "1798736713124675585",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "实践证明，____是当代中国的鲜明标志和活力源泉，是决定中国命运的关键一招，也是实现中华民族伟大复兴的关键一招。",
+        "option": "",
+        "answer": "改革开放",
+        "id": "1798736713145647104",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "我国对资本主义工商业的社会主义改造所釆取的基本政策是____",
+        "option": "",
+        "answer": "和平赎买",
+        "id": "1798736713070149632",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "抗美援朝时期，中国人民志愿军司令员兼政治委员是____",
+        "option": "",
+        "answer": "彭德怀",
+        "id": "1798736713078538241",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1999年9月，党的十五届四中全会做出实施____大开发战略的决定。",
+        "option": "",
+        "answer": "西部",
+        "id": "1798736713187590145",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "1957年4月27日，中共中央下发《关于整风运动的指示》，决定在全党进行一场反官僚主义、宗派主义、____的整风运动",
+        "option": "",
+        "answer": "主观主义",
+        "id": "1798736713133064192",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "过渡时期的总路线简称_____",
+        "option": "",
+        "answer": "一化三改",
+        "id": "1798736713095315457",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "2010年中国经济总量超过日本，成为世界第____大经济体。",
+        "option": "",
+        "answer": "二",
+        "id": "1798736713208561664",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "揭开了改革开放的序幕，标志着中国进入了改革开放和社会主义现代化建设新时期的重大事件是____。",
+        "option": "",
+        "answer": "中共十一届三中全会",
+        "id": "1798736713162424320",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "NCH"
+    },
+    {
+        "questionStem": "中国特色社会主义进入新时代，意味着近代以来久经磨难的中华民族迎来了从____、____到____的伟大飞跃，迎来了实现中华民族伟大复兴的光明前景；",
+        "option": "",
+        "answer": "站起来，富起来，强起来",
+        "id": "1798736713225338881",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
@@ -3297,109 +3351,55 @@
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "科学发展观的第一要义是____",
+        "questionStem": "中国人民解放军完成全国大陆解放的标志性事件是____。",
         "option": "",
-        "answer": "发展",
-        "id": "1798736713200173056",
+        "answer": "西藏和平解放",
+        "id": "1798736713086926848",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "坚持尽力而为、____，是保障和改善民生的重要方针。",
+        "questionStem": "1950年10月，中国共产党和人民政府作出了派遭____入朝作战，抗美援朝、保家卫国。",
         "option": "",
-        "answer": "量力而行",
-        "id": "1798736713246310401",
+        "answer": "中国人民志愿军",
+        "id": "1798736713091121152",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "社会主义制度在中国确立的主要标志是____",
+        "questionStem": "中共中央正式提出过渡时期总路线是在____年",
         "option": "",
-        "answer": "社会主义改造的基本完成",
-        "id": "1798736713061761025",
+        "answer": "1953",
+        "id": "1798736713074343936",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "家庭联产承包责任制实行以后，农民对集体所有的土地具有充分的____。",
+        "questionStem": "____是最基本的民生，是劳动者赖以生存和发展的基础、共享经济发展成果的基本条件，关系到亿万劳动者及其家庭的切身利益。",
         "option": "",
-        "answer": "经营自主权",
-        "id": "1798736713162424322",
+        "answer": "就业",
+        "id": "1798736713250504704",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "____是民生之源，是改善民生、实现发展成果由人民共享最重要最直接的方式。",
+        "questionStem": "中国进入社会主义社会的主要标志是____",
         "option": "",
-        "answer": "收入分配",
-        "id": "1798736713246310402",
+        "answer": "社会主义三大改造的完成",
+        "id": "1798736713065955328",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
     },
     {
-        "questionStem": "周恩来提出知识分子中的绝大部分已经是____一部分的观点。",
+        "questionStem": "中国共产党制定的过渡时期总路线的主体是____",
         "option": "",
-        "answer": "工人阶级",
-        "id": "1798736713116286976",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "1957年4月27日，中共中央下发《关于整风运动的指示》，决定在全党进行一场反官僚主义、宗派主义、____的整风运动",
-        "option": "",
-        "answer": "主观主义",
-        "id": "1798736713133064192",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "毛泽东在《论十大关系》中提出的中国社会主义建设的基本方针是____为社会主义事业服务",
-        "option": "",
-        "answer": "调动一切积极因素",
-        "id": "1798736713124675584",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "中国特色社会主义进入新时代，意味着近代以来久经磨难的中华民族迎来了从____、____到____的伟大飞跃，迎来了实现中华民族伟大复兴的光明前景；",
-        "option": "",
-        "answer": "站起来，富起来，强起来",
-        "id": "1798736713225338881",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "____事关人民的生存生活生计，事关民心所向、民情所系、民意所指，决定党的事业成败和国家命运兴衰。",
-        "option": "",
-        "answer": "民生",
-        "id": "1798736713246310400",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "____是我们党的一次伟大觉醒，正是这个伟大觉醒孕育了我们党从理论到实践的伟大创造。",
-        "option": "",
-        "answer": "改革开放",
-        "id": "1798736713237921792",
-        "likeFlag": false,
-        "markFlag": false,
-        "abbreviationSubject": "NCH"
-    },
-    {
-        "questionStem": "对于政治思想领域的人民内部矛盾，实行“团结一批评—团结”的方针，坚持____、讨论的方法；",
-        "option": "",
-        "answer": "说服教育",
-        "id": "1798736713103704065",
+        "answer": "实现国家的社会主义工业化",
+        "id": "1798736713074343937",
         "likeFlag": false,
         "markFlag": false,
         "abbreviationSubject": "NCH"
