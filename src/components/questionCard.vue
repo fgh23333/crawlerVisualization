@@ -9,7 +9,7 @@
         <div class="breadCrumb" v-if="subjectShow.includes(lesson) && onSearch">
           {{ subjectList[lesson] }} - {{ questionType[type] }} - 搜索结果共{{ showList.length }}题
         </div>
-        <el-input class="input" placeholder="搜索题目（回车以搜索）" v-model="searchWord" @change="search" @input="changeInput"
+        <el-input class="input" placeholder="搜题（回车以搜索）" v-model="searchWord" @change="search" @input="changeInput"
           clearable>
         </el-input>
       </div>
@@ -377,8 +377,8 @@ export default {
     height: 68px;
 
     .input {
-      width: 30%;
-      margin-right: 40px;
+      width: 25%;
+      margin-right: 30px;
     }
 
     .breadCrumb {

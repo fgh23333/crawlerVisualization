@@ -2,7 +2,7 @@
     <div id="newHome">
         <modal></modal>
         <el-container>
-            <el-aside width="262px">
+            <el-aside :width="isCollapsed ? '0px' : '262px'" class="sidebar">
                 <router-link to="/newHome">
                     <div class="title">
                         <img src="@/assets/icon/icon-title.png" class="icon">
@@ -58,10 +58,12 @@
                     </router-link>
                 </div>
             </el-aside>
+            <div class="toggle-bar" @click="toggleSidebar">
+                <span class="arrow" :class="{ right: !isCollapsed }"></span>
+            </div>
             <el-container>
                 <el-main>
                     <router-view></router-view>
-
                     <!-- <el-popover placement="right" width="200" trigger="click">
                             <div class="menu">
                                 <div class="selection" @click="open()">
@@ -78,7 +80,6 @@
                                 <div class="text">设置</div>
                             </div>
                         </el-popover> -->
-
                 </el-main>
             </el-container>
         </el-container>
@@ -91,6 +92,7 @@ import modal from '@/components/modal.vue'
 export default {
     data() {
         return {
+            isCollapsed: false,
             list: [
                 {
                     subject: '马原',
@@ -149,6 +151,9 @@ export default {
                 message: '开发中，敬请期待'
             });
         },
+        toggleSidebar() {
+            this.isCollapsed = !this.isCollapsed;
+        },
     },
     components: {
         modal
@@ -195,6 +200,43 @@ export default {
 }
 
 #newHome {
+    .toggle-bar {
+        width: 24px;
+        cursor: pointer;
+        height: 100vh;
+        padding: 0px 6px;
+        float: left;
+        position: relative;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        background-color: rgba(230, 232, 240, 0.4);
+        transition: all 0.3s;
+    }
+
+    .toggle-bar:hover {
+        background-color: rgba(230, 232, 240, 0.8);
+    }
+
+    .arrow {
+        border: solid #bbb;
+        border-width: 0 4px 4px 0;
+        display: block;
+        padding: 6px;
+        transform: rotate(-45deg);
+        transition: transform 0.3s ease;
+    }
+
+    .arrow.right {
+        transform: rotate(135deg);
+        margin-left: -4px;
+        /* 折叠时向右箭头 */
+    }
+
     .el-main {
         background-color: #FAFBFF;
         color: #333;
@@ -203,8 +245,15 @@ export default {
         padding: 0;
     }
 
+    .sidebar {
+        transition: width 0.3s ease, opacity 0.3s ease;
+        /* 添加过渡动画 */
+        overflow: hidden;
+        position: relative;
+    }
+
     .el-aside {
-        background-color: white;
+        // background-color: white;
         color: #333;
         text-align: center;
         line-height: 200px;
