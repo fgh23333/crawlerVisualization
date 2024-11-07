@@ -234,7 +234,6 @@ export default {
     .arrow.right {
         transform: rotate(135deg);
         margin-left: -4px;
-        /* 折叠时向右箭头 */
     }
 
     .el-main {
@@ -247,14 +246,11 @@ export default {
 
     .sidebar {
         transition: width 0.3s ease, opacity 0.3s ease;
-        /* 添加过渡动画 */
         overflow: hidden;
         position: relative;
     }
 
     .el-aside {
-        // background-color: white;
-        color: #333;
         text-align: center;
         line-height: 200px;
         height: 100vh;
