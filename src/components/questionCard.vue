@@ -13,7 +13,7 @@
           clearable>
         </el-input>
       </div>
-<!--      <button @click="testMakePDF">测试导出</button>-->
+      <button @click="testMakePDF">测试导出pdf</button>
       <div v-if="showList == '' && onSearch">
         <el-empty description="搜索结果为空"></el-empty>
       </div>
@@ -164,8 +164,8 @@
 <script>
 import { mapActions } from "vuex";
 import Fuse from 'fuse.js';
-import pdfMake from 'pdfmake'
 import vfs_fonts from '../assets/vfs_fonts'
+import pdfMake from "pdfmake/build/pdfmake";
 
 export default {
   data() {
@@ -295,60 +295,81 @@ export default {
   },
   methods: {
     testMakePDF(){
-      pdfMake.vfs = vfs_fonts.pdfMake.vfs
+      const vfs_fonts = require('../assets/vfs_fonts');
+      pdfMake.vfs = vfs_fonts;
+
 // 定义字体
       pdfMake.fonts = {
         // webfont是字体名，可以自定义，下面需要用这个名字配置字体
         webfont: {
           // FZYTK.TTF 这个文件已经在 我们生成的 vfs_font.js 文件中，且已经引入，所以可以直接使用
-          normal: 'MiSans-Medium.ttf',
-          bold: 'MiSans-Heavy.ttf',
-          italics: 'MiSans-Normal.ttf',
-          bolditalics: 'MiSans-Medium.ttf'
+          normal: "MiSans-Medium.ttf",
+          bold: "MiSans-Heavy.ttf",
+          italics: "MiSans-Medium.ttf",
+          bolditalics: "MiSans-Medium.ttf",
         }
-      }
-
-
-// 定义pdfmake需要用的 pdf文件描述对象
+    };
+      // console.log(this.showList)
+      let temp = [];
+      this.showList.forEach((item, index) => {
+        if(item.option.length == 2){
+          temp.push({
+            text: index+1 + "、[判断]"+item.questionStem, fontSize: 14
+          })
+          temp.push({
+            text: "\t答案 | "+item.answer, fontSize: 14
+          })
+        }
+        else if(item.option.length > 3 && item.answer.length > 1){
+          temp.push({
+            text: index+1 + "、[多选]"+item.questionStem, fontSize: 14
+          })
+          item.option.forEach((item, index)=>{
+            temp.push({
+              text: "\t"+this.options[index]+"  "+item, fontSize: 14
+            })
+          })
+          temp.push({
+            text: "\t答案 | "+item.answer, fontSize: 14
+          })
+        }
+        else if(item.option.length == 4 && item.answer.length == 1){
+          temp.push({
+            text: index+1 + "、[单选]"+item.questionStem, fontSize: 14
+          })
+          item.option.forEach((item, index)=>{
+            temp.push({
+              text: "\t"+this.options[index]+"  "+item, fontSize: 14
+            })
+          })
+          temp.push({
+            text: "\t答案 | "+item.answer, fontSize: 14
+          })
+        }
+        else if(item.option == ''){
+          temp.push({
+            text: index+1 + "、[填空]"+item.questionStem, fontSize: 14
+          })
+          temp.push({
+            text: "\t答案 | "+item.answer, fontSize: 14
+          })
+        }
+        temp.push({
+          text: "\n"
+        })
+      })
+      // console.log(temp)
       var docDefinition = {
-        pageSize: 'A4',
-        content: [
-        // if you don't need styles, you can use a simple string to define a paragraph
-        'This is a standard paragraph, using default style',
-
-        // using a { text: '...' } object lets you set styling properties
-        { text: 'This paragraph will have a bigger font', fontSize: 15 },
-
-        // if you set pass an array instead of a string, you'll be able
-        // to style any fragment individually
-        {
-          text: [
-            'This paragraph is defined as an array of elements to make it possible to ',
-            { text: 'restyle part of it and make it bigger ', fontSize: 15 },
-            'than the rest.'
-          ]
-        }
-      ],//内容按照文档写即可
+        content: temp,
         defaultStyle: {
           // 设置我们定义的字体为默认字体
-          font: 'webfont'
+          font: "webfont",
         },
-        styles: {
-          cover: {
-            fontSize: 32, alignment: 'center', color: '#4472C4', margin: [0, 180, 0, 0]
-          },
-          tableExample: {
-            fontSize: 12, alignment: 'center'
-          },
-          header: {
-            bold: true, margin: [0, 4, 0, 0]
-          }
-        }
-      }
-// filename为自定义文件名
-      pdfMake.createPdf(docDefinition).download(filename, () => {
-        console.log('complete')
-      })
+      };
+
+      pdfMake.createPdf(docDefinition).download("题库", () => {
+        console.log("complete");
+      });
 
     },
     ...mapActions(['addLikeQuestion', 'removeLikeQuestion', 'addFavoriteQuestion', 'removeFavoriteQuestion']),
