@@ -164,7 +164,7 @@
 <script>
 import { mapActions } from "vuex";
 import Fuse from 'fuse.js';
-import pdfMake from 'pdfmake/build/pdfmake'
+import pdfMake from 'pdfmake'
 import vfs_fonts from '../assets/vfs_fonts'
 
 export default {

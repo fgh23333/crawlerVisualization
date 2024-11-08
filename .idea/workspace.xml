@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b85815fc-8803-4b78-920e-f2b6afc77c33" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/vfs_fonts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/questionCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/questionCard.vue" afterDir="false" />
     </list>
@@ -63,7 +62,7 @@
       <workItem from="1729476170972" duration="5794000" />
       <workItem from="1729487484073" duration="148000" />
       <workItem from="1729488582071" duration="3792000" />
-      <workItem from="1731034702593" duration="1588000" />
+      <workItem from="1731034702593" duration="2225000" />
     </task>
     <servers />
   </component>
