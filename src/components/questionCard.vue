@@ -183,10 +183,10 @@ import pdfMake from "pdfmake/build/pdfmake";
 export default {
   data() {
     return {
-      searchWord: "",
-      list: [],
-      showList: [],
-      onSearch: false,
+      searchWord: "",  //搜索框内容
+      list: [], //这个是此题库所有的题目列表
+      showList: [],  //这个是渲染在页面上的题目列表
+      onSearch: false,  //值为true表示显示搜索结果
       options: ['A', 'B', 'C', 'D', 'E'],
       subjectList: {
         'Marx': '马克思主义基本原理',
