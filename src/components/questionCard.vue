@@ -362,6 +362,10 @@ export default {
         fontSize: 10
       });
       temp.push({
+        text: `题库网站：https://bank.635262140.xyz/newHome`,
+        fontSize: 10
+      });
+      temp.push({
         text: "\n"
       })
       this.showList.forEach((item, index) => {
