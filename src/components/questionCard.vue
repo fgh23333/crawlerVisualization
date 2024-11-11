@@ -9,9 +9,23 @@
         <div class="breadCrumb" v-if="subjectShow.includes(lesson) && onSearch">
           {{ subjectList[lesson] }} - {{ questionType[type] }} - 搜索结果共{{ showList.length }}题
         </div>
-        <el-input class="input" placeholder="搜题（回车以搜索）" v-model="searchWord" @change="search" @input="changeInput"
-          clearable>
-        </el-input>
+        <div class="rightplace">
+<!--          搜索框-->
+          <el-input class="input" placeholder="搜题（回车以搜索）" v-model="searchWord" @change="search"
+                    @input="changeInput"
+                    clearable>
+          </el-input>
+<!--          更多功能-下拉菜单-导出pdf-->
+          <el-dropdown placement="bottom" class="dropdown" @command="handleCommand">
+            <el-button icon="el-icon-s-operation" type="text" size="medium">更多功能</el-button>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item command="savePDF">导出PDF</el-dropdown-item>
+                <el-dropdown-item command="printPDF">打印题库</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+        </div>
       </div>
       <div v-if="showList == '' && onSearch">
         <el-empty description="搜索结果为空"></el-empty>
@@ -25,13 +39,13 @@
             <div class="markAndLike">
               <transition name="fade" mode="out-in">
                 <img class="mark"
-                  :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                  @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                     :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
               </transition>
               <transition name="fade" mode="out-in">
                 <img class="like"
-                  :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                  @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                     :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
               </transition>
             </div>
             <div class="questionType">
@@ -57,13 +71,13 @@
             <div class="markAndLike">
               <transition name="fade" mode="out-in">
                 <img class="mark"
-                  :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                  @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                     :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
               </transition>
               <transition name="fade" mode="out-in">
                 <img class="like"
-                  :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                  @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                     :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
               </transition>
             </div>
             <div class="questionType">
@@ -88,13 +102,13 @@
             <div class="markAndLike">
               <transition name="fade" mode="out-in">
                 <img class="mark"
-                  :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                  @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                     :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
               </transition>
               <transition name="fade" mode="out-in">
                 <img class="like"
-                  :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                  @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                     :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
               </transition>
             </div>
             <div class="questionType">
@@ -125,13 +139,13 @@
             <div class="markAndLike">
               <transition name="fade" mode="out-in">
                 <img class="mark"
-                  :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                  @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                     :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
               </transition>
               <transition name="fade" mode="out-in">
                 <img class="like"
-                  :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                  @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                     :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
               </transition>
             </div>
             <div class="questionType">
@@ -161,16 +175,19 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import {mapActions} from "vuex";
 import Fuse from 'fuse.js';
+import vfs_fonts from '../assets/vfs_fonts'
+import pdfMake from "pdfmake/build/pdfmake";
+
 
 export default {
   data() {
     return {
-      searchWord: "",
-      list: [],
-      showList: [],
-      onSearch: false,
+      searchWord: "",  //搜索框内容
+      list: [], //这个是此题库所有的题目列表
+      showList: [],  //这个是渲染在页面上的题目列表
+      onSearch: false,  //值为true表示显示搜索结果
       options: ['A', 'B', 'C', 'D', 'E'],
       subjectList: {
         'Marx': '马克思主义基本原理',
@@ -291,6 +308,132 @@ export default {
     }
   },
   methods: {
+    handleCommand(e) {
+      if (e === "savePDF") {
+        this.testMakePDF("save")
+      }
+      if (e === "printPDF") {
+        this.testMakePDF("print")
+      }
+    },
+    formatDateTime() {
+      const date = new Date();
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      const seconds = String(date.getSeconds()).padStart(2, '0');
+
+      return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    },
+    testMakePDF(methed) {
+      const vfs_fonts = require('../assets/vfs_fonts');
+      pdfMake.vfs = vfs_fonts;
+
+// 定义字体
+      pdfMake.fonts = {
+        // webfont是字体名，可以自定义，下面需要用这个名字配置字体
+        webfont: {
+          // FZYTK.TTF 这个文件已经在 我们生成的 vfs_font.js 文件中，且已经引入，所以可以直接使用
+          normal: "MiSans-Medium.ttf",
+          bold: "MiSans-Heavy.ttf",
+          italics: "MiSans-Medium.ttf",
+          bolditalics: "MiSans-Medium.ttf",
+        }
+      };
+      // console.log(this.showList)
+      let temp = [];
+      let title = "题库";
+
+      if (this.subjectShow.includes(this.lesson) && this.onSearch) {
+        title = `${this.subjectList[this.lesson]} - ${this.questionType[this.type]} - '${this.searchWord}'搜索结果共${this.showList.length}题`
+        temp.push({
+          text: title,
+          fontSize: 16
+        })
+
+      }
+      if (this.subjectShow.includes(this.lesson) && !this.onSearch) {
+        title = `${this.subjectList[this.lesson]} - ${this.questionType[this.type]} - 共${this.list.length}题`
+        temp.push({
+          text: title,
+          fontSize: 16
+        });
+      }
+      temp.push({
+        text: this.formatDateTime(),
+        fontSize: 10
+      });
+      temp.push({
+        text: `题库网站：https://bank.635262140.xyz/newHome`,
+        fontSize: 10
+      });
+      temp.push({
+        text: "\n"
+      })
+      this.showList.forEach((item, index) => {
+        if (item.option.length == 2) {
+          temp.push({
+            text: index + 1 + "、[判断]" + item.questionStem, fontSize: 14
+          })
+          temp.push({
+            text: "\t答案 | " + item.answer, fontSize: 14
+          })
+        } else if (item.option.length > 3 && item.answer.length > 1) {
+          temp.push({
+            text: index + 1 + "、[多选]" + item.questionStem, fontSize: 14
+          })
+          item.option.forEach((item, index) => {
+            temp.push({
+              text: "\t" + this.options[index] + "  " + item, fontSize: 14
+            })
+          })
+          temp.push({
+            text: "\t答案 | " + item.answer, fontSize: 14
+          })
+        } else if (item.option.length == 4 && item.answer.length == 1) {
+          temp.push({
+            text: index + 1 + "、[单选]" + item.questionStem, fontSize: 14
+          })
+          item.option.forEach((item, index) => {
+            temp.push({
+              text: "\t" + this.options[index] + "  " + item, fontSize: 14
+            })
+          })
+          temp.push({
+            text: "\t答案 | " + item.answer, fontSize: 14
+          })
+        } else if (item.option == '') {
+          temp.push({
+            text: index + 1 + "、[填空]" + item.questionStem, fontSize: 14
+          })
+          temp.push({
+            text: "\t答案 | " + item.answer, fontSize: 14
+          })
+        }
+        temp.push({
+          text: "\n"
+        })
+      })
+      // console.log(temp)
+      var docDefinition = {
+        content: temp,
+        defaultStyle: {
+          // 设置我们定义的字体为默认字体
+          font: "webfont",
+        },
+      };
+      if(methed === "save"){
+        pdfMake.createPdf(docDefinition).download(title, () => {
+          console.log("complete");
+        });
+      }
+      if(methed === "print"){
+        pdfMake.createPdf(docDefinition).print();
+      }
+
+    },
     ...mapActions(['addLikeQuestion', 'removeLikeQuestion', 'addFavoriteQuestion', 'removeFavoriteQuestion']),
     changeFlag(flagType, i) {
       this.showList[i][flagType] = !this.showList[i][flagType]
@@ -376,10 +519,15 @@ export default {
     align-items: center;
     height: 68px;
 
-    .input {
-      width: 25%;
+    .rightplace {
       margin-right: 30px;
+
+      .input {
+        width: 500px;
+        margin-right: 20px;
+      }
     }
+
 
     .breadCrumb {
       color: #898799;
@@ -400,9 +548,9 @@ export default {
     margin: 15px 34px;
     border-radius: 24px;
     box-shadow: 0px -1px 8px 0px rgba(230, 232, 240, 0.9),
-      -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-      1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-      0px 1px 8px 0px rgba(230, 232, 240, 0.9);
+    -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+    1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+    0px 1px 8px 0px rgba(230, 232, 240, 0.9);
 
     .questionTypeCover {
       font-family: HarmonyOS Sans SC;
