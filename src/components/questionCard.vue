@@ -20,7 +20,8 @@
             <el-button icon="el-icon-s-operation" type="text" size="medium">更多功能</el-button>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item command="pdf">导出PDF</el-dropdown-item>
+                <el-dropdown-item command="savePDF">导出PDF</el-dropdown-item>
+                <el-dropdown-item command="printPDF">打印题库</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -308,8 +309,11 @@ export default {
   },
   methods: {
     handleCommand(e) {
-      if (e === "pdf") {
-        this.testMakePDF()
+      if (e === "savePDF") {
+        this.testMakePDF("save")
+      }
+      if (e === "printPDF") {
+        this.testMakePDF("print")
       }
     },
     formatDateTime() {
@@ -323,7 +327,7 @@ export default {
 
       return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     },
-    testMakePDF() {
+    testMakePDF(methed) {
       const vfs_fonts = require('../assets/vfs_fonts');
       pdfMake.vfs = vfs_fonts;
 
@@ -420,10 +424,14 @@ export default {
           font: "webfont",
         },
       };
-
-      pdfMake.createPdf(docDefinition).download(title, () => {
-        console.log("complete");
-      });
+      if(methed === "save"){
+        pdfMake.createPdf(docDefinition).download(title, () => {
+          console.log("complete");
+        });
+      }
+      if(methed === "print"){
+        pdfMake.createPdf(docDefinition).print();
+      }
 
     },
     ...mapActions(['addLikeQuestion', 'removeLikeQuestion', 'addFavoriteQuestion', 'removeFavoriteQuestion']),
