@@ -10,12 +10,12 @@
           {{ subjectList[lesson] }} - {{ questionType[type] }} - 搜索结果共{{ showList.length }}题
         </div>
         <div class="rightplace">
-          <-- 搜索框 -->
+<!--          搜索框-->
           <el-input class="input" placeholder="搜题（回车以搜索）" v-model="searchWord" @change="search"
                     @input="changeInput"
                     clearable>
           </el-input>
-          <-- 更多功能-下拉菜单-导出pdf -->
+<!--          更多功能-下拉菜单-导出pdf-->
           <el-dropdown placement="bottom" class="dropdown" @command="handleCommand">
             <el-button icon="el-icon-s-operation" type="text" size="medium">更多功能</el-button>
             <template #dropdown>
