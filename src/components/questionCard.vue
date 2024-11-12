@@ -332,8 +332,7 @@ export default {
           'Access-Control-Allow-Origin': '*', // 适用于跨域请求
         }
       });
-      console.log(response);
-      
+
       // 使用 eval 将字体文件内容解析并赋值给 pdfMake.vfs
       const vfsFonts = eval(response.data); // 请确保来源可信
       pdfMake.vfs = vfsFonts;
