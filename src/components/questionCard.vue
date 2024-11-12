@@ -328,7 +328,7 @@ export default {
     async testMakePDF(method) {
       const response = await axios.get('https://fonts.635262140.xyz/vfs_fonts.js', {
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/javascript',
           'Access-Control-Allow-Origin': '*', // 适用于跨域请求
         }
       });
