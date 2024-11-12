@@ -177,7 +177,7 @@
 import { mapActions } from "vuex";
 import Fuse from 'fuse.js';
 import axios from "axios";
-import pdfMake from "pdfmake/build/pdfmake";
+import pdfMake from 'pdfmake/build/pdfmake'
 
 export default {
   data() {
@@ -332,9 +332,11 @@ export default {
           'Access-Control-Allow-Origin': '*', // 适用于跨域请求
         }
       });
+      console.log(response);
+      
       // 使用 eval 将字体文件内容解析并赋值给 pdfMake.vfs
       const vfsFonts = eval(response.data); // 请确保来源可信
-      pdfMake.vfs = vfsFonts.pdfMake ? vfsFonts.pdfMake.vfs : vfsFonts;
+      pdfMake.vfs = vfsFonts;
 
       // 定义字体
       pdfMake.fonts = {

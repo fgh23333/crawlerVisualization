@@ -22,7 +22,7 @@
 
 <script>
 import questionCard from '@/components/questionCard.vue';
-import axios from 'axios';
+import pdfMake from 'pdfmake/build/pdfmake'
 
 export default {
     data() {
@@ -109,14 +109,14 @@ export default {
         async testMakePDF(method) {
             const response = await axios.get('https://fonts.635262140.xyz/vfs_fonts.js', {
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/javascript',
                     'Access-Control-Allow-Origin': '*', // 适用于跨域请求
                 }
             });
 
             // 使用 eval 将字体文件内容解析并赋值给 pdfMake.vfs
             const vfsFonts = eval(response.data); // 请确保来源可信
-            pdfMake.vfs = vfsFonts.pdfMake ? vfsFonts.pdfMake.vfs : vfsFonts;
+            pdfMake.vfs = vfsFonts;
 
             // 定义字体
             pdfMake.fonts = {
