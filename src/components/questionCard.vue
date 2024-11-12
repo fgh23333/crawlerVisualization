@@ -10,12 +10,11 @@
           {{ subjectList[lesson] }} - {{ questionType[type] }} - 搜索结果共{{ showList.length }}题
         </div>
         <div class="rightplace">
-<!--          搜索框-->
-          <el-input class="input" placeholder="搜题（回车以搜索）" v-model="searchWord" @change="search"
-                    @input="changeInput"
-                    clearable>
+          <!--          搜索框-->
+          <el-input class="input" placeholder="搜题（回车以搜索）" v-model="searchWord" @change="search" @input="changeInput"
+            clearable>
           </el-input>
-<!--          更多功能-下拉菜单-导出pdf-->
+          <!--          更多功能-下拉菜单-导出pdf-->
           <el-dropdown placement="bottom" class="dropdown" @command="handleCommand">
             <el-button icon="el-icon-s-operation" type="text" size="medium">更多功能</el-button>
             <template #dropdown>
@@ -39,13 +38,13 @@
             <div class="markAndLike">
               <transition name="fade" mode="out-in">
                 <img class="mark"
-                     :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                  :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                  @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
               </transition>
               <transition name="fade" mode="out-in">
                 <img class="like"
-                     :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                  :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                  @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
               </transition>
             </div>
             <div class="questionType">
@@ -71,13 +70,13 @@
             <div class="markAndLike">
               <transition name="fade" mode="out-in">
                 <img class="mark"
-                     :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                  :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                  @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
               </transition>
               <transition name="fade" mode="out-in">
                 <img class="like"
-                     :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                  :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                  @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
               </transition>
             </div>
             <div class="questionType">
@@ -102,13 +101,13 @@
             <div class="markAndLike">
               <transition name="fade" mode="out-in">
                 <img class="mark"
-                     :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                  :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                  @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
               </transition>
               <transition name="fade" mode="out-in">
                 <img class="like"
-                     :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                  :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                  @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
               </transition>
             </div>
             <div class="questionType">
@@ -139,13 +138,13 @@
             <div class="markAndLike">
               <transition name="fade" mode="out-in">
                 <img class="mark"
-                     :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                  :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                  @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
               </transition>
               <transition name="fade" mode="out-in">
                 <img class="like"
-                     :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                  :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                  @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
               </transition>
             </div>
             <div class="questionType">
@@ -175,11 +174,10 @@
 </template>
 
 <script>
-import {mapActions} from "vuex";
+import { mapActions } from "vuex";
 import Fuse from 'fuse.js';
-import vfs_fonts from '../assets/vfs_fonts'
+import axios from "axios";
 import pdfMake from "pdfmake/build/pdfmake";
-
 
 export default {
   data() {
@@ -327,11 +325,14 @@ export default {
 
       return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     },
-    testMakePDF(methed) {
-      const vfs_fonts = require('../assets/vfs_fonts');
-      pdfMake.vfs = vfs_fonts;
+    async testMakePDF(method) {
+      const response = await axios.get('https://fonts.635262140.xyz/vfs_fonts.js');
 
-// 定义字体
+      // 使用 eval 将字体文件内容解析并赋值给 pdfMake.vfs
+      const vfsFonts = eval(response.data); // 请确保来源可信
+      pdfMake.vfs = vfsFonts.pdfMake ? vfsFonts.pdfMake.vfs : vfsFonts;
+
+      // 定义字体
       pdfMake.fonts = {
         // webfont是字体名，可以自定义，下面需要用这个名字配置字体
         webfont: {
@@ -424,12 +425,12 @@ export default {
           font: "webfont",
         },
       };
-      if(methed === "save"){
+      if (method === "save") {
         pdfMake.createPdf(docDefinition).download(title, () => {
           console.log("complete");
         });
       }
-      if(methed === "print"){
+      if (method === "print") {
         pdfMake.createPdf(docDefinition).print();
       }
 
@@ -548,9 +549,9 @@ export default {
     margin: 15px 34px;
     border-radius: 24px;
     box-shadow: 0px -1px 8px 0px rgba(230, 232, 240, 0.9),
-    -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-    1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-    0px 1px 8px 0px rgba(230, 232, 240, 0.9);
+      -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+      1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+      0px 1px 8px 0px rgba(230, 232, 240, 0.9);
 
     .questionTypeCover {
       font-family: HarmonyOS Sans SC;
