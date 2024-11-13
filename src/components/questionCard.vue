@@ -326,6 +326,7 @@ export default {
       return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     },
     async testMakePDF(method) {
+      this.$message('文件生成中...');
       const response = await axios.get('https://fonts.635262140.xyz/vfs_fonts.js', {
         headers: {
           'Content-Type': 'application/javascript',
