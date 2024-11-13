@@ -16,7 +16,7 @@
           </el-input>
           <!--          更多功能-下拉菜单-导出pdf-->
           <el-dropdown placement="bottom" class="dropdown" @command="handleCommand">
-            <el-button icon="el-icon-s-operation" type="text" size="medium">更多功能</el-button>
+            <el-button icon="el-icon-s-operation" type="text" size="medium">工具</el-button>
             <template #dropdown>
               <el-dropdown-menu>
                 <el-dropdown-item command="savePDF">导出PDF</el-dropdown-item>
@@ -527,10 +527,11 @@ export default {
 
     .rightplace {
       margin-right: 30px;
-
+      width: 35%;
+      display: flex;
       .input {
-        width: 500px;
-        margin-right: 20px;
+
+        margin-right: 10px;
       }
     }
 
