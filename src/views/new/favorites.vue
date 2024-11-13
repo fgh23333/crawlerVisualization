@@ -23,6 +23,7 @@
 <script>
 import questionCard from '@/components/questionCard.vue';
 import pdfMake from 'pdfmake/build/pdfmake'
+import axios from 'axios';
 
 export default {
     data() {
