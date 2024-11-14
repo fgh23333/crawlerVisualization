@@ -176,9 +176,7 @@
 <script>
 import { mapActions } from "vuex";
 import Fuse from 'fuse.js';
-import axios from "axios";
-import pdfMake from 'pdfmake/build/pdfmake'
-import {makePdf} from "@/utils/makePdf";
+import { makePdf } from "@/utils/makePdf";
 
 export default {
   data() {
@@ -226,6 +224,10 @@ export default {
     subjectOptions: {
       type: String,
       default: 'all'
+    },
+    favList: {
+      type: Array,
+      default: []
     }
   },
   created() {
@@ -283,7 +285,11 @@ export default {
       this.lesson = to.params.lesson;
       this.type = to.params.type;
       if (this.$route.path == "/newHome/favorites") {
-        this.list = this.$store.state.likeList
+        if (this.favList) {
+          this.list = this.favList
+        } else {
+          this.list = this.$store.state.likeList
+        }
       } else {
         this.list = require(`../assets/${this.lesson}_${this.type}.json`);
         if (this.$store.state.wrongQuestions !== '' || this.$store.state.likeList !== '') {

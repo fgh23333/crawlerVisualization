@@ -19,19 +19,21 @@
                 </template>
             </el-dropdown>
         </div>
-        <questionCard :subjectOptions="value"></questionCard>
+        <questionCard :subjectOptions="value" :favList="showList"></questionCard>
     </div>
 </template>
 
 <script>
 import questionCard from '@/components/questionCard.vue';
-import pdfMake from 'pdfmake/build/pdfmake'
-import axios from 'axios';
-import {makePdf} from "@/utils/makePdf";
+import Fuse from 'fuse.js';
+import { makePdf } from "@/utils/makePdf";
 
 export default {
     data() {
         return {
+            showList: [],
+            onSearch: false,
+            searchWord: '',
             options: [
                 {
                     value: 'all',
@@ -88,34 +90,75 @@ export default {
                     label: 'CCPH',
                 }
             ],
-            value: 'all'
+            value: 'all',
+            list: ''
         }
     },
     methods: {
         handleCommand(e) {
-          let list = []
-
-          switch (this.value) {
-            case 'all':
-              list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
-              break;
-            case 'wrong':
-              list = this.$store.state.wrongQuestions
-              break;
-            case 'favorites':
-              list = this.$store.state.likeList
-              break;
-            default:
-              break;
-          }
+            let list = []
+            switch (this.value) {
+                case 'all':
+                    list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
+                    break;
+                case 'wrong':
+                    list = this.$store.state.wrongQuestions
+                    break;
+                case 'favorites':
+                    list = this.$store.state.likeList
+                    break;
+                default:
+                    break;
+            }
             if (e === "savePDF") {
-              makePdf("save", list, "收藏夹", this.$store, this.$message);
+                makePdf("save", list, "收藏夹", this.$store, this.$message);
             }
             if (e === "printPDF") {
-              makePdf("print", list, "收藏夹", this.$store, this.$message);
+                makePdf("print", list, "收藏夹", this.$store, this.$message);
             }
         },
-
+        changeInput() {
+            if (this.searchWord === "") {
+                switch (this.value) {
+                    case 'all':
+                        this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
+                        break;
+                    case 'wrong':
+                        this.list = this.$store.state.wrongQuestions
+                        break;
+                    case 'favorites':
+                        this.list = this.$store.state.likeList
+                        break;
+                    default:
+                        break;
+                }
+                this.showList = [...this.list]
+                this.onSearch = false
+            } else {
+                switch (this.value) {
+                    case 'all':
+                        this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
+                        break;
+                    case 'wrong':
+                        this.list = this.$store.state.wrongQuestions
+                        break;
+                    case 'favorites':
+                        this.list = this.$store.state.likeList
+                        break;
+                    default:
+                        break;
+                }
+            }
+        },
+        search() {
+            const fuseOptions = {
+                keys: ['questionStem']
+            };
+            const fuse = new Fuse(this.list, fuseOptions);
+            let temp = this.searchWord ? fuse.search(this.searchWord).map(result => result.item) : this.list;
+            this.showList = [...temp]
+            this.onSearch = this.searchWord === "" ? false : true
+        }
     },
     components: {
         questionCard
