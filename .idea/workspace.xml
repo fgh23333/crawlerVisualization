@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b85815fc-8803-4b78-920e-f2b6afc77c33" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/utils/makePdf.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/questionCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/questionCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/new/favorites.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/new/favorites.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/makePdf.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/makePdf.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +78,7 @@
       <workItem from="1731456747598" duration="24000" />
       <workItem from="1731473444551" duration="5645000" />
       <workItem from="1731497025116" duration="7000" />
-      <workItem from="1731549581571" duration="1865000" />
+      <workItem from="1731549581571" duration="2627000" />
     </task>
     <servers />
   </component>
