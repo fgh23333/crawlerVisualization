@@ -349,7 +349,7 @@ export default {
           bolditalics: "MiSans-Medium.ttf",
         }
       };
-      // console.log(this.showList)
+
       let temp = [];
       let title = "题库";
 
@@ -423,7 +423,7 @@ export default {
           text: "\n"
         })
       })
-      // console.log(temp)
+
       var docDefinition = {
         content: temp,
         defaultStyle: {
@@ -530,12 +530,11 @@ export default {
       margin-right: 30px;
       width: 35%;
       display: flex;
-      .input {
 
+      .input {
         margin-right: 10px;
       }
     }
-
 
     .breadCrumb {
       color: #898799;
@@ -548,7 +547,6 @@ export default {
       height: 68px;
     }
   }
-
 
   .questionCover {
     background-color: #FFFFFF;
