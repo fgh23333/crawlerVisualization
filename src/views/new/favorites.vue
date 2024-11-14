@@ -115,23 +115,32 @@ export default {
 #favorites {
     .titleCover {
         text-align: left;
+        line-height: 100px;
+        height: 100px;
+        position: relative;
 
         .title {
             font-weight: bold;
             font-size: 36px;
-            line-height: 104px;
             color: #6C5DD3;
             height: 36px;
             letter-spacing: 3px;
             width: fit-content;
-            margin-right: 36px;
+            margin-right: 30px;
             margin-left: 50px;
         }
 
+        .el-select {
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            position: absolute;
+            left: 197px;
+            top: 30px;
+        } 
+
         .selector {
             .select {
-                width: 188px;
-                height: 50px;
                 color: #5A5E70;
                 font-size: 24px;
                 line-height: 50px;
@@ -144,7 +153,7 @@ export default {
                 font-size: 24px;
                 line-height: 50px;
                 font-family: '思源黑体';
-                height: 50px;
+                height: 40px;
                 font-weight: 500;
             }
 
