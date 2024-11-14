@@ -178,6 +178,7 @@ import { mapActions } from "vuex";
 import Fuse from 'fuse.js';
 import axios from "axios";
 import pdfMake from 'pdfmake/build/pdfmake'
+import {makePdf} from "@/utils/makePdf";
 
 export default {
   data() {
@@ -307,139 +308,21 @@ export default {
   },
   methods: {
     handleCommand(e) {
-      if (e === "savePDF") {
-        this.testMakePDF("save")
-      }
-      if (e === "printPDF") {
-        this.testMakePDF("print")
-      }
-    },
-    formatDateTime() {
-      const date = new Date();
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const day = String(date.getDate()).padStart(2, '0');
-      const hours = String(date.getHours()).padStart(2, '0');
-      const minutes = String(date.getMinutes()).padStart(2, '0');
-      const seconds = String(date.getSeconds()).padStart(2, '0');
-
-      return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-    },
-    async testMakePDF(method) {
-      this.$message('文件生成中...');
-      const response = await axios.get('https://fonts.635262140.xyz/vfs_fonts.js', {
-        headers: {
-          'Content-Type': 'application/javascript',
-          'Access-Control-Allow-Origin': '*', // 适用于跨域请求
-        }
-      });
-
-      // 使用 eval 将字体文件内容解析并赋值给 pdfMake.vfs
-      const vfsFonts = eval(response.data); // 请确保来源可信
-      pdfMake.vfs = vfsFonts;
-
-      // 定义字体
-      pdfMake.fonts = {
-        // webfont是字体名，可以自定义，下面需要用这个名字配置字体
-        webfont: {
-          // FZYTK.TTF 这个文件已经在 我们生成的 vfs_font.js 文件中，且已经引入，所以可以直接使用
-          normal: "MiSans-Medium.ttf",
-          bold: "MiSans-Heavy.ttf",
-          italics: "MiSans-Medium.ttf",
-          bolditalics: "MiSans-Medium.ttf",
-        }
-      };
-      // console.log(this.showList)
-      let temp = [];
       let title = "题库";
 
       if (this.subjectShow.includes(this.lesson) && this.onSearch) {
         title = `${this.subjectList[this.lesson]} - ${this.questionType[this.type]} - '${this.searchWord}'搜索结果共${this.showList.length}题`
-        temp.push({
-          text: title,
-          fontSize: 16
-        })
 
       }
       if (this.subjectShow.includes(this.lesson) && !this.onSearch) {
         title = `${this.subjectList[this.lesson]} - ${this.questionType[this.type]} - 共${this.list.length}题`
-        temp.push({
-          text: title,
-          fontSize: 16
-        });
       }
-      temp.push({
-        text: this.formatDateTime(),
-        fontSize: 10
-      });
-      temp.push({
-        text: `题库网站：https://bank.635262140.xyz/newHome`,
-        fontSize: 10
-      });
-      temp.push({
-        text: "\n"
-      })
-      this.showList.forEach((item, index) => {
-        if (item.option.length == 2) {
-          temp.push({
-            text: index + 1 + "、[判断]" + item.questionStem, fontSize: 14
-          })
-          temp.push({
-            text: "\t答案 | " + item.answer, fontSize: 14
-          })
-        } else if (item.option.length > 3 && item.answer.length > 1) {
-          temp.push({
-            text: index + 1 + "、[多选]" + item.questionStem, fontSize: 14
-          })
-          item.option.forEach((item, index) => {
-            temp.push({
-              text: "\t" + this.options[index] + "  " + item, fontSize: 14
-            })
-          })
-          temp.push({
-            text: "\t答案 | " + item.answer, fontSize: 14
-          })
-        } else if (item.option.length == 4 && item.answer.length == 1) {
-          temp.push({
-            text: index + 1 + "、[单选]" + item.questionStem, fontSize: 14
-          })
-          item.option.forEach((item, index) => {
-            temp.push({
-              text: "\t" + this.options[index] + "  " + item, fontSize: 14
-            })
-          })
-          temp.push({
-            text: "\t答案 | " + item.answer, fontSize: 14
-          })
-        } else if (item.option == '') {
-          temp.push({
-            text: index + 1 + "、[填空]" + item.questionStem, fontSize: 14
-          })
-          temp.push({
-            text: "\t答案 | " + item.answer, fontSize: 14
-          })
-        }
-        temp.push({
-          text: "\n"
-        })
-      })
-      // console.log(temp)
-      var docDefinition = {
-        content: temp,
-        defaultStyle: {
-          // 设置我们定义的字体为默认字体
-          font: "webfont",
-        },
-      };
-      if (method === "save") {
-        pdfMake.createPdf(docDefinition).download(title, () => {
-          console.log("complete");
-        });
+      if (e === "savePDF") {
+        makePdf("save", this.showList, title, this.$store, this.$message);
       }
-      if (method === "print") {
-        pdfMake.createPdf(docDefinition).print();
+      if (e === "printPDF") {
+        makePdf("print", this.showList, title, this.$store, this.$message);
       }
-
     },
     ...mapActions(['addLikeQuestion', 'removeLikeQuestion', 'addFavoriteQuestion', 'removeFavoriteQuestion']),
     changeFlag(flagType, i) {

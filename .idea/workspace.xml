@@ -5,13 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b85815fc-8803-4b78-920e-f2b6afc77c33" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/src/utils/makePdf.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/questionCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/questionCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/new/favorites.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/new/favorites.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,6 +53,9 @@
       <recent name="D:\Androidbuild\crawlerVisualization\src\assets" />
       <recent name="D:\Androidbuild\crawlerVisualization\node_modules\pdfmake\examples\fonts" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Androidbuild\crawlerVisualization\src" />
+    </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -66,7 +79,9 @@
       <workItem from="1731046132739" duration="2460000" />
       <workItem from="1731302403851" duration="5425000" />
       <workItem from="1731456747598" duration="24000" />
-      <workItem from="1731473444551" duration="1809000" />
+      <workItem from="1731473444551" duration="5645000" />
+      <workItem from="1731497025116" duration="7000" />
+      <workItem from="1731549581571" duration="1865000" />
     </task>
     <servers />
   </component>

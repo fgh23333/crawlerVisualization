@@ -27,7 +27,8 @@ export default new Vuex.Store({
     questionBank: [],
     results: [],
     likeList: [],
-    score: null
+    score: null,
+    fonts: null
   },
   getters: {
     getQuestionsByType: (state) => (type) => {
