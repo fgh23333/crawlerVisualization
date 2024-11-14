@@ -6,18 +6,18 @@
                 <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                 </el-option>
             </el-select>
-            <el-input class="input" placeholder="搜题（回车以搜索）" v-model="searchWord" @change="search" @input="changeInput"
-                clearable>
-            </el-input>
-            <el-dropdown placement="bottom" class="dropdown" @command="handleCommand">
-                <el-button icon="el-icon-s-operation" type="text" size="medium">更多功能</el-button>
-                <template #dropdown>
-                    <el-dropdown-menu>
-                        <el-dropdown-item command="savePDF">导出PDF</el-dropdown-item>
-                        <el-dropdown-item command="printPDF">打印题库</el-dropdown-item>
-                    </el-dropdown-menu>
-                </template>
-            </el-dropdown>
+<!--            <el-input class="input" placeholder="搜题（回车以搜索）" v-model="searchWord" @change="search" @input="changeInput"-->
+<!--                clearable>-->
+<!--            </el-input>-->
+<!--            <el-dropdown placement="bottom" class="dropdown" @command="handleCommand">-->
+<!--                <el-button icon="el-icon-s-operation" type="text" size="medium">更多功能</el-button>-->
+<!--                <template #dropdown>-->
+<!--                    <el-dropdown-menu>-->
+<!--                        <el-dropdown-item command="savePDF">导出PDF</el-dropdown-item>-->
+<!--                        <el-dropdown-item command="printPDF">打印题库</el-dropdown-item>-->
+<!--                    </el-dropdown-menu>-->
+<!--                </template>-->
+<!--            </el-dropdown>-->
         </div>
         <questionCard :subjectOptions="value" :favList="showList"></questionCard>
     </div>
@@ -117,48 +117,48 @@ export default {
                 makePdf("print", list, "收藏夹", this.$store, this.$message);
             }
         },
-        changeInput() {
-            if (this.searchWord === "") {
-                switch (this.value) {
-                    case 'all':
-                        this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
-                        break;
-                    case 'wrong':
-                        this.list = this.$store.state.wrongQuestions
-                        break;
-                    case 'favorites':
-                        this.list = this.$store.state.likeList
-                        break;
-                    default:
-                        break;
-                }
-                this.showList = [...this.list]
-                this.onSearch = false
-            } else {
-                switch (this.value) {
-                    case 'all':
-                        this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
-                        break;
-                    case 'wrong':
-                        this.list = this.$store.state.wrongQuestions
-                        break;
-                    case 'favorites':
-                        this.list = this.$store.state.likeList
-                        break;
-                    default:
-                        break;
-                }
-            }
-        },
-        search() {
-            const fuseOptions = {
-                keys: ['questionStem']
-            };
-            const fuse = new Fuse(this.list, fuseOptions);
-            let temp = this.searchWord ? fuse.search(this.searchWord).map(result => result.item) : this.list;
-            this.showList = [...temp]
-            this.onSearch = this.searchWord === "" ? false : true
-        }
+        // changeInput() {
+        //     if (this.searchWord === "") {
+        //         switch (this.value) {
+        //             case 'all':
+        //                 this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
+        //                 break;
+        //             case 'wrong':
+        //                 this.list = this.$store.state.wrongQuestions
+        //                 break;
+        //             case 'favorites':
+        //                 this.list = this.$store.state.likeList
+        //                 break;
+        //             default:
+        //                 break;
+        //         }
+        //         this.showList = [...this.list]
+        //         this.onSearch = false
+        //     } else {
+        //         switch (this.value) {
+        //             case 'all':
+        //                 this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
+        //                 break;
+        //             case 'wrong':
+        //                 this.list = this.$store.state.wrongQuestions
+        //                 break;
+        //             case 'favorites':
+        //                 this.list = this.$store.state.likeList
+        //                 break;
+        //             default:
+        //                 break;
+        //         }
+        //     }
+        // },
+        // search() {
+        //     const fuseOptions = {
+        //         keys: ['questionStem']
+        //     };
+        //     const fuse = new Fuse(this.list, fuseOptions);
+        //     let temp = this.searchWord ? fuse.search(this.searchWord).map(result => result.item) : this.list;
+        //     this.showList = [...temp]
+        //     this.onSearch = this.searchWord === "" ? false : true
+        // }
     },
     components: {
         questionCard

@@ -2,12 +2,18 @@
   <div id="questionCard">
     <div v-if="list == ''">暂无数据</div>
     <div v-else>
-      <div class="header" v-if="subjectShow.includes(lesson)">
+      <div class="header">
         <div class="breadCrumb" v-if="subjectShow.includes(lesson) && !onSearch">
           {{ subjectList[lesson] }} - {{ questionType[type] }} - 共{{ list.length }}题
         </div>
         <div class="breadCrumb" v-if="subjectShow.includes(lesson) && onSearch">
           {{ subjectList[lesson] }} - {{ questionType[type] }} - 搜索结果共{{ showList.length }}题
+        </div>
+        <div class="breadCrumb" v-if="!lesson && !onSearch">
+          共{{ showList.length }}题
+        </div>
+        <div class="breadCrumb" v-if="!lesson && onSearch">
+          搜索结果共{{ showList.length }}题
         </div>
         <div class="rightplace">
           <!--          搜索框-->
@@ -255,6 +261,8 @@ export default {
     this.showList = [...this.list]
     this.searchWord = ""
     this.onSearch = false
+    // console.log("lesson",this.lesson)
+
   },
   watch: {
     subjectOptions: {
@@ -323,6 +331,13 @@ export default {
       if (this.subjectShow.includes(this.lesson) && !this.onSearch) {
         title = `${this.subjectList[this.lesson]} - ${this.questionType[this.type]} - 共${this.list.length}题`
       }
+      if (!this.lesson && this.onSearch) {
+        title = `收藏夹 - '${this.searchWord}'搜索结果共${this.showList.length}题`
+
+      }
+      if (!this.lesson && !this.onSearch) {
+        title = `收藏夹-共${this.list.length}题`
+      }
       if (e === "savePDF") {
         makePdf("save", this.showList, title, this.$store, this.$message);
       }
@@ -373,14 +388,14 @@ export default {
       this.showList[i][flagType] = !this.showList[i][flagType]
     },
     changeInput() {
-      if (this.$route.path == '/newHome/favorites') {
-        return
-      } else {
+      // if (this.$route.path == '/newHome/favorites') {
+      //   return
+      // } else {
         if (this.searchWord === "") {
           this.showList = [...this.list]
           this.onSearch = false
         }
-      }
+      // }
     },
     search() {
       const fuseOptions = {
