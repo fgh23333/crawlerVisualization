@@ -6,6 +6,10 @@
                 <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                 </el-option>
             </el-select>
+            <el-checkbox-group v-model="selectedTypes" size="small" class="typeSelector">
+                <el-checkbox-button v-for="item in questionType" :label="Object.values(item)[0]"
+                    :key="Object.keys(item)[0]">{{ Object.values(item)[0] }}</el-checkbox-button>
+            </el-checkbox-group>
         </div>
         <questionCard :subjectOptions="value"></questionCard>
     </div>
@@ -18,6 +22,13 @@ import { makePdf } from "@/utils/makePdf";
 export default {
     data() {
         return {
+            questionType: [
+                { 'rightWrong': '判断' },
+                { 'singleChoice': '单选' },
+                { 'multipleChoice': '多选' },
+                { 'fillingBlank': '填空' }
+            ],
+            selectedTypes: [],
             options: [
                 {
                     value: 'all',
@@ -123,11 +134,9 @@ export default {
             font-weight: bold;
             font-size: 36px;
             color: #6C5DD3;
-            height: 36px;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             width: fit-content;
-            margin-right: 30px;
-            margin-left: 50px;
+            margin-left: 30px;
         }
 
         .el-select {
@@ -135,9 +144,15 @@ export default {
             height: 40px;
             line-height: 40px;
             position: absolute;
-            left: 197px;
+            left: 165px;
             top: 30px;
-        } 
+        }
+        
+        .typeSelector {
+            position: absolute;
+            left: 300px;
+            top: 0px;
+        }
 
         .selector {
             .select {
