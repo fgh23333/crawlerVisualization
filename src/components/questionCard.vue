@@ -231,10 +231,6 @@ export default {
       type: String,
       default: 'all'
     },
-    favList: {
-      type: Array,
-      default: []
-    }
   },
   created() {
     this.lesson = this.$route.params.lesson;
@@ -261,8 +257,6 @@ export default {
     this.showList = [...this.list]
     this.searchWord = ""
     this.onSearch = false
-    // console.log("lesson",this.lesson)
-
   },
   watch: {
     subjectOptions: {
@@ -388,14 +382,10 @@ export default {
       this.showList[i][flagType] = !this.showList[i][flagType]
     },
     changeInput() {
-      // if (this.$route.path == '/newHome/favorites') {
-      //   return
-      // } else {
-        if (this.searchWord === "") {
-          this.showList = [...this.list]
-          this.onSearch = false
-        }
-      // }
+      if (this.searchWord === "") {
+        this.showList = [...this.list]
+        this.onSearch = false
+      }
     },
     search() {
       const fuseOptions = {
