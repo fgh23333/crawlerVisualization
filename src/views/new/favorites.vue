@@ -152,6 +152,7 @@ export default {
             position: absolute;
             left: 300px;
             top: 0px;
+            font-size: 20px;
         }
 
         .selector {
