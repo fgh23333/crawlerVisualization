@@ -6,6 +6,9 @@
                 <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                 </el-option>
             </el-select>
+            <el-input class="input" placeholder="搜题（回车以搜索）" v-model="searchWord" @change="search" @input="changeInput"
+                clearable>
+            </el-input>
             <el-dropdown placement="bottom" class="dropdown" @command="handleCommand">
                 <el-button icon="el-icon-s-operation" type="text" size="medium">更多功能</el-button>
                 <template #dropdown>

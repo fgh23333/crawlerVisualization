@@ -413,12 +413,11 @@ export default {
       margin-right: 30px;
       width: 35%;
       display: flex;
-      .input {
 
+      .input {
         margin-right: 10px;
       }
     }
-
 
     .breadCrumb {
       color: #898799;
@@ -431,7 +430,6 @@ export default {
       height: 68px;
     }
   }
-
 
   .questionCover {
     background-color: #FFFFFF;
