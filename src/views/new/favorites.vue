@@ -11,7 +11,7 @@
                     item }}</el-checkbox-button>
             </el-checkbox-group>
         </div>
-        <questionCard :subjectOptions="value"></questionCard>
+        <questionCard :subjectOptions="value" :favList="list"></questionCard>
     </div>
 </template>
 
@@ -81,7 +81,31 @@ export default {
                 }
             ],
             value: 'all',
+            list: []
         }
+    },
+    watch: {
+        '$route': function (to, from) {
+            if (this.$route.path == "/newHome/favorites") {
+                
+                
+                switch (this.value) {
+                    case 'all':
+                        this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
+                        break
+                    case 'favorites':
+                        this.list = this.$store.state.likeList
+                        break
+                    case 'wrong':
+                        this.list = this.$store.state.wrongQuestions
+                        break
+                    default:
+                        return
+                }
+            } else {
+                return
+            }
+        },
     },
     methods: {
         handleCommand(e) {
@@ -106,6 +130,21 @@ export default {
                 makePdf("print", list, "收藏夹", this.$store, this.$message);
             }
         },
+    },
+    created() {        
+        switch (this.value) {
+            case 'all':
+                this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
+                break
+            case 'favorites':
+                this.list = this.$store.state.likeList
+                break
+            case 'wrong':
+                this.list = this.$store.state.wrongQuestions
+                break
+            default:
+                return
+        }
     },
     components: {
         questionCard

@@ -131,9 +131,9 @@ export default {
 <style lang="less">
 #examRecord {
     background-color: #FFFFFF;
-    padding: 24px;
+    padding: 20px;
     margin: 15px 0;
-    border-radius: 24px;
+    border-radius: 20px;
     box-shadow:
         0px -1px 8px 0px rgba(230, 232, 240, 0.9),
         -1px 0px 8px 0px rgba(230, 232, 240, 0.9),

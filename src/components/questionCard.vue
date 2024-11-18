@@ -231,6 +231,10 @@ export default {
       type: String,
       default: 'all'
     },
+    favList: {
+      type: Array,
+      default: []
+    }
   },
   created() {
     this.lesson = this.$route.params.lesson;
@@ -283,15 +287,20 @@ export default {
         }
       }
     },
+    favList: {
+      handler(newValue) {
+        if (this.$route.path == "/newHome/favorites") {
+          this.showList = newValue
+        } else {
+          return
+        }
+      }
+    },
     '$route': function (to, from) {
       this.lesson = to.params.lesson;
       this.type = to.params.type;
       if (this.$route.path == "/newHome/favorites") {
-        if (this.favList) {
-          this.list = this.favList
-        } else {
-          this.list = this.$store.state.likeList
-        }
+        return
       } else {
         this.list = require(`../assets/${this.lesson}_${this.type}.json`);
         if (this.$store.state.wrongQuestions !== '' || this.$store.state.likeList !== '') {
