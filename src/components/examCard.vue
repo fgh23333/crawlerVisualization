@@ -10,27 +10,34 @@
             <div class="questionStem">{{ question.questionStem }}</div>
             <div class="questionAnswer">
                 <div class="multiple" v-if="questionType == '多选'">
-                    <el-checkbox-group v-model="checkList" class="checkbox-group"
+                    <el-checkbox-group v-model="checkList" :disabled="examStatus" class="checkbox-group"
                         @change="updateOption(seq, checkList)">
                         <div v-for="(item, i) in question.option" class="answer">
-                            <el-checkbox :label="options[i]" :key="i" class="option checkbox-item">{{ options[i] + '、' +
-                                item }}</el-checkbox>
+                            <el-checkbox :label="options[i]" :key="i" class="option checkbox-item copyable-option">
+                                <span class="copyable-text">{{ options[i] + '、' + item }}</span>
+                            </el-checkbox>
                         </div>
                     </el-checkbox-group>
                 </div>
                 <div class="single" v-if="questionType == '判断' || questionType == '单选'">
                     <div v-for="(item, i) in question.option" :key="i" class="answer">
-                        <el-radio v-model="radio" :label="question.option.length == 2 ? item : options[i]"
-                            class="option" @change="updateOption(seq, radio)">{{ options[i] + '、' + item }}</el-radio>
+                        <el-radio v-model="radio" :disabled="examStatus"
+                            :label="question.option.length == 2 ? item : options[i]" class="option copyable-option"
+                            @change="updateOption(seq, radio)">
+                            <span class="copyable-text">{{ options[i] + '、' + item }}</span>
+                        </el-radio>
                     </div>
                 </div>
                 <div class="fillingBlank" v-if="questionType == '填空'">
-                    <el-input v-model="input" @change="updateOption(seq, input)" placeholder="请输入答案"></el-input>
+                    <el-input class="copyable-option" v-model="input" :disabled="examStatus"
+                        @change="updateOption(seq, input)" placeholder="请输入答案"></el-input>
                 </div>
                 <div class="trueAnswer" v-if="$store.state.answerList == ''">
                     <span class="colorBefore"></span>
-                    <span class="answerStatus true" v-if="$store.state.results[seq].questionId == question.id && $store.state.results[seq].isCorrect">回答正确</span>
-                    <span class="answerStatus false" v-if="$store.state.results[seq].questionId == question.id && !$store.state.results[seq].isCorrect">回答错误</span>
+                    <span class="answerStatus true"
+                        v-if="$store.state.results[seq].questionId == question.id && $store.state.results[seq].isCorrect">回答正确</span>
+                    <span class="answerStatus false"
+                        v-if="$store.state.results[seq].questionId == question.id && !$store.state.results[seq].isCorrect">回答错误</span>
                     <span class="correctAnswer">正确答案：</span>
                     <span class="answer">{{ question.answer }}</span>
                 </div>
@@ -40,8 +47,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-
 export default {
     data() {
         return {
@@ -61,6 +66,10 @@ export default {
         seq: {
             type: Number,
             default: 0
+        },
+        examStatus: {
+            type: Boolean,
+            default: false
         }
     },
     computed: {
@@ -102,6 +111,21 @@ export default {
     align-items: flex-start;
     /* 让复选框靠上对齐 */
 }
+
+/* 禁用选项的鼠标事件 */
+.copyable-option[disabled] {
+    pointer-events: none;
+
+    .copyable-text {
+        pointer-events: all !important;
+        /* 恢复文本的鼠标事件 */
+        user-select: text !important;
+        /* 允许文本被选中 */
+        cursor: text;
+    }
+}
+
+
 
 #examCard {
     background-color: #FFFFFF;

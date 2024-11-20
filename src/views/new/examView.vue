@@ -21,12 +21,12 @@
         <el-row>
             <el-col :span="18">
                 <div class="grid-content">
-                    <examCard v-for="(item, i) in questionList" :question="item" :key="i" :seq="i"></examCard>
+                    <examCard v-for="(item, i) in questionList" :question="item" :key="i" :seq="i" :examStatus="examStatus"></examCard>
                 </div>
             </el-col>
             <el-col :span="6">
                 <div class="grid-content examRecord">
-                    <examRecord></examRecord>
+                    <examRecord @examStatus="disableOpts"></examRecord>
                 </div>
             </el-col>
         </el-row>
@@ -96,7 +96,8 @@ export default {
             paperOptions: [],
             lesson: '',
             seq: '',
-            value: ''
+            value: '',
+            examStatus: false
         }
     },
     components: {
@@ -111,6 +112,9 @@ export default {
         },
         goBack() {
             this.$router.go(-1)
+        },
+        disableOpts(status) {
+            this.examStatus = status
         }
     },
     watch: {
@@ -126,6 +130,7 @@ export default {
         }
     },
     created() {
+        this.examStatus = false
         this.lesson = this.abbreviationSubjectList[this.$route.params.lesson]
         this.seq = this.$route.params.id
         this.paper = '试卷' + this.$route.params.id

@@ -106,6 +106,7 @@ export default {
                     cancelButtonText: '取消'
                 }).then(() => {
                     this.checkAnswer()
+                    this.$emit('examStatus', true)
                 }).catch(() => {
                     return
                 });
@@ -114,6 +115,7 @@ export default {
                     confirmButtonText: '确定',
                     callback: () => {
                         this.checkAnswer()
+                        this.$emit('examStatus', true)
                     }
                 });
             }
