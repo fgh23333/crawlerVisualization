@@ -7,11 +7,11 @@
                 </el-option>
             </el-select>
             <el-checkbox-group v-model="selectedTypes" size="small" class="typeSelector">
-                <el-checkbox-button v-for="item in questionType" :label="item" :key="item">{{
-                    item }}</el-checkbox-button>
+                <el-checkbox-button v-for="item in questionType" :key="item.value" :label="item.label">{{ item.value
+                    }}</el-checkbox-button>
             </el-checkbox-group>
         </div>
-        <questionCard :subjectOptions="value" :favList="list"></questionCard>
+        <questionCard :subjectOptions="value" :favList="list" :selectedTypes="selectedTypes"></questionCard>
     </div>
 </template>
 
@@ -22,8 +22,25 @@ import { makePdf } from "@/utils/makePdf";
 export default {
     data() {
         return {
-            questionType: ['判断', '单选', '多选', '填空'],
-            selectedTypes: [],
+            questionType: [
+                {
+                    value: '判断',
+                    label: 'rightWrong'
+                },
+                {
+                    value: '单选',
+                    label: 'singleChoice'
+                },
+                {
+                    value: '多选',
+                    label: 'multipleChoice'
+                },
+                {
+                    value: '填空',
+                    label: 'fillingBlank'
+                }
+            ],
+            selectedTypes: ['rightWrong', 'singleChoice', 'multipleChoice', 'fillingBlank'],
             options: [
                 {
                     value: 'all',
@@ -87,8 +104,6 @@ export default {
     watch: {
         '$route': function (to, from) {
             if (this.$route.path == "/newHome/favorites") {
-                
-                
                 switch (this.value) {
                     case 'all':
                         this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
@@ -131,7 +146,7 @@ export default {
             }
         },
     },
-    created() {        
+    created() {
         switch (this.value) {
             case 'all':
                 this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
