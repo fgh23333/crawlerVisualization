@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import questionCard from '../../components/questionCard.vue';
+import questionCard from '@/components/questionCard.vue';
 
 export default {
     data() {

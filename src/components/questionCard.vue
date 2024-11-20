@@ -380,30 +380,31 @@ export default {
       this.searchWord = ""
       this.onSearch = false
     },
+    // 监听题型筛选
     selectedTypes: {
       handler(newValue) {
-        // 清空显示列表
-        this.showList = [];
-
-        // 根据选中类型筛选题目
-        newValue.forEach((type) => {
-          const filteredQuestions = this.list.filter((question) => this.getQuestionType(question) === type);
-          this.showList.push(...filteredQuestions);
-        });
-
-        // 去重以防重复添加
-        this.showList = [...new Set(this.showList)];
+        if (Array.isArray(newValue)) {
+          this.updateShowList();
+        }
       },
-      immediate: true, // 初始化时立即触发
-      deep: true, // 深度监听
+      deep: true,
+    },
+    // 监听科目筛选
+    subjectFocus: {
+      handler(newValue) {
+        if (Array.isArray(newValue)) {
+          this.updateShowList();
+        }
+      },
+      deep: true,
     },
   },
   methods: {
     getQuestionType(question) {
-      const { options, answer } = question;
-      if (!options || options.length === 0) {
+      const { option, answer } = question;
+      if (!option || option.length === 0) {
         return "fillingBlank"; // 填空题
-      } else if (options.length === 2) {
+      } else if (option.length === 2) {
         return "rightWrong"; // 判断题
       } else if (answer.length === 1) {
         return "singleChoice"; // 单选题
@@ -413,18 +414,19 @@ export default {
       return null; // 未知题型
     },
     updateShowList(type, checked) {
-      if (checked) {
-        // 如果选中某个题型，将符合条件的题目加入显示列表
-        const filteredQuestions = this.showList.filter(
-          (question) => this.getQuestionType(question) === type
-        );
-        this.showlist.push(...filteredQuestions);
-      } else {
-        // 如果取消选中某个题型，将该类型的题目从显示列表中移除
-        this.showlist = this.showlist.filter(
-          (question) => this.getQuestionType(question) !== type
-        );
-      }
+      const validSelectedTypes = Array.isArray(this.selectedTypes) ? this.selectedTypes : [];
+      const validSelectedSubjects = Array.isArray(this.subjectFocus) ? this.subjectFocus : [];
+
+      // 筛选题目：题型和科目取交集
+      const filteredByType = validSelectedTypes.length
+        ? this.list.filter((question) => validSelectedTypes.includes(this.getQuestionType(question)))
+        : this.list; // 若未选择题型，保留所有题型
+
+      const filteredBySubject = validSelectedSubjects.length
+        ? filteredByType.filter((question) => validSelectedSubjects.includes(question.abbreviationSubject))
+        : filteredByType; // 若未选择科目，保留所有科目
+
+      this.showList = [...filteredBySubject];
     },
     handleCommand(e) {
       let title = "题库";
