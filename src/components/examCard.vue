@@ -125,8 +125,6 @@ export default {
     }
 }
 
-
-
 #examCard {
     background-color: #FFFFFF;
     padding: 14px 18px;
