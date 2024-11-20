@@ -10,7 +10,14 @@
           {{ subjectList[lesson] }} - {{ questionType[type] }} - 搜索结果共{{ showList.length }}题
         </div>
         <div class="breadCrumb" v-if="!lesson && !onSearch">
-          共{{ showList.length }}题
+          <span class="count">共{{ showList.length }}题</span>
+          <span class="subjectSelector">
+            <el-select v-model="subjectFocus" collapse-tags multiple placeholder="请选择">
+              <el-option v-for="(subjectOpt, i) in subjectOpts" :key="i" :label="subjectOpt.label"
+                :value="subjectOpt.value">
+              </el-option>
+            </el-select>
+          </span>
         </div>
         <div class="breadCrumb" v-if="!lesson && onSearch">
           搜索结果共{{ showList.length }}题
@@ -142,7 +149,6 @@
             </div>
           </div>
         </div>
-
         <div class="typeCover" v-if="showList[i].option.length > 3 && showList[i].answer.length > 1">
           <div class="questionTypeCover">
             <div class="left">
@@ -196,11 +202,50 @@ import { makePdf } from "@/utils/makePdf";
 export default {
   data() {
     return {
+      subjectFocus: [],
       searchWord: "",  //搜索框内容
       list: [], //这个是此题库所有的题目列表
       showList: [],  //这个是渲染在页面上的题目列表
       onSearch: false,  //值为true表示显示搜索结果
       options: ['A', 'B', 'C', 'D', 'E'],
+      subjectOpts: [
+        {
+          value: 'Marx',
+          label: '马原',
+        },
+        {
+          value: 'CMH',
+          label: '近代史'
+        },
+        {
+          value: 'Political',
+          label: '思政'
+        },
+        {
+          value: 'MaoIntro',
+          label: '毛概'
+        },
+        {
+          value: 'XiIntro',
+          label: '习概'
+        },
+        {
+          value: 'SDH',
+          label: '社主史'
+        },
+        {
+          value: 'NCH',
+          label: '新中国史'
+        },
+        {
+          value: 'CCPH',
+          label: '党史'
+        },
+        {
+          value: 'ORH',
+          label: '改开史'
+        },
+      ],
       subjectList: {
         'Marx': '马克思主义基本原理',
         'XiIntro': '习近平新时代中国特色社会主义思想概论',
@@ -504,6 +549,15 @@ export default {
       font-family: 思源黑体;
       margin-left: 34px;
       height: 68px;
+
+      .subjectSelector {
+        margin-left: 20px;
+
+        .el-select {
+          line-height: 40px;
+          width: 160px;
+        }
+      }
     }
   }
 

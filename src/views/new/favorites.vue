@@ -181,25 +181,25 @@ export default {
 
         .title {
             font-weight: bold;
-            font-size: 36px;
+            font-size: 30px;
             color: #6C5DD3;
             letter-spacing: 2px;
             width: fit-content;
-            margin-left: 30px;
+            margin-left: 16px;
         }
 
         .el-select {
-            width: 120px;
+            width: 100px;
             height: 40px;
             line-height: 40px;
             position: absolute;
-            left: 165px;
+            left: 120px;
             top: 30px;
         }
 
         .typeSelector {
             position: absolute;
-            left: 300px;
+            left: 230px;
             top: 0px;
             font-size: 20px;
         }
