@@ -176,7 +176,7 @@ export default {
 
     .examRecord {
         position: fixed;
-        width: 20%;
+        width: calc(20% - 20px);
     }
 }
 </style>

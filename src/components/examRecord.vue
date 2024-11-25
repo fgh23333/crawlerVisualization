@@ -132,7 +132,8 @@ export default {
 
 <style lang="less">
 #examRecord::-webkit-scrollbar {
-  display: none; /* 隐藏滚动条 */
+    display: none;
+    /* 隐藏滚动条 */
 }
 
 #examRecord {
@@ -147,7 +148,7 @@ export default {
         0px 1px 8px 0px rgba(230, 232, 240, 0.9);
     font-family: HarmonyOS Sans SC;
     overflow: auto;
-    height: calc(100vh - 135px);
+    height: min(calc(100vh - 135px), fit-content);
     scrollbar-width: none;
     -ms-overflow-style: none;
 
