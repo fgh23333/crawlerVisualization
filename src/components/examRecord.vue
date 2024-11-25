@@ -58,7 +58,7 @@ export default {
     watch: {
         '$store.state.answerList': {
             handler(newValue, oldValue) {
-                if (newValue === '') {       
+                if (newValue === '') {
                     return
                 } else {
                     this.status = newValue.map(item => {
@@ -131,6 +131,10 @@ export default {
 </script>
 
 <style lang="less">
+#examRecord::-webkit-scrollbar {
+  display: none; /* 隐藏滚动条 */
+}
+
 #examRecord {
     background-color: #FFFFFF;
     padding: 20px;
@@ -142,6 +146,10 @@ export default {
         1px 0px 8px 0px rgba(230, 232, 240, 0.9),
         0px 1px 8px 0px rgba(230, 232, 240, 0.9);
     font-family: HarmonyOS Sans SC;
+    overflow: auto;
+    height: calc(100vh - 135px);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
     .question-container {
         .typeTitle {
@@ -162,7 +170,7 @@ export default {
             .answer-status {
                 width: 28px;
                 height: 28px;
-                
+
                 font-weight: bold;
                 line-height: 28px;
                 border-radius: 8px;
