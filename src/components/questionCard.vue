@@ -318,7 +318,6 @@ export default {
     this.showAnswers = this.showList.map(() => this.defaultShowAnswer);
   },
   created() {
-    this.subjectOptions = 'all'
     this.lesson = this.$route.params.lesson;
     this.type = this.$route.params.type;
     if (this.$route.path == "/newHome/favorites") {
