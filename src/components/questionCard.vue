@@ -34,6 +34,8 @@
               <el-dropdown-menu>
                 <el-dropdown-item command="savePDF">导出PDF</el-dropdown-item>
                 <el-dropdown-item command="printPDF">打印题库</el-dropdown-item>
+                <el-dropdown-item command="updateDefaultSetting">{{ defaultShowAnswer ? '隐藏答案' : '显示答案'
+                  }}</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -71,8 +73,10 @@
               <div class="questionAnswer">
                 <span class="colorBefore"></span>
                 <span class="correctAnswer">正确答案：</span>
-                <span class="true" v-if="showList[i].answer == '正确'">{{ showList[i].answer }}</span>
-                <span class="false" v-if="showList[i].answer == '错误'">{{ showList[i].answer }}</span>
+                <span class="true" @click="toggleAnswer(i)" v-if="showList[i].answer == '正确'">{{ showAnswers[i] ?
+                  showList[i].answer : '点击显示答案' }}</span>
+                <span class="false" @click="toggleAnswer(i)" v-if="showList[i].answer == '错误'">{{ showAnswers[i] ?
+                  showList[i].answer : '点击显示答案' }}</span>
               </div>
             </div>
           </div>
@@ -105,7 +109,8 @@
               <div class="questionAnswer">
                 <span class="colorBefore"></span>
                 <span class="correctAnswer">正确答案：</span>
-                <span class="answer">{{ showList[i].answer }}</span>
+                <span class="answer" @click="toggleAnswer(i)">{{ showAnswers[i] ? showList[i].answer : '点击显示答案'
+                  }}</span>
               </div>
             </div>
           </div>
@@ -144,7 +149,8 @@
               <div class="questionAnswer">
                 <span class="colorBefore"></span>
                 <span class="correctAnswer">正确答案：</span>
-                <span class="answer">{{ showList[i].answer }}</span>
+                <span class="answer" @click="toggleAnswer(i)">{{ showAnswers[i] ? showList[i].answer : '点击显示答案'
+                  }}</span>
               </div>
             </div>
           </div>
@@ -183,7 +189,8 @@
               <div class="questionAnswer">
                 <span class="colorBefore"></span>
                 <span class="correctAnswer">正确答案：</span>
-                <span class="answer">{{ showList[i].answer }}</span>
+                <span class="answer" @click="toggleAnswer(i)">{{ showAnswers[i] ? showList[i].answer : '点击显示答案'
+                  }}</span>
               </div>
             </div>
           </div>
@@ -202,6 +209,8 @@ import { makePdf } from "@/utils/makePdf";
 export default {
   data() {
     return {
+      showAnswers: [],
+      defaultShowAnswer: false,
       subjectFocus: [],
       searchWord: "",  //搜索框内容
       list: [], //这个是此题库所有的题目列表
@@ -283,18 +292,33 @@ export default {
   props: {
     subjectOptions: {
       type: String,
-      default: 'all'
+      default: ''
     },
     favList: {
       type: Array,
-      default: []
+      default: () => {
+        return []
+      }
     },
     selectedTypes: {
       type: Array,
-      default: []
+      default: () => {
+        return []
+      }
     }
   },
+  mounted() {
+    const savedDefault = localStorage.getItem("defaultShowAnswer");
+    if (savedDefault !== null) {
+      this.defaultShowAnswer = JSON.parse(savedDefault);
+    } else {
+      localStorage.setItem("defaultShowAnswer", JSON.stringify(this.defaultShowAnswer));
+    }
+    // 初始化所有题目的显示状态
+    this.showAnswers = this.showList.map(() => this.defaultShowAnswer);
+  },
   created() {
+    this.subjectOptions = 'all'
     this.lesson = this.$route.params.lesson;
     this.type = this.$route.params.type;
     if (this.$route.path == "/newHome/favorites") {
@@ -400,6 +424,14 @@ export default {
     },
   },
   methods: {
+    toggleAnswer(index) {
+      this.$set(this.showAnswers, index, !this.showAnswers[index]);
+    },
+    updateDefaultSetting() {
+      this.defaultShowAnswer = !this.defaultShowAnswer
+      localStorage.setItem("defaultShowAnswer", JSON.stringify(this.defaultShowAnswer));
+      this.showAnswers = this.showList.map(() => this.defaultShowAnswer);
+    },
     getQuestionType(question) {
       const { option, answer } = question;
       if (!option || option.length === 0) {
@@ -429,27 +461,32 @@ export default {
       this.showList = [...filteredBySubject];
     },
     handleCommand(e) {
-      let title = "题库";
+      if (e == 'updateDefaultSetting') {
+        this.updateDefaultSetting()
+      } else {
+        let title = "题库";
 
-      if (this.subjectShow.includes(this.lesson) && this.onSearch) {
-        title = `${this.subjectList[this.lesson]} - ${this.questionType[this.type]} - '${this.searchWord}'搜索结果共${this.showList.length}题`
-      }
-      if (this.subjectShow.includes(this.lesson) && !this.onSearch) {
-        title = `${this.subjectList[this.lesson]} - ${this.questionType[this.type]} - 共${this.list.length}题`
-      }
-      if (!this.lesson && this.onSearch) {
-        title = `收藏夹 - '${this.searchWord}'搜索结果共${this.showList.length}题`
+        if (this.subjectShow.includes(this.lesson) && this.onSearch) {
+          title = `${this.subjectList[this.lesson]} - ${this.questionType[this.type]} - '${this.searchWord}'搜索结果共${this.showList.length}题`
+        }
+        if (this.subjectShow.includes(this.lesson) && !this.onSearch) {
+          title = `${this.subjectList[this.lesson]} - ${this.questionType[this.type]} - 共${this.list.length}题`
+        }
+        if (!this.lesson && this.onSearch) {
+          title = `收藏夹 - '${this.searchWord}'搜索结果共${this.showList.length}题`
 
+        }
+        if (!this.lesson && !this.onSearch) {
+          title = `收藏夹-共${this.list.length}题`
+        }
+        if (e === "savePDF") {
+          makePdf("save", this.showList, title, this.$store, this.$message);
+        }
+        if (e === "printPDF") {
+          makePdf("print", this.showList, title, this.$store, this.$message);
+        }
       }
-      if (!this.lesson && !this.onSearch) {
-        title = `收藏夹-共${this.list.length}题`
-      }
-      if (e === "savePDF") {
-        makePdf("save", this.showList, title, this.$store, this.$message);
-      }
-      if (e === "printPDF") {
-        makePdf("print", this.showList, title, this.$store, this.$message);
-      }
+
     },
     ...mapActions(['addLikeQuestion', 'removeLikeQuestion', 'addFavoriteQuestion', 'removeFavoriteQuestion']),
     changeFlag(flagType, i) {
