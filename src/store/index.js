@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
+import generateQuiz from "@/utils/quizGenerator";
 
 Vue.use(Vuex)
 
@@ -132,7 +133,7 @@ export default new Vuex.Store({
               isCorrect = userAnswer === question.answer;
               break;
           }
-          
+
           updateUserRecord(state.userRecords, question.id, isCorrect)
 
           // 保存结果到 results 数组
@@ -156,6 +157,9 @@ export default new Vuex.Store({
       // 计算得分，累加所有正确题目的数量
       state.score = state.results.filter(result => result.isCorrect).length;
       state.answerList = [];
+    },
+    SET_QUIZ(state, quiz) {
+      state.questionBank = quiz;
     }
   },
   actions: {
@@ -176,13 +180,19 @@ export default new Vuex.Store({
     },
     checkAnswer({ commit }) {
       commit('evaluateAnswers')
+    },
+    async generateQuiz({ commit }, payload) {
+      const [lesson, options] = payload
+      // 动态生成试卷
+      const quiz = await generateQuiz(lesson, options);
+      commit("SET_QUIZ", quiz);
     }
   },
   modules: {
   },
   plugins: [
     createPersistedState({
-      paths: ['wrongQuestions', 'likeList']
+      paths: ['wrongQuestions', 'likeList', 'userRecords']
     })
   ]
 })

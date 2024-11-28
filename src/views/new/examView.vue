@@ -8,7 +8,9 @@
             </template>
             <template v-slot:middle>
                 <div class="paperTitle">
-                    {{ lesson }} - 试卷 {{ seq }}
+                    <span>{{ lesson }} - </span>
+                    <span v-if="value !== 'random'">试卷 {{ seq }}</span>
+                    <span v-else>随机练习</span>
                 </div>
             </template>
             <template v-slot:right>
@@ -21,7 +23,9 @@
         <el-row>
             <el-col :span="18">
                 <div class="grid-content">
-                    <examCard v-for="(item, i) in questionList" :question="item" :key="i" :seq="i" :examStatus="examStatus"></examCard>
+                    <examCard v-for="(item, i) in questionList" :question="item" :key="i" :seq="i"
+                        :examStatus="examStatus">
+                    </examCard>
                 </div>
             </el-col>
             <el-col :span="6">
@@ -97,7 +101,8 @@ export default {
             lesson: '',
             seq: '',
             value: '',
-            examStatus: false
+            examStatus: false,
+            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro']
         }
     },
     components: {
@@ -106,7 +111,7 @@ export default {
         topBar
     },
     methods: {
-        ...mapActions(['loadQuestionBank']),
+        ...mapActions(['loadQuestionBank', 'generateQuiz']),
         getQuestion(lesson) {
             this.loadQuestionBank(require(`@/assets/cura/${lesson}_${this.$route.params.id}.json`))
         },
@@ -115,18 +120,63 @@ export default {
         },
         disableOpts(status) {
             this.examStatus = status
+        },
+        async getQuiz(type, lesson) {
+            if (type) {
+                await this.generateQuiz([lesson, {
+                    single: 20, // 单选题数量
+                    multiple: 15, // 多选题数量
+                    blank: 10, // 填空题数量
+                    trueFalse: 15 // 判断题数量
+                }]);
+            } else {
+                await this.generateQuiz([lesson, {
+                    single: 15, // 单选题数量
+                    multiple: 15, // 多选题数量
+                    blank: 5, // 填空题数量
+                    trueFalse: 15 // 判断题数量
+                }]);
+            }
         }
     },
     watch: {
         value: function (newval, oldval) {
             this.$router.push({ path: '/newHome/exam/' + this.$route.params.lesson + '/' + newval })
-            this.getQuestion(this.$route.params.lesson)
-            this.questionList = this.$store.state.questionBank
-            this.seq = this.$route.params.id
         },
-        '$route': function (to, from) {
-            this.getQuestion(this.$route.params.lesson)
-            this.questionList = this.$store.state.questionBank
+        '$route': async function (to, from) {
+            if (to.params == from.params) {
+                return
+            } else {
+                if (to.params.lesson === from.params.lesson) {
+                    if (to.params.id === 'random') {
+                        await this.getQuiz(this.newSubject.some(element => element == this.$route.params.lesson), this.$route.params.lesson)
+                    } else {
+                        this.getQuestion(this.$route.params.lesson)
+                    }
+                    this.questionList = this.$store.state.questionBank
+                    this.seq = this.$route.params.id
+                } else {
+                    this.paperOptions = []
+                    await this.getQuestion(to.params.lesson)
+                    this.questionList = this.$store.state.questionBank
+                    this.lesson = this.abbreviationSubjectList[this.$route.params.lesson]
+                    this.seq = this.$route.params.id
+                    this.paper = '试卷1'
+                    for (let i = 0; i < this.subjectList[this.$route.params.lesson].num; i++) {
+                        let temp = {
+                            value: i + 1,
+                            label: '试卷' + (i + 1)
+                        }
+                        this.paperOptions.push(temp)
+                    }
+                    const rest = {
+                        value: 'random',
+                        label: '随机练习'
+                    }
+                    this.paperOptions.push(rest)
+                }
+            }
+
         }
     },
     created() {
@@ -142,8 +192,8 @@ export default {
             this.paperOptions.push(temp)
         }
         const rest = {
-            value: 'residual',
-            label: '剩余题目'
+            value: 'random',
+            label: '随机练习'
         }
         this.paperOptions.push(rest)
         this.getQuestion(this.$route.params.lesson)
