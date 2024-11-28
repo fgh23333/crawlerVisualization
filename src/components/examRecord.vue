@@ -148,7 +148,7 @@ export default {
         0px 1px 8px 0px rgba(230, 232, 240, 0.9);
     font-family: HarmonyOS Sans SC;
     overflow: auto;
-    height: min(calc(100vh - 135px), fit-content);
+    height: calc(100vh - 135px);
     scrollbar-width: none;
     -ms-overflow-style: none;
 
