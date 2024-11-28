@@ -20,6 +20,25 @@ function isExists(list, question) {
   return list.some(favorite => favorite.id === question.id);
 }
 
+function updateUserRecord(userRecords, questionId, isCorrect) {
+  if (!userRecords[questionId]) {
+    userRecords[questionId] = {
+      questionId: questionId,
+      errorCount: 0,
+      attempted: 0,
+      lastErrorDate: null
+    };
+  }
+
+  const record = userRecords[questionId];
+  record.attempted += 1;
+
+  if (!isCorrect) {
+    record.errorCount += 1;
+    record.lastErrorDate = new Date().toISOString().split('T')[0];
+  }
+}
+
 export default new Vuex.Store({
   state: {
     wrongQuestions: [],
@@ -28,7 +47,8 @@ export default new Vuex.Store({
     results: [],
     likeList: [],
     score: null,
-    fonts: null
+    fonts: null,
+    userRecords: {}
   },
   getters: {
     getQuestionsByType: (state) => (type) => {
@@ -112,6 +132,8 @@ export default new Vuex.Store({
               isCorrect = userAnswer === question.answer;
               break;
           }
+          
+          updateUserRecord(state.userRecords, question.id, isCorrect)
 
           // 保存结果到 results 数组
           state.results.push({
