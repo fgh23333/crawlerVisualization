@@ -1,614 +1,614 @@
 [
-  {
-    "questionStem": "____运动推动了中国社会的思想启蒙。",
-    "option": "",
-    "answer": "新文化",
-    "id": "1798736711581171712",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "在新民主主义社会中，存在着五种经济成分，即社会主义性质的国营经济、半社会主义性质的合作社经济、____、私人资本主义经济和国家资本主义经济。",
-    "option": "",
-    "answer": "农民和手工业者的个体经济",
-    "id": "1798736711618920448",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "“贯彻‘三个代表’重要思想，关键在坚持与时俱进，核心在坚持____，本质在坚持执政为民。",
-    "option": "",
-    "answer": "党的先进性",
-    "id": "1798736711652474880",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是我们党打响武装反抗国民党反动派的第一枪。",
-    "option": "",
-    "answer": "南昌起义",
-    "id": "1798736711572783106",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____标志着中国共产党在政治上走向成熟",
-    "option": "",
-    "answer": "遵义会议",
-    "id": "1798736711602143233",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "周恩来提出了____中的绝大部分是工人阶级一部分的观点。",
-    "option": "",
-    "answer": "知识分子",
-    "id": "1798736711639891969",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "坚持中国共产党的领导，核心是坚持党的____。",
-    "option": "",
-    "answer": "先进性",
-    "id": "1798736711694417920",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "社会主义最大的优越性就是____，这是体现社会主义本质的一个东西。",
-    "option": "",
-    "answer": "共同富裕",
-    "id": "1798736711652474881",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "社会主义的根本任务是____，党和国家的工作重点是经济建设，这是党对我国社会主义建设经验教训和社会主要矛盾进行科学分析得出的最重要的结论。",
-    "option": "",
-    "answer": "发展生产力",
-    "id": "1798736711673446400",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是科学发展观的基本要求。",
-    "option": "",
-    "answer": "全面协调可持续",
-    "id": "1798736711707000832",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "党在这个过渡时期的总路线和总任务，是要在一个相当长的时期内，逐步实现国家的社会主义工业化，并逐步实现国家对农业、____的社会主义改造。",
-    "option": "",
-    "answer": "对手工业和对资本主义工商业",
-    "id": "1798736711623114753",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "“____”回答了社会主义的根本任务问题。",
-    "option": "",
-    "answer": "以经济建设为中心",
-    "id": "1798736711656669185",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "中国共产党的最早组织是在____建立的。",
-    "option": "",
-    "answer": "上海",
-    "id": "1798736711576977409",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "用____的方法改造资本主义工商业。",
-    "option": "",
-    "answer": "和平赎买",
-    "id": "1798736711627309057",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "毛泽东思想的活的灵魂，是贯串于上述各个组成部分的立场、观点和方法，它们有三个基本方面，即____、____、____。",
-    "option": "",
-    "answer": "实事求是，群众路线，独立自主",
-    "id": "1798736711589560321",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "农业社会主义改造大体上经历了互助组、____和____三个发展阶段。",
-    "option": "",
-    "answer": "初级社，高级社",
-    "id": "1798736711627309056",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "毛泽东思想是____的第一个重大理论成果。",
-    "option": "",
-    "answer": "马克思主义中国化时代化",
-    "id": "1798736711602143232",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "2017年，党的十九大把____确立为党必须长期坚持的指导思想并庄严地写入党章，实现了党的指导思想的与时俱进。",
-    "option": "",
-    "answer": "习近平新时代中国特色社会主义思想",
-    "id": "1798736711723778048",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是社会主义的生命，是我们党始终高扬的光辉旗帜。",
-    "option": "",
-    "answer": "人民民主",
-    "id": "1798736711711195137",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "坚持和发展马克思主义，必须同____相结合、同____相结合。",
-    "option": "",
-    "answer": "中国具体实际，中华优秀传统文化",
-    "id": "1798736711736360962",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是中国特色社会主义事业的领导核心。",
-    "option": "",
-    "answer": "中国共产党",
-    "id": "1798736711665057792",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "遵循自愿互利、____和国家帮助的原则，以互助合作的优越性吸引农民走互助合作道路。",
-    "option": "",
-    "answer": "典型示范",
-    "id": "1798736711623114754",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____标志着党探索中国社会主义建设道路的良好开端。",
-    "option": "",
-    "answer": "《论十大关系》",
-    "id": "1798736711631503360",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "毛泽东强调，____是社会主义国家政治生活的主题。",
-    "option": "",
-    "answer": "关于正确处理人民内部矛盾的问题",
-    "id": "1798736711631503362",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "“____”回答了社会主义的发展动力和外部条件问题。",
-    "option": "",
-    "answer": "坚持改革开放",
-    "id": "1798736711660863489",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是第一生产力，是先进生产力的集中体现和主要标志。",
-    "option": "",
-    "answer": "科学技术",
-    "id": "1798736711686029313",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "党的十八大以来，中国特色社会主义进入____，这是我国发展新的历史方位。",
-    "option": "",
-    "answer": "新时代",
-    "id": "1798736711719583746",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____的成功，标志着第一次国共合作正式形成。",
-    "option": "",
-    "answer": "国民党一大",
-    "id": "1798736711593754625",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "实践证明，____是当代中国的鲜明标志和活力源泉，是决定中国命运的关键一招，也是实现中华民族伟大复兴的关键一招。",
-    "option": "",
-    "answer": "改革开放",
-    "id": "1798736711677640706",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是共产党人精神上的“钙”，共产党人如果没有理想信念，精神上就会“缺钙”，就会得“软骨病”",
-    "option": "",
-    "answer": "理想信念",
-    "id": "1798736711732166656",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是我国改革开放和社会主义现代化建设的总设计师。",
-    "option": "",
-    "answer": "邓小平",
-    "id": "1798736711681835008",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "邓小平明确指出“应当把____问题提到全人类的高度来认识、要从这个高度去观察问题和解决问题”",
-    "option": "",
-    "answer": "发展",
-    "id": "1798736711644086272",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "党的____是党的全部工作和战斗力的基础。",
-    "option": "",
-    "answer": "基层组织",
-    "id": "1798736711698612224",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "党的七届二中全会提出了使中国“稳步地由农业国转变为工业国，____即“两个转变”同时并举的思想。",
-    "option": "",
-    "answer": "由新民主主义国家转变为社会主义国家",
-    "id": "1798736711618920449",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "坚持科学发展，必须加快转变____。",
-    "option": "",
-    "answer": "经济发展方式",
-    "id": "1798736711702806528",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是经济社会发展中最活跃、最具革命性的因素，是先进生产力的集中体现和主要标志。",
-    "option": "",
-    "answer": "科学技术",
-    "id": "1798736711702806529",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "1964年底，周恩来在三届全国人大一次会议上所作的政府工作报告中正式宣布，“把我国建设成为一个具有____、____、____的社会主义强国”。",
-    "option": "",
-    "answer": "现代农业，现代工业，现代国防和现代科学技术",
-    "id": "1798736711639891968",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____、____，是邓小平理论的精髓。",
-    "option": "",
-    "answer": "解放思想，实事求是",
-    "id": "1798736711656669184",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是中国有史以来最伟大的事件，也是二十世纪世界最伟大的事件之一。",
-    "option": "",
-    "answer": "新中国成立",
-    "id": "1798736711614726145",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是中国革命的首要对象。",
-    "option": "",
-    "answer": "帝国主义",
-    "id": "1798736711606337537",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "“____”回答了解放和发展生产力的政治保证问题。",
-    "option": "",
-    "answer": "坚持四项基本原则",
-    "id": "1798736711656669186",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "1978年12月召开的党的十一届三中全会，作出实行____的重大决策。",
-    "option": "",
-    "answer": "改革开放",
-    "id": "1798736711648280577",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____、敢于胜利，是党和人民不可战胜的强大精神力量。",
-    "option": "",
-    "answer": "敢于斗争",
-    "id": "1798736711732166657",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是科学发展观的第一要义。",
-    "option": "",
-    "answer": "推动经济社会发展",
-    "id": "1798736711698612225",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "社会主义民主政治的本质和核心是____。",
-    "option": "",
-    "answer": "人民当家作主",
-    "id": "1798736711711195138",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是科学发展观的根本方法。",
-    "option": "",
-    "answer": "统筹兼顾",
-    "id": "1798736711707000833",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "1978年12月召开的党的十一届三中全会，重新确立了____的思想路线。",
-    "option": "",
-    "answer": "实事求是",
-    "id": "1798736711648280576",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是党执政兴国的第一要务。",
-    "option": "",
-    "answer": "发展",
-    "id": "1798736711690223617",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____，标志着新民主主义革命的伟大开端。",
-    "option": "",
-    "answer": "五四运动",
-    "id": "1798736711572783104",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是中国特色社会主义理论体系的开篇之作。",
-    "option": "",
-    "answer": "邓小平理论",
-    "id": "1798736711681835009",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是中国特色社会主义最本质的特征，是中国特色社会主义制度的最大优势。",
-    "option": "",
-    "answer": "中国共产党的领导",
-    "id": "1798736711727972352",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "毛泽东指出，____、____和____，是中国共产党在中国革命中战胜敌人的三大法宝。",
-    "option": "",
-    "answer": "统一战线，武装斗争，党的建设",
-    "id": "1798736711581171713",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是一个民族最根本的事业，要面向现代化，面向世界，面向未来。",
-    "option": "",
-    "answer": "教育",
-    "id": "1798736711677640704",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是中国革命的主力军。",
-    "option": "",
-    "answer": "农民",
-    "id": "1798736711610531841",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是社会主义社会发展的直接动力。",
-    "option": "",
-    "answer": "改革",
-    "id": "1798736711677640705",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "1949年3月，党在河北平山县____召开七届二中全会。",
-    "option": "",
-    "answer": "西柏坡",
-    "id": "1798736711606337536",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是科学发展观的核心立场。",
-    "option": "",
-    "answer": "以人为本",
-    "id": "1798736711702806530",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "1920年8月，上海共产党组织正式成立，____任书记。",
-    "option": "",
-    "answer": "陈独秀",
-    "id": "1798736711589560320",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是中国革命最基本的动力。",
-    "option": "",
-    "answer": "无产阶级",
-    "id": "1798736711610531840",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "对于政治思想领域的人民内部矛盾，实行“团结一批评—团结”的方针，坚持____、____的方法；",
-    "option": "",
-    "answer": "说服教育，讨论",
-    "id": "1798736711631503361",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "全面深化改革总目标是完善和发展____、推进国家治理体系和治理能力现代化。",
-    "option": "",
-    "answer": "中国特色社会主义制度",
-    "id": "1798736711727972353",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "中国产生了____，这是开天辟地的大事变。",
-    "option": "",
-    "answer": "共产党",
-    "id": "1798736711572783105",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____是兴国之魂。",
-    "option": "",
-    "answer": "社会主义核心价值体系",
-    "id": "1798736711719583744",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "____都是我们党的生命线和根本工作路线，是我们党永葆青春活力和战斗力的重要传家宝。",
-    "option": "",
-    "answer": "群众路线",
-    "id": "1798736711597948929",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "出席一大的上海代表是____和____。",
-    "option": "",
-    "answer": "李达，李汉俊",
-    "id": "1798736711589560322",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "发展先进文化，必须坚持____在意识形态领域的指导地位",
-    "option": "",
-    "answer": "马克思主义",
-    "id": "1798736711686029314",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "“自力更生，____”是实现奋斗目标的根本立足点。",
-    "option": "",
-    "answer": "艰苦创业",
-    "id": "1798736711665057793",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  },
-  {
-    "questionStem": "党的十八大指出：建设中国特色社会主义，总依据是____，总布局是五位一体，总任务是实现社会主义现代化和中华民族伟大复兴。",
-    "option": "",
-    "answer": "社会主义初级阶段",
-    "id": "1798736711723778049",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "CCPH"
-  }
+    {
+        "questionStem": "党的十八大指出：建设中国特色社会主义，总依据是____，总布局是五位一体，总任务是实现社会主义现代化和中华民族伟大复兴。",
+        "option": "",
+        "answer": "社会主义初级阶段",
+        "id": "1798736711723778049",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "党在这个过渡时期的总路线和总任务，是要在一个相当长的时期内，逐步实现国家的社会主义工业化，并逐步实现国家对农业、____的社会主义改造。",
+        "option": "",
+        "answer": "对手工业和对资本主义工商业",
+        "id": "1798736711623114753",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是科学发展观的第一要义。",
+        "option": "",
+        "answer": "推动经济社会发展",
+        "id": "1798736711698612225",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____标志着党探索中国社会主义建设道路的良好开端。",
+        "option": "",
+        "answer": "《论十大关系》",
+        "id": "1798736711631503360",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是我国改革开放和社会主义现代化建设的总设计师。",
+        "option": "",
+        "answer": "邓小平",
+        "id": "1798736711681835008",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是中国革命的主力军。",
+        "option": "",
+        "answer": "农民",
+        "id": "1798736711610531841",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "1978年12月召开的党的十一届三中全会，重新确立了____的思想路线。",
+        "option": "",
+        "answer": "实事求是",
+        "id": "1798736711648280576",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "遵循自愿互利、____和国家帮助的原则，以互助合作的优越性吸引农民走互助合作道路。",
+        "option": "",
+        "answer": "典型示范",
+        "id": "1798736711623114754",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____，标志着新民主主义革命的伟大开端。",
+        "option": "",
+        "answer": "五四运动",
+        "id": "1798736711572783104",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "1920年8月，上海共产党组织正式成立，____任书记。",
+        "option": "",
+        "answer": "陈独秀",
+        "id": "1798736711589560320",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "邓小平明确指出“应当把____问题提到全人类的高度来认识、要从这个高度去观察问题和解决问题”",
+        "option": "",
+        "answer": "发展",
+        "id": "1798736711644086272",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "坚持中国共产党的领导，核心是坚持党的____。",
+        "option": "",
+        "answer": "先进性",
+        "id": "1798736711694417920",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "党的十八大以来，中国特色社会主义进入____，这是我国发展新的历史方位。",
+        "option": "",
+        "answer": "新时代",
+        "id": "1798736711719583746",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是中国特色社会主义最本质的特征，是中国特色社会主义制度的最大优势。",
+        "option": "",
+        "answer": "中国共产党的领导",
+        "id": "1798736711727972352",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "1949年3月，党在河北平山县____召开七届二中全会。",
+        "option": "",
+        "answer": "西柏坡",
+        "id": "1798736711606337536",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "用____的方法改造资本主义工商业。",
+        "option": "",
+        "answer": "和平赎买",
+        "id": "1798736711627309057",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是兴国之魂。",
+        "option": "",
+        "answer": "社会主义核心价值体系",
+        "id": "1798736711719583744",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是中国特色社会主义理论体系的开篇之作。",
+        "option": "",
+        "answer": "邓小平理论",
+        "id": "1798736711681835009",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是科学发展观的根本方法。",
+        "option": "",
+        "answer": "统筹兼顾",
+        "id": "1798736711707000833",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____、敢于胜利，是党和人民不可战胜的强大精神力量。",
+        "option": "",
+        "answer": "敢于斗争",
+        "id": "1798736711732166657",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "1964年底，周恩来在三届全国人大一次会议上所作的政府工作报告中正式宣布，“把我国建设成为一个具有____、____、____的社会主义强国”。",
+        "option": "",
+        "answer": "现代农业，现代工业，现代国防和现代科学技术",
+        "id": "1798736711639891968",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____标志着中国共产党在政治上走向成熟",
+        "option": "",
+        "answer": "遵义会议",
+        "id": "1798736711602143233",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "社会主义的根本任务是____，党和国家的工作重点是经济建设，这是党对我国社会主义建设经验教训和社会主要矛盾进行科学分析得出的最重要的结论。",
+        "option": "",
+        "answer": "发展生产力",
+        "id": "1798736711673446400",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "对于政治思想领域的人民内部矛盾，实行“团结一批评—团结”的方针，坚持____、____的方法；",
+        "option": "",
+        "answer": "说服教育，讨论",
+        "id": "1798736711631503361",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "周恩来提出了____中的绝大部分是工人阶级一部分的观点。",
+        "option": "",
+        "answer": "知识分子",
+        "id": "1798736711639891969",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是共产党人精神上的“钙”，共产党人如果没有理想信念，精神上就会“缺钙”，就会得“软骨病”",
+        "option": "",
+        "answer": "理想信念",
+        "id": "1798736711732166656",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "“自力更生，____”是实现奋斗目标的根本立足点。",
+        "option": "",
+        "answer": "艰苦创业",
+        "id": "1798736711665057793",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "在新民主主义社会中，存在着五种经济成分，即社会主义性质的国营经济、半社会主义性质的合作社经济、____、私人资本主义经济和国家资本主义经济。",
+        "option": "",
+        "answer": "农民和手工业者的个体经济",
+        "id": "1798736711618920448",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是党执政兴国的第一要务。",
+        "option": "",
+        "answer": "发展",
+        "id": "1798736711690223617",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是中国特色社会主义事业的领导核心。",
+        "option": "",
+        "answer": "中国共产党",
+        "id": "1798736711665057792",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "1978年12月召开的党的十一届三中全会，作出实行____的重大决策。",
+        "option": "",
+        "answer": "改革开放",
+        "id": "1798736711648280577",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是社会主义社会发展的直接动力。",
+        "option": "",
+        "answer": "改革",
+        "id": "1798736711677640705",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "2017年，党的十九大把____确立为党必须长期坚持的指导思想并庄严地写入党章，实现了党的指导思想的与时俱进。",
+        "option": "",
+        "answer": "习近平新时代中国特色社会主义思想",
+        "id": "1798736711723778048",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "“____”回答了解放和发展生产力的政治保证问题。",
+        "option": "",
+        "answer": "坚持四项基本原则",
+        "id": "1798736711656669186",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "“贯彻‘三个代表’重要思想，关键在坚持与时俱进，核心在坚持____，本质在坚持执政为民。",
+        "option": "",
+        "answer": "党的先进性",
+        "id": "1798736711652474880",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____运动推动了中国社会的思想启蒙。",
+        "option": "",
+        "answer": "新文化",
+        "id": "1798736711581171712",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是科学发展观的基本要求。",
+        "option": "",
+        "answer": "全面协调可持续",
+        "id": "1798736711707000832",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "党的七届二中全会提出了使中国“稳步地由农业国转变为工业国，____即“两个转变”同时并举的思想。",
+        "option": "",
+        "answer": "由新民主主义国家转变为社会主义国家",
+        "id": "1798736711618920449",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____、____，是邓小平理论的精髓。",
+        "option": "",
+        "answer": "解放思想，实事求是",
+        "id": "1798736711656669184",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是中国有史以来最伟大的事件，也是二十世纪世界最伟大的事件之一。",
+        "option": "",
+        "answer": "新中国成立",
+        "id": "1798736711614726145",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "全面深化改革总目标是完善和发展____、推进国家治理体系和治理能力现代化。",
+        "option": "",
+        "answer": "中国特色社会主义制度",
+        "id": "1798736711727972353",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "发展先进文化，必须坚持____在意识形态领域的指导地位",
+        "option": "",
+        "answer": "马克思主义",
+        "id": "1798736711686029314",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是社会主义的生命，是我们党始终高扬的光辉旗帜。",
+        "option": "",
+        "answer": "人民民主",
+        "id": "1798736711711195137",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是我们党打响武装反抗国民党反动派的第一枪。",
+        "option": "",
+        "answer": "南昌起义",
+        "id": "1798736711572783106",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____的成功，标志着第一次国共合作正式形成。",
+        "option": "",
+        "answer": "国民党一大",
+        "id": "1798736711593754625",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "中国共产党的最早组织是在____建立的。",
+        "option": "",
+        "answer": "上海",
+        "id": "1798736711576977409",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "坚持科学发展，必须加快转变____。",
+        "option": "",
+        "answer": "经济发展方式",
+        "id": "1798736711702806528",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "社会主义最大的优越性就是____，这是体现社会主义本质的一个东西。",
+        "option": "",
+        "answer": "共同富裕",
+        "id": "1798736711652474881",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "农业社会主义改造大体上经历了互助组、____和____三个发展阶段。",
+        "option": "",
+        "answer": "初级社，高级社",
+        "id": "1798736711627309056",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "中国产生了____，这是开天辟地的大事变。",
+        "option": "",
+        "answer": "共产党",
+        "id": "1798736711572783105",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "社会主义民主政治的本质和核心是____。",
+        "option": "",
+        "answer": "人民当家作主",
+        "id": "1798736711711195138",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "毛泽东思想是____的第一个重大理论成果。",
+        "option": "",
+        "answer": "马克思主义中国化时代化",
+        "id": "1798736711602143232",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "实践证明，____是当代中国的鲜明标志和活力源泉，是决定中国命运的关键一招，也是实现中华民族伟大复兴的关键一招。",
+        "option": "",
+        "answer": "改革开放",
+        "id": "1798736711677640706",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是第一生产力，是先进生产力的集中体现和主要标志。",
+        "option": "",
+        "answer": "科学技术",
+        "id": "1798736711686029313",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "党的____是党的全部工作和战斗力的基础。",
+        "option": "",
+        "answer": "基层组织",
+        "id": "1798736711698612224",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "毛泽东指出，____、____和____，是中国共产党在中国革命中战胜敌人的三大法宝。",
+        "option": "",
+        "answer": "统一战线，武装斗争，党的建设",
+        "id": "1798736711581171713",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "出席一大的上海代表是____和____。",
+        "option": "",
+        "answer": "李达，李汉俊",
+        "id": "1798736711589560322",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是科学发展观的核心立场。",
+        "option": "",
+        "answer": "以人为本",
+        "id": "1798736711702806530",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "“____”回答了社会主义的发展动力和外部条件问题。",
+        "option": "",
+        "answer": "坚持改革开放",
+        "id": "1798736711660863489",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "毛泽东思想的活的灵魂，是贯串于上述各个组成部分的立场、观点和方法，它们有三个基本方面，即____、____、____。",
+        "option": "",
+        "answer": "实事求是，群众路线，独立自主",
+        "id": "1798736711589560321",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是经济社会发展中最活跃、最具革命性的因素，是先进生产力的集中体现和主要标志。",
+        "option": "",
+        "answer": "科学技术",
+        "id": "1798736711702806529",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "“____”回答了社会主义的根本任务问题。",
+        "option": "",
+        "answer": "以经济建设为中心",
+        "id": "1798736711656669185",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是中国革命的首要对象。",
+        "option": "",
+        "answer": "帝国主义",
+        "id": "1798736711606337537",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是中国革命最基本的动力。",
+        "option": "",
+        "answer": "无产阶级",
+        "id": "1798736711610531840",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____是一个民族最根本的事业，要面向现代化，面向世界，面向未来。",
+        "option": "",
+        "answer": "教育",
+        "id": "1798736711677640704",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "毛泽东强调，____是社会主义国家政治生活的主题。",
+        "option": "",
+        "answer": "关于正确处理人民内部矛盾的问题",
+        "id": "1798736711631503362",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "____都是我们党的生命线和根本工作路线，是我们党永葆青春活力和战斗力的重要传家宝。",
+        "option": "",
+        "answer": "群众路线",
+        "id": "1798736711597948929",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    },
+    {
+        "questionStem": "坚持和发展马克思主义，必须同____相结合、同____相结合。",
+        "option": "",
+        "answer": "中国具体实际，中华优秀传统文化",
+        "id": "1798736711736360962",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CCPH"
+    }
 ]
