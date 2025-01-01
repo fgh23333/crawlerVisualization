@@ -74,9 +74,10 @@
                 <span class="colorBefore"></span>
                 <span class="correctAnswer">正确答案：</span>
                 <span class="true" @click="toggleAnswer(i)" v-if="showList[i].answer == '正确'">{{ showAnswers[i] ?
-                  showList[i].answer : '点击显示答案' }}</span>
+                  showList[i].answer : '' }}</span>
                 <span class="false" @click="toggleAnswer(i)" v-if="showList[i].answer == '错误'">{{ showAnswers[i] ?
-                  showList[i].answer : '点击显示答案' }}</span>
+                  showList[i].answer : '' }}</span>
+                <span class="answer" @click="toggleAnswer(i)" v-if="!showAnswers[i]">点击显示答案</span>
               </div>
             </div>
           </div>
