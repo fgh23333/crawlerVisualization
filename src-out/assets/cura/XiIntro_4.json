@@ -1,0 +1,763 @@
+[
+    {
+        "questionStem": "习近平新时代中国特色社会主义思想的思想主题是（）。",
+        "option": [
+            "实现中华民族伟大复兴",
+            "以人为中心",
+            "中国特色社会主义",
+            "实现两个“一百年”奋斗目标"
+        ],
+        "answer": "C",
+        "id": "1752929445003395072",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "坚持党管干部原则，落实好干部标准，树立正确用人导向，把（）作为干部选拔任用、考核评价的重要依据。",
+        "option": [
+            "考核结果",
+            "执行力和治理能力",
+            "治理能力",
+            "科学管理能力"
+        ],
+        "answer": "B",
+        "id": "1752929447012466688",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党的二十大报告指出，拥有（）理论指导是我们党坚定信仰信念、把握历史主动的根本所在。",
+        "option": [
+            "毛泽东思想",
+            "社会主义科学",
+            "改革开放",
+            "马克思主义科学"
+        ],
+        "answer": "D",
+        "id": "1752929444701405184",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "加强党的政治建设首要任务是（）。",
+        "option": [
+            "坚决做到“两个维护”",
+            "坚决增强”四个意识”",
+            "坚决坚定“四个自信”",
+            "坚决坚持“四个全面”"
+        ],
+        "answer": "A",
+        "id": "1752929445842255872",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党和国家监督体系是党在长期执政条件下实现（）的重要制度保障。",
+        "option": [
+            "自我创新、自我提高、自我完善、自我净化",
+            "自我净化、自我完善、自我革新、自我提高",
+            "自我创新、自我完善、自我提高、自我净化",
+            "自我净化、自我革新、自我完善、自我提高"
+        ],
+        "answer": "B",
+        "id": "1752929446878248960",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "中国化时代化马克思主义的“魂脉”是什么？",
+        "option": [
+            "马克思主义",
+            "全人类共同价值",
+            "中华优秀传统文化",
+            "社会主义核心价值观"
+        ],
+        "answer": "A",
+        "id": "1752929443879321600",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "当代中国文化区别于其他文化的根本标志是（）。",
+        "option": [
+            "吸收中国优秀传统文化",
+            "吸收革命文化",
+            "包括社会主义先进文化",
+            "坚持以马克思主义为指导"
+        ],
+        "answer": "D",
+        "id": "1752929446404292608",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "必须践行绿水青山就是金山银山的理念，坚持（）的基本国策，坚持节约优先、保护优先、自然恢复为主的方针，坚定走生产发展、生活富裕、生态良好的文明发展道路，建设美丽中国。",
+        "option": [
+            "节约资源和保护环境",
+            "节约资源和绿色发展",
+            "节约资源和协调发展",
+            "保护环境和绿色发展"
+        ],
+        "answer": "A",
+        "id": "1752929446794362880",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "中国共产党的政治优势是（）。",
+        "option": [
+            "坚持以科学理论引领、用科学理论武装",
+            "为了人民、依靠人民",
+            "勇于自我革命",
+            "坚持马克思主义的指导"
+        ],
+        "answer": "A",
+        "id": "1752929445070503936",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "中国特色社会主义最本质的特征（）。",
+        "option": [
+            "坚持与发展马克思主义",
+            "坚定不移走中国特色社会主义道路",
+            "中国共产党的领导",
+            "坚定制度自信"
+        ],
+        "answer": "C",
+        "id": "1752929445187944448",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "建设社会主义现代化在全面分析形势和任务的基础上，习近平总书记鲜明指出，当前和今后一个时期，我国发展（）。",
+        "option": [
+            "仍然处于社会主义初级阶段",
+            "仍然处于重要战略机遇期",
+            "仍然处于全面深化改革时期",
+            "仍然处于发展中国家"
+        ],
+        "answer": "B",
+        "id": "1752929445489934336",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "体现着一个国家一个民族的文化理想和精神高度，决定着文化的性质和方向的是（）。",
+        "option": [
+            "价值观",
+            "核心价值观",
+            "社会意志",
+            "上层建筑"
+        ],
+        "answer": "B",
+        "id": "1752929446341378048",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "马克思主义理论区别于其他理论的显著特征是（）。",
+        "option": [
+            "辩证性",
+            "实践性",
+            "人民性",
+            "科学性"
+        ],
+        "answer": "B",
+        "id": "1752929445036949504",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "我国社会主义法治建设的一条基本经验是（）。",
+        "option": [
+            "高举社会主义大旗",
+            "坚定不移走中国特色社会主义法治道路",
+            "把党的领导贯彻到依法治国全过程和各方面",
+            "坚持党的领导"
+        ],
+        "answer": "C",
+        "id": "1752929445775147008",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "首届中国国际进出口博览会举办地方（）。",
+        "option": [
+            "北京",
+            "海口",
+            "上海",
+            "深圳"
+        ],
+        "answer": "C",
+        "id": "1752929445691260928",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "2021年4月30日，中共中央政治局展开会议强调要压制地方各级党委和政府责任，实行党政同责，（）、严重管控“非粮化”，对在耕地保护方面有令不行、有禁不止、失职渎职的，要严格追究责任。",
+        "option": [
+            "遏制耕地“非农化”",
+            "严格管控“耕地红线”",
+            "遏制耕地“滥用化”",
+            "遏制耕地“污染化”"
+        ],
+        "answer": "A",
+        "id": "1752929446458818560",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "引领发展的第一动力是（）。",
+        "option": [
+            "协调",
+            "绿色",
+            "创新",
+            "开放"
+        ],
+        "answer": "C",
+        "id": "1752929445989056512",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党的二十大报告指出，十年来，我们确立和坚持（）在意识形态领域指导?地位的根本制度，社会主义核心价值观广泛传播，中华优秀传统文化得到创造性转化、创新性发展，文化事业日益繁荣，网络生态持续向好，意识形态领域形势?发生全局性、根本性转变。",
+        "option": [
+            "社会主义",
+            "共产主义",
+            "列宁主义",
+            "马克思主义"
+        ],
+        "answer": "D",
+        "id": "1752929444768514048",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党的先进性纯洁性基础在于（）。",
+        "option": [
+            "思想理论上的先进和纯洁",
+            "思想文化上的先进和纯洁",
+            "文化传统上的先进和纯洁",
+            "文化习俗上的先进和纯洁"
+        ],
+        "answer": "A",
+        "id": "1752929446387515392",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党的二十大报告指出，我们党作为世界上最大的马克思主义执政党，要始终赢得人民拥护、巩固长期执政地位，必须时刻保持（）的清醒和坚定。",
+        "option": [
+            "解决大党独有难题",
+            "赶考",
+            "为民造福，执政为民",
+            "发展"
+        ],
+        "answer": "A",
+        "id": "1752929444445552640",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "全面建成小康社会是（）",
+        "option": [
+            "“两个一百年”奋斗目标的第一个百年奋斗目标",
+            "党向人民做出的庄严承诺",
+            "党向历史做出的庄严承诺",
+            "全体中国人民的共同期盼"
+        ],
+        "answer": "ABCD",
+        "id": "1752929449998811136",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "必须牢记我们的共和国是中华人民共和国就需要（）",
+        "option": [
+            "始终把人民放在心中最高的位置",
+            "始终全心全意为人民服务",
+            "始终为人民利益而努力工作",
+            "始终未人民幸福而努力工作"
+        ],
+        "answer": "ABCD",
+        "id": "1752929451827527682",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党的十八大以来，以习近平同志为核心的党中央高瞻远瞩地提出了（）",
+        "option": [
+            "京津冀协调发展",
+            "长江经济带发展",
+            "长三角一体化发展",
+            "黄河流域生态保护和高质量发展"
+        ],
+        "answer": "ABCD",
+        "id": "1752929450997055488",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "中国式现代化是发展中国家的现代化，意味着（）",
+        "option": [
+            "开辟了后发国家走向现代化的崭新道路",
+            "拓展了发展中国家走向现代化的途径",
+            "为发展中国家走向现代化提供了一条新路",
+            "证明通往现代化的道路不止一条"
+        ],
+        "answer": "ABCD",
+        "id": "1752929451793973253",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "推动高质量发展的原因有（）",
+        "option": [
+            "保持经济持续健康发展的必然要求",
+            "适应我国社会主要矛盾的必然要求",
+            "全面建设社会主义现代化国家的必然要求",
+            "遵循经济发展规律发展的必然要求"
+        ],
+        "answer": "ABCD",
+        "id": "1752929451080941568",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "深刻把握世界百年未有之大变局与中华民族伟大复兴战略全局的关系，要求我们要（）",
+        "option": [
+            "立足大局",
+            "统筹全局",
+            "引领变局",
+            "开创新局"
+        ],
+        "answer": "ABCD",
+        "id": "1752929448384004096",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "共产党人要用自己的实际行动为实现中国特色社会主义共同理想和共产主义远大理想而不懈奋斗，就要（）",
+        "option": [
+            "“顶天立地”",
+            "胸怀远大理想",
+            "脚踏实地",
+            "知行合一"
+        ],
+        "answer": "ABCD",
+        "id": "1752929451710087168",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "反对形式主义要（）",
+        "option": [
+            "着力解决工作不实问题",
+            "抛弃私心杂念",
+            "克服浮躁情绪",
+            "督促领导干部树立正确政绩观"
+        ],
+        "answer": "ABCD",
+        "id": "1752929451454234624",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "大道至简，实干为要。做改革的促进派、实干家，必须坚持（）",
+        "option": [
+            "知行合一",
+            "真抓实干",
+            "埋头苦干",
+            "艰苦奋斗"
+        ],
+        "answer": "ABC",
+        "id": "1752929450602790912",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "协商民主在我国有根、有源、有生命力，源于中华民主长期以来形成了（）政治文化。",
+        "option": [
+            "天下为公",
+            "兼容并蓄",
+            "求同存异",
+            "家国同构"
+        ],
+        "answer": "ABC",
+        "id": "1752929451785584643",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党的二十大指出：中国式现代化是（），是（），是（），是（），是（）。",
+        "option": [
+            "人口规模巨大的现代化",
+            "全体人民共同富裕的现代化",
+            "物质文明和精神文明相协调的现代化",
+            "人与自然和谐共生的现代化",
+            "走和平发展道路的现代化"
+        ],
+        "answer": "ABCDE",
+        "id": "1752929444118396928",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "习近平新时代中国特色社会主义思想，(),以崭新的思想内容丰富和发展了马克思主义,形成了系统科学的理论体系。",
+        "option": [
+            "坚持马克思主义立场观点方法",
+            "坚持科学社会主义基本原则",
+            "科学总结世界社会主义运动经验教训",
+            "根据时代和实践发展变化"
+        ],
+        "answer": "ABCD",
+        "id": "1752929451915608066",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "全面依法治国的意义包括（）",
+        "option": [
+            "解决党和国家事业发展面临的重大问题",
+            "促进社会公平正义",
+            "确保党和国家长治久安",
+            "促进人民幸福安康"
+        ],
+        "answer": "ABCD",
+        "id": "1752929450653122560",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "中国特色社会主义在经济制度分配上（）",
+        "option": [
+            "坚持公有制为主体",
+            "多种所有制经济共同发展",
+            "坚持按劳分配为主体",
+            "多种分配方式并存"
+        ],
+        "answer": "ABCD",
+        "id": "1752929451861082116",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党的十八届三中全会提出全面深化改革，我们要着力增强改革的（）",
+        "option": [
+            "系统性",
+            "整体性",
+            "协调性",
+            "协同性"
+        ],
+        "answer": "ABC",
+        "id": "1752929451785584644",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "习近平新时代中国特色社会主义思想是解决当代中国前途命运问题的科学理论指引。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929451651366912",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "全面依法治国是社会主义法治建设的“全面升级版“，无论在法治理念还是在战略部署上，都是社会治理的一场深刻革命。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752929448744714240",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "习近平法治思想深刻回答了新时代为什么实行全面依法治国、怎样实行全面依法治国等一系列重大问题。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929451571675136",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "教育、科技、人才不是全面建设社会主义现代化国家的基础性、战略性支撑。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752929443979984896",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "经济全球化目前已经演进到经济全球化加速发展阶段。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752929448597913600",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "从“全面小康”到“总体小康”，从“全面建设”到“全面建成”，小康的标准不断提高提升、内涵不断拓展、要求不断提高。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752929448132345856",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "“党大还是法大“是一个政治陷阱，是一个伪命题。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929448878931968",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "坚持社会主义市场经济改革方向,核心问题是处理好政府和市场的关系,使市场在资源配置中起决定性作用和更好发挥政府作用。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929451538120704",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "进入新时代以来，我们党明确提出全面依法治国，并将其纳入“四个全面”战略布局予以有力推进。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929448677605376",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "经济全球化的根本动力在于生产力的发展。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929451588452352",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "防止腐败和思想文化建设要同步推进，让“有形之手”和“无形之手”同时发力。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929449256419328",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "党的十九届五中全会是在我国将进入新发展阶段、实现中华民族伟大复兴正处在关键时期召开的一次具有全局性、历史性意义的重要会议。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929449784901632",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "中国国际进出口博览会是迄今为止世界上第一个以进出口为主题的国家级展会。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1752929448514027520",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "一体推进不敢腐、不能腐、不想腐败，是我们党推进全面从严治党和反腐败斗争实践得科学总结。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929449239642112",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "坚持中国共产党的领导，不是不要民主了，而是要形成更广泛和更有效的民主。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1752929449633906688",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "当今世界，____仍然是时代主题，但并不太平。",
+        "option": "",
+        "answer": "和平与发展",
+        "id": "1781201441986183168",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "习近平强调“中国开放的大门只会____，永远____!”",
+        "option": "",
+        "answer": "越开越大，不会关上",
+        "id": "1781201438710431744",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "建设____是全面建成社会主义现代化强国的战略先导，是实现高水平科技自立自强的重要支撑，是促进全体人民共同富裕的有效途径，是以中国式现代化全面推进中华民族伟大复兴的基础工程。",
+        "option": "",
+        "answer": "教育强国",
+        "id": "1781201439381520384",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "____是我们党的生命线和根本工作路线，是我们党永葆青春活力和战斗力的重要传家宝。",
+        "option": "",
+        "answer": "群众路线",
+        "id": "1781201438366498816",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "全过程人民民主是全链条、全方位、____的民主。",
+        "option": "",
+        "answer": "全覆盖",
+        "id": "1781201439876448256",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "新时代以来，不断推动香港进入由乱到治走向____的新阶段。",
+        "option": "",
+        "answer": "由治及兴",
+        "id": "1781201442476916736",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "____就是人民，人民就是____，这是由我们党的性质、宗旨决定的。",
+        "option": "",
+        "answer": "江山，江山",
+        "id": "1781201438215503872",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "坚持以____为中心，是新时代坚持和发展中国特色社会主义的根本立场。",
+        "option": "",
+        "answer": "人民",
+        "id": "1781201438173560832",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "人民对____的向往就是党的奋斗目标。",
+        "option": "",
+        "answer": "美好生活",
+        "id": "1781201438328750080",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    },
+    {
+        "questionStem": "全面深化改革总目标是:完善和发展中国特色社会主义制度、推进____现代化。",
+        "option": "",
+        "answer": "国家治理体系和治理能力",
+        "id": "1781201438668488704",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "XiIntro"
+    }
+]

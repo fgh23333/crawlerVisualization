@@ -1,0 +1,762 @@
+[
+    {
+        "questionStem": "五四运动是一次真正的()",
+        "option": [
+            "群众运动",
+            "学生运动",
+            "工人运动",
+            "农民运动"
+        ],
+        "answer": "A",
+        "id": "1738827812913020928",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "20世纪中国经历了三次历史性巨变，其中第二次是指()",
+        "option": [
+            "社会主义改造的完成和全面建设社会",
+            "辛亥革命的胜利和中华民国的成立",
+            "新民主主义革命的胜利和人民民主专政制度的建立",
+            "中华人民共和国的成立和社会主义制度的建立"
+        ],
+        "answer": "D",
+        "id": "1738828013975371776",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "1900年春，清政府对义和团采取\"招抚\"政策，实际目的是()",
+        "option": [
+            "招安诱降",
+            "控制利用",
+            "镇压剿灭",
+            "任其发展"
+        ],
+        "answer": "B",
+        "id": "1738827644591407104",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "袁世凯取消帝制，在人民的唾骂声中死去是在()",
+        "option": [
+            "1912年",
+            "1914年",
+            "1916年",
+            "1918年"
+        ],
+        "answer": "C",
+        "id": "1738827740225732608",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "表明蒋介石彻底叛变革命的是()",
+        "option": [
+            "中山舰事件",
+            "“四—二”反革命政变",
+            "“整理党务案”",
+            "“七—五”反革命政变"
+        ],
+        "answer": "B",
+        "id": "1738827842512224256",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "1931年11月在江西省瑞金县成立的红色政权是()",
+        "option": [
+            "中华苏维埃共和国临时中央政府",
+            "中华民主共和国临时中央政府",
+            "人民共和国临时中央政府",
+            "工农共和国临时中央政府"
+        ],
+        "answer": "A",
+        "id": "1738827845456625664",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "《上海县竹枝词》有诗云：“卅年求富更求强，造炮成船法仿洋。海面未收功一战，总归虚牝掷金黄。”与上述内容有关的历史事件是()",
+        "option": [
+            "第二次鸦片战争",
+            "中法马尾海战",
+            "中日甲午战争",
+            "八国联军侵华"
+        ],
+        "answer": "C",
+        "id": "1738827664464019456",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "科举制是清政府在下列哪次活动中废除的？()",
+        "option": [
+            "洋务运动",
+            "戊戌变法",
+            "清末“新政”",
+            "“预备仿行宪政”"
+        ],
+        "answer": "C",
+        "id": "1738827723893112832",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "中法战争与甲午中日战争的失败，最深刻地表明了：()",
+        "option": [
+            "洋务派\"中学为体、西学为用\"的主张在中国行不通",
+            "中华民族富有反抗精神，帝国主义不能灭亡中国",
+            "中国民族民主革命必须坚持无产阶级领导",
+            "要取得反侵略斗争的胜利必须进行反封建斗争"
+        ],
+        "answer": "D",
+        "id": "1738827660013862912",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "_____和_____，是中国共产党人的精神支柱和政治灵魂，也是保持党的团结统一的思想基础。",
+        "option": [
+            "共产主义远大理想新时代中国特色社会主义共同理想",
+            "共产主义远大理想中国特色社会主义共同理想",
+            "共产主义崇高理想新时代中国特色社会主义共同理想",
+            "共产主义崇高理想中国特色社会主义共同理想"
+        ],
+        "answer": "B",
+        "id": "1738827988461420544",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "在民主革命时期，知识分子走向社会、与工农群众结合开始于()",
+        "option": [
+            "戊戌变法时期",
+            "五四运动时期",
+            "五卅运动时期",
+            "一二·九运动时期"
+        ],
+        "answer": "B",
+        "id": "1738827827895074816",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "中国的资产阶级民主革命是由()首先发动的",
+        "option": [
+            "维新派",
+            "保皇派",
+            "立宪派",
+            "革命派"
+        ],
+        "answer": "D",
+        "id": "1738827728523624448",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "大革命失败后，中国革命能够坚持和发展的根本原因是()",
+        "option": [
+            "肃清右倾投降主义路线",
+            "中国共产党依靠和领导农民进行土地革命",
+            "纠正“左”倾军事冒险计划",
+            "建立革命根据地"
+        ],
+        "answer": "B",
+        "id": "1738827842319286272",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "1948年4月，毛泽东完整地提出新民主主义革命总路线的著作是()",
+        "option": [
+            "《在晋绥干部会议上的讲话》",
+            "《目前形势和我们的任务》",
+            "《新民主主义论》",
+            "《将革命进行到底》"
+        ],
+        "answer": "A",
+        "id": "1738827942412156928",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "1940年5月，国民革命军第33集团军总司令()将军在枣宜会战中殉国。",
+        "option": [
+            "张自忠",
+            "张治中",
+            "张灵甫",
+            "张发奎"
+        ],
+        "answer": "A",
+        "id": "1738827898216775680",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "发展是解决我国一切问题的基础和关键，发展必须是科学发展，必须坚定不移贯彻____的发展理念。",
+        "option": [
+            "创新、协调、绿色、开放、共享",
+            "创造、协调、生态、开放、共享",
+            "创新、统筹、绿色、开放、共享",
+            "创造、统筹、生态、开放、共享"
+        ],
+        "answer": "A",
+        "id": "1738828006450790400",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "五四爱国运动的左翼骨干。其代表为()",
+        "option": [
+            "毛泽东",
+            "周恩来",
+            "董必武",
+            "何淑衡"
+        ],
+        "answer": "A",
+        "id": "1738827813240176640",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "社会主义改造基本完成后，中国社会的中心任务是()",
+        "option": [
+            "加强和改进党的建设，巩固党的执政地位",
+            "调动一切积极因素，为社会主义事业服务",
+            "正确处理人民内部矛盾，巩固社会主义制度",
+            "集中力量发展生产力，建设社会主义现代化强国"
+        ],
+        "answer": "D",
+        "id": "1738828015531458560",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "英国的大炮轰开了中国闭关自守的大门，使一些爱国知识分子从“天朝大国”的梦幻中凉醒，一股新思潮萌发了。这一新思潮的核心是()",
+        "option": [
+            "向西方寻求强国御侮之道",
+            "同西方展开“商战”保护本国权益",
+            "引进西方技术兴办近代工业",
+            "效法西方的君主立宪政治"
+        ],
+        "answer": "A",
+        "id": "1738827661058244608",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "1915年12月25日，反对袁世凯称帝，宣布云南独立的是()",
+        "option": [
+            "李烈钧",
+            "蔡锷",
+            "黄兴",
+            "唐继尧"
+        ],
+        "answer": "B",
+        "id": "1738827742893309952",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "建设一支____、____、____的人民军队，是实现“两个一百年”奋斗目标、实现中华民族伟大复兴的战略支撑。",
+        "option": [
+            "听党指挥",
+            "骁勇善战",
+            "能打胜仗",
+            "作风优良"
+        ],
+        "answer": "ACD",
+        "id": "1738827994853539840",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "“一五”期间，我国钢铁基地建设取得重大进展“是()",
+        "option": [
+            "鞍山",
+            "包头",
+            "武汉",
+            "长春"
+        ],
+        "answer": "ABC",
+        "id": "1738828021722251264",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "帝国主义通过什么手段对中国进行侵略？()",
+        "option": [
+            "军事侵略",
+            "政治控制",
+            "经济掠夺",
+            "文化渗透"
+        ],
+        "answer": "ABCD",
+        "id": "1738827666032689152",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "中国半殖民地半封建社会经济上的特征是()",
+        "option": [
+            "自然经济的基础虽然遭到破坏，但封建地主的土地所有制依然保持着",
+            "中国新兴的民族资本主义经济虽然已经产生，但始终不占地位",
+            "各地区经济、政治和文化的发展是极不平衡的",
+            "中国的广大人民过着饥寒交迫和毫无政治权利的生活"
+        ],
+        "answer": "AB",
+        "id": "1738827672076681216",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "加强社会治理制度建设，完善党委领导、政府负责、社会协同、公众参与、法治保障的社会治理体制，提高社会治理________水平。",
+        "option": [
+            "社会化",
+            "法治化",
+            "智能化",
+            "专业化"
+        ],
+        "answer": "ABCD",
+        "id": "1738827996543844352",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "中国共产党的早期组织在促进马克思主义和中国工人运动结合过程中创办的刊物有()",
+        "option": [
+            "《劳动界》",
+            "《劳动音》",
+            "《工人月刊》",
+            "《济南劳动月刊》"
+        ],
+        "answer": "ABCD",
+        "id": "1738827832945016832",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "1996年10月．中共十四届六中全会作出了《关于加强社会主义精神文明建设若干重要问题的决议》，对新形势下的精神文明建设作出了具体部署和规划，强调要",
+        "option": [
+            "以科学的理论武装人",
+            "以正确的舆论引导人",
+            "以高尚的精神塑造人",
+            "以优秀的作品鼓舞人"
+        ],
+        "answer": "ABCD",
+        "id": "1738827982031552512",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "抗战胜利后，美国支持国民党反共方针目的是()",
+        "option": [
+            "在中国建立稳定统一的全国性政权",
+            "为了让蒋介石政府成为它在亚洲的主要支持者，以此稳定它的亚洲战线",
+            "从“遏制苏联”这个总的战略考虑和反对人民革命的一贯立场出发，担心“一个共产党统治的中国将在政治、经济和军事上和苏联结成紧密的联盟”，担心中国革命的胜利会对整个亚洲发生深刻的影响",
+            "为了维护美国在中国的殖民主义利益，即为了便于使战后的中国成为它倾销商品、获取廉价原料和进行自由投资的场所"
+        ],
+        "answer": "BCD",
+        "id": "1738827943645282304",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "下列哪些是1949年3月七届二中全会的内容()",
+        "option": [
+            "规定了党在全国胜利后在政治、经济、外交方面应当采取的基本政策",
+            "指出了中国由农业国转变为工业国、由新民主主义社会转变为社会主义社会的发展方向",
+            "毛泽东告诫全党，夺取全国胜利，这只是万里长征走完了第一步，革命以后的路更长，工作更伟大，更艰苦",
+            "毛泽东提出了“两个务必”的思想，即“务必使同志们继续地保持谦虚、谨慎、不骄、不躁的作风，务必使同志们继续低保持艰苦奋斗的作风”"
+        ],
+        "answer": "ABCD",
+        "id": "1738827945021014016",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "1861年，维克多?雨果在给朋友的信中怒斥火烧圆明园的罪行：“在我们眼中，中国人是野蛮人，可是你看文明人对野蛮人干了些什么！”信中的“文明人”指()",
+        "option": [
+            "英国军队",
+            "法国军队",
+            "俄国军队",
+            "八国联军"
+        ],
+        "answer": "AB",
+        "id": "1738827670453485568",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "毛泽东提出的繁荣科学文化的基本方针有()",
+        "option": [
+            "坚持以马克思主义为指导",
+            "坚持中国共产党的领导",
+            "百花齐放，百家争鸣",
+            "古为今用，洋为中用"
+        ],
+        "answer": "CD",
+        "id": "1738828024347885568",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "抗战初期，国民党正面战场除了台儿庄战役取得大捷外，其他战役几乎都是以退却、失败而结束的，造成这种状况的原因()",
+        "option": [
+            "由于在敌我力量对比上，日军占很大优势",
+            "国民党战略指导方针上的失误",
+            "实行片面抗战路线",
+            "没有采取积极防御的方针"
+        ],
+        "answer": "ABC",
+        "id": "1738827918395572225",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "坚定不移在和平共处五项原则基础上发展同各国的友好合作，推动建设____、____、____的新型国际关系。",
+        "option": [
+            "相互尊重",
+            "公平正义",
+            "互不干涉",
+            "合作共赢"
+        ],
+        "answer": "ABD",
+        "id": "1738827998959763456",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "新文化运动中宣传十月革命的著作有()",
+        "option": [
+            "《我的马克思主义观",
+            "《法俄革命之比较观》",
+            "《庶民的胜利》",
+            "《Bolshevism的胜利》"
+        ],
+        "answer": "BCD",
+        "id": "1738827832089378816",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "1948年9月至1949年1月，中国人民解放军同国民党军队进行的战略决战，主要战役包括()",
+        "option": [
+            "辽沈战役",
+            "淮战役海",
+            "平津战役",
+            "渡江战役"
+        ],
+        "answer": "ABC",
+        "id": "1738827949727023104",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "实现“两个一百年”奋斗目标、实现中华民族伟大复兴的中国梦，不断提高人民生活水平，必须坚定不移把改革作为党执政兴国的第一要务。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738828001430208512",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "中共中央于1937年2月致国民党三中全会电，提出五项要求、四项保证。四项保证是取消国内两个政权对立，停止土地革命和武装起义的方针，实行抗日民族统一战线的政策。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738827875169075200",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "1915年，蔡锷等在云南组织“护国军”，宣布独立，很快形成席卷半个中国的护国运动。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738827767266410496",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "以“中学为体，西学为用”为核心的洋务思想是一种带有资本主义因素的封建主义思想。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738827711889014784",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "洋务派倡导洋务运动的根本目的是抵抗外国侵略",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738827720109850624",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "北洋军阀是在清末由袁世凯一手培植的反动政治武装集团。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738827769887850496",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "兴中会是中国第一个全国性的资产阶级革命政党。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738827752691204096",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "中国共产党在抗日战争时期的土地政策是没收地主土地，彻底消灭土地所有制。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738827887122841600",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "辛亥革命使民主共和的观念开始深入人心，并在中国形成了“敢有帝制自为者，天下共击之”的民主主义观念。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738827760475832320",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "洋务运动的直接目的是为了中华民族的独立、富强。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738827710387453952",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "中国共产党直接领导了东北人民的抗日武装斗争。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738827893460434944",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "为了贯彻执行全面抗战路线，中国共产党做出了开辟敌后战场的战略决策，并坚持在敌后广泛开展游击战。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738827891837239296",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "中国共产党一经成立，中国革命就展现了新的面貌。第一次提出了反帝反封建的民主革命的纲领，为中国人民指出了明确的斗争目标。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "正确",
+        "id": "1738827793040408576",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "三大战役结束后，国民党军队在军事上不得不实行“重点防御”。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738827954093293568",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "工人阶级、小资产阶级和资产阶级从五四运动一开始就参加了这场革命运动。",
+        "option": [
+            "正确",
+            "错误"
+        ],
+        "answer": "错误",
+        "id": "1738827783158628352",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "我国最早建立的少数民族自治区是____。",
+        "option": "",
+        "answer": "内蒙古自治区",
+        "id": "1781201571166552064",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "第一次国共合作形成的标志是____。",
+        "option": "",
+        "answer": "国民党“一大”",
+        "id": "1781201568922599424",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "孙中山在《兴中会章程》中喊出了“____”的口号。",
+        "option": "",
+        "answer": "振兴中华",
+        "id": "1781201567613976576",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "实现“两个一百年”奋斗目标、实现中华民族伟大复兴的中国梦，不断提高人民生活水平,必须坚定不移把____作为党执政兴国的第一要务。",
+        "option": "",
+        "answer": "发展",
+        "id": "1781201572433231872",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "到____年，中国将基本实现社会主义现代化。",
+        "option": "",
+        "answer": "2035",
+        "id": "1781201572714250240",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "孙中山建立的第一个资产阶级革命团体是____。",
+        "option": "",
+        "answer": "兴中会",
+        "id": "1781201568482197504",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "十一届三中全会作出实行____的历史性决策，是基于对党和国家前途命运的深刻把握，是基于对社会主义革命和建设实践的深刻总结，是基于对时代潮流的深刻洞察，是基于对人民群众期盼和需要的深刻体悟。",
+        "option": "",
+        "answer": "改革开放",
+        "id": "1781201571875389440",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "率领北平国民党军队接受和平改编的国民党将军是____。",
+        "option": "",
+        "answer": "傅作义",
+        "id": "1781201570923282432",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "从____到____,是“两个一百年”奋斗目标的历史交汇期。",
+        "option": "",
+        "answer": "十九大，二十大",
+        "id": "1781201572512923648",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    },
+    {
+        "questionStem": "中共七届二中全会需要解决的重要问题____。",
+        "option": "",
+        "answer": "党的工作重心转移",
+        "id": "1781201570843590656",
+        "likeFlag": false,
+        "markFlag": false,
+        "abbreviationSubject": "CMH"
+    }
+]
