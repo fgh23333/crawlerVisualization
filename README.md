@@ -17,5 +17,5 @@
 3. 运行项目
 
 ```bash
-  npm run serve
+  npm run dev
 ```
