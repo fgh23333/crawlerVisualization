@@ -1,16 +1,12 @@
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+import newHome from "@/views/new/newHome.vue"
+</script>
+
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/"></router-link>
-    </nav>
-    <router-view />
-  </div>
+  <newHome/>
 </template>
 
-<style lang="less">
-* {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-}
+<style scoped>
+
 </style>

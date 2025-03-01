@@ -1,7 +1,3 @@
-<script setup>
-
-</script>
-
 <template>
   <div class="flex-col self-start group_3">
     <div class="group_2">
@@ -14,9 +10,12 @@
         </div>
         <div class="group_7">
           <span class="mt-48 text_11">
-            <a class="GitHub_link" href="https://github.com/fgh23333/crawlerVisualization">
+            <a
+              class="GitHub_link"
+              href="https://github.com/fgh23333/crawlerVisualization"
+            >
               更多详情请前往GitHub项目主页（网站持续更新ing）
-              <img class="GitHub_icon" src="../../assets/icon/github.svg">
+              <img class="GitHub_icon" src="../../assets/icon/github.svg" />
             </a>
           </span>
         </div>
@@ -29,6 +28,8 @@
     </div>
   </div>
 </template>
+
+<script setup></script>
 
 <style>
 a,
@@ -131,12 +132,12 @@ a:active {
   animation-delay: 1.5s;
   display: flex;
   justify-content: left;
-  margin-top: 20px
+  margin-top: 20px;
 }
 
 .GitHub_icon {
   margin-left: 10px;
-  margin-bottom: -5px
+  margin-bottom: -5px;
 }
 
 @keyframes fadeInUp {

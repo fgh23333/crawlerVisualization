@@ -3,18 +3,34 @@
     <div v-if="list == ''">暂无数据</div>
     <div v-else>
       <div class="header">
-        <div class="breadCrumb" v-if="subjectShow.includes(lesson) && !onSearch">
-          {{ subjectList[lesson] }} - {{ questionType[type] }} - 共{{ list.length }}题
+        <div
+          class="breadCrumb"
+          v-if="subjectShow.includes(lesson) && !onSearch"
+        >
+          {{ subjectList[lesson] }} - {{ questionType[type] }} - 共{{
+            list.length
+          }}题
         </div>
         <div class="breadCrumb" v-if="subjectShow.includes(lesson) && onSearch">
-          {{ subjectList[lesson] }} - {{ questionType[type] }} - 搜索结果共{{ showList.length }}题
+          {{ subjectList[lesson] }} - {{ questionType[type] }} - 搜索结果共{{
+            showList.length
+          }}题
         </div>
         <div class="breadCrumb" v-if="!lesson && !onSearch">
           <span class="count">共{{ showList.length }}题</span>
           <span class="subjectSelector">
-            <el-select v-model="subjectFocus" collapse-tags multiple placeholder="请选择">
-              <el-option v-for="(subjectOpt, i) in subjectOpts" :key="i" :label="subjectOpt.label"
-                :value="subjectOpt.value">
+            <el-select
+              v-model="subjectFocus"
+              collapse-tags
+              multiple
+              placeholder="请选择"
+            >
+              <el-option
+                v-for="(subjectOpt, i) in subjectOpts"
+                :key="i"
+                :label="subjectOpt.label"
+                :value="subjectOpt.value"
+              >
               </el-option>
             </el-select>
           </span>
@@ -24,18 +40,31 @@
         </div>
         <div class="rightplace">
           <!--          搜索框-->
-          <el-input class="input" placeholder="搜题（回车以搜索）" v-model="searchWord" @change="search" @input="changeInput"
-            clearable>
+          <el-input
+            class="input"
+            placeholder="搜题（回车以搜索）"
+            v-model="searchWord"
+            @change="search"
+            @input="changeInput"
+            clearable
+          >
           </el-input>
           <!--          更多功能-下拉菜单-导出pdf-->
-          <el-dropdown placement="bottom" class="dropdown" @command="handleCommand">
-            <el-button icon="el-icon-s-operation" type="text" size="medium">工具</el-button>
+          <el-dropdown
+            placement="bottom"
+            class="dropdown"
+            @command="handleCommand"
+          >
+            <el-button :icon="ElIconSOperation" type="text" size="medium"
+              >工具</el-button
+            >
             <template #dropdown>
               <el-dropdown-menu>
                 <el-dropdown-item command="savePDF">导出PDF</el-dropdown-item>
                 <el-dropdown-item command="printPDF">打印题库</el-dropdown-item>
-                <el-dropdown-item command="updateDefaultSetting">{{ defaultShowAnswer ? '隐藏答案' : '显示答案'
-                  }}</el-dropdown-item>
+                <el-dropdown-item command="updateDefaultSetting">{{
+                  defaultShowAnswer ? '隐藏答案' : '显示答案'
+                }}</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -53,19 +82,36 @@
             <div class="right">
               <div class="markAndLike">
                 <transition name="fade" mode="out-in">
-                  <img class="mark"
-                    :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                  <img
+                    class="mark"
+                    :src="
+                      showList[i].markFlag
+                        ? require('@/assets/icon/icon-mark-active.svg')
+                        : require('@/assets/icon/icon-mark.svg')
+                    "
+                    @click="changeFlagIcon('markFlag', i)"
+                    :key="item.markFlag"
+                  />
                 </transition>
                 <transition name="fade" mode="out-in">
-                  <img class="like"
-                    :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                    @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                  <img
+                    class="like"
+                    :src="
+                      showList[i].likeFlag
+                        ? require('@/assets/icon/icon-like-active.svg')
+                        : require('@/assets/icon/icon-like.svg')
+                    "
+                    @click="changeFlag('likeFlag', i)"
+                    :key="item.likeFlag"
+                  />
                 </transition>
               </div>
               <div class="questionType">
                 <span v-if="$route.path == '/newHome/favorites'">
-                  {{ abbreviationSubjectList[showList[i].abbreviationSubject] }} -
+                  {{
+                    abbreviationSubjectList[showList[i].abbreviationSubject]
+                  }}
+                  -
                 </span>
                 <span>判断</span>
               </div>
@@ -73,11 +119,24 @@
               <div class="questionAnswer">
                 <span class="colorBefore"></span>
                 <span class="correctAnswer">正确答案：</span>
-                <span class="true" @click="toggleAnswer(i)" v-if="showList[i].answer == '正确'">{{ showAnswers[i] ?
-                  showList[i].answer : '' }}</span>
-                <span class="false" @click="toggleAnswer(i)" v-if="showList[i].answer == '错误'">{{ showAnswers[i] ?
-                  showList[i].answer : '' }}</span>
-                <span class="answer" @click="toggleAnswer(i)" v-if="!showAnswers[i]">点击显示答案</span>
+                <span
+                  class="true"
+                  @click="toggleAnswer(i)"
+                  v-if="showList[i].answer == '正确'"
+                  >{{ showAnswers[i] ? showList[i].answer : '' }}</span
+                >
+                <span
+                  class="false"
+                  @click="toggleAnswer(i)"
+                  v-if="showList[i].answer == '错误'"
+                  >{{ showAnswers[i] ? showList[i].answer : '' }}</span
+                >
+                <span
+                  class="answer"
+                  @click="toggleAnswer(i)"
+                  v-if="!showAnswers[i]"
+                  >点击显示答案</span
+                >
               </div>
             </div>
           </div>
@@ -90,19 +149,36 @@
             <div class="right">
               <div class="markAndLike">
                 <transition name="fade" mode="out-in">
-                  <img class="mark"
-                    :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                  <img
+                    class="mark"
+                    :src="
+                      showList[i].markFlag
+                        ? require('@/assets/icon/icon-mark-active.svg')
+                        : require('@/assets/icon/icon-mark.svg')
+                    "
+                    @click="changeFlagIcon('markFlag', i)"
+                    :key="item.markFlag"
+                  />
                 </transition>
                 <transition name="fade" mode="out-in">
-                  <img class="like"
-                    :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                    @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                  <img
+                    class="like"
+                    :src="
+                      showList[i].likeFlag
+                        ? require('@/assets/icon/icon-like-active.svg')
+                        : require('@/assets/icon/icon-like.svg')
+                    "
+                    @click="changeFlag('likeFlag', i)"
+                    :key="item.likeFlag"
+                  />
                 </transition>
               </div>
               <div class="questionType">
                 <span v-if="$route.path == '/newHome/favorites'">
-                  {{ abbreviationSubjectList[showList[i].abbreviationSubject] }} -
+                  {{
+                    abbreviationSubjectList[showList[i].abbreviationSubject]
+                  }}
+                  -
                 </span>
                 <span>填空</span>
               </div>
@@ -110,13 +186,19 @@
               <div class="questionAnswer">
                 <span class="colorBefore"></span>
                 <span class="correctAnswer">正确答案：</span>
-                <span class="answer" @click="toggleAnswer(i)">{{ showAnswers[i] ? showList[i].answer : '点击显示答案'
-                  }}</span>
+                <span class="answer" @click="toggleAnswer(i)">{{
+                  showAnswers[i] ? showList[i].answer : '点击显示答案'
+                }}</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="typeCover" v-if="showList[i].option.length == 4 && showList[i].answer.length == 1">
+        <div
+          class="typeCover"
+          v-if="
+            showList[i].option.length == 4 && showList[i].answer.length == 1
+          "
+        >
           <div class="questionTypeCover">
             <div class="left">
               <span class="seq">{{ i + 1 }}</span>
@@ -124,39 +206,66 @@
             <div class="right">
               <div class="markAndLike">
                 <transition name="fade" mode="out-in">
-                  <img class="mark"
-                    :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                  <img
+                    class="mark"
+                    :src="
+                      showList[i].markFlag
+                        ? require('@/assets/icon/icon-mark-active.svg')
+                        : require('@/assets/icon/icon-mark.svg')
+                    "
+                    @click="changeFlagIcon('markFlag', i)"
+                    :key="item.markFlag"
+                  />
                 </transition>
                 <transition name="fade" mode="out-in">
-                  <img class="like"
-                    :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                    @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                  <img
+                    class="like"
+                    :src="
+                      showList[i].likeFlag
+                        ? require('@/assets/icon/icon-like-active.svg')
+                        : require('@/assets/icon/icon-like.svg')
+                    "
+                    @click="changeFlag('likeFlag', i)"
+                    :key="item.likeFlag"
+                  />
                 </transition>
               </div>
               <div class="questionType">
                 <span v-if="$route.path == '/newHome/favorites'">
-                  {{ abbreviationSubjectList[showList[i].abbreviationSubject] }} -
+                  {{
+                    abbreviationSubjectList[showList[i].abbreviationSubject]
+                  }}
+                  -
                 </span>
                 <span>单选</span>
               </div>
               <div class="questionStem">{{ showList[i].questionStem }}</div>
               <div class="questionOpt">
-                <div class="option" v-for="(item, k) in showList[i].option" :key="k">
+                <div
+                  class="option"
+                  v-for="(item, k) in showList[i].option"
+                  :key="k"
+                >
                   <div class="dot"></div>
-                  <div class="optText">{{ options[k] }}、{{ showList[i].option[k] }}</div>
+                  <div class="optText">
+                    {{ options[k] }}、{{ showList[i].option[k] }}
+                  </div>
                 </div>
               </div>
               <div class="questionAnswer">
                 <span class="colorBefore"></span>
                 <span class="correctAnswer">正确答案：</span>
-                <span class="answer" @click="toggleAnswer(i)">{{ showAnswers[i] ? showList[i].answer : '点击显示答案'
-                  }}</span>
+                <span class="answer" @click="toggleAnswer(i)">{{
+                  showAnswers[i] ? showList[i].answer : '点击显示答案'
+                }}</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="typeCover" v-if="showList[i].option.length > 3 && showList[i].answer.length > 1">
+        <div
+          class="typeCover"
+          v-if="showList[i].option.length > 3 && showList[i].answer.length > 1"
+        >
           <div class="questionTypeCover">
             <div class="left">
               <span class="seq">{{ i + 1 }}</span>
@@ -164,48 +273,75 @@
             <div class="right">
               <div class="markAndLike">
                 <transition name="fade" mode="out-in">
-                  <img class="mark"
-                    :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
-                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
+                  <img
+                    class="mark"
+                    :src="
+                      showList[i].markFlag
+                        ? require('@/assets/icon/icon-mark-active.svg')
+                        : require('@/assets/icon/icon-mark.svg')
+                    "
+                    @click="changeFlagIcon('markFlag', i)"
+                    :key="item.markFlag"
+                  />
                 </transition>
                 <transition name="fade" mode="out-in">
-                  <img class="like"
-                    :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
-                    @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
+                  <img
+                    class="like"
+                    :src="
+                      showList[i].likeFlag
+                        ? require('@/assets/icon/icon-like-active.svg')
+                        : require('@/assets/icon/icon-like.svg')
+                    "
+                    @click="changeFlag('likeFlag', i)"
+                    :key="item.likeFlag"
+                  />
                 </transition>
               </div>
               <div class="questionType">
                 <span v-if="$route.path == '/newHome/favorites'">
-                  {{ abbreviationSubjectList[showList[i].abbreviationSubject] }} -
+                  {{
+                    abbreviationSubjectList[showList[i].abbreviationSubject]
+                  }}
+                  -
                 </span>
                 <span>多选</span>
               </div>
               <div class="questionStem">{{ showList[i].questionStem }}</div>
               <div class="questionOpt">
-                <div class="option" v-for="(item, k) in showList[i].option" :key="k">
+                <div
+                  class="option"
+                  v-for="(item, k) in showList[i].option"
+                  :key="k"
+                >
                   <div class="dot"></div>
-                  <div class="optText">{{ options[k] }}、{{ showList[i].option[k] }}</div>
+                  <div class="optText">
+                    {{ options[k] }}、{{ showList[i].option[k] }}
+                  </div>
                 </div>
               </div>
               <div class="questionAnswer">
                 <span class="colorBefore"></span>
                 <span class="correctAnswer">正确答案：</span>
-                <span class="answer" @click="toggleAnswer(i)">{{ showAnswers[i] ? showList[i].answer : '点击显示答案'
-                  }}</span>
+                <span class="answer" @click="toggleAnswer(i)">{{
+                  showAnswers[i] ? showList[i].answer : '点击显示答案'
+                }}</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="bottomAlert" v-if="showList.length !== 0">--- 已经到底啦 ---</div>
+      <div class="bottomAlert" v-if="showList.length !== 0">
+        --- 已经到底啦 ---
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
-import Fuse from 'fuse.js';
-import { makePdf } from "@/utils/makePdf";
+import { SOperation as ElIconSOperation } from '@element-plus/icons'
+import { mapActions } from 'vuex'
+import Fuse from 'fuse.js'
+import { makePdf } from '@/utils/makePdf'
 
 export default {
   data() {
@@ -213,10 +349,14 @@ export default {
       showAnswers: [],
       defaultShowAnswer: false,
       subjectFocus: [],
-      searchWord: "",  //搜索框内容
-      list: [], //这个是此题库所有的题目列表
-      showList: [],  //这个是渲染在页面上的题目列表
-      onSearch: false,  //值为true表示显示搜索结果
+      //搜索框内容
+      searchWord: '',
+      //这个是此题库所有的题目列表
+      list: [],
+      //这个是渲染在页面上的题目列表
+      showList: [],
+      //值为true表示显示搜索结果
+      onSearch: false,
       options: ['A', 'B', 'C', 'D', 'E'],
       subjectOpts: [
         {
@@ -225,123 +365,144 @@ export default {
         },
         {
           value: 'CMH',
-          label: '近代史'
+          label: '近代史',
         },
         {
           value: 'Political',
-          label: '思政'
+          label: '思政',
         },
         {
           value: 'MaoIntro',
-          label: '毛概'
+          label: '毛概',
         },
         {
           value: 'XiIntro',
-          label: '习概'
+          label: '习概',
         },
         {
           value: 'SDH',
-          label: '社主史'
+          label: '社主史',
         },
         {
           value: 'NCH',
-          label: '新中国史'
+          label: '新中国史',
         },
         {
           value: 'CCPH',
-          label: '党史'
+          label: '党史',
         },
         {
           value: 'ORH',
-          label: '改开史'
+          label: '改开史',
         },
       ],
       subjectList: {
-        'Marx': '马克思主义基本原理',
-        'XiIntro': '习近平新时代中国特色社会主义思想概论',
-        'CMH': '中国近现代史纲要',
-        'Political': '思想道德与法治',
-        'MaoIntro': '毛泽东思想和中国特色社会主义理论体系概论',
-        'CCPH': '中国共产党历史',
-        'ORH': '改革开放史',
-        'SDH': '社会主义发展史',
-        'NCH': '新中国史'
+        Marx: '马克思主义基本原理',
+        XiIntro: '习近平新时代中国特色社会主义思想概论',
+        CMH: '中国近现代史纲要',
+        Political: '思想道德与法治',
+        MaoIntro: '毛泽东思想和中国特色社会主义理论体系概论',
+        CCPH: '中国共产党历史',
+        ORH: '改革开放史',
+        SDH: '社会主义发展史',
+        NCH: '新中国史',
       },
       questionType: {
-        'subject': '总题库',
-        'rightWrong': '判断题',
-        'singleChoice': '单选题',
-        'multipleChoice': '多选题',
-        'fillingBlank': '填空题'
+        subject: '总题库',
+        rightWrong: '判断题',
+        singleChoice: '单选题',
+        multipleChoice: '多选题',
+        fillingBlank: '填空题',
       },
       lesson: '',
       type: '',
-      subjectShow: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro', 'CCPH', 'ORH', 'SDH', 'NCH'],
+      subjectShow: [
+        'Marx',
+        'XiIntro',
+        'CMH',
+        'Political',
+        'MaoIntro',
+        'CCPH',
+        'ORH',
+        'SDH',
+        'NCH',
+      ],
       abbreviationSubjectList: {
-        'Marx': '马原',
-        'CMH': '近代史',
-        'Political': '思政',
-        'MaoIntro': '毛概',
-        'XiIntro': '习概',
-        'SDH': '社主史',
-        'NCH': '新中国史',
-        'CCPH': '党史',
-        'ORH': '改开史'
-      }
+        Marx: '马原',
+        CMH: '近代史',
+        Political: '思政',
+        MaoIntro: '毛概',
+        XiIntro: '习概',
+        SDH: '社主史',
+        NCH: '新中国史',
+        CCPH: '党史',
+        ORH: '改开史',
+      },
+      ElIconSOperation,
     }
   },
   props: {
     subjectOptions: {
       type: String,
-      default: ''
+      default: '',
     },
     favList: {
       type: Array,
       default: () => {
         return []
-      }
+      },
     },
     selectedTypes: {
       type: Array,
       default: () => {
         return []
-      }
-    }
+      },
+    },
   },
   mounted() {
-    const savedDefault = localStorage.getItem("defaultShowAnswer");
+    const savedDefault = localStorage.getItem('defaultShowAnswer')
     if (savedDefault !== null) {
-      this.defaultShowAnswer = JSON.parse(savedDefault);
+      this.defaultShowAnswer = JSON.parse(savedDefault)
     } else {
-      localStorage.setItem("defaultShowAnswer", JSON.stringify(this.defaultShowAnswer));
+      localStorage.setItem(
+        'defaultShowAnswer',
+        JSON.stringify(this.defaultShowAnswer)
+      )
     }
     // 初始化所有题目的显示状态
-    this.showAnswers = this.showList.map(() => this.defaultShowAnswer);
+    this.showAnswers = this.showList.map(() => this.defaultShowAnswer)
   },
   created() {
-    this.lesson = this.$route.params.lesson;
-    this.type = this.$route.params.type;
-    if (this.$route.path == "/newHome/favorites") {
+    this.lesson = this.$route.params.lesson
+    this.type = this.$route.params.type
+    if (this.$route.path == '/newHome/favorites') {
       this.list = this.$store.state.likeList
     } else {
-      this.list = require(`../assets/${this.lesson}_${this.type}.json`);
-      if (this.$store.state.wrongQuestions !== '' || this.$store.state.likeList !== '') {
-        this.$store.state.wrongQuestions.forEach(subsetItem => {
-          let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
+      this.list = require(`../assets/${this.lesson}_${this.type}.json`)
+      if (
+        this.$store.state.wrongQuestions !== '' ||
+        this.$store.state.likeList !== ''
+      ) {
+        this.$store.state.wrongQuestions.forEach((subsetItem) => {
+          let supersetItem = this.list.find(
+            (supersetItem) => supersetItem.id == subsetItem.id
+          )
           if (supersetItem) {
-            supersetItem.likeFlag = true;
+            supersetItem.likeFlag = true
           }
-        });
-        this.$store.state.likeList.forEach(subsetItem => {
-          let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
+        })
+        this.$store.state.likeList.forEach((subsetItem) => {
+          let supersetItem = this.list.find(
+            (supersetItem) => supersetItem.id == subsetItem.id
+          )
           if (supersetItem) {
-            supersetItem.likeFlag = true;
+            supersetItem.likeFlag = true
           }
-        });
+        })
       }
     }
     this.showList = [...this.list]
-    this.searchWord = ""
+    this.searchWord = ''
     this.onSearch = false
   },
   watch: {
@@ -350,7 +511,12 @@ export default {
         if (this.$route.path == '/newHome/favorites') {
           switch (newValue) {
             case 'all':
-              this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
+              this.list = [
+                ...new Set([
+                  ...this.$store.state.likeList,
+                  ...this.$store.state.wrongQuestions,
+                ]),
+              ]
               this.showList = [...this.list]
               break
             case 'favorites':
@@ -367,48 +533,55 @@ export default {
         } else {
           return
         }
-      }
+      },
     },
     favList: {
       handler(newValue) {
-        if (this.$route.path == "/newHome/favorites") {
+        if (this.$route.path == '/newHome/favorites') {
           this.showList = newValue
         } else {
           return
         }
-      }
+      },
     },
-    '$route': function (to, from) {
-      this.lesson = to.params.lesson;
-      this.type = to.params.type;
-      if (this.$route.path == "/newHome/favorites") {
+    $route: function (to, from) {
+      this.lesson = to.params.lesson
+      this.type = to.params.type
+      if (this.$route.path == '/newHome/favorites') {
         return
       } else {
-        this.list = require(`../assets/${this.lesson}_${this.type}.json`);
-        if (this.$store.state.wrongQuestions !== '' || this.$store.state.likeList !== '') {
-          this.$store.state.wrongQuestions.forEach(subsetItem => {
-            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
+        this.list = require(`../assets/${this.lesson}_${this.type}.json`)
+        if (
+          this.$store.state.wrongQuestions !== '' ||
+          this.$store.state.likeList !== ''
+        ) {
+          this.$store.state.wrongQuestions.forEach((subsetItem) => {
+            let supersetItem = this.list.find(
+              (supersetItem) => supersetItem.id == subsetItem.id
+            )
             if (supersetItem) {
-              supersetItem.likeFlag = true;
+              supersetItem.likeFlag = true
             }
-          });
-          this.$store.state.likeList.forEach(subsetItem => {
-            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
+          })
+          this.$store.state.likeList.forEach((subsetItem) => {
+            let supersetItem = this.list.find(
+              (supersetItem) => supersetItem.id == subsetItem.id
+            )
             if (supersetItem) {
-              supersetItem.likeFlag = true;
+              supersetItem.likeFlag = true
             }
-          });
+          })
         }
       }
       this.showList = [...this.list]
-      this.searchWord = ""
+      this.searchWord = ''
       this.onSearch = false
     },
     // 监听题型筛选
     selectedTypes: {
       handler(newValue) {
         if (Array.isArray(newValue)) {
-          this.updateShowList();
+          this.updateShowList()
         }
       },
       deep: true,
@@ -417,7 +590,7 @@ export default {
     subjectFocus: {
       handler(newValue) {
         if (Array.isArray(newValue)) {
-          this.updateShowList();
+          this.updateShowList()
         }
       },
       deep: true,
@@ -425,70 +598,88 @@ export default {
   },
   methods: {
     toggleAnswer(index) {
-      this.$set(this.showAnswers, index, !this.showAnswers[index]);
+      this.$set(this.showAnswers, index, !this.showAnswers[index])
     },
     updateDefaultSetting() {
       this.defaultShowAnswer = !this.defaultShowAnswer
-      localStorage.setItem("defaultShowAnswer", JSON.stringify(this.defaultShowAnswer));
-      this.showAnswers = this.showList.map(() => this.defaultShowAnswer);
+      localStorage.setItem(
+        'defaultShowAnswer',
+        JSON.stringify(this.defaultShowAnswer)
+      )
+      this.showAnswers = this.showList.map(() => this.defaultShowAnswer)
     },
     getQuestionType(question) {
-      const { option, answer } = question;
+      const { option, answer } = question
       if (!option || option.length === 0) {
-        return "fillingBlank"; // 填空题
+        return 'fillingBlank' // 填空题
       } else if (option.length === 2) {
-        return "rightWrong"; // 判断题
+        return 'rightWrong' // 判断题
       } else if (answer.length === 1) {
-        return "singleChoice"; // 单选题
+        return 'singleChoice' // 单选题
       } else if (answer.length > 1) {
-        return "multipleChoice"; // 多选题
+        return 'multipleChoice' // 多选题
       }
-      return null; // 未知题型
+      return null // 未知题型
     },
     updateShowList(type, checked) {
-      const validSelectedTypes = Array.isArray(this.selectedTypes) ? this.selectedTypes : [];
-      const validSelectedSubjects = Array.isArray(this.subjectFocus) ? this.subjectFocus : [];
+      const validSelectedTypes = Array.isArray(this.selectedTypes)
+        ? this.selectedTypes
+        : []
+      const validSelectedSubjects = Array.isArray(this.subjectFocus)
+        ? this.subjectFocus
+        : []
 
       // 筛选题目：题型和科目取交集
       const filteredByType = validSelectedTypes.length
-        ? this.list.filter((question) => validSelectedTypes.includes(this.getQuestionType(question)))
-        : this.list; // 若未选择题型，保留所有题型
+        ? this.list.filter((question) =>
+            validSelectedTypes.includes(this.getQuestionType(question))
+          )
+        : this.list // 若未选择题型，保留所有题型
 
       const filteredBySubject = validSelectedSubjects.length
-        ? filteredByType.filter((question) => validSelectedSubjects.includes(question.abbreviationSubject))
-        : filteredByType; // 若未选择科目，保留所有科目
+        ? filteredByType.filter((question) =>
+            validSelectedSubjects.includes(question.abbreviationSubject)
+          )
+        : filteredByType // 若未选择科目，保留所有科目
 
-      this.showList = [...filteredBySubject];
+      this.showList = [...filteredBySubject]
     },
     handleCommand(e) {
       if (e == 'updateDefaultSetting') {
         this.updateDefaultSetting()
       } else {
-        let title = "题库";
+        let title = '题库'
 
         if (this.subjectShow.includes(this.lesson) && this.onSearch) {
-          title = `${this.subjectList[this.lesson]} - ${this.questionType[this.type]} - '${this.searchWord}'搜索结果共${this.showList.length}题`
+          title = `${this.subjectList[this.lesson]} - ${
+            this.questionType[this.type]
+          } - '${this.searchWord}'搜索结果共${this.showList.length}题`
         }
         if (this.subjectShow.includes(this.lesson) && !this.onSearch) {
-          title = `${this.subjectList[this.lesson]} - ${this.questionType[this.type]} - 共${this.list.length}题`
+          title = `${this.subjectList[this.lesson]} - ${
+            this.questionType[this.type]
+          } - 共${this.list.length}题`
         }
         if (!this.lesson && this.onSearch) {
           title = `收藏夹 - '${this.searchWord}'搜索结果共${this.showList.length}题`
-
         }
         if (!this.lesson && !this.onSearch) {
           title = `收藏夹-共${this.list.length}题`
         }
-        if (e === "savePDF") {
-          makePdf("save", this.showList, title, this.$store, this.$message);
+        if (e === 'savePDF') {
+          makePdf('save', this.showList, title, this.$store, this.$message)
         }
-        if (e === "printPDF") {
-          makePdf("print", this.showList, title, this.$store, this.$message);
+        if (e === 'printPDF') {
+          makePdf('print', this.showList, title, this.$store, this.$message)
         }
       }
-
     },
-    ...mapActions(['addLikeQuestion', 'removeLikeQuestion', 'addFavoriteQuestion', 'removeFavoriteQuestion']),
+    ...mapActions([
+      'addLikeQuestion',
+      'removeLikeQuestion',
+      'addFavoriteQuestion',
+      'removeFavoriteQuestion',
+    ]),
     changeFlag(flagType, i) {
       this.showList[i][flagType] = !this.showList[i][flagType]
       if (this.$route.path == '/newHome/favorites') {
@@ -514,7 +705,12 @@ export default {
           } else {
             this.removeLikeQuestion(this.showList[i].id)
             this.removeFavoriteQuestion(this.showList[i].id)
-            this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
+            this.list = [
+              ...new Set([
+                ...this.$store.state.likeList,
+                ...this.$store.state.wrongQuestions,
+              ]),
+            ]
             this.showList = [...this.list]
           }
         }
@@ -531,21 +727,23 @@ export default {
       this.showList[i][flagType] = !this.showList[i][flagType]
     },
     changeInput() {
-      if (this.searchWord === "") {
+      if (this.searchWord === '') {
         this.showList = [...this.list]
         this.onSearch = false
       }
     },
     search() {
       const fuseOptions = {
-        keys: ['questionStem']
-      };
-      const fuse = new Fuse(this.list, fuseOptions);
-      let temp = this.searchWord ? fuse.search(this.searchWord).map(result => result.item) : this.list;
+        keys: ['questionStem'],
+      }
+      const fuse = new Fuse(this.list, fuseOptions)
+      let temp = this.searchWord
+        ? fuse.search(this.searchWord).map((result) => result.item)
+        : this.list
       this.showList = [...temp]
-      this.onSearch = this.searchWord === "" ? false : true
-    }
-  }
+      this.onSearch = this.searchWord === '' ? false : true
+    },
+  },
 }
 </script>
 
@@ -601,7 +799,7 @@ export default {
   }
 
   .questionCover {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     padding: 14px 18px;
     margin: 15px 34px;
     border-radius: 24px;
@@ -624,7 +822,7 @@ export default {
           font-size: 20px;
           font-weight: bold;
           color: white;
-          background-color: #6C5DD3;
+          background-color: #6c5dd3;
           border-radius: 10px;
           padding: 0px 10px;
           line-height: 30px;
@@ -660,7 +858,7 @@ export default {
           line-height: 30px;
           font-size: 18px;
           font-weight: bold;
-          color: #877BD1;
+          color: #877bd1;
           margin-bottom: 10px;
         }
 
@@ -683,7 +881,7 @@ export default {
               width: 14px;
               height: 14px;
               border-radius: 50%;
-              background-color: #6C5DD3;
+              background-color: #6c5dd3;
               position: absolute;
               top: 7px;
             }
@@ -704,7 +902,7 @@ export default {
           margin-bottom: 10px;
 
           .colorBefore {
-            background-color: #6C5DD3;
+            background-color: #6c5dd3;
             width: 8px;
             height: 30px;
             display: inline-block;
@@ -721,7 +919,7 @@ export default {
           }
 
           .false {
-            color: #FF3B3B;
+            color: #ff3b3b;
             display: inline-block;
             height: 30px;
             line-height: 30px;
@@ -729,7 +927,7 @@ export default {
           }
 
           .true {
-            color: #0BDE00;
+            color: #0bde00;
             display: inline-block;
             height: 30px;
             line-height: 30px;
@@ -741,7 +939,7 @@ export default {
             height: 30px;
             line-height: 30px;
             font-size: 18px;
-            color: #5F89D3;
+            color: #5f89d3;
           }
         }
       }
