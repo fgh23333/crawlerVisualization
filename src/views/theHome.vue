@@ -15,7 +15,7 @@
               href="https://github.com/fgh23333/crawlerVisualization"
             >
               更多详情请前往GitHub项目主页（网站持续更新ing）
-              <img class="GitHub_icon" src="../../assets/icon/github.svg" />
+              <img class="GitHub_icon" src="@/assets/icon/github.svg" />
             </a>
           </span>
         </div>

@@ -3,7 +3,7 @@
     <modal></modal>
     <el-container>
       <el-aside :width="isCollapsed ? '0px' : '262px'" class="sidebar">
-        <router-link to="/newHome">
+        <router-link to="/">
           <div class="title">
             <img src="@/assets/icon/icon-title.png" class="icon" />
             <div class="titleCover">
@@ -37,7 +37,7 @@
               <div class="text">收藏夹</div>
             </div>
           </router-link>
-          <router-link to="/newHome/about">
+          <router-link to="/about">
             <div class="tab">
               <img class="image" src="@/assets/icon/icon-info.svg" />
               <div class="text">关于</div>

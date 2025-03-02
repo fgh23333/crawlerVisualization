@@ -2,7 +2,7 @@
   <div id="aboutUs">
     <div class="info">
       <div class="contact box">
-        <div class="title">联系我们1111</div>
+        <div class="title">联系我们</div>
         <div class="contactWay">info@635262140.xyz</div>
       </div>
     </div>
