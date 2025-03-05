@@ -1,5 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
-
+import svgLoader from "vite-svg-loader"
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
@@ -11,6 +11,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 export default defineConfig({
   plugins: [
     vue(),
+    svgLoader(),
     vueDevTools(),
     AutoImport({
       resolvers: [
