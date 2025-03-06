@@ -15,7 +15,7 @@
               href="https://github.com/fgh23333/crawlerVisualization"
             >
               更多详情请前往GitHub项目主页（网站持续更新ing）
-              <img class="GitHub_icon" src="@/assets/icon/github.svg" />
+              <GitHubIcon/>
             </a>
           </span>
         </div>
@@ -29,7 +29,9 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+  import GitHubIcon from "@/assets/icon/github.svg";
+</script>
 
 <style>
 a,

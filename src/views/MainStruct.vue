@@ -14,18 +14,18 @@
         </router-link>
         <div class="nav">
           <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6" :router="true">
-            <el-sub-menu v-for="(item, i) in list" :key="i" :index="list[i].src">
+            <el-sub-menu v-for="(item, i) in list" :key="i" :index="item.src">
               <template #title>
-                <img :src="list[i].icon" class="menuIcon" />
+                <img :src="item.icon" class="menuIcon" />
                 <el-text style="margin-left: 20%;" size="large">{{ item.subject }}</el-text>
               </template>
               <el-menu-item-group>
-                <el-menu-item class="option" :index="'/newHome/subject/' + list[i].src">总题库</el-menu-item>
-                <el-menu-item class="option" :index="'/newHome/rightWrong/' + list[i].src">判断题</el-menu-item>
-                <el-menu-item class="option" :index="'/newHome/singleChoice/' + list[i].src">单选题</el-menu-item>
-                <el-menu-item class="option" :index="'/newHome/multipleChoice/' + list[i].src">多选题</el-menu-item>
-                <el-menu-item class="option" :index="'/newHome/fillingBlank/' + list[i].src">填空题</el-menu-item>
-                <el-menu-item class="option" :index="'/newHome/exam/' + list[i].src + '/1'">在线练习</el-menu-item>
+                <el-menu-item class="option" :index="'/' + item.src + '/subject'">总题库</el-menu-item>
+                <el-menu-item class="option" :index="'/' + item.src + '/rightWrong'">判断题</el-menu-item>
+                <el-menu-item class="option" :index="'/' + item.src + '/singleChoice'">单选题</el-menu-item>
+                <el-menu-item class="option" :index="'/' + item.src + '/multipleChoice'">多选题</el-menu-item>
+                <el-menu-item class="option" :index="'/' + item.src + '/fillingBlank'">填空题</el-menu-item>
+                <el-menu-item class="option" :index="'/' + item.src + '/exam/1'">在线练习</el-menu-item>
               </el-menu-item-group>
             </el-sub-menu>
           </el-menu>
@@ -33,13 +33,15 @@
         <div class="buttonContainer">
           <router-link to="/newHome/favorites">
             <div class="tab">
-              <img class="image" src="@/assets/icon/icon-favorites.svg" />
-              <div class="text">收藏夹</div>
+              <FavoIcon class="image"/>
+              <div class="text">
+                收藏夹
+              </div>
             </div>
           </router-link>
           <router-link to="/about">
             <div class="tab">
-              <img class="image" src="@/assets/icon/icon-info.svg" />
+              <AboutIcon class="image"/>
               <div class="text">关于</div>
             </div>
           </router-link>
@@ -76,7 +78,9 @@
 <script setup>
 import modal from '@/components/modal.vue'
 import { ref } from 'vue'
-
+import { RouterLink } from 'vue-router'
+import FavoIcon from '@/assets/icon/icon-favorites.svg'
+import AboutIcon from '@/assets/icon/icon-info.svg'
 const isCollapsed = ref(false)
 const list = ref([
   {

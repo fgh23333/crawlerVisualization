@@ -1,10 +1,9 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import newHome from "@/views/newHome.vue"
+import MainStruct from './views/MainStruct.vue';
 </script>
 
 <template>
-  <newHome/>
+  <MainStruct></MainStruct>
 </template>
 
 <style scoped>
