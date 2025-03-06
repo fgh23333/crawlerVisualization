@@ -3,9 +3,11 @@ import MainStruct from './views/MainStruct.vue';
 </script>
 
 <template>
-  <MainStruct></MainStruct>
+  <MainStruct class="main"></MainStruct>
 </template>
 
 <style scoped>
-
+  main {
+    height: 100vh !important;
+  }
 </style>
