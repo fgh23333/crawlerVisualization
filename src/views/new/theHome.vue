@@ -25,6 +25,11 @@
             题库内容全部免费，从未授权任何人进行任何形式的收费，请各位访客谨慎识别，以免上当受骗
           </span>
         </div>
+        <div class="group_7">
+          <span class="mt-48 text_12">
+            AI对话（测试版）现已上线，欢迎大家体验
+          </span>
+        </div>
       </div>
     </div>
   </div>
