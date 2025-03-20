@@ -11,6 +11,7 @@
     "core-js": "^3.8.3",
     "element-ui": "^2.15.14",
     "fuse.js": "^7.0.0",
+    "marked": "^15.0.7",
     "pdfmake": "^0.2.15",
     "political_exam": "file:",
     "vant": "^2.13.2",

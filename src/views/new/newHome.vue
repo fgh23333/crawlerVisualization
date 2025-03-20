@@ -38,12 +38,12 @@
                     </el-menu>
                 </div>
                 <div class="buttonContainer">
-                    <a href="https://chatbox.635262140.xyz">
+                    <router-link to="/newHome/chat">
                         <div class="tab">
                             <img class="image" src="@/assets/icon/icon-chat.svg">
-                            <div class="text">AI对话(alpha)</div>
+                            <div class="text">AI对话(Beta)</div>
                         </div>
-                    </a>
+                    </router-link>
                     <router-link to="/newHome/favorites">
                         <div class="tab">
                             <img class="image" src="@/assets/icon/icon-favorites.svg">
