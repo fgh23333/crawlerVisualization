@@ -10,13 +10,14 @@
                 <div v-else :key="'message-' + index" class="message-wrapper">
                     <div :class="['message', msg.role]">
                         <div v-html="msg.html"></div>
-                    </div>
-                    <div v-if="msg.role === 'bot' && msg.sources.length" class="sources">
-                        <strong>来源：</strong>
-                        <ul>
-                            <li v-for="(source, idx) in msg.sources" :key="'source-' + index + '-' + idx">{{ source }}
-                            </li>
-                        </ul>
+                        <div v-if="msg.role === 'bot' && msg.sources.length" class="sources">
+                            <strong>来源：</strong>
+                            <ul>
+                                <li v-for="(source, idx) in msg.sources" :key="'source-' + index + '-' + idx">
+                                    {{ source }}
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </template>
@@ -124,7 +125,7 @@ export default {
     color: #fff;
     align-self: flex-end;
     border-radius: 20px;
-    padding: 0 20px;
+    padding: 10px 20px;
     width: fit-content;
     max-width: 80%;
 }
@@ -134,7 +135,7 @@ export default {
     color: #333;
     align-self: flex-start;
     border-radius: 20px;
-    padding: 0 20px;
+    padding: 10px 20px;
     width: fit-content;
     max-width: 80%;
 }
