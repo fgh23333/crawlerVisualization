@@ -63,7 +63,7 @@ export default {
                 this.messages.pop();
                 this.messages.push({
                     role: "bot",
-                    html: data.answers?.length ? marked(data.answers.join("\n\n")) : "⚠️ 未获取到有效回答",
+                    html: marked(data.answer) || "⚠️ 未获取到有效回答",
                     sources: data.sources || [],
                     loading: false
                 });
