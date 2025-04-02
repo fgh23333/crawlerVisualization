@@ -301,11 +301,12 @@ export default {
         text-align: center;
         -ms-overflow-style: none;
         scrollbar-width: none;
+        padding: 8px 0px;
         box-shadow:
-            0px -1px 8px 0px rgba(230, 232, 240, 0.9),
-            -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-            1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-            0px 1px 8px 0px rgba(230, 232, 240, 0.9);
+            inset 0px -1px 8px 0px rgba(230, 232, 240, 0.9),
+            inset -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+            inset 1px 0px 8px 0px rgba(230, 232, 240, 0.9),
+            inset 0px 1px 8px 0px rgba(230, 232, 240, 0.9);
 
         .el-menu-vertical-demo {
             width: 216px;
