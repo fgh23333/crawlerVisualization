@@ -25,6 +25,9 @@
 
         <!-- 输入框 -->
         <div class="input-container">
+            <el-select v-model="value" placeholder="" size="large" style="width: 120px">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+            </el-select>
             <input v-model="inputText" @keydown.enter="sendMessage" placeholder="请输入您的问题..." />
             <el-button type="primary" @click="sendMessage" :loading="loading">发送</el-button>
         </div>
@@ -40,7 +43,20 @@ export default {
         return {
             inputText: "",
             messages: [],
-            loading: false
+            loading: false,
+            options: [
+                { value: "default", label: "全部" },
+                { value: "马克思主义原理", label: "马原" },
+                { value: "近代史", label: "近代史" },
+                { value: "思想政治", label: "思政" },
+                { value: "毛泽东思想概论", label: "毛概" },
+                { value: "习近平思想概论", label: "习概" },
+                { value: "社会主义历史", label: "社主史" },
+                { value: "新中国史", label: "新中国史" },
+                { value: "党史", label: "党史" },
+                { value: "改革开放史", label: "改开史" },
+            ],
+            value: "default"
         };
     },
     methods: {
@@ -56,7 +72,8 @@ export default {
             this.loading = true;
             try {
                 const { data } = await axios.post("https://rag-api.635262140.xyz/rag", {
-                    query: this.inputText
+                    query: this.inputText,
+                    subject: this.value
                 });
 
                 // 替换骨架屏
