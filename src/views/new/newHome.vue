@@ -38,6 +38,12 @@
                     </el-menu>
                 </div>
                 <div class="buttonContainer">
+                    <router-link to="/">
+                        <div class="tab">
+                            <img class="image" src="@/assets/icon/icon-back.svg">
+                            <div class="text">返回旧版</div>
+                        </div>
+                    </router-link>
                     <router-link to="/newHome/chat">
                         <div class="tab">
                             <img class="image" src="@/assets/icon/icon-chat.svg">
@@ -296,7 +302,7 @@ export default {
     }
 
     .nav {
-        height: calc(70vh - 72px * 0.7 - 88px * 0.7);
+        height: calc(60vh - 72px * 0.6 - 88px * 0.6);
         overflow: auto;
         text-align: center;
         -ms-overflow-style: none;
