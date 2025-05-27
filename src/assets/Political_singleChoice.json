@@ -1,890 +1,5 @@
 [
   {
-    "questionStem": "对大学生来说，下列属于正确的恋爱观是()",
-    "option": [
-      "学习诚可贵，爱情价更高",
-      "不在乎天长地久，只在乎曾经拥有",
-      "世界上最浪漫的事就是和你一起慢慢变老",
-      "恋爱是大学的一门必修课，大学四年不谈一场恋爱，大学就没有毕业。"
-    ],
-    "answer": "C",
-    "id": "1798736708389306369",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在我国现阶段，社会主义道德建设应该以()",
-    "option": [
-      "个人主义为原则",
-      "集体主义为原则",
-      "实用主义为原则",
-      "享乐主义为原则"
-    ],
-    "answer": "B",
-    "id": "1798736708431249409",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "当教师，要当一个模范教师；当科学家，要当一个对国家有突出贡献的科学家；当解放军战士，要当一个最英勇的解放军战士；当工人，要当一个新时代的劳动模范；当农民，要当一个对改变农村面貌有贡献的农民。这些都是人生理想中的()",
-    "option": [
-      "生活理想的表现",
-      "社会理想的表现",
-      "道德理想的表现",
-      "职业理想的表现"
-    ],
-    "answer": "D",
-    "id": "1798736708829708289",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "（）是个体的人生活动对社会、他人所具有价值。",
-    "option": [
-      "人生的自我价值",
-      "人生的社会价值",
-      "人生目的",
-      "人生价值"
-    ],
-    "answer": "B",
-    "id": "1798736709035229184",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“为中华之崛起而读书”是()提出的。",
-    "option": [
-      "毛泽东",
-      "周恩来?",
-      "邓小平",
-      "李大钊"
-    ],
-    "answer": "B",
-    "id": "1798736708661936128",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "集体主义的最高层次的道德要求是()",
-    "option": [
-      "先公后私先人后己",
-      "诚实劳动热爱祖国",
-      "无私奉献一心为公",
-      "顾全大局遵纪守法"
-    ],
-    "answer": "C",
-    "id": "1798736708422860801",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "2015年8月6日，习近平和北大师生座谈时说:“()之于人、之于社会,都具有基础性意义。",
-    "option": [
-      "法律",
-      "道德",
-      "知识",
-      "科学"
-    ],
-    "answer": "B",
-    "id": "1798736708368334848",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在我国现阶段，个人选择和确立的人生目的，应当（）",
-    "option": [
-      "放弃个人的利益和追求",
-      "有利于个人私利的实现",
-      "以利己为主又兼利他人",
-      "符合人民群众的根本利益\n"
-    ],
-    "answer": "D",
-    "id": "1798736708942954496",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "马克思说过，真正现实人的存在，就是他为别人的存在和别人为他的存在。这说明（）",
-    "option": [
-      "人的价值就是人自身的存在",
-      "人可以有受限制地创造出自己的价值",
-      "人生价值的本质是社会对个人的尊重和满足",
-      "人与自身的任何关系，只有通过人同其他人的关系才能得到实现和表现\n"
-    ],
-    "answer": "D",
-    "id": "1798736708976508928",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "政治权利包括()",
-    "option": [
-      "选举权",
-      "人格尊严权",
-      "社会经济权利",
-      "科学研究权"
-    ],
-    "answer": "A",
-    "id": "1798736707990847488",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "以下表述不准确的是：我国社会主义法律()",
-    "option": [
-      "是党的主张和人民意志的共同体现",
-      "是维护人民利益和公民权利的有力武器",
-      "是国家机关、社会组织和全体公民的活动规则和行为准绳",
-      "是约束人的行为规范"
-    ],
-    "answer": "D",
-    "id": "1798736708032790528",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "公民在法律面前人人平等是指()",
-    "option": [
-      "立法和守法上的平等",
-      "立法、司法和守法上的平等",
-      "立法和司法上的平等",
-      "司法和守法上的平等"
-    ],
-    "answer": "D",
-    "id": "1798736708049567744",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()是社会主义法治建设的根本价值追求",
-    "option": [
-      "依法治国",
-      "执法为民",
-      "公平正义",
-      "党的领导"
-    ],
-    "answer": "C",
-    "id": "1798736708003430401",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "不满（）周岁的未成年人为无民事行为能力人，由其法定代理人代理实施民事法律行为。",
-    "option": [
-      "12",
-      "10",
-      "14",
-      "8"
-    ],
-    "answer": "D",
-    "id": "1798736707965681665",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "理想作为一种社会意识形态，不是从天而降，而是()",
-    "option": [
-      "社会存在的反映，是从社会实践中产生的",
-      "人们头脑中构造出来的",
-      "能为社会大多数人谋利益的构想",
-      "人们的政治立场和世界观在人生奋斗目标上的体现"
-    ],
-    "answer": "A",
-    "id": "1798736708833902593",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()是一定社会形态社会性质的集中体现，在一个社会的思想观念体系中处于主导地位，体现着社会制度、社会运行的基本原则和社会发展的基本方向。",
-    "option": [
-      "主流价值观",
-      "核心价值观",
-      "社会思潮",
-      "主流社会思潮"
-    ],
-    "answer": "B",
-    "id": "1798736708565467136",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "我国现阶段统一战线的名称是()",
-    "option": [
-      "人民民主统一战线",
-      "?社会主义统一战线",
-      "民族爱国统一战线",
-      "爱国统一战线"
-    ],
-    "answer": "D",
-    "id": "1798736708666130432",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "努力建设中华民族的共有精神家园，积极培育和践行社会主义核心价值观，是实现中国梦的价值观建设基础工程。党的()提出的24字社会主义核心价值观，是我们党凝聚全党全社会价值共识做出的重要论断。",
-    "option": [
-      "十六届六中全会",
-      "十七大",
-      "十七届六中全会",
-      "十八大"
-    ],
-    "answer": "D",
-    "id": "1798736708573855744",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在我国的执法机关包括有()",
-    "option": [
-      "审判机关",
-      "检察机关",
-      "各级人民政府",
-      "各级人民代表大会"
-    ],
-    "answer": "C",
-    "id": "1798736708036984832",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "一个人需要有一定的信念，信念具有以下特征()",
-    "option": [
-      "稳定性、多样性、复杂性",
-      "稳定性、多样性、亲合性",
-      "稳定性、复杂性、渐进性",
-      "多样性、亲合性、渐进性"
-    ],
-    "answer": "B",
-    "id": "1798736708817125376",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "二十大报告指出，要实施()，弘扬中华传统美德，加强家庭家教家风建设，加强和改进未成年人思想道德建设，提高人民道德水准和文明素养。",
-    "option": [
-      "公民道德建设工程",
-      "个人精神文明建设",
-      "城市发展建设工程",
-      "邻里关系互助建设"
-    ],
-    "answer": "A",
-    "id": "1798736708393500672",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "以()为荣，以损人利己为耻。",
-    "option": [
-      "服务人民",
-      "团结互助",
-      "崇尚科学",
-      "艰苦奋斗"
-    ],
-    "answer": "B",
-    "id": "1798736709156864001",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "关于依法治国，下列哪一认识是错误的？()",
-    "option": [
-      "依法治国要求构建科学完善的权力制约监督机制",
-      "依法治国要求坚持\"法律中心主义\"，强调法律在治理和管理国家中的作用",
-      "实施依法治国基本方略，坚持法治国家、法治政府、法治社会一体建设",
-      "依法治国要求党必须坚持依法执政，正确领导立法、保证执法、带头守法"
-    ],
-    "answer": "B",
-    "id": "1798736708024401920",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "下列对中国革命道德的错误理解是()",
-    "option": [
-      "中国共产党人、一切先进分子、人民军队和人民群众在中国革命、建设、改革中形成的优秀道德",
-      "中国革命道德是一种精神力量，也对当前社会主义建设事业发挥着重要作用",
-      "中国革命道德超越了中华传统美德的时代局限",
-      "与中华民族传统道德无关"
-    ],
-    "answer": "D",
-    "id": "1798736708439638016",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "对于个人理想的性质、内容以及实现有着决定性影响的是()",
-    "option": [
-      "生活理想",
-      "职业理想",
-      "道德理想",
-      "社会政治理想"
-    ],
-    "answer": "D",
-    "id": "1798736708812931073",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()是我国社会主义国防观念的重要思想基础。",
-    "option": [
-      "集体主义",
-      "社会主义",
-      "爱国主义",
-      "奉献主义"
-    ],
-    "answer": "C",
-    "id": "1798736708687101952",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "主张人生就在于满足感官的需求与快乐的思想观念是（）",
-    "option": [
-      "拜金主义人生观",
-      "个人主义人生观",
-      "实用主义人生观",
-      "享乐主义人生观"
-    ],
-    "answer": "D",
-    "id": "1798736709031034880",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "从业人员在职业活动中，对待顾客热情，尽心尽力为顾客办事。这是职业道德中()",
-    "option": [
-      "爱岗敬业的要求",
-      "诚实守信的要求",
-      "办事公道的",
-      "服务群众的要求"
-    ],
-    "answer": "D",
-    "id": "1798736708397694977",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "孟子云“父子有亲，君臣有义，夫妇有别，长幼有序，朋友有信。”，说明中华传统美德非常重视()",
-    "option": [
-      "等级观念",
-      "人伦价值",
-      "尊卑观念",
-      "整体利益"
-    ],
-    "answer": "B",
-    "id": "1798736708452220928",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "我国社会主义法治的核心和精髓是()。",
-    "option": [
-      "依法治国",
-      "社会主义法治理念",
-      "社会主义法律体系",
-      "执法为民"
-    ],
-    "answer": "A",
-    "id": "1798736708007624705",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "下列选项中，对集体主义原则的错误理解是()",
-    "option": [
-      "集体主义要求不论在什么情况下，都要无条件地牺牲个人利益",
-      "集体主义强调国家利益和个人利益的辩证统一",
-      "集体主义原则重视个人利益",
-      "集体主义原则强调国家利益、集体利益高于个人利益"
-    ],
-    "answer": "A",
-    "id": "1798736708435443712",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "俗话说：“三百六十行，行行出状元”。上述俗话主要说明 （）",
-    "option": [
-      "人生的价值终究要通过自己所从事的事业展现出来",
-      "人的创造力的形成和培养需要一定的社会条件",
-      "要正确对待学习和工作中的成功和失败",
-      "要正确处理个人活动和社会发展的关系\n"
-    ],
-    "answer": "A",
-    "id": "1798736708947148800",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“知耻近乎勇”“礼义廉耻，国之四维”说的是人生矛盾中的（）",
-    "option": [
-      "幸福观",
-      "荣辱观",
-      "生死观",
-      "顺逆观"
-    ],
-    "answer": "B",
-    "id": "1798736708984897536",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "我们在强调学法用法的同时，还必须强调()，只有这样，学法用法才具有积极的意义，法律在现实生活中才能取得实效，法治国家的构想才能实现。",
-    "option": [
-      "培养立法意识",
-      "培养守法意识",
-      "培养宣传法律意识",
-      "培养监督法的实施意识"
-    ],
-    "answer": "B",
-    "id": "1798736708041179137",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“爱祖国、爱人民、爱劳动、爱科学、爱社会主义”是社会主义道德的基本要求。在当代中国，对“爱祖国”的要求最集中地体现在()",
-    "option": [
-      "坚持祖国的统一，反对分裂祖国的言行",
-      "爱社会主义，积极参加中国特色社会主义建设",
-      "追求健康、文明、科学的生活方式",
-      "通过诚实劳动、合法经营去获取利益和财富"
-    ],
-    "answer": "B",
-    "id": "1798736708695490560",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "（ ）是改革开放以来党的全部理论和实践的主题，是党和人民历尽千辛万苦、付出巨大代价取得的根本成就。",
-    "option": [
-      "科学社会主义",
-      "马克思主义",
-      "中国特色社会主义",
-      "共产主义"
-    ],
-    "answer": "C",
-    "id": "1798736708791959552",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "下列哪一选项反映了爱国主义的基本要求()。",
-    "option": [
-      "“以热爱祖国为荣，以危害祖国为耻”",
-      "“以服务人民为荣，以背离人民为耻”",
-      "“以诚实守信为荣，以见利忘义为耻”",
-      "“以艰苦奋斗为荣，以骄奢淫逸为耻”"
-    ],
-    "answer": "A",
-    "id": "1798736708657741825",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "法律主要体现的是()。",
-    "option": [
-      "社会成员的公共意志",
-      "统治阶级的全部意志",
-      "执政党的意志",
-      "国家意志"
-    ],
-    "answer": "D",
-    "id": "1798736707999236097",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "经历数千年大风大浪和兴衰变化的考验，整个中华民族却一直保持着蓬勃的生机和旺盛的活力，稳固地凝聚在一起，外来势力冲不散，帝国主义打不垮。高昂的爱国主义精神，把中国疆，域内众多的大小民族凝聚在一起，把亿万中华儿女牢牢地吸引在中国大地上。这段话的意思是说，爱国主义是()",
-    "option": [
-      "鼓舞中国人民团结奋斗的一面旗帜",
-      "谱写壮丽人生的力量源泉",
-      "推动历史前进的巨大力量",
-      "实现人生的最高价值"
-    ],
-    "answer": "A",
-    "id": "1798736708691296258",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“道不可坐论，德不能空谈”讲的是()。",
-    "option": [
-      "勤学",
-      "修德",
-      "明辨",
-      "笃实"
-    ],
-    "answer": "D",
-    "id": "1798736708536107008",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "精心地护持自己的善意，精心地保持自己的善行，“不以善小而不为，不以恶小而为之”，使其不断地积累成为个人品德。这种道德修养方法是()",
-    "option": [
-      "陶冶情操",
-      "省察克治",
-      "积善成德",
-      "择善而从"
-    ],
-    "answer": "C",
-    "id": "1798736708385112064",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "我国《宪法》规定的通信自由和通信秘密属于公民的何种权利？()",
-    "option": [
-      "政治自由权利",
-      "人身自由权利",
-      "文化教育权利",
-      "监督控诉权利"
-    ],
-    "answer": "B",
-    "id": "1798736707978264577",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "作为人类社会最为先进社会制度的本质规定在价值层面的集中反映，代表着当今时代人类社会的价值制高点的是()。",
-    "option": [
-      "社会主义核心价值观",
-      "社会主义核心价值体系",
-      "共产主义核心价值观",
-      "共产主义核心价值体系"
-    ],
-    "answer": "A",
-    "id": "1798736708548689920",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在个人独处、无人监督时，也坚守自己的道德信念，对自己的言行，小心谨慎，自觉按道德要求行事，不做任何不道德的事。这种完善道德品质的修养方法是()",
-    "option": [
-      "择善而从",
-      "省察克治",
-      "陶冶情操",
-      "慎独自律"
-    ],
-    "answer": "D",
-    "id": "1798736708376723457",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "爱国主义是人们自己故土家园、种族和文化的归属感、()、尊严感与荣誉感的统一。",
-    "option": [
-      "自豪感",
-      "认同感",
-      "自信心",
-      "自尊心"
-    ],
-    "answer": "B",
-    "id": "1798736708670324736",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“禾苗离土即死”、“一方水土养一方人”所体现的是()",
-    "option": [
-      "祖国对国土的依赖关系",
-      "人民对故土家园的依赖关系",
-      "国土对祖国的依赖关系",
-      "故土家园对人民的依赖关系"
-    ],
-    "answer": "B",
-    "id": "1798736708678713345",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "人们在公共生活中应该爱惜和保护全民和集体所有的公共财物,这是社会公德中()",
-    "option": [
-      "爱护公物的要求",
-      "助人为乐的要求",
-      "文明礼貌的要求",
-      "保护环境的要求"
-    ],
-    "answer": "A",
-    "id": "1798736708410277889",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "爱国主义与爱社会主义、爱中国共产党、爱人民政府是()。",
-    "option": [
-      "内在一致的",
-      "相互联系的",
-      "相互独立的",
-      "相互冲突的"
-    ],
-    "answer": "A",
-    "id": "1798736708678713344",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“吾日三省吾身：为人谋而不忠乎?与朋友交而不信乎?传不习乎?”这句话强调了，进行自我修养要()",
-    "option": [
-      "认真读书，求得真知",
-      "躬行实践，知行统一",
-      "常思己过，有则改之",
-      "学习榜样，积极进权"
-    ],
-    "answer": "C",
-    "id": "1798736709165252608",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "全面依法治国，必须坚持以习近平法治思想为指导，坚定不移走（）道路。",
-    "option": [
-      "中国特色社会主义法律",
-      "中国特色社会主义法治",
-      "中国特色社会主义司法",
-      "中国特色社会主义治理\n"
-    ],
-    "answer": "B",
-    "id": "1798736708024401922",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "报效祖国、服务人民，“见善则迁，有过则改”，讲的都是()。",
-    "option": [
-      "勤学",
-      "修德",
-      "明辨",
-      "笃实"
-    ],
-    "answer": "B",
-    "id": "1798736708536107009",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“一个人做点好事并不难，难的是一辈子做好事，不做坏事，一贯的有益于广大群众，一贯的有益于青年，一贯的有益于革命，艰苦奋斗几十年如一日……才是最难最难的呵!”这说明了()",
-    "option": [
-      "人才成长的道路",
-      "实现人生理想的途径",
-      "个人修养是一个不断的长期的曲折的实践过程",
-      "修养的境界是一个人修养所达到的实践水平或程度"
-    ],
-    "answer": "C",
-    "id": "1798736709165252609",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在当代中国，爱国主义首先体现在对()的热爱上，这是中华人民共和国每一个公民必须坚持的立场和态度。",
-    "option": [
-      "自己家庭",
-      "自己的事业",
-      "世界的发展",
-      "社会主义中国"
-    ],
-    "answer": "D",
-    "id": "1798736708657741824",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()是文化软实力的灵魂、文化软实力建设的重点，是决定文化性质和方向的最深层次要素。",
-    "option": [
-      "核心价值观",
-      "民族精神",
-      "开拓创新",
-      "先进文化"
-    ],
-    "answer": "A",
-    "id": "1798736708510941185",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在社会主义核心价值观践行中，立身是通过()实现的。",
-    "option": [
-      "勤学",
-      "修德",
-      "明辨",
-      "笃实"
-    ],
-    "answer": "B",
-    "id": "1798736708519329792",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "不属于社会保险法范畴的是()",
-    "option": [
-      "基本医疗保险",
-      "基本养老保险",
-      "生育保险",
-      "社会福利"
-    ],
-    "answer": "D",
-    "id": "1798736707974070272",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "（）主要是财产责任，也可以是以人身、行为、人格等为责任承担内容的非财产责任。",
-    "option": [
-      "法律责任",
-      "民事责任",
-      "行政责任",
-      "刑事责任"
-    ],
-    "answer": "B",
-    "id": "1798736707999236096",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "物权的取得和行使，不应当()",
-    "option": [
-      "遵守法律",
-      "尊重社会公德",
-      "尊重公共利益和他人合法权益",
-      "违背诚信"
-    ],
-    "answer": "D",
-    "id": "1798736707969875969",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "社会主义道德的核心是()",
-    "option": [
-      "集体主义",
-      "为人民服务",
-      "合理的利己主义",
-      "毫不利己专门利人"
-    ],
-    "answer": "B",
-    "id": "1798736708435443713",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
     "questionStem": "追求崇高的理想需要坚定的信念。信念是()",
     "option": [
       "一种单纯的知识或想法",
@@ -896,278 +11,7 @@
     "id": "1798736708821319680",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "下列选项中，属于职业道德要求的是()",
-    "option": [
-      "尊老爱幼",
-      "助人为乐",
-      "服务群众",
-      "文明礼貌"
-    ],
-    "answer": "C",
-    "id": "1798736708401889281",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "信仰的一个方面是信念，另一个重要方面是()",
-    "option": [
-      "理想",
-      "知识",
-      "科学认识",
-      "非科学认识"
-    ],
-    "answer": "A",
-    "id": "1798736708829708288",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "人们称由一定的规则维系的人们公共生活的一种有序化状态是()",
-    "option": [
-      "公共生活",
-      "公共秩序",
-      "公共场所",
-      "公共领域"
-    ],
-    "answer": "B",
-    "id": "1798736708418666496",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "作为法治理念的公平正义是指()",
-    "option": [
-      "社会成员之间的社会地位、经济收入、消费水平接近",
-      "每个人拥有平等的生存、发展的权利和机会",
-      "社会成员能依法公平地实现权利和义务，并受法律的保护",
-      "人们享有的权利和承担的责任相一致"
-    ],
-    "answer": "C",
-    "id": "1798736708003430400",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "新文化运动时期，对待中国传统文化及道德有两种对立的观点：全盘否定与全盘肯定。今天，回顾历史，观照现实，对待中华传统文化与道德正确的态度应是()",
-    "option": [
-      "全盘复古",
-      "全盘西化",
-      "结合时代要求继承创新",
-      "一半传统一半西方"
-    ],
-    "answer": "C",
-    "id": "1798736708443832320",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "理想是（）",
-    "option": [
-      "为社会的少数人谋利益",
-      "不可能实现的向往",
-      "纯粹主观的",
-      "经过奋斗能够实现的想象和目标\n"
-    ],
-    "answer": "D",
-    "id": "1798736708800348160",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "某市检察院运用电子设备双路监控，同步录音录像，监督检察官办案过程，推动理性文明执法。关于理性文明执法，下列哪一说法是不正确的？()",
-    "option": [
-      "体现了以人为本的原则和精神",
-      "有助于树立法治的权威",
-      "有助于实现保障人权与打击犯罪的双重目标",
-      "要求执法机关从有利于群众的实际利益出发，讲究执法方法。为此，可突破法律规则和程序的要求办案"
-    ],
-    "answer": "D",
-    "id": "1798736708011819009",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "青春是用来（）的。",
-    "option": [
-      "享受",
-      "实践",
-      "奋斗",
-      "梦想"
-    ],
-    "answer": "C",
-    "id": "1798736709135892481",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "习近平总书记强调，（）是社会的基本细胞，是人生的第一所学校。",
-    "option": [
-      "个人",
-      "家庭",
-      "单位",
-      "社区"
-    ],
-    "answer": "B",
-    "id": "1798736708364140546",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "人才素质的灵魂是()",
-    "option": [
-      "德",
-      "智",
-      "体",
-      "美"
-    ],
-    "answer": "A",
-    "id": "1798736709169446914",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "邓小平明确指出：“为什么我们过去能在非常困难的情况下奋斗出来，战胜千难万险使革命胜利呢？就是因为我们有理想，有马克思主义信念，有共产主义信念。”邓小平的这句话意思是说()",
-    "option": [
-      "理想信念是我们的指路明灯",
-      "理想信念是我们的精神支柱",
-      "理想信念是我们的精神动力",
-      "有科学和不科学的区分"
-    ],
-    "answer": "B",
-    "id": "1798736708838096898",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "一个人如果没有崇高理想或者缺乏理想，就会像一艘没有舵的船，随波逐流，难以顺利地到达彼岸。人只要有了崇高的理想，就会在黑暗中看到光明，在平凡中看到伟大，在遭受困难和挫折时能充满信心，坚持胜利。这就是理想在人生中的()",
-    "option": [
-      "精神向导的指路明灯作用",
-      "精神支柱作用",
-      "精神动力作用",
-      "思想武器作用"
-    ],
-    "answer": "A",
-    "id": "1798736708846485504",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "自然人下落不明满（）年的，利害关系人可以向人民法院申请宣告该自然人为失踪人。",
-    "option": [
-      "1",
-      "3",
-      "4",
-      "2"
-    ],
-    "answer": "D",
-    "id": "1798736707961487361",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "关于公平正义，下列哪一说法是正确的？()",
-    "option": [
-      "人类一切法律都维护公平正义",
-      "不同的时代秉持相同的正义观",
-      "公平正义是一个特定的历史范畴",
-      "严格执法等于实现了公平正义"
-    ],
-    "answer": "C",
-    "id": "1798736708011819008",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "宪法规定，依法服兵役和参加民兵组织是我国公民的()",
-    "option": [
-      "神圣权利",
-      "光荣义务",
-      "权利和义务",
-      "神圣职责"
-    ],
-    "answer": "B",
-    "id": "1798736708057956352",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“夙夜在公”体现了中华民族优良道德传统()",
-    "option": [
-      "注重整体利益的精神",
-      "仁爱精神",
-      "注重道德践履",
-      "向往理想人格"
-    ],
-    "answer": "A",
-    "id": "1798736708448026625",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“谈到人格，但不要忘记还有一个国格。特别是像我们这样第三世界的发展中国家，没有民族自尊心，不珍惜自己民族的独立，国家是立不起来的。”这段话是()说的？",
-    "option": [
-      "毛泽东",
-      "邓小平",
-      "江泽民",
-      "胡锦涛"
-    ],
-    "answer": "B",
-    "id": "1798736708691296257",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "人生态度与人生目的、人生价值的关系是()",
-    "option": [
-      "人生态度决定人生目的和人生价值",
-      "人生目的决定人生态度和人生价值选择",
-      "人生价值决定人生目的和人生态度",
-      "三者之间没有关联"
-    ],
-    "answer": "B",
-    "id": "1798736709022646273",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
+    "abbreviationSubject": "Political"
   },
   {
     "questionStem": "社会主义集体主义强调在集体利益和个人利益发生矛盾或冲突时，要求()",
@@ -1181,1523 +25,7 @@
     "id": "1798736708443832322",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "中国特色社会主义共同理想与共产主义远大理想有着内在的联系，它们之间是()",
-    "option": [
-      "个人理想和社会理想的关系",
-      "职业理想和道德理想的关系",
-      "阶段性理想和最终理想的关系",
-      "有实现可能性的理想和根本不可能实现的空想的关系"
-    ],
-    "answer": "C",
-    "id": "1798736708791959553",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "习近平说：“我国是一个有着13亿多人口、56个民族的大国，确立反映全国各族人民共同认同的价值观‘最大公约数’，使全体人民同心同德、团结奋进，关乎国家前途命运，关乎人民幸福安康。”。其中的“最大公约数”是指()",
-    "option": [
-      "文化认同",
-      "理论认同",
-      "价值共识",
-      "观念共识"
-    ],
-    "answer": "C",
-    "id": "1798736708557078529",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "大学生提高思想道德素质和法律素质的根本要求是()",
-    "option": [
-      "热爱祖国",
-      "德才兼备",
-      "全面发展",
-      "践行社会主义核心价值观"
-    ],
-    "answer": "D",
-    "id": "1798736709173641217",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "关于法律和国家关系的表述中，正确的是()",
-    "option": [
-      "国家需要法律",
-      "法律先于国家而产生",
-      "法律不一定从属于国家",
-      "法律的产生与国家的产生没有必然联系"
-    ],
-    "answer": "A",
-    "id": "1798736708045373441",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "根据我国宪法规定，下列选项中哪一种情况不是公民获得物质帮助权的条件？()",
-    "option": [
-      "公民在年老时",
-      "公民在疾病时",
-      "公民在遭受自然灾害时",
-      "公民在丧失劳动能力时"
-    ],
-    "answer": "C",
-    "id": "1798736707986653185",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "下列属于正确的人生态度的是()",
-    "option": [
-      "今朝有酒今朝醉",
-      "浮生如梦",
-      "知其不可而为之",
-      "得过且过"
-    ],
-    "answer": "C",
-    "id": "1798736709022646272",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "现阶段科学的理想信念的基础是()",
-    "option": [
-      "社会主义荣辱观",
-      "马克思主义科学世界观",
-      "构建社会主义和谐社会理论",
-      "建设中国特色社会主义的理论"
-    ],
-    "answer": "B",
-    "id": "1798736708838096897",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "把国家倡导社会主义核心价值观正式写入宪法的是（）。",
-    "option": [
-      "十二届全国人大一次会议",
-      "十二届全国人大二次会议",
-      "十三届全国人大一次会议",
-      "十三届全国人大二次会议"
-    ],
-    "answer": "C",
-    "id": "1798736708561272833",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()是社会主义道德规范对执法工作的基本要求，是社会主义政治文明和进步的表现，是执法机关执法为民的外在体现。",
-    "option": [
-      "勤政守法",
-      "甘当公仆",
-      "文明执法",
-      "清正廉洁"
-    ],
-    "answer": "C",
-    "id": "1798736708045373440",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "以下选项中，()属于我国法律体系的基本法律部门",
-    "option": [
-      "行政法",
-      "合同法",
-      "仲裁法",
-      "民事侵权法"
-    ],
-    "answer": "A",
-    "id": "1798736708049567746",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "刘少奇曾指出：“我们是革命的唯物主义者，我们的修养不能脱离人民群众的革命实践。”这句话强调了()",
-    "option": [
-      "自我修养必须落实到行动上，身体力行",
-      "进行自我修养必须用科学的理论武装自己",
-      "自我修养的完美境界的实现是相对的和无止境的",
-      "自我修养需要经常用正确的理论观点和行为规范来对照检查自己的思想和言行"
-    ],
-    "answer": "A",
-    "id": "1798736709152669696",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "社会主义道德区别并优越于其他社会形态道德的显著标志是，社会主义道德建设()",
-    "option": [
-      "以功利主义为原则",
-      "以知荣明耻为重点",
-      "以为人民服务为核心",
-      "以非强制性规范为特色"
-    ],
-    "answer": "C",
-    "id": "1798736708427055105",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()是中国特色社会主义道路自信、理论自信、制度自信和文化自信的价值内核。",
-    "option": [
-      "坚定的理想自信",
-      "坚定的信念自信",
-      "坚定的思想自信",
-      "坚定的核心价值观自信"
-    ],
-    "answer": "D",
-    "id": "1798736708557078528",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "商法遵循()法的基本原则，同时秉承保障商事交易自由、等价有偿、便捷安全等原则。",
-    "option": [
-      "宪法",
-      "刑法",
-      "民法",
-      "行政法"
-    ],
-    "answer": "C",
-    "id": "1798736708024401921",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "弗洛姆在《爱的艺术》-书中说：“尊重只能建立在自由的基础上，强权统治绝不会成就爱。”这句话意思是说()",
-    "option": [
-      "恋爱必须尊重对方的情感和人格",
-      "恋爱是绝对自由的",
-      "恋爱要有文明交往方式",
-      "恋爱重在培养爱的过程"
-    ],
-    "answer": "A",
-    "id": "1798736708389306368",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "曾子说：“五日三省吾身。为人谋，而不忠乎？与朋友交，而不信乎？传不习乎？”这体现了中华传统美德中的()",
-    "option": [
-      "礼让精神",
-      "强调道德修养塑造理想人格的精神",
-      "奉献精神",
-      "宽厚待人的精神"
-    ],
-    "answer": "B",
-    "id": "1798736708443832321",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "下列选项中，属于现代社会人们自我修养的正确途径是()。",
-    "option": [
-      "坐而论道",
-      "闭门思过",
-      "躬行实践",
-      "合理宣泄"
-    ],
-    "answer": "C",
-    "id": "1798736709169446912",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "2021年2月20日,习近平总书记在党史学习教育动员大会讲，在一百年的非凡奋斗历程中，一代又一代中国共产党人顽强拼搏、不懈奋斗，涌现了一大批视死如归的革命烈士、一大批顽强奋斗的英雄人物、一大批忘我奉献的先进模范，形成了井冈山精神、长征精神、遵义会议精神、延安精神、西柏坡精神、红岩精神、抗美援朝精神、“两弹一星”精神、特区精神、抗洪精神、抗震救灾精神、抗疫精神等伟大精神，构筑起了中国共产党人的（）。",
-    "option": [
-      "价值追求",
-      "精神谱系",
-      "奋斗精神",
-      "理想信念"
-    ],
-    "answer": "B",
-    "id": "1798736708649353216",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "我国现行宪法是由第五届全国人民代表大会第五次会议于()年通过的",
-    "option": [
-      "1954",
-      "1975",
-      "1978",
-      "1982"
-    ],
-    "answer": "D",
-    "id": "1798736708066344961",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "疫情期间，美国洛杉矶几位侨胞凑钱买了8万多支手套、1千个N95口罩捐赠给武汉。当被告知国内清关必须留名时，他们留下4个字：中华儿女。华侨们的行为体现了民族精神的核心是（）",
-    "option": [
-      "爱国主义",
-      "团结统一",
-      "自强不息",
-      "爱好和平"
-    ],
-    "answer": "A",
-    "id": "1798736708649353217",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在中华民族的爱国主义发展史上，（）是中华儿女爱国情怀的重要体现。",
-    "option": [
-      "维护祖国统一、反对祖国分裂",
-      "促进祖国经济发展、社会进步",
-      "促进社会和谐发展",
-      "促进社会公平正义"
-    ],
-    "answer": "A",
-    "id": "1798736708703879168",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "(）包含两方面含义：一是行使权力要对所引起的法律后果负责。二是被法律赋予权力而不去行使或者行使不到位，就是不尽责、不作为，也要承担相应的法律责任。",
-    "option": [
-      "用权受监督",
-      "违法受追究",
-      "职权由法定",
-      "有权必有责"
-    ],
-    "answer": "D",
-    "id": "1798736708053762048",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "（）因执行职务造成他人损害的，由法人承担民事责任。",
-    "option": [
-      "董事长",
-      "总经理",
-      "法定负责人",
-      "法定代表人"
-    ],
-    "answer": "D",
-    "id": "1798736707961487360",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()是依法治国的核心。",
-    "option": [
-      "诚信友爱",
-      "民主法治",
-      "公平正义",
-      "依宪治国"
-    ],
-    "answer": "D",
-    "id": "1798736708049567745",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "马克思曾说过：“人是最名副其实的政治动物，不仅是一种合群的动物，而且是只有在社会中才能独立的动物。”表明()",
-    "option": [
-      "人是社会的奴隶",
-      "人是社会的人，离开了社会人也无法生活",
-      "社会是由一个个具体的人组成的，离开了人便没有社会",
-      "在一定的条件下，人是可以脱离社会而独立生存的"
-    ],
-    "answer": "B",
-    "id": "1798736708989091840",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "回答我们要建设什么样的国家的重大问题，揭示当代中国在经济发展、政治文明、文化繁荣、社会进步等方面的价值目标，从国家层面标注社会主义核心价值观的时代刻度，这一价值追求是()。",
-    "option": [
-      "富强、民主、文明、和谐",
-      "自由、平等、公正、法治",
-      "爱国、敬业、诚信、友善",
-      "价值、奉献、为公、利民"
-    ],
-    "answer": "A",
-    "id": "1798736708569661440",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()是社会主义道德建设的核心。",
-    "option": [
-      "集体主义",
-      "为人民服务",
-      "诚实守信",
-      "勤俭节约"
-    ],
-    "answer": "B",
-    "id": "1798736708418666498",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "社会主义法治把公平正义作为一切法治实践活动的价值追求。下列哪一说法正确体现了公平正义理念的基本要求？()",
-    "option": [
-      "在法律实施中为维护法律的权威性和严肃性，应依据法理而不是考虑情理",
-      "在法治实践活动中，仅仅保证程序公正",
-      "迟到的正义是非正义，法治活动应同时兼顾公正与效率",
-      "法律是全社会平等适用的普遍性规范，为维护法制统一，对特殊地域和特殊群体应一视同仁，不作任何区别化对待"
-    ],
-    "answer": "C",
-    "id": "1798736708016013313",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()是马克思主义关于社会主义核心价值观论述的基本原则。",
-    "option": [
-      "人的自由而全面发展",
-      "人的解放",
-      "公平正义",
-      "自由博爱"
-    ],
-    "answer": "C",
-    "id": "1798736708527718400",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "社会主义核心价值观的实践根据是()。",
-    "option": [
-      "中国特色社会主义政治",
-      "中国特色社会主义建设",
-      "中国特色社会主义文化",
-      "中国特色社会主义经济"
-    ],
-    "answer": "B",
-    "id": "1798736708548689921",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "马克思曾经说过，没有无义务的权利，也没有无权利的义务。这句话主要体现了法律权利与义务之间的()关系",
-    "option": [
-      "总量上的等值",
-      "功能上的互补",
-      "结构上的相关",
-      "形式上的对立"
-    ],
-    "answer": "B",
-    "id": "1798736707990847489",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()是一切创新的重要保障。",
-    "option": [
-      "理论创新",
-      "制度创新",
-      "科技创新",
-      "文化创新"
-    ],
-    "answer": "B",
-    "id": "1798736708653547522",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "面对一系列人生重大课题的解决，如人生观的确立，价值观的选择等，每个人都需要有一个总的原则和目标，而导引这一切的明亮灯塔正是人生的()",
-    "option": [
-      "理想与信念",
-      "修养与境界",
-      "友谊与爱情",
-      "基本行为准则"
-    ],
-    "answer": "A",
-    "id": "1798736708833902592",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "追求崇高的理想需要科学的信念，具有坚定社会主义信念的人，坚信()",
-    "option": [
-      "通往共产主义道路是遥远的，可望不可及",
-      "社会主义道德将成为所有人自觉的行为习惯和准则",
-      "社会主义必然代替资本主义，全世界最终必然实现共产主义",
-      "不同的团体有相同的信念"
-    ],
-    "answer": "C",
-    "id": "1798736708804542464",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "社会主义核心价值体系是全党全国各族人民团结奋斗的()。",
-    "option": [
-      "共同思想基础",
-      "共同理想",
-      "共同纲领",
-      "理论基础"
-    ],
-    "answer": "A",
-    "id": "1798736708523524097",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "封建制法律的基本特征表述不准确的是()",
-    "option": [
-      "确立农民对封建地主的人身依附关系",
-      "实行封建等级制度",
-      "维护专制皇权",
-      "是刑罚宽严相济。"
-    ],
-    "answer": "D",
-    "id": "1798736708032790529",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "人们在一定认识基础上确立的对某种思想或事物坚信不疑并身体力行的态度是()",
-    "option": [
-      "理想",
-      "信念",
-      "人生观",
-      "价值观"
-    ],
-    "answer": "B",
-    "id": "1798736708850679808",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "法律思维的一个重要特征是()",
-    "option": [
-      "权利义务相统一",
-      "重证据",
-      "讲程序",
-      "情重于法"
-    ],
-    "answer": "C",
-    "id": "1798736708041179136",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "衡量一个社会精神文明发展水平的重要标志是()。",
-    "option": [
-      "经济发展水平",
-      "社会道德风尚",
-      "对外开放程度",
-      "传统文化积淀"
-    ],
-    "answer": "B",
-    "id": "1798736709144281088",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "某公司的职工在三亚旅游时，主动把吃剩的瓜子壳、果皮等收拾干净，放到垃圾箱里。他们的这种行为是()",
-    "option": [
-      "可有可无的",
-      "职业要求的",
-      "多余的，因有专人打扫",
-      "应该的，是自觉遵守社会公德的表现"
-    ],
-    "answer": "D",
-    "id": "1798736708414472192",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "现阶段我国各族人民的共同理想是()",
-    "option": [
-      "建立共产主义社会",
-      "诚实劳动争取美好生活",
-      "建立人民当家作主的国家政权",
-      "建设中国特色社会主义"
-    ],
-    "answer": "D",
-    "id": "1798736708821319681",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在人类历史上，原始社会的经济关系产生了原始共产主义道德，封建社会的经济关系产生了封建主义道德，资本主义社会的经济关系产生了资本主义道德，社会主义社会的经济关系产生了社会主义道德。这说明()",
-    "option": [
-      "社会道德对社会经济关系具有决定作用",
-      "有什么样的生产方式就有什么样的社会道德",
-      "社会经济关系的性质并不决定社会道德体系的性质",
-      "社会道德的发展变化必然引起社会经济关系的发展变化"
-    ],
-    "answer": "B",
-    "id": "1798736708456415233",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "空想一般是()",
-    "option": [
-      "在实践中形成和具有实现可能的对美好未来的想象",
-      "与生活愿望相结合，但离现实较远的对未来的想象",
-      "缺乏客观根据的随心所欲的对未来的想象",
-      "现时有很大距离，但在将来有实现可能的一种未来想象"
-    ],
-    "answer": "C",
-    "id": "1798736708808736770",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "下列正确的人生价值评价是()",
-    "option": [
-      "能力越大人生价值越大",
-      "一个人只要尽心尽力，尽职尽责，他的人生价值就是值得肯定。",
-      "贡献越大人生价值越大",
-      "精神贡献价值大于物质贡献价值"
-    ],
-    "answer": "B",
-    "id": "1798736708997480448",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "法的核心特征是()",
-    "option": [
-      "国家意志性",
-      "规范性",
-      "逻辑性",
-      "统一性"
-    ],
-    "answer": "A",
-    "id": "1798736708053762049",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "当前社会主义爱国者的宗旨是()",
-    "option": [
-      "为人民服务",
-      "维护祖国统一",
-      "建设中国特色社会主义",
-      "构建社会主义和谐社会"
-    ],
-    "answer": "A",
-    "id": "1798736708699684864",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "决定着未来整个社会价值取向的是()。",
-    "option": [
-      "工人的价值取向",
-      "农民的价值取向",
-      "知识分子的价值取向",
-      "青年的价值取向"
-    ],
-    "answer": "D",
-    "id": "1798736708544495617",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "由于成长环境和性格等方面的不同，人们会形成不同的理想信念；即使同一个人，也会形成关于社会生活不同方面的许多理想信念。这说明，理想信念具有()",
-    "option": [
-      "片面性",
-      "政治性",
-      "共同性",
-      "多样性"
-    ],
-    "answer": "D",
-    "id": "1798736708846485505",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "爱国主义的基础是()",
-    "option": [
-      "爱国情感",
-      "爱国思想",
-      "爱国行为",
-      "爱国言语"
-    ],
-    "answer": "A",
-    "id": "1798736708691296256",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "家庭教育涉及很多方面，最重要的是（）",
-    "option": [
-      "心理教育",
-      "品德教育",
-      "职业教育",
-      "经济教育"
-    ],
-    "answer": "B",
-    "id": "1798736708364140545",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "经济全球化趋势对个人报效祖国()。",
-    "option": [
-      "消除了许多障碍或阻隔，开辟了更多的渠道和更大的空间",
-      "增加了极大的难度",
-      "成为不可能",
-      "没有影响"
-    ],
-    "answer": "A",
-    "id": "1798736708674519041",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“干一行，爱一行。”这是职业道德中()",
-    "option": [
-      "办事公道的要求",
-      "爱岗敬业的要求",
-      "诚实守信的要求",
-      "服务群众的要求"
-    ],
-    "answer": "B",
-    "id": "1798736708406083584",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "马克思说：“作为确定人，现实的人，你就有规定，就有使命，就有任务，至于你是否意识到这一点，那都是无所谓的。”这里，确定的现实的人的“规定”、“使命”和“任务”指的是()。",
-    "option": [
-      "人生责任",
-      "人生境界",
-      "人生存在",
-      "人生信仰"
-    ],
-    "answer": "A",
-    "id": "1798736709152669698",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()作为一个民族群体意识的载体，常常被称为国家和民族的“胎记”，是一个民族得以延续的“精神基因”。",
-    "option": [
-      "祖国的大好河山",
-      "灿烂的文化传统",
-      "自己的骨肉同胞",
-      "深厚的道德渊源"
-    ],
-    "answer": "B",
-    "id": "1798736708674519040",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "大学生在大学阶段的首要任务是（）。",
-    "option": [
-      "学习",
-      "笃实",
-      "立行",
-      "修德"
-    ],
-    "answer": "A",
-    "id": "1798736709140086785",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "我国宪法规定的公民在法律面前一律平等原则的含义是什么？()",
-    "option": [
-      "18周岁以上的公民在法律面前平等",
-      "人民在法律面前平等",
-      "凡具有中华人民共和国国籍的人在法律面前平等",
-      "居住在中国境内的人在法律面前平等"
-    ],
-    "answer": "C",
-    "id": "1798736707969875970",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "国务院审计机关在()领导下，依照法律规定独立行使审计监督权，不受其他行政机关、社会团体和个人的干涉。",
-    "option": [
-      "国务院总理",
-      "全国人大常委会委员长",
-      "国家主席",
-      "全国政协主席"
-    ],
-    "answer": "A",
-    "id": "1798736708062150657",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "坚持依法治国首先要坚持（）。",
-    "option": [
-      "依宪治国",
-      "以德治国",
-      "公正执法",
-      "科学监督"
-    ],
-    "answer": "A",
-    "id": "1798736708007624704",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在新时期，邓小平提出的“四有”新人指的是()",
-    "option": [
-      "有知识、有能力、有文化、有纪律",
-      "有理想、有道德、有文化、有纪律",
-      "有素质、有本领、有道德、有理想",
-      "有理想、有信念、有才华、有纪律"
-    ],
-    "answer": "B",
-    "id": "1798736708838096896",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "我国现行宪法是在哪年制定的？",
-    "option": [
-      "1982",
-      "1978",
-      "1999",
-      "2004"
-    ],
-    "answer": "A",
-    "id": "1798736708028596224",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“己欲立而立人，己欲达而达人”体现了中华民族传统美德中的()",
-    "option": [
-      "责任意识",
-      "仁爱精神",
-      "谦敬礼让",
-      "诚信精神"
-    ],
-    "answer": "B",
-    "id": "1798736708452220929",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "关于贯彻依法治国理念的基本要求，下列哪一说法是不正确的？()",
-    "option": [
-      "社会成员要知法、信法、守法、用法，这是依法治国方略实施的社会基础",
-      "依法治国需要与我国不同发展阶段的主要实践结合起来",
-      "实现依法治国的首要目的是运用法律手段加快解决公共卫生保障、文化教育、保障性住房等领域的现实问题",
-      "依法治国要求领导干部善于运用法治思维和法治方式深化改革、推动发展、化解矛盾和维护稳定"
-    ],
-    "answer": "C",
-    "id": "1798736708016013312",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "邻里和睦属于()",
-    "option": [
-      "社会公德",
-      "职业道德",
-      "家庭美德",
-      "法律规定"
-    ],
-    "answer": "C",
-    "id": "1798736708389306370",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "马克思主义理想信念的基础是()",
-    "option": [
-      "科学",
-      "信仰",
-      "革命",
-      "知识"
-    ],
-    "answer": "A",
-    "id": "1798736708825513985",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "中国梦归根到底是（），必须紧紧依靠人民来实现，必须不断为人民造福。",
-    "option": [
-      "国家的梦",
-      "人民的梦",
-      "民族的梦",
-      "世界的梦"
-    ],
-    "answer": "B",
-    "id": "1798736709131698176",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "下列有关社会主义法律与社会主义道德一致性的叙述中，错误的是()。",
-    "option": [
-      "二者都是社会主义经济基础的产物",
-      "二者都主要靠社会舆论进行调节",
-      "二者都是调整人们相互关系的行为规范",
-      "二者都是工人阶级和广大人民群体意志和利益的体现"
-    ],
-    "answer": "B",
-    "id": "1798736709152669697",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "公民行使集会、游行、示威权利时应向主管机关提出申请并获得许可，下列哪些属于依法许可的情形()",
-    "option": [
-      "反对宪法确认的基本原则",
-      "危害国家的主权和领土完",
-      "对社会环境不满意",
-      "危害国家的统一"
-    ],
-    "answer": "C",
-    "id": "1798736707978264576",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在中华民族悠久的历史上，启迪和指引历代优秀人物壮丽人生的一个共同思想因素是()",
-    "option": [
-      "功利主义",
-      "爱国主义",
-      "民主主义",
-      "社会主义"
-    ],
-    "answer": "B",
-    "id": "1798736708708073472",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "（）是指人们通过生活实践形成的对人生问题的一种稳定的心理倾向和精神状态。",
-    "option": [
-      "人生目的",
-      "人生价值",
-      "人生态度",
-      "人生意义"
-    ],
-    "answer": "C",
-    "id": "1798736709039423488",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "坚持爱国主义与()的统一，是新时期爱国主义的基本特征。",
-    "option": [
-      "爱社会主义",
-      "爱人民群众",
-      "爱中国共产党",
-      "爱本职工作"
-    ],
-    "answer": "A",
-    "id": "1798736708699684865",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "根据我国宪法的规定，下列有关公民基本权利的宪法保护的表述，哪一个是正确的？()",
-    "option": [
-      "一切公民都有选举权和被选举权",
-      "宪法规定了对华侨、归侨权益的保护，但没有规定对侨眷权益的保护",
-      "宪法对建立劳动者休息和休养的设施未加以规范",
-      "公民合法财产的所有权和私有财产的继承权规定在宪法“总纲”部分"
-    ],
-    "answer": "D",
-    "id": "1798736707982458881",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "男女双方的恋爱行为，客观上是对社会负有相应的道德责任的行为。下列选项中，违背男女恋爱中基本道德要求的是()",
-    "option": [
-      "尊重对方的人格",
-      "自觉承担责任",
-      "文明相亲相爱",
-      "要求对方断绝与其他异性的交往"
-    ],
-    "answer": "D",
-    "id": "1798736708393500673",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“苟利国家生死以，岂因祸福避趋之”反映了中华民族传统美德中的()",
-    "option": [
-      "责任意识与奉献精神",
-      "谦虚礼让的精神",
-      "恪守诚信的精神",
-      "人际和谐的精神"
-    ],
-    "answer": "A",
-    "id": "1798736708456415232",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“樱桃好吃树难栽，不下功夫花不开。”理想是美好的，但美好的理想是不会自动实现的。把理想转化为现实的根本途径是（）",
-    "option": [
-      "积极投身社会实践",
-      "认真学习科学理论",
-      "大胆畅想美好未来",
-      "逐步确立坚定信念"
-    ],
-    "answer": "A",
-    "id": "1798736708817125377",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "国家的领土、领海和领空安全，不受外来军事威胁或侵犯。这是指()",
-    "option": [
-      "政治安全",
-      "国防安全",
-      "生态安全",
-      "社会公共安全"
-    ],
-    "answer": "B",
-    "id": "1798736708036984833",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "人们在社会交往和公共生活中形成和应当遵守的行为准则是()",
-    "option": [
-      "职业道德",
-      "家庭道德",
-      "社会公德",
-      "公共秩序"
-    ],
-    "answer": "C",
-    "id": "1798736708414472193",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "道德通过评价等方式，指导和纠正人们的行为和实际活动，协调人们之间的关系。这指的是道德的",
-    "option": [
-      "认识功能",
-      "调节功能",
-      "沟通功能",
-      "教育功能"
-    ],
-    "answer": "B",
-    "id": "1798736708460609536",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "革命家陶铸说：“无论在什么样的社会里，一个人的理想，是为了多数人的利益，为了社会进步，对社会生产力的发展起促进作用，也就是说，合乎社会发展规律，就是伟大理想。”其意是说()",
-    "option": [
-      "所有理想都是合乎社会发展规律的",
-      "建立在科学基础上的正确的理想才是伟大的理想",
-      "理想没有伟大和不伟大的区分",
-      "不能要求每个人的理想都是伟大的"
-    ],
-    "answer": "B",
-    "id": "1798736708825513984",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "下列几句广告词，反应人类最先进的人生追求的是()",
-    "option": [
-      "我选择，我喜欢",
-      "我的地盘我做主",
-      "学习雷锋，奉献社会",
-      "喜欢，有什么不可以"
-    ],
-    "answer": "C",
-    "id": "1798736709005869056",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在社会主义初级阶段，我们所提倡的高尚的人生目的是（）",
-    "option": [
-      "“一切向钱看”的人生目的",
-      "为个人求权力、求享乐的人生目的",
-      "“平生无大志，但求足温饱”的人生目的",
-      "以天下为已任、服务人民、奉献社会的人生目的\n"
-    ],
-    "answer": "D",
-    "id": "1798736708980703232",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "全国劳动模范徐虎说过：“你不奉献，我不奉献，谁来奉献?你也索取，我也索取，向谁索取?”这句话的意思是，社会需要每个人的奉献，只有有奉献才能有索取。这种观点认为，人生价值的本质在于（）",
-    "option": [
-      "个人的社会存在",
-      "个人需要的最大满足",
-      "个人对社会的责任和贡献",
-      "社会对个人的尊重和满足\n"
-    ],
-    "answer": "C",
-    "id": "1798736708972314624",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "十一届三中全会重新确立的思想路线是()",
-    "option": [
-      "以经济建设为中心，坚持改革开放",
-      "解放思想、实事求是",
-      "邓小平理论确定为党的指导思想",
-      "和平共处五项原则"
-    ],
-    "answer": "B",
-    "id": "1798736708062150656",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "法构成要素的主要部分是()",
-    "option": [
-      "规范",
-      "原则",
-      "概念",
-      "技术"
-    ],
-    "answer": "A",
-    "id": "1798736708070539264",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "学生在课堂看手机、吃早饭不仅违反了课堂纪律，这属于()行为。",
-    "option": [
-      "违法行为",
-      "违反社会公德行为",
-      "违反职业道德行为",
-      "以上都不是,这是学生的权利"
-    ],
-    "answer": "B",
-    "id": "1798736708406083585",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "继承权丧失的法定条件是()",
-    "option": [
-      "故意杀害被继承人的",
-      "杀害其他继承人的",
-      "遗弃被继承人",
-      "虐待被继承人"
-    ],
-    "answer": "A",
-    "id": "1798736707974070273",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "社会主义核心价值体系是()在价值层面的本质规定。",
-    "option": [
-      "社会意识形态",
-      "社会主义制度",
-      "?社会主义意识形态?",
-      "中国特色社会主义"
-    ],
-    "answer": "B",
-    "id": "1798736708523524096",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "国家安全的支柱与核心是()",
-    "option": [
-      "经济安全与科技安全",
-      "政治安全与国防安全",
-      "文化安全与生态安全",
-      "社会公共安全与网络信息安全"
-    ],
-    "answer": "B",
-    "id": "1798736708687101953",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在公共场所人人都可能会遇到一些突发性灾祸，如车祸、溺水、意外病痛等，这就需要人们见义勇为，临危不惧，积极为他人排忧解难。这体现的是社会公德中()",
-    "option": [
-      "文明礼貌的要求",
-      "保护环境的要求",
-      "助人为乐的要求",
-      "爱护公物的要求"
-    ],
-    "answer": "C",
-    "id": "1798736708410277888",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "理想区别于幻想、空想的特点是()",
-    "option": [
-      "理想是个人对幻想空想的改进",
-      "理想源于实践具有实现可能，是对未来的向往和追求",
-      "理想是永恒的，幻想和空想可以随时间的变化而变化",
-      "知识渊博的人具有崇高的理想，而空想幻想则源于无知"
-    ],
-    "answer": "B",
-    "id": "1798736708808736769",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "韦编三绝、悬梁刺股、凿壁借光、囊萤映雪等故事讲的是()。",
-    "option": [
-      "勤学",
-      "修德",
-      "明辨",
-      "笃实"
-    ],
-    "answer": "A",
-    "id": "1798736708540301312",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“千里之行，始于足下。”理想的实现，需要每个人从我做起，从现在做起，从平凡做起。这是因为()",
-    "option": [
-      "理想是人们为之奋斗的目标",
-      "社会实践是产生科学知识的源泉",
-      "把理想变为现实，要靠努力奋斗，在实践中才能达到",
-      "有了坚定的信念，理想就会自然得到实现"
-    ],
-    "answer": "C",
-    "id": "1798736708842291200",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“业精于勤，荒于嬉；行成于思，毁于随”，这句名言教育大学生在学习上要发扬()的优良学风。",
-    "option": [
-      "勤奋",
-      "严谨",
-      "求实",
-      "创新"
-    ],
-    "answer": "A",
-    "id": "1798736709156864000",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“志同道合”是表现信念的()",
-    "option": [
-      "稳定性",
-      "多样性",
-      "亲合性",
-      "科学性"
-    ],
-    "answer": "C",
-    "id": "1798736708804542465",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "习近平总书记说：国无(）不兴，人无（）不立",
-    "option": [
-      "德，法",
-      "法，法",
-      "法，德",
-      "德,德"
-    ],
-    "answer": "D",
-    "id": "1798736708368334849",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“人的本质不是单个人所固有的抽象物，在其现实性上，它是一切社会关系的总和。”这句话说明（）",
-    "option": [
-      "自然属性是人的本质属性",
-      "社会属性是人的本质属性",
-      "自然属性和社会属性都是人的本质属性",
-      "自然属性和社会属性都不是人的本质属性"
-    ],
-    "answer": "B",
-    "id": "1798736709039423489",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "下列错误的苦乐观是()",
-    "option": [
-      "不是一番寒彻骨，怎得梅花扑鼻香",
-      "艰难困苦，玉汝于成",
-      "不经历风雨怎么能见彩虹",
-      "人生苦短，及时行乐"
-    ],
-    "answer": "D",
-    "id": "1798736709018451968",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“毫不利己，专门利人”的精神属于()",
-    "option": [
-      "中华民族传统美德",
-      "中国革命道德",
-      "人类社会永恒的道德",
-      "现实社会不存在"
-    ],
-    "answer": "B",
-    "id": "1798736708439638017",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "马克思说：“人们只有为同时代人的完美、为他们的幸福而工作，才能使自己也达到完美。如果一个人只为自己劳动，他也许能成为著名学者、大哲人、卓越诗人，然而他永远不能成为完美无疵的伟大人物。”这句话表达的意思是()",
-    "option": [
-      "人生的自我价值和社会价值是矛盾的、对立的",
-      "人生的社会价值是实现人生的自我完善、全面发展的保障",
-      "人生的自我价值是个体生存和发展的必要条件",
-      "自觉提高自我的主体素质和能力是实现人生价值的根本途径"
-    ],
-    "answer": "B",
-    "id": "1798736709001674752",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "关于法律和国家关系的表述中，正确的是()。",
-    "option": [
-      "国家需要法律",
-      "法律先于国家而产生",
-      "法律不一定从属于国家",
-      "法律的产生与国家的产生没有必然联系"
-    ],
-    "answer": "A",
-    "id": "1798736709148475392",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "党的()通过的《中共中央关于构建社会主义和谐社会若干重大问题的决定》，第一次明确提出了“建设社会主义核心价值体系”这个重大命题和战略任务。",
-    "option": [
-      "十二届六中全会",
-      "十四届六中全会",
-      "十五届六中全会",
-      "十六届六中全会"
-    ],
-    "answer": "D",
-    "id": "1798736708531912704",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "衡量大学生全面发展的一个重要标准是()",
-    "option": [
-      "理想远大",
-      "勇于创新",
-      "德才兼备",
-      "视野开阔"
-    ],
-    "answer": "C",
-    "id": "1798736709169446913",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
+    "abbreviationSubject": "Political"
   },
   {
     "questionStem": "爱因斯坦说：“一个人对社会的价值，首先取决于他的感情、思想和行动对增进人类利益有多大作用，而不应看他取得什么。”就是说，衡量一个人社会价值的标准应该是()",
@@ -2711,23 +39,21 @@
     "id": "1798736708959731712",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
+    "abbreviationSubject": "Political"
   },
   {
-    "questionStem": "习近平说：“历史是一面镜子，从历史中，我们能够更好看清世界、参透生活、认识自己；历史也是一位智者，同历史对话，我们能够更好认识过去、把握当下、面向未来。”这是指新时代爱国主义基本要求的()",
+    "questionStem": "根据我国宪法的规定，下列有关公民基本权利的宪法保护的表述，哪一个是正确的？()",
     "option": [
-      "坚持爱国主义和社会主义相统一",
-      "尊重和传承中华民族历史和文化",
-      "维护祖国统一和民族团结",
-      "必须坚持立足民族又面向世界"
+      "一切公民都有选举权和被选举权",
+      "宪法规定了对华侨、归侨权益的保护，但没有规定对侨眷权益的保护",
+      "宪法对建立劳动者休息和休养的设施未加以规范",
+      "公民合法财产的所有权和私有财产的继承权规定在宪法“总纲”部分"
     ],
-    "answer": "B",
-    "id": "1798736708695490561",
+    "answer": "D",
+    "id": "1798736707982458881",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
+    "abbreviationSubject": "Political"
   },
   {
     "questionStem": "大学生适应新的学习、生活环境，最重要的是()。",
@@ -2741,1073 +67,35 @@
     "id": "1798736709161058306",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
+    "abbreviationSubject": "Political"
   },
   {
-    "questionStem": "回答我们要建设什么样的社会的重大问题，与实现国家治理体系和治理能力现代化的要求相契合，揭示社会主义社会发展的价值取向，这一价值追求是()。",
+    "questionStem": "下列哪一选项反映了爱国主义的基本要求()。",
     "option": [
-      "富强、民主、文明、和谐",
-      "自由、平等、公正、法治",
-      "爱国、敬业、诚信、友善",
-      "价值、奉献、为公、利民"
-    ],
-    "answer": "B",
-    "id": "1798736708565467138",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "下列选项中，哪一项不属于公民的文化权利？()",
-    "option": [
-      "科学研究自由",
-      "宗教信仰",
-      "文艺创作自由",
-      "从事教育"
-    ],
-    "answer": "B",
-    "id": "1798736707986653184",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "禽兽有知而无义，人有气、有生、有知而又义，故最为天下贵也。这句话说明了()",
-    "option": [
-      "自然属性是人的本质",
-      "社会属性是人的本质",
-      "人的本质是自然属性与社会属性的总和",
-      "人和动物区别不大"
-    ],
-    "answer": "B",
-    "id": "1798736709010063360",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "民族精神是一个民族赖以生存和发展的精神支撑，中华民族在五千年的发展中所形成的伟大民族精神的核心是()",
-    "option": [
-      "爱国主义",
-      "勤劳勇敢",
-      "爱好和平",
-      "革命英雄主义"
+      "“以热爱祖国为荣，以危害祖国为耻”",
+      "“以服务人民为荣，以背离人民为耻”",
+      "“以诚实守信为荣，以见利忘义为耻”",
+      "“以艰苦奋斗为荣，以骄奢淫逸为耻”"
     ],
     "answer": "A",
-    "id": "1798736708703879169",
+    "id": "1798736708657741825",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
+    "abbreviationSubject": "Political"
   },
   {
-    "questionStem": "抛弃国外优越的生活与工作条件，历尽千难万险，回归祖国的怀抱，投身到祖国的建设中的，被评为“两弹一星”的功臣而受到国家的表彰的爱国科学家是()。",
+    "questionStem": "道德通过评价等方式，指导和纠正人们的行为和实际活动，协调人们之间的关系。这指的是道德的",
     "option": [
-      "钱学森",
-      "邓稼先",
-      "梁守磐",
-      "金先仲"
-    ],
-    "answer": "A",
-    "id": "1798736708670324738",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "一个人要安身立命、成长成才、贡献社会，需要不断地调整自身与他人的关系，不断实现人的（）。",
-    "option": [
-      "政治化",
-      "社会化",
-      "理想化",
-      "现实化"
+      "认识功能",
+      "调节功能",
+      "沟通功能",
+      "教育功能"
     ],
     "answer": "B",
-    "id": "1798736709173641216",
+    "id": "1798736708460609536",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "马克思主义最崇高的社会理想是()",
-    "option": [
-      "实现共产主义",
-      "建设社会主义",
-      "发展民主主义",
-      "摆脱贫穷落后"
-    ],
-    "answer": "A",
-    "id": "1798736708812931072",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "下列属于科学信念的是()",
-    "option": [
-      "生死有命，富贵在天",
-      "金钱万能，有钱就有一切",
-      "个人本身就是目的，社会只是达到个人目的的一种手",
-      "社会主义必然代替资本主义，全世界最终必然实现共产主义"
-    ],
-    "answer": "D",
-    "id": "1798736708808736768",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()始终是推动人类社会发展的第一动力。",
-    "option": [
-      "爱国",
-      "创新",
-      "改革",
-      "制造"
-    ],
-    "answer": "B",
-    "id": "1798736708653547520",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "中国特色社会主义共同理想是社会主义核心价值体系的()。",
-    "option": [
-      "精髓",
-      "灵魂",
-      "主题",
-      "基础"
-    ],
-    "answer": "C",
-    "id": "1798736708519329794",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "人生目的在人生实践中的作用，以下说法不正确的是()",
-    "option": [
-      "人生目的决定人生道路",
-      "人生目的决定人生态度",
-      "人生目的决定人生机会",
-      "人生目的决定人生价值选择"
-    ],
-    "answer": "C",
-    "id": "1798736709026840576",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "处于核心地位的理想类型是()",
-    "option": [
-      "生活理想",
-      "社会理想",
-      "道德理想",
-      "职业理想"
-    ],
-    "answer": "B",
-    "id": "1798736708796153856",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "天行健，君子以自强不息反应的是一种（）的人生态度。",
-    "option": [
-      "认真",
-      "务实",
-      "乐观",
-      "进取"
-    ],
-    "answer": "D",
-    "id": "1798736709031034881",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "全心全意为人民服务是()",
-    "option": [
-      "中国传统道德",
-      "原始社会道德",
-      "中国革命道德",
-      "一切社会共有的道德"
-    ],
-    "answer": "C",
-    "id": "1798736708448026624",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "依法行政是依法治国的一个关键环节，是法治国家对政府行政活动的基本要求。依法行政要求行政机关必须诚实守信。下列哪一行为违反了诚实守信原则？()",
-    "option": [
-      "某县发生煤矿重大安全事故，政府部门通报了相关情况，防止了现场矛盾激化",
-      "某市政府在招商引资过程中承诺给予优惠，因国家政策变化推迟兑现",
-      "某县政府因县内其他民生投资导致资金紧张，未按合同及时支付相关企业的市政工程建设款项",
-      "某区政府经过法定程序对已经公布的城建规划予以变更"
-    ],
-    "answer": "C",
-    "id": "1798736708020207616",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "制定规章的国家机关是",
-    "option": [
-      "全国人大常委会",
-      "杭州市人大常委会",
-      "杭州市人民政府",
-      "杭州市司法局"
-    ],
-    "answer": "C",
-    "id": "1798736708074733568",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "司法主要原则不包括()",
-    "option": [
-      "司法公正；公民在法律面前一律平等",
-      "以事实为依据，以法律为准绳",
-      "司法机关依法独立公正行使司法权等",
-      "诚实信用与公平"
-    ],
-    "answer": "D",
-    "id": "1798736708028596225",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "道德在调整人与人之间的关系实质上是调整()",
-    "option": [
-      "政治关系",
-      "经济关系",
-      "利益关系",
-      "社会关系"
-    ],
-    "answer": "C",
-    "id": "1798736708422860800",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "科学的人生观是()",
-    "option": [
-      "自保自利的人生观",
-      "及时享乐的人生观",
-      "为人民服务的人生观",
-      "合理利已主义的人生观"
-    ],
-    "answer": "C",
-    "id": "1798736709014257664",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "党的十九大报告指出，中国共产党人的初心和使命，就是为中国人民谋幸福，为中华民族谋复兴。体现了社会主义核心价值观的()特征。",
-    "option": [
-      "先进性",
-      "纯洁性",
-      "人民性",
-      "真实性"
-    ],
-    "answer": "C",
-    "id": "1798736708515135488",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "习近平指出：“这就像穿衣服扣扣子一样，如果第一粒扣子扣错了，剩余的扣子都会扣错。人生的扣子从一开始就要扣好。”这段话讲的是()",
-    "option": [
-      "儿童价值观养成问题",
-      "少年价值观养成问题?",
-      "青年价值观养成问题",
-      "中年价值观养成问题"
-    ],
-    "answer": "C",
-    "id": "1798736708544495616",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "下列关于“慎独”的理解中，错误的是()。",
-    "option": [
-      "“慎独”是中国传统的道德修养方法",
-      "“慎”是谨慎，“独”是独处，不与人交往",
-      "“慎独”不仅是一种修养功夫，更是一种人生境界",
-      "“慎独”能避免社会生活中的双重人格和两面行为"
-    ],
-    "answer": "B",
-    "id": "1798736709144281089",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "我国在哪一年将“国家尊重和保障人权”写入宪法，使之成为一项宪法原则?()",
-    "option": [
-      "1982",
-      "1993",
-      "1999",
-      "2004"
-    ],
-    "answer": "D",
-    "id": "1798736707969875968",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "下列不属于中国革命道德的是()",
-    "option": [
-      "为实现共产主义理想而奋斗",
-      "始终把革命利益放在首位",
-      "全心全意为人民服务",
-      "合理的利己主义"
-    ],
-    "answer": "D",
-    "id": "1798736708427055104",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "马克思主义认为，道德起源于()",
-    "option": [
-      "人性中的情感、欲望",
-      "“天”的意志或“神”的启示",
-      "人先天具有的某种良知和善良意志",
-      "社会关系的形成及人类自我意识的形成与发展"
-    ],
-    "answer": "D",
-    "id": "1798736708460609537",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "继承权是指继承人依法取得被继承人遗产的资格。法律所规定的第一顺序继承人为()；第二顺序继承人为兄弟姐妹、祖父母、外祖父母。",
-    "option": [
-      "配偶、子女",
-      "父母,兄弟姐妹",
-      "子女、父母",
-      "配偶、子女、父母"
-    ],
-    "answer": "D",
-    "id": "1798736707982458880",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在社会主义核心价值观践行中，增智是通过()实现的。",
-    "option": [
-      "勤学",
-      "修德",
-      "明辨",
-      "笃实"
-    ],
-    "answer": "A",
-    "id": "1798736708519329793",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "集体主义在主张集体利益高于个人利益的同时，也重视个人正当利益。下列属于个人正当利益的是()",
-    "option": [
-      "合法收入基础上的个人合理享受",
-      "捡到别人的一部苹果手机据为己有",
-      "某官员接受商人行贿的一套房产",
-      "单位违法发放的奖金"
-    ],
-    "answer": "A",
-    "id": "1798736708431249408",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "下列关于金钱观错误的是()",
-    "option": [
-      "金钱是好仆人、坏主人。",
-      "金子！黄黄的、发光的、宝贵的金子！这东西，只这一点点儿，就可以使黑的变成白的，丑的变成美的，错的变成对的，卑贱变成尊贵，老人变成少年，懦夫变成勇士。",
-      "君子爱财，取之有道。",
-      "金钱能做很多事，但它不能做一切事。"
-    ],
-    "answer": "B",
-    "id": "1798736709001674753",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "习近平同志在党的十九大报告中指出：“中国特色社会主义进入了新时代”，这是（）。",
-    "option": [
-      "这是对我国发展新的历史方位的科学判断",
-      "这是对我国现代化发展程度的科学判断",
-      "这是对中国国际地位的最新判断",
-      "这是对中国社会性质的最新判断"
-    ],
-    "answer": "A",
-    "id": "1798736709127503874",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()是社会主义道德建设的原则。",
-    "option": [
-      "诚实守信",
-      "为人民服务",
-      "集体主义",
-      "勤俭节约"
-    ],
-    "answer": "C",
-    "id": "1798736708418666497",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()是我们理解当前所处历史方位的关键词。",
-    "option": [
-      "新思想",
-      "新举措",
-      "新格局",
-      "新时代"
-    ],
-    "answer": "D",
-    "id": "1798736709131698177",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()已经成为社会选人、用人、评价人的基本尺度。",
-    "option": [
-      "德才兼备、以才为先",
-      "德才兼备、以德为先",
-      "德才兼备、不分先后",
-      "智体兼备、以智为先"
-    ],
-    "answer": "B",
-    "id": "1798736709161058304",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "理想的超越性表现为()",
-    "option": [
-      "同一定社会的历史条件相联系",
-      "同一定时代的生产力发展水平相联系",
-      "能为社会大多数人谋利益",
-      "来源于社会现实又高于社会现实"
-    ],
-    "answer": "D",
-    "id": "1798736708842291201",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "个人对社会的责任与贡献属于（）",
-    "option": [
-      "自我价值",
-      "社会价值",
-      "人生价值的全部",
-      "人生价值的必要条件"
-    ],
-    "answer": "B",
-    "id": "1798736708955537408",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在“富贵不能淫、贫贱不能移、威武不能屈”的坚贞刚毅品质中主要是()的民族精神。",
-    "option": [
-      "团结统一精神",
-      "爱好和平精神",
-      "勤劳勇敢精神",
-      "自强不息精神"
-    ],
-    "answer": "D",
-    "id": "1798736708682907648",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在社会主义核心价值观践行中，正心是通过()实现的。",
-    "option": [
-      "勤学",
-      "修德",
-      "明辨",
-      "笃实"
-    ],
-    "answer": "C",
-    "id": "1798736708515135489",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "马克思指出：“立法者应该把自己看作一个自然科学家，他不是在制造法律，不是在发明法律，而仅仅是在表述法律，他把精神关系的内在规律表现在有意识的现行法律之中。”这段话表明()",
-    "option": [
-      "立法者要像自然科学家—样思维和行动",
-      "立法要尊重和反映客观规律",
-      "立法者应该把现行法律看作是绝对精神体现",
-      "法律是客观的，立法者在立法时不应发挥自己的主观能动性"
-    ],
-    "answer": "B",
-    "id": "1798736707995041792",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "全面建成社会主义现代化强国的任务书、()、路线图，为广大青年清晰指明了历史使命、奋斗目标和前进方向。",
-    "option": [
-      "大方向",
-      "总路径",
-      "宽领域",
-      "时间表"
-    ],
-    "answer": "D",
-    "id": "1798736709182029824",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“中华人民共和国实行依法治国，建设社会主义法治国家。”是()年通过的宪法修正案规定的。",
-    "option": [
-      "1988",
-      "1993",
-      "1999",
-      "2004"
-    ],
-    "answer": "C",
-    "id": "1798736708070539265",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "党的十八大以来，全国八百三十二个贫困县全部摘帽，十二万八千个贫困村全部出列，近一亿农村贫困人口实现脱贫，形成伟大的（）精神。",
-    "option": [
-      "精准脱贫",
-      "脱贫攻坚",
-      "共同富裕",
-      "建设小康"
-    ],
-    "answer": "B",
-    "id": "1798736708645158913",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "青年马克思在谈到选择职业的理想和价值时曾经写道：“如果我们选择了最能为人类福利而劳动的职业，那么，重担就不能把我们压倒，因为这是为大家而献身；那时我们所感到的就不是可怜的、有限的、自私的乐趣，我们的幸福将属于千百万人，我们的事业将默默地、但是永恒发挥作用地存在下去，而面对我们的骨灰，高尚的人们将洒下热泪。”这说明我们青年大学生在选择职业是首先要()",
-    "option": [
-      "树立崇高的职业理想",
-      "做好充分的职业准备",
-      "要远离那些没有前途的地方",
-      "要创业而不要就业"
-    ],
-    "answer": "A",
-    "id": "1798736708397694976",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "国家竞争力的核心是()",
-    "option": [
-      "理论创新能力",
-      "制度创新能力",
-      "科技创新能力",
-      "文化创新能力"
-    ],
-    "answer": "C",
-    "id": "1798736708653547521",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()，这一论断，为人们认识人生、形成正确的人生观提供了科学的方法论。",
-    "option": [
-      "社会存在决定社会意识",
-      "人之初性本善",
-      "人是一切社会关系的总和",
-      "人的发展是与社会生产发展相一致的"
-    ],
-    "answer": "C",
-    "id": "1798736708993286144",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()是通过社会道德教育和个人自觉的道德修养所形成的稳定的心理状态和行为习惯。它是个体对某种道德要求认同和践履的结果，集中体现了道德认知、道德情感、道德意志、道德信念和道德行为的内在统一。",
-    "option": [
-      "个人性格",
-      "个人品德",
-      "个人道德",
-      "个人心理"
-    ],
-    "answer": "B",
-    "id": "1798736708376723456",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "依法治国的目标是：实现()在治理国家中的权威性和稳定性，确保社会主义民主的制度化、法律化。",
-    "option": [
-      "宪法",
-      "宪法、法律、法规",
-      "宪法和法律",
-      "法律"
-    ],
-    "answer": "C",
-    "id": "1798736708066344960",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "深深地根植于()，是社会主义核心价值观历史底蕴的集中体现。",
-    "option": [
-      "中国精英文化",
-      "中国革命文化",
-      "中华优秀传统文化",
-      "中国特色社会主义先进文化"
-    ],
-    "answer": "C",
-    "id": "1798736708552884224",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "（）周岁以上的未成年人，以自己的劳动收入为主要生活来源的，视为完全民事行为能力人。",
-    "option": [
-      "17",
-      "15",
-      "14",
-      "16"
-    ],
-    "answer": "D",
-    "id": "1798736707965681664",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "信念作为人的意识的一部分，是人类特有的一种精神状态，信念对人生的重要作用体现在，信念是人们()",
-    "option": [
-      "对真理的追求",
-      "追求理想的强大动力",
-      "评判事物的标准",
-      "对客观事物的本质和发展规律的正确反映"
-    ],
-    "answer": "B",
-    "id": "1798736708800348161",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "把金钱作为衡量人生价值的唯一标准，这是典型的（）",
-    "option": [
-      "享乐主义",
-      "个人主义",
-      "拜金主义",
-      "实用主义"
-    ],
-    "answer": "C",
-    "id": "1798736708968120320",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在经济全球化的背景下弘扬爱国主义精神，需要()",
-    "option": [
-      "提高民族自尊心和自信心",
-      "完全否定中国的传统和现实",
-      "对本民族进行过度的颂扬和崇拜",
-      "从经济基础到上层建筑的一切领域都与西方接轨"
-    ],
-    "answer": "A",
-    "id": "1798736708661936129",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "关于道德和法律，以下说法不正确的是()",
-    "option": [
-      "二者都是上层建筑的重要组成部分",
-      "二者都是调节人们思想行为、协调人际关系的手段",
-      "二者都由国家强制力保证实施",
-      "道德比法律调整的范围更广泛"
-    ],
-    "answer": "C",
-    "id": "1798736709177835520",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“个人的抱负不可能孤立地实现，只有把它同时代和人民的要求紧密结合起来，用自己的知识和本领为祖国、为人民服务，才能使自身价值得到充分实现。如果脱离时代、脱离人民，必将一事无成。”这段话的意思是（）",
-    "option": [
-      "不实现个人抱负，就不会创造社会价值",
-      "实现自我价值是因，创造社会价值是果",
-      "社会价值的创造过程与自我价值的实现过程是不相关的",
-      "人生的自我价值必须与社会价值相结合，并通过社会价值表现出来\n"
-    ],
-    "answer": "D",
-    "id": "1798736708963926016",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在个人道德认知转化为道德行为的过程中，()是关键环节。",
-    "option": [
-      "道德判断",
-      "道德认同",
-      "道德意志与道德信念",
-      "道德情感"
-    ],
-    "answer": "C",
-    "id": "1798736708372529153",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“学如弓弩，才如箭镞，识以领之，方能中鹄。”这句话告诉我们要（）。",
-    "option": [
-      "有本领",
-      "有担当",
-      "有责任",
-      "有理想"
-    ],
-    "answer": "A",
-    "id": "1798736709135892480",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "实施依法治国方略，要求各级领导干部善于运用法治思维思考问题，处理每项工作都要依法依规进行。下列哪一做法违反了上述要求？()",
-    "option": [
-      "某市环保部门及时发布大型化工项目的环评信息，回应社会舆论质疑",
-      "某市法院为平息来访被害人家属及群众情绪签订保证书，根据案情承诺加重处罚被告人",
-      "某市人大常委会就是否在地方性法规中规定\"禁止地铁内进食\"举行立法听证",
-      "某省推动建立涉法涉诉信访依法终结制度"
-    ],
-    "answer": "B",
-    "id": "1798736708020207617",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "爱国主义的调节对象是()的关系。",
-    "option": [
-      "个人与世界之间的关系",
-      "个人与民族之间的关系",
-      "个人与祖国之间的关系",
-      "国家与国家之间的关系"
-    ],
-    "answer": "C",
-    "id": "1798736708670324737",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "思想道德与法治课程定位不可用以下哪条表述？()",
-    "option": [
-      "是一门公共必修课",
-      "是一门思想政治理论课程",
-      "是一门理论课程",
-      "是一门专业课"
-    ],
-    "answer": "D",
-    "id": "1798736709177835521",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "“正义不仅应当实现，而且应当以人们看得见的方式实现”，这就是()的重要价值所在。",
-    "option": [
-      "实体公正",
-      "司法公正",
-      "时间效率",
-      "程序公正"
-    ],
-    "answer": "D",
-    "id": "1798736707995041794",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "素质是从事某种社会活动所需要的自身基础和内在条件，它是()。",
-    "option": [
-      "先天的遗产",
-      "后天的培养",
-      "先天的遗产和后天的培养",
-      "学习的能力"
-    ],
-    "answer": "C",
-    "id": "1798736709148475393",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "中国革命道德在要求一切革命者和先进分子自觉地服从（）的同时，也要求革命的集体和领导始终不渝地从各个方面照顾每个革命成员的个人利益，关心他们的事业成就和个人的全面发展。",
-    "option": [
-      "集体利益",
-      "个人利益",
-      "革命利益",
-      "战友利益"
-    ],
-    "answer": "C",
-    "id": "1798736708364140544",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "志愿服务精神的精髓是()",
-    "option": [
-      "友爱",
-      "互助",
-      "奉献",
-      "进步"
-    ],
-    "answer": "C",
-    "id": "1798736708372529152",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "人生信念按其性质可分为()",
-    "option": [
-      "资产阶级信念和无产阶级信念",
-      "唯物主义信念和唯心主义信念",
-      "宗教信仰和非宗教信仰",
-      "科学信念和非科学信念"
-    ],
-    "answer": "D",
-    "id": "1798736708796153857",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "承载着一个民族、一个国家的精神追求，体现着一个社会评判是非曲直价值标准的是()",
-    "option": [
-      "价值",
-      "价值观",
-      "核心价值观",
-      "核心价值体系"
-    ],
-    "answer": "C",
-    "id": "1798736708569661441",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "一个人在道德意识道德行为方面，自觉地按照一定社会或阶级的道德要求所进行的进行的自我审度、自我教育和自我完善的活动，被称为()",
-    "option": [
-      "道德修养",
-      "自我实现",
-      "自我欣赏",
-      "自我设计"
-    ],
-    "answer": "A",
-    "id": "1798736708385112065",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "作出建立社会主义市场经济体制决策的会议是()",
-    "option": [
-      "中共十二大",
-      "中共十三大",
-      "中共十四大",
-      "中共十五大"
-    ],
-    "answer": "C",
-    "id": "1798736708057956353",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "（）就是人们对生活在其中的世界以及人与世界关系的总体看法和根本观点。",
-    "option": [
-      "世界观",
-      "人生态度",
-      "人生观",
-      "价值观"
-    ],
-    "answer": "A",
-    "id": "1798736709035229185",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "孔子说：“学而不思则罔，思而不学则殆。”这种道德修养方法是()",
-    "option": [
-      "学思并重",
-      "省察克治",
-      "积善成德",
-      "择善而从"
-    ],
-    "answer": "A",
-    "id": "1798736708380917761",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "国家公务员履行公务应遵纪守法，照章办事，不论远近亲疏都一视同仁,这是()",
-    "option": [
-      "助人为乐的社会公德的要求",
-      "办事公道的职业道德的要求",
-      "尊老爱幼的家庭美德的要求",
-      "完善自我的人际吸引的要求"
-    ],
-    "answer": "B",
-    "id": "1798736708401889280",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "一种道德行为多次重复出现，就会成为一种习惯。这种习惯即为()",
-    "option": [
-      "道德品质",
-      "道德思想",
-      "道德情感",
-      "道德意识"
-    ],
-    "answer": "A",
-    "id": "1798736709140086786",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "在我国古代思想文化中，有重视荣辱的思想观念。下列古语中，表达了这种重视荣辱观念的是()",
-    "option": [
-      "“宁可毁人，不可毁誉”",
-      "“己所不欲，勿施于人”",
-      "“民生在勤，勤则不匮”",
-      "“亲仁善邻，国之宝也”"
-    ],
-    "answer": "A",
-    "id": "1798736708984897537",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
+    "abbreviationSubject": "Political"
   },
   {
     "questionStem": "“苟利国家生死以，岂因祸福避趋之”是著名爱国人士()的诗句。",
@@ -3821,113 +109,581 @@
     "id": "1798736708682907649",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
+    "abbreviationSubject": "Political"
   },
   {
-    "questionStem": "曾子说：“吾日三省吾身：为人谋而不忠乎？与朋友交而不信乎？传不习乎？”这属于中国传统道德修养方法中的()",
+    "questionStem": "“谈到人格，但不要忘记还有一个国格。特别是像我们这样第三世界的发展中国家，没有民族自尊心，不珍惜自己民族的独立，国家是立不起来的。”这段话是()说的？",
     "option": [
+      "毛泽东",
+      "邓小平",
+      "江泽民",
+      "胡锦涛"
+    ],
+    "answer": "B",
+    "id": "1798736708691296257",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "我们在强调学法用法的同时，还必须强调()，只有这样，学法用法才具有积极的意义，法律在现实生活中才能取得实效，法治国家的构想才能实现。",
+    "option": [
+      "培养立法意识",
+      "培养守法意识",
+      "培养宣传法律意识",
+      "培养监督法的实施意识"
+    ],
+    "answer": "B",
+    "id": "1798736708041179137",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "关于贯彻依法治国理念的基本要求，下列哪一说法是不正确的？()",
+    "option": [
+      "社会成员要知法、信法、守法、用法，这是依法治国方略实施的社会基础",
+      "依法治国需要与我国不同发展阶段的主要实践结合起来",
+      "实现依法治国的首要目的是运用法律手段加快解决公共卫生保障、文化教育、保障性住房等领域的现实问题",
+      "依法治国要求领导干部善于运用法治思维和法治方式深化改革、推动发展、化解矛盾和维护稳定"
+    ],
+    "answer": "C",
+    "id": "1798736708016013312",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "全面建成社会主义现代化强国的任务书、()、路线图，为广大青年清晰指明了历史使命、奋斗目标和前进方向。",
+    "option": [
+      "大方向",
+      "总路径",
+      "宽领域",
+      "时间表"
+    ],
+    "answer": "D",
+    "id": "1798736709182029824",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "人生目的在人生实践中的作用，以下说法不正确的是()",
+    "option": [
+      "人生目的决定人生道路",
+      "人生目的决定人生态度",
+      "人生目的决定人生机会",
+      "人生目的决定人生价值选择"
+    ],
+    "answer": "C",
+    "id": "1798736709026840576",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "（）周岁以上的未成年人，以自己的劳动收入为主要生活来源的，视为完全民事行为能力人。",
+    "option": [
+      "17",
+      "15",
+      "14",
+      "16"
+    ],
+    "answer": "D",
+    "id": "1798736707965681664",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“千里之行，始于足下。”理想的实现，需要每个人从我做起，从现在做起，从平凡做起。这是因为()",
+    "option": [
+      "理想是人们为之奋斗的目标",
+      "社会实践是产生科学知识的源泉",
+      "把理想变为现实，要靠努力奋斗，在实践中才能达到",
+      "有了坚定的信念，理想就会自然得到实现"
+    ],
+    "answer": "C",
+    "id": "1798736708842291200",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "弗洛姆在《爱的艺术》-书中说：“尊重只能建立在自由的基础上，强权统治绝不会成就爱。”这句话意思是说()",
+    "option": [
+      "恋爱必须尊重对方的情感和人格",
+      "恋爱是绝对自由的",
+      "恋爱要有文明交往方式",
+      "恋爱重在培养爱的过程"
+    ],
+    "answer": "A",
+    "id": "1798736708389306368",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "(）包含两方面含义：一是行使权力要对所引起的法律后果负责。二是被法律赋予权力而不去行使或者行使不到位，就是不尽责、不作为，也要承担相应的法律责任。",
+    "option": [
+      "用权受监督",
+      "违法受追究",
+      "职权由法定",
+      "有权必有责"
+    ],
+    "answer": "D",
+    "id": "1798736708053762048",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "集体主义在主张集体利益高于个人利益的同时，也重视个人正当利益。下列属于个人正当利益的是()",
+    "option": [
+      "合法收入基础上的个人合理享受",
+      "捡到别人的一部苹果手机据为己有",
+      "某官员接受商人行贿的一套房产",
+      "单位违法发放的奖金"
+    ],
+    "answer": "A",
+    "id": "1798736708431249408",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "2015年8月6日，习近平和北大师生座谈时说:“()之于人、之于社会,都具有基础性意义。",
+    "option": [
+      "法律",
+      "道德",
+      "知识",
+      "科学"
+    ],
+    "answer": "B",
+    "id": "1798736708368334848",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "爱国主义的调节对象是()的关系。",
+    "option": [
+      "个人与世界之间的关系",
+      "个人与民族之间的关系",
+      "个人与祖国之间的关系",
+      "国家与国家之间的关系"
+    ],
+    "answer": "C",
+    "id": "1798736708670324737",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "2021年2月20日,习近平总书记在党史学习教育动员大会讲，在一百年的非凡奋斗历程中，一代又一代中国共产党人顽强拼搏、不懈奋斗，涌现了一大批视死如归的革命烈士、一大批顽强奋斗的英雄人物、一大批忘我奉献的先进模范，形成了井冈山精神、长征精神、遵义会议精神、延安精神、西柏坡精神、红岩精神、抗美援朝精神、“两弹一星”精神、特区精神、抗洪精神、抗震救灾精神、抗疫精神等伟大精神，构筑起了中国共产党人的（）。",
+    "option": [
+      "价值追求",
+      "精神谱系",
+      "奋斗精神",
+      "理想信念"
+    ],
+    "answer": "B",
+    "id": "1798736708649353216",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在公共场所人人都可能会遇到一些突发性灾祸，如车祸、溺水、意外病痛等，这就需要人们见义勇为，临危不惧，积极为他人排忧解难。这体现的是社会公德中()",
+    "option": [
+      "文明礼貌的要求",
+      "保护环境的要求",
+      "助人为乐的要求",
+      "爱护公物的要求"
+    ],
+    "answer": "C",
+    "id": "1798736708410277888",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "全面依法治国，必须坚持以习近平法治思想为指导，坚定不移走（）道路。",
+    "option": [
+      "中国特色社会主义法律",
+      "中国特色社会主义法治",
+      "中国特色社会主义司法",
+      "中国特色社会主义治理\n"
+    ],
+    "answer": "B",
+    "id": "1798736708024401922",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "回答我们要建设什么样的社会的重大问题，与实现国家治理体系和治理能力现代化的要求相契合，揭示社会主义社会发展的价值取向，这一价值追求是()。",
+    "option": [
+      "富强、民主、文明、和谐",
+      "自由、平等、公正、法治",
+      "爱国、敬业、诚信、友善",
+      "价值、奉献、为公、利民"
+    ],
+    "answer": "B",
+    "id": "1798736708565467138",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "我国现行宪法是由第五届全国人民代表大会第五次会议于()年通过的",
+    "option": [
+      "1954",
+      "1975",
+      "1978",
+      "1982"
+    ],
+    "answer": "D",
+    "id": "1798736708066344961",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "当前社会主义爱国者的宗旨是()",
+    "option": [
+      "为人民服务",
+      "维护祖国统一",
+      "建设中国特色社会主义",
+      "构建社会主义和谐社会"
+    ],
+    "answer": "A",
+    "id": "1798736708699684864",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "法律主要体现的是()。",
+    "option": [
+      "社会成员的公共意志",
+      "统治阶级的全部意志",
+      "执政党的意志",
+      "国家意志"
+    ],
+    "answer": "D",
+    "id": "1798736707999236097",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在个人独处、无人监督时，也坚守自己的道德信念，对自己的言行，小心谨慎，自觉按道德要求行事，不做任何不道德的事。这种完善道德品质的修养方法是()",
+    "option": [
+      "择善而从",
       "省察克治",
       "陶冶情操",
-      "慎独自律",
-      "积善成德"
-    ],
-    "answer": "A",
-    "id": "1798736708380917760",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "社会主义法治国家的公民应当具有的最基本的法治观念是()。",
-    "option": [
-      "社会主义民主法治观念",
-      "自由平等观念",
-      "公平正义观念",
-      "权利义务观念"
-    ],
-    "answer": "A",
-    "id": "1798736707995041793",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "当代中国大学生所承担的历史使命是()。",
-    "option": [
-      "完成祖国统一的责任和任务",
-      "防止敌对势力对我国的西化、分化",
-      "增强国防科技水平",
-      "建设中国特色社会主义、实现中华民族伟大复兴"
+      "慎独自律"
     ],
     "answer": "D",
-    "id": "1798736709161058305",
+    "id": "1798736708376723457",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
+    "abbreviationSubject": "Political"
   },
   {
-    "questionStem": "党坚持以（）引领文化建设。",
+    "questionStem": "“禾苗离土即死”、“一方水土养一方人”所体现的是()",
     "option": [
-      "建党精神",
-      "传统美德",
-      "中国精神",
-      "社会主义核心价值观"
-    ],
-    "answer": "D",
-    "id": "1798736708510941184",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "()是社会主义核心价值体系的精神内核，它体现了社会主义核心价值体系的根本性质和基本特征，反映了社会主义核心价值体系的丰富内涵和实践要求，是社会主义核心价值体系的高度凝练和集中表达。",
-    "option": [
-      "马克思主义指导思想",
-      "社会主义先进文化",
-      "社会主义主流价值观",
-      "社会主义核心价值观"
-    ],
-    "answer": "D",
-    "id": "1798736708561272832",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
-  },
-  {
-    "questionStem": "党的二十大提出，用党的科学理论武装青年，用党的（）感召青年，做青年朋友的知心人、青年工作的热心人、青年群众的引路人。",
-    "option": [
-      "思想路线",
-      "初心使命",
-      "阶段任务",
-      "顶层设计"
+      "祖国对国土的依赖关系",
+      "人民对故土家园的依赖关系",
+      "国土对祖国的依赖关系",
+      "故土家园对人民的依赖关系"
     ],
     "answer": "B",
-    "id": "1798736709140086784",
+    "id": "1798736708678713345",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
+    "abbreviationSubject": "Political"
   },
   {
-    "questionStem": "()的统一是中国历史发展的必然结果。",
+    "questionStem": "决定着未来整个社会价值取向的是()。",
     "option": [
-      "爱国主义与爱中国共产党",
-      "爱国主义与爱社会主义",
-      "爱国主义与坚持人民民主专政",
-      "爱国主义与马克思主义指导的统一"
+      "工人的价值取向",
+      "农民的价值取向",
+      "知识分子的价值取向",
+      "青年的价值取向"
     ],
-    "answer": "B",
-    "id": "1798736708666130433",
+    "answer": "D",
+    "id": "1798736708544495617",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "对于个人理想的性质、内容以及实现有着决定性影响的是()",
+    "option": [
+      "生活理想",
+      "职业理想",
+      "道德理想",
+      "社会政治理想"
+    ],
+    "answer": "D",
+    "id": "1798736708812931073",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "一种道德行为多次重复出现，就会成为一种习惯。这种习惯即为()",
+    "option": [
+      "道德品质",
+      "道德思想",
+      "道德情感",
+      "道德意识"
+    ],
+    "answer": "A",
+    "id": "1798736709140086786",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "集体主义的最高层次的道德要求是()",
+    "option": [
+      "先公后私先人后己",
+      "诚实劳动热爱祖国",
+      "无私奉献一心为公",
+      "顾全大局遵纪守法"
+    ],
+    "answer": "C",
+    "id": "1798736708422860801",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "不属于社会保险法范畴的是()",
+    "option": [
+      "基本医疗保险",
+      "基本养老保险",
+      "生育保险",
+      "社会福利"
+    ],
+    "answer": "D",
+    "id": "1798736707974070272",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "物权的取得和行使，不应当()",
+    "option": [
+      "遵守法律",
+      "尊重社会公德",
+      "尊重公共利益和他人合法权益",
+      "违背诚信"
+    ],
+    "answer": "D",
+    "id": "1798736707969875969",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "现阶段科学的理想信念的基础是()",
+    "option": [
+      "社会主义荣辱观",
+      "马克思主义科学世界观",
+      "构建社会主义和谐社会理论",
+      "建设中国特色社会主义的理论"
+    ],
+    "answer": "B",
+    "id": "1798736708838096897",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "全心全意为人民服务是()",
+    "option": [
+      "中国传统道德",
+      "原始社会道德",
+      "中国革命道德",
+      "一切社会共有的道德"
+    ],
+    "answer": "C",
+    "id": "1798736708448026624",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "根据我国宪法规定，下列选项中哪一种情况不是公民获得物质帮助权的条件？()",
+    "option": [
+      "公民在年老时",
+      "公民在疾病时",
+      "公民在遭受自然灾害时",
+      "公民在丧失劳动能力时"
+    ],
+    "answer": "C",
+    "id": "1798736707986653185",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "一个人要安身立命、成长成才、贡献社会，需要不断地调整自身与他人的关系，不断实现人的（）。",
+    "option": [
+      "政治化",
+      "社会化",
+      "理想化",
+      "现实化"
+    ],
+    "answer": "B",
+    "id": "1798736709173641216",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在社会主义初级阶段，我们所提倡的高尚的人生目的是（）",
+    "option": [
+      "“一切向钱看”的人生目的",
+      "为个人求权力、求享乐的人生目的",
+      "“平生无大志，但求足温饱”的人生目的",
+      "以天下为已任、服务人民、奉献社会的人生目的\n"
+    ],
+    "answer": "D",
+    "id": "1798736708980703232",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "公民行使集会、游行、示威权利时应向主管机关提出申请并获得许可，下列哪些属于依法许可的情形()",
+    "option": [
+      "反对宪法确认的基本原则",
+      "危害国家的主权和领土完",
+      "对社会环境不满意",
+      "危害国家的统一"
+    ],
+    "answer": "C",
+    "id": "1798736707978264576",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "马克思曾说过：“人是最名副其实的政治动物，不仅是一种合群的动物，而且是只有在社会中才能独立的动物。”表明()",
+    "option": [
+      "人是社会的奴隶",
+      "人是社会的人，离开了社会人也无法生活",
+      "社会是由一个个具体的人组成的，离开了人便没有社会",
+      "在一定的条件下，人是可以脱离社会而独立生存的"
+    ],
+    "answer": "B",
+    "id": "1798736708989091840",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "以下选项中，()属于我国法律体系的基本法律部门",
+    "option": [
+      "行政法",
+      "合同法",
+      "仲裁法",
+      "民事侵权法"
+    ],
+    "answer": "A",
+    "id": "1798736708049567746",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "坚持依法治国首先要坚持（）。",
+    "option": [
+      "依宪治国",
+      "以德治国",
+      "公正执法",
+      "科学监督"
+    ],
+    "answer": "A",
+    "id": "1798736708007624704",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "人们称由一定的规则维系的人们公共生活的一种有序化状态是()",
+    "option": [
+      "公共生活",
+      "公共秩序",
+      "公共场所",
+      "公共领域"
+    ],
+    "answer": "B",
+    "id": "1798736708418666496",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "革命家陶铸说：“无论在什么样的社会里，一个人的理想，是为了多数人的利益，为了社会进步，对社会生产力的发展起促进作用，也就是说，合乎社会发展规律，就是伟大理想。”其意是说()",
+    "option": [
+      "所有理想都是合乎社会发展规律的",
+      "建立在科学基础上的正确的理想才是伟大的理想",
+      "理想没有伟大和不伟大的区分",
+      "不能要求每个人的理想都是伟大的"
+    ],
+    "answer": "B",
+    "id": "1798736708825513984",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "下列错误的苦乐观是()",
+    "option": [
+      "不是一番寒彻骨，怎得梅花扑鼻香",
+      "艰难困苦，玉汝于成",
+      "不经历风雨怎么能见彩虹",
+      "人生苦短，及时行乐"
+    ],
+    "answer": "D",
+    "id": "1798736709018451968",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "现阶段我国各族人民的共同理想是()",
+    "option": [
+      "建立共产主义社会",
+      "诚实劳动争取美好生活",
+      "建立人民当家作主的国家政权",
+      "建设中国特色社会主义"
+    ],
+    "answer": "D",
+    "id": "1798736708821319681",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "人们在社会交往和公共生活中形成和应当遵守的行为准则是()",
+    "option": [
+      "职业道德",
+      "家庭道德",
+      "社会公德",
+      "公共秩序"
+    ],
+    "answer": "C",
+    "id": "1798736708414472193",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
   },
   {
     "questionStem": "培育和践行社会主义核心价值观是()的共同责任。",
@@ -3941,23 +697,1169 @@
     "id": "1798736708531912705",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
+    "abbreviationSubject": "Political"
   },
   {
-    "questionStem": "下列属于正确的人生观是()",
+    "questionStem": "马克思主义理想信念的基础是()",
     "option": [
-      "人不为己，天诛地灭",
-      "我选择，我喜欢",
-      "奉献社会",
-      "人生是一场游戏一场梦"
+      "科学",
+      "信仰",
+      "革命",
+      "知识"
     ],
-    "answer": "C",
-    "id": "1798736709018451969",
+    "answer": "A",
+    "id": "1798736708825513985",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "党坚持以（）引领文化建设。",
+    "option": [
+      "建党精神",
+      "传统美德",
+      "中国精神",
+      "社会主义核心价值观"
+    ],
+    "answer": "D",
+    "id": "1798736708510941184",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“道不可坐论，德不能空谈”讲的是()。",
+    "option": [
+      "勤学",
+      "修德",
+      "明辨",
+      "笃实"
+    ],
+    "answer": "D",
+    "id": "1798736708536107008",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "个人对社会的责任与贡献属于（）",
+    "option": [
+      "自我价值",
+      "社会价值",
+      "人生价值的全部",
+      "人生价值的必要条件"
+    ],
+    "answer": "B",
+    "id": "1798736708955537408",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()是一切创新的重要保障。",
+    "option": [
+      "理论创新",
+      "制度创新",
+      "科技创新",
+      "文化创新"
+    ],
+    "answer": "B",
+    "id": "1798736708653547522",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "韦编三绝、悬梁刺股、凿壁借光、囊萤映雪等故事讲的是()。",
+    "option": [
+      "勤学",
+      "修德",
+      "明辨",
+      "笃实"
+    ],
+    "answer": "A",
+    "id": "1798736708540301312",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "马克思曾经说过，没有无义务的权利，也没有无权利的义务。这句话主要体现了法律权利与义务之间的()关系",
+    "option": [
+      "总量上的等值",
+      "功能上的互补",
+      "结构上的相关",
+      "形式上的对立"
+    ],
+    "answer": "B",
+    "id": "1798736707990847489",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "衡量大学生全面发展的一个重要标准是()",
+    "option": [
+      "理想远大",
+      "勇于创新",
+      "德才兼备",
+      "视野开阔"
+    ],
+    "answer": "C",
+    "id": "1798736709169446913",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "马克思主义最崇高的社会理想是()",
+    "option": [
+      "实现共产主义",
+      "建设社会主义",
+      "发展民主主义",
+      "摆脱贫穷落后"
+    ],
+    "answer": "A",
+    "id": "1798736708812931072",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "下列对中国革命道德的错误理解是()",
+    "option": [
+      "中国共产党人、一切先进分子、人民军队和人民群众在中国革命、建设、改革中形成的优秀道德",
+      "中国革命道德是一种精神力量，也对当前社会主义建设事业发挥着重要作用",
+      "中国革命道德超越了中华传统美德的时代局限",
+      "与中华民族传统道德无关"
+    ],
+    "answer": "D",
+    "id": "1798736708439638016",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "信仰的一个方面是信念，另一个重要方面是()",
+    "option": [
+      "理想",
+      "知识",
+      "科学认识",
+      "非科学认识"
+    ],
+    "answer": "A",
+    "id": "1798736708829708288",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "我国现阶段统一战线的名称是()",
+    "option": [
+      "人民民主统一战线",
+      "?社会主义统一战线",
+      "民族爱国统一战线",
+      "爱国统一战线"
+    ],
+    "answer": "D",
+    "id": "1798736708666130432",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "由于成长环境和性格等方面的不同，人们会形成不同的理想信念；即使同一个人，也会形成关于社会生活不同方面的许多理想信念。这说明，理想信念具有()",
+    "option": [
+      "片面性",
+      "政治性",
+      "共同性",
+      "多样性"
+    ],
+    "answer": "D",
+    "id": "1798736708846485505",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "实施依法治国方略，要求各级领导干部善于运用法治思维思考问题，处理每项工作都要依法依规进行。下列哪一做法违反了上述要求？()",
+    "option": [
+      "某市环保部门及时发布大型化工项目的环评信息，回应社会舆论质疑",
+      "某市法院为平息来访被害人家属及群众情绪签订保证书，根据案情承诺加重处罚被告人",
+      "某市人大常委会就是否在地方性法规中规定\"禁止地铁内进食\"举行立法听证",
+      "某省推动建立涉法涉诉信访依法终结制度"
+    ],
+    "answer": "B",
+    "id": "1798736708020207617",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "当代中国大学生所承担的历史使命是()。",
+    "option": [
+      "完成祖国统一的责任和任务",
+      "防止敌对势力对我国的西化、分化",
+      "增强国防科技水平",
+      "建设中国特色社会主义、实现中华民族伟大复兴"
+    ],
+    "answer": "D",
+    "id": "1798736709161058305",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "下列属于科学信念的是()",
+    "option": [
+      "生死有命，富贵在天",
+      "金钱万能，有钱就有一切",
+      "个人本身就是目的，社会只是达到个人目的的一种手",
+      "社会主义必然代替资本主义，全世界最终必然实现共产主义"
+    ],
+    "answer": "D",
+    "id": "1798736708808736768",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在社会主义核心价值观践行中，增智是通过()实现的。",
+    "option": [
+      "勤学",
+      "修德",
+      "明辨",
+      "笃实"
+    ],
+    "answer": "A",
+    "id": "1798736708519329793",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "社会主义道德的核心是()",
+    "option": [
+      "集体主义",
+      "为人民服务",
+      "合理的利己主义",
+      "毫不利己专门利人"
+    ],
+    "answer": "B",
+    "id": "1798736708435443713",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "党的十八大以来，全国八百三十二个贫困县全部摘帽，十二万八千个贫困村全部出列，近一亿农村贫困人口实现脱贫，形成伟大的（）精神。",
+    "option": [
+      "精准脱贫",
+      "脱贫攻坚",
+      "共同富裕",
+      "建设小康"
+    ],
+    "answer": "B",
+    "id": "1798736708645158913",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“苟利国家生死以，岂因祸福避趋之”反映了中华民族传统美德中的()",
+    "option": [
+      "责任意识与奉献精神",
+      "谦虚礼让的精神",
+      "恪守诚信的精神",
+      "人际和谐的精神"
+    ],
+    "answer": "A",
+    "id": "1798736708456415232",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "下列正确的人生价值评价是()",
+    "option": [
+      "能力越大人生价值越大",
+      "一个人只要尽心尽力，尽职尽责，他的人生价值就是值得肯定。",
+      "贡献越大人生价值越大",
+      "精神贡献价值大于物质贡献价值"
+    ],
+    "answer": "B",
+    "id": "1798736708997480448",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "我国在哪一年将“国家尊重和保障人权”写入宪法，使之成为一项宪法原则?()",
+    "option": [
+      "1982",
+      "1993",
+      "1999",
+      "2004"
+    ],
+    "answer": "D",
+    "id": "1798736707969875968",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "大学生提高思想道德素质和法律素质的根本要求是()",
+    "option": [
+      "热爱祖国",
+      "德才兼备",
+      "全面发展",
+      "践行社会主义核心价值观"
+    ],
+    "answer": "D",
+    "id": "1798736709173641217",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "曾子说：“五日三省吾身。为人谋，而不忠乎？与朋友交，而不信乎？传不习乎？”这体现了中华传统美德中的()",
+    "option": [
+      "礼让精神",
+      "强调道德修养塑造理想人格的精神",
+      "奉献精神",
+      "宽厚待人的精神"
+    ],
+    "answer": "B",
+    "id": "1798736708443832321",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“志同道合”是表现信念的()",
+    "option": [
+      "稳定性",
+      "多样性",
+      "亲合性",
+      "科学性"
+    ],
+    "answer": "C",
+    "id": "1798736708804542465",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在“富贵不能淫、贫贱不能移、威武不能屈”的坚贞刚毅品质中主要是()的民族精神。",
+    "option": [
+      "团结统一精神",
+      "爱好和平精神",
+      "勤劳勇敢精神",
+      "自强不息精神"
+    ],
+    "answer": "D",
+    "id": "1798736708682907648",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“夙夜在公”体现了中华民族优良道德传统()",
+    "option": [
+      "注重整体利益的精神",
+      "仁爱精神",
+      "注重道德践履",
+      "向往理想人格"
+    ],
+    "answer": "A",
+    "id": "1798736708448026625",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "习近平说：“我国是一个有着13亿多人口、56个民族的大国，确立反映全国各族人民共同认同的价值观‘最大公约数’，使全体人民同心同德、团结奋进，关乎国家前途命运，关乎人民幸福安康。”。其中的“最大公约数”是指()",
+    "option": [
+      "文化认同",
+      "理论认同",
+      "价值共识",
+      "观念共识"
+    ],
+    "answer": "C",
+    "id": "1798736708557078529",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "从业人员在职业活动中，对待顾客热情，尽心尽力为顾客办事。这是职业道德中()",
+    "option": [
+      "爱岗敬业的要求",
+      "诚实守信的要求",
+      "办事公道的",
+      "服务群众的要求"
+    ],
+    "answer": "D",
+    "id": "1798736708397694977",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "社会主义法治国家的公民应当具有的最基本的法治观念是()。",
+    "option": [
+      "社会主义民主法治观念",
+      "自由平等观念",
+      "公平正义观念",
+      "权利义务观念"
+    ],
+    "answer": "A",
+    "id": "1798736707995041793",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "人生态度与人生目的、人生价值的关系是()",
+    "option": [
+      "人生态度决定人生目的和人生价值",
+      "人生目的决定人生态度和人生价值选择",
+      "人生价值决定人生目的和人生态度",
+      "三者之间没有关联"
+    ],
+    "answer": "B",
+    "id": "1798736709022646273",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在我国古代思想文化中，有重视荣辱的思想观念。下列古语中，表达了这种重视荣辱观念的是()",
+    "option": [
+      "“宁可毁人，不可毁誉”",
+      "“己所不欲，勿施于人”",
+      "“民生在勤，勤则不匮”",
+      "“亲仁善邻，国之宝也”"
+    ],
+    "answer": "A",
+    "id": "1798736708984897537",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "思想道德与法治课程定位不可用以下哪条表述？()",
+    "option": [
+      "是一门公共必修课",
+      "是一门思想政治理论课程",
+      "是一门理论课程",
+      "是一门专业课"
+    ],
+    "answer": "D",
+    "id": "1798736709177835521",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“业精于勤，荒于嬉；行成于思，毁于随”，这句名言教育大学生在学习上要发扬()的优良学风。",
+    "option": [
+      "勤奋",
+      "严谨",
+      "求实",
+      "创新"
+    ],
+    "answer": "A",
+    "id": "1798736709156864000",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "疫情期间，美国洛杉矶几位侨胞凑钱买了8万多支手套、1千个N95口罩捐赠给武汉。当被告知国内清关必须留名时，他们留下4个字：中华儿女。华侨们的行为体现了民族精神的核心是（）",
+    "option": [
+      "爱国主义",
+      "团结统一",
+      "自强不息",
+      "爱好和平"
+    ],
+    "answer": "A",
+    "id": "1798736708649353217",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "追求崇高的理想需要科学的信念，具有坚定社会主义信念的人，坚信()",
+    "option": [
+      "通往共产主义道路是遥远的，可望不可及",
+      "社会主义道德将成为所有人自觉的行为习惯和准则",
+      "社会主义必然代替资本主义，全世界最终必然实现共产主义",
+      "不同的团体有相同的信念"
+    ],
+    "answer": "C",
+    "id": "1798736708804542464",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "理想的超越性表现为()",
+    "option": [
+      "同一定社会的历史条件相联系",
+      "同一定时代的生产力发展水平相联系",
+      "能为社会大多数人谋利益",
+      "来源于社会现实又高于社会现实"
+    ],
+    "answer": "D",
+    "id": "1798736708842291201",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "孔子说：“学而不思则罔，思而不学则殆。”这种道德修养方法是()",
+    "option": [
+      "学思并重",
+      "省察克治",
+      "积善成德",
+      "择善而从"
+    ],
+    "answer": "A",
+    "id": "1798736708380917761",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在我国现阶段，个人选择和确立的人生目的，应当（）",
+    "option": [
+      "放弃个人的利益和追求",
+      "有利于个人私利的实现",
+      "以利己为主又兼利他人",
+      "符合人民群众的根本利益\n"
+    ],
+    "answer": "D",
+    "id": "1798736708942954496",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "国务院审计机关在()领导下，依照法律规定独立行使审计监督权，不受其他行政机关、社会团体和个人的干涉。",
+    "option": [
+      "国务院总理",
+      "全国人大常委会委员长",
+      "国家主席",
+      "全国政协主席"
+    ],
+    "answer": "A",
+    "id": "1798736708062150657",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "马克思说过，真正现实人的存在，就是他为别人的存在和别人为他的存在。这说明（）",
+    "option": [
+      "人的价值就是人自身的存在",
+      "人可以有受限制地创造出自己的价值",
+      "人生价值的本质是社会对个人的尊重和满足",
+      "人与自身的任何关系，只有通过人同其他人的关系才能得到实现和表现\n"
+    ],
+    "answer": "D",
+    "id": "1798736708976508928",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "（）主要是财产责任，也可以是以人身、行为、人格等为责任承担内容的非财产责任。",
+    "option": [
+      "法律责任",
+      "民事责任",
+      "行政责任",
+      "刑事责任"
+    ],
+    "answer": "B",
+    "id": "1798736707999236096",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "不满（）周岁的未成年人为无民事行为能力人，由其法定代理人代理实施民事法律行为。",
+    "option": [
+      "12",
+      "10",
+      "14",
+      "8"
+    ],
+    "answer": "D",
+    "id": "1798736707965681665",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "继承权丧失的法定条件是()",
+    "option": [
+      "故意杀害被继承人的",
+      "杀害其他继承人的",
+      "遗弃被继承人",
+      "虐待被继承人"
+    ],
+    "answer": "A",
+    "id": "1798736707974070273",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在我国现阶段，社会主义道德建设应该以()",
+    "option": [
+      "个人主义为原则",
+      "集体主义为原则",
+      "实用主义为原则",
+      "享乐主义为原则"
+    ],
+    "answer": "B",
+    "id": "1798736708431249409",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "主张人生就在于满足感官的需求与快乐的思想观念是（）",
+    "option": [
+      "拜金主义人生观",
+      "个人主义人生观",
+      "实用主义人生观",
+      "享乐主义人生观"
+    ],
+    "answer": "D",
+    "id": "1798736709031034880",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()是社会主义法治建设的根本价值追求",
+    "option": [
+      "依法治国",
+      "执法为民",
+      "公平正义",
+      "党的领导"
+    ],
+    "answer": "C",
+    "id": "1798736708003430401",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“中华人民共和国实行依法治国，建设社会主义法治国家。”是()年通过的宪法修正案规定的。",
+    "option": [
+      "1988",
+      "1993",
+      "1999",
+      "2004"
+    ],
+    "answer": "C",
+    "id": "1798736708070539265",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "法构成要素的主要部分是()",
+    "option": [
+      "规范",
+      "原则",
+      "概念",
+      "技术"
+    ],
+    "answer": "A",
+    "id": "1798736708070539264",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()是文化软实力的灵魂、文化软实力建设的重点，是决定文化性质和方向的最深层次要素。",
+    "option": [
+      "核心价值观",
+      "民族精神",
+      "开拓创新",
+      "先进文化"
+    ],
+    "answer": "A",
+    "id": "1798736708510941185",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "制定规章的国家机关是",
+    "option": [
+      "全国人大常委会",
+      "杭州市人大常委会",
+      "杭州市人民政府",
+      "杭州市司法局"
+    ],
+    "answer": "C",
+    "id": "1798736708074733568",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“为中华之崛起而读书”是()提出的。",
+    "option": [
+      "毛泽东",
+      "周恩来?",
+      "邓小平",
+      "李大钊"
+    ],
+    "answer": "B",
+    "id": "1798736708661936128",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "爱国主义与爱社会主义、爱中国共产党、爱人民政府是()。",
+    "option": [
+      "内在一致的",
+      "相互联系的",
+      "相互独立的",
+      "相互冲突的"
+    ],
+    "answer": "A",
+    "id": "1798736708678713344",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "关于法律和国家关系的表述中，正确的是()。",
+    "option": [
+      "国家需要法律",
+      "法律先于国家而产生",
+      "法律不一定从属于国家",
+      "法律的产生与国家的产生没有必然联系"
+    ],
+    "answer": "A",
+    "id": "1798736709148475392",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "社会主义核心价值观的实践根据是()。",
+    "option": [
+      "中国特色社会主义政治",
+      "中国特色社会主义建设",
+      "中国特色社会主义文化",
+      "中国特色社会主义经济"
+    ],
+    "answer": "B",
+    "id": "1798736708548689921",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "下列有关社会主义法律与社会主义道德一致性的叙述中，错误的是()。",
+    "option": [
+      "二者都是社会主义经济基础的产物",
+      "二者都主要靠社会舆论进行调节",
+      "二者都是调整人们相互关系的行为规范",
+      "二者都是工人阶级和广大人民群体意志和利益的体现"
+    ],
+    "answer": "B",
+    "id": "1798736709152669697",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "依法治国的目标是：实现()在治理国家中的权威性和稳定性，确保社会主义民主的制度化、法律化。",
+    "option": [
+      "宪法",
+      "宪法、法律、法规",
+      "宪法和法律",
+      "法律"
+    ],
+    "answer": "C",
+    "id": "1798736708066344960",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“一个人做点好事并不难，难的是一辈子做好事，不做坏事，一贯的有益于广大群众，一贯的有益于青年，一贯的有益于革命，艰苦奋斗几十年如一日……才是最难最难的呵!”这说明了()",
+    "option": [
+      "人才成长的道路",
+      "实现人生理想的途径",
+      "个人修养是一个不断的长期的曲折的实践过程",
+      "修养的境界是一个人修养所达到的实践水平或程度"
+    ],
+    "answer": "C",
+    "id": "1798736709165252609",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "爱国主义是人们自己故土家园、种族和文化的归属感、()、尊严感与荣誉感的统一。",
+    "option": [
+      "自豪感",
+      "认同感",
+      "自信心",
+      "自尊心"
+    ],
+    "answer": "B",
+    "id": "1798736708670324736",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "人们在公共生活中应该爱惜和保护全民和集体所有的公共财物,这是社会公德中()",
+    "option": [
+      "爱护公物的要求",
+      "助人为乐的要求",
+      "文明礼貌的要求",
+      "保护环境的要求"
+    ],
+    "answer": "A",
+    "id": "1798736708410277889",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()是我国社会主义国防观念的重要思想基础。",
+    "option": [
+      "集体主义",
+      "社会主义",
+      "爱国主义",
+      "奉献主义"
+    ],
+    "answer": "C",
+    "id": "1798736708687101952",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "承载着一个民族、一个国家的精神追求，体现着一个社会评判是非曲直价值标准的是()",
+    "option": [
+      "价值",
+      "价值观",
+      "核心价值观",
+      "核心价值体系"
+    ],
+    "answer": "C",
+    "id": "1798736708569661441",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "禽兽有知而无义，人有气、有生、有知而又义，故最为天下贵也。这句话说明了()",
+    "option": [
+      "自然属性是人的本质",
+      "社会属性是人的本质",
+      "人的本质是自然属性与社会属性的总和",
+      "人和动物区别不大"
+    ],
+    "answer": "B",
+    "id": "1798736709010063360",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在个人道德认知转化为道德行为的过程中，()是关键环节。",
+    "option": [
+      "道德判断",
+      "道德认同",
+      "道德意志与道德信念",
+      "道德情感"
+    ],
+    "answer": "C",
+    "id": "1798736708372529153",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "志愿服务精神的精髓是()",
+    "option": [
+      "友爱",
+      "互助",
+      "奉献",
+      "进步"
+    ],
+    "answer": "C",
+    "id": "1798736708372529152",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "学生在课堂看手机、吃早饭不仅违反了课堂纪律，这属于()行为。",
+    "option": [
+      "违法行为",
+      "违反社会公德行为",
+      "违反职业道德行为",
+      "以上都不是,这是学生的权利"
+    ],
+    "answer": "B",
+    "id": "1798736708406083585",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“知耻近乎勇”“礼义廉耻，国之四维”说的是人生矛盾中的（）",
+    "option": [
+      "幸福观",
+      "荣辱观",
+      "生死观",
+      "顺逆观"
+    ],
+    "answer": "B",
+    "id": "1798736708984897536",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "马克思主义认为，道德起源于()",
+    "option": [
+      "人性中的情感、欲望",
+      "“天”的意志或“神”的启示",
+      "人先天具有的某种良知和善良意志",
+      "社会关系的形成及人类自我意识的形成与发展"
+    ],
+    "answer": "D",
+    "id": "1798736708460609537",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "党的()通过的《中共中央关于构建社会主义和谐社会若干重大问题的决定》，第一次明确提出了“建设社会主义核心价值体系”这个重大命题和战略任务。",
+    "option": [
+      "十二届六中全会",
+      "十四届六中全会",
+      "十五届六中全会",
+      "十六届六中全会"
+    ],
+    "answer": "D",
+    "id": "1798736708531912704",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "抛弃国外优越的生活与工作条件，历尽千难万险，回归祖国的怀抱，投身到祖国的建设中的，被评为“两弹一星”的功臣而受到国家的表彰的爱国科学家是()。",
+    "option": [
+      "钱学森",
+      "邓稼先",
+      "梁守磐",
+      "金先仲"
+    ],
+    "answer": "A",
+    "id": "1798736708670324738",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()是社会主义道德规范对执法工作的基本要求，是社会主义政治文明和进步的表现，是执法机关执法为民的外在体现。",
+    "option": [
+      "勤政守法",
+      "甘当公仆",
+      "文明执法",
+      "清正廉洁"
+    ],
+    "answer": "C",
+    "id": "1798736708045373440",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "科学的人生观是()",
+    "option": [
+      "自保自利的人生观",
+      "及时享乐的人生观",
+      "为人民服务的人生观",
+      "合理利已主义的人生观"
+    ],
+    "answer": "C",
+    "id": "1798736709014257664",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "男女双方的恋爱行为，客观上是对社会负有相应的道德责任的行为。下列选项中，违背男女恋爱中基本道德要求的是()",
+    "option": [
+      "尊重对方的人格",
+      "自觉承担责任",
+      "文明相亲相爱",
+      "要求对方断绝与其他异性的交往"
+    ],
+    "answer": "D",
+    "id": "1798736708393500673",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "党的二十大提出，用党的科学理论武装青年，用党的（）感召青年，做青年朋友的知心人、青年工作的热心人、青年群众的引路人。",
+    "option": [
+      "思想路线",
+      "初心使命",
+      "阶段任务",
+      "顶层设计"
+    ],
+    "answer": "B",
+    "id": "1798736709140086784",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "一个人如果没有崇高理想或者缺乏理想，就会像一艘没有舵的船，随波逐流，难以顺利地到达彼岸。人只要有了崇高的理想，就会在黑暗中看到光明，在平凡中看到伟大，在遭受困难和挫折时能充满信心，坚持胜利。这就是理想在人生中的()",
+    "option": [
+      "精神向导的指路明灯作用",
+      "精神支柱作用",
+      "精神动力作用",
+      "思想武器作用"
+    ],
+    "answer": "A",
+    "id": "1798736708846485504",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "马克思说：“人们只有为同时代人的完美、为他们的幸福而工作，才能使自己也达到完美。如果一个人只为自己劳动，他也许能成为著名学者、大哲人、卓越诗人，然而他永远不能成为完美无疵的伟大人物。”这句话表达的意思是()",
+    "option": [
+      "人生的自我价值和社会价值是矛盾的、对立的",
+      "人生的社会价值是实现人生的自我完善、全面发展的保障",
+      "人生的自我价值是个体生存和发展的必要条件",
+      "自觉提高自我的主体素质和能力是实现人生价值的根本途径"
+    ],
+    "answer": "B",
+    "id": "1798736709001674752",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "努力建设中华民族的共有精神家园，积极培育和践行社会主义核心价值观，是实现中国梦的价值观建设基础工程。党的()提出的24字社会主义核心价值观，是我们党凝聚全党全社会价值共识做出的重要论断。",
+    "option": [
+      "十六届六中全会",
+      "十七大",
+      "十七届六中全会",
+      "十八大"
+    ],
+    "answer": "D",
+    "id": "1798736708573855744",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "邓小平明确指出：“为什么我们过去能在非常困难的情况下奋斗出来，战胜千难万险使革命胜利呢？就是因为我们有理想，有马克思主义信念，有共产主义信念。”邓小平的这句话意思是说()",
+    "option": [
+      "理想信念是我们的指路明灯",
+      "理想信念是我们的精神支柱",
+      "理想信念是我们的精神动力",
+      "有科学和不科学的区分"
+    ],
+    "answer": "B",
+    "id": "1798736708838096898",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "俗话说：“三百六十行，行行出状元”。上述俗话主要说明 （）",
+    "option": [
+      "人生的价值终究要通过自己所从事的事业展现出来",
+      "人的创造力的形成和培养需要一定的社会条件",
+      "要正确对待学习和工作中的成功和失败",
+      "要正确处理个人活动和社会发展的关系\n"
+    ],
+    "answer": "A",
+    "id": "1798736708947148800",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "国家安全的支柱与核心是()",
+    "option": [
+      "经济安全与科技安全",
+      "政治安全与国防安全",
+      "文化安全与生态安全",
+      "社会公共安全与网络信息安全"
+    ],
+    "answer": "B",
+    "id": "1798736708687101953",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“人的本质不是单个人所固有的抽象物，在其现实性上，它是一切社会关系的总和。”这句话说明（）",
+    "option": [
+      "自然属性是人的本质属性",
+      "社会属性是人的本质属性",
+      "自然属性和社会属性都是人的本质属性",
+      "自然属性和社会属性都不是人的本质属性"
+    ],
+    "answer": "B",
+    "id": "1798736709039423489",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "社会主义核心价值体系是全党全国各族人民团结奋斗的()。",
+    "option": [
+      "共同思想基础",
+      "共同理想",
+      "共同纲领",
+      "理论基础"
+    ],
+    "answer": "A",
+    "id": "1798736708523524097",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "理想作为一种社会意识形态，不是从天而降，而是()",
+    "option": [
+      "社会存在的反映，是从社会实践中产生的",
+      "人们头脑中构造出来的",
+      "能为社会大多数人谋利益的构想",
+      "人们的政治立场和世界观在人生奋斗目标上的体现"
+    ],
+    "answer": "A",
+    "id": "1798736708833902593",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
   },
   {
     "questionStem": "回答我们要培育什么样的公民的重大问题，涵盖社会公德、职业道德、家庭美德、个人品德等各个方面，是每一个公民都应当遵守的道德规范，这一价值追求是()。",
@@ -3971,7 +1873,1840 @@
     "id": "1798736708565467137",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "Political",
-    "type": "singleChoice"
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "下列属于正确的人生态度的是()",
+    "option": [
+      "今朝有酒今朝醉",
+      "浮生如梦",
+      "知其不可而为之",
+      "得过且过"
+    ],
+    "answer": "C",
+    "id": "1798736709022646272",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "人们在一定认识基础上确立的对某种思想或事物坚信不疑并身体力行的态度是()",
+    "option": [
+      "理想",
+      "信念",
+      "人生观",
+      "价值观"
+    ],
+    "answer": "B",
+    "id": "1798736708850679808",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()是我们理解当前所处历史方位的关键词。",
+    "option": [
+      "新思想",
+      "新举措",
+      "新格局",
+      "新时代"
+    ],
+    "answer": "D",
+    "id": "1798736709131698177",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“个人的抱负不可能孤立地实现，只有把它同时代和人民的要求紧密结合起来，用自己的知识和本领为祖国、为人民服务，才能使自身价值得到充分实现。如果脱离时代、脱离人民，必将一事无成。”这段话的意思是（）",
+    "option": [
+      "不实现个人抱负，就不会创造社会价值",
+      "实现自我价值是因，创造社会价值是果",
+      "社会价值的创造过程与自我价值的实现过程是不相关的",
+      "人生的自我价值必须与社会价值相结合，并通过社会价值表现出来\n"
+    ],
+    "answer": "D",
+    "id": "1798736708963926016",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "下列属于正确的人生观是()",
+    "option": [
+      "人不为己，天诛地灭",
+      "我选择，我喜欢",
+      "奉献社会",
+      "人生是一场游戏一场梦"
+    ],
+    "answer": "C",
+    "id": "1798736709018451969",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "邻里和睦属于()",
+    "option": [
+      "社会公德",
+      "职业道德",
+      "家庭美德",
+      "法律规定"
+    ],
+    "answer": "C",
+    "id": "1798736708389306370",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "一个人需要有一定的信念，信念具有以下特征()",
+    "option": [
+      "稳定性、多样性、复杂性",
+      "稳定性、多样性、亲合性",
+      "稳定性、复杂性、渐进性",
+      "多样性、亲合性、渐进性"
+    ],
+    "answer": "B",
+    "id": "1798736708817125376",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“爱祖国、爱人民、爱劳动、爱科学、爱社会主义”是社会主义道德的基本要求。在当代中国，对“爱祖国”的要求最集中地体现在()",
+    "option": [
+      "坚持祖国的统一，反对分裂祖国的言行",
+      "爱社会主义，积极参加中国特色社会主义建设",
+      "追求健康、文明、科学的生活方式",
+      "通过诚实劳动、合法经营去获取利益和财富"
+    ],
+    "answer": "B",
+    "id": "1798736708695490560",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "我国《宪法》规定的通信自由和通信秘密属于公民的何种权利？()",
+    "option": [
+      "政治自由权利",
+      "人身自由权利",
+      "文化教育权利",
+      "监督控诉权利"
+    ],
+    "answer": "B",
+    "id": "1798736707978264577",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "宪法规定，依法服兵役和参加民兵组织是我国公民的()",
+    "option": [
+      "神圣权利",
+      "光荣义务",
+      "权利和义务",
+      "神圣职责"
+    ],
+    "answer": "B",
+    "id": "1798736708057956352",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "党的十九大报告指出，中国共产党人的初心和使命，就是为中国人民谋幸福，为中华民族谋复兴。体现了社会主义核心价值观的()特征。",
+    "option": [
+      "先进性",
+      "纯洁性",
+      "人民性",
+      "真实性"
+    ],
+    "answer": "C",
+    "id": "1798736708515135488",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "素质是从事某种社会活动所需要的自身基础和内在条件，它是()。",
+    "option": [
+      "先天的遗产",
+      "后天的培养",
+      "先天的遗产和后天的培养",
+      "学习的能力"
+    ],
+    "answer": "C",
+    "id": "1798736709148475393",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "政治权利包括()",
+    "option": [
+      "选举权",
+      "人格尊严权",
+      "社会经济权利",
+      "科学研究权"
+    ],
+    "answer": "A",
+    "id": "1798736707990847488",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "天行健，君子以自强不息反应的是一种（）的人生态度。",
+    "option": [
+      "认真",
+      "务实",
+      "乐观",
+      "进取"
+    ],
+    "answer": "D",
+    "id": "1798736709031034881",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "马克思指出：“立法者应该把自己看作一个自然科学家，他不是在制造法律，不是在发明法律，而仅仅是在表述法律，他把精神关系的内在规律表现在有意识的现行法律之中。”这段话表明()",
+    "option": [
+      "立法者要像自然科学家—样思维和行动",
+      "立法要尊重和反映客观规律",
+      "立法者应该把现行法律看作是绝对精神体现",
+      "法律是客观的，立法者在立法时不应发挥自己的主观能动性"
+    ],
+    "answer": "B",
+    "id": "1798736707995041792",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()是一定社会形态社会性质的集中体现，在一个社会的思想观念体系中处于主导地位，体现着社会制度、社会运行的基本原则和社会发展的基本方向。",
+    "option": [
+      "主流价值观",
+      "核心价值观",
+      "社会思潮",
+      "主流社会思潮"
+    ],
+    "answer": "B",
+    "id": "1798736708565467136",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "依法行政是依法治国的一个关键环节，是法治国家对政府行政活动的基本要求。依法行政要求行政机关必须诚实守信。下列哪一行为违反了诚实守信原则？()",
+    "option": [
+      "某县发生煤矿重大安全事故，政府部门通报了相关情况，防止了现场矛盾激化",
+      "某市政府在招商引资过程中承诺给予优惠，因国家政策变化推迟兑现",
+      "某县政府因县内其他民生投资导致资金紧张，未按合同及时支付相关企业的市政工程建设款项",
+      "某区政府经过法定程序对已经公布的城建规划予以变更"
+    ],
+    "answer": "C",
+    "id": "1798736708020207616",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "公民在法律面前人人平等是指()",
+    "option": [
+      "立法和守法上的平等",
+      "立法、司法和守法上的平等",
+      "立法和司法上的平等",
+      "司法和守法上的平等"
+    ],
+    "answer": "D",
+    "id": "1798736708049567744",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "民族精神是一个民族赖以生存和发展的精神支撑，中华民族在五千年的发展中所形成的伟大民族精神的核心是()",
+    "option": [
+      "爱国主义",
+      "勤劳勇敢",
+      "爱好和平",
+      "革命英雄主义"
+    ],
+    "answer": "A",
+    "id": "1798736708703879169",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在中华民族的爱国主义发展史上，（）是中华儿女爱国情怀的重要体现。",
+    "option": [
+      "维护祖国统一、反对祖国分裂",
+      "促进祖国经济发展、社会进步",
+      "促进社会和谐发展",
+      "促进社会公平正义"
+    ],
+    "answer": "A",
+    "id": "1798736708703879168",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "理想区别于幻想、空想的特点是()",
+    "option": [
+      "理想是个人对幻想空想的改进",
+      "理想源于实践具有实现可能，是对未来的向往和追求",
+      "理想是永恒的，幻想和空想可以随时间的变化而变化",
+      "知识渊博的人具有崇高的理想，而空想幻想则源于无知"
+    ],
+    "answer": "B",
+    "id": "1798736708808736769",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "深深地根植于()，是社会主义核心价值观历史底蕴的集中体现。",
+    "option": [
+      "中国精英文化",
+      "中国革命文化",
+      "中华优秀传统文化",
+      "中国特色社会主义先进文化"
+    ],
+    "answer": "C",
+    "id": "1798736708552884224",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "人才素质的灵魂是()",
+    "option": [
+      "德",
+      "智",
+      "体",
+      "美"
+    ],
+    "answer": "A",
+    "id": "1798736709169446914",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "处于核心地位的理想类型是()",
+    "option": [
+      "生活理想",
+      "社会理想",
+      "道德理想",
+      "职业理想"
+    ],
+    "answer": "B",
+    "id": "1798736708796153856",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "一个人在道德意识道德行为方面，自觉地按照一定社会或阶级的道德要求所进行的进行的自我审度、自我教育和自我完善的活动，被称为()",
+    "option": [
+      "道德修养",
+      "自我实现",
+      "自我欣赏",
+      "自我设计"
+    ],
+    "answer": "A",
+    "id": "1798736708385112065",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "对大学生来说，下列属于正确的恋爱观是()",
+    "option": [
+      "学习诚可贵，爱情价更高",
+      "不在乎天长地久，只在乎曾经拥有",
+      "世界上最浪漫的事就是和你一起慢慢变老",
+      "恋爱是大学的一门必修课，大学四年不谈一场恋爱，大学就没有毕业。"
+    ],
+    "answer": "C",
+    "id": "1798736708389306369",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "习近平总书记说：国无(）不兴，人无（）不立",
+    "option": [
+      "德，法",
+      "法，法",
+      "法，德",
+      "德,德"
+    ],
+    "answer": "D",
+    "id": "1798736708368334849",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "封建制法律的基本特征表述不准确的是()",
+    "option": [
+      "确立农民对封建地主的人身依附关系",
+      "实行封建等级制度",
+      "维护专制皇权",
+      "是刑罚宽严相济。"
+    ],
+    "answer": "D",
+    "id": "1798736708032790529",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "面对一系列人生重大课题的解决，如人生观的确立，价值观的选择等，每个人都需要有一个总的原则和目标，而导引这一切的明亮灯塔正是人生的()",
+    "option": [
+      "理想与信念",
+      "修养与境界",
+      "友谊与爱情",
+      "基本行为准则"
+    ],
+    "answer": "A",
+    "id": "1798736708833902592",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "刘少奇曾指出：“我们是革命的唯物主义者，我们的修养不能脱离人民群众的革命实践。”这句话强调了()",
+    "option": [
+      "自我修养必须落实到行动上，身体力行",
+      "进行自我修养必须用科学的理论武装自己",
+      "自我修养的完美境界的实现是相对的和无止境的",
+      "自我修养需要经常用正确的理论观点和行为规范来对照检查自己的思想和言行"
+    ],
+    "answer": "A",
+    "id": "1798736709152669696",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "下列选项中，哪一项不属于公民的文化权利？()",
+    "option": [
+      "科学研究自由",
+      "宗教信仰",
+      "文艺创作自由",
+      "从事教育"
+    ],
+    "answer": "B",
+    "id": "1798736707986653184",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "关于法律和国家关系的表述中，正确的是()",
+    "option": [
+      "国家需要法律",
+      "法律先于国家而产生",
+      "法律不一定从属于国家",
+      "法律的产生与国家的产生没有必然联系"
+    ],
+    "answer": "A",
+    "id": "1798736708045373441",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "（）是指人们通过生活实践形成的对人生问题的一种稳定的心理倾向和精神状态。",
+    "option": [
+      "人生目的",
+      "人生价值",
+      "人生态度",
+      "人生意义"
+    ],
+    "answer": "C",
+    "id": "1798736709039423488",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "精心地护持自己的善意，精心地保持自己的善行，“不以善小而不为，不以恶小而为之”，使其不断地积累成为个人品德。这种道德修养方法是()",
+    "option": [
+      "陶冶情操",
+      "省察克治",
+      "积善成德",
+      "择善而从"
+    ],
+    "answer": "C",
+    "id": "1798736708385112064",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "某公司的职工在三亚旅游时，主动把吃剩的瓜子壳、果皮等收拾干净，放到垃圾箱里。他们的这种行为是()",
+    "option": [
+      "可有可无的",
+      "职业要求的",
+      "多余的，因有专人打扫",
+      "应该的，是自觉遵守社会公德的表现"
+    ],
+    "answer": "D",
+    "id": "1798736708414472192",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "坚持爱国主义与()的统一，是新时期爱国主义的基本特征。",
+    "option": [
+      "爱社会主义",
+      "爱人民群众",
+      "爱中国共产党",
+      "爱本职工作"
+    ],
+    "answer": "A",
+    "id": "1798736708699684865",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "（）因执行职务造成他人损害的，由法人承担民事责任。",
+    "option": [
+      "董事长",
+      "总经理",
+      "法定负责人",
+      "法定代表人"
+    ],
+    "answer": "D",
+    "id": "1798736707961487360",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "爱国主义的基础是()",
+    "option": [
+      "爱国情感",
+      "爱国思想",
+      "爱国行为",
+      "爱国言语"
+    ],
+    "answer": "A",
+    "id": "1798736708691296256",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()是社会主义道德建设的核心。",
+    "option": [
+      "集体主义",
+      "为人民服务",
+      "诚实守信",
+      "勤俭节约"
+    ],
+    "answer": "B",
+    "id": "1798736708418666498",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "中国革命道德在要求一切革命者和先进分子自觉地服从（）的同时，也要求革命的集体和领导始终不渝地从各个方面照顾每个革命成员的个人利益，关心他们的事业成就和个人的全面发展。",
+    "option": [
+      "集体利益",
+      "个人利益",
+      "革命利益",
+      "战友利益"
+    ],
+    "answer": "C",
+    "id": "1798736708364140544",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "下列选项中，属于职业道德要求的是()",
+    "option": [
+      "尊老爱幼",
+      "助人为乐",
+      "服务群众",
+      "文明礼貌"
+    ],
+    "answer": "C",
+    "id": "1798736708401889281",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "经历数千年大风大浪和兴衰变化的考验，整个中华民族却一直保持着蓬勃的生机和旺盛的活力，稳固地凝聚在一起，外来势力冲不散，帝国主义打不垮。高昂的爱国主义精神，把中国疆，域内众多的大小民族凝聚在一起，把亿万中华儿女牢牢地吸引在中国大地上。这段话的意思是说，爱国主义是()",
+    "option": [
+      "鼓舞中国人民团结奋斗的一面旗帜",
+      "谱写壮丽人生的力量源泉",
+      "推动历史前进的巨大力量",
+      "实现人生的最高价值"
+    ],
+    "answer": "A",
+    "id": "1798736708691296258",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()是依法治国的核心。",
+    "option": [
+      "诚信友爱",
+      "民主法治",
+      "公平正义",
+      "依宪治国"
+    ],
+    "answer": "D",
+    "id": "1798736708049567745",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "国家的领土、领海和领空安全，不受外来军事威胁或侵犯。这是指()",
+    "option": [
+      "政治安全",
+      "国防安全",
+      "生态安全",
+      "社会公共安全"
+    ],
+    "answer": "B",
+    "id": "1798736708036984833",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在社会主义核心价值观践行中，正心是通过()实现的。",
+    "option": [
+      "勤学",
+      "修德",
+      "明辨",
+      "笃实"
+    ],
+    "answer": "C",
+    "id": "1798736708515135489",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "社会主义法治把公平正义作为一切法治实践活动的价值追求。下列哪一说法正确体现了公平正义理念的基本要求？()",
+    "option": [
+      "在法律实施中为维护法律的权威性和严肃性，应依据法理而不是考虑情理",
+      "在法治实践活动中，仅仅保证程序公正",
+      "迟到的正义是非正义，法治活动应同时兼顾公正与效率",
+      "法律是全社会平等适用的普遍性规范，为维护法制统一，对特殊地域和特殊群体应一视同仁，不作任何区别化对待"
+    ],
+    "answer": "C",
+    "id": "1798736708016013313",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "人生信念按其性质可分为()",
+    "option": [
+      "资产阶级信念和无产阶级信念",
+      "唯物主义信念和唯心主义信念",
+      "宗教信仰和非宗教信仰",
+      "科学信念和非科学信念"
+    ],
+    "answer": "D",
+    "id": "1798736708796153857",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "下列几句广告词，反应人类最先进的人生追求的是()",
+    "option": [
+      "我选择，我喜欢",
+      "我的地盘我做主",
+      "学习雷锋，奉献社会",
+      "喜欢，有什么不可以"
+    ],
+    "answer": "C",
+    "id": "1798736709005869056",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "理想是（）",
+    "option": [
+      "为社会的少数人谋利益",
+      "不可能实现的向往",
+      "纯粹主观的",
+      "经过奋斗能够实现的想象和目标\n"
+    ],
+    "answer": "D",
+    "id": "1798736708800348160",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "关于依法治国，下列哪一认识是错误的？()",
+    "option": [
+      "依法治国要求构建科学完善的权力制约监督机制",
+      "依法治国要求坚持\"法律中心主义\"，强调法律在治理和管理国家中的作用",
+      "实施依法治国基本方略，坚持法治国家、法治政府、法治社会一体建设",
+      "依法治国要求党必须坚持依法执政，正确领导立法、保证执法、带头守法"
+    ],
+    "answer": "B",
+    "id": "1798736708024401920",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "习近平总书记强调，（）是社会的基本细胞，是人生的第一所学校。",
+    "option": [
+      "个人",
+      "家庭",
+      "单位",
+      "社区"
+    ],
+    "answer": "B",
+    "id": "1798736708364140546",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "空想一般是()",
+    "option": [
+      "在实践中形成和具有实现可能的对美好未来的想象",
+      "与生活愿望相结合，但离现实较远的对未来的想象",
+      "缺乏客观根据的随心所欲的对未来的想象",
+      "现时有很大距离，但在将来有实现可能的一种未来想象"
+    ],
+    "answer": "C",
+    "id": "1798736708808736770",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "信念作为人的意识的一部分，是人类特有的一种精神状态，信念对人生的重要作用体现在，信念是人们()",
+    "option": [
+      "对真理的追求",
+      "追求理想的强大动力",
+      "评判事物的标准",
+      "对客观事物的本质和发展规律的正确反映"
+    ],
+    "answer": "B",
+    "id": "1798736708800348161",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "下列关于金钱观错误的是()",
+    "option": [
+      "金钱是好仆人、坏主人。",
+      "金子！黄黄的、发光的、宝贵的金子！这东西，只这一点点儿，就可以使黑的变成白的，丑的变成美的，错的变成对的，卑贱变成尊贵，老人变成少年，懦夫变成勇士。",
+      "君子爱财，取之有道。",
+      "金钱能做很多事，但它不能做一切事。"
+    ],
+    "answer": "B",
+    "id": "1798736709001674753",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "自然人下落不明满（）年的，利害关系人可以向人民法院申请宣告该自然人为失踪人。",
+    "option": [
+      "1",
+      "3",
+      "4",
+      "2"
+    ],
+    "answer": "D",
+    "id": "1798736707961487361",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "下列选项中，属于现代社会人们自我修养的正确途径是()。",
+    "option": [
+      "坐而论道",
+      "闭门思过",
+      "躬行实践",
+      "合理宣泄"
+    ],
+    "answer": "C",
+    "id": "1798736709169446912",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“吾日三省吾身：为人谋而不忠乎?与朋友交而不信乎?传不习乎?”这句话强调了，进行自我修养要()",
+    "option": [
+      "认真读书，求得真知",
+      "躬行实践，知行统一",
+      "常思己过，有则改之",
+      "学习榜样，积极进权"
+    ],
+    "answer": "C",
+    "id": "1798736709165252608",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "作为法治理念的公平正义是指()",
+    "option": [
+      "社会成员之间的社会地位、经济收入、消费水平接近",
+      "每个人拥有平等的生存、发展的权利和机会",
+      "社会成员能依法公平地实现权利和义务，并受法律的保护",
+      "人们享有的权利和承担的责任相一致"
+    ],
+    "answer": "C",
+    "id": "1798736708003430400",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“樱桃好吃树难栽，不下功夫花不开。”理想是美好的，但美好的理想是不会自动实现的。把理想转化为现实的根本途径是（）",
+    "option": [
+      "积极投身社会实践",
+      "认真学习科学理论",
+      "大胆畅想美好未来",
+      "逐步确立坚定信念"
+    ],
+    "answer": "A",
+    "id": "1798736708817125377",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()作为一个民族群体意识的载体，常常被称为国家和民族的“胎记”，是一个民族得以延续的“精神基因”。",
+    "option": [
+      "祖国的大好河山",
+      "灿烂的文化传统",
+      "自己的骨肉同胞",
+      "深厚的道德渊源"
+    ],
+    "answer": "B",
+    "id": "1798736708674519040",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "曾子说：“吾日三省吾身：为人谋而不忠乎？与朋友交而不信乎？传不习乎？”这属于中国传统道德修养方法中的()",
+    "option": [
+      "省察克治",
+      "陶冶情操",
+      "慎独自律",
+      "积善成德"
+    ],
+    "answer": "A",
+    "id": "1798736708380917760",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "司法主要原则不包括()",
+    "option": [
+      "司法公正；公民在法律面前一律平等",
+      "以事实为依据，以法律为准绳",
+      "司法机关依法独立公正行使司法权等",
+      "诚实信用与公平"
+    ],
+    "answer": "D",
+    "id": "1798736708028596225",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "继承权是指继承人依法取得被继承人遗产的资格。法律所规定的第一顺序继承人为()；第二顺序继承人为兄弟姐妹、祖父母、外祖父母。",
+    "option": [
+      "配偶、子女",
+      "父母,兄弟姐妹",
+      "子女、父母",
+      "配偶、子女、父母"
+    ],
+    "answer": "D",
+    "id": "1798736707982458880",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "中国特色社会主义共同理想是社会主义核心价值体系的()。",
+    "option": [
+      "精髓",
+      "灵魂",
+      "主题",
+      "基础"
+    ],
+    "answer": "C",
+    "id": "1798736708519329794",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "大学生在大学阶段的首要任务是（）。",
+    "option": [
+      "学习",
+      "笃实",
+      "立行",
+      "修德"
+    ],
+    "answer": "A",
+    "id": "1798736709140086785",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "把金钱作为衡量人生价值的唯一标准，这是典型的（）",
+    "option": [
+      "享乐主义",
+      "个人主义",
+      "拜金主义",
+      "实用主义"
+    ],
+    "answer": "C",
+    "id": "1798736708968120320",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在人类历史上，原始社会的经济关系产生了原始共产主义道德，封建社会的经济关系产生了封建主义道德，资本主义社会的经济关系产生了资本主义道德，社会主义社会的经济关系产生了社会主义道德。这说明()",
+    "option": [
+      "社会道德对社会经济关系具有决定作用",
+      "有什么样的生产方式就有什么样的社会道德",
+      "社会经济关系的性质并不决定社会道德体系的性质",
+      "社会道德的发展变化必然引起社会经济关系的发展变化"
+    ],
+    "answer": "B",
+    "id": "1798736708456415233",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "下列选项中，对集体主义原则的错误理解是()",
+    "option": [
+      "集体主义要求不论在什么情况下，都要无条件地牺牲个人利益",
+      "集体主义强调国家利益和个人利益的辩证统一",
+      "集体主义原则重视个人利益",
+      "集体主义原则强调国家利益、集体利益高于个人利益"
+    ],
+    "answer": "A",
+    "id": "1798736708435443712",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "中国特色社会主义共同理想与共产主义远大理想有着内在的联系，它们之间是()",
+    "option": [
+      "个人理想和社会理想的关系",
+      "职业理想和道德理想的关系",
+      "阶段性理想和最终理想的关系",
+      "有实现可能性的理想和根本不可能实现的空想的关系"
+    ],
+    "answer": "C",
+    "id": "1798736708791959553",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "某市检察院运用电子设备双路监控，同步录音录像，监督检察官办案过程，推动理性文明执法。关于理性文明执法，下列哪一说法是不正确的？()",
+    "option": [
+      "体现了以人为本的原则和精神",
+      "有助于树立法治的权威",
+      "有助于实现保障人权与打击犯罪的双重目标",
+      "要求执法机关从有利于群众的实际利益出发，讲究执法方法。为此，可突破法律规则和程序的要求办案"
+    ],
+    "answer": "D",
+    "id": "1798736708011819009",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在我国的执法机关包括有()",
+    "option": [
+      "审判机关",
+      "检察机关",
+      "各级人民政府",
+      "各级人民代表大会"
+    ],
+    "answer": "C",
+    "id": "1798736708036984832",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "习近平说：“历史是一面镜子，从历史中，我们能够更好看清世界、参透生活、认识自己；历史也是一位智者，同历史对话，我们能够更好认识过去、把握当下、面向未来。”这是指新时代爱国主义基本要求的()",
+    "option": [
+      "坚持爱国主义和社会主义相统一",
+      "尊重和传承中华民族历史和文化",
+      "维护祖国统一和民族团结",
+      "必须坚持立足民族又面向世界"
+    ],
+    "answer": "B",
+    "id": "1798736708695490561",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“正义不仅应当实现，而且应当以人们看得见的方式实现”，这就是()的重要价值所在。",
+    "option": [
+      "实体公正",
+      "司法公正",
+      "时间效率",
+      "程序公正"
+    ],
+    "answer": "D",
+    "id": "1798736707995041794",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()已经成为社会选人、用人、评价人的基本尺度。",
+    "option": [
+      "德才兼备、以才为先",
+      "德才兼备、以德为先",
+      "德才兼备、不分先后",
+      "智体兼备、以智为先"
+    ],
+    "answer": "B",
+    "id": "1798736709161058304",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "青春是用来（）的。",
+    "option": [
+      "享受",
+      "实践",
+      "奋斗",
+      "梦想"
+    ],
+    "answer": "C",
+    "id": "1798736709135892481",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "报效祖国、服务人民，“见善则迁，有过则改”，讲的都是()。",
+    "option": [
+      "勤学",
+      "修德",
+      "明辨",
+      "笃实"
+    ],
+    "answer": "B",
+    "id": "1798736708536107009",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在经济全球化的背景下弘扬爱国主义精神，需要()",
+    "option": [
+      "提高民族自尊心和自信心",
+      "完全否定中国的传统和现实",
+      "对本民族进行过度的颂扬和崇拜",
+      "从经济基础到上层建筑的一切领域都与西方接轨"
+    ],
+    "answer": "A",
+    "id": "1798736708661936129",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "作为人类社会最为先进社会制度的本质规定在价值层面的集中反映，代表着当今时代人类社会的价值制高点的是()。",
+    "option": [
+      "社会主义核心价值观",
+      "社会主义核心价值体系",
+      "共产主义核心价值观",
+      "共产主义核心价值体系"
+    ],
+    "answer": "A",
+    "id": "1798736708548689920",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "社会主义核心价值体系是()在价值层面的本质规定。",
+    "option": [
+      "社会意识形态",
+      "社会主义制度",
+      "?社会主义意识形态?",
+      "中国特色社会主义"
+    ],
+    "answer": "B",
+    "id": "1798736708523524096",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()的统一是中国历史发展的必然结果。",
+    "option": [
+      "爱国主义与爱中国共产党",
+      "爱国主义与爱社会主义",
+      "爱国主义与坚持人民民主专政",
+      "爱国主义与马克思主义指导的统一"
+    ],
+    "answer": "B",
+    "id": "1798736708666130433",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "我国社会主义法治的核心和精髓是()。",
+    "option": [
+      "依法治国",
+      "社会主义法治理念",
+      "社会主义法律体系",
+      "执法为民"
+    ],
+    "answer": "A",
+    "id": "1798736708007624705",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "新文化运动时期，对待中国传统文化及道德有两种对立的观点：全盘否定与全盘肯定。今天，回顾历史，观照现实，对待中华传统文化与道德正确的态度应是()",
+    "option": [
+      "全盘复古",
+      "全盘西化",
+      "结合时代要求继承创新",
+      "一半传统一半西方"
+    ],
+    "answer": "C",
+    "id": "1798736708443832320",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()，这一论断，为人们认识人生、形成正确的人生观提供了科学的方法论。",
+    "option": [
+      "社会存在决定社会意识",
+      "人之初性本善",
+      "人是一切社会关系的总和",
+      "人的发展是与社会生产发展相一致的"
+    ],
+    "answer": "C",
+    "id": "1798736708993286144",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“毫不利己，专门利人”的精神属于()",
+    "option": [
+      "中华民族传统美德",
+      "中国革命道德",
+      "人类社会永恒的道德",
+      "现实社会不存在"
+    ],
+    "answer": "B",
+    "id": "1798736708439638017",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "习近平同志在党的十九大报告中指出：“中国特色社会主义进入了新时代”，这是（）。",
+    "option": [
+      "这是对我国发展新的历史方位的科学判断",
+      "这是对我国现代化发展程度的科学判断",
+      "这是对中国国际地位的最新判断",
+      "这是对中国社会性质的最新判断"
+    ],
+    "answer": "A",
+    "id": "1798736709127503874",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()是中国特色社会主义道路自信、理论自信、制度自信和文化自信的价值内核。",
+    "option": [
+      "坚定的理想自信",
+      "坚定的信念自信",
+      "坚定的思想自信",
+      "坚定的核心价值观自信"
+    ],
+    "answer": "D",
+    "id": "1798736708557078528",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“学如弓弩，才如箭镞，识以领之，方能中鹄。”这句话告诉我们要（）。",
+    "option": [
+      "有本领",
+      "有担当",
+      "有责任",
+      "有理想"
+    ],
+    "answer": "A",
+    "id": "1798736709135892480",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "二十大报告指出，要实施()，弘扬中华传统美德，加强家庭家教家风建设，加强和改进未成年人思想道德建设，提高人民道德水准和文明素养。",
+    "option": [
+      "公民道德建设工程",
+      "个人精神文明建设",
+      "城市发展建设工程",
+      "邻里关系互助建设"
+    ],
+    "answer": "A",
+    "id": "1798736708393500672",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "以下表述不准确的是：我国社会主义法律()",
+    "option": [
+      "是党的主张和人民意志的共同体现",
+      "是维护人民利益和公民权利的有力武器",
+      "是国家机关、社会组织和全体公民的活动规则和行为准绳",
+      "是约束人的行为规范"
+    ],
+    "answer": "D",
+    "id": "1798736708032790528",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "习近平指出：“这就像穿衣服扣扣子一样，如果第一粒扣子扣错了，剩余的扣子都会扣错。人生的扣子从一开始就要扣好。”这段话讲的是()",
+    "option": [
+      "儿童价值观养成问题",
+      "少年价值观养成问题?",
+      "青年价值观养成问题",
+      "中年价值观养成问题"
+    ],
+    "answer": "C",
+    "id": "1798736708544495616",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "道德在调整人与人之间的关系实质上是调整()",
+    "option": [
+      "政治关系",
+      "经济关系",
+      "利益关系",
+      "社会关系"
+    ],
+    "answer": "C",
+    "id": "1798736708422860800",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "马克思说：“作为确定人，现实的人，你就有规定，就有使命，就有任务，至于你是否意识到这一点，那都是无所谓的。”这里，确定的现实的人的“规定”、“使命”和“任务”指的是()。",
+    "option": [
+      "人生责任",
+      "人生境界",
+      "人生存在",
+      "人生信仰"
+    ],
+    "answer": "A",
+    "id": "1798736709152669698",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "经济全球化趋势对个人报效祖国()。",
+    "option": [
+      "消除了许多障碍或阻隔，开辟了更多的渠道和更大的空间",
+      "增加了极大的难度",
+      "成为不可能",
+      "没有影响"
+    ],
+    "answer": "A",
+    "id": "1798736708674519041",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()始终是推动人类社会发展的第一动力。",
+    "option": [
+      "爱国",
+      "创新",
+      "改革",
+      "制造"
+    ],
+    "answer": "B",
+    "id": "1798736708653547520",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在当代中国，爱国主义首先体现在对()的热爱上，这是中华人民共和国每一个公民必须坚持的立场和态度。",
+    "option": [
+      "自己家庭",
+      "自己的事业",
+      "世界的发展",
+      "社会主义中国"
+    ],
+    "answer": "D",
+    "id": "1798736708657741824",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "关于道德和法律，以下说法不正确的是()",
+    "option": [
+      "二者都是上层建筑的重要组成部分",
+      "二者都是调节人们思想行为、协调人际关系的手段",
+      "二者都由国家强制力保证实施",
+      "道德比法律调整的范围更广泛"
+    ],
+    "answer": "C",
+    "id": "1798736709177835520",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "（）是个体的人生活动对社会、他人所具有价值。",
+    "option": [
+      "人生的自我价值",
+      "人生的社会价值",
+      "人生目的",
+      "人生价值"
+    ],
+    "answer": "B",
+    "id": "1798736709035229184",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在社会主义核心价值观践行中，立身是通过()实现的。",
+    "option": [
+      "勤学",
+      "修德",
+      "明辨",
+      "笃实"
+    ],
+    "answer": "B",
+    "id": "1798736708519329792",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "法的核心特征是()",
+    "option": [
+      "国家意志性",
+      "规范性",
+      "逻辑性",
+      "统一性"
+    ],
+    "answer": "A",
+    "id": "1798736708053762049",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在中华民族悠久的历史上，启迪和指引历代优秀人物壮丽人生的一个共同思想因素是()",
+    "option": [
+      "功利主义",
+      "爱国主义",
+      "民主主义",
+      "社会主义"
+    ],
+    "answer": "B",
+    "id": "1798736708708073472",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "孟子云“父子有亲，君臣有义，夫妇有别，长幼有序，朋友有信。”，说明中华传统美德非常重视()",
+    "option": [
+      "等级观念",
+      "人伦价值",
+      "尊卑观念",
+      "整体利益"
+    ],
+    "answer": "B",
+    "id": "1798736708452220928",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "国家竞争力的核心是()",
+    "option": [
+      "理论创新能力",
+      "制度创新能力",
+      "科技创新能力",
+      "文化创新能力"
+    ],
+    "answer": "C",
+    "id": "1798736708653547521",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "国家公务员履行公务应遵纪守法，照章办事，不论远近亲疏都一视同仁,这是()",
+    "option": [
+      "助人为乐的社会公德的要求",
+      "办事公道的职业道德的要求",
+      "尊老爱幼的家庭美德的要求",
+      "完善自我的人际吸引的要求"
+    ],
+    "answer": "B",
+    "id": "1798736708401889280",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "作出建立社会主义市场经济体制决策的会议是()",
+    "option": [
+      "中共十二大",
+      "中共十三大",
+      "中共十四大",
+      "中共十五大"
+    ],
+    "answer": "C",
+    "id": "1798736708057956353",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "青年马克思在谈到选择职业的理想和价值时曾经写道：“如果我们选择了最能为人类福利而劳动的职业，那么，重担就不能把我们压倒，因为这是为大家而献身；那时我们所感到的就不是可怜的、有限的、自私的乐趣，我们的幸福将属于千百万人，我们的事业将默默地、但是永恒发挥作用地存在下去，而面对我们的骨灰，高尚的人们将洒下热泪。”这说明我们青年大学生在选择职业是首先要()",
+    "option": [
+      "树立崇高的职业理想",
+      "做好充分的职业准备",
+      "要远离那些没有前途的地方",
+      "要创业而不要就业"
+    ],
+    "answer": "A",
+    "id": "1798736708397694976",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "（）就是人们对生活在其中的世界以及人与世界关系的总体看法和根本观点。",
+    "option": [
+      "世界观",
+      "人生态度",
+      "人生观",
+      "价值观"
+    ],
+    "answer": "A",
+    "id": "1798736709035229185",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "关于公平正义，下列哪一说法是正确的？()",
+    "option": [
+      "人类一切法律都维护公平正义",
+      "不同的时代秉持相同的正义观",
+      "公平正义是一个特定的历史范畴",
+      "严格执法等于实现了公平正义"
+    ],
+    "answer": "C",
+    "id": "1798736708011819008",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "以()为荣，以损人利己为耻。",
+    "option": [
+      "服务人民",
+      "团结互助",
+      "崇尚科学",
+      "艰苦奋斗"
+    ],
+    "answer": "B",
+    "id": "1798736709156864001",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "中国梦归根到底是（），必须紧紧依靠人民来实现，必须不断为人民造福。",
+    "option": [
+      "国家的梦",
+      "人民的梦",
+      "民族的梦",
+      "世界的梦"
+    ],
+    "answer": "B",
+    "id": "1798736709131698176",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()是社会主义核心价值体系的精神内核，它体现了社会主义核心价值体系的根本性质和基本特征，反映了社会主义核心价值体系的丰富内涵和实践要求，是社会主义核心价值体系的高度凝练和集中表达。",
+    "option": [
+      "马克思主义指导思想",
+      "社会主义先进文化",
+      "社会主义主流价值观",
+      "社会主义核心价值观"
+    ],
+    "answer": "D",
+    "id": "1798736708561272832",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "十一届三中全会重新确立的思想路线是()",
+    "option": [
+      "以经济建设为中心，坚持改革开放",
+      "解放思想、实事求是",
+      "邓小平理论确定为党的指导思想",
+      "和平共处五项原则"
+    ],
+    "answer": "B",
+    "id": "1798736708062150656",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "在新时期，邓小平提出的“四有”新人指的是()",
+    "option": [
+      "有知识、有能力、有文化、有纪律",
+      "有理想、有道德、有文化、有纪律",
+      "有素质、有本领、有道德、有理想",
+      "有理想、有信念、有才华、有纪律"
+    ],
+    "answer": "B",
+    "id": "1798736708838096896",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "全国劳动模范徐虎说过：“你不奉献，我不奉献，谁来奉献?你也索取，我也索取，向谁索取?”这句话的意思是，社会需要每个人的奉献，只有有奉献才能有索取。这种观点认为，人生价值的本质在于（）",
+    "option": [
+      "个人的社会存在",
+      "个人需要的最大满足",
+      "个人对社会的责任和贡献",
+      "社会对个人的尊重和满足\n"
+    ],
+    "answer": "C",
+    "id": "1798736708972314624",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“干一行，爱一行。”这是职业道德中()",
+    "option": [
+      "办事公道的要求",
+      "爱岗敬业的要求",
+      "诚实守信的要求",
+      "服务群众的要求"
+    ],
+    "answer": "B",
+    "id": "1798736708406083584",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()是马克思主义关于社会主义核心价值观论述的基本原则。",
+    "option": [
+      "人的自由而全面发展",
+      "人的解放",
+      "公平正义",
+      "自由博爱"
+    ],
+    "answer": "C",
+    "id": "1798736708527718400",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "法律思维的一个重要特征是()",
+    "option": [
+      "权利义务相统一",
+      "重证据",
+      "讲程序",
+      "情重于法"
+    ],
+    "answer": "C",
+    "id": "1798736708041179136",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "当教师，要当一个模范教师；当科学家，要当一个对国家有突出贡献的科学家；当解放军战士，要当一个最英勇的解放军战士；当工人，要当一个新时代的劳动模范；当农民，要当一个对改变农村面貌有贡献的农民。这些都是人生理想中的()",
+    "option": [
+      "生活理想的表现",
+      "社会理想的表现",
+      "道德理想的表现",
+      "职业理想的表现"
+    ],
+    "answer": "D",
+    "id": "1798736708829708289",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "家庭教育涉及很多方面，最重要的是（）",
+    "option": [
+      "心理教育",
+      "品德教育",
+      "职业教育",
+      "经济教育"
+    ],
+    "answer": "B",
+    "id": "1798736708364140545",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()是社会主义道德建设的原则。",
+    "option": [
+      "诚实守信",
+      "为人民服务",
+      "集体主义",
+      "勤俭节约"
+    ],
+    "answer": "C",
+    "id": "1798736708418666497",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "把国家倡导社会主义核心价值观正式写入宪法的是（）。",
+    "option": [
+      "十二届全国人大一次会议",
+      "十二届全国人大二次会议",
+      "十三届全国人大一次会议",
+      "十三届全国人大二次会议"
+    ],
+    "answer": "C",
+    "id": "1798736708561272833",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "我国现行宪法是在哪年制定的？",
+    "option": [
+      "1982",
+      "1978",
+      "1999",
+      "2004"
+    ],
+    "answer": "A",
+    "id": "1798736708028596224",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "社会主义道德区别并优越于其他社会形态道德的显著标志是，社会主义道德建设()",
+    "option": [
+      "以功利主义为原则",
+      "以知荣明耻为重点",
+      "以为人民服务为核心",
+      "以非强制性规范为特色"
+    ],
+    "answer": "C",
+    "id": "1798736708427055105",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "下列关于“慎独”的理解中，错误的是()。",
+    "option": [
+      "“慎独”是中国传统的道德修养方法",
+      "“慎”是谨慎，“独”是独处，不与人交往",
+      "“慎独”不仅是一种修养功夫，更是一种人生境界",
+      "“慎独”能避免社会生活中的双重人格和两面行为"
+    ],
+    "answer": "B",
+    "id": "1798736709144281089",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "衡量一个社会精神文明发展水平的重要标志是()。",
+    "option": [
+      "经济发展水平",
+      "社会道德风尚",
+      "对外开放程度",
+      "传统文化积淀"
+    ],
+    "answer": "B",
+    "id": "1798736709144281088",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "回答我们要建设什么样的国家的重大问题，揭示当代中国在经济发展、政治文明、文化繁荣、社会进步等方面的价值目标，从国家层面标注社会主义核心价值观的时代刻度，这一价值追求是()。",
+    "option": [
+      "富强、民主、文明、和谐",
+      "自由、平等、公正、法治",
+      "爱国、敬业、诚信、友善",
+      "价值、奉献、为公、利民"
+    ],
+    "answer": "A",
+    "id": "1798736708569661440",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "商法遵循()法的基本原则，同时秉承保障商事交易自由、等价有偿、便捷安全等原则。",
+    "option": [
+      "宪法",
+      "刑法",
+      "民法",
+      "行政法"
+    ],
+    "answer": "C",
+    "id": "1798736708024401921",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "“己欲立而立人，己欲达而达人”体现了中华民族传统美德中的()",
+    "option": [
+      "责任意识",
+      "仁爱精神",
+      "谦敬礼让",
+      "诚信精神"
+    ],
+    "answer": "B",
+    "id": "1798736708452220929",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "下列不属于中国革命道德的是()",
+    "option": [
+      "为实现共产主义理想而奋斗",
+      "始终把革命利益放在首位",
+      "全心全意为人民服务",
+      "合理的利己主义"
+    ],
+    "answer": "D",
+    "id": "1798736708427055104",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "()是通过社会道德教育和个人自觉的道德修养所形成的稳定的心理状态和行为习惯。它是个体对某种道德要求认同和践履的结果，集中体现了道德认知、道德情感、道德意志、道德信念和道德行为的内在统一。",
+    "option": [
+      "个人性格",
+      "个人品德",
+      "个人道德",
+      "个人心理"
+    ],
+    "answer": "B",
+    "id": "1798736708376723456",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "我国宪法规定的公民在法律面前一律平等原则的含义是什么？()",
+    "option": [
+      "18周岁以上的公民在法律面前平等",
+      "人民在法律面前平等",
+      "凡具有中华人民共和国国籍的人在法律面前平等",
+      "居住在中国境内的人在法律面前平等"
+    ],
+    "answer": "C",
+    "id": "1798736707969875970",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
+  },
+  {
+    "questionStem": "（ ）是改革开放以来党的全部理论和实践的主题，是党和人民历尽千辛万苦、付出巨大代价取得的根本成就。",
+    "option": [
+      "科学社会主义",
+      "马克思主义",
+      "中国特色社会主义",
+      "共产主义"
+    ],
+    "answer": "C",
+    "id": "1798736708791959552",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Political"
   }
 ]

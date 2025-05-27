@@ -1,289 +1,15 @@
 [
   {
-    "questionStem": "中国特色社会主义的总任务是实现社会主义现代化和中华民族伟大复兴。",
+    "questionStem": "党的十八届三中全会的主题是全面深化改革。",
     "option": [
       "正确",
       "错误"
     ],
     "answer": "正确",
-    "id": "1798736707802103808",
+    "id": "1798736707793715202",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "社会主义政治文明区别于资本主义政治文明的本质特征是:坚持党的领导、人民当家作主和依法治国的有机统一。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707760160770",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "社会主义制度的发展和完善是一个长期的历史过程。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707038740480",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "中共七届二中全会着重讨论了党的工作重心的战略转移的问题。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707688857601",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "“一国两制”是中国特色社会主义的伟大创举，是香港、澳门回归后保持长期繁荣稳定的最佳制度安排。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707026157568",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "党的十八大是在我国进入全面建成小康社会决定性阶段召开的一次十分重要的会议。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707789520896",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "在四项基本原则中，核心是要坚持中国共产党的领导地位。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707768549377",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "1956年9月，党的八大召开，标志着党对中国社会主义建设道路的探索的开始。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707714023424",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "毛泽东在《战争和战略问题》一文中指出，革命的中心任务和最高形式是武装夺取政权。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707667886080",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "教育、科技、人才不是全面建设社会主义现代化国家的基础性、战略性支撑。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707034546177",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "1950年5月1日颁行的《中华人民共和国婚姻法》是新中国制定的第一部法律。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707709829120",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "中共十六大关于我国进入和建设小康社会的判断，是根据我国现代化建设的客观进程和社会经济发展阶段性变化的实际作出的。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707764355072",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "确立了全面建设小康社会的战略目标，制定了全面建设小康社会的行动纲领的是中共十六大。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707772743680",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "中国新民主主义革命胜利的三大法宝:统一战线、武装斗争、群众路线。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707684663296",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "党的二十大提出：要坚守中华文化立场，提炼展示中华文明的精神标识和文化精髓，加快构建中国话语和中国叙事体系，讲好中国故事、传播好中国声音，展现可信、可爱、可敬的中国形象。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707038740481",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "当前我国最大的实际就是我国还处于并将长期处于社会主义初级阶段。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707764355073",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "中共七大特别强调，党的群众路线是党的根本的政治路线和组织路线。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707680468993",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "“把马克思主义的普遍真理同我国的具体实际结合起来，走自己的路，建设有中国特色的社会主义”是邓小平在中共十一届三中全会上提出来的。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707734994945",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "党的十八届四中全会审议通过了《中共中央关于全面推进依法治国若干重大问题的决定》，指出全面推进依法治国的总目标是建设中国特色社会主义法治体系，建设社会主义法治国家。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707806298113",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "第一个五年计划的完成完全改变了我国工农业总产值中以农业为主的局面。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707718217728",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "在我们党内，毛泽东最早提出了马克思主义中国化的思想。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707688857600",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "在党的八大上邓小平被选为党的总书记。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707718217729",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
+    "abbreviationSubject": "NCH"
   },
   {
     "questionStem": "中共十六届三中全会以邓小平理论和“三个代表”重要思想为指导，提出了以人为本、全面协调可持续发展的科学发展观。",
@@ -295,606 +21,7 @@
     "id": "1798736707772743681",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "坚持马克思主义基本原理同中国具体实际相结合，是对待马克思主义唯一正确和科学的态度。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707776937986",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "过渡时期社会主义建设总路线的主体是实现国家的工业化。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707726606336",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "在当代中国，坚持中国特色社会主义道路，就是真正坚持社会主义。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707776937984",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "“十四五”时期经济社会发展的主题是推动高质量发展。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707827269632",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "邓小平在中共十二大致开幕词时，第一次提出了“建设有中国特色的社会主义”的崭新命题。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707743383553",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "1935年1月召开的遵义会议是我党的历史上一个生死攸关的转折点。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707672080385",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "标志着我党胜利地完成了指导思想上的拨乱反正是中共十一届六中全会通过的《关于建国以来党的若干历史问题的决议》。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707743383552",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "党的二十大提出：社会主义核心价值观是凝聚人心、汇聚民力的强大力量。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707038740482",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "新中国成立从根本上结束了100多年来中华民族受帝国主义侵略压迫的历史。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707693051906",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "按照党的十九大要求，到新中国成立一百年时，基本实现现代化，把我国建成社会主义现代化国家。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707814686720",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "新民主主义革命的性质是无产阶级社会主义革命。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707676274690",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "中共十一届三中全会以前，我们党对时代主题的认识可归结为:战争与革命。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707739189248",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "在党的历史上第一次明确提出了建立社会主义市场经济体制的目标模式是在中共十四大上。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707755966465",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "党的十九大报告指出，中国特色社会主义进入新时代，我国社会主要矛盾已经转化为人民日益增长的物质文化需要和不平衡不充分的发展之间的矛盾。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707818881025",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "针对执政党的特点，毛泽东始终把坚持实事求是和密切联系群众作为党风建设的重点。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707726606337",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "党的十八大报告深化了对中国特色社会主义的认识，首次将“中国特色社会主义制度”写入党的全国代表大会报告中。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707793715201",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "党的十八届三中全会的主题是全面深化改革。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707793715202",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "为民造福是立党为公、执政为民的本质要求。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707030351872",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "党的十八届三中全会指出，健全社会主义市场经济体制必须遵循的规律是政府对资源的直接配置。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707797909504",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "中国新民主主义革命取得胜利的原因主要是有了无产阶级政党的领导。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707722412033",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "全面深化改革总目标是完善和发展中国社会主义市场经济体制、推进国家治理体系和治理能力现代化。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707814686721",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "全面建设社会主义现代化国家，必须坚持中国特色社会主义文化发展道路。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707030351873",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "“一国两制”构想的提出，先是从解决台湾问题开始的。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707827269634",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "在党的文件中正式提出“三步走”发展战略的是中共十三大。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707755966464",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "按照十九届五中全会确定的2035年远景目标，届时我国人均国内生产总值达到上中等发达国家水平。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707827269633",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "习近平总书记指出，抗疫斗争伟大实践再次证明，中国特色社会主义制度所具有的显著优势，是抵御风险挑战、提高国家治理效能的根本保证。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707823075328",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "中国工农红军进行的二万五千里长征是在第五次反“围”剿失败的背景下进行的。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707676274688",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "中国共产党并不是一开始就把社会主义和共产主义规定为自己的奋斗目标，而是有一个发展的过程。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707663691777",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "中国共产党是中国工人阶级的先锋队，同时又是中国人民和中华民族的先锋队。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707672080384",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "意识形态工作是为国家立心、为民族立魂的工作。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707042934784",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "十一届三中全会后农村实行家庭联产承包责任制与农业合作化以前的小私有经济相同。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707734994944",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "从组织上确立了中国共产党对军队的领导制度是在“三湾改编“以后。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707667886081",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "“三个代表”重要思想的提出，是我们党在自身建设问题上的一个重大理论突破。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707768549376",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "抗日战争时期的统一战线，其政治基础是共同抗日。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707680468992",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "1949年的《共同纲领》起了中华人民共和国临时宪法的作用。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707701440512",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "按照党的十八大要求，建设中国特色社会主义总布局是“四位一体”。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707789520897",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "尊重自然、顺应自然、保护自然，不是全面建设社会主义现代化国家的内在要求。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707026157569",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "全面进行经济体制改革的纲领性文件是中共十二届三中全会通过的《关于经济体制改革的决定》。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707747577856",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "毛泽东在《关于正确处理人民内部矛盾的问题》中指出，社会主义社会存在敌我矛盾和人民内部矛盾两类性质根本不同的矛盾。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707714023425",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "为了鼓励广大科技人员建功立业，从2000年起设立国家最高科技奖。2001年颁布的“2000年度国家科学技术奖”获奖者是数学大师吴文俊和“杂交水稻”之父袁隆平。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707760160769",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "党的十八届五中全会提出，要实现“十三五”时期发展目标，必须把发展基点放在创新上。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707810492418",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "中国人民政治协商会议第一次全体会议决定，以《义勇军进行曲》为代国歌。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707697246209",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "我国目前农业生产的主要经营方式是集约化经营。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707747577857",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "民主革命时期党的中心任务是进行武装斗争。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707684663297",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "1921年7月23日，中国共产党第一次全国代表大会在上海正式举行，李大钊和陈独秀作为党的创始人参加了大会。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707663691776",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "系统地阐明关于社会主义初级阶段的理论是在中共十三大上。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707751772161",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
+    "abbreviationSubject": "NCH"
   },
   {
     "questionStem": "中国新民主主义革命胜利的标志是中华人民共和国成立。",
@@ -906,112 +33,7 @@
     "id": "1798736707693051905",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "党的十八届四中全会强调，社会主义法治最根本的保证是党的领导。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707810492416",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "党的十八大报告中提出，建设中国特色社会主义，总依据是社会主义初级阶段，总布局是“五位一体”，总任务是实现社会主义现代化和中华民族伟大复兴。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707793715200",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "人民民主是社会主义的生命，是全面建设社会主义现代化国家的应有之义。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707034546176",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "正式确定”一个中心、两个基本点”为党的基本路线是在中共十三大上。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707751772160",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "第一届全国人民代表大会选举的人大常委会委员长是董必武。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707705634816",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "农业合作化运动中，采取了依靠贫下中农、团结中农、限制富农的政策。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707709829121",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "构建社会主义和谐社会的重点是解决社会矛盾。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707785326592",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "中共八大指出，在我国社会主义制度已经建立的情况下，国内的主要矛盾已经不是社会主义同资本主义的矛盾。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707722412032",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
+    "abbreviationSubject": "NCH"
   },
   {
     "questionStem": "坚持科学发展观，就不能强调以经济建设为中心，强调以经济建设为中心，就很难坚持科学发展，很难做到科学、全面、可持续发展。",
@@ -1023,177 +45,31 @@
     "id": "1798736707776937985",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
+    "abbreviationSubject": "NCH"
   },
   {
-    "questionStem": "中华人民共和国成立，标志着中国社会主义初级阶段的开始。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707697246208",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "我国经济体制改革全面展开是党的十二大之后。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707743383554",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "确立了邓小平建设有中国特色社会主义理论在全党的指导地位是在中共十五大上。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707760160768",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "毛泽东提出要把正确处理人民内部矛盾作为国家政治生活的主题。",
+    "questionStem": "1935年1月召开的遵义会议是我党的历史上一个生死攸关的转折点。",
     "option": [
       "正确",
       "错误"
     ],
     "answer": "正确",
-    "id": "1798736707726606338",
+    "id": "1798736707672080385",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
+    "abbreviationSubject": "NCH"
   },
   {
-    "questionStem": "按照党的十九届五中全会要求，到2035年时我国的关键核心技术实现重大突破，进入创新型国家前列。",
+    "questionStem": "1956年9月，党的八大召开，标志着党对中国社会主义建设道路的探索的开始。",
     "option": [
       "正确",
       "错误"
     ],
     "answer": "正确",
-    "id": "1798736707823075329",
+    "id": "1798736707714023424",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "我国社会主义制度初步建立起来是在农业合作化基本完成以后。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707730800640",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "进入新时代，我国社会主要矛盾发生了变化，但没有改变我们对我国社会主义所处历史阶段的判断，我国仍处于并将长期处于社会主义初级阶段的基本国情没有变。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707797909505",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "中共十一届三中全会的中心议题是讨论把全党工作的重点转移到社会主义现代化建设上来。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707730800641",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "中共十七大报告指出，科学发展、社会和谐是发展中国特色社会主义的基本要求。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707781132289",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "在新解放区进行的土地改革，是在人民革命战争已经取得全国胜利，统一的人民政权已经建立的条件下进行的。土地改革的目的是实行国家土地所有制。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707701440513",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "从根本理论上否定了“两个凡是＂的错误、揭开了真理标准讨论序幕的是1978年5月11日《光明日报》发表的题为“实践检验真理一马克思主义的一条基本原则”。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707739189249",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "“枪杆子里面出政权”是毛泽东在遵义会议上第一次提出的。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707676274689",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "中共十七大指出，国家发展战略的核心、提高综合国力的关键是提高自主创新能力，建设创新型国家。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707781132288",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
+    "abbreviationSubject": "NCH"
   },
   {
     "questionStem": "党的十八届四中全会提出，法律的生命力和法律的权威在于实施。",
@@ -1205,8 +81,19 @@
     "id": "1798736707810492417",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "民主革命时期党的中心任务是进行武装斗争。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707684663297",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
   },
   {
     "questionStem": "半殖民地半封建的社会性质决定了中国共产党领导的革命包括民主主义革命和社会主义革命两个阶段，这是两个性质相同的革命过程。",
@@ -1218,86 +105,67 @@
     "id": "1798736707709829122",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
+    "abbreviationSubject": "NCH"
   },
   {
-    "questionStem": "中国特色社会主义最本质的特征是中国共产党领导，中国特色社会主义制度的最大优势是中国共产党领导。",
+    "questionStem": "习近平总书记指出，抗疫斗争伟大实践再次证明，中国特色社会主义制度所具有的显著优势，是抵御风险挑战、提高国家治理效能的根本保证。",
     "option": [
       "正确",
       "错误"
     ],
     "answer": "正确",
-    "id": "1798736707785326593",
+    "id": "1798736707823075328",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
+    "abbreviationSubject": "NCH"
   },
   {
-    "questionStem": "在抗美援朝前，毛泽东提出了“一切反动派都是纸老虎”的著名论断。",
+    "questionStem": "邓小平在中共十二大致开幕词时，第一次提出了“建设有中国特色的社会主义”的崭新命题。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707743383553",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中国共产党并不是一开始就把社会主义和共产主义规定为自己的奋斗目标，而是有一个发展的过程。",
     "option": [
       "正确",
       "错误"
     ],
     "answer": "错误",
-    "id": "1798736707693051904",
+    "id": "1798736707663691777",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
+    "abbreviationSubject": "NCH"
   },
   {
-    "questionStem": "党的十八届三中全会指出，全面深化改革，必须立足于我国长期处于社会主义初级阶段这个最大实际，解决我国所有问题的关键是创新。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "错误",
-    "id": "1798736707806298112",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "社会主义三大改造是指新中国成立初期，中国共产党在全国范围内组织的对于农业、手工业和资本主义工商业进行的社会主义改造。",
+    "questionStem": "在党的八大上邓小平被选为党的总书记。",
     "option": [
       "正确",
       "错误"
     ],
     "answer": "正确",
-    "id": "1798736707705634817",
+    "id": "1798736707718217729",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
+    "abbreviationSubject": "NCH"
   },
   {
-    "questionStem": "社会主义市场经济本质上是法治经济。",
+    "questionStem": "社会主义制度的发展和完善是一个长期的历史过程。",
     "option": [
       "正确",
       "错误"
     ],
     "answer": "正确",
-    "id": "1798736707802103809",
+    "id": "1798736707038740480",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
-  },
-  {
-    "questionStem": "中国共产党人的初心和使命，就是为中国人民谋幸福，为中华民族谋复兴。",
-    "option": [
-      "正确",
-      "错误"
-    ],
-    "answer": "正确",
-    "id": "1798736707818881024",
-    "likeFlag": false,
-    "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
+    "abbreviationSubject": "NCH"
   },
   {
     "questionStem": "1956年，社会主义基本制度的全面确立标志着中国进入开始全面建设社会主义的历史阶段。",
@@ -1309,7 +177,1038 @@
     "id": "1798736707659497474",
     "likeFlag": false,
     "markFlag": false,
-    "abbreviationSubject": "NCH",
-    "type": "rightWrong"
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中国人民政治协商会议第一次全体会议决定，以《义勇军进行曲》为代国歌。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707697246209",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "按照党的十九届五中全会要求，到2035年时我国的关键核心技术实现重大突破，进入创新型国家前列。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707823075329",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "尊重自然、顺应自然、保护自然，不是全面建设社会主义现代化国家的内在要求。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707026157569",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "党的十八届四中全会强调，社会主义法治最根本的保证是党的领导。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707810492416",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中国特色社会主义的总任务是实现社会主义现代化和中华民族伟大复兴。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707802103808",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "正式确定”一个中心、两个基本点”为党的基本路线是在中共十三大上。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707751772160",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "我国目前农业生产的主要经营方式是集约化经营。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707747577857",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "从根本理论上否定了“两个凡是＂的错误、揭开了真理标准讨论序幕的是1978年5月11日《光明日报》发表的题为“实践检验真理一马克思主义的一条基本原则”。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707739189249",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "我国社会主义制度初步建立起来是在农业合作化基本完成以后。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707730800640",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "1950年5月1日颁行的《中华人民共和国婚姻法》是新中国制定的第一部法律。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707709829120",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中共十一届三中全会的中心议题是讨论把全党工作的重点转移到社会主义现代化建设上来。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707730800641",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "第一届全国人民代表大会选举的人大常委会委员长是董必武。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707705634816",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "全面深化改革总目标是完善和发展中国社会主义市场经济体制、推进国家治理体系和治理能力现代化。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707814686721",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "全面建设社会主义现代化国家，必须坚持中国特色社会主义文化发展道路。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707030351873",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "全面进行经济体制改革的纲领性文件是中共十二届三中全会通过的《关于经济体制改革的决定》。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707747577856",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "党的十八大是在我国进入全面建成小康社会决定性阶段召开的一次十分重要的会议。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707789520896",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中国共产党是中国工人阶级的先锋队，同时又是中国人民和中华民族的先锋队。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707672080384",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中国工农红军进行的二万五千里长征是在第五次反“围”剿失败的背景下进行的。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707676274688",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "我国经济体制改革全面展开是党的十二大之后。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707743383554",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中国共产党人的初心和使命，就是为中国人民谋幸福，为中华民族谋复兴。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707818881024",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "系统地阐明关于社会主义初级阶段的理论是在中共十三大上。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707751772161",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中共七大特别强调，党的群众路线是党的根本的政治路线和组织路线。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707680468993",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "确立了全面建设小康社会的战略目标，制定了全面建设小康社会的行动纲领的是中共十六大。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707772743680",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "“十四五”时期经济社会发展的主题是推动高质量发展。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707827269632",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "党的二十大提出：要坚守中华文化立场，提炼展示中华文明的精神标识和文化精髓，加快构建中国话语和中国叙事体系，讲好中国故事、传播好中国声音，展现可信、可爱、可敬的中国形象。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707038740481",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "人民民主是社会主义的生命，是全面建设社会主义现代化国家的应有之义。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707034546176",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "“三个代表”重要思想的提出，是我们党在自身建设问题上的一个重大理论突破。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707768549376",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "党的十八届三中全会指出，健全社会主义市场经济体制必须遵循的规律是政府对资源的直接配置。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707797909504",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中华人民共和国成立，标志着中国社会主义初级阶段的开始。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707697246208",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "毛泽东在《战争和战略问题》一文中指出，革命的中心任务和最高形式是武装夺取政权。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707667886080",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "抗日战争时期的统一战线，其政治基础是共同抗日。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707680468992",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "党的十八大报告中提出，建设中国特色社会主义，总依据是社会主义初级阶段，总布局是“五位一体”，总任务是实现社会主义现代化和中华民族伟大复兴。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707793715200",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中国特色社会主义最本质的特征是中国共产党领导，中国特色社会主义制度的最大优势是中国共产党领导。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707785326593",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中共十七大指出，国家发展战略的核心、提高综合国力的关键是提高自主创新能力，建设创新型国家。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707781132288",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "党的十八届五中全会提出，要实现“十三五”时期发展目标，必须把发展基点放在创新上。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707810492418",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "在四项基本原则中，核心是要坚持中国共产党的领导地位。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707768549377",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "“一国两制”是中国特色社会主义的伟大创举，是香港、澳门回归后保持长期繁荣稳定的最佳制度安排。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707026157568",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "新民主主义革命的性质是无产阶级社会主义革命。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707676274690",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "“把马克思主义的普遍真理同我国的具体实际结合起来，走自己的路，建设有中国特色的社会主义”是邓小平在中共十一届三中全会上提出来的。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707734994945",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "在当代中国，坚持中国特色社会主义道路，就是真正坚持社会主义。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707776937984",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "当前我国最大的实际就是我国还处于并将长期处于社会主义初级阶段。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707764355073",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "过渡时期社会主义建设总路线的主体是实现国家的工业化。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707726606336",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "针对执政党的特点，毛泽东始终把坚持实事求是和密切联系群众作为党风建设的重点。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707726606337",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中国新民主主义革命取得胜利的原因主要是有了无产阶级政党的领导。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707722412033",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "构建社会主义和谐社会的重点是解决社会矛盾。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707785326592",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "为了鼓励广大科技人员建功立业，从2000年起设立国家最高科技奖。2001年颁布的“2000年度国家科学技术奖”获奖者是数学大师吴文俊和“杂交水稻”之父袁隆平。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707760160769",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "按照党的十九大要求，到新中国成立一百年时，基本实现现代化，把我国建成社会主义现代化国家。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707814686720",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中共十一届三中全会以前，我们党对时代主题的认识可归结为:战争与革命。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707739189248",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "在党的文件中正式提出“三步走”发展战略的是中共十三大。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707755966464",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "“枪杆子里面出政权”是毛泽东在遵义会议上第一次提出的。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707676274689",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "“一国两制”构想的提出，先是从解决台湾问题开始的。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707827269634",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中共七届二中全会着重讨论了党的工作重心的战略转移的问题。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707688857601",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "党的十八届三中全会指出，全面深化改革，必须立足于我国长期处于社会主义初级阶段这个最大实际，解决我国所有问题的关键是创新。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707806298112",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "党的二十大提出：社会主义核心价值观是凝聚人心、汇聚民力的强大力量。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707038740482",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "按照十九届五中全会确定的2035年远景目标，届时我国人均国内生产总值达到上中等发达国家水平。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707827269633",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中国新民主主义革命胜利的三大法宝:统一战线、武装斗争、群众路线。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707684663296",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "党的十八大报告深化了对中国特色社会主义的认识，首次将“中国特色社会主义制度”写入党的全国代表大会报告中。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707793715201",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "1921年7月23日，中国共产党第一次全国代表大会在上海正式举行，李大钊和陈独秀作为党的创始人参加了大会。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707663691776",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中共十七大报告指出，科学发展、社会和谐是发展中国特色社会主义的基本要求。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707781132289",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "坚持马克思主义基本原理同中国具体实际相结合，是对待马克思主义唯一正确和科学的态度。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707776937986",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "第一个五年计划的完成完全改变了我国工农业总产值中以农业为主的局面。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707718217728",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "在我们党内，毛泽东最早提出了马克思主义中国化的思想。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707688857600",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "从组织上确立了中国共产党对军队的领导制度是在“三湾改编“以后。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707667886081",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "党的十八届四中全会审议通过了《中共中央关于全面推进依法治国若干重大问题的决定》，指出全面推进依法治国的总目标是建设中国特色社会主义法治体系，建设社会主义法治国家。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707806298113",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "党的十九大报告指出，中国特色社会主义进入新时代，我国社会主要矛盾已经转化为人民日益增长的物质文化需要和不平衡不充分的发展之间的矛盾。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707818881025",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "毛泽东提出要把正确处理人民内部矛盾作为国家政治生活的主题。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707726606338",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "意识形态工作是为国家立心、为民族立魂的工作。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707042934784",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "进入新时代，我国社会主要矛盾发生了变化，但没有改变我们对我国社会主义所处历史阶段的判断，我国仍处于并将长期处于社会主义初级阶段的基本国情没有变。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707797909505",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "1949年的《共同纲领》起了中华人民共和国临时宪法的作用。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707701440512",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中共八大指出，在我国社会主义制度已经建立的情况下，国内的主要矛盾已经不是社会主义同资本主义的矛盾。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707722412032",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "社会主义市场经济本质上是法治经济。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707802103809",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "教育、科技、人才不是全面建设社会主义现代化国家的基础性、战略性支撑。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707034546177",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "农业合作化运动中，采取了依靠贫下中农、团结中农、限制富农的政策。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707709829121",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "社会主义三大改造是指新中国成立初期，中国共产党在全国范围内组织的对于农业、手工业和资本主义工商业进行的社会主义改造。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707705634817",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "社会主义政治文明区别于资本主义政治文明的本质特征是:坚持党的领导、人民当家作主和依法治国的有机统一。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707760160770",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "中共十六大关于我国进入和建设小康社会的判断，是根据我国现代化建设的客观进程和社会经济发展阶段性变化的实际作出的。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707764355072",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "在新解放区进行的土地改革，是在人民革命战争已经取得全国胜利，统一的人民政权已经建立的条件下进行的。土地改革的目的是实行国家土地所有制。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707701440513",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "毛泽东在《关于正确处理人民内部矛盾的问题》中指出，社会主义社会存在敌我矛盾和人民内部矛盾两类性质根本不同的矛盾。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707714023425",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "在抗美援朝前，毛泽东提出了“一切反动派都是纸老虎”的著名论断。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707693051904",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "确立了邓小平建设有中国特色社会主义理论在全党的指导地位是在中共十五大上。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707760160768",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "新中国成立从根本上结束了100多年来中华民族受帝国主义侵略压迫的历史。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707693051906",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "标志着我党胜利地完成了指导思想上的拨乱反正是中共十一届六中全会通过的《关于建国以来党的若干历史问题的决议》。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707743383552",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "按照党的十八大要求，建设中国特色社会主义总布局是“四位一体”。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707789520897",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "十一届三中全会后农村实行家庭联产承包责任制与农业合作化以前的小私有经济相同。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736707734994944",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "为民造福是立党为公、执政为民的本质要求。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707030351872",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
+  },
+  {
+    "questionStem": "在党的历史上第一次明确提出了建立社会主义市场经济体制的目标模式是在中共十四大上。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736707755966465",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "NCH"
   }
 ]
