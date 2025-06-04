@@ -18,14 +18,14 @@ export const makePdf = async (method, data, pdfTitle, store, message) => {
     const options = ['A', 'B', 'C', 'D', 'E'];
     // if (store.state.fonts === null) {
     //     message('字体下载中...');
-        const response = await axios.get('https://fonts.635262140.xyz/vfs_fonts.js', {
-            headers: {
-                'Content-Type': 'application/javascript',
-                'Access-Control-Allow-Origin': '*', // 适用于跨域请求
-            }
-        });
-        // store.state.fonts = response.data;
-        fonts = response.data;
+    const response = await axios.get('https://fonts.635262140.xyz/vfs_fonts.js', {
+        headers: {
+            'Content-Type': 'application/javascript',
+            'Access-Control-Allow-Origin': '*', // 适用于跨域请求
+        }
+    });
+    // store.state.fonts = response.data;
+    fonts = response.data;
     // }
     // else{
     //     fonts = store.state.fonts;
