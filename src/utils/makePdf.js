@@ -1,5 +1,5 @@
 import axios from "axios";
-import pdfMake from 'pdfmake/build/pdfmake'
+
 function formatDateTime() {
     const date = new Date();
     const year = date.getFullYear();
@@ -13,6 +13,9 @@ function formatDateTime() {
 }
 
 export const makePdf = async (method, data, pdfTitle, store, message) => {
+    const pdfMakeModule = await import('pdfmake/build/pdfmake');
+    const pdfMake = pdfMakeModule.default || pdfMakeModule;
+
     let fonts = null;
     message('文件生成中...');
     const options = ['A', 'B', 'C', 'D', 'E'];

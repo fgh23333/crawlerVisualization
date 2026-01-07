@@ -101,27 +101,27 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: calc(100vh - 40px);
-    background-color: white;
-    padding: 20px;
+    justify-content: flex-start;
+    height: 90%;
+    margin-top: 2%;
 }
 
 .chat-header {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 16px;
+    color: #6C5DD3;
 }
 
 .chat-box {
     width: 100%;
-    max-width: 600px;
-    height: 600px;
+    max-width: 800px;
+    flex: 1;
     overflow-y: auto;
-    border: 1px solid #ddd;
-    padding: 16px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    padding: 20px;
+    /* border: 1px solid #ddd; */
+    /* border-radius: 8px; */
+    /* background-color: #f9f9f9; */
     text-align: justify;
 }
 
@@ -165,19 +165,25 @@ export default {
 .input-container {
     display: flex;
     width: 100%;
-    max-width: 600px;
-    gap: 8px;
+    max-width: 800px;
+    gap: 10px;
     margin-top: 16px;
+    padding: 0 20px;
 }
 
 input {
     flex: 1;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 10px 15px;
+    border: 2px solid #eee;
+    border-radius: 12px;
     outline: none;
     font-size: 16px;
-    white-space: pre-wrap;
+    transition: all 0.3s;
+    
+    &:focus {
+        border-color: #6C5DD3;
+        box-shadow: 0 0 0 3px rgba(108, 93, 211, 0.1);
+    }
 }
 
 .el-button {
