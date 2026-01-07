@@ -2,14 +2,17 @@
     <div id="favorites">
         <div class="titleCover">
             <span class="title">收藏夹</span>
-            <el-select v-model="value" placeholder="全部题目">
-                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-                </el-option>
-            </el-select>
-            <el-checkbox-group v-model="selectedTypes" size="small" class="typeSelector">
-                <el-checkbox-button v-for="item in questionType" :key="item.value" :label="item.label">{{ item.value
-                    }}</el-checkbox-button>
-            </el-checkbox-group>
+            <div class="controls">
+                <el-select v-model="value" placeholder="全部题目" size="small" class="type-select">
+                    <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                    </el-option>
+                </el-select>
+                <el-checkbox-group v-model="selectedTypes" size="small" class="typeSelector">
+                    <el-checkbox-button v-for="item in questionType" :key="item.value" :label="item.label">{{ item.value
+                        }}</el-checkbox-button>
+                </el-checkbox-group>
+                <el-button type="danger" size="small" class="clearBtn" @click="clearList">清空当前列表</el-button>
+            </div>
         </div>
         <questionCard :subjectOptions="value" :favList="list" :selectedTypes="selectedTypes"></questionCard>
     </div>
@@ -18,6 +21,7 @@
 <script>
 import questionCard from '@/components/questionCard.vue';
 import { makePdf } from "@/utils/makePdf";
+import { mapActions } from 'vuex';
 
 export default {
     data() {
@@ -44,7 +48,7 @@ export default {
             options: [
                 {
                     value: 'all',
-                    label: '全部题目'
+                    label: '全部'
                 },
                 {
                     value: 'wrong',
@@ -121,6 +125,7 @@ export default {
         }
     },
     methods: {
+        ...mapActions(['clearLikeList', 'clearWrongQuestions']),
         handleCommand(e) {
             if (e === "savePDF") {
                 makePdf("save", this.list, "收藏夹", this.$store, this.$message);
@@ -129,6 +134,39 @@ export default {
                 makePdf("print", this.list, "收藏夹", this.$store, this.$message);
             }
         },
+        clearList() {
+            this.$confirm('此操作将清空当前列表, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                if (this.value === 'favorites') {
+                    this.clearLikeList();
+                    this.$message({
+                        type: 'success',
+                        message: '收藏夹已清空!'
+                    });
+                } else if (this.value === 'wrong') {
+                    this.clearWrongQuestions();
+                    this.$message({
+                        type: 'success',
+                        message: '错题本已清空!'
+                    });
+                } else if (this.value === 'all') {
+                    this.clearLikeList();
+                    this.clearWrongQuestions();
+                    this.$message({
+                        type: 'success',
+                        message: '所有列表已清空!'
+                    });
+                }
+            }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: '已取消删除'
+                });
+            });
+        }
     },
     components: {
         questionCard
@@ -143,34 +181,30 @@ export default {
 
 #favorites {
     .titleCover {
-        text-align: left;
-        line-height: 100px;
-        height: 100px;
-        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 34px;
+        height: 80px;
 
         .title {
             font-weight: bold;
             font-size: 30px;
             color: #6C5DD3;
             letter-spacing: 2px;
-            width: fit-content;
-            margin-left: 16px;
+            flex-shrink: 0;
         }
 
-        .el-select {
-            width: 100px;
-            height: 40px;
-            line-height: 40px;
-            position: absolute;
-            left: 120px;
-            top: 30px;
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
-        .typeSelector {
-            position: absolute;
-            left: 230px;
-            top: 0px;
-            font-size: 20px;
+        .type-select {
+            width: 120px;
         }
 
         .selector {

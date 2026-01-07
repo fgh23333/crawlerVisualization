@@ -322,7 +322,7 @@ export default {
     this.lesson = this.$route.params.lesson;
     this.type = this.$route.params.type;
     if (this.$route.path == "/newHome/favorites") {
-      this.list = this.$store.state.likeList
+      this.list = this.favList
     } else {
       try {
         this.list = require(`../assets/${this.lesson}_${this.type}.json`);

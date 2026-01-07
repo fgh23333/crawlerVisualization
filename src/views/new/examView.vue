@@ -14,23 +14,28 @@
                 </div>
             </template>
             <template v-slot:right>
-                <el-select v-model="value" :placeholder="paper">
-                    <el-option v-for="item in paperOptions" :key="item.value" :label="item.label" :value="item.value">
-                    </el-option>
-                </el-select>
+                <div class="top-controls">
+                    <el-switch v-model="autoSave" active-text="错题收录" inactive-text="" active-color="#6C5DD3">
+                    </el-switch>
+                    <el-select v-model="value" :placeholder="paper" style="width: 120px;">
+                        <el-option v-for="item in paperOptions" :key="item.value" :label="item.label"
+                            :value="item.value">
+                        </el-option>
+                    </el-select>
+                </div>
             </template>
         </topBar>
         <el-row>
             <el-col :span="18">
                 <div class="grid-content">
-                    <examCard v-for="(item, i) in questionList" :question="item" :key="i" :seq="i"
+                    <examCard v-for="(item, i) in questionList" :question="item" :key="item.id" :seq="i"
                         :examStatus="examStatus">
                     </examCard>
                 </div>
             </el-col>
             <el-col :span="6">
                 <div class="grid-content examRecord">
-                    <examRecord @examStatus="disableOpts"></examRecord>
+                    <examRecord @examStatus="disableOpts" :autoSave="autoSave" :key="seq"></examRecord>
                 </div>
             </el-col>
         </el-row>
@@ -102,7 +107,8 @@ export default {
             seq: '',
             value: '',
             examStatus: false,
-            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro']
+            newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro'],
+            autoSave: true
         }
     },
     components: {
@@ -144,39 +150,52 @@ export default {
             this.$router.push({ path: '/newHome/exam/' + this.$route.params.lesson + '/' + newval })
         },
         '$route': async function (to, from) {
-            if (to.params == from.params) {
-                return
-            } else {
-                if (to.params.lesson === from.params.lesson) {
-                    if (to.params.id === 'random') {
-                        await this.getQuiz(this.newSubject.some(element => element == this.$route.params.lesson), this.$route.params.lesson)
-                    } else {
-                        this.getQuestion(this.$route.params.lesson)
-                    }
-                    this.questionList = this.$store.state.questionBank
-                    this.seq = this.$route.params.id
-                } else {
-                    this.paperOptions = []
-                    await this.getQuestion(to.params.lesson)
-                    this.questionList = this.$store.state.questionBank
-                    this.lesson = this.abbreviationSubjectList[this.$route.params.lesson]
-                    this.seq = this.$route.params.id
-                    this.paper = '试卷1'
-                    for (let i = 0; i < this.subjectList[this.$route.params.lesson].num; i++) {
-                        let temp = {
-                            value: i + 1,
-                            label: '试卷' + (i + 1)
-                        }
-                        this.paperOptions.push(temp)
-                    }
-                    const rest = {
-                        value: 'random',
-                        label: '随机练习'
-                    }
-                    this.paperOptions.push(rest)
-                }
-            }
+            // Reset answer list and status when route changes
+            this.$store.state.answerList = [];
+            this.$store.state.results = [];
+            this.examStatus = false;
+            
+            if (to.path === from.path) return;
 
+            if (to.params.lesson === from.params.lesson) {
+                if (to.params.id === 'random') {
+                    await this.getQuiz(this.newSubject.some(element => element == this.$route.params.lesson), this.$route.params.lesson)
+                } else {
+                    this.getQuestion(this.$route.params.lesson)
+                }
+                this.questionList = this.$store.state.questionBank
+                this.seq = this.$route.params.id
+            } else {
+                this.paperOptions = []
+                await this.getQuestion(to.params.lesson)
+                this.questionList = this.$store.state.questionBank
+                this.lesson = this.abbreviationSubjectList[this.$route.params.lesson]
+                this.seq = this.$route.params.id
+                this.paper = '试卷1'
+                for (let i = 0; i < this.subjectList[this.$route.params.lesson].num; i++) {
+                    let temp = {
+                        value: i + 1,
+                        label: '试卷' + (i + 1)
+                    }
+                    this.paperOptions.push(temp)
+                }
+                const rest = {
+                    value: 'random',
+                    label: '随机练习'
+                }
+                this.paperOptions.push(rest)
+            }
+            
+            // Initialize results for the new question list
+            if (this.questionList) {
+                this.questionList.forEach(item => {
+                    const temp = {
+                        questionId: item.id,
+                        isCorrect: null
+                    }
+                    this.$store.state.results.push(temp)
+                })
+            }
         }
     },
     created() {
@@ -227,6 +246,17 @@ export default {
     .examRecord {
         position: fixed;
         width: calc(20% - 20px);
+    }
+
+    .top-controls {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 20px;
+        
+        .el-switch {
+            margin-right: 15px;
+        }
     }
 }
 </style>

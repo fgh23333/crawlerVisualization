@@ -19,6 +19,12 @@
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
+    props: {
+        autoSave: {
+            type: Boolean,
+            default: true
+        }
+    },
     data() {
         return {
             status: [],
@@ -90,9 +96,15 @@ export default {
                             this.status[this.findQuestionIndex(item.questionId)] = 'false'
                         }
                     })
-                    this.$alert(`得分为${newValue}，错题已推送至收藏夹`, '提交成功', {
-                        confirmButtonText: '确定',
-                    });
+                    if (this.autoSave) {
+                        this.$alert(`得分为${newValue}，错题已推送至收藏夹`, '提交成功', {
+                            confirmButtonText: '确定',
+                        });
+                    } else {
+                        this.$alert(`得分为${newValue}`, '提交成功', {
+                            confirmButtonText: '确定',
+                        });
+                    }
                 }
             }
         }
@@ -105,7 +117,7 @@ export default {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消'
                 }).then(() => {
-                    this.checkAnswer()
+                    this.checkAnswer(this.autoSave)
                     this.$emit('examStatus', true)
                 }).catch(() => {
                     return
@@ -114,7 +126,7 @@ export default {
                 this.$alert('确认提交吗？', '提示', {
                     confirmButtonText: '确定',
                     callback: () => {
-                        this.checkAnswer()
+                        this.checkAnswer(this.autoSave)
                         this.$emit('examStatus', true)
                     }
                 });

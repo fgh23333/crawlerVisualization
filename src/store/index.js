@@ -101,7 +101,13 @@ export default new Vuex.Store({
     REMOVE_LIKE_QUESTION(state, questionId) {
       state.likeList = state.likeList.filter(q => q.id !== questionId);
     },
-    async evaluateAnswers(state) {
+    CLEAR_LIKE_LIST(state) {
+      state.likeList = [];
+    },
+    CLEAR_WRONG_QUESTIONS(state) {
+      state.wrongQuestions = [];
+    },
+    async evaluateAnswers(state, autoSave = true) {
       // 清空上次的评估结果
       state.results = [];
       state.score = null
@@ -143,7 +149,7 @@ export default new Vuex.Store({
           });
 
           // 处理错误题目
-          if (!isCorrect) {
+          if (!isCorrect && autoSave) {
             if (isExists(state.wrongQuestions, question)) {
               return
             } else {
@@ -178,8 +184,14 @@ export default new Vuex.Store({
     removeLikeQuestion({ commit }, questionId) {
       commit('REMOVE_LIKE_QUESTION', questionId);
     },
-    checkAnswer({ commit }) {
-      commit('evaluateAnswers')
+    clearLikeList({ commit }) {
+      commit('CLEAR_LIKE_LIST');
+    },
+    clearWrongQuestions({ commit }) {
+      commit('CLEAR_WRONG_QUESTIONS');
+    },
+    checkAnswer({ commit }, autoSave = true) {
+      commit('evaluateAnswers', autoSave)
     },
     async generateQuiz({ commit }, payload) {
       const [lesson, options] = payload
