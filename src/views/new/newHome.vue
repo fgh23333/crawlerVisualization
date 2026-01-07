@@ -2,68 +2,63 @@
     <div id="newHome">
         <modal></modal>
         <el-container>
-            <el-aside :width="isCollapsed ? '0px' : '262px'" class="sidebar">
-                <router-link to="/newHome">
-                    <div class="title">
-                        <img src="@/assets/icon/icon-title.png" class="icon">
-                        <div class="titleCover">
-                            <span class="bigTitle">思政题库</span>
-                            <span class="smallTitle">复习备考专区</span>
-                        </div>
+    <el-aside :width="isCollapsed ? '0px' : '262px'" class="sidebar" :class="{ 'is-collapsed': isCollapsed }">
+        <div class="sidebar-content">
+            <router-link to="/newHome" class="logo-link">
+                <div class="title">
+                    <img src="@/assets/icon/icon-title.png" class="icon">
+                    <div class="titleCover">
+                        <span class="bigTitle">思政题库</span>
+                        <span class="smallTitle">复习备考专区</span>
+                    </div>
+                </div>
+            </router-link>
+            <div class="nav">
+                <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6" :router="true">
+                    <el-submenu v-for="(item, i) in list" :key="i" :index="list[i].src">
+                        <template slot="title">
+                            <img :src="list[i].icon" class="menuIcon">
+                            <span>{{ list[i].subject }}</span>
+                        </template>
+                        <el-menu-item-group>
+                            <el-menu-item class="option" :index="'/newHome/subject/' + list[i].src">总题库</el-menu-item>
+                            <el-menu-item class="option" :index="'/newHome/rightWrong/' + list[i].src">判断题</el-menu-item>
+                            <el-menu-item class="option" :index="'/newHome/singleChoice/' + list[i].src">单选题</el-menu-item>
+                            <el-menu-item class="option" :index="'/newHome/multipleChoice/' + list[i].src">多选题</el-menu-item>
+                            <el-menu-item class="option" :index="'/newHome/fillingBlank/' + list[i].src">填空题</el-menu-item>
+                            <el-menu-item class="option" :index="'/newHome/exam/' + list[i].src + '/1'">在线练习</el-menu-item>
+                        </el-menu-item-group>
+                    </el-submenu>
+                </el-menu>
+            </div>
+            <div class="buttonContainer">
+                <router-link to="/">
+                    <div class="tab">
+                        <img class="image" src="@/assets/icon/icon-back.svg">
+                        <div class="text">返回旧版</div>
                     </div>
                 </router-link>
-                <div class="nav">
-                    <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6"
-                        :router="true">
-                        <el-submenu v-for="(item, i) in list" :key="i" :index="list[i].src">
-                            <template slot="title">
-                                <img :src="list[i].icon" class="menuIcon"></img>
-                                <span>{{ list[i].subject }}</span>
-                            </template>
-                            <el-menu-item-group>
-                                <el-menu-item class="option"
-                                    :index="'/newHome/subject/' + list[i].src">总题库</el-menu-item>
-                                <el-menu-item class="option"
-                                    :index="'/newHome/rightWrong/' + list[i].src">判断题</el-menu-item>
-                                <el-menu-item class="option"
-                                    :index="'/newHome/singleChoice/' + list[i].src">单选题</el-menu-item>
-                                <el-menu-item class="option"
-                                    :index="'/newHome/multipleChoice/' + list[i].src">多选题</el-menu-item>
-                                <el-menu-item class="option"
-                                    :index="'/newHome/fillingBlank/' + list[i].src">填空题</el-menu-item>
-                                <el-menu-item class="option"
-                                    :index="'/newHome/exam/' + list[i].src + '/1'">在线练习</el-menu-item>
-                            </el-menu-item-group>
-                        </el-submenu>
-                    </el-menu>
-                </div>
-                <div class="buttonContainer">
-                    <router-link to="/">
-                        <div class="tab">
-                            <img class="image" src="@/assets/icon/icon-back.svg">
-                            <div class="text">返回旧版</div>
-                        </div>
-                    </router-link>
-                    <router-link to="/newHome/chat">
-                        <div class="tab">
-                            <img class="image" src="@/assets/icon/icon-chat.svg">
-                            <div class="text">AI对话(Beta)</div>
-                        </div>
-                    </router-link>
-                    <router-link to="/newHome/favorites">
-                        <div class="tab">
-                            <img class="image" src="@/assets/icon/icon-favorites.svg">
-                            <div class="text">收藏夹</div>
-                        </div>
-                    </router-link>
-                    <router-link to="/newHome/about">
-                        <div class="tab">
-                            <img class="image" src="@/assets/icon/icon-info.svg">
-                            <div class="text">关于</div>
-                        </div>
-                    </router-link>
-                </div>
-            </el-aside>
+                <router-link to="/newHome/chat">
+                    <div class="tab">
+                        <img class="image" src="@/assets/icon/icon-chat.svg">
+                        <div class="text">AI对话(Beta)</div>
+                    </div>
+                </router-link>
+                <router-link to="/newHome/favorites">
+                    <div class="tab">
+                        <img class="image" src="@/assets/icon/icon-favorites.svg">
+                        <div class="text">收藏夹</div>
+                    </div>
+                </router-link>
+                <router-link to="/newHome/about">
+                    <div class="tab">
+                        <img class="image" src="@/assets/icon/icon-info.svg">
+                        <div class="text">关于</div>
+                    </div>
+                </router-link>
+            </div>
+        </div>
+    </el-aside>
             <div class="toggle-bar" @click="toggleSidebar">
                 <span class="arrow" :class="{ right: !isCollapsed }"></span>
             </div>
@@ -254,91 +249,95 @@ export default {
         transition: width 0.3s ease, opacity 0.3s ease;
         overflow: hidden;
         position: relative;
+        height: 100vh;
+        background-color: #fff;
+        border-right: 1px solid #f0f0f0;
+    }
+
+    .sidebar-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 262px; // Fixed content width to prevent reflow during transition
     }
 
     .el-aside {
         text-align: center;
-        line-height: 200px;
         height: 100vh;
+        overflow: visible; // Allow menu popups if needed
     }
 
     .title {
         height: 72px;
-        width: 222px;
         margin: 34px 20px;
+        display: flex;
+        align-items: center;
 
         .icon {
             width: 64px;
             height: 64px;
-            float: left;
         }
 
         .titleCover {
-            height: 100%;
-            width: 120px;
-            padding: 10px 10px;
             margin-left: 10px;
-            float: left;
             text-align: left;
-            letter-spacing: 3px;
-
+            letter-spacing: 1px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
 
             .bigTitle {
                 color: #6C5DD3;
                 font-weight: bold;
                 font-size: 18px;
-                line-height: 24px;
-                float: left;
+                line-height: 1.5;
             }
 
             .smallTitle {
-                font-weight: medium;
+                font-weight: 500;
                 color: #7A7A7A;
                 font-size: 14px;
-                float: left;
-                line-height: 32px
+                line-height: 1.5;
             }
         }
     }
 
     .nav {
-        height: calc(60vh - 72px * 0.6 - 88px * 0.6);
-        overflow: auto;
-        text-align: center;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+        flex: 1; // Take remaining space
+        overflow-y: auto;
+        overflow-x: hidden;
         padding: 8px 0px;
+        // Keep the subtle shadow for depth
         box-shadow:
-            inset 0px -1px 8px 0px rgba(230, 232, 240, 0.9),
-            inset -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-            inset 1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-            inset 0px 1px 8px 0px rgba(230, 232, 240, 0.9);
+            inset 0px -1px 8px 0px rgba(230, 232, 240, 0.5);
 
         .el-menu-vertical-demo {
             width: 216px;
             margin: 0px 23px;
             border: none;
-            padding-top: 20px;
+            padding-top: 10px;
 
             .el-submenu {
-                margin-top: 0px;
-                margin-bottom: 20px;
+                margin-bottom: 12px;
                 text-align: left;
+                border-radius: 12px;
+                overflow: hidden; // Keep corners rounded
 
                 .menuIcon {
                     font-size: 24px;
                     margin: 0px 10px;
-                    position: relative;
-                    left: -1000px;
-                    filter: drop-shadow(#8F95B2 1000px 0);
+                    width: 24px;
+                    height: 24px;
+                    vertical-align: middle;
                 }
 
                 .el-submenu__title {
                     border-radius: 12px;
                     background-color: #F7F7F7;
-                    font-size: 20px;
+                    font-size: 16px; // Slightly smaller for better fit
                     font-weight: bold;
                     color: #8F95B2;
+                    transition: all 0.3s;
                 }
 
                 .el-submenu__title:hover {
@@ -353,96 +352,101 @@ export default {
                 .el-submenu__title:hover>.el-submenu__icon-arrow {
                     color: white;
                 }
-
-                .el-submenu__title:hover .menuIcon {
-                    filter: drop-shadow(white 1000px 0);
-                }
             }
-
-            .option {
-                font-size: 18px;
-                color: #8F95B2;
-                font-weight: medium;
-                margin-left: 26px
-            }
-
-            .option:hover {
-                background-color: white
-            }
-
+            
+            // Active state styles
             .is-opened>.el-submenu__title {
                 background-color: #6C5DD3;
                 color: white;
             }
-
+            
             .is-opened .el-submenu__icon-arrow {
                 color: white;
             }
 
-            .is-opened .menuIcon {
-                filter: drop-shadow(white 1000px 0);
+            .el-menu-item-group__title {
+                padding: 0; // Remove default padding
             }
-        }
 
-        .is-active {
-            background-color: white !important;
+            .option {
+                font-size: 14px;
+                color: #8F95B2;
+                font-weight: 500;
+                margin-left: 10px;
+                height: 40px;
+                line-height: 40px;
+                border-radius: 8px;
+                margin-bottom: 4px;
+            }
+
+            .option:hover {
+                background-color: #F0F2F5;
+                color: #6C5DD3;
+            }
+
+            .is-active {
+                background-color: #E6E4F4 !important;
+                color: #6C5DD3 !important;
+                font-weight: bold;
+            }
         }
     }
 
     .nav::-webkit-scrollbar {
-        display: none;
+        width: 4px;
+    }
+    .nav::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 4px;
     }
 
     .buttonContainer {
         width: 216px;
         margin: 20px auto;
+        flex-shrink: 0; // Don't shrink
 
         .tab {
             height: 56px;
-            text-align: left;
+            display: flex;
+            align-items: center;
             margin-bottom: 12px;
-            margin-right: 8px;
             border-radius: 12px;
-            padding-right: 16px;
-            box-shadow:
-                0px -1px 8px 0px rgba(230, 232, 240, 0.9),
-                -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-                1px 0px 8px 0px rgba(230, 232, 240, 0.9),
-                0px 1px 8px 0px rgba(230, 232, 240, 0.9);
+            padding: 0 16px;
+            box-shadow: 0 2px 12px 0 rgba(0,0,0,0.05);
             background-color: white;
+            transition: all 0.3s;
 
             .image {
-                height: 56px;
-                width: 56px;
-                float: left;
+                height: 32px;
+                width: 32px;
+                object-fit: contain;
             }
 
             .text {
                 color: #8F95B2;
-                font-size: 20px;
+                font-size: 16px;
                 font-weight: bold;
-                line-height: 56px;
-                float: left;
                 margin-left: 16px;
             }
         }
 
         .tab:hover {
             cursor: pointer;
-
-            .image {
-                transition: filter 0.2s;
-                filter: invert(10%);
-            }
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px 0 rgba(108, 93, 211, 0.2);
 
             .text {
-                transition: color 0.2s;
                 color: #6C5DD3;
             }
         }
+    }
 
-        .popOver {
-            display: block;
+    .sidebar.is-collapsed {
+        width: 0 !important;
+        border: none;
+        
+        * {
+            display: none !important;
         }
     }
 }

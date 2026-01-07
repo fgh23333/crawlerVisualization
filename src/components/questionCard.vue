@@ -316,7 +316,7 @@ export default {
       localStorage.setItem("defaultShowAnswer", JSON.stringify(this.defaultShowAnswer));
     }
     // 初始化所有题目的显示状态
-    this.showAnswers = this.showList.map(() => this.defaultShowAnswer);
+    this.initShowAnswers();
   },
   created() {
     this.lesson = this.$route.params.lesson;
@@ -324,8 +324,13 @@ export default {
     if (this.$route.path == "/newHome/favorites") {
       this.list = this.$store.state.likeList
     } else {
-      this.list = require(`../assets/${this.lesson}_${this.type}.json`);
-      if (this.$store.state.wrongQuestions !== '' || this.$store.state.likeList !== '') {
+      try {
+        this.list = require(`../assets/${this.lesson}_${this.type}.json`);
+      } catch (e) {
+        this.list = [];
+      }
+      
+      if (this.$store.state.wrongQuestions.length > 0 || this.$store.state.likeList.length > 0) {
         this.$store.state.wrongQuestions.forEach(subsetItem => {
           let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
           if (supersetItem) {
@@ -343,6 +348,7 @@ export default {
     this.showList = [...this.list]
     this.searchWord = ""
     this.onSearch = false
+    this.initShowAnswers();
   },
   watch: {
     subjectOptions: {
@@ -364,8 +370,7 @@ export default {
             default:
               return
           }
-        } else {
-          return
+          this.initShowAnswers();
         }
       }
     },
@@ -373,8 +378,7 @@ export default {
       handler(newValue) {
         if (this.$route.path == "/newHome/favorites") {
           this.showList = newValue
-        } else {
-          return
+          this.initShowAnswers();
         }
       }
     },
@@ -384,8 +388,13 @@ export default {
       if (this.$route.path == "/newHome/favorites") {
         return
       } else {
-        this.list = require(`../assets/${this.lesson}_${this.type}.json`);
-        if (this.$store.state.wrongQuestions !== '' || this.$store.state.likeList !== '') {
+        try {
+            this.list = require(`../assets/${this.lesson}_${this.type}.json`);
+        } catch (e) {
+            this.list = [];
+        }
+        
+        if (this.$store.state.wrongQuestions.length > 0 || this.$store.state.likeList.length > 0) {
           this.$store.state.wrongQuestions.forEach(subsetItem => {
             let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
             if (supersetItem) {
@@ -403,6 +412,7 @@ export default {
       this.showList = [...this.list]
       this.searchWord = ""
       this.onSearch = false
+      this.initShowAnswers();
     },
     // 监听题型筛选
     selectedTypes: {
@@ -424,13 +434,17 @@ export default {
     },
   },
   methods: {
+    initShowAnswers() {
+      // Create a new array to ensure reactivity
+      this.showAnswers = new Array(this.showList.length).fill(this.defaultShowAnswer);
+    },
     toggleAnswer(index) {
       this.$set(this.showAnswers, index, !this.showAnswers[index]);
     },
     updateDefaultSetting() {
       this.defaultShowAnswer = !this.defaultShowAnswer
       localStorage.setItem("defaultShowAnswer", JSON.stringify(this.defaultShowAnswer));
-      this.showAnswers = this.showList.map(() => this.defaultShowAnswer);
+      this.initShowAnswers();
     },
     getQuestionType(question) {
       const { option, answer } = question;
@@ -459,6 +473,7 @@ export default {
         : filteredByType; // 若未选择科目，保留所有科目
 
       this.showList = [...filteredBySubject];
+      this.initShowAnswers();
     },
     handleCommand(e) {
       if (e == 'updateDefaultSetting') {

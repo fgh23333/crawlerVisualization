@@ -1,17 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import subject from '@/views/subject.vue'
-import rightWrong from '@/views/rightWrong.vue'
-import singleChoice from '@/views/singleChoice.vue'
-import multipleChoice from '@/views/multipleChoice.vue'
-import fillingBlank from '@/views/fillingBlank.vue'
-import newHome from "@/views/new/newHome.vue"
-import theHome from "@/views/new/theHome.vue"
-import questionList from "@/views/new/questionList.vue"
-import favorites from "@/views/new/favorites.vue"
-import examView from '@/views/new/examView.vue'
-import about from '@/views/new/about.vue'
 
 Vue.use(VueRouter)
 
@@ -19,68 +7,68 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView,
+    component: () => import(/* webpackChunkName: "home" */ '../views/HomeView.vue'),
     children: [
       {
         path: 'subject/:lesson',
         name: 'subject',
-        component: subject
+        component: () => import(/* webpackChunkName: "old-views" */ '@/views/subject.vue')
       },
       {
         path: 'rightWrong/:lesson',
         name: 'rightWrong',
-        component: rightWrong
+        component: () => import(/* webpackChunkName: "old-views" */ '@/views/rightWrong.vue')
       },
       {
         path: 'singleChoice/:lesson',
         name: 'singleChoice',
-        component: singleChoice
+        component: () => import(/* webpackChunkName: "old-views" */ '@/views/singleChoice.vue')
       },
       {
         path: 'multipleChoice/:lesson',
         name: 'multipleChoice',
-        component: multipleChoice
+        component: () => import(/* webpackChunkName: "old-views" */ '@/views/multipleChoice.vue')
       },
       {
         path: 'fillingBlank/:lesson',
         name: 'fillingBlank',
-        component: fillingBlank
+        component: () => import(/* webpackChunkName: "old-views" */ '@/views/fillingBlank.vue')
       }
     ]
   },
   {
     path: '/newHome',
     name: 'newHome',
-    component: newHome,
+    component: () => import(/* webpackChunkName: "new-home" */ "@/views/new/newHome.vue"),
     children: [
       {
         path: '/',
-        component: theHome,
+        component: () => import(/* webpackChunkName: "new-home" */ "@/views/new/theHome.vue"),
       },
       {
         path: ':type/:lesson',
         name: 'questionList',
-        component: questionList
+        component: () => import(/* webpackChunkName: "new-question-list" */ "@/views/new/questionList.vue")
       },
       {
         path: 'favorites',
         name: 'favorites',
-        component: favorites
+        component: () => import(/* webpackChunkName: "new-favorites" */ "@/views/new/favorites.vue")
       },
       {
         path: 'exam/:lesson/:id',
         name: 'examView',
-        component: examView
+        component: () => import(/* webpackChunkName: "new-exam" */ '@/views/new/examView.vue')
       },
       {
         path: 'about',
         name: 'about',
-        component: about
+        component: () => import(/* webpackChunkName: "new-about" */ '@/views/new/about.vue')
       },
       {
         path: 'chat',
         name: 'gemma',
-        component: () => import('@/views/new/chatView.vue')
+        component: () => import(/* webpackChunkName: "chat" */ '@/views/new/chatView.vue')
       }
     ]
   }

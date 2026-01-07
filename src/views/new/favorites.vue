@@ -98,68 +98,37 @@ export default {
                 }
             ],
             value: 'all',
-            list: []
         }
     },
-    watch: {
-        '$route': function (to, from) {
-            if (this.$route.path == "/newHome/favorites") {
-                switch (this.value) {
-                    case 'all':
-                        this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
-                        break
-                    case 'favorites':
-                        this.list = this.$store.state.likeList
-                        break
-                    case 'wrong':
-                        this.list = this.$store.state.wrongQuestions
-                        break
-                    default:
-                        return
-                }
-            } else {
-                return
+    computed: {
+        list() {
+            switch (this.value) {
+                case 'all':
+                    // Use a Map to deduplicate by ID if objects are not strictly identical references
+                    // or just rely on Set if references are shared. Assuming shared references for now.
+                    // If IDs are unique, filtering by ID is safer.
+                    const combined = [...this.$store.state.likeList, ...this.$store.state.wrongQuestions];
+                    const unique = new Map();
+                    combined.forEach(item => unique.set(item.id, item));
+                    return Array.from(unique.values());
+                case 'favorites':
+                    return this.$store.state.likeList;
+                case 'wrong':
+                    return this.$store.state.wrongQuestions;
+                default:
+                    return [];
             }
-        },
+        }
     },
     methods: {
         handleCommand(e) {
-            let list = []
-            switch (this.value) {
-                case 'all':
-                    list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
-                    break;
-                case 'wrong':
-                    list = this.$store.state.wrongQuestions
-                    break;
-                case 'favorites':
-                    list = this.$store.state.likeList
-                    break;
-                default:
-                    break;
-            }
             if (e === "savePDF") {
-                makePdf("save", list, "收藏夹", this.$store, this.$message);
+                makePdf("save", this.list, "收藏夹", this.$store, this.$message);
             }
             if (e === "printPDF") {
-                makePdf("print", list, "收藏夹", this.$store, this.$message);
+                makePdf("print", this.list, "收藏夹", this.$store, this.$message);
             }
         },
-    },
-    created() {
-        switch (this.value) {
-            case 'all':
-                this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
-                break
-            case 'favorites':
-                this.list = this.$store.state.likeList
-                break
-            case 'wrong':
-                this.list = this.$store.state.wrongQuestions
-                break
-            default:
-                return
-        }
     },
     components: {
         questionCard
