@@ -32,7 +32,7 @@
                     <el-input class="copyable-option" v-model="input" :disabled="examStatus"
                         @change="updateOption(seq, input)" placeholder="请输入答案"></el-input>
                 </div>
-                <div class="trueAnswer" v-if="$store.state.answerList == ''">
+                <div class="trueAnswer" v-if="examStatus">
                     <span class="colorBefore"></span>
                     <span class="answerStatus true"
                         v-if="$store.state.results[seq].questionId == question.id && $store.state.results[seq].isCorrect">回答正确</span>

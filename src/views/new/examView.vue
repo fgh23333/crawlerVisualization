@@ -25,7 +25,7 @@
                 </div>
             </template>
         </topBar>
-        <el-row>
+        <el-row v-if="questionList.length > 0">
             <el-col :span="18">
                 <div class="grid-content">
                     <examCard v-for="(item, i) in questionList" :question="item" :key="item.id" :seq="i"
@@ -35,10 +35,13 @@
             </el-col>
             <el-col :span="6">
                 <div class="grid-content examRecord">
-                    <examRecord @examStatus="disableOpts" :autoSave="autoSave" :key="seq"></examRecord>
+                    <examRecord @examStatus="disableOpts" :autoSave="autoSave" :key="$route.fullPath"></examRecord>
                 </div>
             </el-col>
         </el-row>
+        <div v-else class="loading-placeholder">
+            <el-empty description="加载中..."></el-empty>
+        </div>
     </div>
 </template>
 
@@ -118,8 +121,9 @@ export default {
     },
     methods: {
         ...mapActions(['loadQuestionBank', 'generateQuiz']),
-        getQuestion(lesson) {
-            this.loadQuestionBank(require(`@/assets/cura/${lesson}_${this.$route.params.id}.json`))
+        getQuestion(lesson, id) {
+            const paperId = id || this.$route.params.id;
+            this.loadQuestionBank(require(`@/assets/cura/${lesson}_${paperId}.json`))
         },
         goBack() {
             this.$router.go(-1)
@@ -147,45 +151,98 @@ export default {
     },
     watch: {
         value: function (newval, oldval) {
-            this.$router.push({ path: '/newHome/exam/' + this.$route.params.lesson + '/' + newval })
+            if (newval && newval.toString() !== this.$route.params.id.toString()) {
+                this.$router.push({ path: '/newHome/exam/' + this.$route.params.lesson + '/' + newval })
+            }
         },
         '$route': async function (to, from) {
-            // Reset answer list and status when route changes
+            if (to.path === from.path) return;
+            await this.initExam(to);
+        }
+    },
+    async created() {
+        await this.initExam(this.$route);
+    },
+    methods: {
+        ...mapActions(['loadQuestionBank', 'generateQuiz']),
+        getQuestion(lesson, id) {
+            const paperId = id || this.$route.params.id;
+            try {
+                this.loadQuestionBank(require(`@/assets/cura/${lesson}_${paperId}.json`))
+            } catch (e) {
+                console.error("Failed to load question bank:", e);
+                this.loadQuestionBank([]);
+            }
+        },
+        goBack() {
+            this.$router.go(-1)
+        },
+        disableOpts(status) {
+            this.examStatus = status
+        },
+        async getQuiz(type, lesson) {
+            if (type) {
+                await this.generateQuiz([lesson, {
+                    single: 20, // 单选题数量
+                    multiple: 15, // 多选题数量
+                    blank: 10, // 填空题数量
+                    trueFalse: 15 // 判断题数量
+                }]);
+            } else {
+                await this.generateQuiz([lesson, {
+                    single: 15, // 单选题数量
+                    multiple: 15, // 多选题数量
+                    blank: 5, // 填空题数量
+                    trueFalse: 15 // 判断题数量
+                }]);
+            }
+        },
+        async initExam(route) {
+            // Reset answer list and status
             this.$store.state.answerList = [];
             this.$store.state.results = [];
             this.examStatus = false;
-            
-            if (to.path === from.path) return;
 
-            if (to.params.lesson === from.params.lesson) {
-                if (to.params.id === 'random') {
-                    await this.getQuiz(this.newSubject.some(element => element == this.$route.params.lesson), this.$route.params.lesson)
-                } else {
-                    this.getQuestion(this.$route.params.lesson)
-                }
-                this.questionList = this.$store.state.questionBank
-                this.seq = this.$route.params.id
+            const lesson = route.params.lesson;
+            const id = route.params.id;
+
+            // Sync value with route
+            if (id === 'random') {
+                this.value = 'random';
+                this.paper = '随机练习';
             } else {
-                this.paperOptions = []
-                await this.getQuestion(to.params.lesson)
-                this.questionList = this.$store.state.questionBank
-                this.lesson = this.abbreviationSubjectList[this.$route.params.lesson]
-                this.seq = this.$route.params.id
-                this.paper = '试卷1'
-                for (let i = 0; i < this.subjectList[this.$route.params.lesson].num; i++) {
-                    let temp = {
-                        value: i + 1,
-                        label: '试卷' + (i + 1)
-                    }
-                    this.paperOptions.push(temp)
-                }
-                const rest = {
-                    value: 'random',
-                    label: '随机练习'
-                }
-                this.paperOptions.push(rest)
+                this.value = parseInt(id);
+                this.paper = '试卷' + id;
             }
-            
+
+            this.lesson = this.abbreviationSubjectList[lesson];
+            this.seq = id;
+
+            // Initialize paper options if not set or subject changed
+            // Actually, best to rebuild to be safe
+            this.paperOptions = [];
+            for (let i = 0; i < this.subjectList[lesson].num; i++) {
+                let temp = {
+                    value: i + 1,
+                    label: '试卷' + (i + 1)
+                }
+                this.paperOptions.push(temp)
+            }
+            const rest = {
+                value: 'random',
+                label: '随机练习'
+            }
+            this.paperOptions.push(rest)
+
+            // Load questions
+            if (id === 'random') {
+                await this.getQuiz(this.newSubject.some(element => element == lesson), lesson)
+            } else {
+                this.getQuestion(lesson, id)
+            }
+
+            this.questionList = this.$store.state.questionBank;
+
             // Initialize results for the new question list
             if (this.questionList) {
                 this.questionList.forEach(item => {
@@ -197,33 +254,6 @@ export default {
                 })
             }
         }
-    },
-    created() {
-        this.examStatus = false
-        this.lesson = this.abbreviationSubjectList[this.$route.params.lesson]
-        this.seq = this.$route.params.id
-        this.paper = '试卷' + this.$route.params.id
-        for (let i = 0; i < this.subjectList[this.$route.params.lesson].num; i++) {
-            let temp = {
-                value: i + 1,
-                label: '试卷' + (i + 1)
-            }
-            this.paperOptions.push(temp)
-        }
-        const rest = {
-            value: 'random',
-            label: '随机练习'
-        }
-        this.paperOptions.push(rest)
-        this.getQuestion(this.$route.params.lesson)
-        this.questionList = this.$store.state.questionBank
-        this.questionList.forEach(item => {
-            const temp = {
-                questionId: item.id,
-                isCorrect: null
-            }
-            this.$store.state.results.push(temp)
-        })
     }
 }
 </script>
@@ -248,12 +278,16 @@ export default {
         width: calc(20% - 20px);
     }
 
+    .loading-placeholder {
+        padding-top: 100px;
+    }
+
     .top-controls {
         display: flex;
         align-items: center;
         justify-content: flex-end;
         padding-right: 20px;
-        
+
         .el-switch {
             margin-right: 15px;
         }

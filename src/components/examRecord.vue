@@ -113,9 +113,10 @@ export default {
         ...mapActions(['checkAnswer']),
         async submitAnswer() {
             if (this.status.includes(false)) {
-                this.$alert('还有未做的题目，确定提交吗？', '提示', {
+                this.$confirm('还有未做的题目，确定提交吗？', '提示', {
                     confirmButtonText: '确定',
-                    cancelButtonText: '取消'
+                    cancelButtonText: '取消',
+                    type: 'warning'
                 }).then(() => {
                     this.checkAnswer(this.autoSave)
                     this.$emit('examStatus', true)
@@ -123,12 +124,15 @@ export default {
                     return
                 });
             } else {
-                this.$alert('确认提交吗？', '提示', {
+                this.$confirm('确认提交吗？', '提示', {
                     confirmButtonText: '确定',
-                    callback: () => {
-                        this.checkAnswer(this.autoSave)
-                        this.$emit('examStatus', true)
-                    }
+                    cancelButtonText: '取消',
+                    type: 'info'
+                }).then(() => {
+                    this.checkAnswer(this.autoSave)
+                    this.$emit('examStatus', true)
+                }).catch(() => {
+                    return
                 });
             }
         }
