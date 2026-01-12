@@ -13,9 +13,8 @@ const shuffle = (array) => {
         // And swap it with the current element.
         [array[currentIndex], array[randomIndex]] = [
             array[randomIndex], array[currentIndex]];
-
-        return array;
     }
+    return array;
 }
 
 const randomPick = async (subject, type, count) => {
