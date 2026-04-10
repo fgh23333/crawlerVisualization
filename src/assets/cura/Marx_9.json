@@ -1,0 +1,762 @@
+[
+  {
+    "questionStem": "运动作为哲学范畴指的是",
+    "option": [
+      "一切事物的变化及其过程",
+      "一切事物位置的移动",
+      "一切事物在外力作用下的变化",
+      "一切事物在时间作用下的变化"
+    ],
+    "answer": "A",
+    "id": "1798736702131404800",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "私有制商品经济的基本矛盾是",
+    "option": [
+      "脑力劳动和体力劳动的矛盾",
+      "具体劳动和抽象劳动的矛盾",
+      "简单劳动和复杂劳动的矛盾",
+      "私人劳动和社会劳动的矛盾"
+    ],
+    "answer": "D",
+    "id": "1798736702404034561",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "社会基本矛盾发展的最终原因是",
+    "option": [
+      "生产力的发展",
+      "生产关系的发展",
+      "经济基础的发展",
+      "上层建筑的发展"
+    ],
+    "answer": "A",
+    "id": "1798736702588583937",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "“哲学把无产阶级当作自己的物质武器，同样，无产阶级把哲学当作自己的精神武器”，这个论断的含义是",
+    "option": [
+      "马克思主义是无产阶级的世界观和方法论",
+      "哲学的存在方式是物质",
+      "无产阶级的存在方式是精神",
+      "无产阶级掌握哲学就由自为阶级转变为自在阶级"
+    ],
+    "answer": "A",
+    "id": "1798736703045763073",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "个别资本家首先提高劳动生产率获得的是()",
+    "option": [
+      "相对剩余价值",
+      "绝对剩余价值",
+      "超额剩余价值",
+      "资本增值"
+    ],
+    "answer": "C",
+    "id": "1798736702278205440",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "按照辩证法的观点，资本主义到社会主义社会的转变，体现了",
+    "option": [
+      "根本性的质变",
+      "单纯的量变",
+      "质变过程的量的扩张",
+      "总的量变过程中的部分质变"
+    ],
+    "answer": "A",
+    "id": "1798736702030741504",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "把科学的实践观第一次引入认识论是",
+    "option": [
+      "费尔巴哈哲学的功绩",
+      "黑格尔哲学的功绩",
+      "马克思主义哲学的功绩",
+      "康德哲学的功绩"
+    ],
+    "answer": "C",
+    "id": "1798736702987042816",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "物质、运动、时间、空间具有内在统一性，它要求我们想问题、办事情要",
+    "option": [
+      "一切从整体着眼",
+      "一切以发展的观点为转移",
+      "一切以联系的观点为转移",
+      "一切以时间、地点、条件为转移"
+    ],
+    "answer": "D",
+    "id": "1798736702169153536",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "唯物辩证法认为，事物是运动、变化、发展的。发展的实质是",
+    "option": [
+      "事物的前进性",
+      "质变",
+      "前进性和曲折性的统一",
+      "新事物产生，旧事物灭亡"
+    ],
+    "answer": "D",
+    "id": "1798736702022352897",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "生产关系中最具决定意义的是",
+    "option": [
+      "产品的分配关系",
+      "产品的交换关系",
+      "生产资料所有制关系",
+      "人们在生产中的地位"
+    ],
+    "answer": "C",
+    "id": "1798736702622138369",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "坚持感性认识是理性认识的基础，就是在认识论上坚持",
+    "option": [
+      "可知论",
+      "唯物论",
+      "辩证法",
+      "唯心论"
+    ],
+    "answer": "B",
+    "id": "1798736702936711168",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "划分阶级的依据是",
+    "option": [
+      "人们在特定经济结构中的特定地位",
+      "人们在一定历史阶段的特定政治态度",
+      "人们在特定经济关系中所形成的思想观点",
+      "人们之间的政治法律关系"
+    ],
+    "answer": "A",
+    "id": "1798736702555029504",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "马克思主义哲学认为物质的唯一特性是",
+    "option": [
+      "存在性",
+      "结构性",
+      "运动",
+      "客观实在性"
+    ],
+    "answer": "D",
+    "id": "1798736702164959233",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "以感性直观为基础，把人的认识看成是消极地、被动地反映和接受外界对象，类似于照镜子那样的反射活动，是直观的、消极被动的反映论属于",
+    "option": [
+      "辩证唯物主义认识论",
+      "唯心主义认识论",
+      "旧唯物主义认识论",
+      "历史唯物主义认识论"
+    ],
+    "answer": "C",
+    "id": "1798736702865408001",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "列宁对辩证唯物主义物质范畴的定义继承和汲取了",
+    "option": [
+      "以往唯物主义理解物质存在和物质概念的合理内容",
+      "以往唯心主义理解物质存在和物质概念的合理内容",
+      "以往辩证法理解物质存在和物质概念的合理内容",
+      "以往可知论理解物质存在和物质概念的合理内容"
+    ],
+    "answer": "A",
+    "id": "1798736702160764929",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "资本主义生产过程的二重性是指",
+    "option": [
+      "生产使用价值的劳动过程和生产剩余价值的价值增殖过程",
+      "转移价值的过程和创造价值的过程",
+      "生产使用价值的劳动过程和生产价值的价值形成过程",
+      "价值形成过程和价值增殖过程"
+    ],
+    "answer": "A",
+    "id": "1798736702341120000",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "人工智能是人的（）的一种特殊表现",
+    "option": [
+      "客观实在性",
+      "意识能动性",
+      "实践性",
+      "社会历史性"
+    ],
+    "answer": "B",
+    "id": "1798736702072684545",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "实践是()既区分又统一的基础",
+    "option": [
+      "运动和静止",
+      "时间和空间",
+      "自然存在和社会存在",
+      "可知论和不可知论"
+    ],
+    "answer": "C",
+    "id": "1798736702143987713",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "在认识过程的第二次飞跃中的认识是",
+    "option": [
+      "感性具体阶段的认识",
+      "理性抽象阶段的认识",
+      "理性具体阶段的认识",
+      "感性与理性统一的认识"
+    ],
+    "answer": "B",
+    "id": "1798736702928322560",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "哲学是",
+    "option": [
+      "一切科学之科学",
+      "各门学科的知识基础",
+      "系统化和理论化的世界观",
+      "特定时代人们的世界观"
+    ],
+    "answer": "C",
+    "id": "1798736702177542144",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "辩证的否定是",
+    "option": [
+      "事物自我的否定",
+      "事物发展的环节",
+      "事物联系的环节",
+      "扬弃"
+    ],
+    "answer": "ABCD",
+    "id": "1798736701925883904",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "一切商品都包含价值和使用价值两个因素，这是因为",
+    "option": [
+      "凡是没有使用价值的商品就不会有价值",
+      "没有价值的商品，虽然有使用价值也不能成为商品",
+      "使用价值是商品价值的物质承担者",
+      "有使用价值的物品，就必然有价值"
+    ],
+    "answer": "ABC",
+    "id": "1798736702307565568",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "以下对马克思的劳动价值论的说法正确的是",
+    "option": [
+      "是对古典政治经济学劳动价值论的批判、继承和发展",
+      "是剩余价值理论的基础",
+      "是研究价值分配的理论",
+      "为揭示资本主义生产方式的本质奠定了理论基础"
+    ],
+    "answer": "ABD",
+    "id": "1798736702294982656",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "资本主义所有制和所有权的关系是",
+    "option": [
+      "所有制的性质和特点可以从所有权出发去认识",
+      "所有制是所有权的基础",
+      "所有权是所有制的法律形式",
+      "所有制决定着所有权"
+    ],
+    "answer": "BCD",
+    "id": "1798736702286594049",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "“人们自己创造自己的历史”，表明",
+    "option": [
+      "社会中每个人都是推动历史前进的力量",
+      "人是社会的主体",
+      "历史是由追求着自己目的的人的活动构成的",
+      "历史规律实现于人的自觉活动之中"
+    ],
+    "answer": "BCD",
+    "id": "1798736702525669376",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "下列选项中，正确表述感性认识和理性认识关系的有",
+    "option": [
+      "理性认识依赖于感性认识",
+      "感性认识有待于发展到理性认识",
+      "理性认识比感性认识真实可靠",
+      "感性认识和理性认识相互渗透"
+    ],
+    "answer": "ABD",
+    "id": "1798736702848630784",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "共产主义是能够实现的社会理想，这是因为",
+    "option": [
+      "以人类社会发展规律为依据的",
+      "以资本主义社会基本矛盾的发展为依据的",
+      "可以用社会主义运动的实践来证明",
+      "要靠社会主义的不断完善和发展来实现的"
+    ],
+    "answer": "ABCD",
+    "id": "1798736702714413056",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "社会主义国家建设中遇到一系列困难和问题从而不能不具有长期性的原因是：",
+    "option": [
+      "生产力发展状况的制约。",
+      "经济基础和上层建筑发展状况的制约。",
+      "国际环境的严峻挑战。",
+      "马克思主义政党对社会主义建设规律需要一个探索的过程。"
+    ],
+    "answer": "ABCD",
+    "id": "1798736702764744704",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "“批判的武器当然不能代替武器的批判，物质的力量只能用物质的力量来摧毁，理论一经群众掌握，也会变成物质力量。”这一论断的哲学思想是",
+    "option": [
+      "理论对实践具有指导作用",
+      "理论不能代替实践",
+      "理论本身就是物质的力量",
+      "理论的作用可以通过实践表现出来"
+    ],
+    "answer": "ABD",
+    "id": "1798736702840242177",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "列宁领导苏维埃俄国对社会主义道路的探索，大体经历了",
+    "option": [
+      "和平发展时期",
+      "进一步巩固苏维埃政权时期",
+      "战时共产主义时期",
+      "战时共产主义转变为新经济政策时期"
+    ],
+    "answer": "BCD",
+    "id": "1798736702768939009",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "唯物辩证法与形而上学的对立表现在",
+    "option": [
+      "联系的观点与孤立的观点",
+      "发展的观点与静止的观点",
+      "承认规律的客观性与承认规律的主观性",
+      "主张矛盾是事物发展的源泉和动力与否认矛盾的观点"
+    ],
+    "answer": "ABD",
+    "id": "1798736701946855425",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "绝对真理和相对真理是辩证的统一，表现在",
+    "option": [
+      "相对真理中包含着绝对真理的颗粒",
+      "无数相对真理的总和构成绝对真理",
+      "相对真理是向绝对真理转化的",
+      "真理是一个由相对真理走向绝对真理的过程"
+    ],
+    "answer": "ABCD",
+    "id": "1798736702823464961",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "中国特色社会主义不是从天上掉下来的，而是()。",
+    "option": [
+      "在改革开放以来的伟大实践中得来的",
+      "在中华人民共和国成立以来的持续探索中得来的",
+      "在中国共产党成立以来领导人民进行伟大社会革命的实践中得来的",
+      "在儒家文化传统的长期引领下得来的"
+    ],
+    "answer": "ABC",
+    "id": "1798736702492114944",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "真理具有客观性，真理的客观性是指",
+    "option": [
+      "真理是不依赖于意识的客观存在",
+      "真理是不以人的意志为转移的客观规律",
+      "真理中包含着不依赖于人的客观内容",
+      "真理的检验标准是客观的社会实践"
+    ],
+    "answer": "CD",
+    "id": "1798736702831853568",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "下列事物属于唯物史观“社会存在”的有",
+    "option": [
+      "人们的物质生产实践活动",
+      "人们实践活动所利用的自然资源",
+      "人们实践活动所创造的社会生产力",
+      "人们在实践活动中所形成的各种社会关系"
+    ],
+    "answer": "ABC",
+    "id": "1798736702546640896",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "资本主义必然为社会主义所代替，意味着资本主义社会将在短期内自行消亡。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736702257233920",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "随着科学技术的发展，人类已经制造出诸如醋酸纤维、聚苯乙烯、合成橡胶等自然界原本不存在的化合物，其数量已经达到数百万种。这说明物质世界是人类创造的。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736702185930753",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "真理和价值在认识和实践中是相互制约、相互引导、相互促进的。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736703008014337",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "资本的利润是由资本家的经营管理劳动创造的。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736702429200385",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "社会再生产的核心问题是价值的创造。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736702483726337",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "马克思主义的鲜明特征，如果用一句话来概括就是科学性与革命性的统一。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736703066734592",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "发展是前进的、上升的运动，发展的实质是新事物的产生和旧事物的灭亡。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736701904912384",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "革命性是马克思主义的内在品质，是马克思主义的人民性、实践性和发展性的应者之义和必然要求。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736703024791553",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "产业资本的循环产业资本的循环运动要经过购买、生产、售卖三个阶段的统一。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736702487920640",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "唯物辩证法认为事物发展的规律是事物内在的本质的稳定的联系。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "正确",
+    "id": "1798736702206902273",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "资本社会化的最高形式是生产社会化。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736702244651009",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "人类对自然界的全部“统治”力量在于人类能征服和改造自然界",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736702181736448",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "商品的价值是由供求关系决定的。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736702441783297",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "资本主义国家对资本主义生产关系的调整加剧了资本主义的基本矛盾。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736702248845312",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "逻辑证明是实践标准以外的又一个检验真理的标准。",
+    "option": [
+      "正确",
+      "错误"
+    ],
+    "answer": "错误",
+    "id": "1798736703016402945",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "1844年2月，马克思、恩格斯发表在《____》上的论文表明，他们完成了从唯心主义向唯物主义、从革命民主主义向共产主义的转变。",
+    "option": "",
+    "answer": "德法年鉴",
+    "id": "1798736709374967808",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "____的观点是马克思主义的基本观点。",
+    "option": "",
+    "answer": "实践",
+    "id": "1798736709408522240",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "1871年爆发的____革命，是第一国际精神的产儿，是无产阶级夺取政权的第一次伟大尝试。",
+    "option": "",
+    "answer": "巴黎公社",
+    "id": "1798736709492408321",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "认识的本质是主体在实践基础上对客体的____。",
+    "option": "",
+    "answer": "能动反映",
+    "id": "1798736709412716545",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "马克思主义产生于19世纪40年代，创始人是马克思和____。",
+    "option": "",
+    "answer": "恩格斯",
+    "id": "1798736709370773504",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "并不是所有的劳动产品都是商品，只有以____为目的生产的劳动产品才是商品。",
+    "option": "",
+    "answer": "交换",
+    "id": "1798736709450465282",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "在全世界实现共产主义，首先将取决于____国家的巩固和发展,取决于这些国家所经历的____建设的历史进程。",
+    "option": "",
+    "answer": "社会主义，社会主义",
+    "id": "1798736709534351361",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "马克思主义的____，是以阶级性为深刻基础的，是无产阶级先进性的体现。",
+    "option": "",
+    "answer": "人民性",
+    "id": "1798736709379162114",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "在实践检验真理的过程中，____证明可以起到重要的补充作用。",
+    "option": "",
+    "answer": "逻辑",
+    "id": "1798736709425299457",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  },
+  {
+    "questionStem": "商品交换以价值量为基础，按照____的原则进行。",
+    "option": "",
+    "answer": "等价交换",
+    "id": "1798736709463048194",
+    "likeFlag": false,
+    "markFlag": false,
+    "abbreviationSubject": "Marx"
+  }
+]
