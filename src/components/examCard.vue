@@ -35,9 +35,9 @@
                 <div class="trueAnswer" v-if="examStatus">
                     <span class="colorBefore"></span>
                     <span class="answerStatus true"
-                        v-if="$store.state.results[seq].questionId == question.id && $store.state.results[seq].isCorrect">回答正确</span>
+                        v-if="store.results[seq].questionId == question.id && store.results[seq].isCorrect">回答正确</span>
                     <span class="answerStatus false"
-                        v-if="$store.state.results[seq].questionId == question.id && !$store.state.results[seq].isCorrect">回答错误</span>
+                        v-if="store.results[seq].questionId == question.id && !store.results[seq].isCorrect">回答错误</span>
                     <span class="correctAnswer">正确答案：</span>
                     <span class="answer">{{ question.answer }}</span>
                 </div>
@@ -47,7 +47,10 @@
 </template>
 
 <script>
+import { useQuestionStore } from '@/stores/question'
+
 export default {
+    setup() { return { store: useQuestionStore() } },
     data() {
         return {
             radio: '',
@@ -87,13 +90,13 @@ export default {
     },
     methods: {
         updateOption(questionIndex, option) {
-            this.$set(this.$store.state.answerList, questionIndex, option)
+            this.store.answerList[questionIndex] = option
         },
     }
 }
 </script>
 
-<style lang="less">
+<style lang="scss">
 .checkbox-group {
     display: flex;
     flex-direction: column;

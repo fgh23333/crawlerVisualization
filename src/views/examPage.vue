@@ -23,11 +23,11 @@
                 class="problemCover">
                 {{ i + 1 }}、{{ item.questionStem }}
                 <span class="problem" v-for="(opts, x) in item.option">
-                    <van-radio-group v-model="item.radio">
-                        <van-radio :name="x" @click="updateUserSelection(i, x)">
+                    <el-radio-group v-model="item.radio">
+                        <el-radio :label="x" @click="updateUserSelection(i, x)">
                             {{ option[x] }}、{{ opts }}
-                        </van-radio>
-                    </van-radio-group>
+                        </el-radio>
+                    </el-radio-group>
                 </span>
             </li>
         </ul>
@@ -35,11 +35,11 @@
             <li v-for="(item, j) in list" v-if="item.answer.length >= 2 && item.option.length > 2" class="problemCover">
                 {{ j + 1 }}、{{ item.questionStem }}
                 <span class="problem" v-for="(opts, y) in item.option">
-                    <van-checkbox-group v-model="item.result">
-                        <van-checkbox :name="option[y]" shape="square" @click="clickMe(item, j)">
+                    <el-checkbox-group v-model="item.result">
+                        <el-checkbox :label="option[y]" @click="clickMe(item, j)">
                             {{ option[y] }}、{{ opts }}
-                        </van-checkbox>
-                    </van-checkbox-group>
+                        </el-checkbox>
+                    </el-checkbox-group>
                 </span>
             </li>
         </ul>
@@ -47,11 +47,11 @@
             <li v-for="(item, k) in list" v-if="item.answer == '正确' || item.answer == '错误'" class="problemCover">
                 {{ k + 1 }}、{{ item.questionStem }}
                 <span class="problem" v-for="(opt, z) in item.option">
-                    <van-radio-group v-model="item.radio">
-                        <van-radio :name="z" @click="updateUserSelection(k, z + 5)">
+                    <el-radio-group v-model="item.radio">
+                        <el-radio :label="z" @click="updateUserSelection(k, z + 5)">
                             {{ opt }}
-                        </van-radio>
-                    </van-radio-group>
+                        </el-radio>
+                    </el-radio-group>
                 </span>
             </li>
         </ul>
@@ -69,9 +69,15 @@
 
 <script>
 import topBar from '@/components/topBar.vue'
-import { mapActions } from "vuex";
+import { useQuestionStore } from '@/stores/question'
+import { loadExamPaper } from '@/utils/loadJson'
+import { ElMessageBox } from 'element-plus'
 
 export default {
+    setup() {
+        const store = useQuestionStore()
+        return { store }
+    },
     data() {
         return {
             list: [],
@@ -134,7 +140,7 @@ export default {
             newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro']
         }
     },
-    created() {
+    async created() {
         let lesson = this.$route.params.lesson
         this.lesson = this.abbreviationSubjectList[lesson]
         this.seq = this.$route.params.id
@@ -150,7 +156,7 @@ export default {
             label: '剩余题目'
         }
         this.paperOptions.push(rest)
-        this.list = require(`../assets/cura/${lesson}_${this.$route.params.id}.json`)
+        this.list = await loadExamPaper(lesson, this.$route.params.id)
         if (this.newSubject.includes(lesson)) {
             let temp = new Array(50).fill(0)
             this.userSelections = temp
@@ -163,7 +169,6 @@ export default {
         topBar
     },
     methods: {
-        ...mapActions(['addFavoriteQuestion']),
         updateUserSelection(questionIndex, optionIndex) {
             this.userSelections[questionIndex] = this.option[optionIndex]
         },
@@ -191,7 +196,7 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.addFavoriteQuestion(this.list[i])
+                            this.store.addFavoriteQuestion(this.list[i])
                         }
                     }
                     for (let i = 20; i < 35; i++) {
@@ -201,7 +206,7 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.addFavoriteQuestion(this.list[i])
+                            this.store.addFavoriteQuestion(this.list[i])
                         }
                     }
                     for (let i = 36; i < 50; i++) {
@@ -210,7 +215,7 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.addFavoriteQuestion(this.list[i])
+                            this.store.addFavoriteQuestion(this.list[i])
                         }
                     }
                     for (let i = 51; i < 60; i++) {
@@ -219,10 +224,10 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.addFavoriteQuestion(this.list[i])
+                            this.store.addFavoriteQuestion(this.list[i])
                         }
                     }
-                    this.$alert(`得分为${sum}`, {
+                    ElMessageBox.alert(`得分为${sum}`, {
                         confirmButtonText: '确定'
                     })
                     this.list.forEach(item => {
@@ -236,7 +241,7 @@ export default {
                         }
                     })
                 } else {
-                    this.$confirm('还有未做的题，确定提交吗', '提示', {
+                    ElMessageBox.confirm('还有未做的题，确定提交吗', '提示', {
                         confirmButtonText: '确定',
                         cancelButtonText: '取消',
                         type: 'warning'
@@ -247,7 +252,7 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.addFavoriteQuestion(this.list[i])
+                                this.store.addFavoriteQuestion(this.list[i])
                             }
                         }
                         for (let i = 20; i < 35; i++) {
@@ -256,7 +261,7 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.addFavoriteQuestion(this.list[i])
+                                this.store.addFavoriteQuestion(this.list[i])
                             }
                         }
                         for (let i = 36; i < 50; i++) {
@@ -264,7 +269,7 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.addFavoriteQuestion(this.list[i])
+                                this.store.addFavoriteQuestion(this.list[i])
                             }
                         }
                         for (let i = 51; i < 60; i++) {
@@ -272,10 +277,10 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.addFavoriteQuestion(this.list[i])
+                                this.store.addFavoriteQuestion(this.list[i])
                             }
                         }
-                        this.$alert(`得分为${sum}`, {
+                        ElMessageBox.alert(`得分为${sum}`, {
                             confirmButtonText: '确定'
                         })
                         this.userSelections = []
@@ -300,7 +305,7 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.addFavoriteQuestion(this.list[i])
+                            this.store.addFavoriteQuestion(this.list[i])
                         }
                     }
                     for (let i = 16; i < 30; i++) {
@@ -310,7 +315,7 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.addFavoriteQuestion(this.list[i])
+                            this.store.addFavoriteQuestion(this.list[i])
                         }
                     }
                     for (let i = 31; i < 45; i++) {
@@ -319,7 +324,7 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.addFavoriteQuestion(this.list[i])
+                            this.store.addFavoriteQuestion(this.list[i])
                         }
                     }
                     for (let i = 46; i < 50; i++) {
@@ -328,10 +333,10 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.addFavoriteQuestion(this.list[i])
+                            this.store.addFavoriteQuestion(this.list[i])
                         }
                     }
-                    this.$alert(`得分为${sum}`, {
+                    ElMessageBox.alert(`得分为${sum}`, {
                         confirmButtonText: '确定'
                     })
                     this.list.forEach(item => {
@@ -345,7 +350,7 @@ export default {
                         }
                     })
                 } else {
-                    this.$confirm('还有未做的题，确定提交吗', '提示', {
+                    ElMessageBox.confirm('还有未做的题，确定提交吗', '提示', {
                         confirmButtonText: '确定',
                         cancelButtonText: '取消',
                         type: 'warning'
@@ -356,7 +361,7 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.addFavoriteQuestion(this.list[i])
+                                this.store.addFavoriteQuestion(this.list[i])
                             }
                         }
                         for (let i = 16; i < 30; i++) {
@@ -365,7 +370,7 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.addFavoriteQuestion(this.list[i])
+                                this.store.addFavoriteQuestion(this.list[i])
                             }
                         }
                         for (let i = 31; i < 45; i++) {
@@ -373,7 +378,7 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.addFavoriteQuestion(this.list[i])
+                                this.store.addFavoriteQuestion(this.list[i])
                             }
                         }
                         for (let i = 46; i < 50; i++) {
@@ -381,10 +386,10 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.addFavoriteQuestion(this.list[i])
+                                this.store.addFavoriteQuestion(this.list[i])
                             }
                         }
-                        this.$alert(`得分为${sum}`, {
+                        ElMessageBox.alert(`得分为${sum}`, {
                             confirmButtonText: '确定'
                         })
                         this.userSelections = []
@@ -403,19 +408,19 @@ export default {
         }
     },
     watch: {
-        value: function (newval, oldval) {
+        value: async function (newval, oldval) {
             this.$router.push({ path: '/newHome/examPage/' + this.$route.params.lesson + '/' + newval })
-            this.list = require(`../assets/cura/${this.$route.params.lesson}_${this.$route.params.id}.json`)
+            this.list = await loadExamPaper(this.$route.params.lesson, this.$route.params.id)
             this.seq = this.$route.params.id
         },
-        '$route': function (to, from) {
-            this.list = require(`../assets/cura/${to.params.lesson}_${to.params.id}.json`)
+        '$route': async function (to, from) {
+            this.list = await loadExamPaper(to.params.lesson, to.params.id)
         }
     }
 }
 </script>
 
-<style lang="less">
+<style lang="scss">
 #examPage {
     .goBack {
         text-align: left;
@@ -454,7 +459,7 @@ export default {
             position: relative;
             margin-top: 5px;
 
-            .van-radio:checked+label {
+            .el-radio:checked+label {
                 border: 2px solid #007bff;
             }
         }

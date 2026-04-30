@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="scss">
 #home {
   .el-header {
     background-color: #B3C0D1;

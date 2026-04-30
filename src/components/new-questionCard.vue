@@ -1,19 +1,21 @@
 <script setup>
 import { computed } from "vue";
+import markActiveIcon from '@/assets/icon/icon-mark-active.svg'
+import markIcon from '@/assets/icon/icon-mark.svg'
+import likeActiveIcon from '@/assets/icon/icon-like-active.svg'
+import likeIcon from '@/assets/icon/icon-like.svg'
 
 const props = defineProps({
-  question: Object, // 单个题目对象
-  index: Number // 题目序号
+  question: Object,
+  index: Number
 });
 
 const emit = defineEmits(["toggleFlag"]);
 
-// 处理标记 & 喜欢点击事件
 const toggleFlag = (flagType) => {
   emit("toggleFlag", props.index, flagType);
 };
 
-// 计算题型名称
 const questionTypeName = computed(() => {
   const typeMap = {
     "rightWrong": "判断",
@@ -35,13 +37,13 @@ const questionTypeName = computed(() => {
         <div class="markAndLike">
           <transition name="fade" mode="out-in">
             <img class="mark"
-              :src="question.markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+              :src="question.markFlag ? markActiveIcon : markIcon"
               @click="toggleFlag('markFlag')"
               :key="question.markFlag">
           </transition>
           <transition name="fade" mode="out-in">
             <img class="like"
-              :src="question.likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+              :src="question.likeFlag ? likeActiveIcon : likeIcon"
               @click="toggleFlag('likeFlag')"
               :key="question.likeFlag">
           </transition>

@@ -21,9 +21,11 @@
 <script>
 import questionCard from '@/components/questionCard.vue';
 import { makePdf } from "@/utils/makePdf";
-import { mapActions } from 'vuex';
+import { useQuestionStore } from '@/stores/question';
+import { ElMessageBox, ElMessage } from 'element-plus';
 
 export default {
+    setup() { return { store: useQuestionStore() } },
     data() {
         return {
             questionType: [
@@ -108,63 +110,47 @@ export default {
         list() {
             switch (this.value) {
                 case 'all':
-                    // Use a Map to deduplicate by ID if objects are not strictly identical references
-                    // or just rely on Set if references are shared. Assuming shared references for now.
-                    // If IDs are unique, filtering by ID is safer.
-                    const combined = [...this.$store.state.likeList, ...this.$store.state.wrongQuestions];
+                    const combined = [...this.store.likeList, ...this.store.wrongQuestions];
                     const unique = new Map();
                     combined.forEach(item => unique.set(item.id, item));
                     return Array.from(unique.values());
                 case 'favorites':
-                    return this.$store.state.likeList;
+                    return this.store.likeList;
                 case 'wrong':
-                    return this.$store.state.wrongQuestions;
+                    return this.store.wrongQuestions;
                 default:
                     return [];
             }
         }
     },
     methods: {
-        ...mapActions(['clearLikeList', 'clearWrongQuestions']),
         handleCommand(e) {
             if (e === "savePDF") {
-                makePdf("save", this.list, "收藏夹", this.$store, this.$message);
+                makePdf("save", this.list, "收藏夹", null, ElMessage);
             }
             if (e === "printPDF") {
-                makePdf("print", this.list, "收藏夹", this.$store, this.$message);
+                makePdf("print", this.list, "收藏夹", null, ElMessage);
             }
         },
         clearList() {
-            this.$confirm('此操作将清空当前列表, 是否继续?', '提示', {
+            ElMessageBox.confirm('此操作将清空当前列表, 是否继续?', '提示', {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
                 type: 'warning'
             }).then(() => {
                 if (this.value === 'favorites') {
-                    this.clearLikeList();
-                    this.$message({
-                        type: 'success',
-                        message: '收藏夹已清空!'
-                    });
+                    this.store.clearLikeList();
+                    ElMessage({ type: 'success', message: '收藏夹已清空!' });
                 } else if (this.value === 'wrong') {
-                    this.clearWrongQuestions();
-                    this.$message({
-                        type: 'success',
-                        message: '错题本已清空!'
-                    });
+                    this.store.clearWrongQuestions();
+                    ElMessage({ type: 'success', message: '错题本已清空!' });
                 } else if (this.value === 'all') {
-                    this.clearLikeList();
-                    this.clearWrongQuestions();
-                    this.$message({
-                        type: 'success',
-                        message: '所有列表已清空!'
-                    });
+                    this.store.clearLikeList();
+                    this.store.clearWrongQuestions();
+                    ElMessage({ type: 'success', message: '所有列表已清空!' });
                 }
             }).catch(() => {
-                this.$message({
-                    type: 'info',
-                    message: '已取消删除'
-                });
+                ElMessage({ type: 'info', message: '已取消删除' });
             });
         }
     },
@@ -174,7 +160,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .el-selector {
     top: -8px;
 }
@@ -214,7 +200,7 @@ export default {
                 line-height: 50px;
             }
 
-            .select ::v-deep .el-input__inner {
+            .select :deep(.el-input__inner) {
                 border: 3px solid #6C5DD3 !important;
                 border-radius: 10px !important;
                 color: #5A5E70;
@@ -225,13 +211,13 @@ export default {
                 font-weight: 500;
             }
 
-            .select ::v-deep .el-input__inner::placeholder {
+            .select :deep(.el-input__inner::placeholder) {
                 color: #5A5E70;
                 font-family: '思源黑体';
                 font-weight: 500;
             }
 
-            .select ::v-deep .el-input__icon {
+            .select :deep(.el-input__icon) {
                 height: auto;
             }
         }

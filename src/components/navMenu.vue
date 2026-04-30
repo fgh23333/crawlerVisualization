@@ -1,8 +1,8 @@
 <template>
     <div id="navMenu">
         <el-menu class="el-menu-vertical-demo" mode="horizontal" :router="true">
-            <el-submenu :index="'subject' + i" v-for="(item, i) in list" :key="i">
-                <template slot="title" class="title">{{ list[i].subject }}</template>
+            <el-sub-menu :index="'subject' + i" v-for="(item, i) in list" :key="i">
+                <template #title><span class="title">{{ list[i].subject }}</span></template>
                 <el-menu-item>
                     <router-link :to="'/subject/' + item.src" style="color: black;">总题库</router-link>
                 </el-menu-item>
@@ -18,8 +18,11 @@
                 <el-menu-item v-if="newSubject.includes(item.src)">
                     <router-link :to="'/fillingBlank/' + item.src" style="color: black;">填空题</router-link>
                 </el-menu-item>
-            </el-submenu>
+            </el-sub-menu>
             <div class="newVer">
+                <router-link to="/favorites" style="margin-right: 10px;">
+                    <el-button>收藏夹</el-button>
+                </router-link>
                 <el-button @click="goToNewHome">点击体验新版</el-button>
             </div>
         </el-menu>
@@ -79,7 +82,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="scss">
 #navMenu {
     text-decoration: none;
 
@@ -91,7 +94,7 @@ export default {
       }
     }
 
-    .el-submenu__title {
+    .el-sub-menu__title {
         background-color: #ECECC7;
     }
 
@@ -103,11 +106,11 @@ export default {
         }
     }
 
-    .el-menu--horizontal>.el-submenu.is-active .el-submenu__title {
+    .el-menu--horizontal>.el-sub-menu.is-active .el-sub-menu__title {
         border-bottom: none;
     }
 
-    .el-menu--horizontal>.el-submenu .el-submenu__title {
+    .el-menu--horizontal>.el-sub-menu .el-sub-menu__title {
         border-bottom: none;
     }
 }

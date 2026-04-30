@@ -16,9 +16,13 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { useQuestionStore } from '@/stores/question'
+import { ElMessageBox } from 'element-plus'
 
 export default {
+    setup() {
+        return { store: useQuestionStore() }
+    },
     props: {
         autoSave: {
             type: Boolean,
@@ -32,14 +36,12 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['getAllQuestions', 'getQuestionsByType']),
-
         questionTypes() {
             return {
-                singleChoice: this.getQuestionsByType('singleChoice'),
-                multipleChoice: this.getQuestionsByType('multipleChoice'),
-                trueOrFalse: this.getQuestionsByType('trueOrFalse'),
-                fillInTheBlank: this.getQuestionsByType('fillInTheBlank'),
+                singleChoice: this.store.getQuestionsByType('singleChoice'),
+                multipleChoice: this.store.getQuestionsByType('multipleChoice'),
+                trueOrFalse: this.store.getQuestionsByType('trueOrFalse'),
+                fillInTheBlank: this.store.getQuestionsByType('fillInTheBlank'),
             };
         },
         typeLabels() {
@@ -52,17 +54,17 @@ export default {
         },
         findQuestionIndex() {
             return (id) => {
-                return this.getAllQuestions.findIndex(question => question.id === id);
+                return this.store.questionBank.findIndex(question => question.id === id);
             };
         },
         getAnswerStatus() {
             return (index) => {
-                return this.$store.state.answerList[index];
+                return this.store.answerList[index];
             };
         }
     },
     watch: {
-        '$store.state.answerList': {
+        'store.answerList': {
             handler(newValue, oldValue) {
                 if (newValue === '') {
                     return
@@ -78,14 +80,14 @@ export default {
             },
             deep: true
         },
-        '$store.state.score': {
+        'store.score': {
             async handler(newValue, oldValue) {
-                const results = this.$store.state.results
+                const results = this.store.results
                 if (newValue == null) {
                     return
                 } else if (newValue == this.length) {
                     this.status = new Array(this.length).fill('true')
-                    this.$alert(`得分为${newValue}，恭喜获得满分`, '提交成功', {
+                    ElMessageBox.alert(`得分为${newValue}，恭喜获得满分`, '提交成功', {
                         confirmButtonText: '确定',
                     });
                 } else {
@@ -97,11 +99,11 @@ export default {
                         }
                     })
                     if (this.autoSave) {
-                        this.$alert(`得分为${newValue}，错题已推送至收藏夹`, '提交成功', {
+                        ElMessageBox.alert(`得分为${newValue}，错题已推送至收藏夹`, '提交成功', {
                             confirmButtonText: '确定',
                         });
                     } else {
-                        this.$alert(`得分为${newValue}`, '提交成功', {
+                        ElMessageBox.alert(`得分为${newValue}`, '提交成功', {
                             confirmButtonText: '确定',
                         });
                     }
@@ -110,26 +112,25 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['checkAnswer']),
         async submitAnswer() {
             if (this.status.includes(false)) {
-                this.$confirm('还有未做的题目，确定提交吗？', '提示', {
+                ElMessageBox.confirm('还有未做的题目，确定提交吗？', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     type: 'warning'
                 }).then(() => {
-                    this.checkAnswer(this.autoSave)
+                    this.store.checkAnswer(this.autoSave)
                     this.$emit('examStatus', true)
                 }).catch(() => {
                     return
                 });
             } else {
-                this.$confirm('确认提交吗？', '提示', {
+                ElMessageBox.confirm('确认提交吗？', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     type: 'info'
                 }).then(() => {
-                    this.checkAnswer(this.autoSave)
+                    this.store.checkAnswer(this.autoSave)
                     this.$emit('examStatus', true)
                 }).catch(() => {
                     return
@@ -140,13 +141,13 @@ export default {
     created() {
         const length = this.questionTypes.fillInTheBlank.length + this.questionTypes.multipleChoice.length + this.questionTypes.singleChoice.length + this.questionTypes.trueOrFalse.length
         this.length = length
-        this.$store.state.answerList = new Array(length).fill('')
+        this.store.answerList = new Array(length).fill('')
         this.status = new Array(length).fill('unactive')
     }
 };
 </script>
 
-<style lang="less">
+<style lang="scss">
 #examRecord::-webkit-scrollbar {
     display: none;
     /* 隐藏滚动条 */
@@ -157,6 +158,7 @@ export default {
     padding: 20px;
     margin: 15px 0;
     border-radius: 20px;
+    border: 1px solid #e0dcf2;
     box-shadow:
         0px -1px 8px 0px rgba(230, 232, 240, 0.9),
         -1px 0px 8px 0px rgba(230, 232, 240, 0.9),

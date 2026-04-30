@@ -23,6 +23,10 @@
           搜索结果共{{ showList.length }}题
         </div>
         <div class="rightplace">
+          <!--          练习模式开关-->
+          <el-switch v-model="practiceMode" active-text="练习" inactive-text="" active-color="#6C5DD3"
+            class="practice-switch">
+          </el-switch>
           <!--          搜索框-->
           <el-input class="input" placeholder="搜题（回车以搜索）" v-model="searchWord" @change="search" @input="changeInput"
             clearable>
@@ -45,6 +49,7 @@
         <el-empty description="搜索结果为空"></el-empty>
       </div>
       <div class="questionCover" v-for="(item, i) in showList" :key="i">
+        <!-- 判断题 -->
         <div class="typeCover" v-if="showList[i].option.length == 2">
           <div class="questionTypeCover">
             <div class="left">
@@ -54,12 +59,12 @@
               <div class="markAndLike">
                 <transition name="fade" mode="out-in">
                   <img class="mark"
-                    :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                    :src="showList[i].markFlag ? markActiveIcon : markIcon"
                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
                 </transition>
                 <transition name="fade" mode="out-in">
                   <img class="like"
-                    :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                    :src="showList[i].likeFlag ? likeActiveIcon : likeIcon"
                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
                 </transition>
               </div>
@@ -70,7 +75,22 @@
                 <span>判断</span>
               </div>
               <div class="questionStem">{{ showList[i].questionStem }}</div>
-              <div class="questionAnswer">
+              <!-- 练习模式：判断题选择 -->
+              <div class="practice-area" v-if="practiceMode && !practiceResults[i]">
+                <el-radio-group v-model="practiceAnswers[i]" @change="val => submitPractice(i, val)">
+                  <el-radio v-for="(opt, k) in showList[i].option" :key="k" :label="opt">{{ opt }}</el-radio>
+                </el-radio-group>
+              </div>
+              <!-- 练习结果 -->
+              <div class="practice-result" v-if="practiceMode && practiceResults[i]">
+                <span class="result-tag" :class="practiceResults[i].isCorrect ? 'result-true' : 'result-false'">
+                  {{ practiceResults[i].isCorrect ? '回答正确' : '回答错误' }}
+                </span>
+                <span class="your-answer">你的答案：{{ practiceResults[i].userAnswer }}</span>
+                <span class="correctAnswer" v-if="!practiceResults[i].isCorrect">正确答案：{{ showList[i].answer }}</span>
+              </div>
+              <!-- 普通模式答案 -->
+              <div class="questionAnswer" v-if="!practiceMode">
                 <span class="colorBefore"></span>
                 <span class="correctAnswer">正确答案：</span>
                 <span class="true" @click="toggleAnswer(i)" v-if="showList[i].answer == '正确'">{{ showAnswers[i] ?
@@ -82,6 +102,7 @@
             </div>
           </div>
         </div>
+        <!-- 填空题 -->
         <div class="typeCover" v-if="showList[i].option == ''">
           <div class="questionTypeCover">
             <div class="left">
@@ -91,12 +112,12 @@
               <div class="markAndLike">
                 <transition name="fade" mode="out-in">
                   <img class="mark"
-                    :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                    :src="showList[i].markFlag ? markActiveIcon : markIcon"
                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
                 </transition>
                 <transition name="fade" mode="out-in">
                   <img class="like"
-                    :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                    :src="showList[i].likeFlag ? likeActiveIcon : likeIcon"
                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
                 </transition>
               </div>
@@ -107,7 +128,25 @@
                 <span>填空</span>
               </div>
               <div class="questionStem">{{ showList[i].questionStem }}</div>
-              <div class="questionAnswer">
+              <!-- 练习模式：填空题输入 -->
+              <div class="practice-area" v-if="practiceMode && !practiceResults[i]">
+                <div class="fill-practice-row">
+                  <el-input v-model="practiceAnswers[i]" placeholder="请输入答案" class="fill-input"
+                    @keyup.enter.native="submitPractice(i, practiceAnswers[i])"></el-input>
+                  <el-button type="primary" size="small" @click="submitPractice(i, practiceAnswers[i])"
+                    class="fill-submit">提交</el-button>
+                </div>
+              </div>
+              <!-- 练习结果 -->
+              <div class="practice-result" v-if="practiceMode && practiceResults[i]">
+                <span class="result-tag" :class="practiceResults[i].isCorrect ? 'result-true' : 'result-false'">
+                  {{ practiceResults[i].isCorrect ? '回答正确' : '回答错误' }}
+                </span>
+                <span class="your-answer">你的答案：{{ practiceResults[i].userAnswer }}</span>
+                <span class="correctAnswer" v-if="!practiceResults[i].isCorrect">正确答案：{{ showList[i].answer }}</span>
+              </div>
+              <!-- 普通模式答案 -->
+              <div class="questionAnswer" v-if="!practiceMode">
                 <span class="colorBefore"></span>
                 <span class="correctAnswer">正确答案：</span>
                 <span class="answer" @click="toggleAnswer(i)">{{ showAnswers[i] ? showList[i].answer : '点击显示答案'
@@ -116,6 +155,7 @@
             </div>
           </div>
         </div>
+        <!-- 单选题 -->
         <div class="typeCover" v-if="showList[i].option.length == 4 && showList[i].answer.length == 1">
           <div class="questionTypeCover">
             <div class="left">
@@ -125,12 +165,12 @@
               <div class="markAndLike">
                 <transition name="fade" mode="out-in">
                   <img class="mark"
-                    :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                    :src="showList[i].markFlag ? markActiveIcon : markIcon"
                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
                 </transition>
                 <transition name="fade" mode="out-in">
                   <img class="like"
-                    :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                    :src="showList[i].likeFlag ? likeActiveIcon : likeIcon"
                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
                 </transition>
               </div>
@@ -141,13 +181,32 @@
                 <span>单选</span>
               </div>
               <div class="questionStem">{{ showList[i].questionStem }}</div>
-              <div class="questionOpt">
+              <!-- 练习模式：单选题选择 -->
+              <div class="practice-area" v-if="practiceMode">
+                <el-radio-group v-model="practiceAnswers[i]" @change="val => submitPractice(i, val)"
+                  :disabled="!!practiceResults[i]">
+                  <div v-for="(opt, k) in showList[i].option" :key="k" class="practice-option">
+                    <el-radio :label="options[k]">{{ options[k] }}、{{ opt }}</el-radio>
+                  </div>
+                </el-radio-group>
+              </div>
+              <!-- 普通模式选项 -->
+              <div class="questionOpt" v-if="!practiceMode">
                 <div class="option" v-for="(item, k) in showList[i].option" :key="k">
                   <div class="dot"></div>
                   <div class="optText">{{ options[k] }}、{{ showList[i].option[k] }}</div>
                 </div>
               </div>
-              <div class="questionAnswer">
+              <!-- 练习结果 -->
+              <div class="practice-result" v-if="practiceMode && practiceResults[i]">
+                <span class="result-tag" :class="practiceResults[i].isCorrect ? 'result-true' : 'result-false'">
+                  {{ practiceResults[i].isCorrect ? '回答正确' : '回答错误' }}
+                </span>
+                <span class="your-answer">你的答案：{{ practiceResults[i].userAnswer }}</span>
+                <span class="correctAnswer" v-if="!practiceResults[i].isCorrect">正确答案：{{ showList[i].answer }}</span>
+              </div>
+              <!-- 普通模式答案 -->
+              <div class="questionAnswer" v-if="!practiceMode">
                 <span class="colorBefore"></span>
                 <span class="correctAnswer">正确答案：</span>
                 <span class="answer" @click="toggleAnswer(i)">{{ showAnswers[i] ? showList[i].answer : '点击显示答案'
@@ -156,6 +215,7 @@
             </div>
           </div>
         </div>
+        <!-- 多选题 -->
         <div class="typeCover" v-if="showList[i].option.length > 3 && showList[i].answer.length > 1">
           <div class="questionTypeCover">
             <div class="left">
@@ -165,12 +225,12 @@
               <div class="markAndLike">
                 <transition name="fade" mode="out-in">
                   <img class="mark"
-                    :src="showList[i].markFlag ? require('@/assets/icon/icon-mark-active.svg') : require('@/assets/icon/icon-mark.svg')"
+                    :src="showList[i].markFlag ? markActiveIcon : markIcon"
                     @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
                 </transition>
                 <transition name="fade" mode="out-in">
                   <img class="like"
-                    :src="showList[i].likeFlag ? require('@/assets/icon/icon-like-active.svg') : require('@/assets/icon/icon-like.svg')"
+                    :src="showList[i].likeFlag ? likeActiveIcon : likeIcon"
                     @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
                 </transition>
               </div>
@@ -181,13 +241,33 @@
                 <span>多选</span>
               </div>
               <div class="questionStem">{{ showList[i].questionStem }}</div>
-              <div class="questionOpt">
+              <!-- 练习模式：多选题选择 -->
+              <div class="practice-area" v-if="practiceMode">
+                <el-checkbox-group v-model="practiceAnswers[i]" :disabled="!!practiceResults[i]">
+                  <div v-for="(opt, k) in showList[i].option" :key="k" class="practice-option">
+                    <el-checkbox :label="options[k]">{{ options[k] }}、{{ opt }}</el-checkbox>
+                  </div>
+                </el-checkbox-group>
+                <el-button v-if="!practiceResults[i]" type="primary" size="small" @click="submitPractice(i, practiceAnswers[i])"
+                  :disabled="!practiceAnswers[i] || practiceAnswers[i].length === 0" class="multi-submit">确认提交</el-button>
+              </div>
+              <!-- 普通模式选项 -->
+              <div class="questionOpt" v-if="!practiceMode">
                 <div class="option" v-for="(item, k) in showList[i].option" :key="k">
                   <div class="dot"></div>
                   <div class="optText">{{ options[k] }}、{{ showList[i].option[k] }}</div>
                 </div>
               </div>
-              <div class="questionAnswer">
+              <!-- 练习结果 -->
+              <div class="practice-result" v-if="practiceMode && practiceResults[i]">
+                <span class="result-tag" :class="practiceResults[i].isCorrect ? 'result-true' : 'result-false'">
+                  {{ practiceResults[i].isCorrect ? '回答正确' : '回答错误' }}
+                </span>
+                <span class="your-answer">你的答案：{{ practiceResults[i].userAnswer }}</span>
+                <span class="correctAnswer" v-if="!practiceResults[i].isCorrect">正确答案：{{ showList[i].answer }}</span>
+              </div>
+              <!-- 普通模式答案 -->
+              <div class="questionAnswer" v-if="!practiceMode">
                 <span class="colorBefore"></span>
                 <span class="correctAnswer">正确答案：</span>
                 <span class="answer" @click="toggleAnswer(i)">{{ showAnswers[i] ? showList[i].answer : '点击显示答案'
@@ -203,11 +283,20 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { useQuestionStore } from '@/stores/question'
+import { loadQuestionBank } from '@/utils/loadJson'
 import Fuse from 'fuse.js';
 import { makePdf } from "@/utils/makePdf";
+import { ElMessage } from 'element-plus'
+import markActiveIcon from '@/assets/icon/icon-mark-active.svg'
+import markIcon from '@/assets/icon/icon-mark.svg'
+import likeActiveIcon from '@/assets/icon/icon-like-active.svg'
+import likeIcon from '@/assets/icon/icon-like.svg'
 
 export default {
+  setup() {
+    return { store: useQuestionStore() }
+  },
   data() {
     return {
       showAnswers: [],
@@ -218,6 +307,9 @@ export default {
       showList: [],  //这个是渲染在页面上的题目列表
       onSearch: false,  //值为true表示显示搜索结果
       options: ['A', 'B', 'C', 'D', 'E'],
+      practiceMode: false,
+      practiceAnswers: {},  // { index: answer }
+      practiceResults: {},  // { index: { isCorrect, userAnswer } }
       subjectOpts: [
         {
           value: 'Marx',
@@ -318,26 +410,26 @@ export default {
     // 初始化所有题目的显示状态
     this.initShowAnswers();
   },
-  created() {
+  async created() {
     this.lesson = this.$route.params.lesson;
     this.type = this.$route.params.type;
     if (this.$route.path == "/newHome/favorites") {
       this.list = this.favList
     } else {
       try {
-        this.list = require(`../assets/${this.lesson}_${this.type}.json`);
+        this.list = await loadQuestionBank(this.lesson, this.type);
       } catch (e) {
         this.list = [];
       }
-      
-      if (this.$store.state.wrongQuestions.length > 0 || this.$store.state.likeList.length > 0) {
-        this.$store.state.wrongQuestions.forEach(subsetItem => {
+
+      if (this.store.wrongQuestions.length > 0 || this.store.likeList.length > 0) {
+        this.store.wrongQuestions.forEach(subsetItem => {
           let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
           if (supersetItem) {
             supersetItem.likeFlag = true;
           }
         });
-        this.$store.state.likeList.forEach(subsetItem => {
+        this.store.likeList.forEach(subsetItem => {
           let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
           if (supersetItem) {
             supersetItem.likeFlag = true;
@@ -356,15 +448,15 @@ export default {
         if (this.$route.path == '/newHome/favorites') {
           switch (newValue) {
             case 'all':
-              this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
+              this.list = [...new Set([...this.store.likeList, ...this.store.wrongQuestions])]
               this.showList = [...this.list]
               break
             case 'favorites':
-              this.list = this.$store.state.likeList
+              this.list = this.store.likeList
               this.showList = [...this.list]
               break
             case 'wrong':
-              this.list = this.$store.state.wrongQuestions
+              this.list = this.store.wrongQuestions
               this.showList = [...this.list]
               break
             default:
@@ -382,26 +474,26 @@ export default {
         }
       }
     },
-    '$route': function (to, from) {
+    '$route': async function (to, from) {
       this.lesson = to.params.lesson;
       this.type = to.params.type;
       if (this.$route.path == "/newHome/favorites") {
         return
       } else {
         try {
-            this.list = require(`../assets/${this.lesson}_${this.type}.json`);
+            this.list = await loadQuestionBank(this.lesson, this.type);
         } catch (e) {
             this.list = [];
         }
-        
-        if (this.$store.state.wrongQuestions.length > 0 || this.$store.state.likeList.length > 0) {
-          this.$store.state.wrongQuestions.forEach(subsetItem => {
+
+        if (this.store.wrongQuestions.length > 0 || this.store.likeList.length > 0) {
+          this.store.wrongQuestions.forEach(subsetItem => {
             let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
             if (supersetItem) {
               supersetItem.likeFlag = true;
             }
           });
-          this.$store.state.likeList.forEach(subsetItem => {
+          this.store.likeList.forEach(subsetItem => {
             let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
             if (supersetItem) {
               supersetItem.likeFlag = true;
@@ -432,19 +524,53 @@ export default {
       },
       deep: true,
     },
+    // 监听练习模式切换
+    practiceMode(val) {
+      this.practiceAnswers = {};
+      this.practiceResults = {};
+    },
   },
   methods: {
     initShowAnswers() {
+      // Try to restore from localStorage
+      const storageKey = this.getAnswerStorageKey();
+      let saved = {};
+      if (storageKey) {
+        try {
+          saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+        } catch (e) { /* ignore */ }
+      }
       // Create a new array to ensure reactivity
-      this.showAnswers = new Array(this.showList.length).fill(this.defaultShowAnswer);
+      this.showAnswers = this.showList.map((item, idx) => {
+        if (saved[item.id]) return true;
+        return this.defaultShowAnswer;
+      });
+    },
+    getAnswerStorageKey() {
+      if (this.$route.path === '/newHome/favorites') return 'viewed_favorites';
+      const lesson = this.$route.params.lesson;
+      const type = this.$route.params.type;
+      if (lesson && type) return `viewed_${lesson}_${type}`;
+      return null;
+    },
+    saveViewedState() {
+      const storageKey = this.getAnswerStorageKey();
+      if (!storageKey) return;
+      const viewed = {};
+      this.showList.forEach((item, idx) => {
+        if (this.showAnswers[idx]) viewed[item.id] = true;
+      });
+      localStorage.setItem(storageKey, JSON.stringify(viewed));
     },
     toggleAnswer(index) {
-      this.$set(this.showAnswers, index, !this.showAnswers[index]);
+      this.showAnswers[index] = !this.showAnswers[index];
+      this.saveViewedState();
     },
     updateDefaultSetting() {
       this.defaultShowAnswer = !this.defaultShowAnswer
       localStorage.setItem("defaultShowAnswer", JSON.stringify(this.defaultShowAnswer));
       this.initShowAnswers();
+      this.saveViewedState();
     },
     getQuestionType(question) {
       const { option, answer } = question;
@@ -495,50 +621,80 @@ export default {
           title = `收藏夹-共${this.list.length}题`
         }
         if (e === "savePDF") {
-          makePdf("save", this.showList, title, this.$store, this.$message);
+          makePdf("save", this.showList, title, null, ElMessage);
         }
         if (e === "printPDF") {
-          makePdf("print", this.showList, title, this.$store, this.$message);
+          makePdf("print", this.showList, title, null, ElMessage);
         }
       }
 
     },
-    ...mapActions(['addLikeQuestion', 'removeLikeQuestion', 'addFavoriteQuestion', 'removeFavoriteQuestion']),
+    submitPractice(index, userAnswer) {
+      const question = this.showList[index];
+      const qType = this.getQuestionType(question);
+      let isCorrect = false;
+
+      if (qType === 'singleChoice' || qType === 'rightWrong') {
+        isCorrect = userAnswer === question.answer;
+      } else if (qType === 'multipleChoice') {
+        const correctAnswers = question.answer.split('').map(a => a.trim());
+        isCorrect = Array.isArray(userAnswer) &&
+          userAnswer.length === correctAnswers.length &&
+          correctAnswers.every(a => userAnswer.includes(a));
+      } else if (qType === 'fillingBlank') {
+        isCorrect = userAnswer && userAnswer.trim() === question.answer;
+      }
+
+      // 保存结果
+      this.practiceResults[index] = {
+        isCorrect,
+        userAnswer: Array.isArray(userAnswer) ? userAnswer.join('') : (userAnswer || '')
+      };
+
+      // 错了自动加入错题集
+      if (!isCorrect) {
+        const exists = this.store.wrongQuestions.some(q => q.id === question.id);
+        if (!exists) {
+          question.likeFlag = true;
+          this.store.wrongQuestions.push(question);
+        }
+      }
+    },
     changeFlag(flagType, i) {
       this.showList[i][flagType] = !this.showList[i][flagType]
       if (this.$route.path == '/newHome/favorites') {
         if (this.subjectOptions == 'favorites') {
           if (this.showList[i][flagType]) {
-            this.addLikeQuestion(this.showList[i])
+            this.store.addLikeQuestion(this.showList[i])
           } else {
-            this.removeLikeQuestion(this.showList[i].id)
-            this.list = this.$store.state.likeList
+            this.store.removeLikeQuestion(this.showList[i].id)
+            this.list = this.store.likeList
             this.showList = [...this.list]
           }
         } else if (this.subjectOptions == 'wrong') {
           if (this.showList[i][flagType]) {
-            this.addFavoriteQuestion(this.showList[i])
+            this.store.addFavoriteQuestion(this.showList[i])
           } else {
-            this.removeFavoriteQuestion(this.showList[i].id)
-            this.list = this.$store.state.wrongQuestions
+            this.store.removeFavoriteQuestion(this.showList[i].id)
+            this.list = this.store.wrongQuestions
             this.showList = [...this.list]
           }
         } else {
           if (this.showList[i][flagType]) {
-            this.addLikeQuestion(this.showList[i])
+            this.store.addLikeQuestion(this.showList[i])
           } else {
-            this.removeLikeQuestion(this.showList[i].id)
-            this.removeFavoriteQuestion(this.showList[i].id)
-            this.list = [...new Set([...this.$store.state.likeList, ...this.$store.state.wrongQuestions])]
+            this.store.removeLikeQuestion(this.showList[i].id)
+            this.store.removeFavoriteQuestion(this.showList[i].id)
+            this.list = [...new Set([...this.store.likeList, ...this.store.wrongQuestions])]
             this.showList = [...this.list]
           }
         }
       } else {
         if (this.showList[i][flagType]) {
-          this.addLikeQuestion(this.showList[i])
+          this.store.addLikeQuestion(this.showList[i])
         } else {
-          this.removeLikeQuestion(this.showList[i].id)
-          this.removeFavoriteQuestion(this.showList[i].id)
+          this.store.removeLikeQuestion(this.showList[i].id)
+          this.store.removeFavoriteQuestion(this.showList[i].id)
         }
       }
     },
@@ -564,7 +720,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="scss">
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.15s;
@@ -770,6 +926,68 @@ export default {
     margin-bottom: 40px;
     line-height: 40px;
     height: 40px;
+  }
+
+  .practice-switch {
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+
+  .practice-area {
+    margin: 10px 0;
+
+    .practice-option {
+      margin-bottom: 8px;
+      line-height: 28px;
+      font-size: 16px;
+    }
+
+    .fill-practice-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .fill-input {
+        max-width: 300px;
+      }
+    }
+
+    .multi-submit {
+      margin-top: 8px;
+    }
+  }
+
+  .practice-result {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+
+    .result-tag {
+      font-weight: bold;
+      padding: 2px 10px;
+      border-radius: 6px;
+    }
+
+    .result-true {
+      color: #0BDE00;
+      background: #f0fff0;
+    }
+
+    .result-false {
+      color: #FF3B3B;
+      background: #fff0f0;
+    }
+
+    .your-answer {
+      color: #707070;
+    }
+
+    .correctAnswer {
+      color: #5F89D3;
+      font-weight: 500;
+    }
   }
 }
 </style>

@@ -3,7 +3,7 @@
         <topBar>
             <template v-slot:left>
                 <div class="goBack">
-                    <i class="el-icon-arrow-left" @click="goBack()"></i>
+                    <el-icon @click="goBack()"><ArrowLeft /></el-icon>
                 </div>
             </template>
             <template v-slot:middle>
@@ -17,6 +17,10 @@
                 <div class="top-controls">
                     <el-switch v-model="autoSave" active-text="错题收录" inactive-text="" active-color="#6C5DD3">
                     </el-switch>
+                    <div class="exam-timer" :class="{ 'timer-warning': timerSeconds >= 1800 }">
+                        <el-icon><Timer /></el-icon>
+                        <span>{{ formattedTime }}</span>
+                    </div>
                     <el-select v-model="value" :placeholder="paper" style="width: 120px;">
                         <el-option v-for="item in paperOptions" :key="item.value" :label="item.label"
                             :value="item.value">
@@ -49,9 +53,15 @@
 import examCard from '@/components/examCard.vue'
 import examRecord from '@/components/examRecord.vue';
 import topBar from '@/components/topBar.vue';
-import { mapActions } from 'vuex';
+import { useQuestionStore } from '@/stores/question'
+import { loadExamPaper } from '@/utils/loadJson'
+import { ArrowLeft, Timer } from '@element-plus/icons-vue'
 
 export default {
+    setup() {
+        const store = useQuestionStore()
+        return { store }
+    },
     data() {
         return {
             questionList: [],
@@ -111,42 +121,27 @@ export default {
             value: '',
             examStatus: false,
             newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro'],
-            autoSave: true
+            autoSave: true,
+            timerSeconds: 0,
+            timerInterval: null
         }
     },
     components: {
         examCard,
         examRecord,
-        topBar
+        topBar,
+        ArrowLeft,
+        Timer
     },
-    methods: {
-        ...mapActions(['loadQuestionBank', 'generateQuiz']),
-        getQuestion(lesson, id) {
-            const paperId = id || this.$route.params.id;
-            this.loadQuestionBank(require(`@/assets/cura/${lesson}_${paperId}.json`))
-        },
-        goBack() {
-            this.$router.go(-1)
-        },
-        disableOpts(status) {
-            this.examStatus = status
-        },
-        async getQuiz(type, lesson) {
-            if (type) {
-                await this.generateQuiz([lesson, {
-                    single: 20, // 单选题数量
-                    multiple: 15, // 多选题数量
-                    blank: 10, // 填空题数量
-                    trueFalse: 15 // 判断题数量
-                }]);
-            } else {
-                await this.generateQuiz([lesson, {
-                    single: 15, // 单选题数量
-                    multiple: 15, // 多选题数量
-                    blank: 5, // 填空题数量
-                    trueFalse: 15 // 判断题数量
-                }]);
+    computed: {
+        formattedTime() {
+            const h = Math.floor(this.timerSeconds / 3600);
+            const m = Math.floor((this.timerSeconds % 3600) / 60);
+            const s = this.timerSeconds % 60;
+            if (h > 0) {
+                return `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
             }
+            return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
         }
     },
     watch: {
@@ -164,14 +159,14 @@ export default {
         await this.initExam(this.$route);
     },
     methods: {
-        ...mapActions(['loadQuestionBank', 'generateQuiz']),
-        getQuestion(lesson, id) {
+        async getQuestion(lesson, id) {
             const paperId = id || this.$route.params.id;
             try {
-                this.loadQuestionBank(require(`@/assets/cura/${lesson}_${paperId}.json`))
+                const data = await loadExamPaper(lesson, paperId)
+                this.store.loadQuestionBank(data)
             } catch (e) {
                 console.error("Failed to load question bank:", e);
-                this.loadQuestionBank([]);
+                this.store.loadQuestionBank([]);
             }
         },
         goBack() {
@@ -182,14 +177,14 @@ export default {
         },
         async getQuiz(type, lesson) {
             if (type) {
-                await this.generateQuiz([lesson, {
+                await this.store.generateQuizAction([lesson, {
                     single: 20, // 单选题数量
                     multiple: 15, // 多选题数量
                     blank: 10, // 填空题数量
                     trueFalse: 15 // 判断题数量
                 }]);
             } else {
-                await this.generateQuiz([lesson, {
+                await this.store.generateQuizAction([lesson, {
                     single: 15, // 单选题数量
                     multiple: 15, // 多选题数量
                     blank: 5, // 填空题数量
@@ -199,9 +194,14 @@ export default {
         },
         async initExam(route) {
             // Reset answer list and status
-            this.$store.state.answerList = [];
-            this.$store.state.results = [];
+            this.store.answerList = [];
+            this.store.results = [];
             this.examStatus = false;
+
+            // Reset timer
+            this.stopTimer();
+            this.timerSeconds = 0;
+            this.startTimer();
 
             const lesson = route.params.lesson;
             const id = route.params.id;
@@ -238,10 +238,10 @@ export default {
             if (id === 'random') {
                 await this.getQuiz(this.newSubject.some(element => element == lesson), lesson)
             } else {
-                this.getQuestion(lesson, id)
+                await this.getQuestion(lesson, id)
             }
 
-            this.questionList = this.$store.state.questionBank;
+            this.questionList = this.store.questionBank;
 
             // Initialize results for the new question list
             if (this.questionList) {
@@ -250,15 +250,29 @@ export default {
                         questionId: item.id,
                         isCorrect: null
                     }
-                    this.$store.state.results.push(temp)
+                    this.store.results.push(temp)
                 })
             }
+        },
+        startTimer() {
+            this.timerInterval = setInterval(() => {
+                this.timerSeconds++;
+            }, 1000);
+        },
+        stopTimer() {
+            if (this.timerInterval) {
+                clearInterval(this.timerInterval);
+                this.timerInterval = null;
+            }
         }
+    },
+    beforeUnmount() {
+        this.stopTimer();
     }
 }
 </script>
 
-<style lang="less">
+<style lang="scss">
 #examView {
     margin-right: 20px;
 
@@ -290,6 +304,29 @@ export default {
 
         .el-switch {
             margin-right: 15px;
+        }
+
+        .exam-timer {
+            background: #f0edff;
+            color: #6C5DD3;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            letter-spacing: 1px;
+
+            i {
+                font-size: 18px;
+            }
+
+            &.timer-warning {
+                background: #fff3f0;
+                color: #FF3B3B;
+            }
         }
     }
 }

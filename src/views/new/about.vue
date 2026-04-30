@@ -36,7 +36,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 #aboutUs {
     display: flex;
     justify-content: center;

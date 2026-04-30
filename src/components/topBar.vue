@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="scss">
 #topBar {
     .el-row {
         margin-bottom: 20px;

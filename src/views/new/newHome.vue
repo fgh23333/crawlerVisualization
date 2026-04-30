@@ -15,8 +15,8 @@
             </router-link>
             <div class="nav">
                 <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6" :router="true">
-                    <el-submenu v-for="(item, i) in list" :key="i" :index="list[i].src">
-                        <template slot="title">
+                    <el-sub-menu v-for="(item, i) in list" :key="i" :index="list[i].src">
+                        <template #title>
                             <img :src="list[i].icon" class="menuIcon">
                             <span>{{ list[i].subject }}</span>
                         </template>
@@ -28,7 +28,7 @@
                             <el-menu-item class="option" :index="'/newHome/fillingBlank/' + list[i].src">填空题</el-menu-item>
                             <el-menu-item class="option" :index="'/newHome/exam/' + list[i].src + '/1'">在线练习</el-menu-item>
                         </el-menu-item-group>
-                    </el-submenu>
+                    </el-sub-menu>
                 </el-menu>
             </div>
             <div class="buttonContainer">
@@ -89,57 +89,31 @@
 
 <script>
 import modal from '@/components/modal.vue'
+import { ElMessage } from 'element-plus'
+import grapeIcon from '@/assets/icon/grape.svg'
+import juiceIcon from '@/assets/icon/juice.svg'
+import pearIcon from '@/assets/icon/pear.svg'
+import lemonIcon from '@/assets/icon/lemon.svg'
+import cherryIcon from '@/assets/icon/cherry.svg'
+import melonIcon from '@/assets/icon/melon.svg'
+import breadIcon from '@/assets/icon/bread.svg'
+import tomatoIcon from '@/assets/icon/tomato.svg'
+import lettuceIcon from '@/assets/icon/lettuce.svg'
 
 export default {
     data() {
         return {
             isCollapsed: false,
             list: [
-                {
-                    subject: '马原',
-                    src: 'Marx',
-                    icon: require('@/assets/icon/grape.svg')
-                },
-                {
-                    subject: '近代史',
-                    src: 'CMH',
-                    icon: require('@/assets/icon/juice.svg')
-                },
-                {
-                    subject: '思政',
-                    src: 'Political',
-                    icon: require('@/assets/icon/pear.svg')
-                },
-                {
-                    subject: '毛概',
-                    src: 'MaoIntro',
-                    icon: require('@/assets/icon/lemon.svg')
-                },
-                {
-                    subject: '习概',
-                    src: 'XiIntro',
-                    icon: require('@/assets/icon/cherry.svg')
-                },
-                {
-                    subject: '社主史',
-                    src: 'SDH',
-                    icon: require('@/assets/icon/melon.svg')
-                },
-                {
-                    subject: '新中国史',
-                    src: 'NCH',
-                    icon: require('@/assets/icon/bread.svg')
-                },
-                {
-                    subject: '党史',
-                    src: 'CCPH',
-                    icon: require('@/assets/icon/tomato.svg')
-                },
-                {
-                    subject: '改开史',
-                    src: 'ORH',
-                    icon: require('@/assets/icon/lettuce.svg')
-                }
+                { subject: '马原', src: 'Marx', icon: grapeIcon },
+                { subject: '近代史', src: 'CMH', icon: juiceIcon },
+                { subject: '思政', src: 'Political', icon: pearIcon },
+                { subject: '毛概', src: 'MaoIntro', icon: lemonIcon },
+                { subject: '习概', src: 'XiIntro', icon: cherryIcon },
+                { subject: '社主史', src: 'SDH', icon: melonIcon },
+                { subject: '新中国史', src: 'NCH', icon: breadIcon },
+                { subject: '党史', src: 'CCPH', icon: tomatoIcon },
+                { subject: '改开史', src: 'ORH', icon: lettuceIcon }
             ],
             value1: false,
             value2: false
@@ -147,10 +121,7 @@ export default {
     },
     methods: {
         open() {
-            this.$message({
-                showClose: true,
-                message: '开发中，敬请期待'
-            });
+            ElMessage({ showClose: true, message: '开发中，敬请期待' });
         },
         toggleSidebar() {
             this.isCollapsed = !this.isCollapsed;
@@ -162,7 +133,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="scss">
 .el-popover {
     border-radius: 24px !important;
     padding: 0 !important;
@@ -317,7 +288,7 @@ export default {
             border: none;
             padding-top: 10px;
 
-            .el-submenu {
+            .el-sub-menu {
                 margin-bottom: 12px;
                 text-align: left;
                 border-radius: 12px;
@@ -331,36 +302,38 @@ export default {
                     vertical-align: middle;
                 }
 
-                .el-submenu__title {
+                .el-sub-menu__title {
                     border-radius: 12px;
                     background-color: #F7F7F7;
-                    font-size: 16px; // Slightly smaller for better fit
+                    font-size: 16px;
                     font-weight: bold;
                     color: #8F95B2;
                     transition: all 0.3s;
+                    height: 48px;
+                    line-height: 48px;
                 }
 
-                .el-submenu__title:hover {
+                .el-sub-menu__title:hover {
                     background-color: #6C5DD3;
                     color: white;
                 }
 
-                .el-submenu__icon-arrow {
+                .el-sub-menu__icon-arrow {
                     font-weight: bold;
                 }
 
-                .el-submenu__title:hover>.el-submenu__icon-arrow {
+                .el-sub-menu__title:hover>.el-sub-menu__icon-arrow {
                     color: white;
                 }
             }
             
             // Active state styles
-            .is-opened>.el-submenu__title {
+            .is-opened>.el-sub-menu__title {
                 background-color: #6C5DD3;
                 color: white;
             }
             
-            .is-opened .el-submenu__icon-arrow {
+            .is-opened .el-sub-menu__icon-arrow {
                 color: white;
             }
 
