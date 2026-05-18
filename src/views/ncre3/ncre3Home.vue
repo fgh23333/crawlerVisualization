@@ -16,7 +16,7 @@
           </router-link>
 
           <div class="nav">
-            <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6" :router="true">
+            <el-menu class="el-menu-vertical-demo" :unique-opened="true" :default-active="activeMenu" active-text-color="#8174D6" :router="true">
               <el-sub-menu v-for="cat in categories" :key="cat.key" :index="cat.key">
                 <template #title>
                   <el-icon><component :is="cat.icon" /></el-icon>
@@ -67,12 +67,40 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { Monitor, Star, Back, Coin, Cpu, Edit, Connection, DataAnalysis } from '@element-plus/icons-vue'
+import { ref, computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { Monitor, Star, Back, Coin, Cpu, Edit, Connection, DataAnalysis, Document } from '@element-plus/icons-vue'
 
 const isCollapsed = ref(false)
+const route = useRoute()
+
+// Only set active menu when on a category page, clear on home/favorites
+const activeMenu = computed(() => {
+  const path = route.path
+  if (path === '/ncre3' || path === '/ncre3/' || path === '/ncre3/favorites') return ''
+  return path
+})
 
 const categories = [
+  {
+    key: 'theory',
+    label: '理论题库',
+    icon: Document,
+    subItems: [
+      { key: 'trueOrFalse', label: '判断题 (260)' },
+      { key: 'singleChoice', label: '单选题 (740)' },
+      { key: 'p1', label: '练习一 (判断100)' },
+      { key: 'p2', label: '练习二 (判断100)' },
+      { key: 'p3', label: '练习三 (判断60+单选40)' },
+      { key: 'p4', label: '练习四 (单选100)' },
+      { key: 'p5', label: '练习五 (单选100)' },
+      { key: 'p6', label: '练习六 (单选100)' },
+      { key: 'p7', label: '练习七 (单选100)' },
+      { key: 'p8', label: '练习八 (单选100)' },
+      { key: 'p9', label: '练习九 (单选100)' },
+      { key: 'p10', label: '练习十 (单选100)' }
+    ]
+  },
   {
     key: 'sql',
     label: 'SQL 数据库题',
@@ -213,7 +241,13 @@ const categories = [
   .nav {
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 8px 0;
+
+    // Hide scrollbar
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar { display: none; }
 
     :deep(.el-menu-vertical-demo) {
       width: 216px;
@@ -256,7 +290,7 @@ const categories = [
         margin-bottom: 2px;
       }
 
-      .is-active {
+      .el-menu-item.is-active {
         background-color: #E6E4F4 !important;
         color: #6C5DD3 !important;
         font-weight: bold;

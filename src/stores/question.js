@@ -57,7 +57,7 @@ export const useQuestionStore = defineStore('question', () => {
 
   // Data Migration: ensure stored lists are arrays of objects, not just IDs
   function migrateLists() {
-    const lists = { wrongQuestions, likeList }
+    const lists = { wrongQuestions, likeList, markList }
     for (const [name, refValue] of Object.entries(lists)) {
       if (Array.isArray(refValue.value) && refValue.value.length > 0) {
         if (typeof refValue.value[0] === 'string' || typeof refValue.value[0] === 'number') {

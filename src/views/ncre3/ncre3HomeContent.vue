@@ -17,9 +17,17 @@
 </template>
 
 <script setup>
-import { Coin, Connection, Cpu, Edit, DataAnalysis } from '@element-plus/icons-vue'
+import { Coin, Connection, Cpu, Edit, DataAnalysis, Document } from '@element-plus/icons-vue'
 
 const categories = [
+  {
+    key: 'theory',
+    label: '理论题库',
+    desc: '判断题、单选题，涵盖职业道德、法律法规、软件工程等',
+    icon: Document,
+    color: '#A78BFA',
+    count: '1000 题'
+  },
   {
     key: 'sql',
     label: 'SQL 数据库题',
