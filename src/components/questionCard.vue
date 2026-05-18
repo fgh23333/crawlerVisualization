@@ -57,16 +57,24 @@
             </div>
             <div class="right">
               <div class="markAndLike">
-                <transition name="fade" mode="out-in">
-                  <img class="mark"
-                    :src="showList[i].markFlag ? markActiveIcon : markIcon"
-                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
-                </transition>
-                <transition name="fade" mode="out-in">
-                  <img class="like"
-                    :src="showList[i].likeFlag ? likeActiveIcon : likeIcon"
-                    @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
-                </transition>
+                <button class="fav-btn mark-btn" :class="{ 'is-fav': isMarked(showList[i]) }"
+                  @click="toggleMark(showList[i])" type="button">
+                  <svg class="fav-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                    <path d="M7 3h10a1 1 0 0 1 1 1v17l-6-3.5L6 21V4a1 1 0 0 1 1-1z"
+                      :fill="isMarked(showList[i]) ? 'currentColor' : 'none'"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="fav-text">{{ isMarked(showList[i]) ? '已标记' : '标记' }}</span>
+                </button>
+                <button class="fav-btn" :class="{ 'is-fav': isFav(showList[i]) }"
+                  @click="toggleFav(showList[i], i)" type="button">
+                  <svg class="fav-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                    <path d="M12 2.5l2.95 6.36 6.55.66-4.9 4.79 1.39 6.69L12 17.77l-6 3.23 1.39-6.69L2.5 9.52l6.55-.66L12 2.5z"
+                      :fill="isFav(showList[i]) ? 'currentColor' : 'none'"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="fav-text">{{ isFav(showList[i]) ? '已收藏' : '收藏' }}</span>
+                </button>
               </div>
               <div class="questionType">
                 <span v-if="$route.path == '/newHome/favorites'">
@@ -110,16 +118,24 @@
             </div>
             <div class="right">
               <div class="markAndLike">
-                <transition name="fade" mode="out-in">
-                  <img class="mark"
-                    :src="showList[i].markFlag ? markActiveIcon : markIcon"
-                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
-                </transition>
-                <transition name="fade" mode="out-in">
-                  <img class="like"
-                    :src="showList[i].likeFlag ? likeActiveIcon : likeIcon"
-                    @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
-                </transition>
+                <button class="fav-btn mark-btn" :class="{ 'is-fav': isMarked(showList[i]) }"
+                  @click="toggleMark(showList[i])" type="button">
+                  <svg class="fav-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                    <path d="M7 3h10a1 1 0 0 1 1 1v17l-6-3.5L6 21V4a1 1 0 0 1 1-1z"
+                      :fill="isMarked(showList[i]) ? 'currentColor' : 'none'"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="fav-text">{{ isMarked(showList[i]) ? '已标记' : '标记' }}</span>
+                </button>
+                <button class="fav-btn" :class="{ 'is-fav': isFav(showList[i]) }"
+                  @click="toggleFav(showList[i], i)" type="button">
+                  <svg class="fav-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                    <path d="M12 2.5l2.95 6.36 6.55.66-4.9 4.79 1.39 6.69L12 17.77l-6 3.23 1.39-6.69L2.5 9.52l6.55-.66L12 2.5z"
+                      :fill="isFav(showList[i]) ? 'currentColor' : 'none'"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="fav-text">{{ isFav(showList[i]) ? '已收藏' : '收藏' }}</span>
+                </button>
               </div>
               <div class="questionType">
                 <span v-if="$route.path == '/newHome/favorites'">
@@ -163,16 +179,24 @@
             </div>
             <div class="right">
               <div class="markAndLike">
-                <transition name="fade" mode="out-in">
-                  <img class="mark"
-                    :src="showList[i].markFlag ? markActiveIcon : markIcon"
-                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
-                </transition>
-                <transition name="fade" mode="out-in">
-                  <img class="like"
-                    :src="showList[i].likeFlag ? likeActiveIcon : likeIcon"
-                    @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
-                </transition>
+                <button class="fav-btn mark-btn" :class="{ 'is-fav': isMarked(showList[i]) }"
+                  @click="toggleMark(showList[i])" type="button">
+                  <svg class="fav-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                    <path d="M7 3h10a1 1 0 0 1 1 1v17l-6-3.5L6 21V4a1 1 0 0 1 1-1z"
+                      :fill="isMarked(showList[i]) ? 'currentColor' : 'none'"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="fav-text">{{ isMarked(showList[i]) ? '已标记' : '标记' }}</span>
+                </button>
+                <button class="fav-btn" :class="{ 'is-fav': isFav(showList[i]) }"
+                  @click="toggleFav(showList[i], i)" type="button">
+                  <svg class="fav-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                    <path d="M12 2.5l2.95 6.36 6.55.66-4.9 4.79 1.39 6.69L12 17.77l-6 3.23 1.39-6.69L2.5 9.52l6.55-.66L12 2.5z"
+                      :fill="isFav(showList[i]) ? 'currentColor' : 'none'"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="fav-text">{{ isFav(showList[i]) ? '已收藏' : '收藏' }}</span>
+                </button>
               </div>
               <div class="questionType">
                 <span v-if="$route.path == '/newHome/favorites'">
@@ -223,16 +247,24 @@
             </div>
             <div class="right">
               <div class="markAndLike">
-                <transition name="fade" mode="out-in">
-                  <img class="mark"
-                    :src="showList[i].markFlag ? markActiveIcon : markIcon"
-                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
-                </transition>
-                <transition name="fade" mode="out-in">
-                  <img class="like"
-                    :src="showList[i].likeFlag ? likeActiveIcon : likeIcon"
-                    @click="changeFlag('likeFlag', i)" :key="item.likeFlag">
-                </transition>
+                <button class="fav-btn mark-btn" :class="{ 'is-fav': isMarked(showList[i]) }"
+                  @click="toggleMark(showList[i])" type="button">
+                  <svg class="fav-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                    <path d="M7 3h10a1 1 0 0 1 1 1v17l-6-3.5L6 21V4a1 1 0 0 1 1-1z"
+                      :fill="isMarked(showList[i]) ? 'currentColor' : 'none'"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="fav-text">{{ isMarked(showList[i]) ? '已标记' : '标记' }}</span>
+                </button>
+                <button class="fav-btn" :class="{ 'is-fav': isFav(showList[i]) }"
+                  @click="toggleFav(showList[i], i)" type="button">
+                  <svg class="fav-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                    <path d="M12 2.5l2.95 6.36 6.55.66-4.9 4.79 1.39 6.69L12 17.77l-6 3.23 1.39-6.69L2.5 9.52l6.55-.66L12 2.5z"
+                      :fill="isFav(showList[i]) ? 'currentColor' : 'none'"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="fav-text">{{ isFav(showList[i]) ? '已收藏' : '收藏' }}</span>
+                </button>
               </div>
               <div class="questionType">
                 <span v-if="$route.path == '/newHome/favorites'">
@@ -288,10 +320,6 @@ import { loadQuestionBank } from '@/utils/loadJson'
 import Fuse from 'fuse.js';
 import { makePdf } from "@/utils/makePdf";
 import { ElMessage } from 'element-plus'
-import markActiveIcon from '@/assets/icon/icon-mark-active.svg'
-import markIcon from '@/assets/icon/icon-mark.svg'
-import likeActiveIcon from '@/assets/icon/icon-like-active.svg'
-import likeIcon from '@/assets/icon/icon-like.svg'
 
 export default {
   setup() {
@@ -421,21 +449,6 @@ export default {
       } catch (e) {
         this.list = [];
       }
-
-      if (this.store.wrongQuestions.length > 0 || this.store.likeList.length > 0) {
-        this.store.wrongQuestions.forEach(subsetItem => {
-          let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
-          if (supersetItem) {
-            supersetItem.likeFlag = true;
-          }
-        });
-        this.store.likeList.forEach(subsetItem => {
-          let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
-          if (supersetItem) {
-            supersetItem.likeFlag = true;
-          }
-        });
-      }
     }
     this.showList = [...this.list]
     this.searchWord = ""
@@ -448,7 +461,7 @@ export default {
         if (this.$route.path == '/newHome/favorites') {
           switch (newValue) {
             case 'all':
-              this.list = [...new Set([...this.store.likeList, ...this.store.wrongQuestions])]
+              this.list = this.getMergedFavoriteList()
               this.showList = [...this.list]
               break
             case 'favorites':
@@ -484,21 +497,6 @@ export default {
             this.list = await loadQuestionBank(this.lesson, this.type);
         } catch (e) {
             this.list = [];
-        }
-
-        if (this.store.wrongQuestions.length > 0 || this.store.likeList.length > 0) {
-          this.store.wrongQuestions.forEach(subsetItem => {
-            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
-            if (supersetItem) {
-              supersetItem.likeFlag = true;
-            }
-          });
-          this.store.likeList.forEach(subsetItem => {
-            let supersetItem = this.list.find(supersetItem => supersetItem.id == subsetItem.id);
-            if (supersetItem) {
-              supersetItem.likeFlag = true;
-            }
-          });
         }
       }
       this.showList = [...this.list]
@@ -653,53 +651,57 @@ export default {
 
       // 错了自动加入错题集
       if (!isCorrect) {
-        const exists = this.store.wrongQuestions.some(q => q.id === question.id);
-        if (!exists) {
-          question.likeFlag = true;
-          this.store.wrongQuestions.push(question);
-        }
+        this.store.addWrongQuestion(question);
       }
     },
     changeFlag(flagType, i) {
-      this.showList[i][flagType] = !this.showList[i][flagType]
-      if (this.$route.path == '/newHome/favorites') {
-        if (this.subjectOptions == 'favorites') {
-          if (this.showList[i][flagType]) {
-            this.store.addLikeQuestion(this.showList[i])
-          } else {
-            this.store.removeLikeQuestion(this.showList[i].id)
-            this.list = this.store.likeList
-            this.showList = [...this.list]
-          }
-        } else if (this.subjectOptions == 'wrong') {
-          if (this.showList[i][flagType]) {
-            this.store.addFavoriteQuestion(this.showList[i])
-          } else {
-            this.store.removeFavoriteQuestion(this.showList[i].id)
-            this.list = this.store.wrongQuestions
-            this.showList = [...this.list]
-          }
-        } else {
-          if (this.showList[i][flagType]) {
-            this.store.addLikeQuestion(this.showList[i])
-          } else {
-            this.store.removeLikeQuestion(this.showList[i].id)
-            this.store.removeFavoriteQuestion(this.showList[i].id)
-            this.list = [...new Set([...this.store.likeList, ...this.store.wrongQuestions])]
-            this.showList = [...this.list]
-          }
-        }
-      } else {
-        if (this.showList[i][flagType]) {
-          this.store.addLikeQuestion(this.showList[i])
-        } else {
-          this.store.removeLikeQuestion(this.showList[i].id)
-          this.store.removeFavoriteQuestion(this.showList[i].id)
+      // Legacy entrypoint — kept in case external code calls it. Delegates to toggleFav.
+      this.toggleFav(this.showList[i], i)
+    },
+    isFav(question) {
+      if (!question) return false
+      return this.store.isFavorite(question.id)
+    },
+    isMarked(question) {
+      if (!question) return false
+      return this.store.isMarked(question.id)
+    },
+    toggleMark(question) {
+      if (!question) return
+      const nowMarked = this.store.toggleMark(question)
+      ElMessage({
+        message: nowMarked ? '已标记' : '已取消标记',
+        type: nowMarked ? 'success' : 'info',
+        duration: 1200
+      })
+    },
+    toggleFav(question, i) {
+      if (!question) return
+      const nowFavorite = this.store.toggleFavorite(question)
+      ElMessage({
+        message: nowFavorite ? '已加入收藏夹' : '已取消收藏',
+        type: nowFavorite ? 'success' : 'info',
+        duration: 1200
+      })
+      // If we're viewing the favorites page and the user just un-favorited an item,
+      // remove it from the rendered list — but only if it's no longer present in any
+      // underlying list (it could still be a wrong question in 'all' mode).
+      if (!nowFavorite && this.$route.path === '/newHome/favorites') {
+        const stillVisible =
+          this.subjectOptions === 'all' &&
+          this.store.wrongQuestions.some(q => q.id === question.id)
+        if (!stillVisible) {
+          this.showList.splice(i, 1)
+          this.list = this.list.filter(q => q.id !== question.id)
         }
       }
     },
-    changeFlagIcon(flagType, i) {
-      this.showList[i][flagType] = !this.showList[i][flagType]
+    getMergedFavoriteList() {
+      const unique = new Map();
+      [...this.store.likeList, ...this.store.wrongQuestions].forEach(item => {
+        unique.set(item.id, item);
+      });
+      return Array.from(unique.values());
     },
     changeInput() {
       if (this.searchWord === "") {
@@ -804,24 +806,71 @@ export default {
       }
 
       .right {
-        text-align: justify;
+        text-align: left;
         position: relative;
         width: 94%;
 
         .markAndLike {
-          width: 72px;
           height: 32px;
           position: absolute;
           top: 0px;
           right: 0px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
 
-          .mark {
-            display: inline-block;
-            margin-right: 8px;
-          }
+          .fav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            height: 28px;
+            padding: 0 10px;
+            border-radius: 14px;
+            border: 1px solid #6C5DD3;
+            background-color: #fff;
+            color: #6C5DD3;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            line-height: 1;
+            font-family: inherit;
 
-          .like {
-            display: inline-block;
+            .fav-icon {
+              flex-shrink: 0;
+              transition: transform 0.2s ease;
+            }
+
+            .fav-text {
+              white-space: nowrap;
+            }
+
+            &:hover {
+              background-color: #E6E4F4;
+              transform: translateY(-1px);
+              box-shadow: 0 2px 6px rgba(108, 93, 211, 0.25);
+            }
+
+            &:active .fav-icon {
+              transform: scale(1.2);
+            }
+
+            &.is-fav {
+              background-color: #6C5DD3;
+              color: #fff;
+              border-color: #6C5DD3;
+
+              .fav-icon {
+                // Drop shadow gives the star a faint outline so the filled
+                // glyph stays visible even though fill === button background.
+                filter: drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.35));
+              }
+
+              &:hover {
+                background-color: #5B4FB5;
+                border-color: #5B4FB5;
+              }
+            }
           }
         }
 
@@ -845,22 +894,29 @@ export default {
 
         .questionOpt {
           .option {
+            display: flex;
+            align-items: flex-start;
             line-height: 28px;
             font-size: 18px;
             letter-spacing: 1px;
             position: relative;
+            text-align: left;
+            margin-bottom: 4px;
 
             .dot {
+              flex: 0 0 auto;
               width: 14px;
               height: 14px;
               border-radius: 50%;
               background-color: #6C5DD3;
-              position: absolute;
-              top: 7px;
+              margin-top: 7px;
             }
 
             .optText {
-              text-indent: 22px;
+              flex: 1;
+              margin-left: 8px;
+              text-indent: 0;
+              word-break: break-word;
             }
           }
         }
@@ -940,6 +996,31 @@ export default {
       margin-bottom: 8px;
       line-height: 28px;
       font-size: 16px;
+      text-align: left;
+
+      .el-radio,
+      .el-checkbox {
+        display: flex;
+        align-items: flex-start;
+        height: auto;
+        white-space: normal;
+      }
+
+      .el-radio__input,
+      .el-checkbox__input {
+        flex: 0 0 auto;
+        margin-top: 4px;
+      }
+
+      .el-radio__label,
+      .el-checkbox__label {
+        display: block;
+        flex: 1;
+        white-space: normal;
+        line-height: 24px;
+        text-align: left;
+        word-break: break-word;
+      }
     }
 
     .fill-practice-row {

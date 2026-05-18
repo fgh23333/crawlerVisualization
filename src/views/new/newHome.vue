@@ -364,7 +364,12 @@ export default {
                 color: #6C5DD3;
             }
 
-            .is-active {
+            // Scope to .el-menu-item only. The unqualified `.is-active`
+            // selector used to leak onto `.el-sub-menu` and `.el-sub-menu__title`
+            // (Element Plus stamps `is-active` on every ancestor of the active
+            // item), painting the whole submenu container lavender and leaving
+            // a rounded purple strip below the last option.
+            .el-menu-item.is-active {
                 background-color: #E6E4F4 !important;
                 color: #6C5DD3 !important;
                 font-weight: bold;

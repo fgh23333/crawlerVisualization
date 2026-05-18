@@ -196,7 +196,7 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.store.addFavoriteQuestion(this.list[i])
+                            this.store.addWrongQuestion(this.list[i])
                         }
                     }
                     for (let i = 20; i < 35; i++) {
@@ -206,7 +206,7 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.store.addFavoriteQuestion(this.list[i])
+                            this.store.addWrongQuestion(this.list[i])
                         }
                     }
                     for (let i = 36; i < 50; i++) {
@@ -215,7 +215,7 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.store.addFavoriteQuestion(this.list[i])
+                            this.store.addWrongQuestion(this.list[i])
                         }
                     }
                     for (let i = 51; i < 60; i++) {
@@ -224,7 +224,7 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.store.addFavoriteQuestion(this.list[i])
+                            this.store.addWrongQuestion(this.list[i])
                         }
                     }
                     ElMessageBox.alert(`得分为${sum}`, {
@@ -252,7 +252,7 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.store.addFavoriteQuestion(this.list[i])
+                                this.store.addWrongQuestion(this.list[i])
                             }
                         }
                         for (let i = 20; i < 35; i++) {
@@ -261,7 +261,7 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.store.addFavoriteQuestion(this.list[i])
+                                this.store.addWrongQuestion(this.list[i])
                             }
                         }
                         for (let i = 36; i < 50; i++) {
@@ -269,7 +269,7 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.store.addFavoriteQuestion(this.list[i])
+                                this.store.addWrongQuestion(this.list[i])
                             }
                         }
                         for (let i = 51; i < 60; i++) {
@@ -277,7 +277,7 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.store.addFavoriteQuestion(this.list[i])
+                                this.store.addWrongQuestion(this.list[i])
                             }
                         }
                         ElMessageBox.alert(`得分为${sum}`, {
@@ -305,7 +305,7 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.store.addFavoriteQuestion(this.list[i])
+                            this.store.addWrongQuestion(this.list[i])
                         }
                     }
                     for (let i = 16; i < 30; i++) {
@@ -315,7 +315,7 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.store.addFavoriteQuestion(this.list[i])
+                            this.store.addWrongQuestion(this.list[i])
                         }
                     }
                     for (let i = 31; i < 45; i++) {
@@ -324,7 +324,7 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.store.addFavoriteQuestion(this.list[i])
+                            this.store.addWrongQuestion(this.list[i])
                         }
                     }
                     for (let i = 46; i < 50; i++) {
@@ -333,7 +333,7 @@ export default {
                         } else {
                             sum += 0
                             this.list[i].likeFlag = true
-                            this.store.addFavoriteQuestion(this.list[i])
+                            this.store.addWrongQuestion(this.list[i])
                         }
                     }
                     ElMessageBox.alert(`得分为${sum}`, {
@@ -361,7 +361,7 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.store.addFavoriteQuestion(this.list[i])
+                                this.store.addWrongQuestion(this.list[i])
                             }
                         }
                         for (let i = 16; i < 30; i++) {
@@ -370,7 +370,7 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.store.addFavoriteQuestion(this.list[i])
+                                this.store.addWrongQuestion(this.list[i])
                             }
                         }
                         for (let i = 31; i < 45; i++) {
@@ -378,7 +378,7 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.store.addFavoriteQuestion(this.list[i])
+                                this.store.addWrongQuestion(this.list[i])
                             }
                         }
                         for (let i = 46; i < 50; i++) {
@@ -386,7 +386,7 @@ export default {
                                 sum += 0.5
                             } else {
                                 sum += 0
-                                this.store.addFavoriteQuestion(this.list[i])
+                                this.store.addWrongQuestion(this.list[i])
                             }
                         }
                         ElMessageBox.alert(`得分为${sum}`, {

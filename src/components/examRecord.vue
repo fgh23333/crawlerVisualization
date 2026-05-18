@@ -32,7 +32,8 @@ export default {
     data() {
         return {
             status: [],
-            length: ''
+            length: '',
+            submitted: false
         }
     },
     computed: {
@@ -66,21 +67,16 @@ export default {
     watch: {
         'store.answerList': {
             handler(newValue, oldValue) {
-                // Don't update status display after submission (score is set)
-                if (this.store.score !== null && this.store.score !== undefined) {
+                // Don't repaint status after submission. `submitted` flips first
+                // (in confirmAndSubmit), `store.score` is a longer-lived backup
+                // that survives component re-creation.
+                if (this.submitted || (this.store.score !== null && this.store.score !== undefined)) {
                     return
                 }
                 if (newValue === '' || !newValue) {
                     return
-                } else {
-                    this.status = newValue.map(item => {
-                        if (!(Array.isArray(item) && item.length === 0) && item !== undefined && item !== null && item !== '') {
-                            return 'active'
-                        } else {
-                            return 'unactive'
-                        }
-                    })
                 }
+                this.status = this.buildAnswerStatus(newValue)
             },
             deep: true
         },
@@ -95,13 +91,15 @@ export default {
                         confirmButtonText: '确定',
                     });
                 } else {
+                    const nextStatus = new Array(this.length).fill('false')
                     await results.map(item => {
                         if (item.isCorrect) {
-                            this.status[this.findQuestionIndex(item.questionId)] = 'true'
+                            nextStatus[this.findQuestionIndex(item.questionId)] = 'true'
                         } else {
-                            this.status[this.findQuestionIndex(item.questionId)] = 'false'
+                            nextStatus[this.findQuestionIndex(item.questionId)] = 'false'
                         }
                     })
+                    this.status = nextStatus
                     if (this.autoSave) {
                         ElMessageBox.alert(`得分为${newValue}，错题已推送至收藏夹`, '提交成功', {
                             confirmButtonText: '确定',
@@ -116,36 +114,46 @@ export default {
         }
     },
     methods: {
+        isAnswered(answer) {
+            if (Array.isArray(answer)) {
+                return answer.length > 0
+            }
+            return answer !== undefined && answer !== null && String(answer).trim() !== ''
+        },
+        buildAnswerStatus(answerList) {
+            return this.store.questionBank.map((question, index) => {
+                return this.isAnswered(answerList[index]) ? 'active' : 'unactive'
+            })
+        },
+        async confirmAndSubmit(message, type) {
+            try {
+                await ElMessageBox.confirm(message, '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type
+                })
+                this.submitted = true
+                await this.store.checkAnswer(this.autoSave)
+                this.$emit('examStatus', true)
+            } catch (e) {
+                return
+            }
+        },
         async submitAnswer() {
             if (this.status.includes('unactive')) {
-                ElMessageBox.confirm('还有未做的题目，确定提交吗？', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
-                    type: 'warning'
-                }).then(() => {
-                    this.store.checkAnswer(this.autoSave)
-                    this.$emit('examStatus', true)
-                }).catch(() => {
-                    return
-                });
+                this.confirmAndSubmit('还有未做的题目，确定提交吗？', 'warning')
             } else {
-                ElMessageBox.confirm('确认提交吗？', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
-                    type: 'info'
-                }).then(() => {
-                    this.store.checkAnswer(this.autoSave)
-                    this.$emit('examStatus', true)
-                }).catch(() => {
-                    return
-                });
+                this.confirmAndSubmit('确认提交吗？', 'info')
             }
         }
     },
     created() {
         const length = this.questionTypes.fillInTheBlank.length + this.questionTypes.multipleChoice.length + this.questionTypes.singleChoice.length + this.questionTypes.trueOrFalse.length
         this.length = length
-        this.store.answerList = new Array(length).fill('')
+        this.submitted = false
+        this.store.answerList = this.store.questionBank.map(question => {
+            return question.option && question.option.length > 2 && question.answer.length > 1 ? [] : ''
+        })
         this.status = new Array(length).fill('unactive')
     }
 };

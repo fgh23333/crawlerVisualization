@@ -10,9 +10,8 @@
             <div class="questionStem">{{ question.questionStem }}</div>
             <div class="questionAnswer">
                 <div class="multiple" v-if="questionType == '多选'">
-                    <el-checkbox-group v-model="checkList" :disabled="examStatus" class="checkbox-group"
-                        @change="updateOption(seq, checkList)">
-                        <div v-for="(item, i) in question.option" class="answer">
+                    <el-checkbox-group v-model="answerModel" :disabled="examStatus" class="checkbox-group">
+                        <div v-for="(item, i) in question.option" :key="i" class="answer">
                             <el-checkbox :label="options[i]" :key="i" class="option checkbox-item copyable-option">
                                 <span class="copyable-text">{{ options[i] + '、' + item }}</span>
                             </el-checkbox>
@@ -20,24 +19,25 @@
                     </el-checkbox-group>
                 </div>
                 <div class="single" v-if="questionType == '判断' || questionType == '单选'">
-                    <div v-for="(item, i) in question.option" :key="i" class="answer">
-                        <el-radio v-model="radio" :disabled="examStatus"
-                            :label="question.option.length == 2 ? item : options[i]" class="option copyable-option"
-                            @change="updateOption(seq, radio)">
-                            <span class="copyable-text">{{ options[i] + '、' + item }}</span>
-                        </el-radio>
-                    </div>
+                    <el-radio-group v-model="answerModel" :disabled="examStatus" class="radio-group">
+                        <div v-for="(item, i) in question.option" :key="i" class="answer">
+                            <el-radio :label="question.option.length == 2 ? item : options[i]"
+                                class="option copyable-option">
+                                <span class="copyable-text">{{ options[i] + '、' + item }}</span>
+                            </el-radio>
+                        </div>
+                    </el-radio-group>
                 </div>
                 <div class="fillingBlank" v-if="questionType == '填空'">
-                    <el-input class="copyable-option" v-model="input" :disabled="examStatus"
-                        @input="updateOption(seq, input)" placeholder="请输入答案"></el-input>
+                    <el-input class="copyable-option" v-model="answerModel" :disabled="examStatus"
+                        placeholder="请输入答案"></el-input>
                 </div>
                 <div class="trueAnswer" v-if="examStatus">
                     <span class="colorBefore"></span>
                     <span class="answerStatus true"
-                        v-if="store.results[seq].questionId == question.id && store.results[seq].isCorrect">回答正确</span>
+                        v-if="answerResult && answerResult.isCorrect">回答正确</span>
                     <span class="answerStatus false"
-                        v-if="store.results[seq].questionId == question.id && !store.results[seq].isCorrect">回答错误</span>
+                        v-if="answerResult && answerResult.isCorrect === false">回答错误</span>
                     <span class="correctAnswer">正确答案：</span>
                     <span class="answer">{{ question.answer }}</span>
                 </div>
@@ -53,10 +53,7 @@ export default {
     setup() { return { store: useQuestionStore() } },
     data() {
         return {
-            radio: '',
-            checkList: [],
-            options: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'],
-            input: ''
+            options: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T']
         }
     },
     props: {
@@ -86,6 +83,21 @@ export default {
             } else {
                 return '多选'
             }
+        },
+        answerModel: {
+            get() {
+                const value = this.store.answerList[this.seq]
+                if (this.questionType == '多选') {
+                    return Array.isArray(value) ? value : []
+                }
+                return Array.isArray(value) ? '' : (value ?? '')
+            },
+            set(value) {
+                this.store.answerList[this.seq] = value
+            }
+        },
+        answerResult() {
+            return this.store.results.find(item => item.questionId == this.question.id)
         }
     },
     methods: {
@@ -97,22 +109,22 @@ export default {
 </script>
 
 <style lang="scss">
-.checkbox-group {
+.checkbox-group,
+.radio-group {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
 }
 
 .checkbox-item {
     display: flex;
     align-items: flex-start;
-    /* 确保复选框靠上对齐 */
-    margin-bottom: 10px;
-    /* 调整每个选项的间距 */
+    margin-bottom: 0;
 }
 
 .el-checkbox {
     align-items: flex-start;
-    /* 让复选框靠上对齐 */
 }
 
 /* 禁用选项的鼠标事件 */
@@ -206,28 +218,53 @@ export default {
             margin-bottom: 10px;
 
             .answer {
-                line-height: 30px;
+                display: flex;
+                justify-content: flex-start;
+                line-height: 24px;
+                margin-bottom: 8px;
                 color: #5F89D3;
+                text-align: left;
+
+                .option {
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    width: 100%;
+                    height: auto;
+                    margin-right: 0;
+                    white-space: normal;
+                    text-align: left;
+                }
 
                 span {
                     word-wrap: break-word;
                     word-break: break-all;
                     white-space: normal;
-                    line-height: 22px;
+                    line-height: 24px;
                 }
 
                 .el-radio__inner {
                     border: 1px solid #999;
                 }
 
+                .el-radio__input {
+                    flex: 0 0 auto;
+                    margin-top: 3px;
+                }
 
                 .el-radio__label {
                     font-size: 18px;
-                    display: inline;
+                    display: block;
+                    flex: 1;
+                    padding-left: 8px;
+                    text-align: left;
+                    white-space: normal;
+                    line-height: 24px;
                 }
 
                 .el-checkbox__input {
-                    margin-top: -2px;
+                    flex: 0 0 auto;
+                    margin-top: 3px;
 
                     .el-checkbox__inner {
                         border: 1px solid #999;
@@ -236,7 +273,20 @@ export default {
 
                 .el-checkbox__label {
                     font-size: 18px;
-                    display: inline;
+                    display: block;
+                    flex: 1;
+                    padding-left: 8px;
+                    text-align: left;
+                    white-space: normal;
+                    line-height: 24px;
+                }
+
+                .copyable-text {
+                    display: block;
+                    text-align: left;
+                    white-space: normal;
+                    word-break: break-word;
+                    line-height: 24px;
                 }
             }
         }

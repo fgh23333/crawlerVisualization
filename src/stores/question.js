@@ -9,8 +9,21 @@ function getType(question) {
   return '单选'
 }
 
-function isExists(list, question) {
-  return list.some(item => item.id === question.id)
+function upsertQuestion(listRef, question, flags = {}) {
+  // strip ephemeral UI flags before persisting
+  const { likeFlag, markFlag, ...cleanQuestion } = question
+  const nextQuestion = { ...cleanQuestion, ...flags }
+  const index = listRef.value.findIndex(item => item.id === question.id)
+
+  if (index === -1) {
+    listRef.value.push(nextQuestion)
+    return
+  }
+
+  listRef.value[index] = {
+    ...listRef.value[index],
+    ...nextQuestion
+  }
 }
 
 function updateUserRecord(userRecords, questionId, isCorrect) {
@@ -37,6 +50,7 @@ export const useQuestionStore = defineStore('question', () => {
   const questionBank = ref([])
   const results = ref([])
   const likeList = ref([])
+  const markList = ref([])
   const score = ref(null)
   const fonts = ref(null)
   const userRecords = ref({})
@@ -63,8 +77,7 @@ export const useQuestionStore = defineStore('question', () => {
   }
 
   function addWrongQuestion(question) {
-    question.likeFlag = true
-    wrongQuestions.value.push(question)
+    upsertQuestion(wrongQuestions, question)
   }
 
   function removeWrongQuestion(questionId) {
@@ -72,12 +85,49 @@ export const useQuestionStore = defineStore('question', () => {
   }
 
   function addLikeQuestion(question) {
-    question.likeFlag = true
-    likeList.value.push(question)
+    upsertQuestion(likeList, question)
   }
 
   function removeLikeQuestion(questionId) {
     likeList.value = likeList.value.filter(q => q.id !== questionId)
+  }
+
+  function isFavorite(questionId) {
+    return likeList.value.some(q => q.id === questionId)
+  }
+
+  function toggleFavorite(question) {
+    if (isFavorite(question.id)) {
+      removeLikeQuestion(question.id)
+      return false
+    }
+    addLikeQuestion(question)
+    return true
+  }
+
+  function addMarkQuestion(question) {
+    upsertQuestion(markList, question)
+  }
+
+  function removeMarkQuestion(questionId) {
+    markList.value = markList.value.filter(q => q.id !== questionId)
+  }
+
+  function isMarked(questionId) {
+    return markList.value.some(q => q.id === questionId)
+  }
+
+  function toggleMark(question) {
+    if (isMarked(question.id)) {
+      removeMarkQuestion(question.id)
+      return false
+    }
+    addMarkQuestion(question)
+    return true
+  }
+
+  function clearMarkList() {
+    markList.value = []
   }
 
   function clearLikeList() {
@@ -121,16 +171,12 @@ export const useQuestionStore = defineStore('question', () => {
         results.value.push({ questionId: question.id, isCorrect })
 
         if (!isCorrect && autoSave) {
-          if (!isExists(wrongQuestions.value, question)) {
-            question.likeFlag = true
-            wrongQuestions.value.push(question)
-          }
+          addWrongQuestion(question)
         }
       })
     )
 
     score.value = results.value.filter(r => r.isCorrect).length
-    answerList.value = []
   }
 
   async function generateQuizAction(payload) {
@@ -140,23 +186,28 @@ export const useQuestionStore = defineStore('question', () => {
     questionBank.value = quiz
   }
 
-  // Aliases for backward compat (addFavoriteQuestion was mapped to ADD_WRONG_QUESTION)
-  function addFavoriteQuestion(question) { addWrongQuestion(question) }
-  function removeFavoriteQuestion(questionId) { removeWrongQuestion(questionId) }
+  // Aliases retained for backward compat with examPage.vue.
+  // NOTE: original aliases incorrectly mapped favorite-add to wrong-question-add.
+  // Now these correctly hit the favorites/like list.
+  function addFavoriteQuestion(question) { addLikeQuestion(question) }
+  function removeFavoriteQuestion(questionId) { removeLikeQuestion(questionId) }
 
   return {
     wrongQuestions, answerList, questionBank, results,
-    likeList, score, fonts, userRecords,
+    likeList, markList, score, fonts, userRecords,
     getQuestionsByType, getAllQuestions,
     loadQuestionBank, getQuestionType,
     addWrongQuestion, removeWrongQuestion,
     addLikeQuestion, removeLikeQuestion,
+    isFavorite, toggleFavorite,
+    addMarkQuestion, removeMarkQuestion,
+    isMarked, toggleMark, clearMarkList,
     addFavoriteQuestion, removeFavoriteQuestion,
     clearLikeList, clearWrongQuestions,
     checkAnswer, generateQuizAction
   }
 }, {
   persist: {
-    pick: ['wrongQuestions', 'likeList', 'userRecords']
+    pick: ['wrongQuestions', 'likeList', 'markList', 'userRecords']
   }
 })
