@@ -57,11 +57,15 @@
             </div>
             <div class="right">
               <div class="markAndLike">
-                <transition name="fade" mode="out-in">
-                  <img class="mark"
-                    :src="showList[i].markFlag ? markActiveIcon : markIcon"
-                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
-                </transition>
+                <button class="fav-btn mark-btn" :class="{ 'is-fav': isMarked(showList[i]) }"
+                  @click="toggleMark(showList[i])" type="button">
+                  <svg class="fav-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                    <path d="M7 3h10a1 1 0 0 1 1 1v17l-6-3.5L6 21V4a1 1 0 0 1 1-1z"
+                      :fill="isMarked(showList[i]) ? 'currentColor' : 'none'"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="fav-text">{{ isMarked(showList[i]) ? '已标记' : '标记' }}</span>
+                </button>
                 <button class="fav-btn" :class="{ 'is-fav': isFav(showList[i]) }"
                   @click="toggleFav(showList[i], i)" type="button">
                   <svg class="fav-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
@@ -114,11 +118,15 @@
             </div>
             <div class="right">
               <div class="markAndLike">
-                <transition name="fade" mode="out-in">
-                  <img class="mark"
-                    :src="showList[i].markFlag ? markActiveIcon : markIcon"
-                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
-                </transition>
+                <button class="fav-btn mark-btn" :class="{ 'is-fav': isMarked(showList[i]) }"
+                  @click="toggleMark(showList[i])" type="button">
+                  <svg class="fav-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                    <path d="M7 3h10a1 1 0 0 1 1 1v17l-6-3.5L6 21V4a1 1 0 0 1 1-1z"
+                      :fill="isMarked(showList[i]) ? 'currentColor' : 'none'"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="fav-text">{{ isMarked(showList[i]) ? '已标记' : '标记' }}</span>
+                </button>
                 <button class="fav-btn" :class="{ 'is-fav': isFav(showList[i]) }"
                   @click="toggleFav(showList[i], i)" type="button">
                   <svg class="fav-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
@@ -171,11 +179,15 @@
             </div>
             <div class="right">
               <div class="markAndLike">
-                <transition name="fade" mode="out-in">
-                  <img class="mark"
-                    :src="showList[i].markFlag ? markActiveIcon : markIcon"
-                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
-                </transition>
+                <button class="fav-btn mark-btn" :class="{ 'is-fav': isMarked(showList[i]) }"
+                  @click="toggleMark(showList[i])" type="button">
+                  <svg class="fav-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                    <path d="M7 3h10a1 1 0 0 1 1 1v17l-6-3.5L6 21V4a1 1 0 0 1 1-1z"
+                      :fill="isMarked(showList[i]) ? 'currentColor' : 'none'"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="fav-text">{{ isMarked(showList[i]) ? '已标记' : '标记' }}</span>
+                </button>
                 <button class="fav-btn" :class="{ 'is-fav': isFav(showList[i]) }"
                   @click="toggleFav(showList[i], i)" type="button">
                   <svg class="fav-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
@@ -235,11 +247,15 @@
             </div>
             <div class="right">
               <div class="markAndLike">
-                <transition name="fade" mode="out-in">
-                  <img class="mark"
-                    :src="showList[i].markFlag ? markActiveIcon : markIcon"
-                    @click="changeFlagIcon('markFlag', i)" :key="item.markFlag">
-                </transition>
+                <button class="fav-btn mark-btn" :class="{ 'is-fav': isMarked(showList[i]) }"
+                  @click="toggleMark(showList[i])" type="button">
+                  <svg class="fav-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                    <path d="M7 3h10a1 1 0 0 1 1 1v17l-6-3.5L6 21V4a1 1 0 0 1 1-1z"
+                      :fill="isMarked(showList[i]) ? 'currentColor' : 'none'"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="fav-text">{{ isMarked(showList[i]) ? '已标记' : '标记' }}</span>
+                </button>
                 <button class="fav-btn" :class="{ 'is-fav': isFav(showList[i]) }"
                   @click="toggleFav(showList[i], i)" type="button">
                   <svg class="fav-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
@@ -304,8 +320,6 @@ import { loadQuestionBank } from '@/utils/loadJson'
 import Fuse from 'fuse.js';
 import { makePdf } from "@/utils/makePdf";
 import { ElMessage } from 'element-plus'
-import markActiveIcon from '@/assets/icon/icon-mark-active.svg'
-import markIcon from '@/assets/icon/icon-mark.svg'
 
 export default {
   setup() {
@@ -648,6 +662,19 @@ export default {
       if (!question) return false
       return this.store.isFavorite(question.id)
     },
+    isMarked(question) {
+      if (!question) return false
+      return this.store.isMarked(question.id)
+    },
+    toggleMark(question) {
+      if (!question) return
+      const nowMarked = this.store.toggleMark(question)
+      ElMessage({
+        message: nowMarked ? '已标记' : '已取消标记',
+        type: nowMarked ? 'success' : 'info',
+        duration: 1200
+      })
+    },
     toggleFav(question, i) {
       if (!question) return
       const nowFavorite = this.store.toggleFavorite(question)
@@ -675,9 +702,6 @@ export default {
         unique.set(item.id, item);
       });
       return Array.from(unique.values());
-    },
-    changeFlagIcon(flagType, i) {
-      this.showList[i][flagType] = !this.showList[i][flagType]
     },
     changeInput() {
       if (this.searchWord === "") {
@@ -794,11 +818,6 @@ export default {
           display: flex;
           align-items: center;
           gap: 8px;
-
-          .mark {
-            display: inline-block;
-            cursor: pointer;
-          }
 
           .fav-btn {
             display: inline-flex;
