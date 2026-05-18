@@ -66,7 +66,11 @@ export default {
     watch: {
         'store.answerList': {
             handler(newValue, oldValue) {
-                if (newValue === '') {
+                // Don't update status display after submission (score is set)
+                if (this.store.score !== null && this.store.score !== undefined) {
+                    return
+                }
+                if (newValue === '' || !newValue) {
                     return
                 } else {
                     this.status = newValue.map(item => {
