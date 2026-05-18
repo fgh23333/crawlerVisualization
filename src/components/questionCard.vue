@@ -502,6 +502,8 @@ export default {
       this.showList = [...this.list]
       this.searchWord = ""
       this.onSearch = false
+      this.practiceAnswers = {}
+      this.practiceResults = {}
       this.initShowAnswers();
     },
     // 监听题型筛选
