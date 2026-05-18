@@ -670,7 +670,7 @@ export default {
       if (!question) return
       const nowMarked = this.store.toggleMark(question)
       ElMessage({
-        message: nowMarked ? '已标记' : '已取消标记',
+        message: nowMarked ? '已加入错题本' : '已从错题本移除',
         type: nowMarked ? 'success' : 'info',
         duration: 1200
       })
@@ -683,18 +683,6 @@ export default {
         type: nowFavorite ? 'success' : 'info',
         duration: 1200
       })
-      // If we're viewing the favorites page and the user just un-favorited an item,
-      // remove it from the rendered list — but only if it's no longer present in any
-      // underlying list (it could still be a wrong question in 'all' mode).
-      if (!nowFavorite && this.$route.path === '/newHome/favorites') {
-        const stillVisible =
-          this.subjectOptions === 'all' &&
-          this.store.wrongQuestions.some(q => q.id === question.id)
-        if (!stillVisible) {
-          this.showList.splice(i, 1)
-          this.list = this.list.filter(q => q.id !== question.id)
-        }
-      }
     },
     getMergedFavoriteList() {
       const unique = new Map();

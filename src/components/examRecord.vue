@@ -101,7 +101,7 @@ export default {
                     })
                     this.status = nextStatus
                     if (this.autoSave) {
-                        ElMessageBox.alert(`得分为${newValue}，错题已推送至收藏夹`, '提交成功', {
+                        ElMessageBox.alert(`得分为${newValue}，错题已推送至错题本`, '提交成功', {
                             confirmButtonText: '确定',
                         });
                     } else {
