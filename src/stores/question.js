@@ -54,6 +54,22 @@ export const useQuestionStore = defineStore('question', () => {
   const fonts = ref(null)
   const userRecords = ref({})
 
+  // Data Migration: ensure stored lists are arrays of objects, not just IDs
+  function migrateLists() {
+    const lists = { wrongQuestions, likeList }
+    for (const [name, refValue] of Object.entries(lists)) {
+      if (Array.isArray(refValue.value) && refValue.value.length > 0) {
+        if (typeof refValue.value[0] === 'string' || typeof refValue.value[0] === 'number') {
+          console.log(`Migrating ${name} from IDs to Objects...`)
+          refValue.value = refValue.value.map(id => ({ id }))
+        }
+      }
+    }
+  }
+
+  // Run migration immediately on store initialization
+  migrateLists()
+
   // Getters
   const getQuestionsByType = computed(() => (type) => {
     return questionBank.value.filter(question => {
