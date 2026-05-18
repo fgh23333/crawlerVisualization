@@ -6,6 +6,7 @@ import mermaid from 'mermaid'
 
 mermaid.initialize({
   startOnLoad: false,
+  suppressErrors: true,
   theme: 'base',
   themeVariables: {
     primaryColor: '#E6E4F4',
@@ -317,11 +318,15 @@ function renderComponentDiagram(mdj, byId) {
  */
 export async function renderMermaid(mermaidDef, container) {
   if (!mermaidDef || !container) return
+  const id = 'mermaid-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6)
   try {
-    const { svg } = await mermaid.render('mermaid-' + Date.now(), mermaidDef)
+    const { svg } = await mermaid.render(id, mermaidDef)
     container.innerHTML = svg
   } catch (e) {
     console.warn('Mermaid render failed:', e)
+    // Clean up any error element mermaid left in the DOM
+    const errorEl = document.getElementById('d' + id)
+    if (errorEl) errorEl.remove()
     container.innerHTML = '<p style="color:#999;padding:20px;">图表渲染失败，请下载 .mdj 文件查看</p>'
   }
 }
