@@ -561,7 +561,8 @@ export default {
       localStorage.setItem(storageKey, JSON.stringify(viewed));
     },
     toggleAnswer(index) {
-      this.showAnswers[index] = !this.showAnswers[index];
+      const newVal = !this.showAnswers[index];
+      this.showAnswers.splice(index, 1, newVal);
       this.saveViewedState();
     },
     updateDefaultSetting() {
