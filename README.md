@@ -1,46 +1,50 @@
 # Political Exam Practice System
 
-一个基于 Vue.js 2 的政治理论课刷题与模拟考试系统。旨在帮助学生高效复习各类政治理论课程，支持多种题型练习、模拟考试、错题回顾以及 AI 辅助学习。
+一个基于 Vue 3 + Vite 的政治理论课刷题与模拟考试系统。旨在帮助学生高效复习各类政治理论课程，支持多种题型练习、模拟考试、错题回顾、收藏/标记，以及 AI 辅助学习。项目同时内置了**全国计算机等级考试三级**题库模块。
 
 ## ✨ 主要功能 (Features)
 
-- **多科目支持**：涵盖马原、毛概、思修、史纲、形势与政策等多个政治理论科目。
+- **多科目支持**：涵盖马原、毛概、思修（思想道德与法治）、史纲、习概、改开史、新中国史、党史、社主史等多个政治理论科目。
 - **全题型覆盖**：
   - 单选题 (Single Choice)
   - 多选题 (Multiple Choice)
   - 判断题 (True/False)
   - 填空题 (Fill in the Blank)
 - **模拟考试 (Mock Exam)**：
-  - 随机组卷或指定章节练习
+  - 按试卷或章节练习
   - 自动评分与答题解析
+  - 错题自动归入错题本
 - **个性化学习**：
   - **错题本 (Wrong Questions)**：自动记录做错的题目，方便查漏补缺。
-  - **收藏夹 (Favorites)**：重点题目一键收藏。
-  - **学习记录 (User Records)**：统计做题情况和正确率。
+  - **收藏夹 (Favorites)**：题目右上角一键收藏 / 取消收藏，状态持久化到本地。
+  - **标记 (Marks)**：与收藏并列的标记按钮，用于额外标注重点题；同样持久化。
+  - **学习记录 (User Records)**：统计做题次数、错题次数与最近错题日期。
+- **NCRE 三级题库**：独立模块（`/ncre3`），覆盖三级网络技术 / 数据库技术等题型，并支持基于 mermaid 的 UML 图渲染。
 - **实用工具**：
-  - **PDF 导出**：支持将试题导出为 PDF 文件，方便打印复习。
-  - **AI 助手**：内置 Gemma AI 对话功能，辅助解答疑惑。
-- **现代化界面**：提供全新的移动端友好界面 (`/newHome`)，交互流畅。
+  - **PDF 导出**：支持将试题列表导出为 PDF 或直接打印。
+  - **AI 助手 (Beta)**：内置对话页面，辅助解答疑惑。
+- **现代化界面**：紫色调主题、侧边栏导航、Element Plus 组件库，桌面端体验为主。
 
 ## 🛠 技术栈 (Tech Stack)
 
-- **核心框架**: [Vue.js 2.x](https://v2.vuejs.org/)
-- **状态管理**: [Vuex](https://vuex.vuejs.org/) (配合 `vuex-persistedstate` 实现数据持久化)
-- **路由管理**: [Vue Router](https://router.vuejs.org/)
-- **UI 组件库**:
-  - [Vant UI](https://vant-ui.github.io/vant/v2/) (移动端/新版界面)
-  - [Element UI](https://element.eleme.io/) (桌面端/通用组件)
+- **核心框架**: [Vue 3](https://vuejs.org/)（Composition + Options 混合使用）
+- **构建工具**: [Vite 5](https://vitejs.dev/)
+- **状态管理**: [Pinia 2](https://pinia.vuejs.org/)，配合 [`pinia-plugin-persistedstate`](https://prazdevs.github.io/pinia-plugin-persistedstate/) 写入 `localStorage` 实现持久化
+- **路由管理**: [Vue Router 4](https://router.vuejs.org/)
+- **UI 组件库**: [Element Plus](https://element-plus.org/) + [@element-plus/icons-vue](https://element-plus.org/en-US/component/icon.html)
+- **样式**: SCSS（`sass`）
 - **工具库**:
-  - [Axios](https://axios-http.com/): HTTP 请求
-  - [Fuse.js](https://www.fusejs.io/): 模糊搜索支持
-  - [pdfmake](http://pdfmake.org/): PDF 生成
-  - [Less](http://lesscss.org/): CSS 预处理器
+  - [Axios](https://axios-http.com/)：HTTP 请求
+  - [Fuse.js](https://www.fusejs.io/)：模糊搜索
+  - [pdfmake](http://pdfmake.org/)：PDF 生成
+  - [marked](https://marked.js.org/) + [highlight.js](https://highlightjs.org/)：Markdown / 代码高亮
+  - [mermaid](https://mermaid.js.org/)：UML / 流程图渲染（NCRE3 模块用）
 
 ## 🚀 快速开始 (Getting Started)
 
 ### 环境要求
-- Node.js (推荐 LTS 版本)
-- npm 或 pnpm
+- Node.js（推荐 LTS，≥ 18）
+- pnpm（推荐）或 npm
 
 ### 安装步骤
 
@@ -52,37 +56,54 @@
 
 2. **安装依赖**
    ```bash
-   npm install
-   # 或者
    pnpm install
+   # 或者
+   npm install
    ```
 
-3. **运行开发服务器**
+3. **启动开发服务器**
    ```bash
-   npm run serve
+   pnpm dev
+   # 或者
+   npm run dev
    ```
-   启动后访问 `http://localhost:8080` (端口可能根据占用情况变化)。
+   默认运行在 `http://localhost:5173/`。可通过 `pnpm dev --port 8080` 自定义端口。
 
 4. **构建生产版本**
    ```bash
-   npm run build
+   pnpm build
    ```
+   产物输出到 `dist/`。可用 `pnpm preview` 在本地预览。
 
 ## 📂 项目结构 (Project Structure)
 
 ```
 src/
-├── assets/          # 静态资源（题目JSON数据、图片、图标）
-├── components/      # 公共组件 (ExamCard, QuestionCard, Gemma等)
-├── router/          # 路由配置
-├── store/           # Vuex 状态管理 (题库、错题、收藏、成绩)
-├── utils/           # 工具函数 (PDF生成, 试卷生成器等)
-├── views/           # 页面视图
-│   ├── new/         # 新版UI页面 (Home, Exam, Chat, etc.)
-│   └── ...          # 旧版/通用视图
-├── App.vue          # 根组件
-└── main.js          # 入口文件
+├── assets/           # 静态资源（题库 JSON、图片、SVG 图标）
+├── components/       # 公共组件 (questionCard, examCard, examRecord 等)
+├── router/           # 路由配置（包含 / / /newHome / /ncre3 三套入口）
+├── stores/           # Pinia 状态管理
+│   ├── question.js   # 题库 / 答题 / 错题 / 收藏 / 标记 / 学习记录
+│   └── ncre3.js      # NCRE3 题库状态
+├── utils/            # 工具函数（PDF 生成、题目加载、Markdown 渲染等）
+├── views/            # 页面视图
+│   ├── new/          # 主入口 UI（/newHome 路径下）
+│   ├── ncre3/        # NCRE 三级题库 UI
+│   └── ...           # 旧版表格化视图（/rightWrong、/multipleChoice 等）
+├── App.vue           # 根组件
+└── main.js           # 入口文件
 ```
+
+## 💾 数据持久化
+
+Pinia store 通过 `pinia-plugin-persistedstate` 将以下字段写入 `localStorage`：
+
+- `wrongQuestions` — 错题本
+- `likeList` — 收藏夹
+- `markList` — 标记列表
+- `userRecords` — 学习记录（每题做题次数 / 错题次数 / 最近错题日期）
+
+清除浏览器站点数据即可重置。
 
 ## 📄 许可证 (License)
 
