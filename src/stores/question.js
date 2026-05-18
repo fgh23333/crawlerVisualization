@@ -9,8 +9,19 @@ function getType(question) {
   return '单选'
 }
 
-function isExists(list, question) {
-  return list.some(item => item.id === question.id)
+function upsertQuestion(listRef, question, flags = {}) {
+  const nextQuestion = { ...question, ...flags }
+  const index = listRef.value.findIndex(item => item.id === question.id)
+
+  if (index === -1) {
+    listRef.value.push(nextQuestion)
+    return
+  }
+
+  listRef.value[index] = {
+    ...listRef.value[index],
+    ...nextQuestion
+  }
 }
 
 function updateUserRecord(userRecords, questionId, isCorrect) {
@@ -63,8 +74,7 @@ export const useQuestionStore = defineStore('question', () => {
   }
 
   function addWrongQuestion(question) {
-    question.likeFlag = true
-    wrongQuestions.value.push(question)
+    upsertQuestion(wrongQuestions, question, { likeFlag: true })
   }
 
   function removeWrongQuestion(questionId) {
@@ -72,8 +82,7 @@ export const useQuestionStore = defineStore('question', () => {
   }
 
   function addLikeQuestion(question) {
-    question.likeFlag = true
-    likeList.value.push(question)
+    upsertQuestion(likeList, question, { likeFlag: true })
   }
 
   function removeLikeQuestion(questionId) {
@@ -121,16 +130,12 @@ export const useQuestionStore = defineStore('question', () => {
         results.value.push({ questionId: question.id, isCorrect })
 
         if (!isCorrect && autoSave) {
-          if (!isExists(wrongQuestions.value, question)) {
-            question.likeFlag = true
-            wrongQuestions.value.push(question)
-          }
+          addWrongQuestion(question)
         }
       })
     )
 
     score.value = results.value.filter(r => r.isCorrect).length
-    answerList.value = []
   }
 
   async function generateQuizAction(payload) {

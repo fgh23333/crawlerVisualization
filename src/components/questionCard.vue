@@ -448,7 +448,7 @@ export default {
         if (this.$route.path == '/newHome/favorites') {
           switch (newValue) {
             case 'all':
-              this.list = [...new Set([...this.store.likeList, ...this.store.wrongQuestions])]
+              this.list = this.getMergedFavoriteList()
               this.showList = [...this.list]
               break
             case 'favorites':
@@ -653,11 +653,7 @@ export default {
 
       // 错了自动加入错题集
       if (!isCorrect) {
-        const exists = this.store.wrongQuestions.some(q => q.id === question.id);
-        if (!exists) {
-          question.likeFlag = true;
-          this.store.wrongQuestions.push(question);
-        }
+        this.store.addWrongQuestion(question);
       }
     },
     changeFlag(flagType, i) {
@@ -685,7 +681,7 @@ export default {
           } else {
             this.store.removeLikeQuestion(this.showList[i].id)
             this.store.removeFavoriteQuestion(this.showList[i].id)
-            this.list = [...new Set([...this.store.likeList, ...this.store.wrongQuestions])]
+            this.list = this.getMergedFavoriteList()
             this.showList = [...this.list]
           }
         }
@@ -697,6 +693,13 @@ export default {
           this.store.removeFavoriteQuestion(this.showList[i].id)
         }
       }
+    },
+    getMergedFavoriteList() {
+      const unique = new Map();
+      [...this.store.likeList, ...this.store.wrongQuestions].forEach(item => {
+        unique.set(item.id, item);
+      });
+      return Array.from(unique.values());
     },
     changeFlagIcon(flagType, i) {
       this.showList[i][flagType] = !this.showList[i][flagType]
@@ -804,7 +807,7 @@ export default {
       }
 
       .right {
-        text-align: justify;
+        text-align: left;
         position: relative;
         width: 94%;
 
@@ -845,22 +848,29 @@ export default {
 
         .questionOpt {
           .option {
+            display: flex;
+            align-items: flex-start;
             line-height: 28px;
             font-size: 18px;
             letter-spacing: 1px;
             position: relative;
+            text-align: left;
+            margin-bottom: 4px;
 
             .dot {
+              flex: 0 0 auto;
               width: 14px;
               height: 14px;
               border-radius: 50%;
               background-color: #6C5DD3;
-              position: absolute;
-              top: 7px;
+              margin-top: 7px;
             }
 
             .optText {
-              text-indent: 22px;
+              flex: 1;
+              margin-left: 8px;
+              text-indent: 0;
+              word-break: break-word;
             }
           }
         }
@@ -940,6 +950,31 @@ export default {
       margin-bottom: 8px;
       line-height: 28px;
       font-size: 16px;
+      text-align: left;
+
+      .el-radio,
+      .el-checkbox {
+        display: flex;
+        align-items: flex-start;
+        height: auto;
+        white-space: normal;
+      }
+
+      .el-radio__input,
+      .el-checkbox__input {
+        flex: 0 0 auto;
+        margin-top: 4px;
+      }
+
+      .el-radio__label,
+      .el-checkbox__label {
+        display: block;
+        flex: 1;
+        white-space: normal;
+        line-height: 24px;
+        text-align: left;
+        word-break: break-word;
+      }
     }
 
     .fill-practice-row {
