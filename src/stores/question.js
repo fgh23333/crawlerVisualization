@@ -10,7 +10,9 @@ function getType(question) {
 }
 
 function upsertQuestion(listRef, question, flags = {}) {
-  const nextQuestion = { ...question, ...flags }
+  // strip ephemeral UI flags before persisting
+  const { likeFlag, markFlag, ...cleanQuestion } = question
+  const nextQuestion = { ...cleanQuestion, ...flags }
   const index = listRef.value.findIndex(item => item.id === question.id)
 
   if (index === -1) {
@@ -74,7 +76,7 @@ export const useQuestionStore = defineStore('question', () => {
   }
 
   function addWrongQuestion(question) {
-    upsertQuestion(wrongQuestions, question, { likeFlag: true })
+    upsertQuestion(wrongQuestions, question)
   }
 
   function removeWrongQuestion(questionId) {
@@ -82,11 +84,24 @@ export const useQuestionStore = defineStore('question', () => {
   }
 
   function addLikeQuestion(question) {
-    upsertQuestion(likeList, question, { likeFlag: true })
+    upsertQuestion(likeList, question)
   }
 
   function removeLikeQuestion(questionId) {
     likeList.value = likeList.value.filter(q => q.id !== questionId)
+  }
+
+  function isFavorite(questionId) {
+    return likeList.value.some(q => q.id === questionId)
+  }
+
+  function toggleFavorite(question) {
+    if (isFavorite(question.id)) {
+      removeLikeQuestion(question.id)
+      return false
+    }
+    addLikeQuestion(question)
+    return true
   }
 
   function clearLikeList() {
@@ -145,9 +160,11 @@ export const useQuestionStore = defineStore('question', () => {
     questionBank.value = quiz
   }
 
-  // Aliases for backward compat (addFavoriteQuestion was mapped to ADD_WRONG_QUESTION)
-  function addFavoriteQuestion(question) { addWrongQuestion(question) }
-  function removeFavoriteQuestion(questionId) { removeWrongQuestion(questionId) }
+  // Aliases retained for backward compat with examPage.vue.
+  // NOTE: original aliases incorrectly mapped favorite-add to wrong-question-add.
+  // Now these correctly hit the favorites/like list.
+  function addFavoriteQuestion(question) { addLikeQuestion(question) }
+  function removeFavoriteQuestion(questionId) { removeLikeQuestion(questionId) }
 
   return {
     wrongQuestions, answerList, questionBank, results,
@@ -156,6 +173,7 @@ export const useQuestionStore = defineStore('question', () => {
     loadQuestionBank, getQuestionType,
     addWrongQuestion, removeWrongQuestion,
     addLikeQuestion, removeLikeQuestion,
+    isFavorite, toggleFavorite,
     addFavoriteQuestion, removeFavoriteQuestion,
     clearLikeList, clearWrongQuestions,
     checkAnswer, generateQuizAction
