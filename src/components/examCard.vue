@@ -30,7 +30,7 @@
                 </div>
                 <div class="fillingBlank" v-if="questionType == '填空'">
                     <el-input class="copyable-option" v-model="input" :disabled="examStatus"
-                        @change="updateOption(seq, input)" placeholder="请输入答案"></el-input>
+                        @input="updateOption(seq, input)" placeholder="请输入答案"></el-input>
                 </div>
                 <div class="trueAnswer" v-if="examStatus">
                     <span class="colorBefore"></span>

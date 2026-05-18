@@ -113,7 +113,7 @@ export default {
     },
     methods: {
         async submitAnswer() {
-            if (this.status.includes(false)) {
+            if (this.status.includes('unactive')) {
                 ElMessageBox.confirm('还有未做的题目，确定提交吗？', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
