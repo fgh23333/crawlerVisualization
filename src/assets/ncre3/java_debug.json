@@ -1,0 +1,97 @@
+[
+  {
+    "id": "ncre3_java_debug_311",
+    "category": "java_debug",
+    "title": "NumberProcessor - 数组处理与排序",
+    "description": "生成随机数组，计算平均值、最大值、最小值，并排序输出",
+    "files": [
+      {
+        "filename": "NumberProcessor.java",
+        "language": "java",
+        "code": "package com.spsp.debug;\nimport java.util.Random;\nimport java.util.Scanner;\n\npublic class NumberProcessor {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        Random random = new Random();\n        System.out.println(\"请输入一个整数n：\");\n        int n = scanner.nextInt();\n        try {\n\n\n        int[] numbers = new int[n];\n        //生成一个包含n个随机整数（范围从1到100）的数组。。\n        for (int i = 0; i < n; i++) {\n            numbers[i] = random.nextInt(100) +1;}\n\n        // 计算平均值\n        double sum = 0;\n        for (int num : numbers) {\n            sum += num;\n        }\n        double average = sum / n;\n\n        // 找到最大值和最小值\n        int max = numbers[0];\n        int min = numbers[0];\n        for (int num : numbers) {\n            if (num > max) {\n                max= num;\n            }\n            if (num < min) {\n                min= num;\n            }\n        }\n\n\n        // 对数组进行排序\n        for (int i = 0; i < numbers.length - 1; i++) {\n            for (int j = 0; j < numbers.length - i - 1; j++) {\n                if (numbers[j] > numbers[j + 1]) {\n                    int temp = numbers[j];\n                    numbers[j] = numbers[j + 1];\n                    numbers[j + 1] = temp;\n                }\n            }\n        }\n\n        // 输出结果\n        System.out.println(\"生成的数组：\" + java.util.Arrays.toString(numbers));\n        System.out.println(\"平均值：\" + average);\n        System.out.println(\"最大值：\" + max);\n        System.out.println(\"最小值：\" + min);\n        System.out.println(\"排序后的数组：\" + java.util.Arrays.toString(numbers));\n\n\n    }catch (Exception e){\n  System.out.println(\"输入错误，请输入一个整数！\");\n        }finally {\n            scanner.close();\n        }\n}}"
+      }
+    ],
+    "screenshots": [
+      "debug_311_1.png",
+      "debug_311_2.png"
+    ],
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_java_debug_312",
+    "category": "java_debug",
+    "title": "StringProcessor - 字符串处理",
+    "description": "输入字符串，计算长度，统计字符出现次数，按字母顺序排序",
+    "files": [
+      {
+        "filename": "StringProcessor.java",
+        "language": "java",
+        "code": "package com.spsp.debug;\n\nimport java.util.HashMap;\nimport java.util.Map;\nimport java.util.Scanner;\n\npublic class StringProcessor {\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        System.out.println(\"请输入一个字符串：\");\n        String input = scanner.nextLine();\n\n        // 1. 检查输入是否为空\n         if(input.isEmpty()){\n             System.out.println(\"输入错误，请输入一个非空字符串！\");\n         }\n        // 2. 计算并输出字符串的长度\n        int length = input.length();\n        System.out.println(\"字符串的长度是：\" + length);\n\n        // 3. 统计并输出字符串中每个字符出现的次数\n        Map<Character, Integer> charCount = new HashMap<>();\n        for (char c : input.toCharArray()) {\n\n            if (charCount.containsKey(c)) {\n                charCount.put(c, charCount.get(c) + 1);\n            }else{\n                charCount.put(c, 1);\n            }\n        }\n        System.out.println(\"字符出现次数：\" + charCount);\n\n        // 4. 将字符字母顺序排序，并输出排序后的字符\n        char[] chars = input.toCharArray();\n        for(int i=0;i<chars.length;i++){\n            for(int j= i+1;j<=chars.length-1;j++){\n                if(chars[i]>chars[j]){\n                    char temp = chars[i];\n                    chars[i]= chars[j];\n                    chars[j]=temp;\n                }\n            }\n        }\n        String sortedString = new String(chars);\n        System.out.println(\"排序后的字符串：\" + sortedString);\n    }\n}"
+      }
+    ],
+    "screenshots": [
+      "debug_312_1.png",
+      "debug_312_2.png"
+    ],
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_java_debug_313",
+    "category": "java_debug",
+    "title": "FileProcessor - 文件处理",
+    "description": "读取文件内容，统计字符数和单词出现次数，对单词排序",
+    "files": [
+      {
+        "filename": "FileProcessor.java",
+        "language": "java",
+        "code": "package com.spsp.debug;\n\nimport java.io.BufferedReader;\nimport java.io.FileReader;\nimport java.io.IOException;\nimport java.io.InputStreamReader;\nimport java.util.Arrays;\nimport java.util.HashMap;\nimport java.util.Map;\n\npublic class FileProcessor {\n\n    public static void main(String[] args) {\n        BufferedReader reader = null;\n        StringBuilder sb = null;\n\n        try {\n            reader = new BufferedReader(new InputStreamReader(FileProcessor.class.getClassLoader().getResource(\"com/spsp/debug/input.txt\").openStream()));\n            sb = new StringBuilder();\n            String line;\n            while ((line = reader.readLine()) != null) {\n                sb.append(line);\n            }\n            reader.close();\n        }catch (IOException e){\n            throw new RuntimeException(e);\n        }\n\n        // 1. 计算并输出文本的字符总数\n        int charCount = sb.length();\n        System.out.println(\"文本的字符总数是：\" + charCount);\n\n        //2.统计每个单词出现的次数\n        Map<String, Integer> wordCountMap = new HashMap<>();\n        String[] words = sb.toString().split(\"\\\\s+\");\n        for (String word : words) {\n\n            if (wordCountMap.containsKey(word)) {\n                wordCountMap.put(word, wordCountMap.get(word) + 1);\n            }else{\n                wordCountMap.put(word, 1);\n            }\n        }\n        System.out.println(\"单词出现次数：\" + wordCountMap);\n\n        //3.对单词进行按字母顺序排序\n        for (int i = 0; i < words.length; i++) {\n            for (int j = 0; j < words.length -i- 1; j++) {\n                if (words[j].compareTo(words[j + 1]) > 0) {\n                    String temp = words[j];\n                    words[j] = words[j + 1];\n                    words[j + 1] = temp;\n                }\n            }\n        }\n        System.out.println(\"排序后的文本：\" + Arrays.toString(words));\n    }\n}"
+      }
+    ],
+    "screenshots": [
+      "debug_313_1.png",
+      "debug_313_2.png"
+    ],
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_java_debug_314",
+    "category": "java_debug",
+    "title": "TextAnalyzer - 文本分析",
+    "description": "分析文本：统计元音字母、最高频单词、最长单词、每句单词数",
+    "files": [
+      {
+        "filename": "TextAnalyzer.java",
+        "language": "java",
+        "code": "package com.spsp.debug;\n\nimport java.io.BufferedReader;\nimport java.io.InputStreamReader;\nimport java.util.HashMap;\nimport java.util.Map;\n\npublic class TextAnalyzer {\n\n    public static void main(String[] args) throws Exception {\n            BufferedReader reader = new BufferedReader(new InputStreamReader(TextAnalyzer.class.getClassLoader().getResource(\"com/spsp/debug/input.txt\").openStream()));\n            StringBuilder content = new StringBuilder();\n            String line;\n            //1.一行行读取文本内容赋值到StringBuilder变量中\n            while ((line = reader.readLine()) != null) {\n                content.append(line).append(\"\\n\");\n            }\n            reader.close();\n\n            String text = content.toString();\n\n            // 2. 计算并输出文本中元音字母出现的总次数\n            int vowelCount = 0;\n            for (char c : text.toCharArray()) {\n                if (\"aeiou\".indexOf(Character.toLowerCase(c)) != -1) {\n                    vowelCount++;\n                }\n            }\n            System.out.println(\"元音字母总次数：\" + vowelCount);\n\n            // 3 找出并输出出现频率最高的单词\n            String[] words = text.split(\"\\\\s+\");\n            Map<String, Integer> wordCount = new HashMap<>();\n            for (String word : words) {\n\n                if(wordCount.containsKey(word)){\n                    wordCount.put(word, wordCount.get(word) + 1);\n                }else {\n                    wordCount.put(word,1);\n                }\n\n            }\n            String mostFrequentWord = null;\n            int maxCount = 0;\n            for (Map.Entry<String, Integer> entry : wordCount.entrySet()) {\n                if (entry.getValue() > maxCount) {\n                    mostFrequentWord = entry.getKey();\n                    maxCount = entry.getValue();\n                }\n            }\n            System.out.println(\"最频繁的单词：\" + mostFrequentWord);\n\n            // 4. 找出并输出长度最长的单词\n            String longestWord = \"\";\n            for (String word : words) {\n                if (word.length() > longestWord.length()) {\n                    longestWord = word;\n                }\n            }\n            System.out.println(\"最长的单词：\" + longestWord);\n\n            // 5. 统计并输出每个句子的单词数量\n            String[] sentences = text.split(\"[.!?]\");\n            for (String sentence : sentences) {\n                if(sentence.trim().isEmpty())continue;\n                int wordCountInSentence = sentence.split(\"\\\\s+\").length;\n                System.out.println(\"句子的单词数量：\" + wordCountInSentence);\n            }\n\n    }\n}"
+      }
+    ],
+    "screenshots": [
+      "debug_314_1.png",
+      "debug_314_2.png"
+    ],
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_java_debug_315",
+    "category": "java_debug",
+    "title": "DataAnalyzer - 数据分析",
+    "description": "读取数值数据，计算平均值、最大值、最小值、统计出现次数",
+    "files": [
+      {
+        "filename": "DataAnalyzer.java",
+        "language": "java",
+        "code": "package com.spsp.debug;\n\nimport java.io.*;\nimport java.util.*;\n\npublic class DataAnalyzer {\n    public static void main(String[] args) {\n        List<Integer> data = loadData(\"data.txt\");\n        //1.数据有效性检查\n        if(data.isEmpty()||data==null){\n            System.out.println(\"“No data to analyze.\");\n        }\n        System.out.println(\"Average: \" + calculateAverage(data));\n        System.out.println(\"Max: \" + findMax(data));\n        System.out.println(\"Min: \" + findMin(data));\n        countOccurrences(data);\n    }\n\n    //读取文本内的内容并转换成数值\n    public static List<Integer> loadData(String filename) {\n        List<Integer> data = new ArrayList<>();\n        try (BufferedReader br = new BufferedReader(new InputStreamReader(DataAnalyzer.class.getClassLoader().getResource(filename).openStream()))) {\n            String line;\n            while ((line = br.readLine()) != null) {\n                data.add(Integer.parseInt(line));\n            }\n        }catch (NumberFormatException e){\n            System.out.println(\"数值转换异常！\");\n        }\n        catch (IOException e) {\n            e.printStackTrace();\n        }\n        return data;\n    }\n\n    //计算平均分\n    public static double calculateAverage(List<Integer> data) {\n        int sum = 0;\n        for (int num : data) {\n            sum += num;\n        }\n        return (double)sum / data.size();\n    }\n\n    //求最大值\n    public static int findMax(List<Integer> data) {\n        int max = Integer.MIN_VALUE;\n        for (int num : data) {\n            if (num > max) {\n                max = num;\n            }\n        }\n        return max;\n    }\n\n    //求最小值\n    public static int findMin(List<Integer> data) {\n        int min = Integer.MAX_VALUE;\n        for (int num : data) {\n            if (num < min) {\n                min = num;\n            }\n        }\n        return min;\n    }\n\n    //统计数字出现的次数\n    public static void countOccurrences(List<Integer> data) {\n        Map<Integer, Integer> occurrences = new HashMap<>();\n        for (int num : data) {\n            occurrences.put(num, occurrences.getOrDefault(num, 0) + 1);\n        }\n        for (Map.Entry<Integer, Integer> entry : occurrences.entrySet()) {\n            System.out.println(entry.getKey() + \": \" + entry.getValue());\n        }\n    }\n}"
+      }
+    ],
+    "screenshots": [
+      "debug_315_1.png",
+      "debug_315_2.png"
+    ],
+    "likeFlag": false,
+    "markFlag": false
+  }
+]

@@ -73,6 +73,28 @@ const routes = [
         component: () => import('@/views/new/chatView.vue')
       }
     ]
+  },
+  {
+    path: '/ncre3',
+    name: 'ncre3',
+    component: () => import('@/views/ncre3/ncre3Home.vue'),
+    children: [
+      {
+        path: '',
+        name: 'ncre3Index',
+        component: () => import('@/views/ncre3/ncre3HomeContent.vue')
+      },
+      {
+        path: ':category',
+        name: 'ncre3Category',
+        component: () => import('@/views/ncre3/ncre3Category.vue')
+      },
+      {
+        path: 'favorites',
+        name: 'ncre3Favorites',
+        component: () => import('@/views/ncre3/ncre3Favorites.vue')
+      }
+    ]
   }
 ]
 

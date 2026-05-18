@@ -1,0 +1,122 @@
+[
+  {
+    "id": "ncre3_sql_pet_223_1",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "223",
+    "questionIndex": 1,
+    "questionStem": "编写SQL语句，请为lineitem表中的“itemid”列创建外键， 以保证当要删除和更新product表中的商品号时，会自动删除或更新lineitem表中匹配的行。",
+    "answer": "alter table lineitem\nadd constraint fk4 foreign key(itemid) references\nproduct(productid) on update cascade on delete cascade;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_223_2",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "223",
+    "questionIndex": 2,
+    "questionStem": "编写SQL语句，计算lineitem表中每条记录的商品金额。",
+    "answer": "select quantity*unitprice as 商品金额 from lineitem;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_223_3",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "223",
+    "questionIndex": 3,
+    "questionStem": "编写SQL语句，查询product表中的商品名和档次。档次按价格（unitcost）划分， 1000元以下显示为“低价商品”，1000元到2000元之间显示为“中档商品”，2000元及以上显示为“高档商品”。",
+    "answer": "select name as 商品名,case\nwhen unitcost<1000 then \"低价商品\"\nwhen unitcost>=1000 and unitcost<2000 then \"中档商品\"\nelse \"高档商品\" end as 档次 from product;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_223_4",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "223",
+    "questionIndex": 4,
+    "questionStem": "编写SQL语句，查询account表中女客户的姓名、地址和电话，显示的列标题要求用中文“姓名”、“地址”、“电话”表示。",
+    "answer": "select fullname as 姓名,address as 地址,phone as 电话 from account\nwhere sex=\"女\";",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_223_5",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "223",
+    "questionIndex": 5,
+    "questionStem": "编写SQL语句，查询orders表中订单总价在200~500元区间（包含200和500）的订单信息。",
+    "answer": "select * from orders where totalprice between 200 and 500;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_223_6",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "223",
+    "questionIndex": 6,
+    "questionStem": "编写SQL语句，显示orders表中单笔订单金额大于等于300元的用户名、订单总价。",
+    "answer": "select fullname,totalprice from orders,account\nwhere orders.userid=account.userid and totalprice>=300;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_223_7",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "223",
+    "questionIndex": 7,
+    "questionStem": "编写SQL语句，计算orders表中的成交总额。",
+    "answer": "select sum(totalprice) as 成交总额 from orders;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_223_8",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "223",
+    "questionIndex": 8,
+    "questionStem": "编写SQL语句，按性别统计客户人数。",
+    "answer": "select sex as 性别,count(*) as 客户人数 from account group by sex;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_223_9",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "223",
+    "questionIndex": 9,
+    "questionStem": "编写SQL语句，显示lineitem表中商品的购买总数量超过2件商品号和购买总数量，并按购买数量从小到大排序。",
+    "answer": "select itemid as 商品号,sum(quantity) as 购买总数量 from lineitem\ngroup by itemid\nhaving sum(quantity)>2  order by sum(quantity) asc;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_223_10",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "223",
+    "questionIndex": 10,
+    "questionStem": "编写SQL语句，当订单号为“20130411”的订单已经发货后，根据该订单的订单明细表修改商品表的库存。",
+    "answer": "update lineitem,product set qty=qty-quantity where lineitem.itemid=product.productid\nand orderid='20130411';",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  }
+]

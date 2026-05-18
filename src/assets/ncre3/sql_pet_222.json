@@ -1,0 +1,122 @@
+[
+  {
+    "id": "ncre3_sql_pet_222_1",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "222",
+    "questionIndex": 1,
+    "questionStem": "编写SQL语句，请为orders表中的“userid”列创建外键， 以保证当要删除和更新account表中的数据时， 只要orders表中还有该客户的订单，则拒绝account表进行删除和更新操作。",
+    "answer": "alter table orders\nadd constraint fk3 foreign key(userid) references\naccount(userid) on update restrict on delete restrict;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_222_2",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "222",
+    "questionIndex": 2,
+    "questionStem": "编写SQL语句，当订单号为“20130411”的订单已经发货，请将该订单的状态修改为“1”",
+    "answer": "update  orders set status=1 where orderid='20130411';",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_222_3",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "222",
+    "questionIndex": 3,
+    "questionStem": "编写SQL语句，查询lineitem表中的商品号和单价，要求消除重复行。",
+    "answer": "select distinct itemid,unitprice from lineitem;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_222_4",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "222",
+    "questionIndex": 4,
+    "questionStem": "编写SQL语句，查询account表中客户的姓名和性别，要求性别为“男”时显示1，为“女”时显示0。",
+    "answer": "select fullname as 姓名,\ncase\n when sex='男' then '1'\n else '0'\nend as 性别 from  account;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_222_5",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "222",
+    "questionIndex": 5,
+    "questionStem": "编写SQL语句，查询product表中商品号倒数第4个标号为“W”的商品信息。",
+    "answer": "select * from product where productid like '%W___';",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_222_6",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "222",
+    "questionIndex": 6,
+    "questionStem": "编写SQL语句，查询lineitem表中的订单号、商品名称和购买数量。",
+    "answer": "select orderid,name,quantity from  lineitem,product\nwhere lineitem.itemid=product.productid;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_222_7",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "222",
+    "questionIndex": 7,
+    "questionStem": "编写SQL语句，查询“刘晓和”的基本情况和订单情况。",
+    "answer": "select * from account,orders\nwhere account.userid=orders.userid and fullname='刘晓和';",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_222_8",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "222",
+    "questionIndex": 8,
+    "questionStem": "编写SQL语句，统计客户总数。",
+    "answer": "select count(*) as 客户数量 from account;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_222_9",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "222",
+    "questionIndex": 9,
+    "questionStem": "编写SQL语句，按商品类别统计各类商品总数、平均成本单价（unitcost）。",
+    "answer": "select sum(qty) as 商品总数,avg(unitcost) as 平均成本单价,catid as 类别\nfrom product group by catid;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_pet_222_10",
+    "category": "sql",
+    "database": "petstore",
+    "setNumber": "222",
+    "questionIndex": 10,
+    "questionStem": "编写SQL语句，将orders表按用户从小到大排序，用户号相同的按订单日期从大到小排序。",
+    "answer": "select * from orders order by userid asc,orderdate desc;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  }
+]

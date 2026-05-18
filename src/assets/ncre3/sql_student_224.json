@@ -1,0 +1,122 @@
+[
+  {
+    "id": "ncre3_sql_student_224_1",
+    "category": "sql",
+    "database": "studentdb",
+    "setNumber": "224",
+    "questionIndex": 1,
+    "questionStem": "编写SQL语句,建立数据完整性约束。为成绩表（grades）创建外键， 其学生编号去引用学生表（students）中的学生编号， 其课程编号去引用课程表（courses）中的课程编号。",
+    "answer": "alter table grades\nadd constraint fk1 foreign key(student_id) references \nstudents(student_id),\nadd constraint fk2 foreign key(course_id) references\ncourses(course_id);",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_student_224_2",
+    "category": "sql",
+    "database": "studentdb",
+    "setNumber": "224",
+    "questionIndex": 2,
+    "questionStem": "编写SQL语句, 查询每位学生的平均成绩，要求显示学生编号和平均成绩。",
+    "answer": "select student_id,avg(grade) as 平均成绩 from grades group by student_id;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_student_224_3",
+    "category": "sql",
+    "database": "studentdb",
+    "setNumber": "224",
+    "questionIndex": 3,
+    "questionStem": "编写SQL语句，查询选修了至少一门课程的学生数量。",
+    "answer": "select count(distinct student_id) as 学生数量 from grades;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_student_224_4",
+    "category": "sql",
+    "database": "studentdb",
+    "setNumber": "224",
+    "questionIndex": 4,
+    "questionStem": "编写SQL语句，查询所有选修了课程编号为‘101’的学生姓名。",
+    "answer": "select name from grades,students where grades.student_id=students.student_id\nand course_id=\"101\";",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_student_224_5",
+    "category": "sql",
+    "database": "studentdb",
+    "setNumber": "224",
+    "questionIndex": 5,
+    "questionStem": "编写SQL语句，查询每门课程的平均成绩,要求显示课程名称和对应的平均成绩。",
+    "answer": "select grades.course_id,course_name,avg(grade) as 平均成绩 from grades,courses\nwhere grades.course_id=courses.course_id group by grades.course_id;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_student_224_6",
+    "category": "sql",
+    "database": "studentdb",
+    "setNumber": "224",
+    "questionIndex": 6,
+    "questionStem": "编写SQL语句，查询选修了课程编号为‘103’的课程且成绩在90分以上的学生姓名和成绩。",
+    "answer": "select name,grades.grade from grades,students where grades.student_id=students.student_id\nand course_id='103' and grades.grade>90;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_student_224_7",
+    "category": "sql",
+    "database": "studentdb",
+    "setNumber": "224",
+    "questionIndex": 7,
+    "questionStem": "编写SQL语句，查询每门课程的最高成绩，要求显示课程名称和对应的最高成绩。",
+    "answer": "select course_name,max(grade) from grades,courses where grades.course_id=courses.course_id\ngroup by grades.course_id;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_student_224_8",
+    "category": "sql",
+    "database": "studentdb",
+    "setNumber": "224",
+    "questionIndex": 8,
+    "questionStem": "编写SQL语句，查询没有选修任何课程的学生姓名。",
+    "answer": "select name from students where student_id not in (select student_id from grades);",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_student_224_9",
+    "category": "sql",
+    "database": "studentdb",
+    "setNumber": "224",
+    "questionIndex": 9,
+    "questionStem": "编写SQL语句，查询每门课程的平均学分，要求显示课程编号和平均学分。",
+    "answer": "select avg(credit_hours) as 平均学分,course_id from courses\ngroup by course_id;",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_sql_student_224_10",
+    "category": "sql",
+    "database": "studentdb",
+    "setNumber": "224",
+    "questionIndex": 10,
+    "questionStem": "编写SQL语句，查询每门课程的选修学生中成绩最低的学生姓名、课程名称和成绩。",
+    "answer": "select name,course_name,grades.grade from courses,grades,students\nwhere courses.course_id=grades.course_id and students.student_id=grades.student_id\nand (grades.course_id,grades.grade) in (select course_id,min(grade) from grades\ngroup by course_id);",
+    "language": "sql",
+    "likeFlag": false,
+    "markFlag": false
+  }
+]

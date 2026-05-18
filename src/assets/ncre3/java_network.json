@@ -1,0 +1,97 @@
+[
+  {
+    "id": "ncre3_java_net_241",
+    "category": "java_network",
+    "title": "TCP文件上传（Client/Server）",
+    "description": "使用TCP协议实现文件上传功能，客户端上传bird.jpg文件到服务端",
+    "files": [
+      {
+        "filename": "UploadTCPClient.java",
+        "language": "java",
+        "code": "import java.io.*;\r\nimport java.net.InetSocketAddress;\r\nimport java.net.Socket;\r\n\r\npublic class UploadTCPClient {\r\n    public static void main(String[] args) throws IOException {\r\n\r\n        File fileToUpload = new File(\"bird.jpg\");\r\n\r\n        Socket socket = new Socket();\r\n        socket.connect(new InetSocketAddress(\"127.0.0.1\",10001));\r\n        System.out.println(\"连接到服务器端，开始文件上传！\\n\");\r\n        // 还是老样子，创建数据输入输出流\r\n        DataOutputStream dos = new DataOutputStream(socket.getOutputStream());\r\n        DataInputStream dis = new DataInputStream(socket.getInputStream());\r\n\r\n        // 先告诉服务端数据长度\r\n        dos.writeInt((int)fileToUpload.length());\r\n        byte[] data = new byte[(int)fileToUpload.length()];\r\n        // 读取文件数据\r\n        FileInputStream fis = new FileInputStream(fileToUpload);\r\n        try{\r\n            fis.read(data);\r\n        }finally {\r\n            fis.close();\r\n        }\r\n        // 写入文件数据\r\n        dos.write(data);\r\n        // 走你！\r\n        dos.flush();\r\n\r\n        // 读取来自服务端的消息\r\n        System.out.println(dis.readUTF());\r\n\r\n        // 完成，关闭socket。\r\n        socket.close();\r\n\r\n    }\r\n}"
+      },
+      {
+        "filename": "UploadTCPServer.java",
+        "language": "java",
+        "code": "import java.io.*;\r\nimport java.net.InetSocketAddress;\r\nimport java.net.ServerSocket;\r\nimport java.net.Socket;\r\n\r\npublic class UploadTCPServer {\r\n    public static void main(String[] args) throws IOException {\r\n        ServerSocket serverSocket = new ServerSocket();// 创建服务端套接字\r\n        serverSocket.bind(new InetSocketAddress(\"127.0.0.1\",10001),100);// 绑定地址\r\n        System.out.println(\"服务端已启动\");\r\n        while (true){\r\n            final Socket theSocket = serverSocket.accept(); // 循环获取客户端链接\r\n            new Thread(new Runnable() {\r\n                @Override\r\n                public void run() {\r\n                    try {\r\n                        clientConnectionThread(theSocket);//在单独的线程中处理\r\n                    }catch (Exception ex){\r\n                        ex.printStackTrace();\r\n                    }finally {\r\n                        try {\r\n                            theSocket.close(); // 确保socket关闭\r\n                        } catch (IOException e) {\r\n                            throw new RuntimeException(e);\r\n                        }\r\n                    }\r\n                }\r\n            }).start();\r\n        }\r\n    }\r\n\r\n    public static void clientConnectionThread(Socket socket) throws IOException {\r\n        // 获取发送流\r\n        DataOutputStream dos = new DataOutputStream(socket.getOutputStream());\r\n        // 获取接收流\r\n        DataInputStream dis = new DataInputStream(socket.getInputStream());\r\n\r\n        // 客户端的协议：首先上传一个int，代表文件的长度，随后上传文件的字节数据\r\n        int fileLen = dis.readInt();\r\n        // 直接创建一个文件一样大的缓冲区\r\n        byte[] fileData = new byte[fileLen];\r\n        // 读取文件数据\r\n        dis.readFully(fileData);\r\n\r\n        // 保存上传的文件\r\n        // 首先创建目录\r\n        File dir = new File(\"D:\\\\upload\");\r\n        if(!dir.exists()){\r\n            dir.mkdirs();\r\n        }\r\n        // 创建要保存的文件\r\n        FileOutputStream fos = new FileOutputStream(new File(dir,System.currentTimeMillis()+\".jpg\"));\r\n        try{\r\n            fos.write(fileData);\r\n            fos.flush();\r\n        }finally {\r\n            fos.close();\r\n        }\r\n\r\n\r\n        // 发送回复\r\n        dos.writeUTF(\"上传成功\");\r\n        dos.flush();\r\n    }\r\n}"
+      }
+    ],
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_java_net_242",
+    "category": "java_network",
+    "title": "UDP通信（Client/Server）",
+    "description": "使用UDP协议实现客户端与服务端的通信",
+    "files": [
+      {
+        "filename": "UDPClient.java",
+        "language": "java",
+        "code": "import java.io.IOError;\nimport java.io.IOException;\nimport java.net.*;\nimport java.util.Scanner;\n\npublic class UDPClient {\n    public static void main(String[] args) throws IOException {\n        DatagramSocket datagramSocket = new DatagramSocket();\n        System.out.println(\"请发送信息给服务器(localhost)\");\n        InetSocketAddress serverAddress = new InetSocketAddress(\"127.0.0.1\",8000);\n        Scanner scanner = new Scanner(System.in);\n        while (true){\n            System.out.print(\"请输入信息：\");\n            String s = scanner.nextLine();\n            byte[] data = s.getBytes();\n            DatagramPacket packet = new DatagramPacket(data,0,data.length);\n            packet.setAddress(serverAddress.getAddress());\n            packet.setPort(serverAddress.getPort());\n            datagramSocket.send(packet);\n        }\n    }\n}"
+      },
+      {
+        "filename": "UDPServer.java",
+        "language": "java",
+        "code": "import java.io.IOException;\nimport java.net.DatagramPacket;\nimport java.net.DatagramSocket;\nimport java.net.InetSocketAddress;\nimport java.net.SocketException;\n\npublic class UDPServer {\n    public static void main(String[] args) throws IOException {\n        System.out.println(\"这里是服务端，等待接收客户端信息。。。\");\n        DatagramSocket datagramSocket = new DatagramSocket(new InetSocketAddress(\"127.0.0.1\",8000));\n        // 创建接收缓冲区\n        byte[] data = new byte[4096];\n        DatagramPacket packet = new DatagramPacket(data,0,data.length);\n\n        while (true){\n            datagramSocket.receive(packet);\n            int len = packet.getLength();\n            String receivedData = new String(data,0,len);\n            System.out.println(\"服务器已接收到消息：\"+receivedData);\n        }\n    }\n}"
+      }
+    ],
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_java_net_243",
+    "category": "java_network",
+    "title": "多线程同步（存取款）",
+    "description": "使用wait/notify实现父子线程同步的存取款功能",
+    "files": [
+      {
+        "filename": "Account.java",
+        "language": "java",
+        "code": "import java.util.Random;\n\nclass Father implements Runnable {\n    private Account account;\n\n    Father(Account account) {\n        this.account = account;\n    }\n\n    @Override\n    public void run() {\n        Random rnd = new Random();\n        while (true) {\n                int amount = rnd.nextInt(1, 5) * 100;\n                account.store(amount);\n                System.out.println(\"父亲存入：\" + amount);\n\n\n\n        }\n    }\n}\n\nclass Son implements Runnable {\n\n    private Account account;\n\n    Son(Account account) {\n        this.account = account;\n    }\n\n    @Override\n    public void run() {\n        while (true) {\n            try {\n                    int amount = account.get();\n                    System.out.println(\"儿子取出：\" + amount);\n\n\n            } catch (InterruptedException e) {\n                e.printStackTrace();\n            }\n\n        }\n    }\n}\n\n\npublic class Account {\n\n    private int balance = 0;\n\n    public synchronized void store(int amount) {\n        balance += amount;\n        notify(); // 通知儿子来取钱\n        try {\n            wait(); // 等待账户为空\n        } catch (InterruptedException e) {\n            throw new RuntimeException(e);\n        }\n    }\n\n    public synchronized int get() throws InterruptedException {\n        int amount = balance;\n        balance = 0;\n        notify(); // 通知账户为空\n        wait(); // 等待父亲来存钱\n        return amount;\n    }\n\n\n    public static void main(String[] args) throws InterruptedException {\n        Account account = new Account();\n        Son son = new Son(account);\n        Father father = new Father(account);\n        Thread tSon = new Thread(son);\n        Thread tFather = new Thread(father);\n        tSon.start();\n        tFather.start();\n        tSon.join();\n        tFather.join();\n    }\n}"
+      }
+    ],
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_java_net_244",
+    "category": "java_network",
+    "title": "Socket编程（Client/Server）",
+    "description": "使用Socket实现客户端与服务端的通信",
+    "files": [
+      {
+        "filename": "SocketClient.java",
+        "language": "java",
+        "code": "import java.io.*;\r\nimport java.net.InetSocketAddress;\r\nimport java.net.Socket;\r\nimport java.util.Scanner;\r\n\r\npublic class SocketClient {\r\n    public static void main(String[] args) throws IOException {\r\n\r\n\r\n        final Socket socket = new Socket();\r\n        socket.connect(new InetSocketAddress(\"127.0.0.1\",8000));\r\n        System.out.println(\"客户端已和服务端建立连接\");\r\n        final DataOutputStream dos = new DataOutputStream(socket.getOutputStream());\r\n        // 获取接收流\r\n        final DataInputStream dis = new DataInputStream(socket.getInputStream());\r\n\r\n\r\n        Thread receiveThread = new Thread(new Runnable() {\r\n            @Override\r\n            public void run() {\r\n                try {\r\n                    while (true) {\r\n                        String msg = dis.readUTF();\r\n                        System.out.println(msg);\r\n\r\n                        if (msg.equals(\"bye\")) {\r\n\r\n                            System.out.println(\"连接已断开！\");\r\n                            socket.close();\r\n                            return;\r\n                        }\r\n                    }\r\n                } catch (IOException e) {\r\n\r\n                }\r\n            }\r\n        });\r\n        Thread sendThread = new Thread(new Runnable() {\r\n            @Override\r\n            public void run() {\r\n                Scanner scanner = new Scanner(System.in);\r\n                while (true){\r\n\r\n                    String msg = scanner.nextLine();\r\n                    try {\r\n                        dos.writeUTF(msg);\r\n                        dos.flush();\r\n                    } catch (IOException e) {\r\n\r\n                    }\r\n                    if(msg.equals(\"bye\")){\r\n                        try {\r\n                            System.out.println(\"连接已断开！\");\r\n                            socket.close();\r\n                        } catch (IOException e) {\r\n                        }\r\n                        return;\r\n                    }\r\n                }\r\n            }\r\n        });\r\n\r\n        receiveThread.start();\r\n        sendThread.start();\r\n        try {\r\n            receiveThread.join();\r\n        } catch (InterruptedException e) {\r\n        }\r\n        sendThread.interrupt();\r\n        // 完成，关闭socket。\r\n        socket.close();\r\n\r\n    }\r\n}"
+      },
+      {
+        "filename": "SocketSer.java",
+        "language": "java",
+        "code": "import java.io.*;\r\nimport java.net.InetSocketAddress;\r\nimport java.net.ServerSocket;\r\nimport java.net.Socket;\r\nimport java.util.Scanner;\r\n\r\npublic class SocketSer {\r\n    public static void main(String[] args) throws IOException {\r\n        ServerSocket serverSocket = new ServerSocket();// 创建服务端套接字\r\n        serverSocket.bind(new InetSocketAddress(\"127.0.0.1\",8000),100);// 绑定地址\r\n        System.out.println(\"服务端端口号：8000等待连接。。。\");\r\n        while (true){\r\n            final Socket theSocket = serverSocket.accept(); // 循环获取客户端链接\r\n            new Thread(new Runnable() {\r\n                @Override\r\n                public void run() {\r\n                    try {\r\n                        System.out.println(\"连接已建立!\");\r\n                        clientConnectionThread(theSocket);//在单独的线程中处理\r\n                    }catch (Exception ex){\r\n                        ex.printStackTrace();\r\n                    }finally {\r\n                        try {\r\n                            theSocket.close(); // 确保socket关闭\r\n                        } catch (IOException e) {\r\n                        }\r\n                        System.out.println(\"连接已断开!\");\r\n                    }\r\n                }\r\n            }).start();\r\n        }\r\n    }\r\n\r\n    public static void clientConnectionThread(final Socket socket) throws IOException {\r\n        // 获取发送流\r\n        final DataOutputStream dos = new DataOutputStream(socket.getOutputStream());\r\n        // 获取接收流\r\n        final DataInputStream dis = new DataInputStream(socket.getInputStream());\r\n\r\n\r\n        Thread receiveThread = new Thread(new Runnable() {\r\n            @Override\r\n            public void run() {\r\n                try {\r\n                        while (true) {\r\n                            String msg = dis.readUTF();\r\n                            System.out.println(msg);\r\n\r\n                            if (msg.equals(\"bye\")) {\r\n\r\n                                socket.close();\r\n                                return;\r\n                            }\r\n                        }\r\n                } catch (IOException e) {\r\n\r\n                }\r\n            }\r\n        });\r\n        Thread sendThread = new Thread(new Runnable() {\r\n            @Override\r\n            public void run() {\r\n                Scanner scanner = new Scanner(System.in);\r\n                while (true){\r\n\r\n                    String msg = scanner.nextLine();\r\n                    try {\r\n                        dos.writeUTF(msg);\r\n                        dos.flush();\r\n                    } catch (IOException e) {\r\n\r\n                    }\r\n                    if(msg.equals(\"bye\")){\r\n                        try {\r\n                            socket.close();\r\n                        } catch (IOException e) {\r\n                        }\r\n                        return;\r\n                    }\r\n                }\r\n            }\r\n        });\r\n\r\n        receiveThread.start();\r\n        sendThread.start();\r\n        try {\r\n            receiveThread.join();\r\n        } catch (InterruptedException e) {\r\n        }\r\n        sendThread.interrupt();\r\n    }\r\n}"
+      }
+    ],
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_java_net_245",
+    "category": "java_network",
+    "title": "客户端/服务端测试",
+    "description": "客户端与服务端通信测试程序",
+    "files": [
+      {
+        "filename": "ClientTest.java",
+        "language": "java",
+        "code": "import java.io.*;\r\nimport java.net.InetSocketAddress;\r\nimport java.net.Socket;\r\n\r\npublic class ClientTest {\r\n    public static void main(String[] args) throws IOException {\r\n\r\n        File fileToUpload = new File(\"D:\\\\test.txt\");\r\n\r\n        Socket socket = new Socket();\r\n        socket.connect(new InetSocketAddress(\"127.0.0.1\",5678));\r\n        System.out.println(\"服务器连接成功\");\r\n        // 还是老样子，创建数据输入输出流\r\n        DataOutputStream dos = new DataOutputStream(socket.getOutputStream());\r\n        DataInputStream dis = new DataInputStream(socket.getInputStream());\r\n\r\n        // 先告诉服务端数据长度\r\n        dos.writeInt((int)fileToUpload.length());\r\n        byte[] data = new byte[(int)fileToUpload.length()];\r\n        // 读取文件数据\r\n        FileInputStream fis = new FileInputStream(fileToUpload);\r\n        try{\r\n            fis.read(data);\r\n        }finally {\r\n            fis.close();\r\n        }\r\n        // 写入文件数据\r\n        dos.write(data);\r\n        // 走你！\r\n        dos.flush();\r\n        // 完成，关闭socket。\r\n        socket.close();\r\n\r\n    }\r\n}"
+      },
+      {
+        "filename": "ServerTest.java",
+        "language": "java",
+        "code": "import java.io.*;\r\nimport java.net.InetSocketAddress;\r\nimport java.net.ServerSocket;\r\nimport java.net.Socket;\r\n\r\npublic class ServerTest {\r\n    public static void main(String[] args) throws IOException {\r\n        ServerSocket serverSocket = new ServerSocket();// 创建服务端套接字\r\n        serverSocket.bind(new InetSocketAddress(\"127.0.0.1\",5678),100);// 绑定地址\r\n        System.out.println(\"服务器启动。。。\");\r\n        while (true){\r\n            final Socket theSocket = serverSocket.accept(); // 循环获取客户端链接\r\n            new Thread(new Runnable() {\r\n                @Override\r\n                public void run() {\r\n                    try {\r\n                        clientConnectionThread(theSocket);//在单独的线程中处理\r\n                    }catch (Exception ex){\r\n                        ex.printStackTrace();\r\n                    }finally {\r\n                        try {\r\n                            theSocket.close(); // 确保socket关闭\r\n                        } catch (IOException e) {\r\n                            throw new RuntimeException(e);\r\n                        }\r\n                    }\r\n                }\r\n            }).start();\r\n        }\r\n    }\r\n\r\n    public static void clientConnectionThread(Socket socket) throws IOException {\r\n        // 获取发送流\r\n        DataOutputStream dos = new DataOutputStream(socket.getOutputStream());\r\n        // 获取接收流\r\n        DataInputStream dis = new DataInputStream(socket.getInputStream());\r\n\r\n        // 客户端的协议：首先上传一个int，代表文件的长度，随后上传文件的字节数据\r\n        int fileLen = dis.readInt();\r\n        // 直接创建一个文件一样大的缓冲区\r\n        byte[] fileData = new byte[fileLen];\r\n        // 读取文件数据\r\n        dis.readFully(fileData);\r\n\r\n        // 保存上传的文件\r\n        // 首先创建目录\r\n        File dir = new File(\"C:\\\\upload\");\r\n        if(!dir.exists()){\r\n            dir.mkdirs();\r\n        }\r\n        // 创建要保存的文件\r\n        FileOutputStream fos = new FileOutputStream(new File(dir,\"test.txt\"));\r\n        try{\r\n            fos.write(fileData);\r\n            fos.flush();\r\n        }finally {\r\n            fos.close();\r\n        }\r\n\r\n\r\n        System.out.println(\"数据接收完毕\");\r\n    }\r\n}"
+      }
+    ],
+    "likeFlag": false,
+    "markFlag": false
+  }
+]

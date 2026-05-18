@@ -1,0 +1,122 @@
+[
+  {
+    "id": "ncre3_uml_111",
+    "category": "uml",
+    "title": "ER图 - 数据库设计",
+    "diagramType": "UMLClassDiagram",
+    "classes": [
+      "TransactionReporting",
+      "SystemReporting",
+      "ReportingAdapter",
+      "[2]",
+      "Client",
+      "Reporting",
+      "UserReporting"
+    ],
+    "downloadFile": "111.mdj",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_uml_112",
+    "category": "uml",
+    "title": "UML状态机图 - 支付流程",
+    "diagramType": "ERDDiagram",
+    "classes": [],
+    "downloadFile": "112.mdj",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_uml_113",
+    "category": "uml",
+    "title": "UML类图 - 适配器模式",
+    "diagramType": "UMLStatechartDiagram",
+    "classes": [],
+    "downloadFile": "113.mdj",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_uml_114",
+    "category": "uml",
+    "title": "UML类图",
+    "diagramType": "UMLComponentDiagram",
+    "classes": [
+      "UserInterface",
+      "AuthInterface",
+      "ConfigInterface",
+      "DataInterface"
+    ],
+    "downloadFile": "114.mdj",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_uml_115",
+    "category": "uml",
+    "title": "UML类图",
+    "diagramType": "UMLClassDiagram",
+    "classes": [
+      "AbstractFactory",
+      "ColourFactory",
+      "Red",
+      "Blue",
+      "Green",
+      "Colour"
+    ],
+    "downloadFile": "115.mdj",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_uml_121",
+    "category": "uml",
+    "title": "UML类图",
+    "diagramType": "FCFlowchartDiagram",
+    "classes": [],
+    "downloadFile": "121.mdj",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_uml_122",
+    "category": "uml",
+    "title": "UML类图",
+    "diagramType": "FCFlowchartDiagram",
+    "classes": [],
+    "downloadFile": "122.mdj",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_uml_123",
+    "category": "uml",
+    "title": "UML类图",
+    "diagramType": "ERDDiagram",
+    "classes": [],
+    "downloadFile": "123.mdj",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_uml_124",
+    "category": "uml",
+    "title": "UML类图",
+    "diagramType": "ERDDiagram",
+    "classes": [],
+    "downloadFile": "124.mdj",
+    "likeFlag": false,
+    "markFlag": false
+  },
+  {
+    "id": "ncre3_uml_125",
+    "category": "uml",
+    "title": "UML类图",
+    "diagramType": "UMLUseCaseDiagram",
+    "classes": [],
+    "downloadFile": "125.mdj",
+    "likeFlag": false,
+    "markFlag": false
+  }
+]

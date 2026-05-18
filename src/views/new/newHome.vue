@@ -32,6 +32,12 @@
                 </el-menu>
             </div>
             <div class="buttonContainer">
+                <router-link to="/ncre3">
+                    <div class="tab">
+                        <el-icon :size="28" color="#8F95B2"><Monitor /></el-icon>
+                        <div class="text">计算机三级题库</div>
+                    </div>
+                </router-link>
                 <router-link to="/">
                     <div class="tab">
                         <img class="image" src="@/assets/icon/icon-back.svg">
@@ -90,6 +96,7 @@
 <script>
 import modal from '@/components/modal.vue'
 import { ElMessage } from 'element-plus'
+import { Monitor } from '@element-plus/icons-vue'
 import grapeIcon from '@/assets/icon/grape.svg'
 import juiceIcon from '@/assets/icon/juice.svg'
 import pearIcon from '@/assets/icon/pear.svg'
