@@ -174,6 +174,9 @@ export default {
         },
         disableOpts(status) {
             this.examStatus = status
+            if (status) {
+                this.stopTimer()
+            }
         },
         async getQuiz(type, lesson) {
             if (type) {
@@ -193,10 +196,12 @@ export default {
             }
         },
         async initExam(route) {
-            // Reset answer list and status
+            // Reset all exam state
             this.store.answerList = [];
             this.store.results = [];
+            this.store.score = null;
             this.examStatus = false;
+            this.questionList = [];
 
             // Reset timer
             this.stopTimer();
