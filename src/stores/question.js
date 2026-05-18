@@ -50,7 +50,6 @@ export const useQuestionStore = defineStore('question', () => {
   const questionBank = ref([])
   const results = ref([])
   const likeList = ref([])
-  const markList = ref([])
   const score = ref(null)
   const fonts = ref(null)
   const userRecords = ref({})
@@ -105,29 +104,21 @@ export const useQuestionStore = defineStore('question', () => {
     return true
   }
 
-  function addMarkQuestion(question) {
-    upsertQuestion(markList, question)
-  }
-
-  function removeMarkQuestion(questionId) {
-    markList.value = markList.value.filter(q => q.id !== questionId)
-  }
-
+  // "Mark" in the UI is a synonym for "add to wrong-question list". The two
+  // were originally separate concepts but converged: the user wants the same
+  // bookmark glyph to flag a question as something they got wrong / want to
+  // revisit, which is exactly what wrongQuestions already stores.
   function isMarked(questionId) {
-    return markList.value.some(q => q.id === questionId)
+    return wrongQuestions.value.some(q => q.id === questionId)
   }
 
   function toggleMark(question) {
     if (isMarked(question.id)) {
-      removeMarkQuestion(question.id)
+      removeWrongQuestion(question.id)
       return false
     }
-    addMarkQuestion(question)
+    addWrongQuestion(question)
     return true
-  }
-
-  function clearMarkList() {
-    markList.value = []
   }
 
   function clearLikeList() {
@@ -194,20 +185,19 @@ export const useQuestionStore = defineStore('question', () => {
 
   return {
     wrongQuestions, answerList, questionBank, results,
-    likeList, markList, score, fonts, userRecords,
+    likeList, score, fonts, userRecords,
     getQuestionsByType, getAllQuestions,
     loadQuestionBank, getQuestionType,
     addWrongQuestion, removeWrongQuestion,
     addLikeQuestion, removeLikeQuestion,
     isFavorite, toggleFavorite,
-    addMarkQuestion, removeMarkQuestion,
-    isMarked, toggleMark, clearMarkList,
+    isMarked, toggleMark,
     addFavoriteQuestion, removeFavoriteQuestion,
     clearLikeList, clearWrongQuestions,
     checkAnswer, generateQuizAction
   }
 }, {
   persist: {
-    pick: ['wrongQuestions', 'likeList', 'markList', 'userRecords']
+    pick: ['wrongQuestions', 'likeList', 'userRecords']
   }
 })
