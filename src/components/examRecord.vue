@@ -67,11 +67,16 @@ export default {
     watch: {
         'store.answerList': {
             handler(newValue, oldValue) {
-                if (this.submitted || newValue === '') {
+                // Don't repaint status after submission. `submitted` flips first
+                // (in confirmAndSubmit), `store.score` is a longer-lived backup
+                // that survives component re-creation.
+                if (this.submitted || (this.store.score !== null && this.store.score !== undefined)) {
                     return
-                } else {
-                    this.status = this.buildAnswerStatus(newValue)
                 }
+                if (newValue === '' || !newValue) {
+                    return
+                }
+                this.status = this.buildAnswerStatus(newValue)
             },
             deep: true
         },
