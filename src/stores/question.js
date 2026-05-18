@@ -50,6 +50,7 @@ export const useQuestionStore = defineStore('question', () => {
   const questionBank = ref([])
   const results = ref([])
   const likeList = ref([])
+  const markList = ref([])
   const score = ref(null)
   const fonts = ref(null)
   const userRecords = ref({})
@@ -102,6 +103,31 @@ export const useQuestionStore = defineStore('question', () => {
     }
     addLikeQuestion(question)
     return true
+  }
+
+  function addMarkQuestion(question) {
+    upsertQuestion(markList, question)
+  }
+
+  function removeMarkQuestion(questionId) {
+    markList.value = markList.value.filter(q => q.id !== questionId)
+  }
+
+  function isMarked(questionId) {
+    return markList.value.some(q => q.id === questionId)
+  }
+
+  function toggleMark(question) {
+    if (isMarked(question.id)) {
+      removeMarkQuestion(question.id)
+      return false
+    }
+    addMarkQuestion(question)
+    return true
+  }
+
+  function clearMarkList() {
+    markList.value = []
   }
 
   function clearLikeList() {
@@ -168,18 +194,20 @@ export const useQuestionStore = defineStore('question', () => {
 
   return {
     wrongQuestions, answerList, questionBank, results,
-    likeList, score, fonts, userRecords,
+    likeList, markList, score, fonts, userRecords,
     getQuestionsByType, getAllQuestions,
     loadQuestionBank, getQuestionType,
     addWrongQuestion, removeWrongQuestion,
     addLikeQuestion, removeLikeQuestion,
     isFavorite, toggleFavorite,
+    addMarkQuestion, removeMarkQuestion,
+    isMarked, toggleMark, clearMarkList,
     addFavoriteQuestion, removeFavoriteQuestion,
     clearLikeList, clearWrongQuestions,
     checkAnswer, generateQuizAction
   }
 }, {
   persist: {
-    pick: ['wrongQuestions', 'likeList', 'userRecords']
+    pick: ['wrongQuestions', 'likeList', 'markList', 'userRecords']
   }
 })
