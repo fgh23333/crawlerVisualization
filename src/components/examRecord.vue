@@ -1,7 +1,7 @@
 <template>
     <div id="examRecord">
         <div class="question-container">
-            <div v-for="(questions, type) in questionTypes" :key="type">
+            <div v-for="(questions, type) in questionTypes" :key="type" v-show="questions.length">
                 <div class="typeTitle">{{ typeLabels[type] }}</div>
                 <div class="question-grid">
                     <span class="answer-status" :class="status[findQuestionIndex(question.id)]"
