@@ -1,14 +1,11 @@
 <template>
     <div id="examRecord">
         <div class="question-container">
-            <div v-for="(questions, type) in questionTypes" :key="type" v-show="questions.length">
-                <div class="typeTitle">{{ typeLabels[type] }}</div>
-                <div class="question-grid">
-                    <span class="answer-status" :class="status[findQuestionIndex(question.id)]"
-                        v-for="(question, index) in questions" :key="index">
-                        {{ findQuestionIndex(question.id) + 1 }}
-                    </span>
-                </div>
+            <div class="question-grid">
+                <span class="answer-status" :class="status[index]"
+                    v-for="(question, index) in store.questionBank" :key="question.id">
+                    {{ index + 1 }}
+                </span>
             </div>
             <el-button type="primary" class="submit-btn" @click="submitAnswer">提交</el-button>
         </div>
