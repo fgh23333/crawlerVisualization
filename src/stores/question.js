@@ -74,9 +74,9 @@ export const useQuestionStore = defineStore('question', () => {
   // Getters
   const getQuestionsByType = computed(() => (type) => {
     return questionBank.value.filter(question => {
-      if (type === 'singleChoice') return question.option && question.answer.length === 1
-      if (type === 'multipleChoice') return question.option.length > 2 && question.answer.length > 1
       if (type === 'trueOrFalse') return question.option && question.option.length === 2
+      if (type === 'singleChoice') return question.option && question.option.length > 2 && question.answer.length === 1
+      if (type === 'multipleChoice') return question.option && question.option.length > 2 && question.answer.length > 1
       if (type === 'fillInTheBlank') return !question.option
     })
   })
