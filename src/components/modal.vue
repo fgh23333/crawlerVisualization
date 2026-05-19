@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="showModal" class="modal">
+        <div v-if="showModal" class="modal-overlay" @click.self="closeModal">
             <div class="modal-content">
                 <span @click="closeModal" class="close">&times;</span>
                 <h2>题库功能扩展意见征集表</h2>
@@ -55,11 +55,11 @@ export default {
 };
 </script>
 
-<style>
-.modal {
+<style scoped>
+.modal-overlay {
     display: block;
     position: fixed;
-    z-index: 1;
+    z-index: 9999;
     left: 0;
     top: 0;
     width: 100%;
@@ -73,13 +73,14 @@ export default {
     padding: 20px;
     border: 1px solid #888;
     width: 40%;
+    max-width: 500px;
     text-align: center;
-    /* 居中对齐 */
+    border-radius: 12px;
+    position: relative;
 }
 
 .qr-code img {
     width: 200px;
-    /* 设置二维码的大小 */
     height: 200px;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -87,16 +88,20 @@ export default {
 
 .close {
     color: #aaa;
-    float: right;
+    position: absolute;
+    right: 16px;
+    top: 12px;
     font-size: 28px;
     font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
 }
 
 .close:hover,
 .close:focus {
     color: black;
     text-decoration: none;
-    cursor: pointer;
 }
 
 .checkbox {

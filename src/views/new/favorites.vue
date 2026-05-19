@@ -128,6 +128,9 @@ export default {
             if (e === "savePDF") {
                 makePdf("save", this.list, "收藏夹", null, ElMessage);
             }
+            if (e === "savePDFNoAnswer") {
+                makePdf("save", this.list, "收藏夹", null, ElMessage, true);
+            }
             if (e === "printPDF") {
                 makePdf("print", this.list, "收藏夹", null, ElMessage);
             }

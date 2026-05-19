@@ -12,7 +12,7 @@ function formatDateTime() {
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 
-export const makePdf = async (method, data, pdfTitle, store, message) => {
+export const makePdf = async (method, data, pdfTitle, store, message, hideAnswers = false) => {
     const pdfMakeModule = await import('pdfmake/build/pdfmake');
     const pdfMake = pdfMakeModule.default || pdfMakeModule;
 
@@ -71,9 +71,11 @@ export const makePdf = async (method, data, pdfTitle, store, message) => {
             temp.push({
                 text: index + 1 + "、[判断]" + item.questionStem, fontSize: 14
             })
-            temp.push({
-                text: "\t答案 | " + item.answer, fontSize: 14
-            })
+            if (!hideAnswers) {
+                temp.push({
+                    text: "\t答案 | " + item.answer, fontSize: 14
+                })
+            }
         } else if (item.option.length > 3 && item.answer.length > 1) {
             temp.push({
                 text: index + 1 + "、[多选]" + item.questionStem, fontSize: 14
@@ -83,9 +85,11 @@ export const makePdf = async (method, data, pdfTitle, store, message) => {
                     text: "\t" + options[index] + "  " + item, fontSize: 14
                 })
             })
-            temp.push({
-                text: "\t答案 | " + item.answer, fontSize: 14
-            })
+            if (!hideAnswers) {
+                temp.push({
+                    text: "\t答案 | " + item.answer, fontSize: 14
+                })
+            }
         } else if (item.option.length == 4 && item.answer.length == 1) {
             temp.push({
                 text: index + 1 + "、[单选]" + item.questionStem, fontSize: 14
@@ -95,16 +99,20 @@ export const makePdf = async (method, data, pdfTitle, store, message) => {
                     text: "\t" + options[index] + "  " + item, fontSize: 14
                 })
             })
-            temp.push({
-                text: "\t答案 | " + item.answer, fontSize: 14
-            })
+            if (!hideAnswers) {
+                temp.push({
+                    text: "\t答案 | " + item.answer, fontSize: 14
+                })
+            }
         } else if (item.option == '') {
             temp.push({
                 text: index + 1 + "、[填空]" + item.questionStem, fontSize: 14
             })
-            temp.push({
-                text: "\t答案 | " + item.answer, fontSize: 14
-            })
+            if (!hideAnswers) {
+                temp.push({
+                    text: "\t答案 | " + item.answer, fontSize: 14
+                })
+            }
         }
         temp.push({
             text: "\n"

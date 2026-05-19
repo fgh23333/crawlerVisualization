@@ -37,6 +37,7 @@
             <template #dropdown>
               <el-dropdown-menu>
                 <el-dropdown-item command="savePDF">导出PDF</el-dropdown-item>
+                <el-dropdown-item command="savePDFNoAnswer">导出PDF（无答案）</el-dropdown-item>
                 <el-dropdown-item command="printPDF">打印题库</el-dropdown-item>
                 <el-dropdown-item command="updateDefaultSetting">{{ defaultShowAnswer ? '隐藏答案' : '显示答案'
                   }}</el-dropdown-item>
@@ -623,6 +624,9 @@ export default {
         }
         if (e === "savePDF") {
           makePdf("save", this.showList, title, null, ElMessage);
+        }
+        if (e === "savePDFNoAnswer") {
+          makePdf("save", this.showList, title, null, ElMessage, true);
         }
         if (e === "printPDF") {
           makePdf("print", this.showList, title, null, ElMessage);
