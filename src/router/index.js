@@ -93,6 +93,11 @@ const routes = [
         path: 'favorites',
         name: 'ncre3Favorites',
         component: () => import('@/views/ncre3/ncre3Favorites.vue')
+      },
+      {
+        path: 'exam/random',
+        name: 'ncre3Exam',
+        component: () => import('@/views/ncre3/ncre3Exam.vue')
       }
     ]
   }

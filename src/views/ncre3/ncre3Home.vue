@@ -37,6 +37,12 @@
           </div>
 
           <div class="buttonContainer">
+            <router-link to="/ncre3/exam/random">
+              <div class="tab">
+                <el-icon class="btn-icon" :size="24"><EditPen /></el-icon>
+                <div class="text">随机练习</div>
+              </div>
+            </router-link>
             <router-link to="/ncre3/favorites">
               <div class="tab">
                 <el-icon class="btn-icon" :size="24"><Star /></el-icon>
@@ -69,7 +75,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { Monitor, Star, Back, Coin, Cpu, Edit, Connection, DataAnalysis, Document } from '@element-plus/icons-vue'
+import { Monitor, Star, Back, Coin, Cpu, Edit, Connection, DataAnalysis, Document, EditPen } from '@element-plus/icons-vue'
 
 const isCollapsed = ref(false)
 const route = useRoute()
@@ -77,7 +83,7 @@ const route = useRoute()
 // Only set active menu when on a category page, clear on home/favorites
 const activeMenu = computed(() => {
   const path = route.path
-  if (path === '/ncre3' || path === '/ncre3/' || path === '/ncre3/favorites') return ''
+  if (path === '/ncre3' || path === '/ncre3/' || path === '/ncre3/favorites' || path.startsWith('/ncre3/exam')) return ''
   return path
 })
 
