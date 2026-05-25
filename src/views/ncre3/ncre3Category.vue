@@ -37,14 +37,15 @@
       <div class="theory-toolbar">
         <span class="count">共 {{ questions.length }} 题</span>
         <div class="toolbar-actions">
+          <el-switch v-model="practiceMode" active-text="练习" inactive-text="" active-color="#6C5DD3" style="margin-right: 8px;" />
           <el-button type="primary" text size="small" @click="downloadTheory">
             <el-icon><Download /></el-icon>
             导出题目
           </el-button>
-          <el-switch v-model="showAnswers" active-text="显示答案" inactive-text="隐藏答案" active-color="#6C5DD3" />
+          <el-switch v-model="showAnswers" active-text="显示答案" inactive-text="隐藏答案" active-color="#6C5DD3" v-if="!practiceMode" />
         </div>
       </div>
-      <theoryCard v-for="(q, i) in questions" :key="q.id" :question="q" :index="i" :showAnswer="showAnswers" />
+      <theoryCard v-for="(q, i) in questions" :key="q.id" :question="q" :index="i" :showAnswer="showAnswers" :practiceMode="practiceMode" />
     </div>
 
     <div v-else class="empty-area">
@@ -74,6 +75,7 @@ const store = useNcre3Store()
 const loading = ref(true)
 const questions = ref([])
 const showAnswers = ref(false)
+const practiceMode = ref(false)
 
 // Parse category and optional subKey from route params
 // Route pattern: /ncre3/:category or /ncre3/sql_pet_221

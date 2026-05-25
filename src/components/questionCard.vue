@@ -23,6 +23,10 @@
           搜索结果共{{ showList.length }}题
         </div>
         <div class="rightplace">
+          <!--          一键显示/隐藏答案开关-->
+          <el-switch v-model="showAllAnswers" active-text="答案" inactive-text="" active-color="#6C5DD3"
+            class="practice-switch" v-if="!practiceMode">
+          </el-switch>
           <!--          练习模式开关-->
           <el-switch v-model="practiceMode" active-text="练习" inactive-text="" active-color="#6C5DD3"
             class="practice-switch">
@@ -329,6 +333,7 @@ export default {
   data() {
     return {
       showAnswers: [],
+      showAllAnswers: false,
       defaultShowAnswer: false,
       subjectFocus: [],
       searchWord: "",  //搜索框内容
@@ -505,6 +510,7 @@ export default {
       this.onSearch = false
       this.practiceAnswers = {}
       this.practiceResults = {}
+      this.showAllAnswers = false
       this.initShowAnswers();
     },
     // 监听题型筛选
@@ -529,6 +535,11 @@ export default {
     practiceMode(val) {
       this.practiceAnswers = {};
       this.practiceResults = {};
+    },
+    // 监听一键显示/隐藏答案
+    showAllAnswers(val) {
+      this.showAnswers = this.showList.map(() => val);
+      this.saveViewedState();
     },
   },
   methods: {

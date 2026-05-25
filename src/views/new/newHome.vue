@@ -62,6 +62,12 @@
                         <div class="text">关于</div>
                     </div>
                 </router-link>
+                <router-link to="/newHome/feedback">
+                    <div class="tab">
+                        <el-icon :size="28" color="#8F95B2"><ChatDotRound /></el-icon>
+                        <div class="text">意见反馈</div>
+                    </div>
+                </router-link>
             </div>
         </div>
     </el-aside>
@@ -96,7 +102,7 @@
 <script>
 import modal from '@/components/modal.vue'
 import { ElMessage } from 'element-plus'
-import { Monitor } from '@element-plus/icons-vue'
+import { Monitor, ChatDotRound } from '@element-plus/icons-vue'
 import grapeIcon from '@/assets/icon/grape.svg'
 import juiceIcon from '@/assets/icon/juice.svg'
 import pearIcon from '@/assets/icon/pear.svg'
@@ -135,7 +141,8 @@ export default {
         },
     },
     components: {
-        modal
+        modal,
+        ChatDotRound
     }
 }
 </script>
