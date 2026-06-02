@@ -755,7 +755,7 @@ export default {
   .header {
     display: flex;
     justify-content: space-between;
-    margin: 10px 34rpx;
+    margin: 10px 20px;
     //padding-left: 30px;
     align-items: center;
     height: 68px;
@@ -764,6 +764,7 @@ export default {
       margin-right: 30px;
       width: 35%;
       display: flex;
+      flex-shrink: 0;
 
       .input {
         margin-right: 10px;
@@ -777,15 +778,17 @@ export default {
       text-align: left;
       line-height: 68px;
       font-family: 思源黑体;
-      margin-left: 34px;
+      margin-left: 20px;
       height: 68px;
+      min-width: 0;
+      overflow: hidden;
 
       .subjectSelector {
         margin-left: 20px;
 
         .el-select {
           line-height: 40px;
-          width: 160px;
+          width: 240px;
         }
       }
     }
@@ -1086,6 +1089,45 @@ export default {
     .correctAnswer {
       color: #5F89D3;
       font-weight: 500;
+    }
+  }
+
+  // ── Mobile / narrow-screen responsive ──────────────────
+  @media (max-width: 767px) {
+    .header {
+      height: auto;
+      flex-wrap: wrap;
+      padding: 10px 0;
+
+      .breadCrumb {
+        width: 100%;
+        margin-left: 0;
+        padding: 0 12px;
+        height: auto;
+        line-height: 40px;
+        box-sizing: border-box;
+
+        .subjectSelector {
+          margin-left: 10px;
+
+          .el-select {
+            width: 180px;
+          }
+        }
+      }
+
+      .rightplace {
+        width: 100%;
+        margin-right: 0;
+        padding: 0 12px;
+        box-sizing: border-box;
+        height: 44px;
+      }
+    }
+
+    .questionCover {
+      margin: 10px 12px;
+      padding: 10px 12px;
     }
   }
 }

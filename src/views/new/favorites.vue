@@ -193,7 +193,7 @@ export default {
         }
 
         .type-select {
-            width: 120px;
+            width: 150px;
         }
 
         .selector {

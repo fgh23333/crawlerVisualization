@@ -116,7 +116,7 @@ import lettuceIcon from '@/assets/icon/lettuce.svg'
 export default {
     data() {
         return {
-            isCollapsed: false,
+            isCollapsed: window.innerWidth < 768,
             list: [
                 { subject: '马原', src: 'Marx', icon: grapeIcon },
                 { subject: '近代史', src: 'CMH', icon: juiceIcon },
@@ -436,9 +436,42 @@ export default {
     .sidebar.is-collapsed {
         width: 0 !important;
         border: none;
-        
+
         * {
             display: none !important;
+        }
+    }
+
+    // ── Mobile / narrow-screen responsive ──────────────────
+    @media (max-width: 767px) {
+        .toggle-bar {
+            width: 44px;
+            padding: 0 10px;
+        }
+
+        .arrow {
+            border-width: 0 5px 5px 0;
+            padding: 8px;
+        }
+
+        .sidebar {
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .sidebar.is-collapsed {
+            box-shadow: none;
+        }
+
+        .el-aside {
+            position: static;
+        }
+
+        .el-main {
+            width: 100%;
         }
     }
 }
