@@ -53,7 +53,7 @@
       <div v-if="showList == '' && onSearch">
         <el-empty description="搜索结果为空"></el-empty>
       </div>
-      <div class="questionCover" v-for="(item, i) in showList" :key="i"
+      <div class="questionCover" v-for="(item, i) in showList" :key="i" :id="'qcard-' + i"
         @mouseenter="hoveredIndex = i" @mouseleave="hoveredIndex = null">
         <!-- 判断题 -->
         <div class="typeCover" v-if="showList[i].option.length == 2">
@@ -335,6 +335,7 @@ export default {
     return {
       showAnswers: [],
       hoveredIndex: null,  // 鼠标当前悬浮的题目序号，用于快捷键显示答案
+      currentIndex: -1,  // 键盘导航定位的题目序号（滚动到顶端的那道），用于 -/=/0 快捷键
       showAllAnswers: false,
       defaultShowAnswer: false,
       subjectFocus: [],
@@ -445,11 +446,12 @@ export default {
     }
     // 初始化所有题目的显示状态
     this.initShowAnswers();
-    // 快捷键：按 q 显示/隐藏鼠标悬浮题目的答案
+    // 快捷键：q 切换鼠标悬浮题目答案；- 上一题 / = 下一题 / 0 切换当前题答案（右手单手操作）
     window.addEventListener('keydown', this.handleHotkey);
   },
   beforeUnmount() {
     window.removeEventListener('keydown', this.handleHotkey);
+    if (this._suppressTimer) clearTimeout(this._suppressTimer);
   },
   async created() {
     this.lesson = this.$route.params.lesson;
@@ -551,6 +553,8 @@ export default {
   },
   methods: {
     initShowAnswers() {
+      // 列表重建时，键盘导航定位回到未定位状态
+      this.currentIndex = -1;
       // Try to restore from localStorage
       const storageKey = this.getAnswerStorageKey();
       let saved = {};
@@ -587,13 +591,70 @@ export default {
       this.saveViewedState();
     },
     handleHotkey(e) {
-      if (e.key !== 'q' && e.key !== 'Q') return;
       // 在输入框/搜索框里打字时不触发
       const tag = e.target.tagName;
       if (tag === 'INPUT' || tag === 'TEXTAREA' || e.target.isContentEditable) return;
-      // 没有悬浮在任何题目上则忽略
-      if (this.hoveredIndex === null) return;
-      this.toggleAnswer(this.hoveredIndex);
+      // 保留浏览器自身的快捷键（如 Ctrl+= 放大、Ctrl+- 缩小）
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+
+      // q：切换鼠标悬浮题目的答案
+      if (e.key === 'q' || e.key === 'Q') {
+        if (this.hoveredIndex === null) return;
+        this.toggleAnswer(this.hoveredIndex);
+        return;
+      }
+
+      // 右手三连键：- 上一题 / = 下一题 / 0 切换当前题答案
+      if (e.key === '-' || e.key === '=' || e.key === '0') {
+        if (!this.showList.length) return;
+        e.preventDefault();
+        // 以页面顶端（0 像素处）的题目为“当前题”，使鼠标滚动也能更新题号。
+        // 键盘平滑滚动期间（suppress 标记）保留乐观题号，以支持连续按键。
+        if (!this._suppressScrollSync) {
+          this.currentIndex = this.getTopIndex();
+        }
+        if (e.key === '=') {
+          this.goToQuestion(this.currentIndex + 1);
+        } else if (e.key === '-') {
+          // 尚未定位时按上一题，先落到第一题
+          this.goToQuestion(this.currentIndex < 0 ? 0 : this.currentIndex - 1);
+        } else if (e.key === '0') {
+          const idx = this.currentIndex < 0 ? 0 : this.currentIndex;
+          this.currentIndex = idx;
+          this.toggleAnswer(idx);
+        }
+      }
+    },
+    // 找到当前占据视口顶端的题目序号。
+    // 用「bottom 仍在顶端线下方」判断，而非「top ≈ 0」：因为题卡有
+    // scroll-margin-top，滚动定位后当前题 top 会停在 ~16px，用 top 判断会偏到上一题。
+    // bottom 离判定边界很远，可避免亚像素 / scroll-margin 造成的 off-by-one。
+    getTopIndex() {
+      const n = this.showList.length;
+      if (!n) return -1;
+      const offset = 2; // 顶端线容差：略大于 0，跳过仅剩几像素即将划出的上一题
+      for (let i = 0; i < n; i++) {
+        const el = document.getElementById('qcard-' + i);
+        if (!el) continue;
+        // 第一道「底部尚未划出顶端线」的题，即为占据顶端的当前题
+        if (el.getBoundingClientRect().bottom > offset) return i;
+      }
+      return n - 1; // 已滚到底部，最后一题为当前题
+    },
+    goToQuestion(index) {
+      const clamped = Math.max(0, Math.min(index, this.showList.length - 1));
+      this.currentIndex = clamped;
+      // 平滑滚动动画期间暂停“按滚动位置同步题号”，避免中间帧覆盖目标题号，
+      // 从而支持快速连按 -/= 连续翻题。
+      this._suppressScrollSync = true;
+      if (this._suppressTimer) clearTimeout(this._suppressTimer);
+      this._suppressTimer = setTimeout(() => {
+        this._suppressScrollSync = false;
+      }, 500);
+      this.$nextTick(() => {
+        const el = document.getElementById('qcard-' + clamped);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     },
     updateDefaultSetting() {
       this.defaultShowAnswer = !this.defaultShowAnswer
@@ -741,6 +802,7 @@ export default {
       if (this.searchWord === "") {
         this.showList = [...this.list]
         this.onSearch = false
+        this.currentIndex = -1
       }
     },
     search() {
@@ -751,6 +813,7 @@ export default {
       let temp = this.searchWord ? fuse.search(this.searchWord).map(result => result.item) : this.list;
       this.showList = [...temp]
       this.onSearch = this.searchWord === "" ? false : true
+      this.currentIndex = -1
     }
   }
 }
@@ -812,6 +875,7 @@ export default {
     padding: 14px 18px;
     margin: 15px 34px;
     border-radius: 24px;
+    scroll-margin-top: 16px;  // 键盘 -/= 滚动定位时，与视口顶端留出空隙
     box-shadow: 0px -1px 8px 0px rgba(230, 232, 240, 0.9),
       -1px 0px 8px 0px rgba(230, 232, 240, 0.9),
       1px 0px 8px 0px rgba(230, 232, 240, 0.9),
