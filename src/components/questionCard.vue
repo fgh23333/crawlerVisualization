@@ -53,7 +53,8 @@
       <div v-if="showList == '' && onSearch">
         <el-empty description="搜索结果为空"></el-empty>
       </div>
-      <div class="questionCover" v-for="(item, i) in showList" :key="i">
+      <div class="questionCover" v-for="(item, i) in showList" :key="i"
+        @mouseenter="hoveredIndex = i" @mouseleave="hoveredIndex = null">
         <!-- 判断题 -->
         <div class="typeCover" v-if="showList[i].option.length == 2">
           <div class="questionTypeCover">
@@ -333,6 +334,7 @@ export default {
   data() {
     return {
       showAnswers: [],
+      hoveredIndex: null,  // 鼠标当前悬浮的题目序号，用于快捷键显示答案
       showAllAnswers: false,
       defaultShowAnswer: false,
       subjectFocus: [],
@@ -443,6 +445,11 @@ export default {
     }
     // 初始化所有题目的显示状态
     this.initShowAnswers();
+    // 快捷键：按 q 显示/隐藏鼠标悬浮题目的答案
+    window.addEventListener('keydown', this.handleHotkey);
+  },
+  beforeUnmount() {
+    window.removeEventListener('keydown', this.handleHotkey);
   },
   async created() {
     this.lesson = this.$route.params.lesson;
@@ -578,6 +585,15 @@ export default {
       const newVal = !this.showAnswers[index];
       this.showAnswers.splice(index, 1, newVal);
       this.saveViewedState();
+    },
+    handleHotkey(e) {
+      if (e.key !== 'q' && e.key !== 'Q') return;
+      // 在输入框/搜索框里打字时不触发
+      const tag = e.target.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || e.target.isContentEditable) return;
+      // 没有悬浮在任何题目上则忽略
+      if (this.hoveredIndex === null) return;
+      this.toggleAnswer(this.hoveredIndex);
     },
     updateDefaultSetting() {
       this.defaultShowAnswer = !this.defaultShowAnswer
