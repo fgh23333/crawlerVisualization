@@ -93,7 +93,6 @@ export default {
       showAnswers: [],
       hoveredIndex: null,  // 鼠标当前悬浮的题目序号，用于快捷键显示答案
       currentIndex: -1,  // 键盘导航定位的题目序号（滚动到顶端的那道），用于 -/=/0 快捷键
-      showAllAnswers: false,
       defaultShowAnswer: false,
       subjectFocus: [],
       searchWord: "",  //搜索框内容
@@ -194,6 +193,20 @@ export default {
       }
     }
   },
+  computed: {
+    // 开关状态始终与 showAnswers 数组同步：
+    // getter — 所有答案都显示时为 true
+    // setter — 批量设置所有答案的显示/隐藏
+    showAllAnswers: {
+      get() {
+        return this.showAnswers.length > 0 && this.showAnswers.every(v => v);
+      },
+      set(val) {
+        this.showAnswers = this.showList.map(() => val);
+        this.saveViewedState();
+      }
+    }
+  },
   mounted() {
     const savedDefault = localStorage.getItem("defaultShowAnswer");
     if (savedDefault !== null) {
@@ -276,7 +289,6 @@ export default {
       this.onSearch = false
       this.practiceAnswers = {}
       this.practiceResults = {}
-      this.showAllAnswers = false
       this.initShowAnswers();
     },
     // 监听题型筛选
@@ -301,11 +313,6 @@ export default {
     practiceMode(val) {
       this.practiceAnswers = {};
       this.practiceResults = {};
-    },
-    // 监听一键显示/隐藏答案
-    showAllAnswers(val) {
-      this.showAnswers = this.showList.map(() => val);
-      this.saveViewedState();
     },
   },
   methods: {
