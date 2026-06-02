@@ -43,8 +43,6 @@
                 <el-dropdown-item command="savePDF">导出PDF</el-dropdown-item>
                 <el-dropdown-item command="savePDFNoAnswer">导出PDF（无答案）</el-dropdown-item>
                 <el-dropdown-item command="printPDF">打印题库</el-dropdown-item>
-                <el-dropdown-item command="updateDefaultSetting">{{ defaultShowAnswer ? '隐藏答案' : '显示答案'
-                  }}</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -410,12 +408,6 @@ export default {
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     },
-    updateDefaultSetting() {
-      this.defaultShowAnswer = !this.defaultShowAnswer
-      localStorage.setItem("defaultShowAnswer", JSON.stringify(this.defaultShowAnswer));
-      this.initShowAnswers();
-      this.saveViewedState();
-    },
     updateShowList(type, checked) {
       const validSelectedTypes = Array.isArray(this.selectedTypes) ? this.selectedTypes : [];
       const validSelectedSubjects = Array.isArray(this.subjectFocus) ? this.subjectFocus : [];
@@ -433,35 +425,30 @@ export default {
       this.initShowAnswers();
     },
     handleCommand(e) {
-      if (e == 'updateDefaultSetting') {
-        this.updateDefaultSetting()
-      } else {
-        let title = "题库";
+      let title = "题库";
 
-        if (this.subjectShow.includes(this.lesson) && this.onSearch) {
-          title = `${this.subjectList[this.lesson]} - ${this.questionType[this.type]} - '${this.searchWord}'搜索结果共${this.showList.length}题`
-        }
-        if (this.subjectShow.includes(this.lesson) && !this.onSearch) {
-          title = `${this.subjectList[this.lesson]} - ${this.questionType[this.type]} - 共${this.list.length}题`
-        }
-        if (!this.lesson && this.onSearch) {
-          title = `收藏夹 - '${this.searchWord}'搜索结果共${this.showList.length}题`
-
-        }
-        if (!this.lesson && !this.onSearch) {
-          title = `收藏夹-共${this.list.length}题`
-        }
-        if (e === "savePDF") {
-          makePdf("save", this.showList, title, null, ElMessage);
-        }
-        if (e === "savePDFNoAnswer") {
-          makePdf("save", this.showList, title, null, ElMessage, true);
-        }
-        if (e === "printPDF") {
-          makePdf("print", this.showList, title, null, ElMessage);
-        }
+      if (this.subjectShow.includes(this.lesson) && this.onSearch) {
+        title = `${this.subjectList[this.lesson]} - ${this.questionType[this.type]} - '${this.searchWord}'搜索结果共${this.showList.length}题`
       }
+      if (this.subjectShow.includes(this.lesson) && !this.onSearch) {
+        title = `${this.subjectList[this.lesson]} - ${this.questionType[this.type]} - 共${this.list.length}题`
+      }
+      if (!this.lesson && this.onSearch) {
+        title = `收藏夹 - '${this.searchWord}'搜索结果共${this.showList.length}题`
 
+      }
+      if (!this.lesson && !this.onSearch) {
+        title = `收藏夹-共${this.list.length}题`
+      }
+      if (e === "savePDF") {
+        makePdf("save", this.showList, title, null, ElMessage);
+      }
+      if (e === "savePDFNoAnswer") {
+        makePdf("save", this.showList, title, null, ElMessage, true);
+      }
+      if (e === "printPDF") {
+        makePdf("print", this.showList, title, null, ElMessage);
+      }
     },
     submitPractice(index, userAnswer) {
       const question = this.showList[index];
