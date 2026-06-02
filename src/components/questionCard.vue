@@ -202,6 +202,11 @@ export default {
       set(val) {
         this.showAnswers = this.showList.map(() => val);
         this.saveViewedState();
+        // 持久化开关状态，刷新后可恢复
+        const storageKey = this.getAnswerStorageKey();
+        if (storageKey) {
+          localStorage.setItem(storageKey + '_showAll', JSON.stringify(val));
+        }
       }
     }
   },
@@ -325,11 +330,16 @@ export default {
           saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
         } catch (e) { /* ignore */ }
       }
-      // Create a new array to ensure reactivity
-      this.showAnswers = this.showList.map((item, idx) => {
-        if (saved[item.id]) return true;
-        return this.defaultShowAnswer;
-      });
+      // 优先检查"全部显示"标记
+      const showAll = storageKey && localStorage.getItem(storageKey + '_showAll') === 'true';
+      if (showAll) {
+        this.showAnswers = this.showList.map(() => true);
+      } else {
+        this.showAnswers = this.showList.map((item, idx) => {
+          if (saved[item.id]) return true;
+          return this.defaultShowAnswer;
+        });
+      }
     },
     getAnswerStorageKey() {
       if (this.$route.path === '/newHome/favorites') return 'viewed_favorites';
