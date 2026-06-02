@@ -19,11 +19,17 @@
   - **收藏夹 (Favorites)**：题目右上角一键收藏 / 取消收藏，状态持久化到本地。
   - **标记 (Marks)**：与收藏并列的标记按钮，用于额外标注重点题；同样持久化。
   - **学习记录 (User Records)**：统计做题次数、错题次数与最近错题日期。
+- **练习模式 (Practice Mode)**：逐题作答、即时反馈正误，错题自动收录。
+- **键盘快捷键**：
+  - `q` — 切换鼠标悬浮题目的答案
+  - `0` — 切换当前题（顶端题）的答案
+  - `-` / `=` — 上一题 / 下一题
 - **NCRE 三级题库**：独立模块（`/ncre3`），覆盖三级网络技术 / 数据库技术等题型，并支持基于 mermaid 的 UML 图渲染。
 - **实用工具**：
-  - **PDF 导出**：支持将试题列表导出为 PDF 或直接打印。
+  - **PDF 导出**：支持将试题列表导出为 PDF（含答案 / 无答案两种）或直接打印。
+  - **一键显示答案**：顶部开关一键切换所有答案的显示/隐藏，状态跨页面持久化。
   - **AI 助手 (Beta)**：内置对话页面，辅助解答疑惑。
-- **现代化界面**：紫色调主题、侧边栏导航、Element Plus 组件库，桌面端体验为主。
+- **响应式布局**：支持移动端自适应，侧边栏自动折叠，内容区全宽展示。
 
 ## 🛠 技术栈 (Tech Stack)
 
@@ -32,7 +38,7 @@
 - **状态管理**: [Pinia 2](https://pinia.vuejs.org/)，配合 [`pinia-plugin-persistedstate`](https://prazdevs.github.io/pinia-plugin-persistedstate/) 写入 `localStorage` 实现持久化
 - **路由管理**: [Vue Router 4](https://router.vuejs.org/)
 - **UI 组件库**: [Element Plus](https://element-plus.org/) + [@element-plus/icons-vue](https://element-plus.org/en-US/component/icon.html)
-- **样式**: SCSS（`sass`）
+- **样式**: SCSS（`sass`，modern-compiler API）
 - **工具库**:
   - [Axios](https://axios-http.com/)：HTTP 请求
   - [Fuse.js](https://www.fusejs.io/)：模糊搜索
@@ -79,13 +85,23 @@
 
 ```
 src/
-├── assets/           # 静态资源（题库 JSON、图片、SVG 图标）
-├── components/       # 公共组件 (questionCard, examCard, examRecord 等)
-├── router/           # 路由配置（包含 / / /newHome / /ncre3 三套入口）
+├── assets/           # 静态资源（图片、SVG 图标）
+├── components/       # 公共组件
+│   ├── QuestionItem.vue  # 单题渲染组件（判断/填空/单选/多选）
+│   ├── questionCard.vue  # 题目列表容器（筛选、搜索、快捷键）
+│   ├── examCard.vue      # 考试试题卡片
+│   ├── examRecord.vue    # 答题卡 / 做题记录
+│   ├── modal.vue         # 弹窗组件
+│   └── topBar.vue        # 顶部导航栏
+├── router/           # 路由配置（/ / /newHome / /ncre3 三套入口）
 ├── stores/           # Pinia 状态管理
 │   ├── question.js   # 题库 / 答题 / 错题 / 收藏 / 标记 / 学习记录
 │   └── ncre3.js      # NCRE3 题库状态
-├── utils/            # 工具函数（PDF 生成、题目加载、Markdown 渲染等）
+├── utils/            # 工具函数
+│   ├── questionType.ts  # 题型判断 & 中文标签
+│   ├── loadJson.js      # 运行时从 R2 拉取题库数据
+│   ├── makePdf.js       # PDF 生成
+│   └── ...              # Markdown 渲染等
 ├── views/            # 页面视图
 │   ├── new/          # 主入口 UI（/newHome 路径下）
 │   ├── ncre3/        # NCRE 三级题库 UI
@@ -102,6 +118,12 @@ Pinia store 通过 `pinia-plugin-persistedstate` 将以下字段写入 `localSto
 - `likeList` — 收藏夹
 - `markList` — 标记列表
 - `userRecords` — 学习记录（每题做题次数 / 错题次数 / 最近错题日期）
+
+此外，以下 UI 状态也持久化到 `localStorage`：
+
+- `viewed_*` — 已查看答案的题目 ID 集合
+- `viewed_*_showAll` — 答案全局开关状态
+- `defaultShowAnswer` — 默认答案显示偏好
 
 清除浏览器站点数据即可重置。
 
