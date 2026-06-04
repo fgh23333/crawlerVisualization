@@ -32,42 +32,79 @@
                 </el-menu>
             </div>
             <div class="buttonContainer">
-                <router-link to="/ncre3">
-                    <div class="tab">
-                        <el-icon :size="28" color="#8F95B2"><Monitor /></el-icon>
-                        <div class="text">计算机三级题库</div>
+                <!-- 收藏夹 -->
+                <router-link to="/newHome/favorites" class="icon-btn">
+                    <div class="icon-wrap">
+                        <el-icon :size="20"><Star /></el-icon>
                     </div>
+                    <span class="icon-label">收藏夹</span>
                 </router-link>
-                <router-link to="/">
-                    <div class="tab">
-                        <img class="image" src="@/assets/icon/icon-back.svg">
-                        <div class="text">返回旧版</div>
-                    </div>
-                </router-link>
-                <router-link to="/newHome/chat">
-                    <div class="tab">
-                        <img class="image" src="@/assets/icon/icon-chat.svg">
-                        <div class="text">AI对话(Beta)</div>
-                    </div>
-                </router-link>
-                <router-link to="/newHome/favorites">
-                    <div class="tab">
-                        <img class="image" src="@/assets/icon/icon-favorites.svg">
-                        <div class="text">收藏夹</div>
-                    </div>
-                </router-link>
-                <router-link to="/newHome/about">
-                    <div class="tab">
-                        <img class="image" src="@/assets/icon/icon-info.svg">
-                        <div class="text">关于</div>
-                    </div>
-                </router-link>
-                <router-link to="/newHome/feedback">
-                    <div class="tab">
-                        <el-icon :size="28" color="#8F95B2"><ChatDotRound /></el-icon>
-                        <div class="text">意见反馈</div>
-                    </div>
-                </router-link>
+
+                <!-- 其他题库 -->
+                <el-popover
+                    placement="top"
+                    :width="200"
+                    trigger="click"
+                    popper-class="sidebar-popover"
+                    v-model:visible="showLibPopover"
+                >
+                    <template #default>
+                        <div class="popover-menu">
+                            <div class="popover-title">其他题库</div>
+                            <router-link to="/ncre3" class="popover-item" @click="showLibPopover = false">
+                                <el-icon><Monitor /></el-icon>
+                                <span>计算机三级题库</span>
+                            </router-link>
+                            <router-link to="/computer-question" class="popover-item" @click="showLibPopover = false">
+                                <el-icon><Cpu /></el-icon>
+                                <span>计算机组成原理</span>
+                            </router-link>
+                        </div>
+                    </template>
+                    <template #reference>
+                        <div class="icon-btn" :class="{ active: showLibPopover }">
+                            <div class="icon-wrap">
+                                <el-icon :size="20"><Grid /></el-icon>
+                            </div>
+                            <span class="icon-label">其他题库</span>
+                        </div>
+                    </template>
+                </el-popover>
+
+                <!-- 关于 -->
+                <el-popover
+                    placement="top"
+                    :width="180"
+                    trigger="click"
+                    popper-class="sidebar-popover"
+                    v-model:visible="showMorePopover"
+                >
+                    <template #default>
+                        <div class="popover-menu">
+                            <div class="popover-title">更多</div>
+                            <router-link to="/newHome/chat" class="popover-item" @click="showMorePopover = false">
+                                <el-icon><ChatDotRound /></el-icon>
+                                <span>AI 对话(Beta)</span>
+                            </router-link>
+                            <router-link to="/newHome/about" class="popover-item" @click="showMorePopover = false">
+                                <el-icon><InfoFilled /></el-icon>
+                                <span>关于</span>
+                            </router-link>
+                            <router-link to="/newHome/feedback" class="popover-item" @click="showMorePopover = false">
+                                <el-icon><ChatSquare /></el-icon>
+                                <span>意见反馈</span>
+                            </router-link>
+                        </div>
+                    </template>
+                    <template #reference>
+                        <div class="icon-btn" :class="{ active: showMorePopover }">
+                            <div class="icon-wrap">
+                                <el-icon :size="20"><More /></el-icon>
+                            </div>
+                            <span class="icon-label">更多</span>
+                        </div>
+                    </template>
+                </el-popover>
             </div>
         </div>
     </el-aside>
@@ -102,7 +139,7 @@
 <script>
 import modal from '@/components/modal.vue'
 import { ElMessage } from 'element-plus'
-import { Monitor, ChatDotRound } from '@element-plus/icons-vue'
+import { Monitor, ChatDotRound, Star, Grid, Cpu, More, InfoFilled, ChatSquare } from '@element-plus/icons-vue'
 import grapeIcon from '@/assets/icon/grape.svg'
 import juiceIcon from '@/assets/icon/juice.svg'
 import pearIcon from '@/assets/icon/pear.svg'
@@ -129,7 +166,9 @@ export default {
                 { subject: '改开史', src: 'ORH', icon: lettuceIcon }
             ],
             value1: false,
-            value2: false
+            value2: false,
+            showLibPopover: false,
+            showMorePopover: false,
         }
     },
     methods: {
@@ -142,7 +181,7 @@ export default {
     },
     components: {
         modal,
-        ChatDotRound
+        Monitor, ChatDotRound, Star, Grid, Cpu, More, InfoFilled, ChatSquare
     }
 }
 </script>
@@ -153,6 +192,50 @@ export default {
     padding: 0 !important;
     width: 240px !important;
     color: #525252;
+}
+
+.sidebar-popover.el-popover {
+    border-radius: 14px !important;
+    padding: 6px !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1) !important;
+    border: 1px solid #f0f0f0 !important;
+
+    .popover-menu {
+        .popover-title {
+            font-size: 11px;
+            color: #bbb;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 4px 10px 6px;
+            text-transform: uppercase;
+        }
+
+        .popover-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 10px;
+            border-radius: 9px;
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.15s, color 0.15s;
+
+            .el-icon {
+                color: #8F95B2;
+                font-size: 16px;
+                flex-shrink: 0;
+            }
+
+            &:hover {
+                background: #f0eefb;
+                color: #6C5DD3;
+
+                .el-icon { color: #6C5DD3; }
+            }
+        }
+    }
 }
 
 .menu {
@@ -394,41 +477,52 @@ export default {
 
     .buttonContainer {
         width: 216px;
-        margin: 20px auto;
-        flex-shrink: 0; // Don't shrink
+        margin: 16px auto 20px;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        gap: 4px;
 
-        .tab {
-            height: 56px;
+        .icon-btn {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            margin-bottom: 12px;
-            border-radius: 12px;
-            padding: 0 16px;
-            box-shadow: 0 2px 12px 0 rgba(0,0,0,0.05);
-            background-color: white;
-            transition: all 0.3s;
-
-            .image {
-                height: 32px;
-                width: 32px;
-                object-fit: contain;
-            }
-
-            .text {
-                color: #8F95B2;
-                font-size: 16px;
-                font-weight: bold;
-                margin-left: 16px;
-            }
-        }
-
-        .tab:hover {
+            gap: 6px;
             cursor: pointer;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px 0 rgba(108, 93, 211, 0.2);
+            flex: 1;
+            padding: 10px 4px;
+            border-radius: 14px;
+            text-decoration: none;
+            transition: background 0.2s;
 
-            .text {
-                color: #6C5DD3;
+            .icon-wrap {
+                width: 44px;
+                height: 44px;
+                border-radius: 12px;
+                background: #f4f4f8;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #8F95B2;
+                transition: all 0.2s;
+            }
+
+            .icon-label {
+                font-size: 11px;
+                color: #8F95B2;
+                font-weight: 500;
+                white-space: nowrap;
+            }
+
+            &:hover, &.active {
+                .icon-wrap {
+                    background: #ebe9f9;
+                    color: #6C5DD3;
+                }
+                .icon-label {
+                    color: #6C5DD3;
+                }
             }
         }
     }
