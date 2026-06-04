@@ -1,0 +1,24 @@
+src/views/new/newHome.vue
+  s_4bd346ebb49888::t_e9f80d5b0d61ef 142
+  s_4bd346ebb49888::t_112cea45583940 480-485,487,489,491-508,511-512,514-515,518-525
+  s_4bd346ebb49888::t_635b2858ff0e1e 184
+  s_4bd346ebb49888::t_e523f19485908b 197-240
+  s_4bd346ebb49888::t_15c7a3bfd10ef1 35-38,40,42-107
+  s_4bd346ebb49888::t_cd8efd37e226e6 169-171
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "3c93484252bb23adbf267fdd2a877762ead443af",
+  "prompts": {},
+  "sessions": {
+    "s_4bd346ebb49888": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5f429bb4-85e9-4c49-a885-daa152a71a03",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "倪镭 <110873087+yutian0525@users.noreply.github.com>"
+    }
+  }
+}
