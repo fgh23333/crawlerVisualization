@@ -1,15 +1,15 @@
 # Political Exam Practice System
 
-一个基于 Vue 3 + Vite 的政治理论课刷题与模拟考试系统。旨在帮助学生高效复习各类政治理论课程，支持多种题型练习、模拟考试、错题回顾、收藏/标记，以及 AI 辅助学习。项目同时内置了**全国计算机等级考试三级**题库模块。
+一个基于 Vue 3 + Vite 的政治理论课刷题与模拟考试系统。旨在帮助学生高效复习各类政治理论课程，支持多种题型练习、模拟考试、错题回顾、收藏/标记，以及 AI 辅助学习。项目同时内置了**全国计算机等级考试三级**和**计算机组成原理**题库模块。
 
 ## ✨ 主要功能 (Features)
 
 - **多科目支持**：涵盖马原、毛概、思修（思想道德与法治）、史纲、习概、改开史、新中国史、党史、社主史等多个政治理论科目。
-- **全题型覆盖**：
-  - 单选题 (Single Choice)
-  - 多选题 (Multiple Choice)
-  - 判断题 (True/False)
-  - 填空题 (Fill in the Blank)
+- **多题库支持**：
+  - **思政题库** — 政治理论课各科目
+  - **计算机三级题库** — NCRE 三级网络技术 / 数据库技术
+  - **计算机组成原理** — 计算机组成原理课程题库
+- **全题型覆盖**：单选题、多选题、判断题、填空题
 - **模拟考试 (Mock Exam)**：
   - 按试卷或章节练习
   - 自动评分与答题解析
@@ -24,12 +24,14 @@
   - `q` — 切换鼠标悬浮题目的答案
   - `0` — 切换当前题（顶端题）的答案
   - `-` / `=` — 上一题 / 下一题
-- **NCRE 三级题库**：独立模块（`/ncre3`），覆盖三级网络技术 / 数据库技术等题型，并支持基于 mermaid 的 UML 图渲染。
+- **跨设备同步**：
+  - 导出收藏为压缩文本码（复制粘贴）或 JSON 文件
+  - 导入时自动合并去重，支持文本码和文件两种方式
 - **实用工具**：
   - **PDF 导出**：支持将试题列表导出为 PDF（含答案 / 无答案两种）或直接打印。
   - **一键显示答案**：顶部开关一键切换所有答案的显示/隐藏，状态跨页面持久化。
   - **AI 助手 (Beta)**：内置对话页面，辅助解答疑惑。
-- **响应式布局**：支持移动端自适应，侧边栏自动折叠，内容区全宽展示。
+- **响应式视口**：根据屏幕宽度自动调整缩放比例，适配手机、平板、桌面设备。
 
 ## 🛠 技术栈 (Tech Stack)
 
@@ -40,6 +42,7 @@
 - **UI 组件库**: [Element Plus](https://element-plus.org/) + [@element-plus/icons-vue](https://element-plus.org/en-US/component/icon.html)
 - **样式**: SCSS（`sass`，modern-compiler API）
 - **工具库**:
+  - [lz-string](https://github.com/pieroxy/lz-string/)：收藏夹导入导出压缩
   - [Axios](https://axios-http.com/)：HTTP 请求
   - [Fuse.js](https://www.fusejs.io/)：模糊搜索
   - [pdfmake](http://pdfmake.org/)：PDF 生成
@@ -93,19 +96,23 @@ src/
 │   ├── examRecord.vue    # 答题卡 / 做题记录
 │   ├── modal.vue         # 弹窗组件
 │   └── topBar.vue        # 顶部导航栏
-├── router/           # 路由配置（/ / /newHome / /ncre3 三套入口）
+├── router/           # 路由配置（/ / /newHome / /ncre3 / /computer-question）
 ├── stores/           # Pinia 状态管理
-│   ├── question.js   # 题库 / 答题 / 错题 / 收藏 / 标记 / 学习记录
-│   └── ncre3.js      # NCRE3 题库状态
+│   ├── question.js       # 思政题库状态（错题/收藏/标记/学习记录/导入导出）
+│   ├── ncre3.js          # NCRE3 题库状态
+│   ├── computerQuestion.js # 计算机组成原理题库状态
+│   └── exam.js           # 考试相关状态
 ├── utils/            # 工具函数
-│   ├── questionType.ts  # 题型判断 & 中文标签
-│   ├── loadJson.js      # 运行时从 R2 拉取题库数据
-│   ├── makePdf.js       # PDF 生成
-│   └── ...              # Markdown 渲染等
+│   ├── favoritesSync.js  # 收藏夹导入导出（编码/解码/压缩/合并）
+│   ├── questionType.ts   # 题型判断 & 中文标签
+│   ├── loadJson.js       # 运行时从 R2 拉取题库数据
+│   ├── makePdf.js        # PDF 生成
+│   └── ...               # Markdown 渲染等
 ├── views/            # 页面视图
-│   ├── new/          # 主入口 UI（/newHome 路径下）
-│   ├── ncre3/        # NCRE 三级题库 UI
-│   └── ...           # 旧版表格化视图（/rightWrong、/multipleChoice 等）
+│   ├── new/              # 主入口 UI（/newHome 路径下）
+│   ├── ncre3/            # NCRE 三级题库 UI
+│   ├── computerQuestion/ # 计算机组成原理题库 UI
+│   └── ...               # 旧版表格化视图（/rightWrong、/multipleChoice 等）
 ├── App.vue           # 根组件
 └── main.js           # 入口文件
 ```
