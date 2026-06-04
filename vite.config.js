@@ -15,5 +15,14 @@ export default defineConfig({
         api: 'modern-compiler'
       }
     }
+  },
+  server: {
+    proxy: {
+      '/cdn-api': {
+        target: 'https://mypan.rayni.xyz',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/cdn-api/, '')
+      }
+    }
   }
 })

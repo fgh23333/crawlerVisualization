@@ -80,6 +80,11 @@ const routes = [
     ]
   },
   {
+    path: '/computer-question',
+    name: 'computerQuestion',
+    component: () => import('@/views/computerQuestion/computerQuestion.vue')
+  },
+  {
     path: '/ncre3',
     name: 'ncre3',
     component: () => import('@/views/ncre3/ncre3Home.vue'),
