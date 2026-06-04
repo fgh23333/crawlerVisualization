@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import generateQuiz from '@/utils/quizGenerator'
+import { encodeFavorites, decodeFavorites, favoritesToJsonFile, parseFavoritesFile, mergeFavorites } from '@/utils/favoritesSync'
 
 function getType(question) {
   if (!question.option || question.option.length === 0) return '填空'
@@ -208,6 +209,24 @@ export const useQuestionStore = defineStore('question', () => {
   function addFavoriteQuestion(question) { addLikeQuestion(question) }
   function removeFavoriteQuestion(questionId) { removeLikeQuestion(questionId) }
 
+  // ── 收藏夹导入导出 ──────────────────────────────────
+  function exportFavoritesData() {
+    const list = likeList.value
+    return {
+      likeList: list,
+      code: list.length ? encodeFavorites(list) : '',
+      ...favoritesToJsonFile(list)
+    }
+  }
+
+  function importFavoritesData(incomingData) {
+    const { merged, added, duplicates } = mergeFavorites(likeList.value, incomingData)
+    if (added > 0) {
+      likeList.value = merged
+    }
+    return { added, duplicates }
+  }
+
   return {
     wrongQuestions, answerList, questionBank, results,
     likeList, markList, score, fonts, userRecords,
@@ -220,7 +239,8 @@ export const useQuestionStore = defineStore('question', () => {
     isMarked, toggleMark, clearMarkList,
     addFavoriteQuestion, removeFavoriteQuestion,
     clearLikeList, clearWrongQuestions,
-    checkAnswer, generateQuizAction
+    checkAnswer, generateQuizAction,
+    exportFavoritesData, importFavoritesData
   }
 }, {
   persist: {
