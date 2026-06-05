@@ -82,6 +82,7 @@
       <span class="kp-filter-label">知识点</span>
       <span class="kp-filter-name">{{ activeKp.title }}</span>
       <span class="kp-filter-count">{{ filteredQuestions.length }} 题</span>
+      <span class="kp-filter-ai">AI 归类，仅供参考</span>
       <button class="kp-filter-clear" @click="clearKpFilter">
         <el-icon><Close /></el-icon>
       </button>
@@ -712,6 +713,10 @@ onMounted(loadData)
     background: #6C5DD3;
     padding: 2px 10px;
     border-radius: 20px;
+  }
+  .kp-filter-ai {
+    font-size: 11px;
+    color: #a8a2cf;
   }
   .kp-filter-clear {
     margin-left: auto;

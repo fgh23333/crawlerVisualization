@@ -25,6 +25,12 @@
         <div class="legend-note">节点越大 · 关联题目越多</div>
       </div>
 
+      <!-- AI 说明 -->
+      <div class="kg-ai-note">
+        <el-icon><MagicStick /></el-icon>
+        知识图谱与题目归类由 AI 生成，仅供参考
+      </div>
+
       <RelationGraph
         ref="graphRef"
         :options="graphOptions"
@@ -106,6 +112,7 @@
 <script setup>
 import { ref, reactive, computed, watch, nextTick } from 'vue'
 import RelationGraph from 'relation-graph-vue3'
+import { MagicStick } from '@element-plus/icons-vue'
 
 const props = defineProps({
   knowledgePoints: { type: Array, default: () => [] },
@@ -348,6 +355,27 @@ function viewQuestions() {
     font-size: 11px;
     color: #94a3b8;
   }
+}
+
+/* AI 说明角标 */
+.kg-ai-note {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid #ececf7;
+  font-size: 11.5px;
+  color: #8b80c9;
+  pointer-events: none;
+
+  .el-icon { font-size: 13px; }
 }
 
 /* 节点 */
