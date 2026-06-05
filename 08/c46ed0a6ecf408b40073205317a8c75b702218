@@ -1,0 +1,24 @@
+src/views/computerQuestion/KnowledgeGraph.vue
+  s_85381e71f1744c::t_e16734da7de6eb 360-380
+  s_85381e71f1744c::t_387d6b951a09e9 115
+  s_85381e71f1744c::t_ef79cbb47409e7 28-33
+src/views/computerQuestion/computerQuestion.vue
+  s_85381e71f1744c::t_713e65d32978ac 717-720
+  s_85381e71f1744c::t_2502fdcd31dc06 85
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "08c46ed0a6ecf408b40073205317a8c75b702218",
+  "prompts": {},
+  "sessions": {
+    "s_85381e71f1744c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "897a35fa-3a51-4d7b-89c8-c1b2f589838e",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "倪镭 <110873087+yutian0525@users.noreply.github.com>"
+    }
+  }
+}
