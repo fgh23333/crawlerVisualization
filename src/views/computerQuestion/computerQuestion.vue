@@ -32,9 +32,13 @@
             收藏夹
             <span v-if="store.favorites.length" class="fav-badge">{{ store.favorites.length }}</span>
           </button>
+          <button :class="['view-tab', { active: viewMode === 'graph' }]" @click="switchView('graph')">
+            <el-icon><Share /></el-icon>
+            知识图谱
+          </button>
         </div>
-        <div class="divider-v"></div>
-        <div class="type-tabs">
+        <div v-if="viewMode !== 'graph'" class="divider-v"></div>
+        <div v-if="viewMode !== 'graph'" class="type-tabs">
           <button
             v-for="tab in typeTabs"
             :key="tab.value"
@@ -44,7 +48,10 @@
         </div>
       </div>
 
-      <div class="toolbar-right">
+      <div v-if="viewMode === 'graph'" class="toolbar-right">
+        <span class="graph-hint">点击节点查看知识点详情 · 滚轮缩放 · 拖拽平移</span>
+      </div>
+      <div v-else class="toolbar-right">
         <span class="switch-label">显示答案</span>
         <el-switch v-model="showAllAnswers" active-color="#6C5DD3" />
         <el-input
@@ -69,8 +76,19 @@
       </div>
     </div>
 
+    <!-- 知识点筛选条 -->
+    <div v-if="viewMode !== 'graph' && activeKp" class="kp-filter-bar">
+      <el-icon class="kp-filter-icon"><Share /></el-icon>
+      <span class="kp-filter-label">知识点</span>
+      <span class="kp-filter-name">{{ activeKp.title }}</span>
+      <span class="kp-filter-count">{{ filteredQuestions.length }} 题</span>
+      <button class="kp-filter-clear" @click="clearKpFilter">
+        <el-icon><Close /></el-icon>
+      </button>
+    </div>
+
     <!-- 结果提示 -->
-    <div v-if="searchQuery || activeType !== 'all' || viewMode === 'favorites'" class="result-info">
+    <div v-if="viewMode !== 'graph' && !activeKp && (searchQuery || activeType !== 'all' || viewMode === 'favorites')" class="result-info">
       <template v-if="viewMode === 'favorites' && !store.favorites.length">
         收藏夹为空，点击题目右上角的 ☆ 收藏题目
       </template>
@@ -79,8 +97,19 @@
       </template>
     </div>
 
+    <!-- 知识图谱视图 -->
+    <KnowledgeGraph
+      v-if="viewMode === 'graph'"
+      :knowledge-points="knowledgePoints"
+      :relations="relations"
+      :loading="kgLoading"
+      :load-error="kgError"
+      @retry="loadKnowledgeGraph"
+      @view-questions="handleViewQuestions"
+    />
+
     <!-- 加载中 -->
-    <div v-if="loading" class="loading-area">
+    <div v-else-if="loading" class="loading-area">
       <el-skeleton :rows="5" animated />
     </div>
 
@@ -175,9 +204,10 @@
 
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue'
-import { Download, Search, ArrowLeft, Star, StarFilled, List } from '@element-plus/icons-vue'
+import { Download, Search, ArrowLeft, Star, StarFilled, List, Share, Close } from '@element-plus/icons-vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { useComputerQuestionStore } from '@/stores/computerQuestion'
+import KnowledgeGraph from './KnowledgeGraph.vue'
 
 const store = useComputerQuestionStore()
 
@@ -185,6 +215,7 @@ const BASE = import.meta.env.DEV
   ? '/cdn-api'
   : 'https://mypan.rayni.xyz'
 const CDN_JSON = `${BASE}/raw/computer-question/tiku.json`
+const CDN_KG   = `${BASE}/raw/computer-question/knowledge_graph.json`
 const CDN_IMG  = `${BASE}/raw/computer-question/images/`
 const PAGE_SIZE = 20
 
@@ -198,6 +229,14 @@ const showAnswerSet  = ref(new Set())
 const showAllAnswers = ref(false)
 const exporting      = ref(false)
 const currentPage    = ref(1)
+
+// 知识图谱
+const knowledgePoints = ref([])
+const relations       = ref([])
+const kgLoading       = ref(false)
+const kgError         = ref(false)
+const kgLoaded        = ref(false)
+const activeKp        = ref(null)   // 从图谱跳转过来时按知识点筛选
 
 const typeLabelMap = { single: '单选', multiple: '多选', fill: '填空' }
 const typeTagMap   = { single: 'primary', multiple: 'warning', fill: 'success' }
@@ -219,6 +258,10 @@ const typeCount = computed(() => {
 
 const filteredQuestions = computed(() => {
   let list = viewMode.value === 'favorites' ? store.favorites : questions.value
+  if (activeKp.value) {
+    const idSet = new Set(activeKp.value.questionIds)
+    list = list.filter(q => idSet.has(q.id))
+  }
   if (activeType.value !== 'all') {
     list = list.filter(q => q.type === activeType.value)
   }
@@ -246,6 +289,41 @@ function switchView(mode) {
   viewMode.value = mode
   activeType.value = 'all'
   searchQuery.value = ''
+  if (mode !== 'bank') activeKp.value = null
+  if (mode === 'graph' && !kgLoaded.value) loadKnowledgeGraph()
+}
+
+async function loadKnowledgeGraph() {
+  if (kgLoading.value) return
+  kgLoading.value = true
+  kgError.value = false
+  try {
+    const res = await fetch(CDN_KG)
+    if (!res.ok) throw new Error('fetch failed')
+    const kg = await res.json()
+    knowledgePoints.value = kg.knowledge_points || []
+    relations.value = kg.relations || []
+    kgLoaded.value = true
+  } catch {
+    kgError.value = true
+  } finally {
+    kgLoading.value = false
+  }
+}
+
+// 从图谱弹窗「查看习题」跳转到题库并按知识点筛选
+function handleViewQuestions({ id, title, questionIds }) {
+  activeKp.value = { id, title, questionIds }
+  viewMode.value = 'bank'
+  activeType.value = 'all'
+  searchQuery.value = ''
+  currentPage.value = 1
+  scrollTop()
+}
+
+function clearKpFilter() {
+  activeKp.value = null
+  currentPage.value = 1
 }
 
 function renderText(text, images) {
@@ -414,7 +492,7 @@ onMounted(loadData)
 
 <style lang="scss" scoped>
 .cq-page {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -481,24 +559,33 @@ onMounted(loadData)
   border: 1px solid #f1f5f9;
   border-radius: 12px;
   padding: 8px 12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 
   .toolbar-left {
     display: flex;
     align-items: center;
     gap: 8px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
   }
 
   .toolbar-right {
     display: flex;
     align-items: center;
     gap: 8px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
 
     .switch-label {
       font-size: 12px;
       color: #64748b;
+      white-space: nowrap;
+    }
+
+    .graph-hint {
+      font-size: 12px;
+      color: #94a3b8;
       white-space: nowrap;
     }
   }
@@ -591,6 +678,56 @@ onMounted(loadData)
   color: #666;
   margin-bottom: 16px;
   strong { color: #333; }
+}
+
+.kp-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(108, 93, 211, 0.1), rgba(108, 93, 211, 0.04));
+  border: 1px solid rgba(108, 93, 211, 0.2);
+
+  .kp-filter-icon {
+    color: #6C5DD3;
+    font-size: 16px;
+  }
+  .kp-filter-label {
+    font-size: 12px;
+    color: #8b80c9;
+    font-weight: 600;
+  }
+  .kp-filter-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #4c3fb0;
+    letter-spacing: -0.2px;
+  }
+  .kp-filter-count {
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    background: #6C5DD3;
+    padding: 2px 10px;
+    border-radius: 20px;
+  }
+  .kp-filter-clear {
+    margin-left: auto;
+    width: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #8b80c9;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    &:hover { background: rgba(108, 93, 211, 0.15); color: #4c3fb0; }
+  }
 }
 
 .loading-area { padding: 40px 0; }
