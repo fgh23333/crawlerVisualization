@@ -101,7 +101,7 @@
     <!-- 知识图谱视图 -->
     <KnowledgeGraph
       v-if="viewMode === 'graph'"
-      :knowledge-points="knowledgePoints"
+      :nodes="kgNodes"
       :relations="relations"
       :loading="kgLoading"
       :load-error="kgError"
@@ -232,7 +232,7 @@ const exporting      = ref(false)
 const currentPage    = ref(1)
 
 // 知识图谱
-const knowledgePoints = ref([])
+const kgNodes     = ref([])   // 全部节点（root + chapter + kp）
 const relations       = ref([])
 const kgLoading       = ref(false)
 const kgError         = ref(false)
@@ -302,8 +302,8 @@ async function loadKnowledgeGraph() {
     const res = await fetch(CDN_KG)
     if (!res.ok) throw new Error('fetch failed')
     const kg = await res.json()
-    knowledgePoints.value = kg.knowledge_points || []
-    relations.value = kg.relations || []
+    kgNodes.value     = kg.nodes     || []
+    relations.value   = kg.relations || []
     kgLoaded.value = true
   } catch {
     kgError.value = true

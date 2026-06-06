@@ -3,7 +3,7 @@
     <!-- 加载中 -->
     <div v-if="loading" class="kg-state">
       <div class="kg-spinner"></div>
-      <p>正在构建知识星图…</p>
+      <p>正在构建知识图谱…</p>
     </div>
 
     <!-- 错误 -->
@@ -16,13 +16,21 @@
     <div v-else class="kg-canvas">
       <!-- 图例 -->
       <div class="kg-legend">
-        <div class="legend-title">关系类型</div>
-        <div v-for="(c, type) in REL_COLORS" :key="type" class="legend-item">
-          <span class="legend-line" :style="{ background: c }"></span>
-          <span class="legend-text">{{ type }}</span>
+        <div class="legend-title">节点类型</div>
+        <div class="legend-item">
+          <span class="legend-dot dot-root"></span>
+          <span class="legend-text">课程根节点</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot dot-chapter"></span>
+          <span class="legend-text">章节</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot dot-kp"></span>
+          <span class="legend-text">知识点</span>
         </div>
         <div class="legend-divider"></div>
-        <div class="legend-note">节点越大 · 关联题目越多</div>
+        <div class="legend-note">知识点越深 · 关联题目越多</div>
       </div>
 
       <!-- AI 说明 -->
@@ -37,13 +45,24 @@
         :on-node-click="onNodeClick"
       >
         <template #node="{ node }">
+          <!-- 根节点 -->
+          <div v-if="node.data.type === 'root'" class="kg-node node-root">
+            <span class="kg-node-title">{{ node.text }}</span>
+          </div>
+          <!-- 章节节点 -->
+          <div v-else-if="node.data.type === 'chapter'" class="kg-node node-chapter">
+            <span class="kg-node-order">{{ node.data.order }}</span>
+            <span class="kg-node-title">{{ node.text }}</span>
+          </div>
+          <!-- 知识点节点 -->
           <div
-            class="kg-node"
+            v-else
+            class="kg-node node-kp"
             :class="`tier-${node.data.tier}`"
             :style="{ width: node.width + 'px', height: node.height + 'px' }"
           >
             <span class="kg-node-title">{{ node.text }}</span>
-            <span class="kg-node-count">{{ node.data.count }}</span>
+            <span v-if="node.data.count" class="kg-node-count">{{ node.data.count }} 题</span>
           </div>
         </template>
       </RelationGraph>
@@ -62,12 +81,17 @@
         <div class="kpd-header" v-if="current">
           <div class="kpd-eyebrow">
             <span class="kpd-dot"></span>
-            知识点详情
+            {{ current.nodeType === 'chapter' ? '章节详情' : '知识点详情' }}
           </div>
           <h2 class="kpd-title">{{ current.title }}</h2>
           <div class="kpd-meta">
-            <span class="kpd-badge">{{ current.question_ids.length }} 道关联题目</span>
-            <span v-if="current.relCount" class="kpd-badge ghost">{{ current.relCount }} 条关联</span>
+            <span v-if="current.chapterTitle" class="kpd-badge ghost">{{ current.chapterTitle }}</span>
+            <span v-if="current.nodeType === 'kp'" class="kpd-badge">
+              {{ current.question_ids?.length || 0 }} 道关联题目
+            </span>
+            <span v-if="current.nodeType === 'chapter'" class="kpd-badge">
+              {{ current.kpCount }} 个知识点
+            </span>
           </div>
         </div>
       </template>
@@ -75,33 +99,35 @@
       <div v-if="current" class="kpd-body">
         <p class="kpd-detail">{{ current.detail }}</p>
 
-        <div v-if="current.links.length" class="kpd-relations">
-          <div class="kpd-section-label">关联知识点</div>
-          <div class="kpd-rel-list">
+        <!-- 章节：展示下属知识点列表 -->
+        <template v-if="current.nodeType === 'chapter' && current.childKps.length">
+          <div class="kpd-section-label">所含知识点</div>
+          <div class="kpd-kp-list">
             <button
-              v-for="link in current.links"
-              :key="link.id + link.type"
-              class="kpd-rel-chip"
-              :style="{ '--rel-c': REL_COLORS[link.type] || '#8b94c9' }"
-              @click="jumpTo(link.id)"
+              v-for="kp in current.childKps"
+              :key="kp.id"
+              class="kpd-kp-chip"
+              @click="openKp(kp.id)"
             >
-              <span class="kpd-rel-type">{{ link.type }}</span>
-              <span class="kpd-rel-name">{{ link.title }}</span>
+              <span class="kpd-kp-order">{{ kp.order }}</span>
+              <span class="kpd-kp-name">{{ kp.title }}</span>
+              <span class="kpd-kp-count">{{ kp.question_ids?.length || 0 }}</span>
             </button>
           </div>
-        </div>
+        </template>
       </div>
 
       <template #footer>
         <div class="kpd-footer">
           <button class="kpd-btn ghost" @click="dialogVisible = false">关闭</button>
           <button
+            v-if="current?.nodeType === 'kp'"
             class="kpd-btn primary"
-            :disabled="!current || !current.question_ids.length"
+            :disabled="!current.question_ids?.length"
             @click="viewQuestions"
           >
             查看习题
-            <span v-if="current" class="kpd-btn-num">{{ current.question_ids.length }}</span>
+            <span class="kpd-btn-num">{{ current.question_ids?.length || 0 }}</span>
           </button>
         </div>
       </template>
@@ -115,30 +141,36 @@ import RelationGraph from 'relation-graph-vue3'
 import { MagicStick } from '@element-plus/icons-vue'
 
 const props = defineProps({
-  knowledgePoints: { type: Array, default: () => [] },
-  relations: { type: Array, default: () => [] },
-  loading: { type: Boolean, default: false },
+  nodes:     { type: Array,   default: () => [] },
+  relations: { type: Array,   default: () => [] },
+  loading:   { type: Boolean, default: false },
   loadError: { type: Boolean, default: false },
 })
 const emit = defineEmits(['retry', 'view-questions'])
 
-// 关系类型 -> 颜色（浅色系）
-const REL_COLORS = {
-  包含: '#14b8a6',
-  前置: '#f59e0b',
-  相关: '#6366f1',
-  对比: '#ec4899',
-}
-
-const graphRef = ref(null)
+const graphRef      = ref(null)
 const dialogVisible = ref(false)
-const current = ref(null)
+const current       = ref(null)
 
-const kpMap = computed(() => {
+// 节点索引
+const nodeMap = computed(() => {
   const m = {}
-  props.knowledgePoints.forEach(kp => { m[kp.id] = kp })
+  props.nodes.forEach(n => { m[n.id] = n })
   return m
 })
+
+// 知识点按题量分级
+function tierOf(count) {
+  if (count >= 18) return 3
+  if (count >= 10) return 2
+  if (count >= 4)  return 1
+  return 0
+}
+const KP_TIER_SIZE    = { 0: 60, 1: 76, 2: 94, 3: 114 }
+const CHAPTER_SIZE_W  = 110
+const CHAPTER_SIZE_H  = 48
+const ROOT_SIZE_W     = 140
+const ROOT_SIZE_H     = 56
 
 // relation-graph 配置
 const graphOptions = reactive({
@@ -146,80 +178,67 @@ const graphOptions = reactive({
   backgroundColor: 'transparent',
   layout: {
     layoutName: 'force',
-    maxLayoutTimes: 300,
-    force_node_repulsion: 1.6,
-    force_line_elastic: 0.6,
+    maxLayoutTimes: 400,
+    force_node_repulsion: 2.2,
+    force_line_elastic: 0.5,
+    force_node_attraction: 0.8,
   },
   defaultJunctionPoint: 'border',
   defaultNodeShape: 0,
   defaultLineShape: 1,
-  defaultLineColor: 'rgba(148,163,184,0.5)',
-  lineUseTextColor: true,
+  defaultLineColor: 'rgba(148,163,184,0.45)',
+  lineUseTextColor: false,
   defaultNodeColor: 'transparent',
   defaultNodeBorderWidth: 0,
   allowShowMiniToolBar: false,
   allowSwitchLineShape: false,
   allowSwitchJunctionPoint: false,
-  disableNodeClickEffect: false,
   zoomToFitWhenRefresh: true,
   moveToCenterWhenRefresh: true,
   defaultExpandHolderPosition: 'hide',
   defaultFocusRootNode: false,
 })
 
-// 根据关联题量分级：决定节点尺寸与样式 tier
-function tierOf(count) {
-  if (count >= 18) return 3
-  if (count >= 10) return 2
-  if (count >= 4) return 1
-  return 0
-}
-const TIER_SIZE = { 0: 64, 1: 80, 2: 100, 3: 124 }
-
 function buildGraphData() {
-  const relCountMap = {}
-  props.relations.forEach(r => {
-    relCountMap[r.source] = (relCountMap[r.source] || 0) + 1
-    relCountMap[r.target] = (relCountMap[r.target] || 0) + 1
-  })
-
-  const nodes = props.knowledgePoints.map(kp => {
-    const count = kp.question_ids?.length || 0
-    const tier = tierOf(count)
-    const size = TIER_SIZE[tier]
-    return {
-      id: kp.id,
-      text: kp.title,
-      width: size,
-      height: size,
-      data: { count, tier },
+  const rgNodes = props.nodes.map(n => {
+    if (n.type === 'root') {
+      return { id: n.id, text: n.title, width: ROOT_SIZE_W, height: ROOT_SIZE_H,
+               data: { type: 'root' } }
     }
+    if (n.type === 'chapter') {
+      return { id: n.id, text: n.title, width: CHAPTER_SIZE_W, height: CHAPTER_SIZE_H,
+               data: { type: 'chapter', order: n.order } }
+    }
+    // kp
+    const count = n.question_ids?.length || 0
+    const tier  = tierOf(count)
+    const size  = KP_TIER_SIZE[tier]
+    return { id: n.id, text: n.title, width: size, height: size,
+             data: { type: 'kp', count, tier } }
   })
 
-  const lines = props.relations.map(r => ({
+  const rgLines = props.relations.map(r => ({
     from: r.source,
-    to: r.target,
-    text: r.type,
-    color: REL_COLORS[r.type] || 'rgba(148,163,184,0.6)',
-    fontColor: REL_COLORS[r.type] || '#94a3b8',
-    lineWidth: r.type === '包含' ? 2 : 1.4,
-    isHideArrow: r.type === '相关' || r.type === '对比',
+    to:   r.target,
+    // 根→章节线深一点，章节→知识点线淡一点
+    color:     r.source === 'root' ? 'rgba(108,93,211,0.5)' : 'rgba(148,163,184,0.4)',
+    lineWidth: r.source === 'root' ? 2 : 1.2,
+    isHideArrow: false,
+    isHideText: true,
   }))
 
-  return { rootId: nodes[0]?.id, nodes, lines }
+  return { rootId: 'root', nodes: rgNodes, lines: rgLines }
 }
 
-let inited = false
 function render() {
-  if (!props.knowledgePoints.length || !graphRef.value) return
-  const data = buildGraphData()
-  graphRef.value.setJsonData(data, () => { inited = true })
+  if (!props.nodes.length || !graphRef.value) return
+  graphRef.value.setJsonData(buildGraphData())
 }
 
 watch(
-  () => [props.loading, props.loadError, props.knowledgePoints.length],
-  async () => {
-    if (!props.loading && !props.loadError && props.knowledgePoints.length) {
+  () => [props.loading, props.loadError, props.nodes.length],
+  async ([loading, err, len]) => {
+    if (!loading && !err && len) {
       await nextTick()
       render()
     }
@@ -227,43 +246,49 @@ watch(
   { immediate: true }
 )
 
-function buildCurrent(kp) {
-  const links = props.relations
-    .filter(r => r.source === kp.id || r.target === kp.id)
-    .map(r => {
-      const otherId = r.source === kp.id ? r.target : r.source
-      const other = kpMap.value[otherId]
-      return other ? { id: otherId, title: other.title, type: r.type } : null
-    })
-    .filter(Boolean)
-  return { ...kp, links, relCount: links.length }
+// 构建弹窗数据
+function buildCurrentNode(nodeId) {
+  const n = nodeMap.value[nodeId]
+  if (!n) return null
+
+  if (n.type === 'chapter') {
+    const childKps = props.nodes
+      .filter(x => x.type === 'kp' && x.parent === nodeId)
+      .sort((a, b) => (a.order || 0) - (b.order || 0))
+    return { ...n, nodeType: 'chapter', childKps, kpCount: childKps.length }
+  }
+
+  if (n.type === 'kp') {
+    const chapter = nodeMap.value[n.parent]
+    return { ...n, nodeType: 'kp', chapterTitle: chapter?.title || '' }
+  }
+
+  return null
 }
 
 function onNodeClick(nodeObject) {
-  const kp = kpMap.value[nodeObject.id]
-  if (!kp) return
-  current.value = buildCurrent(kp)
+  const built = buildCurrentNode(nodeObject.id)
+  if (!built) return
+  current.value = built
   dialogVisible.value = true
 }
 
-function jumpTo(kpId) {
-  const kp = kpMap.value[kpId]
-  if (!kp) return
-  current.value = buildCurrent(kp)
-  // 让图谱聚焦到该节点
+// 从章节详情点击知识点跳转
+function openKp(kpId) {
+  const built = buildCurrentNode(kpId)
+  if (!built) return
+  current.value = built
+  // 聚焦节点
   const inst = graphRef.value?.getInstance?.()
-  if (inst) {
-    const node = inst.getNodeById(kpId)
-    if (node) inst.focusNodeById?.(kpId)
-  }
+  if (inst) inst.focusNodeById?.(kpId)
 }
 
 function viewQuestions() {
   if (!current.value) return
   emit('view-questions', {
-    id: current.value.id,
-    title: current.value.title,
-    questionIds: current.value.question_ids,
+    id:          current.value.id,
+    title:       current.value.title,
+    questionIds: current.value.question_ids || [],
   })
   dialogVisible.value = false
 }
@@ -284,8 +309,6 @@ function viewQuestions() {
   border: 1px solid #eceefb;
   box-shadow: inset 0 0 80px rgba(108, 93, 211, 0.04), 0 12px 36px rgba(108, 93, 211, 0.08);
 }
-
-/* 网格点背景 */
 .kg-wrap::before {
   content: '';
   position: absolute;
@@ -301,7 +324,6 @@ function viewQuestions() {
   inset: 0;
 }
 
-/* relation-graph 内部容器透明 */
 :deep(.rel-map),
 :deep(.relation-graph) {
   background: transparent !important;
@@ -315,7 +337,7 @@ function viewQuestions() {
   z-index: 20;
   padding: 14px 16px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(14px);
   border: 1px solid #ececf7;
   box-shadow: 0 6px 20px rgba(108, 93, 211, 0.08);
@@ -337,10 +359,14 @@ function viewQuestions() {
     align-items: center;
     gap: 8px;
   }
-  .legend-line {
-    width: 18px;
-    height: 3px;
-    border-radius: 2px;
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    &.dot-root    { background: linear-gradient(135deg, #7c6ce8, #5b4fd6); border-radius: 8px; }
+    &.dot-chapter { background: linear-gradient(135deg, #e0dbfb, #c4bcf4); border-radius: 4px; }
+    &.dot-kp      { background: radial-gradient(circle, #f3f1fe, #a78bfa); border-radius: 50%; }
   }
   .legend-text {
     font-size: 12.5px;
@@ -349,7 +375,7 @@ function viewQuestions() {
   .legend-divider {
     height: 1px;
     background: #eef0f8;
-    margin: 4px 0;
+    margin: 2px 0;
   }
   .legend-note {
     font-size: 11px;
@@ -357,7 +383,7 @@ function viewQuestions() {
   }
 }
 
-/* AI 说明角标 */
+/* AI 说明 */
 .kg-ai-note {
   position: absolute;
   right: 16px;
@@ -374,28 +400,24 @@ function viewQuestions() {
   font-size: 11.5px;
   color: #8b80c9;
   pointer-events: none;
-
   .el-icon { font-size: 13px; }
 }
 
-/* 节点 */
+/* 节点基础 */
 .kg-node {
-  border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   cursor: pointer;
-  padding: 6px;
   box-sizing: border-box;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
-  border: 1.5px solid;
+  &:hover { transform: scale(1.07); }
 
   .kg-node-title {
-    font-size: 12px;
     font-weight: 600;
-    line-height: 1.22;
+    line-height: 1.25;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -403,45 +425,87 @@ function viewQuestions() {
   }
   .kg-node-count {
     margin-top: 3px;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
     opacity: 0.7;
   }
+}
 
-  &:hover {
-    transform: scale(1.08);
+/* 根节点 */
+.node-root {
+  width: 140px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #7c6ce8, #5b4fd6);
+  border: 2px solid rgba(255,255,255,0.3);
+  box-shadow: 0 8px 28px rgba(108, 93, 211, 0.45), 0 0 0 6px rgba(108, 93, 211, 0.1);
+  padding: 0 14px;
+  .kg-node-title { font-size: 14px; color: #fff; -webkit-line-clamp: 1; }
+  &:hover { box-shadow: 0 12px 36px rgba(108, 93, 211, 0.6), 0 0 0 7px rgba(108, 93, 211, 0.14); }
+}
+
+/* 章节节点 */
+.node-chapter {
+  width: 110px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f3f1fe, #e0dbfb);
+  border: 1.5px solid #c4bcf4;
+  box-shadow: 0 4px 14px rgba(108, 93, 211, 0.15);
+  padding: 0 10px;
+  gap: 4px;
+  flex-direction: row;
+
+  .kg-node-order {
+    font-size: 11px;
+    font-weight: 800;
+    color: #6c5dd3;
+    background: rgba(108, 93, 211, 0.12);
+    border-radius: 4px;
+    padding: 1px 5px;
+    flex-shrink: 0;
   }
+  .kg-node-title { font-size: 12px; color: #3d2fa0; -webkit-line-clamp: 2; }
+  &:hover { box-shadow: 0 6px 20px rgba(108, 93, 211, 0.25); }
+}
 
-  /* 分级配色：题量越多颜色越浓 */
+/* 知识点节点（圆形，四级深浅） */
+.node-kp {
+  border-radius: 50%;
+  border: 1.5px solid;
+  padding: 6px;
+
+  .kg-node-title { font-size: 11px; }
+
   &.tier-0 {
     background: radial-gradient(circle at 35% 28%, #ffffff, #eef0fb);
     border-color: #d9dcf4;
-    box-shadow: 0 4px 14px rgba(108, 93, 211, 0.12);
-    .kg-node-title { font-size: 11px; color: #4b5274; }
+    box-shadow: 0 3px 12px rgba(108, 93, 211, 0.10);
+    .kg-node-title { color: #4b5274; }
     .kg-node-count { color: #8b90b8; }
   }
   &.tier-1 {
     background: radial-gradient(circle at 35% 28%, #f3f1fe, #e0dbfb);
     border-color: #c4bcf4;
-    box-shadow: 0 5px 18px rgba(124, 108, 232, 0.18);
+    box-shadow: 0 4px 16px rgba(124, 108, 232, 0.18);
     .kg-node-title { color: #4434a0; }
     .kg-node-count { color: #7a6cc8; }
   }
   &.tier-2 {
     background: radial-gradient(circle at 35% 28%, #c9bdf6, #a78bfa);
     border-color: #b8a4fb;
-    box-shadow: 0 7px 22px rgba(124, 108, 232, 0.3);
+    box-shadow: 0 6px 20px rgba(124, 108, 232, 0.30);
     .kg-node-title { color: #2e2270; }
     .kg-node-count { color: #4c3fb0; }
   }
   &.tier-3 {
     background: radial-gradient(circle at 35% 28%, #8b7cf0, #6c5dd3);
     border-color: #a394ec;
-    box-shadow: 0 10px 30px rgba(108, 93, 211, 0.42), 0 0 0 6px rgba(108, 93, 211, 0.08);
-    .kg-node-title { font-size: 13px; color: #ffffff; }
-    .kg-node-count { color: rgba(255, 255, 255, 0.8); }
+    box-shadow: 0 8px 28px rgba(108, 93, 211, 0.42), 0 0 0 5px rgba(108, 93, 211, 0.08);
+    .kg-node-title { font-size: 12px; color: #fff; }
+    .kg-node-count { color: rgba(255,255,255,0.8); }
+    &:hover { box-shadow: 0 12px 36px rgba(108, 93, 211, 0.55), 0 0 0 7px rgba(108, 93, 211, 0.12); }
   }
-  &:hover.tier-3 { box-shadow: 0 14px 38px rgba(108, 93, 211, 0.55), 0 0 0 7px rgba(108, 93, 211, 0.1); }
 }
 
 /* 状态 */
@@ -456,7 +520,7 @@ function viewQuestions() {
   color: #64748b;
   font-size: 14px;
 
-  .kg-err { color: #e26a8d; }
+  .kg-err   { color: #e26a8d; }
   .kg-retry {
     padding: 8px 22px;
     border-radius: 10px;
@@ -481,7 +545,6 @@ function viewQuestions() {
 </style>
 
 <style lang="scss">
-/* 弹窗（非 scoped，覆盖 element-plus 暗色样式） */
 .kp-dialog {
   border-radius: 22px !important;
   overflow: hidden;
@@ -493,7 +556,7 @@ function viewQuestions() {
   box-shadow: 0 30px 80px rgba(108, 93, 211, 0.2) !important;
 
   .el-dialog__header { padding: 24px 28px 0; margin: 0; }
-  .el-dialog__body { padding: 16px 28px 8px; }
+  .el-dialog__body   { padding: 16px 28px 8px; }
   .el-dialog__footer { padding: 12px 28px 24px; }
 
   .kpd-header {
@@ -515,7 +578,7 @@ function viewQuestions() {
     }
     .kpd-title {
       margin: 10px 0 12px;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 700;
       line-height: 1.25;
       color: #1e293b;
@@ -530,11 +593,7 @@ function viewQuestions() {
       color: #5b4fd6;
       background: rgba(108, 93, 211, 0.1);
       border: 1px solid rgba(108, 93, 211, 0.2);
-      &.ghost {
-        background: transparent;
-        color: #94a3b8;
-        border-color: #e2e8f0;
-      }
+      &.ghost { background: transparent; color: #94a3b8; border-color: #e2e8f0; }
     }
   }
 
@@ -553,38 +612,51 @@ function viewQuestions() {
       text-transform: uppercase;
       color: #94a3b8;
     }
-    .kpd-rel-list {
+    /* 章节下属知识点列表 */
+    .kpd-kp-list {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      flex-direction: column;
+      gap: 6px;
     }
-    .kpd-rel-chip {
-      display: inline-flex;
+    .kpd-kp-chip {
+      display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 6px 12px 6px 8px;
+      gap: 10px;
+      padding: 8px 14px;
       border-radius: 10px;
       border: 1px solid #ececf7;
       background: #f8f9fd;
       cursor: pointer;
+      text-align: left;
       transition: all 0.15s;
       &:hover {
-        border-color: var(--rel-c);
+        border-color: #c4bcf4;
         background: #fff;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(108, 93, 211, 0.1);
+        transform: translateX(3px);
+        box-shadow: 0 3px 12px rgba(108, 93, 211, 0.1);
       }
-      .kpd-rel-type {
+      .kpd-kp-order {
         font-size: 11px;
-        font-weight: 700;
-        color: #fff;
-        background: var(--rel-c);
-        padding: 2px 7px;
-        border-radius: 6px;
+        font-weight: 800;
+        color: #6c5dd3;
+        background: rgba(108, 93, 211, 0.1);
+        border-radius: 4px;
+        padding: 1px 6px;
+        flex-shrink: 0;
       }
-      .kpd-rel-name {
-        font-size: 13px;
+      .kpd-kp-name {
+        flex: 1;
+        font-size: 13.5px;
+        font-weight: 600;
         color: #334155;
+      }
+      .kpd-kp-count {
+        font-size: 12px;
+        font-weight: 700;
+        color: #8b80c9;
+        background: rgba(108, 93, 211, 0.08);
+        border-radius: 10px;
+        padding: 1px 8px;
       }
     }
   }
