@@ -1,6 +1,10 @@
 <template>
   <div id="questionCard">
-    <div v-if="list == ''">暂无数据</div>
+    <div v-if="loading" class="loading-wrapper">
+      <div class="loading-spinner"></div>
+      <span class="loading-text">加载中...</span>
+    </div>
+    <div v-else-if="list == ''">暂无数据</div>
     <div v-else>
       <div class="header">
         <div class="breadCrumb" v-if="subjectShow.includes(lesson) && !onSearch">
@@ -88,6 +92,7 @@ export default {
   },
   data() {
     return {
+      loading: false,
       showAnswers: [],
       hoveredIndex: null,  // 鼠标当前悬浮的题目序号，用于快捷键显示答案
       currentIndex: -1,  // 键盘导航定位的题目序号（滚动到顶端的那道），用于 -/=/0 快捷键
@@ -232,11 +237,13 @@ export default {
     if (this.$route.path == "/newHome/favorites") {
       this.list = this.favList
     } else {
+      this.loading = true;
       try {
         this.list = await loadQuestionBank(this.lesson, this.type);
       } catch (e) {
         this.list = [];
       }
+      this.loading = false;
     }
     this.showList = [...this.list]
     this.searchWord = ""
@@ -281,11 +288,13 @@ export default {
       if (this.$route.path == "/newHome/favorites") {
         return
       } else {
+        this.loading = true;
         try {
             this.list = await loadQuestionBank(this.lesson, this.type);
         } catch (e) {
             this.list = [];
         }
+        this.loading = false;
       }
       this.showList = [...this.list]
       this.searchWord = ""
@@ -558,6 +567,33 @@ export default {
 </script>
 
 <style lang="scss">
+.loading-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  gap: 16px;
+
+  .loading-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid #e0e0e0;
+    border-top-color: #6C5DD3;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  .loading-text {
+    color: #8F95B2;
+    font-size: 14px;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.15s;
