@@ -21,6 +21,7 @@
     "pdfmake": "^0.2.15",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.0",
+    "relation-graph-vue3": "^2.2.11",
     "vue": "^3.5.0",
     "vue-router": "^4.2.0"
   },
