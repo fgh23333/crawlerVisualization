@@ -106,6 +106,8 @@ export default {
       practiceMode: false,
       practiceAnswers: {},  // { index: answer }
       practiceResults: {},  // { index: { isCorrect, userAnswer } }
+      _saveTimer: null,
+      _suppressTimer: null,
       subjectOpts: [
         {
           value: 'Marx',
@@ -212,6 +214,7 @@ export default {
         if (storageKey) {
           localStorage.setItem(storageKey + '_showAll', JSON.stringify(val));
         }
+        this.debouncedSaveSession();
       }
     }
   },
@@ -230,6 +233,8 @@ export default {
   beforeUnmount() {
     window.removeEventListener('keydown', this.handleHotkey);
     if (this._suppressTimer) clearTimeout(this._suppressTimer);
+    if (this._saveTimer) clearTimeout(this._saveTimer);
+    this.saveSession();
   },
   async created() {
     this.lesson = this.$route.params.lesson;
@@ -249,6 +254,7 @@ export default {
     this.searchWord = ""
     this.onSearch = false
     this.initShowAnswers();
+    this.restoreSession();
   },
   watch: {
     subjectOptions: {
@@ -302,12 +308,14 @@ export default {
       this.practiceAnswers = {}
       this.practiceResults = {}
       this.initShowAnswers();
+      this.restoreSession();
     },
     // 监听题型筛选
     selectedTypes: {
       handler(newValue) {
         if (Array.isArray(newValue)) {
           this.updateShowList();
+          this.debouncedSaveSession();
         }
       },
       deep: true,
@@ -317,6 +325,7 @@ export default {
       handler(newValue) {
         if (Array.isArray(newValue)) {
           this.updateShowList();
+          this.debouncedSaveSession();
         }
       },
       deep: true,
@@ -325,6 +334,15 @@ export default {
     practiceMode(val) {
       this.practiceAnswers = {};
       this.practiceResults = {};
+      this.debouncedSaveSession();
+    },
+    practiceAnswers: {
+      handler() { this.debouncedSaveSession(); },
+      deep: true
+    },
+    practiceResults: {
+      handler() { this.debouncedSaveSession(); },
+      deep: true
     },
   },
   methods: {
@@ -357,6 +375,63 @@ export default {
       if (lesson && type) return `viewed_${lesson}_${type}`;
       return null;
     },
+    getSessionKey() {
+      if (this.$route.path === '/newHome/favorites') return 'session_favorites';
+      const lesson = this.$route.params.lesson;
+      const type = this.$route.params.type;
+      if (lesson && type) return `session_${lesson}_${type}`;
+      return null;
+    },
+    saveSession() {
+      const key = this.getSessionKey();
+      if (!key) return;
+      const payload = {
+        subjectFocus: this.subjectFocus,
+        searchWord: this.searchWord,
+        onSearch: this.onSearch,
+        practiceMode: this.practiceMode,
+        practiceAnswers: this.practiceAnswers,
+        practiceResults: this.practiceResults,
+        showAllAnswers: this.showAllAnswers,
+        scrollY: window.scrollY,
+        ts: Date.now()
+      };
+      localStorage.setItem(key, JSON.stringify(payload));
+    },
+    debouncedSaveSession() {
+      if (this._saveTimer) clearTimeout(this._saveTimer);
+      this._saveTimer = setTimeout(() => this.saveSession(), 300);
+    },
+    restoreSession() {
+      const key = this.getSessionKey();
+      if (!key) return;
+      const raw = localStorage.getItem(key);
+      if (!raw) return;
+      try {
+        const s = JSON.parse(raw);
+        if (s.subjectFocus) this.subjectFocus = s.subjectFocus;
+        if (s.searchWord) {
+          this.searchWord = s.searchWord;
+          this.onSearch = s.onSearch || false;
+          if (this.searchWord) {
+            const fuse = new Fuse(this.list, { keys: ['questionStem'] });
+            this.showList = fuse.search(this.searchWord).map(r => r.item);
+          }
+        }
+        if (typeof s.practiceMode === 'boolean') this.practiceMode = s.practiceMode;
+        if (s.practiceAnswers) this.practiceAnswers = s.practiceAnswers;
+        if (s.practiceResults) this.practiceResults = s.practiceResults;
+        if (typeof s.showAllAnswers === 'boolean') {
+          this.showAnswers = this.showList.map(() => s.showAllAnswers);
+          this.saveViewedState();
+        }
+        this.$nextTick(() => {
+          if (s.scrollY) window.scrollTo({ top: s.scrollY, behavior: 'instant' });
+        });
+      } catch (e) {
+        // ignore corrupt session
+      }
+    },
     saveViewedState() {
       const storageKey = this.getAnswerStorageKey();
       if (!storageKey) return;
@@ -370,6 +445,7 @@ export default {
       const newVal = !this.showAnswers[index];
       this.showAnswers.splice(index, 1, newVal);
       this.saveViewedState();
+      this.debouncedSaveSession();
     },
     handleHotkey(e) {
       const tag = e.target.tagName;
@@ -561,6 +637,7 @@ export default {
       this.showList = [...temp]
       this.onSearch = this.searchWord === "" ? false : true
       this.currentIndex = -1
+      this.debouncedSaveSession();
     }
   }
 }

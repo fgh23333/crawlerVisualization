@@ -108,11 +108,16 @@
             </div>
         </div>
     </el-aside>
-            <div class="toggle-bar" @click="toggleSidebar">
-                <span class="arrow" :class="{ right: !isCollapsed }"></span>
+            <div class="toggle-bar" @click.stop="toggleSidebar" :class="{ 'is-mobile': isMobile }">
+                <span v-if="!isMobile" class="arrow" :class="{ right: !isCollapsed }"></span>
+                <span v-else class="hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </span>
             </div>
             <el-container>
-                <el-main>
+                <el-main @click="handleMainClick">
                     <router-view></router-view>
                     <!-- <el-popover placement="right" width="200" trigger="click">
                             <div class="menu">
@@ -154,6 +159,7 @@ export default {
     data() {
         return {
             isCollapsed: window.innerWidth < 768,
+            isMobile: window.innerWidth < 768,
             list: [
                 { subject: '马原', src: 'Marx', icon: grapeIcon },
                 { subject: '近代史', src: 'CMH', icon: juiceIcon },
@@ -171,12 +177,30 @@ export default {
             showMorePopover: false,
         }
     },
+    mounted() {
+        window.addEventListener('resize', this.handleResize);
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.handleResize);
+    },
     methods: {
         open() {
             ElMessage({ showClose: true, message: '开发中，敬请期待' });
         },
         toggleSidebar() {
             this.isCollapsed = !this.isCollapsed;
+        },
+        handleMainClick() {
+            if (window.innerWidth < 768 && !this.isCollapsed) {
+                this.isCollapsed = true;
+            }
+        },
+        handleResize() {
+            const mobile = window.innerWidth < 768;
+            this.isMobile = mobile;
+            if (!mobile && this.isCollapsed) {
+                this.isCollapsed = false;
+            }
         },
     },
     components: {
@@ -536,11 +560,47 @@ export default {
         }
     }
 
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+
+        .line {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: #666;
+            border-radius: 1px;
+            transition: background 0.2s;
+        }
+    }
+
+    .toggle-bar:hover .hamburger .line {
+        background: #333;
+    }
+
     // ── Mobile / narrow-screen responsive ──────────────────
     @media (max-width: 767px) {
         .toggle-bar {
             width: 44px;
             padding: 0 10px;
+
+            &.is-mobile {
+                position: fixed;
+                left: 0;
+                top: 0;
+                height: 48px;
+                width: 48px;
+                z-index: 101;
+                background: rgba(255,255,255,0.95);
+                border-radius: 0 12px 12px 0;
+                box-shadow: 2px 2px 8px rgba(0,0,0,0.08);
+                padding: 0;
+            }
         }
 
         .arrow {

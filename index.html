@@ -9,9 +9,12 @@
     // 根据屏幕宽度动态调整视口缩放，适配不同设备
     (function() {
       var w = screen.width;
-      var s = w < 600 ? 0.5 : w < 1024 ? 0.75 : 1.0;
+      var s = w < 600 ? 0.5 : w < 1024 ? 0.85 : 1.0;
       document.querySelector('meta[name=viewport]').content =
         'width=device-width,initial-scale=' + s + ',maximum-scale=3.0,user-scalable=yes';
+      // 恢复用户自定义字体大小
+      var fs = localStorage.getItem('global_font_size');
+      if (fs) document.documentElement.style.fontSize = fs + 'px';
     })();
   </script>
   <link rel="icon" href="/favicon.ico">
