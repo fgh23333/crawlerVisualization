@@ -1,28 +1,28 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import path from 'path'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import path from "path";
 
 export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
-    }
+      "@": path.resolve(__dirname, "src"),
+    },
   },
   css: {
     preprocessorOptions: {
       scss: {
-        api: 'modern-compiler'
-      }
-    }
+        api: "modern-compiler",
+      },
+    },
   },
   server: {
     proxy: {
-      '/cdn-api': {
-        target: 'https://mypan.rayni.xyz',
+      "/cdn-api": {
+        target: "https://mypan.yutkit.com",
         changeOrigin: true,
-        rewrite: path => path.replace(/^\/cdn-api/, '')
-      }
-    }
-  }
-})
+        rewrite: (path) => path.replace(/^\/cdn-api/, ""),
+      },
+    },
+  },
+});

@@ -214,7 +214,7 @@ const store = useComputerQuestionStore()
 
 const BASE = import.meta.env.DEV
   ? '/cdn-api'
-  : 'https://mypan.rayni.xyz'
+  : 'https://mypan.yutkit.com'
 const CDN_JSON = `${BASE}/raw/computer-question/tiku.json`
 const CDN_KG   = `${BASE}/raw/computer-question/knowledge_graph.json`
 const CDN_IMG  = `${BASE}/raw/computer-question/images/`
