@@ -32,6 +32,14 @@
                 </el-menu>
             </div>
             <div class="buttonContainer">
+                <!-- AI 智能助教（智能体核心入口） -->
+                <router-link to="/newHome/chat" class="icon-btn ai-btn">
+                    <div class="icon-wrap">
+                        <el-icon :size="20"><MagicStick /></el-icon>
+                    </div>
+                    <span class="icon-label">AI 助教</span>
+                </router-link>
+
                 <!-- 收藏夹 -->
                 <router-link to="/newHome/favorites" class="icon-btn">
                     <div class="icon-wrap">
@@ -82,10 +90,6 @@
                     <template #default>
                         <div class="popover-menu">
                             <div class="popover-title">更多</div>
-                            <router-link to="/newHome/chat" class="popover-item" @click="showMorePopover = false">
-                                <el-icon><ChatDotRound /></el-icon>
-                                <span>AI 对话(Beta)</span>
-                            </router-link>
                             <router-link to="/newHome/about" class="popover-item" @click="showMorePopover = false">
                                 <el-icon><InfoFilled /></el-icon>
                                 <span>关于</span>
@@ -144,7 +148,7 @@
 <script>
 import modal from '@/components/modal.vue'
 import { ElMessage } from 'element-plus'
-import { Monitor, ChatDotRound, Star, Grid, Cpu, More, InfoFilled, ChatSquare } from '@element-plus/icons-vue'
+import { Monitor, MagicStick, Star, Grid, Cpu, More, InfoFilled, ChatSquare } from '@element-plus/icons-vue'
 import grapeIcon from '@/assets/icon/grape.svg'
 import juiceIcon from '@/assets/icon/juice.svg'
 import pearIcon from '@/assets/icon/pear.svg'
@@ -205,7 +209,7 @@ export default {
     },
     components: {
         modal,
-        Monitor, ChatDotRound, Star, Grid, Cpu, More, InfoFilled, ChatSquare
+        Monitor, MagicStick, Star, Grid, Cpu, More, InfoFilled, ChatSquare
     }
 }
 </script>
@@ -546,6 +550,24 @@ export default {
                 }
                 .icon-label {
                     color: #6C5DD3;
+                }
+            }
+
+            // AI 智能助教入口：渐变高亮，突出智能体定位
+            &.ai-btn {
+                .icon-wrap {
+                    background: linear-gradient(135deg, #8b7cf0, #6c5dd3);
+                    color: #fff;
+                    box-shadow: 0 6px 16px rgba(108, 93, 211, 0.35);
+                }
+                .icon-label {
+                    color: #6c5dd3;
+                    font-weight: 600;
+                }
+                &:hover .icon-wrap {
+                    background: linear-gradient(135deg, #7c6ce8, #5b4fd6);
+                    transform: translateY(-1px);
+                    box-shadow: 0 8px 20px rgba(108, 93, 211, 0.45);
                 }
             }
         }
