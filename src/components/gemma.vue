@@ -45,7 +45,7 @@
             </div>
 
             <template v-for="(msg, index) in messages" :key="'m' + index">
-                <el-skeleton v-if="msg.loading" :rows="5" animated></el-skeleton>
+                <el-skeleton v-if="msg.loading && !msg.text" :rows="5" animated></el-skeleton>
                 <div v-else class="message-wrapper">
                     <div :class="['message', msg.role]">
                         <div class="msg-avatar" :class="msg.role">
@@ -57,8 +57,15 @@
                             <div v-if="msg.role === 'bot' && msg.sources.length" class="sources">
                                 <strong>📚 来源：</strong>
                                 <ul>
-                                    <li v-for="(source, idx) in msg.sources" :key="idx">{{ source }}</li>
+                                    <li v-for="(source, idx) in msg.sources" :key="idx">{{ sourceLabel(source) }}</li>
                                 </ul>
+                            </div>
+                            <!-- 回答反馈：👍/👎 各一次，挂到服务端对应 trace -->
+                            <div v-if="msg.role === 'bot' && msg.done && msg.traceId && !msg.loading" class="feedback">
+                                <button class="feedback-btn" :class="{ active: msg.feedback === 1 }"
+                                    :disabled="msg.feedback !== 0" @click="sendFeedback(msg, 1)" title="有帮助">👍</button>
+                                <button class="feedback-btn" :class="{ active: msg.feedback === -1 }"
+                                    :disabled="msg.feedback !== 0" @click="sendFeedback(msg, -1)" title="没帮助">👎</button>
                             </div>
                         </div>
                     </div>
@@ -76,9 +83,13 @@
                 @keydown.enter="sendMessage"
                 placeholder="请输入您的问题，如：唯物史观的基本内容是什么？"
             />
-            <el-button type="primary" @click="sendMessage" :loading="loading" class="send-btn">
-                <el-icon v-if="!loading"><Promotion /></el-icon>
-                <span v-if="!loading">发送</span>
+            <el-button v-if="loading" type="warning" plain @click="stopGenerating" class="send-btn stop-btn">
+                <el-icon><VideoPause /></el-icon>
+                <span>停止</span>
+            </el-button>
+            <el-button v-else type="primary" @click="sendMessage" class="send-btn">
+                <el-icon><Promotion /></el-icon>
+                <span>发送</span>
             </el-button>
         </div>
 
@@ -93,12 +104,37 @@
 </template>
 
 <script>
-import axios from "axios";
 import { marked } from "marked";
-import { MagicStick, Promotion, Delete } from '@element-plus/icons-vue';
+import { MagicStick, Promotion, Delete, VideoPause } from '@element-plus/icons-vue';
 
 // 检索增强问答服务地址，通过环境变量配置（便于部署与脱敏）
 const RAG_API = import.meta.env.VITE_RAG_API || '';
+// /v2/rag 等新端点的基地址（VITE_RAG_API 形如 https://host/rag）
+const API_BASE = RAG_API.replace(/\/rag\/?$/, '');
+
+// 会话 id：跨刷新持久，供服务端做会话聚类（可观测性），清空对话时换新
+function newSessionId() {
+    return typeof crypto !== 'undefined' && crypto.randomUUID
+        ? crypto.randomUUID()
+        : 's-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+}
+function loadSessionId() {
+    let id = localStorage.getItem('qb_chat_session');
+    if (!id) {
+        id = newSessionId();
+        localStorage.setItem('qb_chat_session', id);
+    }
+    return id;
+}
+
+// 来源展示用的中文名映射
+const SUBJECT_NAMES = {
+    Marx: '马原', CMH: '近代史', Political: '思政', MaoIntro: '毛概', XiIntro: '习概',
+    SDH: '社主史', NCH: '新中国史', CCPH: '党史', ORH: '改开史',
+};
+const TYPE_NAMES = {
+    singleChoice: '单选', multipleChoice: '多选', rightWrong: '判断', fillingBlank: '填空',
+};
 
 export default {
     data() {
@@ -107,6 +143,8 @@ export default {
             inputText: "",
             messages: [],
             loading: false,
+            abortCtrl: null,
+            sessionId: loadSessionId(),
             options: [
                 { value: "default", label: "全部" },
                 { value: "马克思主义原理", label: "马原" },
@@ -129,10 +167,13 @@ export default {
             ],
         };
     },
-    components: { MagicStick, Promotion, Delete },
+    components: { MagicStick, Promotion, Delete, VideoPause },
     watch: {
-        messages() {
-            this.$nextTick(this.scrollToBottom);
+        messages: {
+            handler() {
+                this.$nextTick(this.scrollToBottom);
+            },
+            deep: true, // 流式输出时消息内容持续变化也要跟随滚动
         },
     },
     methods: {
@@ -146,6 +187,82 @@ export default {
         },
         clearMessages() {
             this.messages = [];
+            // 新会话：服务端按 sessionId 聚类对话
+            this.sessionId = newSessionId();
+            localStorage.setItem('qb_chat_session', this.sessionId);
+        },
+        // 流式渲染节流：delta 很密，marked.parse 每帧全量跑会卡
+        scheduleParse(msg) {
+            if (this._parseTimer) return;
+            this._parseTimer = setTimeout(() => {
+                this._parseTimer = null;
+                msg.html = marked.parse(msg.text || '');
+            }, 100);
+        },
+        stopGenerating() {
+            if (this.abortCtrl) this.abortCtrl.abort();
+        },
+        sourceLabel(s) {
+            const subject = SUBJECT_NAMES[s.subject] || s.subject || '';
+            const type = TYPE_NAMES[s.type] || s.type || '';
+            return `【${[subject, type].filter(Boolean).join('·')}】${s.stem || ''}`;
+        },
+        async sendFeedback(msg, score) {
+            if (msg.feedback) return; // 每条消息只能反馈一次
+            msg.feedback = score; // 乐观更新，失败不回滚（不打扰用户）
+            try {
+                await fetch(`${API_BASE}/feedback`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ traceId: msg.traceId, sessionId: this.sessionId, score }),
+                });
+            } catch { /* 静默失败 */ }
+        },
+        // 解析 SSE 流：按空行分帧，event:/data: 两行一组
+        async consumeSSE(res, msg) {
+            const reader = res.body.getReader();
+            const decoder = new TextDecoder();
+            let buf = '';
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                buf += decoder.decode(value, { stream: true });
+                let idx;
+                while ((idx = buf.indexOf('\n\n')) >= 0) {
+                    const frame = buf.slice(0, idx);
+                    buf = buf.slice(idx + 2);
+                    const evName = (frame.match(/^event: (.+)$/m) || [])[1];
+                    const dataLine = (frame.match(/^data: (.+)$/m) || [])[1];
+                    if (!evName || !dataLine) continue;
+                    let obj;
+                    try { obj = JSON.parse(dataLine); } catch { continue; }
+                    this.handleSSEEvent(evName, obj, msg);
+                }
+            }
+            // 流结束仍未 done 事件（异常断流）→ 兜底渲染
+            if (!msg.done) {
+                msg.loading = false;
+                if (msg.text) msg.html = marked.parse(msg.text);
+                else msg.html = "⚠️ 连接中断，请重试";
+            }
+        },
+        handleSSEEvent(name, obj, msg) {
+            if (name === 'meta') {
+                msg.traceId = obj.traceId;
+            } else if (name === 'sources') {
+                msg.sources = obj.sources || [];
+            } else if (name === 'delta') {
+                msg.text += obj.text || '';
+                this.scheduleParse(msg);
+            } else if (name === 'done') {
+                msg.done = true;
+                msg.loading = false;
+                msg.html = marked.parse(msg.text || '');
+            } else if (name === 'error') {
+                msg.done = true;
+                msg.loading = false;
+                msg.html = `⚠️ ${obj.message || '回答生成失败，请稍后重试'}`;
+            }
         },
         async sendMessage() {
             const text = this.inputText.trim();
@@ -155,40 +272,72 @@ export default {
                     role: "bot",
                     html: "⚠️ 智能助教服务未配置（VITE_RAG_API），暂无法回答。",
                     sources: [],
+                    text: "",
                 });
                 return;
             }
 
             // 用户输入立即显示
-            this.messages.push({ role: "user", html: marked.parse(text), sources: [] });
+            this.messages.push({ role: "user", html: marked.parse(text), text, sources: [] });
 
-            // 加入骨架屏
-            this.messages.push({ role: "bot", html: "", sources: [], loading: true });
+            // 占位消息（流式填充）
+            const msg = {
+                role: "bot", html: "", text: "", sources: [],
+                loading: true, done: false, traceId: null, feedback: 0,
+            };
+            this.messages.push(msg);
             this.loading = true;
+            this.inputText = "";
 
+            // 历史上下文：最近 6 轮（服务端做多轮指代消解）
+            const history = this.messages
+                .slice(0, -2)
+                .filter(m => m.text && m.text.trim())
+                .map(m => ({ role: m.role === 'bot' ? 'assistant' : 'user', content: m.text.slice(0, 2000) }))
+                .slice(-6);
+
+            this.abortCtrl = new AbortController();
             try {
-                const { data } = await axios.post(RAG_API, {
-                    query: text,
-                    subject: this.value,
+                const res = await fetch(`${API_BASE}/v2/rag`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    signal: this.abortCtrl.signal,
+                    body: JSON.stringify({
+                        query: text,
+                        subject: this.value,
+                        sessionId: this.sessionId,
+                        history,
+                    }),
                 });
 
-                // 替换骨架屏
-                this.messages.pop();
-                this.messages.push({
-                    role: "bot",
-                    html: marked.parse(data.answer) || "⚠️ 未获取到有效回答",
-                    sources: data.sources || [],
-                });
+                if (!res.ok) {
+                    let message = `请求失败（${res.status}）`;
+                    try {
+                        const j = await res.json();
+                        message = (j.error && j.error.message) || message;
+                    } catch { /* 非 JSON 错误体 */ }
+                    if (res.status === 429) message = "提问太频繁啦，休息一下再试～";
+                    msg.html = `⚠️ ${message}`;
+                    msg.loading = false;
+                    msg.done = true;
+                    return;
+                }
+
+                await this.consumeSSE(res, msg);
             } catch (error) {
-                this.messages.pop();
-                this.messages.push({
-                    role: "bot",
-                    html: "❌ 请求失败，请稍后重试",
-                    sources: [],
-                });
+                if (error.name === 'AbortError') {
+                    // 用户主动停止：保留已生成内容
+                    msg.loading = false;
+                    msg.done = true;
+                    msg.html = marked.parse(msg.text || '') + '\n\n*（已停止生成）*';
+                } else {
+                    msg.html = "❌ 网络异常，请稍后重试";
+                    msg.loading = false;
+                    msg.done = true;
+                }
             } finally {
-                this.inputText = "";
                 this.loading = false;
+                this.abortCtrl = null;
             }
         },
     },
@@ -388,6 +537,33 @@ export default {
     border-top: 1px dashed #d9dcf4;
     padding-top: 6px;
     ul { margin: 4px 0 0; padding-left: 18px; }
+}
+
+/* 回答反馈 */
+.feedback {
+    margin-top: 6px;
+    display: flex;
+    gap: 6px;
+
+    .feedback-btn {
+        background: #fff;
+        border: 1px solid #ececf7;
+        border-radius: 8px;
+        font-size: 13px;
+        padding: 2px 8px;
+        cursor: pointer;
+        transition: all 0.15s;
+        &:hover:not(:disabled) { border-color: #c4bcf4; background: #f5f3ff; }
+        &:disabled { cursor: default; opacity: 0.55; }
+        &.active { border-color: #6c5dd3; background: #f5f3ff; }
+    }
+}
+
+/* 停止按钮 */
+.stop-btn {
+    white-space: nowrap;
+    border-radius: 14px;
+    padding: 0 22px;
 }
 
 /* 输入区 */
