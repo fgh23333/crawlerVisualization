@@ -75,6 +75,29 @@ async function fetchJson(path) {
   return data
 }
 
+// ======================== 高频标记 ========================
+
+/**
+ * 按池内相对分位标记高频题（appearCount 为官方随机卷抽题权重，随数据热更新）。
+ * 阈值 = max(10, p85)：绝对计数会随爬取轮数增长，池内分位才稳定。
+ * 带权重的样本不足 20 题时（旧数据尚未打标）全部不标记。
+ * 只在加载时计算，不写入缓存。
+ */
+function markHighFreq(questions) {
+  if (!Array.isArray(questions) || questions.length === 0) return questions
+
+  const counts = questions.map(q => Number(q && q.appearCount) || 0).filter(c => c > 0)
+  if (counts.length < 20) {
+    questions.forEach(q => { if (q) q.isHighFreq = false })
+    return questions
+  }
+  counts.sort((a, b) => a - b)
+  const p85 = counts[Math.floor(counts.length * 0.85)]
+  const threshold = Math.max(10, p85)
+  questions.forEach(q => { if (q) q.isHighFreq = (Number(q.appearCount) || 0) >= threshold })
+  return questions
+}
+
 // ======================== 导出（保持原有接口不变） ========================
 
 /**
@@ -83,7 +106,7 @@ async function fetchJson(path) {
  * @param {string} type   - 题型（singleChoice / multipleChoice / rightWrong / fillingBlank / subject）
  */
 export async function loadQuestionBank(lesson, type) {
-  return fetchJson(`/rewrite/${lesson}_${type}.json`)
+  return markHighFreq(await fetchJson(`/rewrite/${lesson}_${type}.json`))
 }
 
 /**
