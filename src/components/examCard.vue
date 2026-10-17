@@ -6,6 +6,8 @@
         <div class="right">
             <div class="questionType">
                 <span>{{ questionType }}</span>
+                <span v-if="question.collectedAt" class="collected-tag">收录于 {{ String(question.collectedAt).slice(0, 7) }}</span>
+                <span v-if="question.isHighFreq" class="freq-tag">高频</span>
             </div>
             <div class="questionStem">{{ question.questionStem }}</div>
             <div class="questionAnswer">
@@ -201,6 +203,28 @@ export default {
             font-weight: bold;
             color: #877BD1;
             margin-bottom: 10px;
+
+            .collected-tag {
+                margin-left: 10px;
+                font-size: 12px;
+                font-weight: normal;
+                letter-spacing: 0.5px;
+                color: #b3b3cc;
+                vertical-align: 2px;
+            }
+
+            .freq-tag {
+                margin-left: 8px;
+                padding: 1px 8px;
+                border-radius: 10px;
+                font-size: 12px;
+                font-weight: normal;
+                letter-spacing: 1px;
+                color: #e8821e;
+                background: rgba(232, 130, 30, 0.1);
+                border: 1px solid rgba(232, 130, 30, 0.35);
+                vertical-align: 4px;
+            }
         }
 
         .questionStem {

@@ -23,6 +23,11 @@ const emit = defineEmits(['toggle-answer', 'toggle-fav', 'toggle-mark', 'submit-
 const options = ['A', 'B', 'C', 'D', 'E']
 const type = computed(() => getQuestionType(props.question))
 
+// 收录时间标签：旧缓存数据无 collectedAt 字段时不显示
+const collectedLabel = computed(() =>
+  props.question.collectedAt ? `收录于 ${String(props.question.collectedAt).slice(0, 7)}` : ''
+)
+
 // 练习输入本地状态：初始/回填自 practiceAnswer prop（父组件仍按下标存储）
 const localChoice = ref(typeof props.practiceAnswer === 'string' ? props.practiceAnswer : null) // 判断/单选
 const localMulti = ref(Array.isArray(props.practiceAnswer) ? [...props.practiceAnswer] : [])      // 多选
@@ -68,6 +73,8 @@ const submitMulti = () => emit('submit-practice', localMulti.value)
         <div class="questionType">
           <span v-if="isFavoritesView">{{ subjectLabel }} - </span>
           <span>{{ TYPE_LABEL[type] }}</span>
+          <span v-if="collectedLabel" class="collected-tag">{{ collectedLabel }}</span>
+          <span v-if="question.isHighFreq" class="freq-tag">高频</span>
         </div>
         <div class="questionStem">{{ question.questionStem }}</div>
 
@@ -255,6 +262,30 @@ const submitMulti = () => emit('submit-practice', localMulti.value)
         font-weight: bold;
         color: #877BD1;
         margin-bottom: 10px;
+
+        // 收录时间：弱化的元信息标签
+        .collected-tag {
+          margin-left: 10px;
+          font-size: 12px;
+          font-weight: normal;
+          letter-spacing: 0.5px;
+          color: #b3b3cc;
+          vertical-align: 2px;
+        }
+
+        // 高频题徽标（官方随机卷中出现权重高）
+        .freq-tag {
+          margin-left: 8px;
+          padding: 1px 8px;
+          border-radius: 10px;
+          font-size: 12px;
+          font-weight: normal;
+          letter-spacing: 1px;
+          color: #e8821e;
+          background: rgba(232, 130, 30, 0.1);
+          border: 1px solid rgba(232, 130, 30, 0.35);
+          vertical-align: 4px;
+        }
       }
 
       .questionStem {
