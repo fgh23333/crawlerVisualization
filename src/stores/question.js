@@ -197,9 +197,9 @@ export const useQuestionStore = defineStore('question', () => {
   }
 
   async function generateQuizAction(payload) {
-    const [lesson, options] = payload
+    const [lesson, options, quizOptions] = payload
     questionBank.value = []
-    const quiz = await generateQuiz(lesson, options)
+    const quiz = await generateQuiz(lesson, options, quizOptions)
     questionBank.value = quiz
   }
 

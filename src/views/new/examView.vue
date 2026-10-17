@@ -17,6 +17,9 @@
                 <div class="top-controls">
                     <el-switch v-model="autoSave" active-text="错题收录" inactive-text="" active-color="#6C5DD3">
                     </el-switch>
+                    <el-switch v-if="value === 'random'" v-model="weighted" @change="onWeightedChange"
+                        active-text="高频加权" inactive-text="均匀" active-color="#E8821E">
+                    </el-switch>
                     <div class="exam-timer" :class="{ 'timer-warning': timerSeconds >= 1800 }">
                         <el-icon><Timer /></el-icon>
                         <span>{{ formattedTime }}</span>
@@ -122,6 +125,8 @@ export default {
             examStatus: false,
             newSubject: ['Marx', 'XiIntro', 'CMH', 'Political', 'MaoIntro'],
             autoSave: true,
+            // 随机练习加权开关：默认按官方抽题权重加权（高频题更易出现），可切均匀
+            weighted: localStorage.getItem('qb_weighted_quiz') !== '0',
             timerSeconds: 0,
             timerInterval: null
         }
@@ -185,15 +190,18 @@ export default {
                     multiple: 15, // 多选题数量
                     blank: 10, // 填空题数量
                     trueFalse: 15 // 判断题数量
-                }]);
+                }, { weighted: this.weighted }]);
             } else {
                 await this.store.generateQuizAction([lesson, {
                     single: 15, // 单选题数量
                     multiple: 15, // 多选题数量
                     blank: 5, // 填空题数量
                     trueFalse: 15 // 判断题数量
-                }]);
+                }, { weighted: this.weighted }]);
             }
+        },
+        onWeightedChange(val) {
+            localStorage.setItem('qb_weighted_quiz', val ? '1' : '0');
         },
         async initExam(route) {
             // Reset all exam state
