@@ -1,6 +1,6 @@
 name: CI
 
-# PR 合并检查：装依赖 → 生产构建，构建不过则红灯拦截
+# PR 合并检查：装依赖 → 单元测试 → 生产构建，任一步失败则红灯拦截
 on:
   pull_request:
     branches: [main]
@@ -27,6 +27,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Test
+        run: pnpm test
 
       - name: Build
         run: pnpm build
