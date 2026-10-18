@@ -32,6 +32,7 @@
                 </el-menu>
             </div>
             <div class="buttonContainer">
+                <div class="buttonRow">
                 <!-- AI 智能助教（智能体核心入口） -->
                 <router-link to="/newHome/chat" class="icon-btn ai-btn">
                     <div class="icon-wrap">
@@ -94,10 +95,6 @@
                                 <el-icon><InfoFilled /></el-icon>
                                 <span>关于</span>
                             </router-link>
-                            <router-link to="/newHome/feedback" class="popover-item" @click="showMorePopover = false">
-                                <el-icon><ChatSquare /></el-icon>
-                                <span>意见反馈</span>
-                            </router-link>
                         </div>
                     </template>
                     <template #reference>
@@ -109,6 +106,13 @@
                         </div>
                     </template>
                 </el-popover>
+                </div>
+
+                <!-- 意见反馈：专门入口，问卷链接统一在反馈页维护 -->
+                <router-link to="/newHome/feedback" class="feedback-entry">
+                    <el-icon :size="16"><ChatSquare /></el-icon>
+                    <span>意见反馈</span>
+                </router-link>
             </div>
         </div>
     </el-aside>
@@ -508,9 +512,35 @@ export default {
         margin: 16px auto 20px;
         flex-shrink: 0;
         display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
-        gap: 4px;
+        flex-direction: column;
+        gap: 10px;
+
+        .buttonRow {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            gap: 4px;
+        }
+
+        .feedback-entry {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            height: 36px;
+            border-radius: 10px;
+            background: #f4f4f8;
+            color: #8F95B2;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+
+            &:hover {
+                background: #ebe9f9;
+                color: #6C5DD3;
+            }
+        }
 
         .icon-btn {
             display: flex;
