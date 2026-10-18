@@ -10,8 +10,8 @@
                 </div>
 
                 <div class="buttons">
-                    <el-button @click="goToSurvey" type="primary">点击前往</el-button>
-                    <el-button @click="handleSubmit" type="primary">确认</el-button>
+                    <el-button @click="goToFeedback" type="primary">去填写问卷</el-button>
+                    <el-button @click="handleSubmit" type="primary">关闭</el-button>
                 </div>
 
                 <div class="checkbox">
@@ -27,8 +27,7 @@ export default {
     data() {
         return {
             showModal: false, // 弹窗是否显示
-            neverShowAgain: false, // 是否勾选不再显示
-            surveyLink: 'https://f.wps.cn/g/jHGbzDxa/' // 跳转问卷链接
+            neverShowAgain: false // 是否勾选不再显示
         };
     },
     created() {
@@ -41,8 +40,10 @@ export default {
         closeModal() {
             this.showModal = false;
         },
-        goToSurvey() {
-            window.open(this.surveyLink, '_blank');
+        // 问卷链接统一放在意见反馈页（/newHome/feedback），弹窗只做引导
+        goToFeedback() {
+            this.closeModal();
+            this.$router.push('/newHome/feedback');
         },
         handleSubmit() {
             // 保存永久不再显示的选择

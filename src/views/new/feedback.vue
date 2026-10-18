@@ -1,5 +1,11 @@
 <script setup>
 import modalImg from '@/assets/img/modal.png'
+import { FEEDBACK_SURVEY_URL } from '@/config/feedback'
+
+// 问卷链接统一维护在 @/config/feedback.js
+function openSurvey() {
+  window.open(FEEDBACK_SURVEY_URL, '_blank')
+}
 </script>
 
 <template>
@@ -9,6 +15,9 @@ import modalImg from '@/assets/img/modal.png'
       <p class="feedback-desc">扫描下方二维码，填写问卷告诉我们您的建议和意见</p>
       <div class="qr-wrapper">
         <img :src="modalImg" alt="反馈问卷二维码" class="qr-image" />
+      </div>
+      <div class="feedback-action">
+        <el-button type="primary" size="large" round @click="openSurvey">点击前往问卷</el-button>
       </div>
       <p class="feedback-hint">感谢您的反馈，帮助我们做得更好</p>
     </div>
@@ -52,6 +61,15 @@ import modalImg from '@/assets/img/modal.png'
         width: 280px;
         height: auto;
         border-radius: 8px;
+      }
+    }
+
+    .feedback-action {
+      margin-top: 28px;
+
+      .el-button {
+        font-weight: 600;
+        padding: 20px 40px;
       }
     }
 
