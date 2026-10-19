@@ -37,6 +37,8 @@ function openSurvey() {
     padding: 48px 56px;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    /* 顶部留白：配合垂直居中让卡片视觉重心略下移 */
+    margin-top: 96px;
 
     .feedback-title {
       font-size: 28px;
