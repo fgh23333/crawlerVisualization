@@ -22,12 +22,22 @@
         </div>
         <div class="group_7">
           <span class="mt-48 text_12">
-            题库内容全部免费，从未授权任何人进行任何形式的收费，请各位访客谨慎识别，以免上当受骗
+            🤖 AI 助教已上线：结合题库与教材检索答疑，回答附原文出处
           </span>
         </div>
         <div class="group_7">
           <span class="mt-48 text_12">
-            AI对话（测试版）现已上线，欢迎大家体验
+            🔥 随机练习支持高频加权 · 📅 题目卡标注收录时间与高频标记 · ⭐ 错题/收藏可导出备份
+          </span>
+        </div>
+        <div class="group_7">
+          <span class="mt-48 text_12">
+            📬 功能建议欢迎通过侧栏「意见反馈」告诉我们
+          </span>
+        </div>
+        <div class="group_7">
+          <span class="mt-48 text_12">
+            题库内容全部免费，从未授权任何人进行任何形式的收费，请各位访客谨慎识别，以免上当受骗
           </span>
         </div>
       </div>
@@ -52,7 +62,10 @@ a:active {
 .group_3 {
   margin-right: 5px;
   width: 99%;
-  height: 98vh;
+  /* 内容超高时随页面滚动，不再被 98vh 定高居中裁切 */
+  min-height: 98vh;
+  box-sizing: border-box;
+  padding: 24px 16px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,7 +119,9 @@ a:active {
 
 .group_4 {
   margin-top: 64px;
-  width: 1100px;
+  /* 自适应宽度上限 1100px：窄屏（手机布局宽约 750px）下不再横向溢出裁字 */
+  width: 100%;
+  max-width: 1100px;
 }
 
 .text_8 {
@@ -153,6 +168,44 @@ a:active {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* 窄屏适配：手机 initial-scale=0.5 后布局宽约 750px，压缩字号与间距避免换行溢出 */
+@media (max-width: 768px) {
+  .group_3 {
+    padding: 16px 12px;
+  }
+
+  .group_4 {
+    margin-top: 40px;
+  }
+
+  .group_7 {
+    margin-top: 12px;
+  }
+
+  .text_6 {
+    font-size: 44px;
+    line-height: 50px;
+    letter-spacing: 4px;
+  }
+
+  .text_8 {
+    font-size: 28px;
+    line-height: 40px;
+  }
+
+  .text_11 {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 32px;
+  }
+
+  .text_12 {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 30px;
   }
 }
 </style>
