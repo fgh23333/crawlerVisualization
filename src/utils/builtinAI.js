@@ -170,7 +170,8 @@ async function consumeStream(stream, onDelta) {
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
-      const chunk = decoder.decode(value, { stream: true });
+      // 双形态兼容：新形态 promptStreaming 直接给 string chunk，旧形态给 Uint8Array
+      const chunk = typeof value === 'string' ? value : decoder.decode(value, { stream: true });
       if (!chunk) continue;
       full += chunk;
       if (onDelta) onDelta(chunk, full);
