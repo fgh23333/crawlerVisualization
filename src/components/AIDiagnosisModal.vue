@@ -123,10 +123,17 @@ const checkItems = computed(() => {
 
     // 3. 模型权重状态（跟随 ai store 状态机）
     const s = aiStore.status
+    // <1% 保留一位小数：多 GB 权重下载初期整数恒为 0%，一位小数才能看出进度在动
+    const pct = aiStore.downloadProgress * 100
+    const pctText = aiStore.downloadProgress > 0 ? (pct < 1 ? ` ${pct.toFixed(1)}%` : ` ${Math.round(pct)}%`) : ''
     const weightMap = {
         available: { status: 'ok', desc: '模型就绪，可立即使用' },
         'after-download': { status: 'warn', desc: '接口就绪，首次使用时将自动下载模型权重' },
-        downloading: { status: 'warn', desc: '模型权重下载中…', progress: Math.round(aiStore.downloadProgress * 100) },
+        downloading: {
+            status: 'warn',
+            desc: `模型权重下载中${pctText}…若长时间停在 0%：多为组件下载被网络阻断（需能访问 Google 服务器），请确认代理可用，再打开 chrome://components 找到「Optimization Guide On Device Model」点「检查更新」强制重试`,
+            progress: Math.round(pct),
+        },
         unsupported: { status: 'fail', desc: '模型不可用：请开启 flags 并在 chrome://components 触发下载' },
         checking: { status: 'ok', desc: '检测中…' },
     }

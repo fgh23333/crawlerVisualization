@@ -1,12 +1,20 @@
-import { describe, it, expect, beforeEach } from 'vitest'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { setActivePinia, createPinia } from 'pinia'
 
-// 端侧 AI store：剖析/归纳结果 LRU 缓存（不依赖 Chrome API，只测画像与缓存纯逻辑）
+// 端侧 AI store：剖析/归纳结果 LRU 缓存 + 下载进度文案与完成轮询
+// （沿用项目惯例：vi.stubGlobal 构造 Chrome API mock，不用 vi.mock 模块工厂）
 import { useAiStore } from '../src/stores/ai'
 
 beforeEach(() => {
   setActivePinia(createPinia())
   localStorage.clear()
+})
+
+afterEach(() => {
+  // 轮询定时器是模块级共享变量，测试间必须显式停掉防止泄漏到下一用例
+  useAiStore().stopDownloadPolling()
+  vi.unstubAllGlobals()
+  vi.useRealTimers()
 })
 
 describe('剖析缓存 analysisCache', () => {
@@ -71,5 +79,34 @@ describe('归纳缓存 summaryCache', () => {
     const store = useAiStore()
     store.recordSummary('sig', 'y'.repeat(9000))
     expect(store.getCachedSummary('sig')).toHaveLength(4000)
+  })
+})
+
+describe('下载进度文案与完成轮询', () => {
+  it('statusText：<1% 保留一位小数，≥1% 取整，0 不显示百分比', () => {
+    const store = useAiStore()
+    store.status = 'downloading'
+    store.downloadProgress = 0
+    expect(store.statusText).toBe('模型下载中')
+    store.downloadProgress = 0.004
+    expect(store.statusText).toBe('模型下载中 0.4%')
+    store.downloadProgress = 0.0056
+    expect(store.statusText).toBe('模型下载中 0.6%')
+    store.downloadProgress = 0.5
+    expect(store.statusText).toBe('模型下载中 50%')
+  })
+
+  it('后台下载无 monitor 时轮询感知完成：downloading → available', async () => {
+    // 先装 fake timers 再触发检测：否则轮询 setInterval 会注册成真实定时器，advance 无效
+    vi.useFakeTimers()
+    vi.stubGlobal('LanguageModel', { availability: vi.fn(async () => 'downloading') })
+    const store = useAiStore()
+    await store.checkEnvironment()
+    expect(store.status).toBe('downloading')
+
+    LanguageModel.availability = vi.fn(async () => 'available')   // 模拟后台下载完成
+    await vi.advanceTimersByTimeAsync(10000)
+    expect(store.status).toBe('available')
+    expect(store.downloadProgress).toBe(1)
   })
 })

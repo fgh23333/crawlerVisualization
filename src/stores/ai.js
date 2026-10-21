@@ -13,6 +13,7 @@ let chatBusy = false
 let chatAbort = null
 let taskBusy = false     // 任务通道：一次性短会话（剖析/归纳共用，busy 锁串行）
 let taskAbort = null
+let downloadPollTimer = null // 下载态轮询定时器（见 startDownloadPolling）
 
 // 个性化剖析缓存容量控制（AI 输出只缓存剖析/归纳结果，LRU 淘汰，防止 localStorage 膨胀）
 const ANALYSIS_CACHE_LIMIT = 30
@@ -56,8 +57,12 @@ export const useAiStore = defineStore('ai', () => {
     switch (status.value) {
       case 'available': return '端侧 AI 就绪'
       case 'after-download': return '端侧 AI 可用（需下载模型）'
-      case 'downloading':
-        return `模型下载中${downloadProgress.value > 0 ? ` ${Math.round(downloadProgress.value * 100)}%` : ''}`
+      case 'downloading': {
+        // <1% 保留一位小数：多 GB 权重下载初期整数恒为 0%，一位小数才能看出进度在动
+        const pct = downloadProgress.value * 100
+        const shown = downloadProgress.value <= 0 ? '' : pct < 1 ? ` ${pct.toFixed(1)}%` : ` ${Math.round(pct)}%`
+        return `模型下载中${shown}`
+      }
       case 'unsupported': return '当前浏览器不支持端侧 AI'
       default: return '正在检测端侧 AI…'
     }
@@ -88,6 +93,8 @@ export const useAiStore = defineStore('ai', () => {
       summarizerStatus.value = 'unsupported'
     }
     if (status.value === 'available') downloadProgress.value = 1
+    // 浏览器后台下载（components 页触发）无 monitor 可挂 → 轮询感知完成
+    if (status.value === 'downloading') startDownloadPolling()
   }
 
   /** 呼出自检弹窗并强制重新检测 */
@@ -150,12 +157,35 @@ export const useAiStore = defineStore('ai', () => {
 
   // ======================== 会话内部工具 ========================
 
+  // 下载态轮询：downloadprogress 事件只在我们自己 create() 挂的 monitor 上有；
+  // 后台下载 / monitor 随「停止」或切页断开后，页面会永远卡在「下载中 X%」。
+  // 每 10s 静默探一次 availability，完成即翻 available（无百分比，仅终态）。
+  function startDownloadPolling() {
+    if (downloadPollTimer) return
+    downloadPollTimer = setInterval(async () => {
+      if (status.value !== 'downloading') { stopDownloadPolling(); return }
+      try {
+        const s = await checkPromptAvailability()
+        if (s !== 'downloading') {
+          status.value = s
+          if (s === 'available') downloadProgress.value = 1
+          stopDownloadPolling()
+        }
+      } catch { /* 静默容错，下一轮再探 */ }
+    }, 10000)
+  }
+
+  function stopDownloadPolling() {
+    if (downloadPollTimer) { clearInterval(downloadPollTimer); downloadPollTimer = null }
+  }
+
   // 模型权重静默下载进度 → 状态机联动（供聊天/任务两通道共用）
   function makeProgressWatcher() {
     return (p) => {
       downloadProgress.value = p
       if (status.value !== 'available') {
         status.value = p >= 1 ? 'available' : 'downloading'
+        if (status.value === 'downloading') startDownloadPolling()
       }
     }
   }
@@ -252,7 +282,7 @@ export const useAiStore = defineStore('ai', () => {
     // 派生
     isReady, isSupported, statusText, dotClass,
     // 检测
-    checkEnvironment, openDiagnosis,
+    checkEnvironment, openDiagnosis, stopDownloadPolling,
     // 画像
     recordSubjectFocus, getCachedAnalysis, recordAnalysis, getCachedSummary, recordSummary, recordChatTurn,
     // 通道
