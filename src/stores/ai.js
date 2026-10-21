@@ -21,7 +21,7 @@ const ANALYSIS_TEXT_LIMIT = 2000
 const SUMMARY_CACHE_LIMIT = 5
 const SUMMARY_TEXT_LIMIT = 4000
 // 剖析缓存版本：prompt 改版（如篇幅调整）时 +1，旧版本缓存自动失效
-const ANALYSIS_CACHE_VERSION = 3
+const ANALYSIS_CACHE_VERSION = 4
 
 /**
  * 端侧 AI 全局状态与双通道会话管理

@@ -259,7 +259,7 @@ export function buildPersonalizedSystemPrompt(basePrompt, profile) {
 }
 
 /**
- * 构造单题剖析 prompt（中等篇幅：完整覆盖每个选项，但不展开延伸，一屏读完）
+ * 构造单题剖析 prompt（较完整篇幅：逐项解析每个选项，含判定依据与记忆要点）
  * @param {Object} question - 题目对象（questionStem/option/answer）
  * @param {Object} [meta] - { typeLabel: 题型中文, subjectLabel: 科目中文, userAnswer: 用户作答 }
  * @returns {string}
@@ -267,9 +267,9 @@ export function buildPersonalizedSystemPrompt(basePrompt, profile) {
 export function buildQuestionAnalysisPrompt(question, { typeLabel = '', subjectLabel = '', userAnswer = '' } = {}) {
   const q = question || {};
   const lines = [];
-  lines.push('请解析下面这道题：用简体中文 Markdown 输出，全文控制在 250 字以内，按三部分写：');
-  lines.push('1. **考点**：一两句点明考查的知识点；2. **解析**：先一句话说明正确答案为什么对，再逐项用一句话点评其余选项错在哪；3. **易错**：一句话点出易混淆点或记忆要领。');
-  lines.push('没有选项的题（判断/填空）解析部分直接讲清判定依据即可。不要小标题，不要延伸拓展。');
+  lines.push('请解析下面这道题：用简体中文 Markdown 输出，全文控制在 400 字以内，按三部分写：');
+  lines.push('1. **考点**：一两句点明考查的知识点；2. **逐项解析**：每个选项单独一行，格式「A（对/错）：原因」，正确选项要讲清为什么对；3. **易错**：一两句点出易混淆点与记忆要点。');
+  lines.push('判断/填空题没有选项，第 2 部分改为分点讲清判定依据与相关知识。不要小标题，不要超出篇幅。');
   const meta = [];
   if (subjectLabel) meta.push(`科目：${subjectLabel}`);
   if (typeLabel) meta.push(`题型：${typeLabel}`);
