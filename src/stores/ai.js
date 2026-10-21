@@ -20,6 +20,8 @@ const ANALYSIS_CACHE_LIMIT = 30
 const ANALYSIS_TEXT_LIMIT = 2000
 const SUMMARY_CACHE_LIMIT = 5
 const SUMMARY_TEXT_LIMIT = 4000
+// 剖析缓存版本：prompt 改版（如篇幅调整）时 +1，旧版本缓存自动失效
+const ANALYSIS_CACHE_VERSION = 3
 
 /**
  * 端侧 AI 全局状态与双通道会话管理
@@ -113,14 +115,16 @@ export const useAiStore = defineStore('ai', () => {
 
   /** 读取历史剖析缓存（命中则秒出，免重复推理）；key 为题目 id，练习模式下带 @用户作答 后缀 */
   function getCachedAnalysis(key) {
-    return profile.value.analysisCache?.[key]?.text || ''
+    const hit = profile.value.analysisCache?.[key]
+    // 版本不匹配（prompt 改版前后的旧输出）视为未命中，按当前版 prompt 重新生成
+    return hit?.v === ANALYSIS_CACHE_VERSION ? hit.text : ''
   }
 
   /** 写入剖析结果并更新画像计数（LRU 超限淘汰最旧） */
   function recordAnalysis(key, text) {
     profile.value.analysisCount += 1
     const cache = profile.value.analysisCache
-    cache[key] = { text: String(text).slice(0, ANALYSIS_TEXT_LIMIT), ts: Date.now() }
+    cache[key] = { v: ANALYSIS_CACHE_VERSION, text: String(text).slice(0, ANALYSIS_TEXT_LIMIT), ts: Date.now() }
     const keys = Object.keys(cache)
     if (keys.length > ANALYSIS_CACHE_LIMIT) {
       keys.sort((a, b) => cache[a].ts - cache[b].ts)

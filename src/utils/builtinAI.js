@@ -259,7 +259,7 @@ export function buildPersonalizedSystemPrompt(basePrompt, profile) {
 }
 
 /**
- * 构造单题深度剖析 prompt
+ * 构造单题剖析 prompt（中等篇幅：完整覆盖每个选项，但不展开延伸，一屏读完）
  * @param {Object} question - 题目对象（questionStem/option/answer）
  * @param {Object} [meta] - { typeLabel: 题型中文, subjectLabel: 科目中文, userAnswer: 用户作答 }
  * @returns {string}
@@ -267,8 +267,9 @@ export function buildPersonalizedSystemPrompt(basePrompt, profile) {
 export function buildQuestionAnalysisPrompt(question, { typeLabel = '', subjectLabel = '', userAnswer = '' } = {}) {
   const q = question || {};
   const lines = [];
-  lines.push('请对下面这道题做深度解析，用简体中文输出 Markdown，依次包含：');
-  lines.push('1. 考点（一句话）；2. 逐项分析各选项对/错的原因；3. 正确答案与解题思路；4. 易错点提醒。');
+  lines.push('请解析下面这道题：用简体中文 Markdown 输出，全文控制在 250 字以内，按三部分写：');
+  lines.push('1. **考点**：一两句点明考查的知识点；2. **解析**：先一句话说明正确答案为什么对，再逐项用一句话点评其余选项错在哪；3. **易错**：一句话点出易混淆点或记忆要领。');
+  lines.push('没有选项的题（判断/填空）解析部分直接讲清判定依据即可。不要小标题，不要延伸拓展。');
   const meta = [];
   if (subjectLabel) meta.push(`科目：${subjectLabel}`);
   if (typeLabel) meta.push(`题型：${typeLabel}`);

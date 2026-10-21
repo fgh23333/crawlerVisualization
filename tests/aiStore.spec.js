@@ -34,6 +34,15 @@ describe('剖析缓存 analysisCache', () => {
     expect(store.getCachedAnalysis('q1@AB')).toBe('针对作答 AB 的点评')
   })
 
+  it('旧 prompt 时代的无版本缓存条目自动失效，重新生成', () => {
+    const store = useAiStore()
+    // 模拟 v1 时代落盘的长剖析（无 v 标记）
+    store.profile.analysisCache.q1 = { text: '旧版超长剖析'.repeat(50), ts: Date.now() }
+    expect(store.getCachedAnalysis('q1')).toBe('')
+    store.recordAnalysis('q1', '新版精简剖析')
+    expect(store.getCachedAnalysis('q1')).toBe('新版精简剖析')
+  })
+
   it('LRU 超限淘汰最旧（上限 30 条）', () => {
     const store = useAiStore()
     for (let i = 0; i < 31; i++) store.recordAnalysis(`q${i}`, `剖析${i}`)
