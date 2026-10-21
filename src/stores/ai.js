@@ -43,6 +43,12 @@ export const useAiStore = defineStore('ai', () => {
 
   const isReady = computed(() => status.value === 'available')
 
+  // 环境级支持（接口已暴露）：available / after-download / downloading 皆算支持。
+  // unsupported（含检测中）不提供任何 AI 入口；after-download 首次使用会由
+  // create() 自动触发权重下载，进度经 monitor 回调实时回传（见 downloadProgress）。
+  const isSupported = computed(() =>
+    status.value === 'available' || status.value === 'after-download' || status.value === 'downloading')
+
   const statusText = computed(() => {
     switch (status.value) {
       case 'available': return '端侧 AI 就绪'
@@ -224,7 +230,7 @@ export const useAiStore = defineStore('ai', () => {
     // 状态
     status, downloadProgress, summarizerStatus, diagVisible, profile,
     // 派生
-    isReady, statusText, dotClass,
+    isReady, isSupported, statusText, dotClass,
     // 检测
     checkEnvironment, openDiagnosis,
     // 画像

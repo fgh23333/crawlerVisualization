@@ -19,7 +19,9 @@ const props = defineProps({
   subjectLabel: { type: String, default: '' },
   // 端侧 AI 剖析：文本与加载态由父组件注入（组件保持纯展示）
   aiText: { type: String, default: '' },
-  aiLoading: { type: Boolean, default: false }
+  aiLoading: { type: Boolean, default: false },
+  // 环境是否支持端侧 AI：不支持时整个入口不渲染
+  aiAvailable: { type: Boolean, default: false }
 })
 
 const emit = defineEmits(['toggle-answer', 'toggle-fav', 'toggle-mark', 'submit-practice', 'ask-ai'])
@@ -85,7 +87,7 @@ onBeforeUnmount(() => { if (_aiParseTimer) clearTimeout(_aiParseTimer) })
             </svg>
             <span class="fav-text">{{ isFav ? '已收藏' : '收藏' }}</span>
           </button>
-          <button class="fav-btn ai-analyze-btn" :class="{ 'is-ai-loading': aiLoading }" @click="emit('ask-ai')" type="button">
+          <button v-if="aiAvailable" class="fav-btn ai-analyze-btn" :class="{ 'is-ai-loading': aiLoading }" @click="emit('ask-ai')" type="button">
             <svg class="fav-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
               <path d="M12 2.5l1.9 5.2 5.4 1.9-5.4 1.9L12 16.7l-1.9-5.2-5.4-1.9 5.4-1.9L12 2.5z"
                 :fill="aiLoading ? 'currentColor' : 'none'"

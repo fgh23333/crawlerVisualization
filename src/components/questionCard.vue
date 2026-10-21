@@ -68,6 +68,7 @@
           :subject-label="abbreviationSubjectList[item.abbreviationSubject]"
           :ai-text="aiCollapsedMap[i] ? '' : (aiAnalyses[i] || '')"
           :ai-loading="!!aiLoadingMap[i]"
+          :ai-available="aiStore.isSupported"
           @toggle-answer="toggleAnswer(i)"
           @toggle-fav="toggleFav(item, i)"
           @toggle-mark="toggleMark(item)"
@@ -387,7 +388,9 @@ export default {
       }
     },
     // ======================== 端侧 AI 深度剖析（Beta） ========================
-    // 完全依赖本地模型：不支持时弹自检指引，不做任何远端兜底
+    // 完全依赖本地模型，不做任何远端兜底；环境不支持时入口整个不渲染
+    // （isSupported 含 after-download/downloading：首次使用由 create() 自动触发
+    //   权重下载，进度经侧边栏角标与自检弹窗实时展示）
     async askAI(item, i) {
       // 生成中：再次点击即停止（保留已生成的半截内容）
       if (this.aiLoadingMap[i]) {
@@ -399,11 +402,8 @@ export default {
         this.aiCollapsedMap[i] = !this.aiCollapsedMap[i];
         return;
       }
-      // 环境不支持：引导开启而非报错
-      if (!this.aiStore.isReady) {
-        this.aiStore.openDiagnosis();
-        return;
-      }
+      // 防御兜底：按钮仅在支持环境下渲染，正常到不了这里
+      if (!this.aiStore.isSupported) return;
       // 历史剖析缓存命中：直接展示（越用越快）
       const cached = this.aiStore.getCachedAnalysis(item.id);
       if (cached) {

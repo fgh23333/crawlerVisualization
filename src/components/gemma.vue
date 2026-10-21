@@ -17,10 +17,10 @@
         <div class="mode-bar">
             <el-radio-group v-model="mode" size="small" :disabled="loading">
                 <el-radio-button value="online">在线 RAG</el-radio-button>
-                <el-radio-button value="local" :disabled="!aiStore.isReady">端侧离线</el-radio-button>
+                <el-radio-button value="local" :disabled="!aiStore.isSupported">端侧离线</el-radio-button>
             </el-radio-group>
-            <button v-if="mode === 'local' || !aiStore.isReady" class="mode-diag-btn" @click="aiStore.openDiagnosis">
-                {{ aiStore.isReady ? '· 本地模型运行中' : aiStore.statusText + '，点此自检' }}
+            <button v-if="mode === 'local' || !aiStore.isSupported" class="mode-diag-btn" @click="aiStore.openDiagnosis">
+                {{ mode === 'local' && aiStore.isReady ? '· 本地模型运行中' : aiStore.statusText + '，点此自检' }}
             </button>
         </div>
 
@@ -384,7 +384,9 @@ export default {
         async sendLocalMessage() {
             const text = this.inputText.trim();
             if (!text || this.loading) return;
-            if (!this.aiStore.isReady) {
+            // 环境不支持时开关置灰，正常到不了这里；防御性兜底弹自检。
+            // after-download 首条消息由 create() 自动触发权重下载（进度见角标/自检弹窗）
+            if (!this.aiStore.isSupported) {
                 this.aiStore.openDiagnosis();
                 return;
             }

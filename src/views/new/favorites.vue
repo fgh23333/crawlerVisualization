@@ -14,7 +14,7 @@
                 <el-button type="danger" size="small" class="clearBtn" @click="clearList">清空当前列表</el-button>
                 <el-button type="primary" size="small" @click="showExportDialog">导出收藏</el-button>
                 <el-button type="success" size="small" @click="showImportDialog">导入收藏</el-button>
-                <el-button size="small" class="ai-summary-btn" @click="showAiDialog">AI 归纳</el-button>
+                <el-button v-if="aiStore.isSupported" size="small" class="ai-summary-btn" @click="showAiDialog">AI 归纳</el-button>
             </div>
         </div>
         <questionCard :subjectOptions="value" :favList="list" :selectedTypes="selectedTypes"></questionCard>
@@ -344,10 +344,8 @@ export default {
                 ElMessage.warning('当前列表为空，暂无可归纳的题目');
                 return;
             }
-            if (!this.aiStore.isReady) {
-                this.aiStore.openDiagnosis();
-                return;
-            }
+            // 环境不支持时按钮不渲染（isSupported 含 after-download/downloading，
+            // 首次归纳由 create() 自动触发权重下载，进度见角标/自检弹窗）
             this.aiDialogVisible = true;
         },
         onAiDialogClose() {
