@@ -7,13 +7,26 @@
             </div>
             <div class="chat-header-text">
                 <h1 class="chat-title">思政智能助教</h1>
-                <p class="chat-subtitle">基于检索增强（RAG）的高校思政学习智能体</p>
+                <p class="chat-subtitle">{{ mode === 'local'
+                    ? '端侧离线模式 · Chrome 内置 AI（Beta），无需联网'
+                    : '基于检索增强（RAG）的高校思政学习智能体' }}</p>
             </div>
         </header>
 
+        <!-- 模式切换：在线 RAG / 端侧离线（Chrome 内置 AI） -->
+        <div class="mode-bar">
+            <el-radio-group v-model="mode" size="small" :disabled="loading">
+                <el-radio-button value="online">在线 RAG</el-radio-button>
+                <el-radio-button value="local" :disabled="!aiStore.isReady">端侧离线</el-radio-button>
+            </el-radio-group>
+            <button v-if="mode === 'local' || !aiStore.isReady" class="mode-diag-btn" @click="aiStore.openDiagnosis">
+                {{ aiStore.isReady ? '· 本地模型运行中' : aiStore.statusText + '，点此自检' }}
+            </button>
+        </div>
+
         <!-- 服务未配置提示 -->
         <el-alert
-            v-if="!ragApi"
+            v-if="mode === 'online' && !ragApi"
             class="config-alert"
             type="warning"
             :closable="false"
@@ -29,7 +42,9 @@
                 <div class="welcome-card">
                     <div class="welcome-emoji">🎓</div>
                     <h2>你好，我是你的思政智能助教</h2>
-                    <p>我可以结合九大思政科目的题库与教材，为你检索答疑、梳理重点。试试下面的问题：</p>
+                    <p>{{ mode === 'local'
+                        ? '当前为端侧离线模式，回答由浏览器内置 AI 在本地生成，全程无需联网。试试下面的问题：'
+                        : '我可以结合九大思政科目的题库与教材，为你检索答疑、梳理重点。试试下面的问题：' }}</p>
                     <div class="suggest-grid">
                         <button
                             v-for="(q, i) in suggestions"
@@ -54,6 +69,7 @@
                         </div>
                         <div class="msg-body">
                             <div class="msg-html" v-html="msg.html"></div>
+                            <span v-if="msg.loading && msg.text" class="typing-cursor">▍</span>
                             <div v-if="msg.role === 'bot' && msg.sources.length" class="sources">
                                 <strong>📚 来源：</strong>
                                 <ul>
@@ -106,6 +122,7 @@
 <script>
 import { marked } from "marked";
 import { MagicStick, Promotion, Delete, VideoPause } from '@element-plus/icons-vue';
+import { useAiStore } from '@/stores/ai';
 
 // 检索增强问答服务地址，通过环境变量配置（便于部署与脱敏）
 const RAG_API = import.meta.env.VITE_RAG_API || '';
@@ -137,9 +154,13 @@ const TYPE_NAMES = {
 };
 
 export default {
+    setup() {
+        return { aiStore: useAiStore() };
+    },
     data() {
         return {
             ragApi: RAG_API,
+            mode: 'online',  // online=远端 RAG / local=端侧离线（Chrome 内置 AI，Beta）
             inputText: "",
             messages: [],
             loading: false,
@@ -175,6 +196,16 @@ export default {
             },
             deep: true, // 流式输出时消息内容持续变化也要跟随滚动
         },
+        // 模式切换：清空对话并重置端侧会话（两套上下文互不污染）
+        mode() {
+            this.messages = [];
+            this.aiStore.resetChatSession();
+        },
+    },
+    beforeUnmount() {
+        // 离开聊天页：中断进行中的生成并释放端侧会话显存
+        this.stopGenerating();
+        this.aiStore.resetChatSession();
     },
     methods: {
         scrollToBottom() {
@@ -187,9 +218,14 @@ export default {
         },
         clearMessages() {
             this.messages = [];
-            // 新会话：服务端按 sessionId 聚类对话
-            this.sessionId = newSessionId();
-            localStorage.setItem('qb_chat_session', this.sessionId);
+            if (this.mode === 'local') {
+                // 端侧模式：销毁会话即真正清空多轮记忆
+                this.aiStore.resetChatSession();
+            } else {
+                // 新会话：服务端按 sessionId 聚类对话
+                this.sessionId = newSessionId();
+                localStorage.setItem('qb_chat_session', this.sessionId);
+            }
         },
         // 流式渲染节流：delta 很密，marked.parse 每帧全量跑会卡
         scheduleParse(msg) {
@@ -200,7 +236,8 @@ export default {
             }, 100);
         },
         stopGenerating() {
-            if (this.abortCtrl) this.abortCtrl.abort();
+            if (this.mode === 'local') this.aiStore.abortChat();
+            else if (this.abortCtrl) this.abortCtrl.abort();
         },
         sourceLabel(s) {
             const subject = SUBJECT_NAMES[s.subject] || s.subject || '';
@@ -265,6 +302,8 @@ export default {
             }
         },
         async sendMessage() {
+            // 端侧离线模式走本地模型，不入 RAG 通道
+            if (this.mode === 'local') return this.sendLocalMessage();
             const text = this.inputText.trim();
             if (!text || this.loading) return;
             if (!RAG_API) {
@@ -340,6 +379,47 @@ export default {
                 this.abortCtrl = null;
             }
         },
+        // ======================== 端侧离线模式（Chrome 内置 AI，Beta） ========================
+        // 复用消息结构 / 流式节流 / 骨架屏；不设 traceId → 👍/👎 反馈区自动隐藏
+        async sendLocalMessage() {
+            const text = this.inputText.trim();
+            if (!text || this.loading) return;
+            if (!this.aiStore.isReady) {
+                this.aiStore.openDiagnosis();
+                return;
+            }
+
+            // 用户输入立即显示
+            this.messages.push({ role: "user", html: marked.parse(text), text, sources: [] });
+
+            // 占位消息（流式填充）
+            const msg = {
+                role: "bot", html: "", text: "", sources: [],
+                loading: true, done: false, traceId: null, feedback: 0,
+            };
+            this.messages.push(msg);
+            this.loading = true;
+            this.inputText = "";
+
+            try {
+                const { aborted } = await this.aiStore.chat(text, {
+                    onDelta: (_chunk, full) => {
+                        msg.text = full;
+                        this.scheduleParse(msg);
+                    },
+                });
+                msg.done = true;
+                msg.loading = false;
+                msg.html = marked.parse(msg.text || '') + (aborted && msg.text ? '\n\n*（已停止生成）*' : '');
+                if (aborted && !msg.text) msg.html = '⚠️ 已停止生成';
+            } catch (e) {
+                msg.done = true;
+                msg.loading = false;
+                msg.html = `⚠️ ${e?.message || '端侧 AI 回答失败'}`;
+            } finally {
+                this.loading = false;
+            }
+        },
     },
 };
 </script>
@@ -394,6 +474,34 @@ export default {
     width: 100%;
     max-width: 800px;
     margin-bottom: 14px;
+}
+
+/* 模式切换条（在线 RAG / 端侧离线） */
+.mode-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 14px;
+
+    .mode-diag-btn {
+        background: none;
+        border: 1px dashed #d9dcf4;
+        border-radius: 12px;
+        color: #8b80c9;
+        font-size: 12px;
+        padding: 4px 10px;
+        cursor: pointer;
+        transition: all 0.15s;
+
+        &:hover {
+            color: #6c5dd3;
+            border-color: #c4bcf4;
+            background: #f5f3ff;
+        }
+    }
 }
 
 /* 聊天区 */
@@ -515,6 +623,24 @@ export default {
     box-shadow: 0 3px 8px rgba(108, 93, 211, 0.12);
 }
 .msg-html { line-height: 1.7; }
+
+/* 端侧流式生成时的打字机光标 */
+.typing-cursor {
+    display: inline-block;
+    color: #6c5dd3;
+    animation: typing-blink 0.8s infinite;
+}
+@keyframes typing-blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
 .msg-html :deep(code) {
     background: rgba(108, 93, 211, 0.08);
     padding: 1px 5px;
