@@ -404,8 +404,11 @@ export default {
       }
       // 防御兜底：按钮仅在支持环境下渲染，正常到不了这里
       if (!this.aiStore.isSupported) return;
-      // 历史剖析缓存命中：直接展示（越用越快）
-      const cached = this.aiStore.getCachedAnalysis(item.id);
+      // 练习模式下剖析内容含用户作答点评 → 缓存键带作答后缀，不同作答各自缓存
+      const userAnswer = this.practiceMode ? this.practiceAnswers[i] : null;
+      const cacheKey = userAnswer ? `${item.id}@${userAnswer}` : item.id;
+      // 历史剖析缓存命中：直接展示（越用越快，免重复推理）
+      const cached = this.aiStore.getCachedAnalysis(cacheKey);
       if (cached) {
         this.aiAnalyses[i] = cached;
         this.aiCollapsedMap[i] = false;
@@ -414,7 +417,6 @@ export default {
 
       const typeLabel = TYPE_LABEL[getQuestionType(item)];
       const subjectLabel = this.abbreviationSubjectList[item.abbreviationSubject] || item.abbreviationSubject;
-      const userAnswer = this.practiceMode ? this.practiceAnswers[i] : null;
       const prompt = buildQuestionAnalysisPrompt(item, { typeLabel, subjectLabel, userAnswer });
 
       this.aiLoadingMap[i] = true;
@@ -429,7 +431,7 @@ export default {
           if (!this.aiAnalyses[i]) delete this.aiAnalyses[i];
         } else {
           this.aiAnalyses[i] = text;
-          this.aiStore.recordAnalysis(item.id, text);       // 写入 LRU 缓存
+          this.aiStore.recordAnalysis(cacheKey, text);       // 写入 LRU 缓存（键含作答后缀）
           this.aiStore.recordSubjectFocus(item.abbreviationSubject);  // 更新个性化画像
         }
       } catch (e) {

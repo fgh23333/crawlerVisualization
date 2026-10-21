@@ -78,7 +78,7 @@
         <el-dialog v-model="aiDialogVisible" title="AI 归纳总结（Beta · 本地端侧生成）" width="620px"
             @close="onAiDialogClose">
             <div class="ai-summary-desc">
-                将按科目对当前列表（共 {{ list.length }} 题）分组归纳，梳理高频考点与易错方向。全程本地生成，数据不出浏览器。
+                将按科目对当前列表（共 {{ list.length }} 题）分组归纳，梳理高频考点与易错方向。全程本地生成，数据不出浏览器；结果按列表内容缓存，题目或错题无变化时秒出缓存。
             </div>
             <div class="ai-summary-body">
                 <el-skeleton v-if="aiSummarizing && !aiSummaryText" :rows="6" animated />
@@ -339,6 +339,13 @@ export default {
         },
 
         // ── 端侧 AI 归纳（Beta，完全依赖本地模型）──────────────────
+        // 归纳结果缓存签名：筛选范围 + 题目 id 集合 + 累计错误数。
+        // 收藏/错题或练习错误任一变化 → 签名变 → 自动重新归纳；不变则秒出缓存
+        summarySignature() {
+            const ids = this.list.map(q => q.id).sort().join(',');
+            const errorTotal = this.list.reduce((s, q) => s + (this.store.userRecords?.[q.id]?.errorCount || 0), 0);
+            return `${this.value}|${ids}|${errorTotal}`;
+        },
         showAiDialog() {
             if (!this.list.length) {
                 ElMessage.warning('当前列表为空，暂无可归纳的题目');
@@ -346,6 +353,11 @@ export default {
             }
             // 环境不支持时按钮不渲染（isSupported 含 after-download/downloading，
             // 首次归纳由 create() 自动触发权重下载，进度见角标/自检弹窗）
+            // 打开弹窗先查缓存：签名一致直接展示上次结果（重新归纳按钮可强制重生成）
+            const cached = this.aiStore.getCachedSummary(this.summarySignature());
+            this.aiSummaryText = cached;
+            this.aiSummaryHtml = cached ? marked.parse(cached) : '';
+            this.aiSummarized = !!cached;
             this.aiDialogVisible = true;
         },
         onAiDialogClose() {
@@ -396,6 +408,7 @@ export default {
                     this.aiSummaryText = this.aiSummaryText || '*（已停止生成）*';
                 } else {
                     this.aiSummaryText = text;
+                    this.aiStore.recordSummary(this.summarySignature(), text);        // 写入 LRU 缓存
                     groups.forEach(g => this.aiStore.recordSubjectFocus(g.subject));  // 更新个性化画像
                 }
                 this.aiSummaryHtml = marked.parse(this.aiSummaryText);

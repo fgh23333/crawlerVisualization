@@ -14,9 +14,11 @@ let chatAbort = null
 let taskBusy = false     // 任务通道：一次性短会话（剖析/归纳共用，busy 锁串行）
 let taskAbort = null
 
-// 个性化剖析缓存容量控制（AI 输出只缓存剖析结果，LRU 淘汰，防止 localStorage 膨胀）
+// 个性化剖析缓存容量控制（AI 输出只缓存剖析/归纳结果，LRU 淘汰，防止 localStorage 膨胀）
 const ANALYSIS_CACHE_LIMIT = 30
 const ANALYSIS_TEXT_LIMIT = 2000
+const SUMMARY_CACHE_LIMIT = 5
+const SUMMARY_TEXT_LIMIT = 4000
 
 /**
  * 端侧 AI 全局状态与双通道会话管理
@@ -31,12 +33,13 @@ export const useAiStore = defineStore('ai', () => {
   const summarizerStatus = ref('checking')
   const diagVisible = ref(false)  // 全站唯一自检弹窗开关（newHome 挂载实例）
 
-  // AI native 个性化画像：科目关注计数 / 累计剖析数 / 聊天轮数 / 剖析缓存（LRU）
+  // AI native 个性化画像：科目关注计数 / 累计剖析数 / 聊天轮数 / 剖析与归纳缓存（LRU）
   const profile = ref({
     subjectInterest: {},
     analysisCount: 0,
     chatTurns: 0,
-    analysisCache: {}, // { [questionId]: { text, ts } }
+    analysisCache: {}, // { [questionId 或 id@用户作答]: { text, ts } }
+    summaryCache: {},  // { [列表签名]: { text, ts } } 归纳结果按题目列表指纹缓存
   })
 
   // ======================== 派生状态 ========================
@@ -101,20 +104,37 @@ export const useAiStore = defineStore('ai', () => {
     profile.value.subjectInterest[subjectKey] = (profile.value.subjectInterest[subjectKey] || 0) + 1
   }
 
-  /** 读取历史剖析缓存（命中则秒出，免重复推理） */
-  function getCachedAnalysis(questionId) {
-    return profile.value.analysisCache[questionId]?.text || ''
+  /** 读取历史剖析缓存（命中则秒出，免重复推理）；key 为题目 id，练习模式下带 @用户作答 后缀 */
+  function getCachedAnalysis(key) {
+    return profile.value.analysisCache?.[key]?.text || ''
   }
 
   /** 写入剖析结果并更新画像计数（LRU 超限淘汰最旧） */
-  function recordAnalysis(questionId, text) {
+  function recordAnalysis(key, text) {
     profile.value.analysisCount += 1
     const cache = profile.value.analysisCache
-    cache[questionId] = { text: String(text).slice(0, ANALYSIS_TEXT_LIMIT), ts: Date.now() }
+    cache[key] = { text: String(text).slice(0, ANALYSIS_TEXT_LIMIT), ts: Date.now() }
     const keys = Object.keys(cache)
     if (keys.length > ANALYSIS_CACHE_LIMIT) {
       keys.sort((a, b) => cache[a].ts - cache[b].ts)
         .slice(0, keys.length - ANALYSIS_CACHE_LIMIT)
+        .forEach(k => { delete cache[k] })
+    }
+  }
+
+  /** 读取归纳缓存（列表签名一致时秒出；签名含题目 id 与累计错误数，列表/错题一变即自动失效） */
+  function getCachedSummary(signature) {
+    return profile.value.summaryCache?.[signature]?.text || ''
+  }
+
+  /** 写入归纳结果（LRU 超限淘汰最旧；旧版本持久化数据无 summaryCache 字段时自动补建） */
+  function recordSummary(signature, text) {
+    const cache = profile.value.summaryCache ||= {}
+    cache[signature] = { text: String(text).slice(0, SUMMARY_TEXT_LIMIT), ts: Date.now() }
+    const keys = Object.keys(cache)
+    if (keys.length > SUMMARY_CACHE_LIMIT) {
+      keys.sort((a, b) => cache[a].ts - cache[b].ts)
+        .slice(0, keys.length - SUMMARY_CACHE_LIMIT)
         .forEach(k => { delete cache[k] })
     }
   }
@@ -234,7 +254,7 @@ export const useAiStore = defineStore('ai', () => {
     // 检测
     checkEnvironment, openDiagnosis,
     // 画像
-    recordSubjectFocus, getCachedAnalysis, recordAnalysis, recordChatTurn,
+    recordSubjectFocus, getCachedAnalysis, recordAnalysis, getCachedSummary, recordSummary, recordChatTurn,
     // 通道
     chat, runTask,
     // 管理
