@@ -91,8 +91,9 @@ async function runDiagnostics() {
     }
 }
 
-// 打开弹窗时自动刷新一次检测结果
-watch(() => props.modelValue, (v) => { if (v) runDiagnostics() })
+// 打开弹窗时自动刷新一次检测结果；immediate 兜底：路由切换导致弹窗重建
+// 且 modelValue 已为 true 时（如诊断开着时导航），同样立即执行检测而非渲染空初值
+watch(() => props.modelValue, (v) => { if (v) runDiagnostics() }, { immediate: true })
 
 // 检测项：ok 通过 / warn 非阻断（辅助能力）/ fail 未通过（标红）
 const checkItems = computed(() => {
