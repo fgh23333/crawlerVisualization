@@ -1,44 +1,41 @@
 <template>
     <el-dialog :model-value="modelValue" @update:model-value="$emit('update:modelValue', $event)"
-        title="端侧 AI 环境自检（Beta）" width="520px" class="ai-diag-dialog" append-to-body>
-        <!-- 状态概览 -->
+        title="端侧 AI 自检" width="520px" class="ai-diag-dialog" append-to-body>
+        <!-- 状态概览：单行 -->
         <div class="diag-summary">
             <span class="dot" :class="aiStore.dotClass"></span>
             <span>{{ aiStore.statusText }}</span>
-            <el-tag size="small" type="info" effect="plain" class="beta-tag">本地运行 · 离线可用</el-tag>
+            <el-tag size="small" type="info" effect="plain" class="beta-tag">Beta · 本地运行 · 离线可用</el-tag>
         </div>
 
-        <!-- 检测项列表：未通过标红 -->
+        <!-- 检测项：双列网格压缩高度，通过项单格带过，异常项跨双列展开说明 -->
         <div class="check-list">
-            <div v-for="item in checkItems" :key="item.name" class="check-item" :class="`is-${item.status}`">
-                <div class="check-head">
-                    <span class="check-name">{{ item.name }}</span>
-                    <el-tag size="small" :type="tagType(item.status)">{{ statusLabel(item.status) }}</el-tag>
-                </div>
-                <div class="check-desc">{{ item.desc }}</div>
-                <el-progress v-if="item.progress !== undefined" :percentage="item.progress" :stroke-width="6"
+            <div v-for="item in checkItems" :key="item.name" class="check-item"
+                :class="[`is-${item.status}`, { wide: item.status !== 'ok' }]">
+                <component :is="iconOf(item.status)" class="check-icon" />
+                <span class="check-name">{{ item.name }}</span>
+                <span v-if="item.status !== 'ok'" class="check-state">{{ statusLabel(item.status) }}</span>
+                <span class="check-val">{{ item.desc }}</span>
+                <el-progress v-if="item.progress !== undefined" :percentage="item.progress" :stroke-width="4"
                     :show-text="false" class="check-progress" />
             </div>
         </div>
 
-        <!-- 配置指南：flag 一键复制 -->
+        <!-- 配置指南：flags 双列 + 一键复制，说明压成两行提示 -->
         <div class="flag-guide">
-            <div class="guide-title">开启指引（Chrome / Edge，128+ 或 Canary）</div>
-            <ol class="guide-steps">
-                <li>复制下方 flag 链接，<b>粘贴到浏览器地址栏</b>打开并按推荐值设置（chrome:// 链接无法点击跳转）：</li>
-                <li v-for="f in flags" :key="f.url" class="flag-row">
-                    <div class="flag-line">
-                        <code>{{ f.url }}</code>
-                        <el-button size="small" text type="primary" @click="copyFlag(f.url)">复制</el-button>
-                    </div>
-                    <div class="flag-req">推荐值：{{ f.req }}<span v-if="f.optional">（可选）</span> — {{ f.note }}</div>
-                </li>
-                <li>触发模型下载：打开 <code>chrome://components</code>，找到「Optimization Guide On Device
-                    Model」点击「检查更新」；下载进度也可在 <code>chrome://on-device-internals</code> 查看。</li>
-                <li>全部开启后重启浏览器，回到本页点「重新检测」。</li>
-            </ol>
-            <el-alert type="info" :closable="false"
-                title="端侧 AI 在本地浏览器运行，题库原有功能不受其影响；不支持时仅 AI 相关入口降级。" />
+            <div class="guide-title">开启指引（Chrome / Edge 128+）</div>
+            <div class="flag-grid">
+                <div class="flag-cell" v-for="f in flags" :key="f.url">
+                    <span class="flag-name">
+                        {{ f.name }}<code>{{ f.req }}</code><em v-if="f.optional">可选</em>
+                    </span>
+                    <el-button size="small" text type="primary" class="flag-copy" @click="copyFlag(f.url)">复制</el-button>
+                </div>
+            </div>
+            <div class="guide-hint">
+                flags 逐条复制后<b>粘贴到地址栏</b>开启；再到 <code>chrome://components</code> 点「检查更新」，或打开
+                <code>chrome://on-device-internals</code> 触发模型下载；<b>重启浏览器</b>后重新检测。
+            </div>
         </div>
 
         <template #footer>
@@ -66,12 +63,12 @@ const webgpu = ref(false)
 const promptExposed = ref(false)
 const summarizerExposed = ref(false)
 
-// Chrome flags 开启清单（Gemini Nano / Gemma 4 底座 / MTP 投机解码）
+// Chrome flags 开启清单（短名展示，完整 URL 走复制；Gemma 4 底座 / MTP 投机解码为可选加速）
 const flags = [
-    { url: 'chrome://flags/#prompt-api-for-gemini-nano', req: 'Enabled', note: 'Prompt API 总开关' },
-    { url: 'chrome://flags/#optimization-guide-on-device-model', req: 'Enabled BypassPrefRequirement', note: '跳过硬件门槛预检' },
-    { url: 'chrome://flags/#gemma4-for-built-in-ai', req: 'Enabled', note: '选用 Gemma 4 底座', optional: true },
-    { url: 'chrome://flags/#on-device-model-speculative-decoding', req: 'Enabled', note: 'MTP 投机解码加速（吞吐 +20%~30%）', optional: true },
+    { name: 'Prompt API', url: 'chrome://flags/#prompt-api-for-gemini-nano', req: 'Enabled' },
+    { name: 'On Device Model', url: 'chrome://flags/#optimization-guide-on-device-model', req: 'BypassPrefRequirement' },
+    { name: 'Gemma 4 底座', url: 'chrome://flags/#gemma4-for-built-in-ai', req: 'Enabled', optional: true },
+    { name: 'MTP 投机解码', url: 'chrome://flags/#on-device-model-speculative-decoding', req: 'Enabled', optional: true },
 ]
 
 function close() {
@@ -95,7 +92,7 @@ async function runDiagnostics() {
 // 且 modelValue 已为 true 时（如诊断开着时导航），同样立即执行检测而非渲染空初值
 watch(() => props.modelValue, (v) => { if (v) runDiagnostics() }, { immediate: true })
 
-// 检测项：ok 通过 / warn 非阻断（辅助能力）/ fail 未通过（标红）
+// ok 通过（单行带过）/ warn 非阻断（辅助能力）/ fail 未通过（展开说明）
 const checkItems = computed(() => {
     const b = browser.value
     const items = []
@@ -106,66 +103,64 @@ const checkItems = computed(() => {
         name: '浏览器内核',
         status: verOk ? 'ok' : 'fail',
         desc: verOk
-            ? `Chromium ${b.version}，满足要求`
+            ? `Chromium ${b.version}`
             : b.isChromium
-                ? `Chromium ${b.version} 版本过低，需 128 以上（推荐 Canary 通道）`
-                : '未检测到 Chromium 内核，请使用 Chrome / Edge（推荐 Canary 通道）',
+                ? `Chromium ${b.version} 版本过低，需 128 以上`
+                : '未检测到 Chromium 内核，请用 Chrome / Edge',
     })
 
     // 2. Prompt API 接口暴露
     items.push({
-        name: 'Prompt API（端侧大模型）',
+        name: 'Prompt API',
         status: promptExposed.value ? 'ok' : 'fail',
-        desc: promptExposed.value
-            ? '接口已暴露'
-            : '接口未暴露：请按下方指引开启对应 chrome://flags',
+        desc: promptExposed.value ? '已暴露' : '未暴露，请开启下方 flags',
     })
 
     // 3. 模型权重状态（跟随 ai store 状态机）
     const s = aiStore.status
     // <1% 保留一位小数：多 GB 权重下载初期整数恒为 0%，一位小数才能看出进度在动
     const pct = aiStore.downloadProgress * 100
-    const pctText = aiStore.downloadProgress > 0 ? (pct < 1 ? ` ${pct.toFixed(1)}%` : ` ${Math.round(pct)}%`) : ''
+    const pctText = aiStore.downloadProgress > 0 ? (pct < 1 ? `${pct.toFixed(1)}%` : `${Math.round(pct)}%`) : '0%'
     const weightMap = {
-        available: { status: 'ok', desc: '模型就绪，可立即使用' },
-        'after-download': { status: 'warn', desc: '接口就绪，首次使用时将自动下载模型权重' },
+        available: { status: 'ok', desc: '就绪' },
+        'after-download': { status: 'warn', desc: '接口就绪，首次使用时将自动下载权重' },
         downloading: {
             status: 'warn',
-            desc: `模型权重下载中${pctText}…若长时间停在 0%：多为组件下载被网络阻断（需能访问 Google 服务器），请确认代理可用，再打开 chrome://components 找到「Optimization Guide On Device Model」点「检查更新」强制重试`,
+            desc: `下载中 ${pctText}…长时间停 0% 多为网络阻断（需能访问 Google），到 chrome://components 点「检查更新」或开 chrome://on-device-internals 触发`,
             progress: Math.round(pct),
         },
-        unsupported: { status: 'fail', desc: '模型不可用：请开启 flags 并在 chrome://components 触发下载' },
-        checking: { status: 'ok', desc: '检测中…' },
+        unsupported: { status: 'fail', desc: '模型不可用，请开启 flags 并触发下载' },
+        checking: { status: 'ok', desc: '检测中' },
     }
     items.push({ name: '模型权重', ...(weightMap[s] || weightMap.checking) })
 
     // 4. WebGPU（辅助：影响推理速度，非必需）
     items.push({
-        name: 'WebGPU 硬件加速',
+        name: 'WebGPU',
         status: webgpu.value ? 'ok' : 'warn',
-        desc: webgpu.value ? '已启用' : '未启用（不阻断功能，推理速度可能较慢）',
+        desc: webgpu.value ? '已启用' : '未启用，推理较慢（不阻断）',
     })
 
     // 5. Summarizer API（辅助能力）
     items.push({
-        name: 'Summarizer API',
+        name: 'Summarizer',
         status: summarizerExposed.value ? 'ok' : 'warn',
-        desc: summarizerExposed.value ? '接口已暴露' : '接口未暴露（不影响题目解析与离线问答）',
+        desc: summarizerExposed.value ? '已暴露' : '未暴露，不影响剖析与问答',
     })
     return items
 })
 
-function tagType(status) {
-    return { ok: 'success', warn: 'warning', fail: 'danger' }[status] || 'info'
+function iconOf(status) {
+    return { ok: 'CircleCheckFilled', warn: 'WarningFilled', fail: 'CircleCloseFilled' }[status] || 'CircleCheckFilled'
 }
 function statusLabel(status) {
-    return { ok: '通过', warn: '提醒', fail: '未通过' }[status] || status
+    return { warn: '提醒', fail: '未通过' }[status] || status
 }
 
 async function copyFlag(url) {
     try {
         await navigator.clipboard.writeText(url)
-        ElMessage.success('已复制，请粘贴到浏览器地址栏打开')
+        ElMessage.success('已复制，请粘贴到地址栏打开')
     } catch {
         ElMessage.warning('复制失败，请手动复制链接')
     }
@@ -177,14 +172,14 @@ async function copyFlag(url) {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     color: #303133;
-    padding: 4px 0 12px;
+    padding-bottom: 10px;
 
     .dot {
-        width: 10px;
-        height: 10px;
+        width: 9px;
+        height: 9px;
         border-radius: 50%;
         flex-shrink: 0;
 
@@ -196,97 +191,144 @@ async function copyFlag(url) {
 
     .beta-tag {
         margin-left: auto;
+        font-weight: 400;
     }
 }
 
 .check-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 12px;
+    margin-bottom: 10px;
 
     .check-item {
-        border: 1px solid #ebeef5;
-        border-radius: 8px;
-        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        min-width: 0;
+        min-height: 22px;
 
-        &.is-fail {
-            border-color: #fbc4c4;
-            background: #fef0f0;
-
-            .check-name { color: #c45656; }
-            .check-desc { color: #c45656; }
+        // 异常项跨双列展开说明（文本可换行，进度条独占一行）
+        &.wide {
+            grid-column: 1 / -1;
+            flex-wrap: wrap;
         }
 
-        &.is-warn {
-            border-color: #f3d19e;
-            background: #fdf6ec;
+        .check-icon {
+            // 裸渲染的 EP 图标无尺寸 CSS（font-size 不生效），必须显式宽高防 viewBox 撑满格子
+            width: 12px;
+            height: 12px;
+            flex-shrink: 0;
         }
 
-        .check-head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        &.is-ok .check-icon { color: #0BDE00; }
+        &.is-warn .check-icon { color: #e8a51e; }
+        &.is-fail .check-icon { color: #FF3B3B; }
 
-            .check-name {
-                font-size: 13px;
-                font-weight: 600;
-                color: #303133;
-            }
+        .check-name {
+            font-size: 12.5px;
+            color: #303133;
+            flex-shrink: 0;
         }
 
-        .check-desc {
-            font-size: 12px;
+        .check-state {
+            font-size: 11px;
+            flex-shrink: 0;
+        }
+
+        &.is-warn .check-state { color: #e8a51e; }
+        &.is-fail .check-state { color: #FF3B3B; }
+
+        .check-val {
+            font-size: 11px;
             color: #909399;
-            margin-top: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &.is-fail .check-val { color: #c45656; }
+
+        &.wide .check-val {
+            white-space: normal;
+            overflow: visible;
             line-height: 1.5;
         }
 
         .check-progress {
-            margin-top: 6px;
+            flex-basis: 100%;
+            margin-top: 2px;
         }
     }
 }
 
 .flag-guide {
+    border-top: 1px dashed #ebeef5;
+    padding-top: 8px;
+
     .guide-title {
-        font-size: 13px;
+        font-size: 12.5px;
         font-weight: 600;
-        color: #303133;
-        margin-bottom: 8px;
+        color: #6C5DD3;
+        margin-bottom: 4px;
     }
 
-    .guide-steps {
-        margin: 0 0 12px;
-        padding-left: 18px;
-        font-size: 12px;
+    .flag-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px 12px;
+
+        .flag-cell {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+            min-width: 0;
+
+            .flag-name {
+                font-size: 12px;
+                color: #303133;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 3px;
+                min-width: 0;
+
+                code {
+                    background: #f4f4f5;
+                    color: #6C5DD3;
+                    padding: 0 4px;
+                    border-radius: 3px;
+                    font-size: 10.5px;
+                }
+
+                em {
+                    font-style: normal;
+                    font-size: 10.5px;
+                    color: #b8bec9;
+                }
+            }
+
+            .flag-copy {
+                padding: 2px 6px;
+                font-size: 11.5px;
+                flex-shrink: 0;
+            }
+        }
+    }
+
+    .guide-hint {
+        font-size: 11px;
         color: #606266;
-        line-height: 1.7;
+        line-height: 1.6;
+        margin-top: 6px;
 
         code {
             background: #f4f4f5;
             color: #6C5DD3;
-            padding: 1px 6px;
-            border-radius: 4px;
-            font-size: 11px;
-            word-break: break-all;
-        }
-
-        .flag-row {
-            margin: 6px 0;
-
-            .flag-line {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 8px;
-            }
-
-            .flag-req {
-                color: #909399;
-                font-size: 11px;
-                margin-top: 2px;
-            }
+            padding: 0 4px;
+            border-radius: 3px;
+            font-size: 10.5px;
         }
     }
 }
