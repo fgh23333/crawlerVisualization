@@ -2,7 +2,8 @@
 // 用一份模板按题型 computed 分支替代原来四段重复块
 // 用一份模板按题型 computed 分支进对应题型
 // 所有数据经 props 传入，交互经 emit 上抛，没有逻辑修改
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onBeforeUnmount } from 'vue'
+import { marked } from 'marked'
 import { getQuestionType, TYPE_LABEL } from '@/utils/questionType'
 
 const props = defineProps({
@@ -15,10 +16,13 @@ const props = defineProps({
   isFav: { type: Boolean, default: false },
   isMarked: { type: Boolean, default: false },
   isFavoritesView: { type: Boolean, default: false },
-  subjectLabel: { type: String, default: '' }
+  subjectLabel: { type: String, default: '' },
+  // 端侧 AI 剖析：文本与加载态由父组件注入（组件保持纯展示）
+  aiText: { type: String, default: '' },
+  aiLoading: { type: Boolean, default: false }
 })
 
-const emit = defineEmits(['toggle-answer', 'toggle-fav', 'toggle-mark', 'submit-practice'])
+const emit = defineEmits(['toggle-answer', 'toggle-fav', 'toggle-mark', 'submit-practice', 'ask-ai'])
 
 const options = ['A', 'B', 'C', 'D', 'E']
 const type = computed(() => getQuestionType(props.question))
@@ -43,6 +47,18 @@ watch(() => props.practiceAnswer, (val) => {
 const onChoiceChange = (val) => emit('submit-practice', val)
 const submitFill = () => emit('submit-practice', localFill.value)
 const submitMulti = () => emit('submit-practice', localMulti.value)
+
+// AI 剖析结果：流式文本经 100ms 节流做 markdown 渲染（照 gemma.vue scheduleParse 思路）
+const parsedAi = ref('')
+let _aiParseTimer = null
+watch(() => props.aiText, () => {
+  if (_aiParseTimer) return
+  _aiParseTimer = setTimeout(() => {
+    _aiParseTimer = null
+    parsedAi.value = marked.parse(props.aiText || '')
+  }, 100)
+}, { immediate: true })
+onBeforeUnmount(() => { if (_aiParseTimer) clearTimeout(_aiParseTimer) })
 </script>
 
 <template>
@@ -68,6 +84,17 @@ const submitMulti = () => emit('submit-practice', localMulti.value)
                 stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
             </svg>
             <span class="fav-text">{{ isFav ? '已收藏' : '收藏' }}</span>
+          </button>
+          <button class="fav-btn ai-analyze-btn" :class="{ 'is-ai-loading': aiLoading }" @click="emit('ask-ai')" type="button">
+            <svg class="fav-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+              <path d="M12 2.5l1.9 5.2 5.4 1.9-5.4 1.9L12 16.7l-1.9-5.2-5.4-1.9 5.4-1.9L12 2.5z"
+                :fill="aiLoading ? 'currentColor' : 'none'"
+                stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M18.5 15.5l.9 2.4 2.4.9-2.4.9-.9 2.4-.9-2.4-2.4-.9 2.4-.9.9-2.4z"
+                :fill="aiLoading ? 'currentColor' : 'none'"
+                stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+            </svg>
+            <span class="fav-text">{{ aiLoading ? '停止' : 'AI 剖析' }}</span>
           </button>
         </div>
         <div class="questionType">
@@ -146,6 +173,22 @@ const submitMulti = () => emit('submit-practice', localMulti.value)
           <span class="correctAnswer">正确答案：</span>
           <span class="answer" @click="emit('toggle-answer')">{{ showAnswer ? question.answer : '点击显示答案' }}</span>
         </div>
+
+        <!-- 端侧 AI 深度剖析（Beta，本地生成；由父组件注入文本与加载态） -->
+        <div class="ai-analysis" v-if="aiLoading || parsedAi">
+          <div class="ai-analysis-head">
+            <span class="ai-badge">AI 剖析</span>
+            <span class="ai-beta">Beta · 本地端侧生成</span>
+            <span class="ai-loading-hint" v-if="aiLoading">生成中…</span>
+          </div>
+          <div class="ai-analysis-body">
+            <el-skeleton v-if="aiLoading && !parsedAi" :rows="3" animated />
+            <template v-else>
+              <div class="ai-html" v-html="parsedAi"></div>
+              <span v-if="aiLoading" class="typing-cursor">▍</span>
+            </template>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -160,6 +203,33 @@ const submitMulti = () => emit('submit-practice', localMulti.value)
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+// AI 剖析按钮图标呼吸 / 打字机光标闪烁
+@keyframes ai-spark-pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.25);
+    opacity: 0.6;
+  }
+}
+
+@keyframes ai-blink-cursor {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .typeCover {
@@ -250,6 +320,133 @@ const submitMulti = () => emit('submit-practice', localMulti.value)
               background-color: #5B4FB5;
               border-color: #5B4FB5;
             }
+          }
+
+          // AI 剖析按钮：生成中呈实心紫 + 图标呼吸，提示可点击停止
+          &.ai-analyze-btn.is-ai-loading {
+            background-color: #6C5DD3;
+            color: #fff;
+            border-color: #6C5DD3;
+
+            .fav-icon {
+              animation: ai-spark-pulse 1s ease-in-out infinite;
+            }
+
+            &:hover {
+              background-color: #5B4FB5;
+              border-color: #5B4FB5;
+            }
+          }
+        }
+      }
+
+      // 端侧 AI 深度剖析结果区（流式 markdown，Beta）
+      .ai-analysis {
+        margin-top: 10px;
+        border-left: 3px solid #6C5DD3;
+        background: #f7f6ff;
+        border-radius: 6px;
+        padding: 10px 12px;
+
+        .ai-analysis-head {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 6px;
+
+          .ai-badge {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fff;
+            background: linear-gradient(135deg, #8b7cf0, #6c5dd3);
+            border-radius: 4px;
+            padding: 1px 6px;
+          }
+
+          .ai-beta {
+            font-size: 11px;
+            color: #9a93c9;
+          }
+
+          .ai-loading-hint {
+            font-size: 11px;
+            color: #6C5DD3;
+          }
+        }
+
+        .ai-analysis-body {
+          font-size: 13px;
+          color: #444;
+          line-height: 1.7;
+
+          .ai-html {
+
+            // marked 输出的富文本规则（照 gemma.vue 聊天区收敛）
+            p {
+              margin: 0 0 6px;
+            }
+
+            h1, h2, h3, h4 {
+              font-size: 14px;
+              margin: 8px 0 4px;
+              color: #5b4fd6;
+            }
+
+            table {
+              width: 100%;
+              border-collapse: collapse;
+              margin: 6px 0;
+
+              th, td {
+                border: 1px solid #ddd6f8;
+                padding: 4px 8px;
+                font-size: 12px;
+              }
+
+              th {
+                background: #efecfb;
+              }
+            }
+
+            code {
+              background: #eee9fc;
+              color: #5b4fd6;
+              padding: 1px 5px;
+              border-radius: 4px;
+              font-size: 12px;
+            }
+
+            pre {
+              background: #f4f2fd;
+              border-radius: 6px;
+              padding: 8px 10px;
+              overflow-x: auto;
+              margin: 6px 0;
+
+              code {
+                background: none;
+                padding: 0;
+              }
+            }
+
+            ul, ol {
+              padding-left: 18px;
+              margin: 4px 0;
+            }
+
+            blockquote {
+              margin: 6px 0;
+              padding-left: 10px;
+              border-left: 3px solid #c9c2ef;
+              color: #777;
+            }
+          }
+
+          .typing-cursor {
+            display: inline-block;
+            color: #6C5DD3;
+            animation: ai-blink-cursor 0.8s infinite;
           }
         }
       }
