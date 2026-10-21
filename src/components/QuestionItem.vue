@@ -3,7 +3,7 @@
 // 用一份模板按题型 computed 分支进对应题型
 // 所有数据经 props 传入，交互经 emit 上抛，没有逻辑修改
 import { ref, computed, watch, onBeforeUnmount } from 'vue'
-import { marked } from 'marked'
+import { renderMarkdown } from '@/utils/renderMarkdown'
 import { getQuestionType, TYPE_LABEL } from '@/utils/questionType'
 
 const props = defineProps({
@@ -50,14 +50,14 @@ const onChoiceChange = (val) => emit('submit-practice', val)
 const submitFill = () => emit('submit-practice', localFill.value)
 const submitMulti = () => emit('submit-practice', localMulti.value)
 
-// AI 剖析结果：流式文本经 100ms 节流做 markdown 渲染（照 gemma.vue scheduleParse 思路）
+// AI 剖析结果：流式文本经 100ms 节流做 markdown 渲染（含 LaTeX 箭头等符号归一化）
 const parsedAi = ref('')
 let _aiParseTimer = null
 watch(() => props.aiText, () => {
   if (_aiParseTimer) return
   _aiParseTimer = setTimeout(() => {
     _aiParseTimer = null
-    parsedAi.value = marked.parse(props.aiText || '')
+    parsedAi.value = renderMarkdown(props.aiText || '')
   }, 100)
 }, { immediate: true })
 onBeforeUnmount(() => { if (_aiParseTimer) clearTimeout(_aiParseTimer) })
