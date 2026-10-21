@@ -14,6 +14,7 @@
                 <el-button type="danger" size="small" class="clearBtn" @click="clearList">清空当前列表</el-button>
                 <el-button type="primary" size="small" @click="showExportDialog">导出收藏</el-button>
                 <el-button type="success" size="small" @click="showImportDialog">导入收藏</el-button>
+                <el-button v-if="aiStore.isSupported" size="small" class="ai-summary-btn" @click="showAiDialog">AI 归纳</el-button>
             </div>
         </div>
         <questionCard :subjectOptions="value" :favList="list" :selectedTypes="selectedTypes"></questionCard>
@@ -72,6 +73,26 @@
                 </el-button>
             </template>
         </el-dialog>
+
+        <!-- 端侧 AI 归纳对话框（Beta，本地生成） -->
+        <el-dialog v-model="aiDialogVisible" title="AI 归纳总结（Beta · 本地端侧生成）" width="620px"
+            @close="onAiDialogClose">
+            <div class="ai-summary-desc">
+                将按科目对当前列表（共 {{ list.length }} 题）分组归纳，梳理高频考点与易错方向。全程本地生成，数据不出浏览器；结果按列表内容缓存，题目或错题无变化时秒出缓存。
+            </div>
+            <div class="ai-summary-body">
+                <el-skeleton v-if="aiSummarizing && !aiSummaryText" :rows="6" animated />
+                <template v-else-if="aiSummaryText">
+                    <div v-html="aiSummaryHtml"></div>
+                    <span v-if="aiSummarizing" class="typing-cursor">▍</span>
+                </template>
+                <el-empty v-else description="点击下方按钮开始归纳" :image-size="80" />
+            </div>
+            <template #footer>
+                <el-button v-if="aiSummarizing" type="warning" plain @click="aiStore.abortTask()">停止</el-button>
+                <el-button v-else type="primary" @click="runAiSummary">{{ aiSummarized ? '重新归纳' : '开始归纳' }}</el-button>
+            </template>
+        </el-dialog>
     </div>
 </template>
 
@@ -79,11 +100,14 @@
 import questionCard from '@/components/questionCard.vue';
 import { makePdf } from "@/utils/makePdf";
 import { useQuestionStore } from '@/stores/question';
+import { useAiStore } from '@/stores/ai';
 import { ElMessageBox, ElMessage } from 'element-plus';
 import { decodeFavorites, parseFavoritesFile } from '@/utils/favoritesSync';
+import { marked } from 'marked';
+import { buildFavoritesSummaryPrompt } from '@/utils/builtinAI';
 
 export default {
-    setup() { return { store: useQuestionStore() } },
+    setup() { return { store: useQuestionStore(), aiStore: useAiStore() } },
     data() {
         return {
             questionType: [
@@ -174,6 +198,12 @@ export default {
             importCode: '',
             importFile: null,
             importPreview: null,
+            // 端侧 AI 归纳（会话级，不持久化）
+            aiDialogVisible: false,
+            aiSummaryText: '',
+            aiSummaryHtml: '',
+            aiSummarizing: false,
+            aiSummarized: false,
         }
     },
     computed: {
@@ -198,6 +228,11 @@ export default {
             }
             return this.importFile !== null;
         }
+    },
+    beforeUnmount() {
+        // 离开收藏页：中断进行中的归纳任务并清理节流定时器
+        this.aiStore.abortTask();
+        if (this._summaryTimer) clearTimeout(this._summaryTimer);
     },
     methods: {
         handleCommand(e) {
@@ -301,6 +336,88 @@ export default {
             ElMessage.success(`导入完成：新增 ${added} 道${duplicates ? '，' + duplicates + ' 道已存在跳过' : ''}`);
             this.importDialogVisible = false;
             this.importPreview = null;
+        },
+
+        // ── 端侧 AI 归纳（Beta，完全依赖本地模型）──────────────────
+        // 归纳结果缓存签名：筛选范围 + 题目 id 集合 + 累计错误数。
+        // 收藏/错题或练习错误任一变化 → 签名变 → 自动重新归纳；不变则秒出缓存
+        summarySignature() {
+            const ids = this.list.map(q => q.id).sort().join(',');
+            const errorTotal = this.list.reduce((s, q) => s + (this.store.userRecords?.[q.id]?.errorCount || 0), 0);
+            return `${this.value}|${ids}|${errorTotal}`;
+        },
+        showAiDialog() {
+            if (!this.list.length) {
+                ElMessage.warning('当前列表为空，暂无可归纳的题目');
+                return;
+            }
+            // 环境不支持时按钮不渲染（isSupported 含 after-download/downloading，
+            // 首次归纳由 create() 自动触发权重下载，进度见角标/自检弹窗）
+            // 打开弹窗先查缓存：签名一致直接展示上次结果（重新归纳按钮可强制重生成）
+            const cached = this.aiStore.getCachedSummary(this.summarySignature());
+            this.aiSummaryText = cached;
+            this.aiSummaryHtml = cached ? marked.parse(cached) : '';
+            this.aiSummarized = !!cached;
+            this.aiDialogVisible = true;
+        },
+        onAiDialogClose() {
+            // 关闭弹窗即停止生成
+            this.aiStore.abortTask();
+        },
+        // 按科目分组：数量 / 高频题数 / 累计错误次数 / 题干样例（前 5 条）
+        buildSummaryGroups() {
+            const groups = new Map();
+            this.list.forEach(q => {
+                const key = q.abbreviationSubject || '未知';
+                if (!groups.has(key)) {
+                    groups.set(key, { subject: key, total: 0, highFreq: 0, errorTotal: 0, sampleStems: [] });
+                }
+                const g = groups.get(key);
+                g.total += 1;
+                if (q.isHighFreq) g.highFreq += 1;
+                g.errorTotal += this.store.userRecords?.[q.id]?.errorCount || 0;
+                if (g.sampleStems.length < 5) g.sampleStems.push(q.questionStem);
+            });
+            return Array.from(groups.values());
+        },
+        // 流式渲染节流：照 gemma.vue scheduleParse 思路
+        scheduleSummaryParse() {
+            if (this._summaryTimer) return;
+            this._summaryTimer = setTimeout(() => {
+                this._summaryTimer = null;
+                this.aiSummaryHtml = marked.parse(this.aiSummaryText || '');
+            }, 100);
+        },
+        async runAiSummary() {
+            const groups = this.buildSummaryGroups();
+            if (!groups.length) return;
+            const prompt = buildFavoritesSummaryPrompt(groups);
+            this.aiSummaryText = '';
+            this.aiSummaryHtml = '';
+            this.aiSummarizing = true;
+            this.aiSummarized = false;
+            try {
+                const { text, aborted } = await this.aiStore.runTask(prompt, {
+                    onDelta: (_chunk, full) => {
+                        this.aiSummaryText = full;
+                        this.scheduleSummaryParse();
+                    }
+                });
+                if (aborted) {
+                    // 中止：保留已生成的半截内容（一字未出则给提示文案）
+                    this.aiSummaryText = this.aiSummaryText || '*（已停止生成）*';
+                } else {
+                    this.aiSummaryText = text;
+                    this.aiStore.recordSummary(this.summarySignature(), text);        // 写入 LRU 缓存
+                    groups.forEach(g => this.aiStore.recordSubjectFocus(g.subject));  // 更新个性化画像
+                }
+                this.aiSummaryHtml = marked.parse(this.aiSummaryText);
+                this.aiSummarized = true;
+            } catch (e) {
+                ElMessage.error(e?.message || '端侧 AI 归纳失败');
+            } finally {
+                this.aiSummarizing = false;
+            }
         }
     },
     components: {
@@ -336,6 +453,19 @@ export default {
             gap: 15px;
             flex-wrap: wrap;
             justify-content: flex-end;
+
+            .ai-summary-btn {
+                background: linear-gradient(135deg, #8b7cf0, #6c5dd3);
+                border-color: #6c5dd3;
+                color: #fff;
+
+                &:hover,
+                &:focus {
+                    background: linear-gradient(135deg, #7c6ce8, #5b4fd6);
+                    border-color: #5b4fd6;
+                    color: #fff;
+                }
+            }
         }
 
         .type-select {
@@ -377,6 +507,90 @@ export default {
             margin: 8px 0;
             color: #333;
             font-size: 15px;
+        }
+    }
+
+    // 端侧 AI 归纳弹窗内容区（流式 markdown）
+    .ai-summary-desc {
+        font-size: 13px;
+        color: #909399;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+
+    .ai-summary-body {
+        min-height: 200px;
+        max-height: 55vh;
+        overflow-y: auto;
+        border: 1px solid #ebeef5;
+        border-radius: 8px;
+        padding: 14px 16px;
+        font-size: 13.5px;
+        line-height: 1.8;
+        color: #333;
+
+        :deep(p) { margin: 0 0 8px; }
+
+        :deep(h1),
+        :deep(h2),
+        :deep(h3),
+        :deep(h4) {
+            font-size: 15px;
+            color: #5b4fd6;
+            margin: 10px 0 6px;
+        }
+
+        :deep(table) {
+            border-collapse: collapse;
+            margin: 8px 0;
+        }
+
+        :deep(th),
+        :deep(td) {
+            border: 1px solid #ddd6f8;
+            padding: 4px 10px;
+            font-size: 12.5px;
+        }
+
+        :deep(th) { background: #efecfb; }
+
+        :deep(code) {
+            background: #eee9fc;
+            color: #5b4fd6;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        :deep(ul),
+        :deep(ol) {
+            padding-left: 20px;
+            margin: 6px 0;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            color: #6C5DD3;
+            animation: ai-typing-blink 0.8s infinite;
+        }
+    }
+
+    @keyframes ai-typing-blink {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0;
+        }
+    }
+
+    // 窄屏弹窗自适应
+    @media (max-width: 600px) {
+        :deep(.el-dialog) {
+            width: 92vw !important;
         }
     }
 }

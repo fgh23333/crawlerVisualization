@@ -7,13 +7,27 @@
             </div>
             <div class="chat-header-text">
                 <h1 class="chat-title">思政智能助教</h1>
-                <p class="chat-subtitle">基于检索增强（RAG）的高校思政学习智能体</p>
+                <p class="chat-subtitle">{{ mode === 'local'
+                    ? '端侧离线模式 · Chrome 内置 AI（Beta），无需联网'
+                    : '基于检索增强（RAG）的高校思政学习智能体' }}</p>
             </div>
         </header>
 
+        <!-- 模式切换：在线 RAG / 端侧离线（Chrome 内置 AI）；右侧端侧状态胶囊 -->
+        <div class="mode-bar">
+            <el-radio-group v-model="mode" size="small" :disabled="loading">
+                <el-radio-button value="online">在线 RAG</el-radio-button>
+                <el-radio-button value="local" :disabled="!aiStore.isSupported">端侧离线</el-radio-button>
+            </el-radio-group>
+            <button v-if="mode === 'local' || !aiStore.isSupported" class="mode-diag-btn" @click="aiStore.openDiagnosis">
+                <span class="diag-dot" :class="aiStore.dotClass"></span>
+                {{ mode === 'local' && aiStore.isReady ? '本地模型运行中' : aiStore.statusText + ' · 点此自检' }}
+            </button>
+        </div>
+
         <!-- 服务未配置提示 -->
         <el-alert
-            v-if="!ragApi"
+            v-if="mode === 'online' && !ragApi"
             class="config-alert"
             type="warning"
             :closable="false"
@@ -29,7 +43,9 @@
                 <div class="welcome-card">
                     <div class="welcome-emoji">🎓</div>
                     <h2>你好，我是你的思政智能助教</h2>
-                    <p>我可以结合九大思政科目的题库与教材，为你检索答疑、梳理重点。试试下面的问题：</p>
+                    <p>{{ mode === 'local'
+                        ? '当前为端侧离线模式，回答由浏览器内置 AI 在本地生成，全程无需联网。试试下面的问题：'
+                        : '我可以结合九大思政科目的题库与教材，为你检索答疑、梳理重点。试试下面的问题：' }}</p>
                     <div class="suggest-grid">
                         <button
                             v-for="(q, i) in suggestions"
@@ -45,7 +61,18 @@
             </div>
 
             <template v-for="(msg, index) in messages" :key="'m' + index">
-                <el-skeleton v-if="msg.loading && !msg.text" :rows="5" animated></el-skeleton>
+                <!-- 等待首字：状态化思考条（检索中 → 生成中），替代整块骨架屏 -->
+                <div v-if="msg.loading && !msg.text" class="message-wrapper">
+                    <div class="message bot">
+                        <div class="msg-avatar bot"><span>智</span></div>
+                        <div class="msg-body">
+                            <div class="thinking">
+                                <span class="think-dots"><i></i><i></i><i></i></span>
+                                <span class="think-text">{{ msg.phase === 'generating' ? '正在生成回答…' : '正在检索题库…' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div v-else class="message-wrapper">
                     <div :class="['message', msg.role]">
                         <div class="msg-avatar" :class="msg.role">
@@ -54,6 +81,7 @@
                         </div>
                         <div class="msg-body">
                             <div class="msg-html" v-html="msg.html"></div>
+                            <span v-if="msg.loading && msg.text" class="typing-cursor">▍</span>
                             <div v-if="msg.role === 'bot' && msg.sources.length" class="sources">
                                 <strong>📚 来源：</strong>
                                 <ul>
@@ -73,24 +101,24 @@
             </template>
         </div>
 
-        <!-- 输入框 -->
+        <!-- 输入区：科目选择 + 输入框 + 发送按钮合并为一根胶囊输入条 -->
         <div class="input-container">
-            <el-select v-model="value" placeholder="" size="large" class="subject-select">
-                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
-            </el-select>
-            <input
-                v-model="inputText"
-                @keydown.enter="sendMessage"
-                placeholder="请输入您的问题，如：唯物史观的基本内容是什么？"
-            />
-            <el-button v-if="loading" type="warning" plain @click="stopGenerating" class="send-btn stop-btn">
-                <el-icon><VideoPause /></el-icon>
-                <span>停止</span>
-            </el-button>
-            <el-button v-else type="primary" @click="sendMessage" class="send-btn">
-                <el-icon><Promotion /></el-icon>
-                <span>发送</span>
-            </el-button>
+            <div class="input-shell">
+                <el-select v-model="value" placeholder="" size="large" class="subject-select">
+                    <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+                </el-select>
+                <input
+                    v-model="inputText"
+                    @keydown.enter="sendMessage"
+                    placeholder="请输入您的问题，如：唯物史观的基本内容是什么？"
+                />
+                <button v-if="loading" class="send-fab is-stop" @click="stopGenerating" title="停止生成">
+                    <el-icon><VideoPause /></el-icon>
+                </button>
+                <button v-else class="send-fab" @click="sendMessage" title="发送" :disabled="!inputText.trim()">
+                    <el-icon><Promotion /></el-icon>
+                </button>
+            </div>
         </div>
 
         <!-- 清空对话 -->
@@ -104,8 +132,9 @@
 </template>
 
 <script>
-import { marked } from "marked";
+import { renderMarkdown } from '@/utils/renderMarkdown';
 import { MagicStick, Promotion, Delete, VideoPause } from '@element-plus/icons-vue';
+import { useAiStore } from '@/stores/ai';
 
 // 检索增强问答服务地址，通过环境变量配置（便于部署与脱敏）
 const RAG_API = import.meta.env.VITE_RAG_API || '';
@@ -137,9 +166,13 @@ const TYPE_NAMES = {
 };
 
 export default {
+    setup() {
+        return { aiStore: useAiStore() };
+    },
     data() {
         return {
             ragApi: RAG_API,
+            mode: 'online',  // online=远端 RAG / local=端侧离线（Chrome 内置 AI，Beta）
             inputText: "",
             messages: [],
             loading: false,
@@ -175,6 +208,24 @@ export default {
             },
             deep: true, // 流式输出时消息内容持续变化也要跟随滚动
         },
+        // 模式切换：清空对话并重置端侧会话（两套上下文互不污染）
+        mode() {
+            this.messages = [];
+            this.aiStore.resetChatSession();
+        },
+    },
+    beforeUnmount() {
+        // 离开聊天页：中断进行中的生成、清掉显影/解析定时器并释放端侧会话显存
+        this.stopGenerating();
+        if (this._stream) {
+            if (this._stream.timer) clearInterval(this._stream.timer);
+            this._stream = null;
+        }
+        if (this._parseTimer) {
+            clearTimeout(this._parseTimer);
+            this._parseTimer = null;
+        }
+        this.aiStore.resetChatSession();
     },
     methods: {
         scrollToBottom() {
@@ -187,20 +238,84 @@ export default {
         },
         clearMessages() {
             this.messages = [];
-            // 新会话：服务端按 sessionId 聚类对话
-            this.sessionId = newSessionId();
-            localStorage.setItem('qb_chat_session', this.sessionId);
+            if (this.mode === 'local') {
+                // 端侧模式：销毁会话即真正清空多轮记忆
+                this.aiStore.resetChatSession();
+            } else {
+                // 新会话：服务端按 sessionId 聚类对话
+                this.sessionId = newSessionId();
+                localStorage.setItem('qb_chat_session', this.sessionId);
+            }
         },
-        // 流式渲染节流：delta 很密，marked.parse 每帧全量跑会卡
+        // 流式渲染节流：delta 很密，markdown 全量重解析每帧跑会卡
         scheduleParse(msg) {
             if (this._parseTimer) return;
             this._parseTimer = setTimeout(() => {
                 this._parseTimer = null;
-                msg.html = marked.parse(msg.text || '');
+                msg.html = renderMarkdown(msg.text || '');
             }, 100);
         },
         stopGenerating() {
-            if (this.abortCtrl) this.abortCtrl.abort();
+            if (this.mode === 'local') this.aiStore.abortChat();
+            else if (this.abortCtrl) this.abortCtrl.abort();
+        },
+        // ======================== 在线回答平滑显影（流式改造） ========================
+        // 远端 delta 粒度不可控（大块/稀疏时观感像一次性吐出）：delta 先入缓冲，
+        // 40ms 一拍按剩余量等比显影（常速 8 拍追平、done 后 3 拍收尾），
+        // 追平即停表等下一批，视觉上始终是匀速打字机
+        startStreamReveal(msg) {
+            this._stream = { msg, target: '', revealed: 0, timer: null, complete: false };
+        },
+        pushStreamDelta(text) {
+            const s = this._stream;
+            if (!s) return;
+            s.target += text || '';
+            s.msg.phase = 'generating';
+            if (!s.timer) s.timer = setInterval(() => this.stepStreamReveal(), 40);
+        },
+        stepStreamReveal() {
+            const s = this._stream;
+            if (!s) return;
+            const remain = s.target.length - s.revealed;
+            if (remain <= 0) {
+                // 已追平：停表等下一批 delta；流已完结则直接收尾
+                clearInterval(s.timer);
+                s.timer = null;
+                if (s.complete) this.finishStreamReveal();
+                return;
+            }
+            const step = Math.max(1, Math.ceil(remain / (s.complete ? 3 : 8)));
+            s.revealed += step;
+            s.msg.text = s.target.slice(0, s.revealed);
+            this.scheduleParse(s.msg);
+        },
+        // SSE done：标记完结，让显影加速收尾（无缓冲时立即终态）
+        completeStreamReveal() {
+            const s = this._stream;
+            if (!s) return;
+            s.complete = true;
+            if (!s.timer) this.stepStreamReveal();
+        },
+        finishStreamReveal() {
+            const s = this._stream;
+            if (!s) return;
+            if (s.timer) { clearInterval(s.timer); s.timer = null; }
+            this._stream = null;
+            s.msg.done = true;
+            s.msg.loading = false;
+            s.msg.html = s.msg.text
+                ? renderMarkdown(s.msg.text)
+                : '⚠️ 本次未返回内容，请重试';
+        },
+        // 用户停止/异常断流：缓冲一次性放出，返回已生成的完整文本
+        flushStreamReveal() {
+            const s = this._stream;
+            if (!s) return '';
+            if (s.timer) { clearInterval(s.timer); s.timer = null; }
+            const full = s.target;
+            s.msg.text = full;
+            this._stream = null;
+            return full;
         },
         sourceLabel(s) {
             const subject = SUBJECT_NAMES[s.subject] || s.subject || '';
@@ -239,11 +354,14 @@ export default {
                     this.handleSSEEvent(evName, obj, msg);
                 }
             }
-            // 流结束仍未 done 事件（异常断流）→ 兜底渲染
+            // 流结束仍未 done 事件（异常断流）→ 放出显影缓冲并落终态
             if (!msg.done) {
+                const full = this.flushStreamReveal();
                 msg.loading = false;
-                if (msg.text) msg.html = marked.parse(msg.text);
-                else msg.html = "⚠️ 连接中断，请重试";
+                msg.done = true;
+                msg.html = full
+                    ? renderMarkdown(full) + '\n\n*（连接中断）*'
+                    : "⚠️ 连接中断，请重试";
             }
         },
         handleSSEEvent(name, obj, msg) {
@@ -252,19 +370,20 @@ export default {
             } else if (name === 'sources') {
                 msg.sources = obj.sources || [];
             } else if (name === 'delta') {
-                msg.text += obj.text || '';
-                this.scheduleParse(msg);
+                this.pushStreamDelta(obj.text || '');
             } else if (name === 'done') {
-                msg.done = true;
-                msg.loading = false;
-                msg.html = marked.parse(msg.text || '');
+                this.completeStreamReveal();
             } else if (name === 'error') {
+                const full = this.flushStreamReveal();
+                const warn = `⚠️ ${obj.message || '回答生成失败，请稍后重试'}`;
                 msg.done = true;
                 msg.loading = false;
-                msg.html = `⚠️ ${obj.message || '回答生成失败，请稍后重试'}`;
+                msg.html = full ? `${renderMarkdown(full)}\n\n${warn}` : warn;
             }
         },
         async sendMessage() {
+            // 端侧离线模式走本地模型，不入 RAG 通道
+            if (this.mode === 'local') return this.sendLocalMessage();
             const text = this.inputText.trim();
             if (!text || this.loading) return;
             if (!RAG_API) {
@@ -278,14 +397,16 @@ export default {
             }
 
             // 用户输入立即显示
-            this.messages.push({ role: "user", html: marked.parse(text), text, sources: [] });
+            this.messages.push({ role: "user", html: renderMarkdown(text), text, sources: [] });
 
-            // 占位消息（流式填充）
-            const msg = {
-                role: "bot", html: "", text: "", sources: [],
+            // 占位消息（思考条 → 平滑显影流式填充；phase 驱动「检索中/生成中」文案）
+            this.messages.push({
+                role: "bot", html: "", text: "", sources: [], phase: 'retrieving',
                 loading: true, done: false, traceId: null, feedback: 0,
-            };
-            this.messages.push(msg);
+            });
+            // 关键：取数组里的响应式代理再操作。直接持有 push 前的原始对象，
+            // 流式写入（msg.text/html）不会经过 Proxy，UI 会一路卡到终态才刷新
+            const msg = this.messages[this.messages.length - 1];
             this.loading = true;
             this.inputText = "";
 
@@ -297,6 +418,7 @@ export default {
                 .slice(-6);
 
             this.abortCtrl = new AbortController();
+            this.startStreamReveal(msg);
             try {
                 const res = await fetch(`${API_BASE}/v2/rag`, {
                     method: 'POST',
@@ -317,6 +439,7 @@ export default {
                         message = (j.error && j.error.message) || message;
                     } catch { /* 非 JSON 错误体 */ }
                     if (res.status === 429) message = "提问太频繁啦，休息一下再试～";
+                    this._stream = null;
                     msg.html = `⚠️ ${message}`;
                     msg.loading = false;
                     msg.done = true;
@@ -326,11 +449,16 @@ export default {
                 await this.consumeSSE(res, msg);
             } catch (error) {
                 if (error.name === 'AbortError') {
-                    // 用户主动停止：保留已生成内容
+                    // 用户主动停止：显影缓冲一次性放出，保留已生成内容
+                    if (msg.done) return; // 已正常收尾，忽略迟到的 abort
+                    const full = this.flushStreamReveal();
                     msg.loading = false;
                     msg.done = true;
-                    msg.html = marked.parse(msg.text || '') + '\n\n*（已停止生成）*';
+                    msg.html = full
+                        ? renderMarkdown(full) + '\n\n*（已停止生成）*'
+                        : '*（已停止生成）*';
                 } else {
+                    this.flushStreamReveal();
                     msg.html = "❌ 网络异常，请稍后重试";
                     msg.loading = false;
                     msg.done = true;
@@ -338,6 +466,50 @@ export default {
             } finally {
                 this.loading = false;
                 this.abortCtrl = null;
+            }
+        },
+        // ======================== 端侧离线模式（Chrome 内置 AI，Beta） ========================
+        // 复用消息结构 / 流式节流 / 骨架屏；不设 traceId → 👍/👎 反馈区自动隐藏
+        async sendLocalMessage() {
+            const text = this.inputText.trim();
+            if (!text || this.loading) return;
+            // 环境不支持时开关置灰，正常到不了这里；防御性兜底弹自检。
+            // after-download 首条消息由 create() 自动触发权重下载（进度见角标/自检弹窗）
+            if (!this.aiStore.isSupported) {
+                this.aiStore.openDiagnosis();
+                return;
+            }
+
+            // 用户输入立即显示
+            this.messages.push({ role: "user", html: renderMarkdown(text), text, sources: [] });
+
+            // 占位消息（端侧 delta 粒度本身很细，直接流式填充；无检索阶段）
+            this.messages.push({
+                role: "bot", html: "", text: "", sources: [], phase: 'generating',
+                loading: true, done: false, traceId: null, feedback: 0,
+            });
+            // 同在线通道：必须持有响应式代理，否则流式写入不触发渲染
+            const msg = this.messages[this.messages.length - 1];
+            this.loading = true;
+            this.inputText = "";
+
+            try {
+                const { aborted } = await this.aiStore.chat(text, {
+                    onDelta: (_chunk, full) => {
+                        msg.text = full;
+                        this.scheduleParse(msg);
+                    },
+                });
+                msg.done = true;
+                msg.loading = false;
+                msg.html = renderMarkdown(msg.text || '') + (aborted && msg.text ? '\n\n*（已停止生成）*' : '');
+                if (aborted && !msg.text) msg.html = '⚠️ 已停止生成';
+            } catch (e) {
+                msg.done = true;
+                msg.loading = false;
+                msg.html = `⚠️ ${e?.message || '端侧 AI 回答失败'}`;
+            } finally {
+                this.loading = false;
             }
         },
     },
@@ -394,6 +566,50 @@ export default {
     width: 100%;
     max-width: 800px;
     margin-bottom: 14px;
+}
+
+/* 模式切换条（在线 RAG / 端侧离线）；右侧端侧状态胶囊 */
+.mode-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 14px;
+
+    .mode-diag-btn {
+        margin-left: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #fff;
+        border: 1px solid #ececf7;
+        border-radius: 999px;
+        color: #8b80c9;
+        font-size: 12px;
+        padding: 4px 12px;
+        cursor: pointer;
+        transition: all 0.15s;
+
+        .diag-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+
+            &.checking { background: #b8bec9; }
+            &.ok { background: #0BDE00; }
+            &.warn { background: #e8a51e; }
+            &.error { background: #FF3B3B; }
+        }
+
+        &:hover {
+            color: #6c5dd3;
+            border-color: #c4bcf4;
+            background: #f5f3ff;
+        }
+    }
 }
 
 /* 聊天区 */
@@ -484,23 +700,65 @@ export default {
     flex-direction: row-reverse;
 
     .msg-body {
-        background-color: #6c5dd3;
+        background: linear-gradient(135deg, #7c6ce8, #5b4fd6);
         color: #fff;
         border-radius: 16px 16px 4px 16px;
         padding: 11px 16px;
         max-width: 78%;
+        box-shadow: 0 4px 12px rgba(108, 93, 211, 0.28);
     }
     .msg-avatar { background: linear-gradient(135deg, #8b7cf0, #6c5dd3); color: #fff; }
 }
 .bot {
     .msg-body {
-        background-color: #f4f3fc;
+        background-color: #fff;
+        border: 1px solid #ececf7;
+        box-shadow: 0 2px 10px rgba(108, 93, 211, 0.06);
         color: #333;
         border-radius: 16px 16px 16px 4px;
         padding: 11px 16px;
         max-width: 78%;
     }
     .msg-avatar { background: #fff; color: #6c5dd3; border: 1px solid #e0dbfb; }
+}
+
+/* 等待首字的思考条：三点弹跳 + 检索中/生成中文案 */
+.thinking {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #8b80c9;
+    font-size: 13px;
+
+    .think-dots {
+        display: inline-flex;
+        gap: 4px;
+
+        i {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #8b7cf0;
+            animation: think-bounce 1.2s infinite ease-in-out;
+
+            &:nth-child(2) { animation-delay: 0.15s; }
+            &:nth-child(3) { animation-delay: 0.3s; }
+        }
+    }
+}
+@keyframes think-bounce {
+
+    0%,
+    80%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+
+    40% {
+        transform: translateY(-4px);
+        opacity: 1;
+    }
 }
 .msg-avatar {
     width: 32px;
@@ -515,6 +773,24 @@ export default {
     box-shadow: 0 3px 8px rgba(108, 93, 211, 0.12);
 }
 .msg-html { line-height: 1.7; }
+
+/* 端侧流式生成时的打字机光标 */
+.typing-cursor {
+    display: inline-block;
+    color: #6c5dd3;
+    animation: typing-blink 0.8s infinite;
+}
+@keyframes typing-blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
 .msg-html :deep(code) {
     background: rgba(108, 93, 211, 0.08);
     padding: 1px 5px;
@@ -559,44 +835,82 @@ export default {
     }
 }
 
-/* 停止按钮 */
-.stop-btn {
-    white-space: nowrap;
-    border-radius: 14px;
-    padding: 0 22px;
-}
-
-/* 输入区 */
+/* 输入区：科目选择 + 输入框 + 发送按钮合并为一根胶囊输入条 */
 .input-container {
-    display: flex;
     width: 100%;
     max-width: 820px;
-    gap: 10px;
     margin-top: 14px;
     padding: 0 20px;
     box-sizing: border-box;
 
-    .subject-select { width: 110px; flex-shrink: 0; }
-
-    input {
-        flex: 1;
-        padding: 11px 16px;
+    .input-shell {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #fff;
         border: 2px solid #ececf7;
-        border-radius: 14px;
-        outline: none;
-        font-size: 15px;
-        transition: all 0.3s;
-        &:focus {
+        border-radius: 16px;
+        padding: 6px 7px 6px 5px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+
+        &:focus-within {
             border-color: #6c5dd3;
             box-shadow: 0 0 0 3px rgba(108, 93, 211, 0.12);
         }
-    }
-    .send-btn {
-        white-space: nowrap;
-        border-radius: 14px;
-        padding: 0 22px;
-        background: linear-gradient(135deg, #7c6ce8, #5b4fd6);
-        border: none;
+
+        // 科目选择：壳内去边框，仅作前缀筛选项
+        .subject-select { width: 104px; flex-shrink: 0; }
+
+        :deep(.el-select__wrapper) {
+            box-shadow: none !important;
+            background: transparent;
+            border-radius: 10px;
+            min-height: 34px;
+        }
+
+        input {
+            flex: 1;
+            min-width: 0;
+            border: none;
+            outline: none;
+            padding: 8px 6px;
+            font-size: 15px;
+            color: #334155;
+            background: transparent;
+            font-family: inherit;
+
+            &::placeholder { color: #b6b0d9; }
+        }
+
+        .send-fab {
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7c6ce8, #5b4fd6);
+            color: #fff;
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+
+            &:hover:not(:disabled) {
+                transform: translateY(-1px);
+                box-shadow: 0 6px 16px rgba(108, 93, 211, 0.35);
+            }
+
+            &:disabled { opacity: 0.45; cursor: default; }
+
+            // 生成中 → 停止按钮（琥珀描边）
+            &.is-stop {
+                background: #fff;
+                color: #e8a51e;
+                border: 2px solid #f3d9a8;
+            }
+        }
     }
 }
 
@@ -635,6 +949,6 @@ export default {
 @media (max-width: 600px) {
     .chat-header .chat-subtitle { display: none; }
     .welcome .suggest-grid { grid-template-columns: 1fr; }
-    .input-container .subject-select { width: 88px; }
+    .input-container .input-shell .subject-select { width: 86px; }
 }
 </style>

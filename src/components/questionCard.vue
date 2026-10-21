@@ -66,10 +66,14 @@
           :is-fav="isFav(item)" :is-marked="isMarked(item)"
           :is-favorites-view="$route.path === '/newHome/favorites'"
           :subject-label="abbreviationSubjectList[item.abbreviationSubject]"
+          :ai-text="aiCollapsedMap[i] ? '' : (aiAnalyses[i] || '')"
+          :ai-loading="!!aiLoadingMap[i]"
+          :ai-available="aiStore.isSupported"
           @toggle-answer="toggleAnswer(i)"
           @toggle-fav="toggleFav(item, i)"
           @toggle-mark="toggleMark(item)"
-          @submit-practice="val => submitPractice(i, val)" />
+          @submit-practice="val => submitPractice(i, val)"
+          @ask-ai="askAI(item, i)" />
       </div>
       <div class="bottomAlert" v-if="showList.length !== 0">--- 已经到底啦 ---</div>
     </div>
@@ -78,17 +82,19 @@
 
 <script>
 import { useQuestionStore } from '@/stores/question'
+import { useAiStore } from '@/stores/ai'
 import { loadQuestionBank } from '@/utils/loadJson'
 import Fuse from 'fuse.js';
 import { makePdf } from "@/utils/makePdf";
 import { ElMessage } from 'element-plus'
 import QuestionItem from '@/components/QuestionItem.vue'
-import { getQuestionType } from '@/utils/questionType'
+import { getQuestionType, TYPE_LABEL } from '@/utils/questionType'
+import { buildQuestionAnalysisPrompt } from '@/utils/builtinAI'
 
 export default {
   components: { QuestionItem },
   setup() {
-    return { store: useQuestionStore() }
+    return { store: useQuestionStore(), aiStore: useAiStore() }
   },
   data() {
     return {
@@ -106,6 +112,10 @@ export default {
       practiceMode: false,
       practiceAnswers: {},  // { index: answer }
       practiceResults: {},  // { index: { isCorrect, userAnswer } }
+      // 端侧 AI 剖析：按下标与会话对齐（刷新即失，历史结果走 store 的 LRU 缓存）
+      aiAnalyses: {},       // { index: 剖析文本（流式回填） }
+      aiLoadingMap: {},     // { index: 生成中 }
+      aiCollapsedMap: {},   // { index: 已收起 }
       _saveTimer: null,
       _suppressTimer: null,
       subjectOpts: [
@@ -234,6 +244,7 @@ export default {
     window.removeEventListener('keydown', this.handleHotkey);
     if (this._suppressTimer) clearTimeout(this._suppressTimer);
     if (this._saveTimer) clearTimeout(this._saveTimer);
+    this.aiStore.abortTask();  // 离开页面前中断进行中的剖析任务
     this.saveSession();
   },
   async created() {
@@ -307,6 +318,11 @@ export default {
       this.onSearch = false
       this.practiceAnswers = {}
       this.practiceResults = {}
+      // 切换题库时中止旧任务并清空剖析状态（下标与旧列表的对应关系已失效）
+      this.aiStore.abortTask();
+      this.aiAnalyses = {}
+      this.aiLoadingMap = {}
+      this.aiCollapsedMap = {}
       this.initShowAnswers();
       this.restoreSession();
     },
@@ -334,6 +350,9 @@ export default {
     practiceMode(val) {
       this.practiceAnswers = {};
       this.practiceResults = {};
+      this.aiAnalyses = {};
+      this.aiLoadingMap = {};
+      this.aiCollapsedMap = {};
       this.debouncedSaveSession();
     },
     practiceAnswers: {
@@ -368,6 +387,61 @@ export default {
         });
       }
     },
+    // ======================== 端侧 AI 深度剖析（Beta） ========================
+    // 完全依赖本地模型，不做任何远端兜底；环境不支持时入口整个不渲染
+    // （isSupported 含 after-download/downloading：首次使用由 create() 自动触发
+    //   权重下载，进度经侧边栏角标与自检弹窗实时展示）
+    async askAI(item, i) {
+      // 生成中：再次点击即停止（保留已生成的半截内容）
+      if (this.aiLoadingMap[i]) {
+        this.aiStore.abortTask();
+        return;
+      }
+      // 已生成：收起 / 展开
+      if (this.aiAnalyses[i]) {
+        this.aiCollapsedMap[i] = !this.aiCollapsedMap[i];
+        return;
+      }
+      // 防御兜底：按钮仅在支持环境下渲染，正常到不了这里
+      if (!this.aiStore.isSupported) return;
+      // 练习模式下剖析内容含用户作答点评 → 缓存键带作答后缀，不同作答各自缓存
+      const userAnswer = this.practiceMode ? this.practiceAnswers[i] : null;
+      const cacheKey = userAnswer ? `${item.id}@${userAnswer}` : item.id;
+      // 历史剖析缓存命中：直接展示（越用越快，免重复推理）
+      const cached = this.aiStore.getCachedAnalysis(cacheKey);
+      if (cached) {
+        this.aiAnalyses[i] = cached;
+        this.aiCollapsedMap[i] = false;
+        return;
+      }
+
+      const typeLabel = TYPE_LABEL[getQuestionType(item)];
+      const subjectLabel = this.abbreviationSubjectList[item.abbreviationSubject] || item.abbreviationSubject;
+      const prompt = buildQuestionAnalysisPrompt(item, { typeLabel, subjectLabel, userAnswer });
+
+      this.aiLoadingMap[i] = true;
+      this.aiCollapsedMap[i] = false;
+      this.aiAnalyses[i] = '';
+      try {
+        const { text, aborted } = await this.aiStore.runTask(prompt, {
+          onDelta: (_chunk, full) => { this.aiAnalyses[i] = full; }
+        });
+        if (aborted) {
+          // 中止：保留流式已回填的内容；若一字未出则回退为未剖析状态
+          if (!this.aiAnalyses[i]) delete this.aiAnalyses[i];
+        } else {
+          this.aiAnalyses[i] = text;
+          this.aiStore.recordAnalysis(cacheKey, text);       // 写入 LRU 缓存（键含作答后缀）
+          this.aiStore.recordSubjectFocus(item.abbreviationSubject);  // 更新个性化画像
+        }
+      } catch (e) {
+        delete this.aiAnalyses[i];
+        ElMessage.error(e?.message || '端侧 AI 生成失败');
+      } finally {
+        this.aiLoadingMap[i] = false;
+      }
+    },
+
     getAnswerStorageKey() {
       if (this.$route.path === '/newHome/favorites') return 'viewed_favorites';
       const lesson = this.$route.params.lesson;
