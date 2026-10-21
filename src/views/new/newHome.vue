@@ -13,8 +13,8 @@
                     </div>
                 </div>
             </router-link>
-            <div class="nav">
-                <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6" :router="true">
+            <div class="nav" ref="nav">
+                <el-menu class="el-menu-vertical-demo" :unique-opened="true" active-text-color="#8174D6" :router="true" @open="handleMenuToggle" @close="handleMenuToggle">
                     <el-sub-menu v-for="(item, i) in list" :key="i" :index="list[i].src">
                         <template #title>
                             <img :src="list[i].icon" class="menuIcon">
@@ -200,6 +200,7 @@ export default {
         window.addEventListener('resize', this.handleResize);
         // 静默检测端侧 AI 环境（内部全容错，不影响页面功能）
         this.aiStore.checkEnvironment();
+        this.$nextTick(() => this.checkNavScrollable());
     },
     beforeUnmount() {
         window.removeEventListener('resize', this.handleResize);
@@ -222,6 +223,16 @@ export default {
             if (!mobile && this.isCollapsed) {
                 this.isCollapsed = false;
             }
+            this.checkNavScrollable();
+        },
+        // 菜单子项展开/收起改变内容高度后复检（nextTick 等待 DOM 更新）
+        handleMenuToggle() {
+            this.$nextTick(() => this.checkNavScrollable());
+        },
+        // 仅当菜单内容溢出时挂 is-scrollable：以上下渐隐提示「还能滚」（滚动条已隐藏，不溢出不渐隐）
+        checkNavScrollable() {
+            const nav = this.$refs.nav;
+            if (nav) nav.classList.toggle('is-scrollable', nav.scrollHeight > nav.clientHeight + 4);
         },
     },
     components: {
@@ -316,10 +327,10 @@ export default {
 
 #newHome {
     .toggle-bar {
-        width: 24px;
+        width: 26px;
         cursor: pointer;
         height: 100vh;
-        padding: 0px 6px;
+        padding: 0;
         float: left;
         position: relative;
         top: 0;
@@ -329,26 +340,56 @@ export default {
         align-items: center;
         justify-content: center;
         z-index: 10;
-        background-color: rgba(230, 232, 240, 0.4);
-        transition: all 0.3s;
-    }
+        background-color: transparent;
+        transition: background-color 0.25s;
 
-    .toggle-bar:hover {
-        background-color: rgba(230, 232, 240, 0.8);
-    }
+        // 平时透明只留圆钮，悬停给淡色洗底提示可点
+        &:hover {
+            background-color: rgba(230, 232, 240, 0.45);
+        }
 
-    .arrow {
-        border: solid #bbb;
-        border-width: 0 4px 4px 0;
-        display: block;
-        padding: 6px;
-        transform: rotate(-45deg);
-        transition: transform 0.3s ease;
-    }
+        .arrow {
+            display: block;
+            position: relative;
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            border: none;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 1px 6px rgba(108, 93, 211, 0.22);
+            transition: box-shadow 0.25s;
 
-    .arrow.right {
-        transform: rotate(135deg);
-        margin-left: -4px;
+            // chevron 伪元素绘制，随状态换向：折叠态指右（点开）、展开态指左（收起）
+            &::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 7px;
+                height: 7px;
+                border: solid #8F95B2;
+                border-width: 0 2px 2px 0;
+                border-radius: 1px;
+                transition: border-color 0.2s, transform 0.3s ease;
+            }
+
+            &:not(.right)::before {
+                transform: translate(-36%, -50%) rotate(-45deg);
+            }
+
+            &.right::before {
+                transform: translate(-64%, -50%) rotate(135deg);
+            }
+        }
+
+        &:hover .arrow {
+            box-shadow: 0 2px 10px rgba(108, 93, 211, 0.35);
+
+            &::before {
+                border-color: #6C5DD3;
+            }
+        }
     }
 
     .el-main {
@@ -418,12 +459,20 @@ export default {
 
     .nav {
         flex: 1; // Take remaining space
+        min-height: 0; // 允许矮窗口下收缩到小于内容高度，保证真正滚得动
         overflow-y: auto;
         overflow-x: hidden;
         padding: 8px 0px;
-        // Keep the subtle shadow for depth
-        box-shadow:
-            inset 0px -1px 8px 0px rgba(230, 232, 240, 0.5);
+        // 滚动条隐藏（保留滚动能力）：Chromium / Firefox / 旧 Edge
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar { display: none; }
+
+        // 内容溢出可滚动时，上下边缘渐隐作提示（替代被隐藏的滚动条）
+        &.is-scrollable {
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+        }
 
         .el-menu-vertical-demo {
             width: 216px;
@@ -511,14 +560,6 @@ export default {
                 font-weight: bold;
             }
         }
-    }
-
-    .nav::-webkit-scrollbar {
-        width: 4px;
-    }
-    .nav::-webkit-scrollbar-thumb {
-        background: #ccc;
-        border-radius: 4px;
     }
 
     .buttonContainer {
@@ -692,11 +733,6 @@ export default {
                 box-shadow: 2px 2px 8px rgba(0,0,0,0.08);
                 padding: 0;
             }
-        }
-
-        .arrow {
-            border-width: 0 5px 5px 0;
-            padding: 8px;
         }
 
         .sidebar {
