@@ -33,10 +33,13 @@
             </div>
             <div class="buttonContainer">
                 <div class="buttonRow">
-                <!-- AI 智能助教（智能体核心入口） -->
+                <!-- AI 智能助教（智能体核心入口）：角标显示端侧 AI 可用状态 -->
                 <router-link to="/newHome/chat" class="icon-btn ai-btn">
                     <div class="icon-wrap">
                         <el-icon :size="20"><MagicStick /></el-icon>
+                        <span class="ai-status-dot" :class="aiStore.dotClass"
+                            :title="`端侧 AI（Beta）：${aiStore.statusText}，点击查看自检`"
+                            @click.stop.prevent="aiStore.openDiagnosis"></span>
                     </div>
                     <span class="icon-label">AI 助教</span>
                 </router-link>
@@ -146,13 +149,17 @@
                 </el-main>
             </el-container>
         </el-container>
+        <!-- 端侧 AI 环境自检弹窗（全站唯一实例，状态由 ai store 管理） -->
+        <AIDiagnosisModal v-model="aiStore.diagVisible"></AIDiagnosisModal>
     </div>
 </template>
 
 <script>
 import modal from '@/components/modal.vue'
+import AIDiagnosisModal from '@/components/AIDiagnosisModal.vue'
 import { ElMessage } from 'element-plus'
 import { Monitor, MagicStick, Star, Grid, Cpu, More, InfoFilled, ChatSquare } from '@element-plus/icons-vue'
+import { useAiStore } from '@/stores/ai'
 import grapeIcon from '@/assets/icon/grape.svg'
 import juiceIcon from '@/assets/icon/juice.svg'
 import pearIcon from '@/assets/icon/pear.svg'
@@ -164,6 +171,10 @@ import tomatoIcon from '@/assets/icon/tomato.svg'
 import lettuceIcon from '@/assets/icon/lettuce.svg'
 
 export default {
+    setup() {
+        // 端侧 AI 全局状态：角标 / 自检弹窗共享
+        return { aiStore: useAiStore() }
+    },
     data() {
         return {
             isCollapsed: window.innerWidth < 768,
@@ -187,6 +198,8 @@ export default {
     },
     mounted() {
         window.addEventListener('resize', this.handleResize);
+        // 静默检测端侧 AI 环境（内部全容错，不影响页面功能）
+        this.aiStore.checkEnvironment();
     },
     beforeUnmount() {
         window.removeEventListener('resize', this.handleResize);
@@ -213,6 +226,7 @@ export default {
     },
     components: {
         modal,
+        AIDiagnosisModal,
         Monitor, MagicStick, Star, Grid, Cpu, More, InfoFilled, ChatSquare
     }
 }
@@ -586,9 +600,34 @@ export default {
             // AI 智能助教入口：渐变高亮，突出智能体定位
             &.ai-btn {
                 .icon-wrap {
+                    position: relative;
                     background: linear-gradient(135deg, #8b7cf0, #6c5dd3);
                     color: #fff;
                     box-shadow: 0 6px 16px rgba(108, 93, 211, 0.35);
+
+                    // 端侧 AI 可用状态角标：检测中(灰)/就绪(绿)/需下载或下载中(黄)/不支持(红)
+                    .ai-status-dot {
+                        position: absolute;
+                        top: -2px;
+                        right: -2px;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        border: 2px solid #fff;
+                        box-sizing: content-box;
+                        cursor: pointer;
+                        /* 扩大点击热区但不撑大布局 */
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            inset: -5px;
+                        }
+
+                        &.checking { background: #b8bec9; }
+                        &.ok { background: #0BDE00; }
+                        &.warn { background: #e8a51e; }
+                        &.error { background: #FF3B3B; }
+                    }
                 }
                 .icon-label {
                     color: #6c5dd3;
