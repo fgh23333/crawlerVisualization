@@ -1,5 +1,5 @@
 <template>
-    <div id="newHome">
+    <div id="newHome" :class="{ 'mobile-mode': isMobile }">
         <modal></modal>
         <el-container>
     <el-aside :width="isCollapsed ? '0px' : '262px'" class="sidebar" :class="{ 'is-collapsed': isCollapsed }">
@@ -176,9 +176,14 @@ export default {
         return { aiStore: useAiStore() }
     },
     data() {
+        // 移动端判定不能只看 innerWidth：index.html 对手机设 initial-scale=0.5，
+        // 布局视口翻倍（如 390pt 手机 → 780px），会落进桌面断点。需叠加与
+        // 视口脚本同口径的 screen.width < 600 一起判断，保证手机走抽屉式侧栏。
+        const isMobileViewport = window.innerWidth < 768
+            || (typeof screen !== 'undefined' && screen.width < 600);
         return {
-            isCollapsed: window.innerWidth < 768,
-            isMobile: window.innerWidth < 768,
+            isCollapsed: isMobileViewport,
+            isMobile: isMobileViewport,
             list: [
                 { subject: '马原', src: 'Marx', icon: grapeIcon },
                 { subject: '近代史', src: 'CMH', icon: juiceIcon },
@@ -213,12 +218,15 @@ export default {
             this.isCollapsed = !this.isCollapsed;
         },
         handleMainClick() {
-            if (window.innerWidth < 768 && !this.isCollapsed) {
+            if (this.isMobile && !this.isCollapsed) {
                 this.isCollapsed = true;
             }
         },
         handleResize() {
-            const mobile = window.innerWidth < 768;
+            const mobile = window.innerWidth < 768
+                || (typeof screen !== 'undefined' && screen.width < 600);
+            // 桌面→移动端切换时收起抽屉，避免遮住内容；移动端→桌面恢复常驻侧栏
+            if (mobile && !this.isMobile) this.isCollapsed = true;
             this.isMobile = mobile;
             if (!mobile && this.isCollapsed) {
                 this.isCollapsed = false;
@@ -330,6 +338,7 @@ export default {
         width: 26px;
         cursor: pointer;
         height: 100vh;
+        height: 100dvh; // 移动端随地址栏收放的动态视口高，兜底防「底部要滚动才可见」
         padding: 0;
         float: left;
         position: relative;
@@ -397,6 +406,7 @@ export default {
         color: #333;
         text-align: center;
         height: 100vh;
+        height: 100dvh;
         padding: 0;
     }
 
@@ -405,6 +415,7 @@ export default {
         overflow: hidden;
         position: relative;
         height: 100vh;
+        height: 100dvh;
         background-color: #fff;
         border-right: 1px solid #f0f0f0;
     }
@@ -419,6 +430,7 @@ export default {
     .el-aside {
         text-align: center;
         height: 100vh;
+        height: 100dvh;
         overflow: visible; // Allow menu popups if needed
     }
 
@@ -716,7 +728,10 @@ export default {
     }
 
     // ── Mobile / narrow-screen responsive ──────────────────
-    @media (max-width: 767px) {
+    // 由 JS isMobile 驱动的 mobile-mode 类生效，不再依赖 @media：
+    // initial-scale=0.5 的手机布局视口可达 ~780px，max-width 媒体查询会漏判，
+    // 类与 data()/handleResize 的判定同源，保证手机始终走抽屉式侧栏。
+    &.mobile-mode {
         .toggle-bar {
             width: 44px;
             padding: 0 10px;
@@ -740,11 +755,23 @@ export default {
             z-index: 100;
             left: 0;
             top: 0;
+            height: 100dvh; // 抽屉精确贴合可视区，底部按钮区不被地址栏遮挡
             box-shadow: 4px 0 20px rgba(0, 0, 0, 0.12);
         }
 
         .sidebar.is-collapsed {
             box-shadow: none;
+        }
+
+        // 抽屉纵向空间宝贵：压缩 Logo 区，把更多高度让给导航与底部按钮
+        .sidebar .title {
+            height: auto;
+            margin: 20px 16px 12px;
+
+            .icon {
+                width: 52px;
+                height: 52px;
+            }
         }
 
         .el-aside {
