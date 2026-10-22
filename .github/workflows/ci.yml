@@ -22,7 +22,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          # CVE-2026-111497（Brotli 解码器越界写，22.x 受影响）：固定到修复版
+          node-version: '22.23.4'
           cache: pnpm
 
       - name: Install dependencies
