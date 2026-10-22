@@ -96,6 +96,8 @@ export default {
             },
             set(value) {
                 this.store.answerList[this.seq] = value
+                // 单题计时：每次写入答案区都触碰一次，首末触碰差即该题作答跨度
+                this.store.touchAnswer(this.seq)
             }
         },
         answerResult() {
@@ -105,6 +107,7 @@ export default {
     methods: {
         updateOption(questionIndex, option) {
             this.store.answerList[questionIndex] = option
+            this.store.touchAnswer(questionIndex)
         },
     }
 }

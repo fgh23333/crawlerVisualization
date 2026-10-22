@@ -179,7 +179,8 @@ export function mergeAllData(existing, incoming) {
     viewedStates: { ...(existing.viewedStates || {}) }
   }
 
-  // 合并 userRecords：保留更大的 attempted 和 errorCount
+  // 合并 userRecords：计数器保留更大的 attempted 和 errorCount；
+  // 引擎字段（mastery/lastAttemptAt/dueAt/reviewStage）随「练习更多的一端」整体携带
   for (const [qid, rec] of Object.entries(incoming.userRecords || {})) {
     const existingRec = merged.userRecords[qid]
     if (!existingRec) {
@@ -191,6 +192,17 @@ export function mergeAllData(existing, incoming) {
         errorCount: Math.max(existingRec.errorCount || 0, rec.errorCount || 0),
         lastErrorDate: (existingRec.lastErrorDate && existingRec.lastErrorDate > rec.lastErrorDate)
           ? existingRec.lastErrorDate : rec.lastErrorDate
+      }
+      // mastery 是 EWMA 平滑状态量而非单调累计量：字段级取 max 会冻在历史高点、
+      // 取平均会稀释，都不反映任何一端的真实状态——练习次数多的一端状态更可信，
+      // 平手时取错得更多的一端（更接近真实薄弱状态）
+      const winner = (rec.attempted || 0) !== (existingRec.attempted || 0)
+        ? ((rec.attempted || 0) > (existingRec.attempted || 0) ? rec : existingRec)
+        : ((rec.errorCount || 0) >= (existingRec.errorCount || 0) ? rec : existingRec)
+      for (const field of ['mastery', 'lastAttemptAt', 'dueAt', 'reviewStage']) {
+        if (winner[field] !== undefined && winner[field] !== null) {
+          merged.userRecords[qid][field] = winner[field]
+        }
       }
     }
   }

@@ -17,6 +17,9 @@
                 <el-button v-if="aiStore.isSupported" size="small" class="ai-summary-btn" @click="showAiDialog">AI 归纳</el-button>
             </div>
         </div>
+        <div class="review-hint" v-if="value === 'wrong' && dueCount > 0">
+            今日待复习：{{ dueCount }} 题（已置顶）
+        </div>
         <questionCard :subjectOptions="value" :favList="list" :selectedTypes="selectedTypes"></questionCard>
 
         <!-- 导出对话框 -->
@@ -103,6 +106,7 @@ import { useQuestionStore } from '@/stores/question';
 import { useAiStore } from '@/stores/ai';
 import { ElMessageBox, ElMessage } from 'element-plus';
 import { decodeFavorites, parseFavoritesFile } from '@/utils/favoritesSync';
+import { sortWrongByDue, countDue } from '@/utils/mastery';
 import { marked } from 'marked';
 import { buildFavoritesSummaryPrompt } from '@/utils/builtinAI';
 
@@ -204,6 +208,23 @@ export default {
             aiSummaryHtml: '',
             aiSummarizing: false,
             aiSummarized: false,
+            // 错题 tab 排序快照：切入时冻结一次，tab 会话内不重排
+            wrongSnapshot: null,
+            // 60s 心跳时钟：只刷新「待复习」提示数字，不触碰列表顺序
+            nowTs: Date.now(),
+        }
+    },
+    created() {
+        if (this.value === 'wrong') this.rebuildWrongSnapshot();
+        this._nowTimer = setInterval(() => { this.nowTs = Date.now(); }, 60 * 1000);
+    },
+    watch: {
+        value(val) {
+            if (val === 'wrong') this.rebuildWrongSnapshot();
+        },
+        // 清空错题本时同步清空快照；长度非 0 的变化不触发，避免练习中途重排
+        'store.wrongQuestions.length'(len) {
+            if (len === 0) this.wrongSnapshot = [];
         }
     },
     computed: {
@@ -217,10 +238,15 @@ export default {
                 case 'favorites':
                     return this.store.likeList;
                 case 'wrong':
-                    return this.store.wrongQuestions;
+                    // 快照优先（冻结的到期置顶序）；未初始化时回退原始插入序
+                    return this.wrongSnapshot || this.store.wrongQuestions;
                 default:
                     return [];
             }
+        },
+        // 到期待复习数：活数据 + 活时钟（答对到期题后立即减 1，顺序仍冻结）
+        dueCount() {
+            return countDue(this.store.wrongQuestions, this.store.userRecords, this.nowTs);
         },
         canParse() {
             if (this.importMode === 'code') {
@@ -233,8 +259,13 @@ export default {
         // 离开收藏页：中断进行中的归纳任务并清理节流定时器
         this.aiStore.abortTask();
         if (this._summaryTimer) clearTimeout(this._summaryTimer);
+        if (this._nowTimer) clearInterval(this._nowTimer);
     },
     methods: {
+        // 重建错题排序快照：到期在前、未到期在后，组内保持插入序
+        rebuildWrongSnapshot() {
+            this.wrongSnapshot = sortWrongByDue(this.store.wrongQuestions, this.store.userRecords);
+        },
         handleCommand(e) {
             if (e === "savePDF") {
                 makePdf("save", this.list, "收藏夹", null, ElMessage);
@@ -508,6 +539,18 @@ export default {
             color: #333;
             font-size: 15px;
         }
+    }
+
+    // 错题本「今日待复习」提示条（FSRS-lite 到期置顶）
+    .review-hint {
+        margin: 0 34px 4px;
+        padding: 8px 14px;
+        border-radius: 10px;
+        background: #efecfb;
+        color: #5b4fd6;
+        font-size: 13.5px;
+        font-weight: 500;
+        width: fit-content;
     }
 
     // 端侧 AI 归纳弹窗内容区（流式 markdown）

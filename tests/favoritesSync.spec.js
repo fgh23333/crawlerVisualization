@@ -146,3 +146,58 @@ describe('mergeAllData 学习记录合并', () => {
     expect(summary.recordsMerged).toBe(2)
   })
 })
+
+// 引擎字段（mastery/lastAttemptAt/dueAt/reviewStage）跨设备合并：胜者记录整体携带
+describe('mergeAllData 引擎字段胜者携带', () => {
+  const base = (userRecords) => ({
+    wrongQuestions: [], likeList: [], markList: [], userRecords, viewedStates: {},
+  })
+
+  it('attempted 更大一端的引擎字段整体胜出；计数器仍按 max 合并', () => {
+    const existing = base({
+      a: { questionId: 'a', attempted: 10, errorCount: 2, lastErrorDate: '2026-08-01',
+        mastery: 0.8, lastAttemptAt: 1000, reviewStage: 3, dueAt: 5000 },
+    })
+    const incoming = base({
+      a: { questionId: 'a', attempted: 4, errorCount: 4, lastErrorDate: '2026-09-01',
+        mastery: 0.2, lastAttemptAt: 2000, reviewStage: 0, dueAt: 3000 },
+    })
+    const rec = mergeAllData(existing, incoming).merged.userRecords.a
+    expect(rec.attempted).toBe(10)              // max
+    expect(rec.errorCount).toBe(4)              // max
+    expect(rec.lastErrorDate).toBe('2026-09-01') // 更新日期
+    expect(rec.mastery).toBe(0.8)               // winner（attempted 10 一端）整体携带
+    expect(rec.lastAttemptAt).toBe(1000)
+    expect(rec.reviewStage).toBe(3)
+    expect(rec.dueAt).toBe(5000)
+  })
+
+  it('attempted 平手时按 errorCount 判胜（错得更多的一端更接近真实薄弱状态）', () => {
+    const existing = base({
+      a: { questionId: 'a', attempted: 5, errorCount: 1, mastery: 0.9, dueAt: 100 },
+    })
+    const incoming = base({
+      a: { questionId: 'a', attempted: 5, errorCount: 3, mastery: 0.3, dueAt: 200 },
+    })
+    const rec = mergeAllData(existing, incoming).merged.userRecords.a
+    expect(rec.mastery).toBe(0.3)
+    expect(rec.dueAt).toBe(200)
+  })
+
+  it('旧格式记录（无引擎字段）合并后不产生引擎键，保持严格 toEqual 兼容', () => {
+    const existing = base({
+      a: { questionId: 'a', attempted: 5, errorCount: 1, lastErrorDate: '2026-08-01' },
+    })
+    const incoming = base({
+      a: { questionId: 'a', attempted: 3, errorCount: 2, lastErrorDate: '2026-09-01' },
+    })
+    const rec = mergeAllData(existing, incoming).merged.userRecords.a
+    expect(rec).toEqual({
+      questionId: 'a',
+      attempted: 5,
+      errorCount: 2,
+      lastErrorDate: '2026-09-01',
+    })
+    expect('mastery' in rec).toBe(false)
+  })
+})

@@ -112,3 +112,48 @@ describe('quizGenerator 权重随机抽题', () => {
     expect(quiz).toEqual([])
   })
 })
+
+// 个性化权重：userRecords 透传后掌握度乘子叠加在 appearCount 基础权重上
+// 基线（无 records）高频占比实测 ≈ 0.77：k/N=0.4 的无放回加权抽样存在饱和效应，
+// 占比不等于权重比例公式算出的 0.82，期望值以大样本模拟为准
+describe('quizGenerator 个性化抽题权重', () => {
+  const makeRecords = (highMastery, lowMastery) => {
+    const records = {}
+    for (let i = 0; i < N; i++) {
+      // id 必须与 bank 的 `q_` 前缀一致，否则 records 永不命中、乘子恒 1
+      const id = `q_singleChoice_${i}`
+      records[id] = { questionId: id, attempted: 5, mastery: i < N / 2 ? highMastery : lowMastery }
+    }
+    return records
+  }
+  const sample = async (records) => {
+    let highHits = 0, total = 0
+    for (let d = 0; d < 400; d++) {
+      const quiz = await generateQuiz('Marx', { single: 24, multiple: 0, blank: 0, trueFalse: 0 }, undefined, records)
+      for (const q of quiz) {
+        total++
+        if (q.appearCount === 1000) highHits++
+      }
+    }
+    return highHits / total
+  }
+
+  it('高频题已掌握(0.95)、低频题薄弱(0.05) → 高频占比显著跌破基线', async () => {
+    // 乘子 0.46 / 1.54 → 有效权重 3.64:2.61；大样本模拟期望 ≈ 0.56
+    const ratio = await sample(makeRecords(0.95, 0.05))
+    expect(ratio).toBeGreaterThan(0.42)
+    expect(ratio).toBeLessThan(0.68)
+  })
+
+  it('高频题薄弱(0.05)、低频题已掌握(0.95) → 高频占比逼近全占', async () => {
+    // 乘子 1.54 / 0.46 → 有效权重 12.2:0.78；大样本模拟期望 ≈ 0.90
+    const ratio = await sample(makeRecords(0.05, 0.95))
+    expect(ratio).toBeGreaterThan(0.82)
+    expect(ratio).toBeLessThan(0.96)
+  })
+
+  it('records 显式传 null：与不传完全一致（新用户基线不变）', async () => {
+    const quiz = await generateQuiz('Marx', { single: 24, multiple: 0, blank: 0, trueFalse: 0 }, undefined, null)
+    expect(quiz).toHaveLength(24)
+  })
+})

@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import generateQuiz from '@/utils/quizGenerator'
 import { encodeFavorites, decodeFavorites, favoritesToJsonFile, parseFavoritesFile, mergeFavorites } from '@/utils/favoritesSync'
+import { computeOutcome, nextMastery, nextReview, clampTimeMs } from '@/utils/mastery'
 
 function getType(question) {
   if (!question.option || question.option.length === 0) return '填空'
@@ -27,7 +28,9 @@ function upsertQuestion(listRef, question, flags = {}) {
   }
 }
 
-function updateUserRecord(userRecords, questionId, isCorrect) {
+function updateUserRecord(userRecords, questionId, isCorrect, meta = {}) {
+  // 题目缺 id 时不落记录（避免写出 undefined 键污染 userRecords）
+  if (questionId === undefined || questionId === null) return
   if (!userRecords[questionId]) {
     userRecords[questionId] = {
       questionId,
@@ -42,6 +45,12 @@ function updateUserRecord(userRecords, questionId, isCorrect) {
     record.errorCount += 1
     record.lastErrorDate = new Date().toISOString().split('T')[0]
   }
+  // 个性化引擎字段（懒初始化：旧记录在此长出 mastery / dueAt / reviewStage）
+  record.mastery = nextMastery(record, computeOutcome(isCorrect, meta.timeSpentMs ?? null, meta.questionType))
+  record.lastAttemptAt = Date.now()
+  const review = nextReview(record, isCorrect)
+  record.reviewStage = review.reviewStage
+  record.dueAt = review.dueAt
 }
 
 export const useQuestionStore = defineStore('question', () => {
@@ -55,6 +64,9 @@ export const useQuestionStore = defineStore('question', () => {
   const score = ref(null)
   const fonts = ref(null)
   const userRecords = ref({})
+  // 考试单题计时：每题答案区首次/末次写入时间戳（会话态，不持久化，
+  // checkAnswer 批量判分时取 last-first 作为该题耗时近似）
+  const answerTouches = ref({})
 
   // Data Migration: ensure stored lists are arrays of objects, not just IDs
   function migrateLists() {
@@ -87,6 +99,34 @@ export const useQuestionStore = defineStore('question', () => {
   // Actions
   function loadQuestionBank(questions) {
     questionBank.value = questions
+    clearAnswerTouches()
+  }
+
+  // 记录某题答案区的一次写入（首触记 first，此后只推进 last）
+  function touchAnswer(seq) {
+    const touch = answerTouches.value[seq]
+    const now = Date.now()
+    if (touch) {
+      touch.last = now
+    } else {
+      answerTouches.value[seq] = { first: now, last: now }
+    }
+  }
+
+  function clearAnswerTouches() {
+    answerTouches.value = {}
+  }
+
+  // 练习模式作答收口：与考试共用同一记录漏斗（此前练习作答完全不进 userRecords）
+  function recordPractice(question, isCorrect, timeSpentMs = null) {
+    if (!question || question.id === undefined || question.id === null) return
+    updateUserRecord(userRecords.value, question.id, isCorrect, {
+      timeSpentMs,
+      questionType: getType(question)
+    })
+    if (!isCorrect) {
+      addWrongQuestion(question)
+    }
   }
 
   function getQuestionType(question) {
@@ -183,7 +223,13 @@ export const useQuestionStore = defineStore('question', () => {
             break
         }
 
-        updateUserRecord(userRecords.value, question.id, isCorrect)
+        updateUserRecord(userRecords.value, question.id, isCorrect, {
+          timeSpentMs: (() => {
+            const touch = answerTouches.value[index]
+            return touch ? clampTimeMs(touch.last - touch.first) : null
+          })(),
+          questionType: getType(question)
+        })
 
         results.value.push({ questionId: question.id, isCorrect })
 
@@ -194,12 +240,15 @@ export const useQuestionStore = defineStore('question', () => {
     )
 
     score.value = results.value.filter(r => r.isCorrect).length
+    clearAnswerTouches()
   }
 
   async function generateQuizAction(payload) {
     const [lesson, options, quizOptions] = payload
     questionBank.value = []
-    const quiz = await generateQuiz(lesson, options, quizOptions)
+    clearAnswerTouches()
+    // 透传学习记录：加权抽题叠加掌握度乘子（薄弱题优先出场）
+    const quiz = await generateQuiz(lesson, options, quizOptions, userRecords.value)
     questionBank.value = quiz
   }
 
@@ -230,8 +279,10 @@ export const useQuestionStore = defineStore('question', () => {
   return {
     wrongQuestions, answerList, questionBank, results,
     likeList, markList, score, fonts, userRecords,
+    answerTouches,
     getQuestionsByType, getAllQuestions,
     loadQuestionBank, getQuestionType,
+    touchAnswer, recordPractice,
     addWrongQuestion, removeWrongQuestion,
     addLikeQuestion, removeLikeQuestion,
     isFavorite, toggleFavorite,

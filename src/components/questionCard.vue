@@ -90,6 +90,7 @@ import { ElMessage } from 'element-plus'
 import QuestionItem from '@/components/QuestionItem.vue'
 import { getQuestionType, TYPE_LABEL } from '@/utils/questionType'
 import { buildQuestionAnalysisPrompt } from '@/utils/builtinAI'
+import { sortWrongByDue, clampTimeMs, PRACTICE_TIME_MAX_MS } from '@/utils/mastery'
 
 export default {
   components: { QuestionItem },
@@ -265,6 +266,7 @@ export default {
     this.searchWord = ""
     this.onSearch = false
     this.initShowAnswers();
+    this.resetPracticeClock();
     this.restoreSession();
   },
   watch: {
@@ -281,7 +283,8 @@ export default {
               this.showList = [...this.list]
               break
             case 'wrong':
-              this.list = this.store.wrongQuestions
+              // 到期错题置顶（切入时排序一次；实时重排会打乱按下标键控的练习会话）
+              this.list = sortWrongByDue(this.store.wrongQuestions, this.store.userRecords)
               this.showList = [...this.list]
               break
             default:
@@ -353,7 +356,15 @@ export default {
       this.aiAnalyses = {};
       this.aiLoadingMap = {};
       this.aiCollapsedMap = {};
+      this.resetPracticeClock();
       this.debouncedSaveSession();
+    },
+    // 列表重建/变动时重置练习计时起点（搜索、筛选、切 tab、取消收藏等路径统一收口）
+    showList: {
+      handler() {
+        this.resetPracticeClock();
+      },
+      deep: true
     },
     practiceAnswers: {
       handler() { this.debouncedSaveSession(); },
@@ -365,6 +376,10 @@ export default {
     },
   },
   methods: {
+    // 练习计时近似：相邻两次提交的间隔（非响应式实例属性，不进 data）
+    resetPracticeClock() {
+      this._practiceStartTs = Date.now();
+    },
     initShowAnswers() {
       // 列表重建时，键盘导航定位回到未定位状态
       this.currentIndex = -1;
@@ -641,10 +656,13 @@ export default {
         userAnswer: Array.isArray(userAnswer) ? userAnswer.join('') : (userAnswer || '')
       };
 
-      // 错了自动加入错题集
-      if (!isCorrect) {
-        this.store.addWrongQuestion(question);
-      }
+      // 作答记录统一走 store 收口：计数 + 掌握度/复习调度引擎字段 + 错题自动入本
+      // 计时近似为相邻两次提交的间隔（clamp 2s~180s，挂机/跳题只影响快慢分档不影响对错主信号）
+      const timeSpentMs = this._practiceStartTs
+        ? clampTimeMs(Date.now() - this._practiceStartTs, PRACTICE_TIME_MAX_MS)
+        : null;
+      this.store.recordPractice(question, isCorrect, timeSpentMs);
+      this.resetPracticeClock();
     },
     changeFlag(flagType, i) {
       // Legacy entrypoint — kept in case external code calls it. Delegates to toggleFav.
