@@ -102,7 +102,12 @@ const typeLabel = computed(() => {
 })
 
 function isOptionCorrect(index) {
-  return props.question.answer.includes(labels[index])
+  const q = props.question
+  // 判断题答案为选项文本（正确/错误）；兼容旧持久化数据中仍是字母的答案
+  if (q.type === 'trueOrFalse') {
+    return q.answer === q.option[index] || q.answer === labels[index]
+  }
+  return q.answer.includes(labels[index])
 }
 
 function toggleLike() {
@@ -118,7 +123,10 @@ function toggleWrong() {
 function submitPractice(val) {
   let isCorrect = false
   if (props.question.type === 'trueOrFalse') {
-    isCorrect = val === props.question.answer
+    // 作答值为选项文本；答案可能已归一为文本，也兼容仍是字母的旧数据
+    const idx = props.question.option.indexOf(val)
+    isCorrect = val === props.question.answer ||
+      (idx >= 0 && labels[idx] === props.question.answer)
   } else if (props.question.type === 'singleChoice') {
     isCorrect = val === props.question.answer
   }
