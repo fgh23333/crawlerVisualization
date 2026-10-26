@@ -581,13 +581,17 @@ onBeforeUnmount(() => { if (_aiParseTimer) clearTimeout(_aiParseTimer) })
   }
 
   .practice-area {
-    margin: 10px 0;
+    margin: 12px 0;
 
     .practice-option {
-      margin-bottom: 8px;
+      margin-bottom: 14px;
       line-height: 28px;
       font-size: 16px;
       text-align: left;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
 
       .el-radio,
       .el-checkbox {
