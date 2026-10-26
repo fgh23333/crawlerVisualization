@@ -583,15 +583,20 @@ onBeforeUnmount(() => { if (_aiParseTimer) clearTimeout(_aiParseTimer) })
   .practice-area {
     margin: 12px 0;
 
+    // 选项单列换行：EP 的 group 默认 inline-flex 会把选项横排挤乱（长选项错位），
+    // 统一竖排，gap 接管行距
+    .el-radio-group,
+    .el-checkbox-group {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+    }
+
     .practice-option {
-      margin-bottom: 14px;
       line-height: 28px;
       font-size: 16px;
       text-align: left;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
 
       .el-radio,
       .el-checkbox {
