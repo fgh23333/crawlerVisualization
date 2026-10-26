@@ -31,29 +31,12 @@
 
                 <div class="info-item">
                     <div class="label">AI 错因分析（决策模型 · Beta）</div>
-                    <div class="text">练习答错后由决策模型判断错因并提示是否看讲解。默认关闭；请求只上送当前题目内容，失败自动回退，不影响答题。</div>
-                    <el-radio-group v-model="jevProvider" style="margin-top:10px">
-                        <el-radio label="clef">Cloudflare Clef（推荐，免密钥）</el-radio>
-                        <el-radio label="openrouter">OpenRouter Jev（自带密钥）</el-radio>
-                    </el-radio-group>
-                    <template v-if="jevProvider === 'openrouter'">
-                        <el-input v-model="jevApiKey" type="password" show-password placeholder="OpenRouter API Key（sk-or-...）"
-                            style="margin-top:10px" />
-                        <el-input v-model="jevEndpoint" :placeholder="'请求端点（可选，默认 ' + defaultJevEndpoint + '）'"
-                            style="margin-top:8px" />
-                        <div class="text" style="margin-top:8px;font-size:13px;color:#999">密钥仅保存在本机浏览器，不会进入站点或构建产物。</div>
-                    </template>
-                    <el-input v-else v-model="jevEndpoint" :placeholder="'服务端点（可选，默认 ' + defaultClefEndpoint + '）'"
-                        style="margin-top:10px" />
-                    <div style="margin-top:10px">
-                        <el-switch v-model="jevEnabled" active-text="启用" inactive-text="关闭" active-color="#6C5DD3" />
-                        <el-button type="primary" size="small" @click="saveJevConfig" style="margin-left:12px">保存设置</el-button>
-                    </div>
+                    <div class="text">练习答错后由 Cloudflare 决策模型（Clef）自动判断错因并提示是否看讲解，默认开启。请求只上送当前题目内容，失败自动回退，不影响答题。</div>
                 </div>
 
                 <div class="info-item">
                     <div class="label">关于项目</div>
-                    <div class="text">本项目致力于为广大学生提供一个便捷、高效的思政课刷题平台，涵盖马原、毛概、思修等多个科目。</div>
+                    <div class="text">本项目致力于为广大学生提供一个便捷、高效的思政课刷题平台，涵盖马原、思政、毛概、习概等九个科目。</div>
                 </div>
 
                 <div class="info-item">
@@ -112,7 +95,6 @@
 import { useQuestionStore } from '@/stores/question';
 import { ElMessage } from 'element-plus';
 import { encodeAllData, decodeAllData, collectViewedStates, mergeAllData, restoreViewedStates } from '@/utils/favoritesSync';
-import { getJevConfig, setJevConfig, CLEF_ENDPOINT as defaultClefEndpoint, JEV_DEFAULT_ENDPOINT as defaultJevEndpoint } from '@/utils/jev';
 
 export default {
     setup() { return { store: useQuestionStore() } },
@@ -124,42 +106,13 @@ export default {
             importDialogVisible: false,
             importCode: '',
             importPreview: null,
-            defaultJevEndpoint,
-            // 错因分析双通道：clef 同域免密钥（默认）/ openrouter BYOK（密钥只落本机 localStorage，绝不进构建产物）
-            jevProvider: 'clef',
-            jevEnabled: false,
-            jevApiKey: '',
-            jevEndpoint: '',
-        }
-    },
-    watch: {
-        // 切通道时清空端点输入，避免把上一通道的自定义端点带到下一通道
-        jevProvider() {
-            this.jevEndpoint = '';
         }
     },
     mounted() {
         const saved = localStorage.getItem('global_font_size');
         if (saved) this.fontSize = parseInt(saved, 10) || 16;
-        const jev = getJevConfig();
-        this.jevProvider = jev.provider;
-        this.jevEnabled = jev.enabled;
-        this.jevApiKey = jev.apiKey;
-        this.jevEndpoint = jev.endpoint === (jev.provider === 'clef' ? defaultClefEndpoint : defaultJevEndpoint) ? '' : jev.endpoint;
     },
     methods: {
-        saveJevConfig() {
-            // openrouter 未填 key 强制关：setJevConfig 内部兜底，这里回读保证 UI 与实际状态一致
-            const isClef = this.jevProvider === 'clef';
-            const saved = setJevConfig({
-                enabled: this.jevEnabled,
-                provider: this.jevProvider,
-                apiKey: isClef ? '' : this.jevApiKey.trim(),
-                endpoint: this.jevEndpoint.trim() || (isClef ? defaultClefEndpoint : defaultJevEndpoint)
-            });
-            this.jevEnabled = saved.enabled;
-            ElMessage.success(saved.enabled ? '错因分析已启用' : '设置已保存（未启用）');
-        },
         applyFontSize() {
             document.documentElement.style.fontSize = this.fontSize + 'px';
             localStorage.setItem('global_font_size', this.fontSize);

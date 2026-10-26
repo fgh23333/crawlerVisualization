@@ -29,8 +29,12 @@ const enable = (overrides = {}) => setJevConfig({ enabled: true, provider: 'open
 // ── 配置（clef 免密钥 / openrouter BYOK，localStorage） ─────
 
 describe('getJevConfig / setJevConfig', () => {
-    it('默认关闭、clef 通道、无 key、同域端点', () => {
-        expect(getJevConfig()).toEqual({ enabled: false, provider: 'clef', apiKey: '', endpoint: CLEF_ENDPOINT })
+    it('默认启用、clef 通道、无 key、同域端点（前端已无开关，默认即开）', () => {
+        expect(getJevConfig()).toEqual({ enabled: true, provider: 'clef', apiKey: '', endpoint: CLEF_ENDPOINT })
+        expect(isJevEnabled()).toBe(true)
+        // 显式关闭过的老配置仍被尊重
+        localStorage.setItem('jev_config', JSON.stringify({ enabled: false }))
+        expect(getJevConfig().enabled).toBe(false)
         expect(isJevEnabled()).toBe(false)
     })
 
@@ -54,7 +58,7 @@ describe('getJevConfig / setJevConfig', () => {
         expect(c).toEqual({ enabled: true, provider: 'openrouter', apiKey: 'sk-new', endpoint: 'https://worker.example.com/jev' })
     })
 
-    it('openrouter 清空 key 强制关闭（opt-in 不残留半开状态）；clef 无 key 也可启用', () => {
+    it('openrouter 清空 key 强制关闭（不残留半开状态）；clef 无 key 也可启用', () => {
         enable()
         setJevConfig({ apiKey: '' })
         expect(getJevConfig().enabled).toBe(false)
@@ -77,7 +81,7 @@ describe('getJevConfig / setJevConfig', () => {
 
     it('损坏 JSON / 写入配额满均不抛错，读侧回落安全默认', () => {
         localStorage.setItem('jev_config', '{broken')
-        expect(getJevConfig().enabled).toBe(false)
+        expect(getJevConfig().enabled).toBe(true) // 回落到空配置：默认启用 clef
         enable()
         vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => { throw new Error('QuotaExceeded') })
         expect(() => setJevConfig({ enabled: true })).not.toThrow()
@@ -120,8 +124,9 @@ const SAMPLE_QUESTIONS = {
 }
 
 describe('askDecisions', () => {
-    it('未开启 / openrouter 无 key：不发起请求直接返回 null', async () => {
+    it('显式关闭 / openrouter 无 key：不发起请求直接返回 null', async () => {
         const fetchMock = stubFetch(async () => okResponse({}))
+        setJevConfig({ enabled: false }) // 前端已无开关，唯一关闭途径是本机配置
         expect(await askDecisions({ state: {}, questions: SAMPLE_QUESTIONS })).toBeNull()
         setJevConfig({ enabled: true, provider: 'openrouter' }) // 开了但没 key
         expect(await askDecisions({ state: {}, questions: SAMPLE_QUESTIONS })).toBeNull()

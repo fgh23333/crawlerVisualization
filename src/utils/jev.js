@@ -19,7 +19,8 @@
  *   - key 只走 BYOK（clef 通道则完全无 key）：配置存 localStorage，绝不打进构建产物（无 VITE_ 前缀）
  *   - fail-open：任何失败/超时/校验不过 → resolve null，调用方回退现有逻辑；
  *     消费端异步取用，永不 await 阻塞答题主链路
- *   - opt-in：默认关闭，用户在「关于」页显式开启
+ *   - 默认启用 clef 免密钥通道（2026-10-26 拍板：同域 Function 无泄露面，「关于」页不再放开关）；
+ *     显式写过 enabled:false 的老配置仍被尊重
  *   - 只上送单题：state 仅含当前题目与本次作答，不带 userRecords/画像等全量 profile
  *
  * 未来路线（Chrome Decisions API，chromestatus 5155080092385280 目前 Proposed）：
@@ -49,16 +50,17 @@ const defaultEndpointOf = (provider) => (isClefProvider(provider) ? CLEF_ENDPOIN
 /**
  * 读配置（损坏 JSON 容错为空配置；localStorage 不可用同样返回空配置）。
  * 旧配置迁移：无 provider 字段时有 apiKey 视为 openrouter（v1 唯一通道），否则落 clef 默认。
+ * enabled 默认 true（无配置/未显式写过即为开启）；仅显式 enabled:false 视为用户关闭。
  */
 export function getJevConfig() {
-    const empty = { enabled: false, provider: CLEF_PROVIDER, apiKey: '', endpoint: CLEF_ENDPOINT }
+    const empty = { enabled: true, provider: CLEF_PROVIDER, apiKey: '', endpoint: CLEF_ENDPOINT }
     try {
         const raw = JSON.parse(localStorage.getItem(CONFIG_KEY) || '{}')
         const provider = raw.provider === OPENROUTER_PROVIDER || raw.provider === CLEF_PROVIDER
             ? raw.provider
             : (typeof raw.apiKey === 'string' && raw.apiKey ? OPENROUTER_PROVIDER : CLEF_PROVIDER)
         return {
-            enabled: raw.enabled === true,
+            enabled: raw.enabled !== false,
             provider,
             apiKey: typeof raw.apiKey === 'string' ? raw.apiKey : '',
             endpoint: typeof raw.endpoint === 'string' && raw.endpoint ? raw.endpoint : defaultEndpointOf(provider)
@@ -83,7 +85,7 @@ export function setJevConfig(patch = {}) {
     return next
 }
 
-/** opt-in 总开关：显式开启；openrouter 通道另需 key */
+/** 总开关：clef 通道默认即启用（免密钥）；openrouter 通道另需 key */
 export function isJevEnabled() {
     const c = getJevConfig()
     return c.enabled && (isClefProvider(c.provider) || !!c.apiKey)
