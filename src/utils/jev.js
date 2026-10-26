@@ -1,61 +1,92 @@
 /**
- * Jev（TypeSafe System One）Decisions API 客户端 —— 方案 B 语义层第一步。
+ * 决策模型（System One 形态）客户端 —— 方案 B 语义层第一步。
  *
- * 契约（OpenRouter 官方 OpenAPI / openrouter.ai/openapi.json 一手核实，2026-10-26）：
- *   POST {endpoint}                      // 默认 https://openrouter.ai/api/alpha/decisions
- *   { model, state, questions, session_id?, ... }
+ * 双通道（2026-10-26 拍板，clef 为主推）：
+ *   - clef（默认）：同域 Pages Function /api/decisions → Workers AI clef-flash，
+ *     浏览器零密钥零 CORS；Clef 与 Jev 同契约（官方 changelog："drop-in compatible with Jev"）。
+ *   - openrouter（BYOK）：直连 openrouter.ai/api/alpha/decisions 调 Jev，key 存本机 localStorage。
+ *
+ * 契约（OpenRouter 官方 OpenAPI + Workers AI models/schema 一手核实，2026-10-26，两端同构）：
+ *   POST {endpoint}
+ *   { model, state, questions, session_id?(仅 openrouter) }
  *     questions: { [id]: { type:'noul'|'choice'|'score', instructions, criteria? } }
  *       - noul 的 criteria 可选（true/false 描述）；choice 的 criteria 为对象；score 的 criteria 为有序数组
- *   → { answers: { [id]: { type, noul | choice | score, confidence?, probabilities? } }, model, usage, id? }
+ *   → { answers: { [id]: { type, noul | choice | score, confidence?, probabilities? } }, model, usage }
+ *   端间差异仅三处：clef 的 model 取短选择器 'clef-flash'（全名由服务端函数固定）、
+ *   body 无 session_id、choice/score 的 probabilities/confidence 必返 —— normalizeAnswer 直接兼容。
  *
  * 红线（见 jev 调研结论，全条落实）：
- *   - key 只走 BYOK：配置存 localStorage，绝不打进构建产物（无 VITE_ 前缀）
+ *   - key 只走 BYOK（clef 通道则完全无 key）：配置存 localStorage，绝不打进构建产物（无 VITE_ 前缀）
  *   - fail-open：任何失败/超时/校验不过 → resolve null，调用方回退现有逻辑；
  *     消费端异步取用，永不 await 阻塞答题主链路
- *   - opt-in：默认关闭，用户在「关于」页显式开启并填入自己的 key
+ *   - opt-in：默认关闭，用户在「关于」页显式开启
  *   - 只上送单题：state 仅含当前题目与本次作答，不带 userRecords/画像等全量 profile
  *
  * 未来路线（Chrome Decisions API，chromestatus 5155080092385280 目前 Proposed）：
  *   window.DecisionModel 落地后，askDecisions 可加同形态的端侧 transport，业务层无感切换。
  */
 
+export const CLEF_PROVIDER = 'clef'
+export const OPENROUTER_PROVIDER = 'openrouter'
+
 export const JEV_MODEL = 'typesafe/jev-1.13'
 export const JEV_DEFAULT_ENDPOINT = 'https://openrouter.ai/api/alpha/decisions'
+// clef 通道：body 内是短选择器（Workers AI 契约），全名 @cf/cloudflare/clef-flash 由函数服务端固定，
+// 客户端无法指定其他（高价）模型
+export const CLEF_MODEL = 'clef-flash'
+export const CLEF_ENDPOINT = '/api/decisions'
 // fail-open 上限：超时/报错/校验不过一律返回 null。消费端展示层异步等结果，
 // 答题主链路（判分/收录/记录）从不 await 本模块 —— 回退语义即「无洞察」。
+// clef-flash 官方中位 38.8ms / p95 122ms（2026-10-01 changelog），同域通道 5000ms 上限只兜极端网络。
 export const JEV_TIMEOUT_MS = 5000
 
 const CONFIG_KEY = 'jev_config'
 
-/** 读配置（损坏 JSON 容错为空配置；localStorage 不可用同样返回空配置） */
+const isClefProvider = (provider) => provider === CLEF_PROVIDER
+
+const defaultEndpointOf = (provider) => (isClefProvider(provider) ? CLEF_ENDPOINT : JEV_DEFAULT_ENDPOINT)
+
+/**
+ * 读配置（损坏 JSON 容错为空配置；localStorage 不可用同样返回空配置）。
+ * 旧配置迁移：无 provider 字段时有 apiKey 视为 openrouter（v1 唯一通道），否则落 clef 默认。
+ */
 export function getJevConfig() {
+    const empty = { enabled: false, provider: CLEF_PROVIDER, apiKey: '', endpoint: CLEF_ENDPOINT }
     try {
         const raw = JSON.parse(localStorage.getItem(CONFIG_KEY) || '{}')
+        const provider = raw.provider === OPENROUTER_PROVIDER || raw.provider === CLEF_PROVIDER
+            ? raw.provider
+            : (typeof raw.apiKey === 'string' && raw.apiKey ? OPENROUTER_PROVIDER : CLEF_PROVIDER)
         return {
             enabled: raw.enabled === true,
+            provider,
             apiKey: typeof raw.apiKey === 'string' ? raw.apiKey : '',
-            endpoint: typeof raw.endpoint === 'string' && raw.endpoint ? raw.endpoint : JEV_DEFAULT_ENDPOINT
+            endpoint: typeof raw.endpoint === 'string' && raw.endpoint ? raw.endpoint : defaultEndpointOf(provider)
         }
     } catch {
-        return { enabled: false, apiKey: '', endpoint: JEV_DEFAULT_ENDPOINT }
+        return empty
     }
 }
 
-/** 局部更新配置；key 置空时视为关闭 */
+/** 局部更新配置；openrouter 通道 key 置空视为关闭（clef 通道同域免密钥，无此约束） */
 export function setJevConfig(patch = {}) {
     const cur = getJevConfig()
     const next = { ...cur, ...patch }
-    if (!next.apiKey) next.enabled = false
+    // 通道切换时端点跟着换默认值（除非本次 patch 同时显式给出端点）——端点属于通道
+    if (patch.provider && patch.provider !== cur.provider && patch.endpoint === undefined) {
+        next.endpoint = defaultEndpointOf(next.provider)
+    }
+    if (!isClefProvider(next.provider) && !next.apiKey) next.enabled = false
     try {
         localStorage.setItem(CONFIG_KEY, JSON.stringify(next))
     } catch { /* 配额满等写入失败静默忽略，读取侧自然回落旧值 */ }
     return next
 }
 
-/** opt-in 总开关：显式开启且填了 key 才工作 */
+/** opt-in 总开关：显式开启；openrouter 通道另需 key */
 export function isJevEnabled() {
     const c = getJevConfig()
-    return c.enabled && !!c.apiKey
+    return c.enabled && (isClefProvider(c.provider) || !!c.apiKey)
 }
 
 /**
@@ -63,10 +94,11 @@ export function isJevEnabled() {
  * @param {object} arg
  * @param {object|string} arg.state 共享证据：任意 JSON（本站仅单题字段）
  * @param {Record<string, object>} arg.questions 问题 map：id → { type, instructions, criteria? }
+ * @param {string} [arg.provider] 通道；clef 的 body 不带 session_id（其契约无此字段）
  */
-export function buildDecisionsPayload({ state, questions, sessionId } = {}) {
-    const payload = { model: JEV_MODEL, state, questions }
-    if (sessionId) payload.session_id = String(sessionId)
+export function buildDecisionsPayload({ state, questions, sessionId, provider = CLEF_PROVIDER } = {}) {
+    const payload = { model: isClefProvider(provider) ? CLEF_MODEL : JEV_MODEL, state, questions }
+    if (!isClefProvider(provider) && sessionId) payload.session_id = String(sessionId)
     return payload
 }
 
@@ -94,23 +126,25 @@ function normalizeAnswer(answer, question) {
  * 发起一次 Decisions 调用（一次请求并行多问）。
  * @returns {Promise<Record<string, {value:number|string, probabilities?:object}> | null>}
  *   成功 → { [问题id]: { value, probabilities? } }（仅含校验通过的项）；
- *   关闭 / 无 key / 网络/超时/非 2xx / 响应不合法 → null（永不 reject）
+ *   关闭 / openrouter 无 key / 网络/超时/非 2xx / 响应不合法 → null（永不 reject）
  */
 export async function askDecisions({ state, questions, sessionId, timeoutMs = JEV_TIMEOUT_MS } = {}) {
     const config = getJevConfig()
-    if (!(config.enabled && config.apiKey)) return null
+    if (!config.enabled) return null
+    const clef = isClefProvider(config.provider)
+    if (!clef && !config.apiKey) return null
 
     const controller = new AbortController()
     const timer = setTimeout(() => controller.abort(), timeoutMs)
     try {
+        // clef 同域通道免密钥；openrouter BYOK 带 Authorization + 归因标识
+        const headers = { 'Content-Type': 'application/json' }
+        if (config.apiKey) headers.Authorization = `Bearer ${config.apiKey}`
+        if (!clef) headers['X-Title'] = 'shou-political-bank'
         const resp = await fetch(config.endpoint, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${config.apiKey}`,
-                'X-Title': 'shou-political-bank'
-            },
-            body: JSON.stringify(buildDecisionsPayload({ state, questions, sessionId })),
+            headers,
+            body: JSON.stringify(buildDecisionsPayload({ state, questions, sessionId, provider: config.provider })),
             signal: controller.signal
         })
         if (!resp.ok) return null
