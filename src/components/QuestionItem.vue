@@ -21,7 +21,9 @@ const props = defineProps({
   aiText: { type: String, default: '' },
   aiLoading: { type: Boolean, default: false },
   // 环境是否支持端侧 AI：不支持时整个入口不渲染
-  aiAvailable: { type: Boolean, default: false }
+  aiAvailable: { type: Boolean, default: false },
+  // Jev 错因洞察（opt-in，父组件异步取回后注入；空串不渲染）
+  practiceInsight: { type: String, default: '' }
 })
 
 const emit = defineEmits(['toggle-answer', 'toggle-fav', 'toggle-mark', 'submit-practice', 'ask-ai'])
@@ -158,6 +160,7 @@ onBeforeUnmount(() => { if (_aiParseTimer) clearTimeout(_aiParseTimer) })
           </span>
           <span class="your-answer">你的答案：{{ practiceResult.userAnswer }}</span>
           <span class="correctAnswer" v-if="!practiceResult.isCorrect">正确答案：{{ question.answer }}</span>
+          <span class="jev-insight" v-if="!practiceResult.isCorrect && practiceInsight">{{ practiceInsight }}</span>
         </div>
 
         <!-- 普通模式答案：判断题 -->
@@ -656,6 +659,11 @@ onBeforeUnmount(() => { if (_aiParseTimer) clearTimeout(_aiParseTimer) })
     .correctAnswer {
       color: #5F89D3;
       font-weight: 500;
+    }
+
+    .jev-insight {
+      color: #E8821E;
+      font-size: 14px;
     }
   }
 }

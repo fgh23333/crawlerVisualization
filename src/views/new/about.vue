@@ -30,6 +30,19 @@
                 </div>
 
                 <div class="info-item">
+                    <div class="label">AI 错因分析（Jev · Beta）</div>
+                    <div class="text">练习答错后调用 Jev 决策模型（OpenRouter Decisions API）判断错因。默认关闭；开启需填入你自己的 OpenRouter API Key —— 密钥仅保存在本机浏览器，请求只上送当前题目内容，失败自动回退，不影响答题。</div>
+                    <div style="margin-top:10px">
+                        <el-switch v-model="jevEnabled" active-text="启用" inactive-text="关闭" active-color="#6C5DD3" />
+                    </div>
+                    <el-input v-model="jevApiKey" type="password" show-password placeholder="OpenRouter API Key（sk-or-...）"
+                        style="margin-top:10px" />
+                    <el-input v-model="jevEndpoint" :placeholder="'请求端点（可选，默认 ' + defaultJevEndpoint + '）'"
+                        style="margin-top:8px" />
+                    <el-button type="primary" size="small" @click="saveJevConfig" style="margin-top:10px">保存设置</el-button>
+                </div>
+
+                <div class="info-item">
                     <div class="label">关于项目</div>
                     <div class="text">本项目致力于为广大学生提供一个便捷、高效的思政课刷题平台，涵盖马原、毛概、思修等多个科目。</div>
                 </div>
@@ -90,6 +103,7 @@
 import { useQuestionStore } from '@/stores/question';
 import { ElMessage } from 'element-plus';
 import { encodeAllData, decodeAllData, collectViewedStates, mergeAllData, restoreViewedStates } from '@/utils/favoritesSync';
+import { getJevConfig, setJevConfig, JEV_DEFAULT_ENDPOINT as defaultJevEndpoint } from '@/utils/jev';
 
 export default {
     setup() { return { store: useQuestionStore() } },
@@ -101,13 +115,32 @@ export default {
             importDialogVisible: false,
             importCode: '',
             importPreview: null,
+            defaultJevEndpoint,
+            // Jev（BYOK）：密钥只落本机 localStorage，绝不进入构建产物
+            jevEnabled: false,
+            jevApiKey: '',
+            jevEndpoint: '',
         }
     },
     mounted() {
         const saved = localStorage.getItem('global_font_size');
         if (saved) this.fontSize = parseInt(saved, 10) || 16;
+        const jev = getJevConfig();
+        this.jevEnabled = jev.enabled;
+        this.jevApiKey = jev.apiKey;
+        this.jevEndpoint = jev.endpoint === defaultJevEndpoint ? '' : jev.endpoint;
     },
     methods: {
+        saveJevConfig() {
+            // 未填 key 强制关：setJevConfig 内部兜底，这里回读保证 UI 与实际状态一致
+            const saved = setJevConfig({
+                enabled: this.jevEnabled,
+                apiKey: this.jevApiKey.trim(),
+                endpoint: this.jevEndpoint.trim() || defaultJevEndpoint
+            });
+            this.jevEnabled = saved.enabled;
+            ElMessage.success(saved.enabled ? 'Jev 错因分析已启用' : 'Jev 设置已保存（未启用）');
+        },
         applyFontSize() {
             document.documentElement.style.fontSize = this.fontSize + 'px';
             localStorage.setItem('global_font_size', this.fontSize);

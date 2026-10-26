@@ -69,6 +69,7 @@
           :ai-text="aiCollapsedMap[i] ? '' : (aiAnalyses[i] || '')"
           :ai-loading="!!aiLoadingMap[i]"
           :ai-available="aiStore.isSupported"
+          :practice-insight="jevInsights[i] || ''"
           @toggle-answer="toggleAnswer(i)"
           @toggle-fav="toggleFav(item, i)"
           @toggle-mark="toggleMark(item)"
@@ -91,6 +92,7 @@ import QuestionItem from '@/components/QuestionItem.vue'
 import { getQuestionType, TYPE_LABEL } from '@/utils/questionType'
 import { buildQuestionAnalysisPrompt } from '@/utils/builtinAI'
 import { sortWrongByDue, clampTimeMs, PRACTICE_TIME_MAX_MS } from '@/utils/mastery'
+import { isJevEnabled, askDecisions, buildWrongAnswerAnalysis, ERROR_CAUSE_LABELS } from '@/utils/jev'
 
 export default {
   components: { QuestionItem },
@@ -117,6 +119,8 @@ export default {
       aiAnalyses: {},       // { index: 剖析文本（流式回填） }
       aiLoadingMap: {},     // { index: 生成中 }
       aiCollapsedMap: {},   // { index: 已收起 }
+      // Jev 错因洞察（opt-in）：答错后异步取回，fail-open 无结果即无展示
+      jevInsights: {},      // { index: '错因：概念混淆 · 建议看讲解' }
       _saveTimer: null,
       _suppressTimer: null,
       subjectOpts: [
@@ -326,6 +330,7 @@ export default {
       this.aiAnalyses = {}
       this.aiLoadingMap = {}
       this.aiCollapsedMap = {}
+      this.jevInsights = {}
       this.initShowAnswers();
       this.restoreSession();
     },
@@ -356,6 +361,7 @@ export default {
       this.aiAnalyses = {};
       this.aiLoadingMap = {};
       this.aiCollapsedMap = {};
+      this.jevInsights = {};
       this.resetPracticeClock();
       this.debouncedSaveSession();
     },
@@ -663,6 +669,33 @@ export default {
         : null;
       this.store.recordPractice(question, isCorrect, timeSpentMs);
       this.resetPracticeClock();
+
+      // 方案 B 语义层（opt-in）：答错后异步问 Jev 错因与是否需要讲解。
+      // 不 await —— 判分/收录等主链路已完成，结果回来才补一行展示，失败静默无感知
+      if (!isCorrect && isJevEnabled()) {
+        this.fetchJevInsight(index, question, qType, timeSpentMs);
+      }
+    },
+    async fetchJevInsight(index, question, qType, timeSpentMs) {
+      // 上送严格只含本题字段（state 白名单见 buildWrongAnswerAnalysis），不带任何全量画像
+      const result = this.practiceResults[index] || {};
+      const payload = buildWrongAnswerAnalysis({
+        question: { ...question, typeLabel: TYPE_LABEL[qType] },
+        userAnswer: result.userAnswer || '',
+        timeSpentMs
+      });
+      if (!this._jevSessionId) this._jevSessionId = 'practice-' + Date.now();
+      const answers = await askDecisions({
+        state: payload.state,
+        questions: payload.questions,
+        sessionId: this._jevSessionId
+      });
+      // 过期防御：结果回来时列表已重建 / 该题已不处于答错态 → 丢弃
+      if (!answers || this.practiceResults[index]?.isCorrect !== false) return;
+      const cause = ERROR_CAUSE_LABELS[answers.error_cause?.value];
+      if (!cause) return;
+      const hint = answers.need_explain?.value >= 0.5 ? ' · 建议看讲解' : '';
+      this.jevInsights[index] = `错因：${cause}${hint}`;
     },
     changeFlag(flagType, i) {
       // Legacy entrypoint — kept in case external code calls it. Delegates to toggleFav.
