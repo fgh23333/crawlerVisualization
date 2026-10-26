@@ -35,12 +35,24 @@ const weightOf = (q, records) => {
  * 等价于按权重比例的无放回抽样，O(n log n)。
  */
 function weightedPick(questions, count, records) {
-    if (count >= questions.length) return [...questions];
+    // 全量返回时洗牌，保证卷面顺序随机（否则超量请求会固定返回题库原序）
+    if (count >= questions.length) return shuffle([...questions]);
     return questions
         .map(q => ({ q, key: Math.random() ** (1 / weightOf(q, records)) }))
         .sort((a, b) => b.key - a.key)
         .slice(0, count)
         .map(x => x.q);
+}
+
+/**
+ * 通用加权抽样（无 fetch 副作用）：供自备题池的调用方复用
+ * （如 ncre3 理论随机练习），权重规则与 generateQuiz 完全一致——
+ * appearCount 基础权重（缺失时退化为均匀基数）× 掌握度乘子。
+ */
+export function weightedSample(questions, count, records = null) {
+    if (!Array.isArray(questions) || questions.length === 0) return []
+    if (!Number.isFinite(count) || count <= 0) return []
+    return weightedPick(questions, Math.floor(count), records)
 }
 
 const randomPick = async (subject, type, count, quizOptions, records) => {

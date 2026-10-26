@@ -36,6 +36,7 @@ import { useRouter } from 'vue-router'
 import { ArrowLeft, Timer } from '@element-plus/icons-vue'
 import { useQuestionStore } from '@/stores/question'
 import { loadNcre3Data } from '@/utils/ncre3Loader'
+import { weightedSample } from '@/utils/quizGenerator'
 import examCard from '@/components/examCard.vue'
 import examRecord from '@/components/examRecord.vue'
 
@@ -65,15 +66,6 @@ function stopTimer() {
   if (timerInterval) { clearInterval(timerInterval); timerInterval = null }
 }
 
-function shuffle(arr) {
-  const a = [...arr]
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]]
-  }
-  return a
-}
-
 function onExamStatus(status) {
   examStatus.value = status
   if (status) stopTimer()
@@ -90,7 +82,9 @@ onMounted(async () => {
 
   try {
     const all = await loadNcre3Data('ncre3_theory_all')
-    const picked = shuffle(all).slice(0, 100)
+    // 掌握度加权抽样：ncre3 题无 appearCount，基础权重退化为均匀基数，
+    // 个性化完全来自掌握度乘子（薄弱题 0.4~1.6 倍倾斜）；无记录用户等价均匀随机
+    const picked = weightedSample(all, 100, store.userRecords)
     store.loadQuestionBank(picked)
     questionList.value = picked
   } catch (e) {
