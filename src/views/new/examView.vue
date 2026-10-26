@@ -58,6 +58,8 @@ import examRecord from '@/components/examRecord.vue';
 import topBar from '@/components/topBar.vue';
 import { useQuestionStore } from '@/stores/question'
 import { loadExamPaper } from '@/utils/loadJson'
+import { loadExamSnapshot, clearExamSnapshot, matchesSnapshot, countAnswered } from '@/utils/examSnapshot'
+import { ElMessageBox } from 'element-plus'
 import { ArrowLeft, Timer } from '@element-plus/icons-vue'
 
 export default {
@@ -158,6 +160,13 @@ export default {
         '$route': async function (to, from) {
             if (to.path === from.path) return;
             await this.initExam(to);
+        },
+        // 作答有变即防抖落盘（意外退出可恢复最近一次未提交进度）
+        'store.answerList': {
+            deep: true,
+            handler() {
+                this.scheduleSnapshot()
+            }
         }
     },
     async created() {
@@ -203,7 +212,38 @@ export default {
         onWeightedChange(val) {
             localStorage.setItem('qb_weighted_quiz', val ? '1' : '0');
         },
+        async confirmRestore(snap) {
+            try {
+                await ElMessageBox.confirm(
+                    `检测到上次未提交的作答：已答 ${countAnswered(snap.answerList)}/${snap.questions.length} 题，保存于 ${new Date(snap.savedAt).toLocaleString('zh-CN')}。是否恢复继续作答？`,
+                    '恢复作答',
+                    { confirmButtonText: '恢复', cancelButtonText: '重新开始', type: 'info' }
+                )
+                return true
+            } catch (e) {
+                return false
+            }
+        },
+        scheduleSnapshot() {
+            if (this._snapTimer) clearTimeout(this._snapTimer)
+            this._snapTimer = setTimeout(() => {
+                this._snapTimer = null
+                this.flushSnapshot()
+            }, 1000)
+        },
+        flushSnapshot() {
+            if (this._snapTimer) {
+                clearTimeout(this._snapTimer)
+                this._snapTimer = null
+            }
+            // 已提交的卷由 checkAnswer 清快照，不落新的；无卷可录时跳过
+            if (this.examStatus || !this._snapMeta) return
+            this.store.saveExamProgress(this._snapMeta.kind, this._snapMeta.lesson, this._snapMeta.paperId, this.timerSeconds)
+        },
         async initExam(route) {
+            // 离开上一张卷（切卷 / 重进）前，先把其作答进度落盘
+            this.flushSnapshot()
+
             // Reset all exam state
             this.store.answerList = [];
             this.store.results = [];
@@ -230,6 +270,8 @@ export default {
 
             this.lesson = this.abbreviationSubjectList[lesson];
             this.seq = id;
+            // 快照元数据随卷固定：切卷/离开时路由参数已变，落盘须用本卷的
+            this._snapMeta = { kind: 'sizheng', lesson, paperId: String(id) };
 
             // Initialize paper options if not set or subject changed
             // Actually, best to rebuild to be safe
@@ -247,14 +289,28 @@ export default {
             }
             this.paperOptions.push(rest)
 
-            // Load questions
-            if (id === 'random') {
-                await this.getQuiz(this.newSubject.some(element => element == lesson), lesson)
-            } else {
-                await this.getQuestion(lesson, id)
+            // 未提交作答恢复：同一张卷有快照且已有作答 → 询问是否续答
+            const snap = loadExamSnapshot()
+            if (snap && matchesSnapshot(snap, { kind: 'sizheng', lesson, paperId: id }) && countAnswered(snap.answerList) > 0) {
+                if (await this.confirmRestore(snap)) {
+                    this.store.restoreExamProgress(snap)
+                    this.timerSeconds = snap.elapsed
+                    this.questionList = this.store.questionBank
+                } else {
+                    // 用户选择重新开始：作废旧快照，走正常取卷
+                    clearExamSnapshot()
+                }
             }
 
-            this.questionList = this.store.questionBank;
+            // Load questions
+            if (this.questionList.length === 0) {
+                if (id === 'random') {
+                    await this.getQuiz(this.newSubject.some(element => element == lesson), lesson)
+                } else {
+                    await this.getQuestion(lesson, id)
+                }
+                this.questionList = this.store.questionBank
+            }
 
             // Initialize results for the new question list
             if (this.questionList) {
@@ -279,8 +335,14 @@ export default {
             }
         }
     },
+    mounted() {
+        window.addEventListener('beforeunload', this.flushSnapshot)
+    },
     beforeUnmount() {
         this.stopTimer();
+        // 离开考试页（返回 / 跳转）前落盘，未提交作答下次可恢复
+        this.flushSnapshot();
+        window.removeEventListener('beforeunload', this.flushSnapshot)
     }
 }
 </script>

@@ -31,12 +31,14 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
+import { ElMessageBox } from 'element-plus'
 import { ArrowLeft, Timer } from '@element-plus/icons-vue'
 import { useQuestionStore } from '@/stores/question'
 import { loadNcre3Data } from '@/utils/ncre3Loader'
 import { weightedSample } from '@/utils/quizGenerator'
+import { loadExamSnapshot, clearExamSnapshot, matchesSnapshot, countAnswered } from '@/utils/examSnapshot'
 import examCard from '@/components/examCard.vue'
 import examRecord from '@/components/examRecord.vue'
 
@@ -71,7 +73,41 @@ function onExamStatus(status) {
   if (status) stopTimer()
 }
 
+// ── 作答进度快照：防意外退出丢失未提交作答 ──────────────
+const SNAP_META = { kind: 'ncre3', lesson: 'ncre3', paperId: 'theory' }
+let snapTimer = null
+function scheduleSnapshot() {
+  if (snapTimer) clearTimeout(snapTimer)
+  snapTimer = setTimeout(() => {
+    snapTimer = null
+    flushSnapshot()
+  }, 1000)
+}
+function flushSnapshot() {
+  if (snapTimer) { clearTimeout(snapTimer); snapTimer = null }
+  // 已提交的卷由 checkAnswer 清快照，不落新的
+  if (examStatus.value) return
+  store.saveExamProgress(SNAP_META.kind, SNAP_META.lesson, SNAP_META.paperId, timerSeconds.value)
+}
+const onBeforeUnload = () => flushSnapshot()
+watch(() => store.answerList, scheduleSnapshot, { deep: true })
+
+async function askRestore(snap) {
+  try {
+    await ElMessageBox.confirm(
+      `检测到上次未提交的作答：已答 ${countAnswered(snap.answerList)}/${snap.questions.length} 题，保存于 ${new Date(snap.savedAt).toLocaleString('zh-CN')}。是否恢复继续作答？`,
+      '恢复作答',
+      { confirmButtonText: '恢复', cancelButtonText: '重新开始', type: 'info' }
+    )
+    return true
+  } catch (e) {
+    return false
+  }
+}
+
 onMounted(async () => {
+  window.addEventListener('beforeunload', onBeforeUnload)
+
   // Reset store state
   store.answerList = []
   store.results = []
@@ -81,12 +117,26 @@ onMounted(async () => {
   startTimer()
 
   try {
-    const all = await loadNcre3Data('ncre3_theory_all')
-    // 掌握度加权抽样：ncre3 题无 appearCount，基础权重退化为均匀基数，
-    // 个性化完全来自掌握度乘子（薄弱题 0.4~1.6 倍倾斜）；无记录用户等价均匀随机
-    const picked = weightedSample(all, 100, store.userRecords)
-    store.loadQuestionBank(picked)
-    questionList.value = picked
+    // 未提交作答恢复：有本卷快照且已有作答 → 询问是否续答
+    const snap = loadExamSnapshot()
+    if (snap && matchesSnapshot(snap, SNAP_META) && countAnswered(snap.answerList) > 0) {
+      if (await askRestore(snap)) {
+        store.restoreExamProgress(snap)
+        timerSeconds.value = snap.elapsed
+        questionList.value = store.questionBank
+      } else {
+        clearExamSnapshot()
+      }
+    }
+
+    if (questionList.value.length === 0) {
+      const all = await loadNcre3Data('ncre3_theory_all')
+      // 掌握度加权抽样：ncre3 题无 appearCount，基础权重退化为均匀基数，
+      // 个性化完全来自掌握度乘子（薄弱题 0.4~1.6 倍倾斜）；无记录用户等价均匀随机
+      const picked = weightedSample(all, 100, store.userRecords)
+      store.loadQuestionBank(picked)
+      questionList.value = picked
+    }
   } catch (e) {
     console.error('Failed to load theory questions:', e)
     store.loadQuestionBank([])
@@ -95,7 +145,12 @@ onMounted(async () => {
   }
 })
 
-onBeforeUnmount(() => { stopTimer() })
+onBeforeUnmount(() => {
+  stopTimer()
+  // 离开考试页前落盘，未提交作答下次可恢复
+  flushSnapshot()
+  window.removeEventListener('beforeunload', onBeforeUnload)
+})
 </script>
 
 <style lang="scss" scoped>

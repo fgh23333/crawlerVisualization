@@ -148,10 +148,20 @@ export default {
         const length = this.questionTypes.fillInTheBlank.length + this.questionTypes.multipleChoice.length + this.questionTypes.singleChoice.length + this.questionTypes.trueOrFalse.length
         this.length = length
         this.submitted = false
-        this.store.answerList = this.store.questionBank.map(question => {
-            return question.option && question.option.length > 2 && question.answer.length > 1 ? [] : ''
-        })
-        this.status = new Array(length).fill('unactive')
+        // 恢复未提交作答：视图层已把校验过的快照挂到 pendingRestore，
+        // 题目已入 bank，这里只需按快照还原答案表与答题卡状态
+        const restore = this.store.pendingRestore
+        this.store.pendingRestore = null
+        if (restore && Array.isArray(restore.answerList)
+            && restore.answerList.length === this.store.questionBank.length) {
+            this.store.answerList = [...restore.answerList]
+            this.status = this.buildAnswerStatus(this.store.answerList)
+        } else {
+            this.store.answerList = this.store.questionBank.map(question => {
+                return question.option && question.option.length > 2 && question.answer.length > 1 ? [] : ''
+            })
+            this.status = new Array(length).fill('unactive')
+        }
     }
 };
 </script>

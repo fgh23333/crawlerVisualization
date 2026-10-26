@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import generateQuiz from '@/utils/quizGenerator'
 import { encodeFavorites, decodeFavorites, favoritesToJsonFile, parseFavoritesFile, mergeFavorites } from '@/utils/favoritesSync'
 import { computeOutcome, nextMastery, nextReview, clampTimeMs } from '@/utils/mastery'
+import { saveExamSnapshot, clearExamSnapshot, countAnswered } from '@/utils/examSnapshot'
 
 function getType(question) {
   if (!question.option || question.option.length === 0) return '填空'
@@ -67,6 +68,9 @@ export const useQuestionStore = defineStore('question', () => {
   // 考试单题计时：每题答案区首次/末次写入时间戳（会话态，不持久化，
   // checkAnswer 批量判分时取 last-first 作为该题耗时近似）
   const answerTouches = ref({})
+  // 待恢复的作答快照：视图层恢复时挂上，examRecord created 消费后置空
+  // （answerList 的初始化权在 examRecord，绕开它会被空模板覆写）
+  const pendingRestore = ref(null)
 
   // Data Migration: ensure stored lists are arrays of objects, not just IDs
   function migrateLists() {
@@ -241,6 +245,32 @@ export const useQuestionStore = defineStore('question', () => {
 
     score.value = results.value.filter(r => r.isCorrect).length
     clearAnswerTouches()
+    // 提交判分即本次考试终结，未提交作答快照随之作废
+    clearExamSnapshot()
+  }
+
+  // ── 考试作答进度快照（防意外退出丢失作答） ──────────
+  // 已答为 0 的空卷不存，避免覆盖掉真正有进度的上一张卷
+  function saveExamProgress(kind, lesson, paperId, elapsed) {
+    if (questionBank.value.length === 0) return
+    if (countAnswered(answerList.value) === 0) return
+    saveExamSnapshot({
+      kind,
+      lesson,
+      paperId: String(paperId),
+      questions: questionBank.value,
+      answerList: answerList.value,
+      answerTouches: answerTouches.value,
+      elapsed
+    })
+  }
+
+  // 恢复整卷：题目直接入 bank（快照自带，无需重拉），触碰时间戳与
+  // 待恢复标记一并就位，answerList 由 examRecord 消费 pendingRestore 时写入
+  function restoreExamProgress(snapshot) {
+    loadQuestionBank(snapshot.questions)
+    answerTouches.value = snapshot.answerTouches || {}
+    pendingRestore.value = snapshot
   }
 
   async function generateQuizAction(payload) {
@@ -280,9 +310,11 @@ export const useQuestionStore = defineStore('question', () => {
     wrongQuestions, answerList, questionBank, results,
     likeList, markList, score, fonts, userRecords,
     answerTouches,
+    pendingRestore,
     getQuestionsByType, getAllQuestions,
     loadQuestionBank, getQuestionType,
     touchAnswer, recordPractice,
+    saveExamProgress, restoreExamProgress,
     addWrongQuestion, removeWrongQuestion,
     addLikeQuestion, removeLikeQuestion,
     isFavorite, toggleFavorite,
