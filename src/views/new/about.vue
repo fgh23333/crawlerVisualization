@@ -3,23 +3,13 @@
         <div class="info-card">
             <div class="logo-section">
                 <img src="@/assets/logo.png" alt="Logo" class="app-logo">
-                <h1 class="app-name">思政题库</h1>
-                <p class="app-desc">高效复习 · 轻松备考</p>
+                <div class="logo-text">
+                    <h1 class="app-name">思政题库</h1>
+                    <p class="app-desc">高效复习 · 轻松备考</p>
+                </div>
             </div>
 
             <div class="content-section">
-                <div class="info-item">
-                    <div class="label">显示设置</div>
-                    <div class="text">调节全局字体大小，刷新后生效。</div>
-                    <div class="font-size-control">
-                        <span class="font-label">小</span>
-                        <el-slider v-model="fontSize" :min="12" :max="20" :step="1" show-stops style="flex:1;margin:0 12px;"></el-slider>
-                        <span class="font-label">大</span>
-                        <span class="font-value">{{ fontSize }}px</span>
-                    </div>
-                    <el-button type="primary" size="small" @click="applyFontSize">应用字体大小</el-button>
-                </div>
-
                 <div class="info-item">
                     <div class="label">数据同步</div>
                     <div class="text">跨设备同步收藏夹、错题本、标记和学习记录。</div>
@@ -100,7 +90,6 @@ export default {
     setup() { return { store: useQuestionStore() } },
     data() {
         return {
-            fontSize: 16,
             exportDialogVisible: false,
             exportCode: '',
             importDialogVisible: false,
@@ -108,16 +97,7 @@ export default {
             importPreview: null,
         }
     },
-    mounted() {
-        const saved = localStorage.getItem('global_font_size');
-        if (saved) this.fontSize = parseInt(saved, 10) || 16;
-    },
     methods: {
-        applyFontSize() {
-            document.documentElement.style.fontSize = this.fontSize + 'px';
-            localStorage.setItem('global_font_size', this.fontSize);
-            ElMessage.success('字体大小已应用，刷新页面后全局生效');
-        },
         showExportDialog() {
             this.exportCode = '';
             this.exportDialogVisible = true;
@@ -186,15 +166,16 @@ export default {
 #aboutUs {
     display: flex;
     justify-content: center;
-    height: 80%;
-    margin-top: 5%;
+    align-items: flex-start;
+    margin-top: 3vh;
 
     .info-card {
-        width: 600px;
+        width: 680px;
+        max-width: calc(100vw - 48px);
         background-color: #FFFFFF;
-        border-radius: 24px;
+        border-radius: 20px;
         box-shadow: 0 10px 30px rgba(108, 93, 211, 0.1);
-        padding: 40px;
+        padding: 28px 32px;
         font-family: 'HarmonyOS Sans SC', '思源黑体', sans-serif;
         text-align: center;
         animation: fadeInUp 0.5s ease-out forwards;
@@ -202,48 +183,51 @@ export default {
         transform: translateY(20px);
 
         .logo-section {
-            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 20px;
 
             .app-logo {
-                width: 80px;
-                height: 80px;
-                margin-bottom: 15px;
-                border-radius: 16px;
+                width: 56px;
+                height: 56px;
+                border-radius: 14px;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             }
 
             .app-name {
-                font-size: 28px;
+                font-size: 24px;
                 font-weight: bold;
                 color: #333;
-                margin: 0 0 10px;
+                margin: 0 0 4px;
             }
 
             .app-desc {
-                font-size: 16px;
+                font-size: 14px;
                 color: #888;
                 margin: 0;
             }
         }
 
         .content-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 24px;
             text-align: left;
-            padding: 0 20px;
 
             .info-item {
-                margin-bottom: 25px;
-
                 .label {
-                    font-size: 14px;
+                    font-size: 13px;
                     color: #6C5DD3;
                     font-weight: bold;
-                    margin-bottom: 8px;
+                    margin-bottom: 6px;
                     text-transform: uppercase;
                     letter-spacing: 1px;
                 }
 
                 .text {
-                    font-size: 16px;
+                    font-size: 14px;
                     color: #555;
                     line-height: 1.6;
 
@@ -252,46 +236,35 @@ export default {
                         font-weight: 500;
                         font-family: monospace;
                         background: #f5f5f5;
-                        padding: 8px 12px;
+                        padding: 6px 10px;
                         border-radius: 8px;
                         display: inline-block;
                     }
                 }
 
                 .sync-actions {
-                    margin-top: 10px;
+                    margin-top: 8px;
                     display: flex;
-                    gap: 10px;
-                }
-
-                .font-size-control {
-                    display: flex;
-                    align-items: center;
-                    margin: 10px 0;
-
-                    .font-label {
-                        font-size: 14px;
-                        color: #888;
-                    }
-
-                    .font-value {
-                        font-size: 14px;
-                        color: #6C5DD3;
-                        font-weight: bold;
-                        min-width: 36px;
-                        text-align: right;
-                    }
+                    flex-wrap: wrap;
+                    gap: 8px;
                 }
             }
         }
 
         .footer {
-            margin-top: 40px;
-            padding-top: 20px;
+            margin-top: 20px;
+            padding-top: 14px;
             border-top: 1px solid #eee;
             color: #999;
             font-size: 12px;
         }
+    }
+}
+
+// 窄屏退回单列，保持可读
+@media (max-width: 640px) {
+    #aboutUs .info-card .content-section {
+        grid-template-columns: 1fr;
     }
 }
 
