@@ -19,6 +19,15 @@
       // 恢复用户自定义字体大小
       var fs = localStorage.getItem('global_font_size');
       if (fs) document.documentElement.style.fontSize = fs + 'px';
+      // 夜间模式：渲染前先挂 dark 类（避免首屏闪白）；未显式选择时跟随系统
+      try {
+        var t = localStorage.getItem('qb_theme');
+        if (t === 'dark' || (!t && window.matchMedia
+            && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.background = '#101118';
+        }
+      } catch (e) {}
     })();
   </script>
   <link rel="icon" href="/favicon.ico">

@@ -42,7 +42,8 @@
             </el-col>
             <el-col :span="6">
                 <div class="grid-content examRecord">
-                    <examRecord @examStatus="disableOpts" :autoSave="autoSave" :key="$route.fullPath"></examRecord>
+                    <examRecord @examStatus="disableOpts" :autoSave="autoSave" :durationSeconds="timerSeconds"
+                        :key="$route.fullPath"></examRecord>
                 </div>
             </el-col>
         </el-row>

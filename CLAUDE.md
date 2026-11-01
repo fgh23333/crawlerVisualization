@@ -59,6 +59,7 @@ pnpm preview      # 本地预览生产构建
 - `src/utils/quizGenerator.js` — 随机组卷
 - `src/utils/statsAggregate.js` — 统计页纯函数聚合（科目/题型/榜单/趋势）
 - `src/utils/wrongStats.js` — 匿名错题频率采集（localStorage `wstats_*` 键，绝不带 `qb_` 前缀）
+- `src/utils/theme.js` — 夜间模式：html.dark 类驱动 + `qb_theme` 持久化（未选择跟随系统）；自定义覆盖在 `src/styles/dark.scss`，EP 走官方 dark css-vars
 
 ### Pages Functions（Cloudflare，无 wrangler.toml）
 - `functions/api/decisions.js` — AI 错因洞察（Workers AI clef-flash）
@@ -91,6 +92,14 @@ pnpm preview      # 本地预览生产构建
 - `viewed_*` — 已查看答案 ID 集合
 - `viewed_*_showAll` — 答案全局开关状态
 - `wstats_pending` / `wstats_uuid` / `wstats_seq` / `wstats_enabled` — 匿名错题采集队列与开关（键不带 `qb_`，热更新清缓存不受影响）
+- `qb_theme` — 夜间模式显式选择（dark/light；未设置时跟随系统 prefers-color-scheme）
+- `qb_wrong_sort` — 错题本排序方式（count 错误次数降序为默认 / due 复习优先 / recent 最近收录）
+
+## 交互动效要点
+
+- 考试提交后 examRecord 内常驻「成绩单」卡片（得分/正确率/用时/错题收录去向），不再弹一闪而过的 alert
+- 错题本排序快照：切入 tab 或切换排序时冻结一次（mastery.js sortWrongByDue/sortWrongByCount），练习中列表不重排
+- 夜间模式：index.html 引导脚本渲染前挂 html.dark 防闪白，侧栏「夜间模式」按钮切换
 
 ## 视口适配
 

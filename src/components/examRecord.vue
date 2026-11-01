@@ -1,6 +1,23 @@
 <template>
     <div id="examRecord">
         <div class="question-container">
+            <!-- 成绩单：提交判分后常驻显示（替代原先一闪而过的 alert 弹窗） -->
+            <div class="result-card"
+                v-if="submitted && store.score !== null && store.score !== undefined">
+                <div class="score-line">
+                    <span class="score-num" :class="{ full: store.score === length }">{{ store.score }}</span>
+                    <span class="score-total">/ {{ length }}</span>
+                </div>
+                <div class="score-rate">正确率 {{ accuracyPct }}%</div>
+                <div class="score-meta">
+                    <span v-if="durationSeconds > 0">用时 {{ formattedDuration }}</span>
+                    <span>{{ wrongCollectedText }}</span>
+                </div>
+                <div class="score-actions">
+                    <el-button size="small" type="primary" @click="$router.push('/newHome/favorites')">复习错题</el-button>
+                    <el-button size="small" @click="$router.push('/newHome/stats')">学习统计</el-button>
+                </div>
+            </div>
             <div class="question-grid">
                 <span class="answer-status" :class="status[index]"
                     v-for="(question, index) in store.questionBank" :key="question.id">
@@ -24,6 +41,11 @@ export default {
         autoSave: {
             type: Boolean,
             default: true
+        },
+        // 整卷用时（秒），由 examView 传入；0 表示不展示
+        durationSeconds: {
+            type: Number,
+            default: 0
         }
     },
     data() {
@@ -59,6 +81,23 @@ export default {
             return (index) => {
                 return this.store.answerList[index];
             };
+        },
+        // ── 成绩单展示 ──
+        accuracyPct() {
+            if (!this.length) return 0;
+            return Math.round((this.store.score / this.length) * 100);
+        },
+        formattedDuration() {
+            const m = Math.floor(this.durationSeconds / 60);
+            const s = this.durationSeconds % 60;
+            return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+        },
+        wrongCollectedText() {
+            if (this.store.score === this.length) return '全部答对，无错题';
+            const wrong = this.length - this.store.score;
+            return this.autoSave
+                ? `已收录 ${wrong} 道错题至错题本`
+                : `错题 ${wrong} 道（错题收录已关闭）`;
         }
     },
     watch: {
@@ -84,9 +123,6 @@ export default {
                     return
                 } else if (newValue == this.length) {
                     this.status = new Array(this.length).fill('true')
-                    ElMessageBox.alert(`得分为${newValue}，恭喜获得满分`, '提交成功', {
-                        confirmButtonText: '确定',
-                    });
                 } else {
                     const nextStatus = new Array(this.length).fill('false')
                     await results.map(item => {
@@ -97,16 +133,9 @@ export default {
                         }
                     })
                     this.status = nextStatus
-                    if (this.autoSave) {
-                        ElMessageBox.alert(`得分为${newValue}，错题已推送至收藏夹`, '提交成功', {
-                            confirmButtonText: '确定',
-                        });
-                    } else {
-                        ElMessageBox.alert(`得分为${newValue}`, '提交成功', {
-                            confirmButtonText: '确定',
-                        });
-                    }
                 }
+                // 成绩不再用一闪而过的弹窗：上方 result-card 常驻展示
+                // 得分 / 正确率 / 用时 / 错题收录去向
             }
         }
     },
@@ -190,6 +219,63 @@ export default {
     -ms-overflow-style: none;
 
     .question-container {
+        // 成绩单卡片：提交后常驻，替代原 alert
+        .result-card {
+            border: 1px solid #e0dcf2;
+            border-radius: 16px;
+            background: #f7f6ff;
+            padding: 18px 16px 14px;
+            margin-bottom: 20px;
+
+            .score-line {
+                display: flex;
+                align-items: baseline;
+                justify-content: center;
+                gap: 6px;
+
+                .score-num {
+                    font-size: 44px;
+                    font-weight: bold;
+                    color: #6C5DD3;
+                    line-height: 1.1;
+
+                    &.full {
+                        color: #67C23A;
+                    }
+                }
+
+                .score-total {
+                    font-size: 18px;
+                    color: #8F95B2;
+                }
+            }
+
+            .score-rate {
+                text-align: center;
+                color: #5A5E70;
+                font-size: 14px;
+                font-weight: 600;
+                margin-top: 2px;
+            }
+
+            .score-meta {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 6px 14px;
+                color: #8F95B2;
+                font-size: 13px;
+                margin-top: 10px;
+            }
+
+            .score-actions {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 14px;
+            }
+        }
+
         .typeTitle {
             text-align: left;
             color: #877bd1;

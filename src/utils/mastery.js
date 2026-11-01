@@ -144,3 +144,17 @@ export function countDue(wrongList, userRecords, now = Date.now()) {
   const records = userRecords || {}
   return wrongList.reduce((n, q) => n + (isDue(records[q.id], now) ? 1 : 0), 0)
 }
+
+/**
+ * 错题列表按错误次数降序（默认视图：错得最多的排最上，方便优先攻克）。
+ * 无作答记录的题按 0 次处理；同次数保持插入序（Array#sort 现代引擎保证稳定）。
+ * 与 sortWrongByDue 同理：只在切入错题 tab / 切换排序时调用一次做快照。
+ */
+export function sortWrongByCount(wrongList, userRecords) {
+  const records = userRecords || {}
+  return [...wrongList].sort((a, b) => {
+    const ea = records[a.id]?.errorCount || 0
+    const eb = records[b.id]?.errorCount || 0
+    return eb - ea
+  })
+}

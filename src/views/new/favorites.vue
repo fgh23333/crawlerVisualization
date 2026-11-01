@@ -17,8 +17,14 @@
                 <el-button v-if="aiStore.isSupported" size="small" class="ai-summary-btn" @click="showAiDialog">AI 归纳</el-button>
             </div>
         </div>
-        <div class="review-hint" v-if="value === 'wrong' && dueCount > 0">
-            今日待复习：{{ dueCount }} 题（已置顶）
+        <div class="wrong-toolbar" v-if="value === 'wrong'">
+            <!-- 错题排序：错误次数降序为默认（错得最多的先攻克），可切换复习调度/最近收录 -->
+            <el-radio-group v-model="wrongSort" size="small">
+                <el-radio-button value="count">错误最多</el-radio-button>
+                <el-radio-button value="due">复习优先</el-radio-button>
+                <el-radio-button value="recent">最近收录</el-radio-button>
+            </el-radio-group>
+            <span class="review-hint" v-if="wrongHint">{{ wrongHint }}</span>
         </div>
         <questionCard :subjectOptions="value" :favList="list" :selectedTypes="selectedTypes"></questionCard>
 
@@ -105,7 +111,7 @@ import { useQuestionStore } from '@/stores/question';
 import { useAiStore } from '@/stores/ai';
 import { ElMessageBox, ElMessage } from 'element-plus';
 import { decodeFavorites, parseFavoritesFile } from '@/utils/favoritesSync';
-import { sortWrongByDue, countDue } from '@/utils/mastery';
+import { sortWrongByDue, sortWrongByCount, countDue } from '@/utils/mastery';
 import { marked } from 'marked';
 import { buildFavoritesSummaryPrompt } from '@/utils/builtinAI';
 
@@ -209,6 +215,11 @@ export default {
             aiSummarized: false,
             // 错题 tab 排序快照：切入时冻结一次，tab 会话内不重排
             wrongSnapshot: null,
+            // 错题排序方式：count 错误次数降序（默认）/ due 到期复习置顶 / recent 最近收录在前；
+            // 选择持久化，尊重用户上次的浏览习惯
+            wrongSort: ['due', 'recent'].includes(localStorage.getItem('qb_wrong_sort'))
+                ? localStorage.getItem('qb_wrong_sort')
+                : 'count',
             // 60s 心跳时钟：只刷新「待复习」提示数字，不触碰列表顺序
             nowTs: Date.now(),
         }
@@ -220,6 +231,11 @@ export default {
     watch: {
         value(val) {
             if (val === 'wrong') this.rebuildWrongSnapshot();
+        },
+        // 切换排序立即生效（重拍快照）并持久化选择
+        wrongSort(val) {
+            try { localStorage.setItem('qb_wrong_sort', val) } catch { /* 存储不可用时仅本会话生效 */ }
+            if (this.value === 'wrong') this.rebuildWrongSnapshot();
         },
         // 清空错题本时同步清空快照；长度非 0 的变化不触发，避免练习中途重排
         'store.wrongQuestions.length'(len) {
@@ -247,6 +263,12 @@ export default {
         dueCount() {
             return countDue(this.store.wrongQuestions, this.store.userRecords, this.nowTs);
         },
+        // 排序提示语（错题 tab 专用）
+        wrongHint() {
+            if (this.wrongSort === 'count') return '按错误次数从多到少排列';
+            if (this.wrongSort === 'recent') return '最近收录的排最上';
+            return this.dueCount > 0 ? `今日待复习：${this.dueCount} 题（已置顶）` : '';
+        },
         canParse() {
             if (this.importMode === 'code') {
                 return this.importCode.trim().length > 0;
@@ -261,9 +283,19 @@ export default {
         if (this._nowTimer) clearInterval(this._nowTimer);
     },
     methods: {
-        // 重建错题排序快照：到期在前、未到期在后，组内保持插入序
+        // 重建错题排序快照：按当前排序方式冻结一次（练习/复习中列表不重排）
         rebuildWrongSnapshot() {
-            this.wrongSnapshot = sortWrongByDue(this.store.wrongQuestions, this.store.userRecords);
+            const list = this.store.wrongQuestions;
+            if (this.wrongSort === 'count') {
+                // 错误次数降序：错得最多的排最上（userRecords.errorCount 联结，无记录按 0）
+                this.wrongSnapshot = sortWrongByCount(list, this.store.userRecords);
+            } else if (this.wrongSort === 'recent') {
+                // upsert 追加式插入 → 逆序即最近收录在前
+                this.wrongSnapshot = [...list].reverse();
+            } else {
+                // 复习优先：到期在前、未到期在后，组内保持插入序
+                this.wrongSnapshot = sortWrongByDue(list, this.store.userRecords);
+            }
         },
         clearList() {
             ElMessageBox.confirm('此操作将清空当前列表, 是否继续?', '提示', {
@@ -526,6 +558,19 @@ export default {
             margin: 8px 0;
             color: #333;
             font-size: 15px;
+        }
+    }
+
+    // 错题排序工具行：排序 radio 组 + 当前排序说明
+    .wrong-toolbar {
+        margin: 0 34px 10px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+
+        .review-hint {
+            margin: 0;
         }
     }
 

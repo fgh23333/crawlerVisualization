@@ -17,6 +17,7 @@ import {
   isDue,
   masteryWeightMultiplier,
   sortWrongByDue,
+  sortWrongByCount,
   countDue,
 } from '../src/utils/mastery'
 
@@ -173,5 +174,29 @@ describe('sortWrongByDue / countDue 错题排序与统计', () => {
     const list = [w('a'), w('b'), w('c')]
     sortWrongByDue(list, records)
     expect(list.map(q => q.id)).toEqual(['a', 'b', 'c'])
+  })
+})
+
+describe('sortWrongByCount 错题按错误次数降序', () => {
+  const w = (id) => ({ id, questionStem: id })
+  const records = {
+    a: { errorCount: 3 },
+    b: { errorCount: 7 },
+    d: { errorCount: 7 }, // 与 b 同次数：验证稳定排序保持插入序
+    // c 无记录 → 按 0 次垫底
+  }
+  it('错误次数多的在前，无记录按 0 处理', () => {
+    const sorted = sortWrongByCount([w('a'), w('b'), w('c'), w('d')], records)
+    expect(sorted.map(q => q.id)).toEqual(['b', 'd', 'a', 'c'])
+  })
+  it('同次数保持插入序（稳定排序）', () => {
+    const sorted = sortWrongByCount([w('d'), w('b')], records)
+    expect(sorted.map(q => q.id)).toEqual(['d', 'b'])
+  })
+  it('空列表 / 空记录表容错，且不修改原数组', () => {
+    expect(sortWrongByCount([], records)).toEqual([])
+    const list = [w('c'), w('a')]
+    sortWrongByCount(list, undefined)
+    expect(list.map(q => q.id)).toEqual(['c', 'a'])
   })
 })

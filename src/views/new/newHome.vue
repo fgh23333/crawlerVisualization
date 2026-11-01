@@ -117,6 +117,17 @@
                         </div>
                     </template>
                 </el-popover>
+
+                <!-- 夜间模式：全局明暗切换（未选择过时跟随系统，一经点选即持久化） -->
+                <div class="icon-btn" :class="{ active: isDarkMode }" @click="onToggleTheme">
+                    <div class="icon-wrap">
+                        <el-icon :size="20">
+                            <MoonNight v-if="!isDarkMode" />
+                            <Sunny v-else />
+                        </el-icon>
+                    </div>
+                    <span class="icon-label">{{ isDarkMode ? '亮色模式' : '夜间模式' }}</span>
+                </div>
                 </div>
 
                 <!-- 意见反馈：专门入口，问卷链接统一在反馈页维护 -->
@@ -166,8 +177,9 @@
 import modal from '@/components/modal.vue'
 import AIDiagnosisModal from '@/components/AIDiagnosisModal.vue'
 import { ElMessage } from 'element-plus'
-import { Monitor, MagicStick, Star, Grid, Cpu, More, InfoFilled, ChatSquare, TrendCharts } from '@element-plus/icons-vue'
+import { Monitor, MagicStick, Star, Grid, Cpu, More, InfoFilled, ChatSquare, TrendCharts, MoonNight, Sunny } from '@element-plus/icons-vue'
 import { useAiStore } from '@/stores/ai'
+import { isDark, toggleTheme } from '@/utils/theme'
 import grapeIcon from '@/assets/icon/grape.svg'
 import juiceIcon from '@/assets/icon/juice.svg'
 import pearIcon from '@/assets/icon/pear.svg'
@@ -207,6 +219,8 @@ export default {
             value2: false,
             showLibPopover: false,
             showMorePopover: false,
+            // 夜间模式：初始态由 index.html 引导脚本 + initTheme 决定，这里只读现值
+            isDarkMode: isDark(),
         }
     },
     mounted() {
@@ -221,6 +235,11 @@ export default {
     methods: {
         open() {
             ElMessage({ showClose: true, message: '开发中，敬请期待' });
+        },
+        // 切换全局明暗主题并持久化（utils/theme 同步挂/摘 html.dark）
+        onToggleTheme() {
+            const next = toggleTheme();
+            this.isDarkMode = next === 'dark';
         },
         toggleSidebar() {
             this.isCollapsed = !this.isCollapsed;
@@ -254,7 +273,7 @@ export default {
     components: {
         modal,
         AIDiagnosisModal,
-        Monitor, MagicStick, Star, Grid, Cpu, More, InfoFilled, ChatSquare, TrendCharts
+        Monitor, MagicStick, Star, Grid, Cpu, More, InfoFilled, ChatSquare, TrendCharts, MoonNight, Sunny
     }
 }
 </script>
@@ -591,8 +610,8 @@ export default {
         gap: 10px;
 
         .buttonRow {
-            // 5 个入口（AI/收藏/统计/题库/更多）：单行装不下 216px（每钮最小宽 ~52px，
-            // 5 钮 + 间距 ≈ 276px 必然溢出），改 3 列网格 3+2 两行排布，图标尺寸不动
+            // 6 个入口（AI/收藏/统计/题库/更多/夜间模式）：单行装不下 216px（每钮最小宽 ~52px），
+            // 改 3 列网格 3+3 两行排布，图标尺寸不动
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 8px 4px;

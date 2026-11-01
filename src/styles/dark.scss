@@ -1,0 +1,450 @@
+/**
+ * 夜间模式（暗色主题）—— 只在 html.dark 下生效的第二层皮肤。
+ *
+ * 分两层配合：
+ * 1. Element Plus 组件：官方 dark css-vars（main.js 引入）+ 这里把变量重定义为本站色板，
+ *    弹层/菜单/输入框/表格等 EP 组件自动跟随；
+ * 2. 自定义 SCSS：组件里写死的浅色面（#fff 卡片、#FAFBFF 页面、#f4f4f8 软填充……）
+ *    按视图逐个覆盖，选择器统一带 html.dark 前缀。
+ *
+ * 色板（与浅色版同构，只换明度）：
+ *   页面底 #101118 · 侧栏/顶栏 #171821 · 卡片 #1B1C28 · 软填充 #232433
+ *   悬停 #2C2D44 · 条形轨道 #2A2B3E · 边框 #2A2B3C/#303145
+ *   正文 #C7C9D4 · 次级 #9A9CB0 · 弱化 #7A7C8C · 紫色主色不变（暗底提亮为 #A78BFA）
+ */
+
+html.dark {
+  // 原生滚动条 / 表单控件 / 日历弹层同步变暗
+  color-scheme: dark;
+
+  // —— Element Plus 变量接管（所有 EP 组件统一走本站暗色板）——
+  --el-bg-color: #1B1C28;
+  --el-bg-color-page: #101118;
+  --el-bg-color-overlay: #232433;
+  --el-text-color-primary: #E2E4EC;
+  --el-text-color-regular: #C7C9D4;
+  --el-text-color-secondary: #9A9CB0;
+  --el-text-color-placeholder: #7A7C8C;
+  --el-border-color: #303145;
+  --el-border-color-light: #2A2B3C;
+  --el-border-color-lighter: #262736;
+  --el-fill-color: #232433;
+  --el-fill-color-light: #2A2B3E;
+  --el-fill-color-lighter: #20212E;
+  --el-fill-color-blank: #171821;
+  --el-menu-bg-color: #171821;
+  --el-menu-text-color: #C7C9D4;
+  --el-menu-hover-bg-color: #232433;
+  --el-menu-active-color: #A78BFA;
+  --el-box-shadow-light: 0 0 0 1px rgba(0, 0, 0, 0.35);
+
+  body,
+  #app {
+    background: #101118;
+    color: #C7C9D4;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// 主布局：newHome 侧栏 + 内容区 + 顶栏
+// ─────────────────────────────────────────────────────────────
+html.dark {
+  #newHome {
+    .el-main {
+      background-color: #101118;
+      color: #C7C9D4;
+    }
+
+    .sidebar {
+      background-color: #171821;
+      border-right: 1px solid #262736;
+    }
+
+    .smallTitle {
+      color: #9A9CB0;
+    }
+
+    .toggle-bar {
+      &:hover {
+        background-color: rgba(64, 66, 92, 0.45);
+      }
+
+      .arrow {
+        background: #232433;
+      }
+    }
+
+    .hamburger .line {
+      background: #9A9CB0;
+    }
+
+    .toggle-bar:hover .hamburger .line {
+      background: #C7C9D4;
+    }
+
+    // 侧栏底部按钮区
+    .buttonContainer {
+      .feedback-entry {
+        background: #232433;
+        color: #9A9CB0;
+
+        &:hover {
+          background: #2C2D44;
+          color: #A78BFA;
+        }
+      }
+
+      .icon-btn {
+        .icon-wrap {
+          background: #232433;
+          color: #9A9CB0;
+        }
+
+        &:hover,
+        &.active {
+          .icon-wrap {
+            background: #2C2D44;
+            color: #A78BFA;
+          }
+
+          .icon-label {
+            color: #A78BFA;
+          }
+        }
+
+        .ai-status-dot {
+          border-color: #171821; // 角标描边随侧栏底色
+        }
+      }
+    }
+
+    // 弹出菜单（其他题库 / 更多）
+    .popover-menu .popover-item {
+      color: #C7C9D4;
+
+      .el-icon {
+        color: #9A9CB0;
+      }
+
+      &:hover {
+        background: #2A2B3E;
+        color: #A78BFA;
+
+        .el-icon {
+          color: #A78BFA;
+        }
+      }
+    }
+
+    .menu .selection .text {
+      color: #C7C9D4;
+    }
+
+    // 移动端抽屉态的悬浮汉堡钮
+    .toggle-bar.is-mobile {
+      background: rgba(23, 24, 33, 0.95);
+    }
+  }
+
+  #topBar .bg-purple,
+  #topBar .bg-purple-light {
+    background: #171821;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// 练习流：questionCard 容器 + QuestionItem 单题
+// ─────────────────────────────────────────────────────────────
+html.dark {
+  #questionCard {
+    .questionCover {
+      background-color: #1B1C28;
+      box-shadow:
+        0px -1px 8px 0px rgba(0, 0, 0, 0.35),
+        -1px 0px 8px 0px rgba(0, 0, 0, 0.35),
+        1px 0px 8px 0px rgba(0, 0, 0, 0.35),
+        0px 1px 8px 0px rgba(0, 0, 0, 0.35);
+    }
+
+    .bottomAlert {
+      color: #7A7C8C;
+    }
+
+    .breadCrumb {
+      color: #9A9CB0;
+    }
+  }
+
+  // QuestionItem：收藏/AI 按钮、剖析区、对错反馈块
+  .typeCover .questionTypeCover .right {
+    .fav-btn {
+      background-color: #232433;
+      color: #A78BFA;
+      border-color: #6C5DD3;
+
+      &:hover {
+        background-color: #2C2D44;
+      }
+    }
+
+    .ai-analysis {
+      background: #23222F;
+
+      :deep(code),
+      code {
+        background: #2C2A3E;
+        color: #C5B8FF;
+      }
+    }
+
+    .result-true {
+      color: #7DD87D;
+      background: rgba(11, 222, 0, 0.12);
+    }
+
+    .result-false {
+      color: #FF7B7B;
+      background: rgba(255, 59, 59, 0.12);
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// 考试流：examView 顶栏 + examCard 题卡 + examRecord 答题卡
+// ─────────────────────────────────────────────────────────────
+html.dark {
+  #examView {
+    .goBack .el-icon-arrow-left {
+      border-color: #C7C9D4;
+    }
+
+    .top-controls .exam-timer {
+      background: #2A2A3E;
+      color: #A78BFA;
+
+      &.timer-warning {
+        background: rgba(255, 59, 59, 0.14);
+        color: #FF7B7B;
+      }
+    }
+  }
+
+  #examCard {
+    background-color: #1B1C28;
+    box-shadow:
+      0px -1px 8px 0px rgba(0, 0, 0, 0.35),
+      -1px 0px 8px 0px rgba(0, 0, 0, 0.35),
+      1px 0px 8px 0px rgba(0, 0, 0, 0.35),
+      0px 1px 8px 0px rgba(0, 0, 0, 0.35);
+  }
+
+  #examRecord {
+    background-color: #1B1C28;
+    border-color: #2A2B3C;
+    box-shadow:
+      0px -1px 8px 0px rgba(0, 0, 0, 0.35),
+      -1px 0px 8px 0px rgba(0, 0, 0, 0.35),
+      1px 0px 8px 0px rgba(0, 0, 0, 0.35),
+      0px 1px 8px 0px rgba(0, 0, 0, 0.35);
+
+    // 成绩单卡片
+    .result-card {
+      background: #23222F;
+      border-color: #303145;
+
+      .score-rate {
+        color: #C7C9D4;
+      }
+
+      .score-meta {
+        color: #9A9CB0;
+      }
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// 收藏夹 / 统计 / 关于 / 反馈
+// ─────────────────────────────────────────────────────────────
+html.dark {
+  #favorites {
+    .review-hint {
+      background: rgba(108, 93, 211, 0.16);
+      color: #A78BFA;
+    }
+
+    .sync-section h4 {
+      color: #E2E4EC;
+    }
+
+    .ai-summary-body {
+      border-color: #303145;
+      color: #C7C9D4;
+
+      :deep(th),
+      th {
+        background: #23222F;
+        border-color: #303145;
+      }
+
+      :deep(td),
+      td {
+        border-color: #303145;
+      }
+
+      :deep(code),
+      code {
+        background: #2C2A3E;
+        color: #C5B8FF;
+      }
+    }
+  }
+
+  #statsView {
+    .stats-header .pageTitle {
+      color: #E2E4EC;
+    }
+
+    .kpi-tile,
+    .stats-card {
+      background: #1B1C28;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    .kpi-tile .kpi-num,
+    .stats-card .card-head .card-title {
+      color: #E2E4EC;
+    }
+
+    // 条形轨道（横向 div 条形图底色）
+    .bar-track,
+    .acc-bar,
+    .global-bar {
+      background: #2A2B3E;
+    }
+  }
+
+  #aboutUs .info-card {
+    background-color: #1B1C28;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+
+    .contact-email {
+      color: #C7C9D4;
+      background: #232433;
+    }
+  }
+
+  .feedback-page .feedback-card {
+    background: #1B1C28;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+
+    .qr-wrapper {
+      background: #232433;
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// AI 对话（gemma 组件 + 自检弹窗）
+// ─────────────────────────────────────────────────────────────
+html.dark {
+  .chat-container {
+    background: linear-gradient(180deg, #1B1C28, #171821);
+  }
+
+  .chat-box::-webkit-scrollbar-thumb {
+    background: #3A3B52;
+  }
+
+  .welcome .welcome-card {
+    background: #1B1C28;
+  }
+
+  .suggest-grid .suggest-chip {
+    background: #232433;
+    border-color: #303145;
+    color: #C7C9D4;
+
+    &:hover:not(:disabled) {
+      border-color: #4C4D66;
+      background: #2C2D44;
+    }
+  }
+
+  .message-wrapper .bot {
+    .msg-body {
+      background: #232433;
+      color: #C7C9D4;
+    }
+
+    .msg-avatar {
+      background: #232433;
+      border-color: #3A3B52;
+    }
+  }
+
+  .input-container .input-shell {
+    background: #171821;
+  }
+
+  .chat-toolbar .toolbar-btn {
+    background: #232433;
+    color: #C7C9D4;
+  }
+
+  .feedback .feedback-btn.active {
+    background: #2C2D44;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// 其他题库：ncre3 / 计组（容器 + 卡片，EP 组件走变量自动适配）
+// ─────────────────────────────────────────────────────────────
+html.dark {
+  #ncre3Home {
+    background-color: #101118;
+  }
+
+  .ncre3-home-content,
+  .ncre3-category,
+  .ncre3-favorites,
+  .ncre3-exam {
+    // 各页头部说明文字
+    .page-header,
+    .exam-header {
+      color: #E2E4EC;
+    }
+  }
+
+  .theory-card,
+  .java-answer-card,
+  .sql-answer-card,
+  .testing-table,
+  .uml-viewer,
+  .ncre3-category .questions-list > div,
+  .ncre3-favorites .favorites-list > div {
+    background: #1B1C28;
+  }
+
+  // el-table 表头是行内样式（浅色写死），需要 !important 压制
+  .testing-table .el-table th {
+    background: #232433 !important;
+    color: #C7C9D4 !important;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// 兜底：旧版入口与通用件（防「暗页面 + 纯白块」的破相观感）
+// ─────────────────────────────────────────────────────────────
+html.dark {
+  #home {
+    background-color: #101118;
+    color: #C7C9D4;
+  }
+
+  // 首访问卷弹窗
+  .modal-content {
+    background-color: #1B1C28;
+    color: #C7C9D4;
+  }
+}
