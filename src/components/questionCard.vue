@@ -46,7 +46,8 @@
               <el-dropdown-menu>
                 <el-dropdown-item command="savePDF">导出PDF</el-dropdown-item>
                 <el-dropdown-item command="savePDFNoAnswer">导出PDF（无答案）</el-dropdown-item>
-                <el-dropdown-item command="printPDF">打印题库</el-dropdown-item>
+                <el-dropdown-item command="printPDF" divided>打印题库</el-dropdown-item>
+                <el-dropdown-item command="printPDFNoAnswer">打印题库（无答案）</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -638,6 +639,9 @@ export default {
       }
       if (e === "printPDF") {
         makePdf("print", this.showList, title, null, ElMessage);
+      }
+      if (e === "printPDFNoAnswer") {
+        makePdf("print", this.showList, title, null, ElMessage, true);
       }
     },
     submitPractice(index, userAnswer) {

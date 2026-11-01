@@ -38,10 +38,18 @@
         <span class="count">共 {{ questions.length }} 题</span>
         <div class="toolbar-actions">
           <el-switch v-model="practiceMode" active-text="练习" inactive-text="" active-color="#6C5DD3" style="margin-right: 8px;" />
-          <el-button type="primary" text size="small" @click="downloadTheory">
-            <el-icon><Download /></el-icon>
-            导出题目
-          </el-button>
+          <el-dropdown trigger="click" @command="downloadTheory" style="margin-right: 8px;">
+            <el-button type="primary" text size="small">
+              <el-icon><Download /></el-icon>
+              导出题目
+            </el-button>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item command="withAnswers">导出（含答案）</el-dropdown-item>
+                <el-dropdown-item command="noAnswers">导出（无答案）</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
           <el-switch v-model="showAnswers" active-text="显示答案" inactive-text="隐藏答案" active-color="#6C5DD3" v-if="!practiceMode" />
         </div>
       </div>
@@ -159,24 +167,26 @@ async function loadData() {
 onMounted(loadData)
 watch(() => route.params.category, loadData)
 
-function downloadTheory() {
+// 导出理论题为 TXT：hideAnswers=true 时去掉【答案】行（用于自测重做）
+function downloadTheory(command) {
+  const hideAnswers = command === 'noAnswers'
   const labels = ['A', 'B', 'C', 'D', 'E', 'F']
   const typeMap = { trueOrFalse: '判断题', singleChoice: '单选题', multipleChoice: '多选题' }
   const lines = []
   questions.value.forEach((q, i) => {
     lines.push(`${i + 1}. [${typeMap[q.type] || '未知'}] ${q.questionStem}`)
     if (q.option) q.option.forEach((opt, j) => lines.push(`   ${labels[j]}、${opt}`))
-    lines.push(`   【答案】${q.answer}`)
+    if (!hideAnswers) lines.push(`   【答案】${q.answer}`)
     lines.push('')
   })
   const blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' })
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `ncre3_theory_${subKey.value || 'all'}_${new Date().toISOString().split('T')[0]}.txt`
+  a.download = `ncre3_theory_${subKey.value || 'all'}_${new Date().toISOString().split('T')[0]}${hideAnswers ? '_无答案' : ''}.txt`
   a.click()
   URL.revokeObjectURL(url)
-  ElMessage.success(`已导出 ${questions.value.length} 题`)
+  ElMessage.success(`已导出 ${questions.value.length} 题${hideAnswers ? '（无答案）' : ''}`)
 }
 </script>
 

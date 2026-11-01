@@ -19,10 +19,18 @@
         <el-button v-if="filter !== 'all' && filteredItems.length" type="danger" text @click="clearCurrent">
           清空当前列表
         </el-button>
-        <el-button type="primary" text @click="downloadData">
-          <el-icon><Download /></el-icon>
-          导出题目
-        </el-button>
+        <el-dropdown trigger="click" @command="downloadData">
+          <el-button type="primary" text>
+            <el-icon><Download /></el-icon>
+            导出题目
+          </el-button>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item command="withAnswers">导出（含答案）</el-dropdown-item>
+              <el-dropdown-item command="noAnswers">导出（无答案）</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
       </div>
     </div>
 
@@ -71,7 +79,10 @@ async function clearCurrent() {
   } catch { /* cancelled */ }
 }
 
-function downloadData() {
+// 导出为 TXT：hideAnswers=true 时只去掉【答案】行；
+// 【代码】/【测试用例】属于题面（SQL/Java 类题的作答素材），始终保留
+function downloadData(command) {
+  const hideAnswers = command === 'noAnswers'
   const items = filteredItems.value
   if (!items.length) {
     ElMessage.warning('暂无数据可导出')
@@ -91,10 +102,10 @@ function downloadData() {
           lines.push(`   ${labels[j]}、${opt}`)
         })
       }
-      lines.push(`   【答案】${item.answer}`)
+      if (!hideAnswers) lines.push(`   【答案】${item.answer}`)
     } else {
       lines.push(`${i + 1}. ${item.questionStem || item.title || item.id}`)
-      if (item.answer) lines.push(`   【答案】${item.answer}`)
+      if (!hideAnswers && item.answer) lines.push(`   【答案】${item.answer}`)
       if (item.code) lines.push(`   【代码】\n${item.code}`)
       if (item.files) {
         item.files.forEach(f => {
@@ -116,10 +127,10 @@ function downloadData() {
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `ncre3_${filter.value}_${new Date().toISOString().split('T')[0]}.txt`
+  a.download = `ncre3_${filter.value}_${new Date().toISOString().split('T')[0]}${hideAnswers ? '_无答案' : ''}.txt`
   a.click()
   URL.revokeObjectURL(url)
-  ElMessage.success(`已导出 ${items.length} 条记录`)
+  ElMessage.success(`已导出 ${items.length} 条记录${hideAnswers ? '（无答案）' : ''}`)
 }
 </script>
 

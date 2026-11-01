@@ -64,15 +64,26 @@
         >
           <template #prefix><el-icon><Search /></el-icon></template>
         </el-input>
-        <el-button
-          type="primary"
-          :loading="exporting"
-          :disabled="!filteredQuestions.length"
-          @click="exportPDF"
+        <el-dropdown
+          trigger="click"
+          @command="exportPDF"
+          :disabled="!filteredQuestions.length || exporting"
         >
-          <el-icon v-if="!exporting"><Download /></el-icon>
-          {{ exporting ? '生成中...' : '导出 PDF' }}
-        </el-button>
+          <el-button
+            type="primary"
+            :loading="exporting"
+            :disabled="!filteredQuestions.length"
+          >
+            <el-icon v-if="!exporting"><Download /></el-icon>
+            {{ exporting ? '生成中...' : '导出 PDF' }}
+          </el-button>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item command="withAnswers">导出 PDF（含答案）</el-dropdown-item>
+              <el-dropdown-item command="noAnswers">导出 PDF（无答案）</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
       </div>
     </div>
 
@@ -398,7 +409,9 @@ async function getImageDataURL(url) {
   }
 }
 
-async function exportPDF() {
+// 导出为可打印 HTML（window.print）：command='noAnswers' 时去掉答案块（自测重做用）
+async function exportPDF(command) {
+  const hideAnswers = command === 'noAnswers'
   if (exporting.value) return
   exporting.value = true
   const list = filteredQuestions.value
@@ -446,9 +459,9 @@ async function exportPDF() {
         </div>
         <div style="font-size:14px;line-height:1.75;color:#1f2937;">${qText}</div>
         ${optHTML}
-        <div style="margin-top:12px;padding:8px 12px;background:#f0fdf4;border-left:3px solid #10b981;border-radius:4px;font-size:13px;">
+        ${hideAnswers ? '' : `<div style="margin-top:12px;padding:8px 12px;background:#f0fdf4;border-left:3px solid #10b981;border-radius:4px;font-size:13px;">
           <span style="font-weight:600;color:#065f46;">答案：</span><span style="color:#065f46;">${ans}</span>
-        </div>
+        </div>`}
       </div>`
   }
 
@@ -466,7 +479,7 @@ h1 { font-size:24px;font-weight:700;color:#111;margin-bottom:4px; }
 </style>
 </head><body>
 <h1>计算机组成原理题库</h1>
-<div class="meta">${viewLabel}${searchLabel} · 共 ${list.length} 题</div>
+<div class="meta">${viewLabel}${searchLabel} · 共 ${list.length} 题${hideAnswers ? ' · 无答案版' : ''}</div>
 ${list.map(q => buildQuestionHTML(q)).join('')}
 </body></html>`
 

@@ -101,7 +101,6 @@
 
 <script>
 import questionCard from '@/components/questionCard.vue';
-import { makePdf } from "@/utils/makePdf";
 import { useQuestionStore } from '@/stores/question';
 import { useAiStore } from '@/stores/ai';
 import { ElMessageBox, ElMessage } from 'element-plus';
@@ -265,17 +264,6 @@ export default {
         // 重建错题排序快照：到期在前、未到期在后，组内保持插入序
         rebuildWrongSnapshot() {
             this.wrongSnapshot = sortWrongByDue(this.store.wrongQuestions, this.store.userRecords);
-        },
-        handleCommand(e) {
-            if (e === "savePDF") {
-                makePdf("save", this.list, "收藏夹", null, ElMessage);
-            }
-            if (e === "savePDFNoAnswer") {
-                makePdf("save", this.list, "收藏夹", null, ElMessage, true);
-            }
-            if (e === "printPDF") {
-                makePdf("print", this.list, "收藏夹", null, ElMessage);
-            }
         },
         clearList() {
             ElMessageBox.confirm('此操作将清空当前列表, 是否继续?', '提示', {
