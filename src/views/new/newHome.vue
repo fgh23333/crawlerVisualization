@@ -591,10 +591,12 @@ export default {
         gap: 10px;
 
         .buttonRow {
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-start;
-            gap: 4px;
+            // 5 个入口（AI/收藏/统计/题库/更多）：单行装不下 216px（每钮最小宽 ~52px，
+            // 5 钮 + 间距 ≈ 276px 必然溢出），改 3 列网格 3+2 两行排布，图标尺寸不动
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px 4px;
+            justify-items: center;
         }
 
         .feedback-entry {
@@ -623,7 +625,6 @@ export default {
             align-items: center;
             gap: 6px;
             cursor: pointer;
-            flex: 1;
             padding: 10px 4px;
             border-radius: 14px;
             text-decoration: none;
