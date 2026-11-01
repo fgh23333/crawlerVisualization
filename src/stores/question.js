@@ -4,6 +4,7 @@ import generateQuiz from '@/utils/quizGenerator'
 import { encodeFavorites, decodeFavorites, favoritesToJsonFile, parseFavoritesFile, mergeFavorites } from '@/utils/favoritesSync'
 import { computeOutcome, nextMastery, nextReview, clampTimeMs } from '@/utils/mastery'
 import { saveExamSnapshot, clearExamSnapshot, countAnswered } from '@/utils/examSnapshot'
+import { noteAnswer } from '@/utils/wrongStats'
 
 function getType(question) {
   if (!question.option || question.option.length === 0) return '填空'
@@ -54,6 +55,8 @@ function updateUserRecord(userRecords, questionId, isCorrect, meta = {}) {
   record.dueAt = review.dueAt
   // 科目冗余（懒补全）：统计页免 join 即可按科聚合；ncre3 题无科目不写
   if (meta.subject) record.subject = meta.subject
+  // 匿名错题频率采集（可在关于页关闭）：只记题目 ID 计数，失败静默不影响答题
+  try { noteAnswer(questionId, meta.subject, isCorrect) } catch { /* 采集失败静默 */ }
 }
 
 export const useQuestionStore = defineStore('question', () => {

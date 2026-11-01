@@ -31,6 +31,7 @@ pnpm preview      # 本地预览生产构建
 | `/newHome` | new/newHome.vue | **主入口**（侧边栏布局） |
 | `/newHome/:type/:lesson` | questionList.vue → questionCard.vue | 题目列表 |
 | `/newHome/favorites` | favorites.vue | 收藏夹/错题本 |
+| `/newHome/stats` | stats.vue | 学习统计（KPI/趋势/榜单/全站高频错题） |
 | `/newHome/exam/:lesson/:id` | examView.vue | 模拟考试 |
 | `/newHome/chat` | chatView.vue | AI 对话 (Beta) |
 | `/newHome/about` | about.vue | 关于页面 |
@@ -54,8 +55,15 @@ pnpm preview      # 本地预览生产构建
 - `src/utils/favoritesSync.js` — 收藏夹导入导出：encodeFavorites / decodeFavorites / mergeFavorites
 - `src/utils/questionType.ts` — 题型判断函数 getQuestionType + TYPE_LABEL 映射
 - `src/utils/loadJson.js` — 运行时题库加载，从 R2 远程拉取 + localStorage 缓存
-- `src/utils/makePdf.js` — PDF 生成（含答案/无答案）
+- `src/utils/makePdf.js` — PDF 生成（含答案/无答案，字体走 Cache API 缓存）
 - `src/utils/quizGenerator.js` — 随机组卷
+- `src/utils/statsAggregate.js` — 统计页纯函数聚合（科目/题型/榜单/趋势）
+- `src/utils/wrongStats.js` — 匿名错题频率采集（localStorage `wstats_*` 键，绝不带 `qb_` 前缀）
+
+### Pages Functions（Cloudflare，无 wrangler.toml）
+- `functions/api/decisions.js` — AI 错因洞察（Workers AI clef-flash）
+- `functions/api/wrongstats.js` — 匿名错题计数端点（D1 binding `DB`，幂等去重 + 限流）
+- `migrations/` — D1 迁移 SQL（库 `wrongstats`：question_stats 聚合表 + sync_ledger 台账）
 
 ## 数据结构
 
@@ -78,9 +86,11 @@ pnpm preview      # 本地预览生产构建
 
 ### 持久化字段（localStorage via Pinia）
 - `wrongQuestions`、`likeList`、`markList` — 题目对象数组
-- `userRecords` — `{ [questionId]: { questionId, errorCount, attempted, lastErrorDate } }`
+- `userRecords` — `{ [questionId]: { questionId, errorCount, attempted, lastErrorDate, subject, mastery, dueAt } }`
+- `examHistory` — 考试历史数组（最新在前，上限 200：kind/lesson/paperId/score/total/durationMs/ts）
 - `viewed_*` — 已查看答案 ID 集合
 - `viewed_*_showAll` — 答案全局开关状态
+- `wstats_pending` / `wstats_uuid` / `wstats_seq` / `wstats_enabled` — 匿名错题采集队列与开关（键不带 `qb_`，热更新清缓存不受影响）
 
 ## 视口适配
 

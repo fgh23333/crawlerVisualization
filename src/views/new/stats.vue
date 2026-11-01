@@ -168,6 +168,39 @@
                 </div>
             </div>
         </template>
+
+        <!-- 全站高频错题：匿名计数汇总（放在本地记录分支外，无本地记录也能看） -->
+        <div class="stats-card">
+            <div class="card-head">
+                <span class="card-title">全站高频错题（匿名汇总）</span>
+                <el-select v-model="globalSubject" size="small" style="width: 130px" @change="fetchGlobalStats">
+                    <el-option v-for="opt in subjectOptions" :key="'g' + opt.value" :label="opt.label" :value="opt.value" />
+                </el-select>
+            </div>
+            <div v-loading="globalLoading">
+                <div v-if="globalRows.length" class="rank-list">
+                    <div v-for="(row, i) in globalRows" :key="row.qid" class="rank-row">
+                        <span class="rank-no" :class="{ top: i < 3 }">{{ i + 1 }}</span>
+                        <div class="rank-main">
+                            <div class="rank-stem" :class="{ unknown: !row.stem }" :title="row.stem || row.qid">
+                                {{ row.stem ? row.stem : `题目 ${row.qid}（题干待补全）` }}
+                            </div>
+                            <div class="rank-meta">
+                                <el-tag size="small" effect="plain" type="info">{{ row.label }}</el-tag>
+                            </div>
+                        </div>
+                        <div class="rank-score">
+                            <span class="acc err">{{ accuracyText(row.rate) }}</span>
+                            <span class="att">全站 {{ row.attempts }} 次作答</span>
+                        </div>
+                    </div>
+                </div>
+                <el-empty v-else-if="!globalLoading && !globalError" description="全站暂无足够样本（作答满 10 次的题才会入榜）" :image-size="60" />
+                <el-alert v-else-if="globalError && !globalLoading" type="info" :closable="false" title="全站数据暂不可用"
+                    description="采集端点尚未上线或网络异常，仅影响本卡片，本地统计不受影响。" />
+            </div>
+            <div class="footnote">全站同学匿名作答计数汇总（仅题目 ID 与次数，不含题目内容与个人信息）；参与共享可在「关于」页随时关闭。</div>
+        </div>
     </div>
 </template>
 
@@ -201,7 +234,12 @@ export default {
       bestMinAttempts: 5,
       indexStatus: { done: 0, total: 0, building: true },
       indexedCount: 0,
-      onlineLoading: false
+      onlineLoading: false,
+      // 全站高频错题（匿名汇总）：独立于本地记录，失败降级只隐藏本卡片
+      globalRows: [],
+      globalLoading: false,
+      globalError: false,
+      globalSubject: ''
     }
   },
   computed: {
@@ -262,6 +300,9 @@ export default {
     }
     this.indexedCount = this._metaIndex.size
     this.recompute()
+
+    // 全站榜单独立加载（不阻塞本地统计渲染）
+    this.fetchGlobalStats()
   },
   methods: {
     metaOf(id) {
@@ -309,6 +350,34 @@ export default {
         ElMessage.error('补全失败：' + (e?.message || '网络异常'))
       } finally {
         this.onlineLoading = false
+      }
+    },
+    // 全站高频错题：GET /api/wrongstats（匿名计数聚合），题干用本地元数据 join
+    async fetchGlobalStats() {
+      this.globalLoading = true
+      this.globalError = false
+      try {
+        const qs = new URLSearchParams({ limit: '20', min_attempts: '10' })
+        if (this.globalSubject) qs.set('subject', this.globalSubject)
+        const res = await fetch(`/api/wrongstats?${qs.toString()}`)
+        if (!res.ok) throw new Error('HTTP ' + res.status)
+        const data = await res.json()
+        this.globalRows = (data.items || []).map(it => {
+          const meta = this.metaOf(it.qid)
+          return {
+            qid: it.qid,
+            stem: meta ? meta.stem : '',
+            label: SUBJECT_LABELS[it.subject] || it.subject,
+            attempts: it.attempts,
+            errors: it.errors,
+            rate: it.rate
+          }
+        })
+      } catch {
+        this.globalRows = []
+        this.globalError = true
+      } finally {
+        this.globalLoading = false
       }
     }
   }
@@ -487,81 +556,87 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 18px;
+  }
 
-    .rank-list {
+  // 榜单列表：本地 TOP10（.rank-grid 内）与全站高频错题（.stats-card 内）共用
+  .rank-list {
+    display: flex;
+    flex-direction: column;
+
+    .rank-row {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 2px;
+      border-bottom: 1px solid #f4f4f8;
 
-      .rank-row {
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .rank-no {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: #f0eff7;
+        color: #8F95B2;
+        font-size: 12px;
+        font-weight: 600;
         display: flex;
         align-items: center;
-        gap: 12px;
-        padding: 10px 2px;
-        border-bottom: 1px solid #f4f4f8;
+        justify-content: center;
+        flex-shrink: 0;
 
-        &:last-child {
-          border-bottom: none;
+        &.top {
+          background: #6C5DD3;
+          color: #fff;
+        }
+      }
+
+      .rank-main {
+        flex: 1;
+        min-width: 0;
+
+        .rank-stem {
+          font-size: 14px;
+          color: #444;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          &.unknown {
+            color: #b8b8c2;
+          }
         }
 
-        .rank-no {
-          width: 22px;
-          height: 22px;
-          border-radius: 50%;
-          background: #f0eff7;
-          color: #8F95B2;
-          font-size: 12px;
-          font-weight: 600;
+        .rank-meta {
+          margin-top: 4px;
           display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
+          gap: 6px;
+          flex-wrap: wrap;
+        }
+      }
 
-          &.top {
-            background: #6C5DD3;
-            color: #fff;
+      .rank-score {
+        text-align: right;
+        flex-shrink: 0;
+
+        .acc {
+          display: block;
+          font-size: 15px;
+          font-weight: bold;
+          color: #6C5DD3;
+
+          // 全站高频错题展示的是错误率，用警示色与本地正确率区分
+          &.err {
+            color: #F56C6C;
           }
         }
 
-        .rank-main {
-          flex: 1;
-          min-width: 0;
-
-          .rank-stem {
-            font-size: 14px;
-            color: #444;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-
-            &.unknown {
-              color: #b8b8c2;
-            }
-          }
-
-          .rank-meta {
-            margin-top: 4px;
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-          }
-        }
-
-        .rank-score {
-          text-align: right;
-          flex-shrink: 0;
-
-          .acc {
-            display: block;
-            font-size: 15px;
-            font-weight: bold;
-            color: #6C5DD3;
-          }
-
-          .att {
-            display: block;
-            font-size: 12px;
-            color: #a0a0aa;
-          }
+        .att {
+          display: block;
+          font-size: 12px;
+          color: #a0a0aa;
         }
       }
     }

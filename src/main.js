@@ -5,6 +5,7 @@ import pinia from './stores'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import { initWrongStats } from './utils/wrongStats'
 
 const app = createApp(App)
 
@@ -17,3 +18,6 @@ app.use(pinia)
 app.use(router)
 app.use(ElementPlus)
 app.mount('#app')
+
+// 匿名错题频率采集（默认开启，关于页可关）：启动/定时/页面隐藏冲刷，全程静默容错
+initWrongStats()

@@ -25,6 +25,14 @@
                 </div>
 
                 <div class="info-item">
+                    <div class="label">匿名错题统计共享</div>
+                    <div class="text">默认开启。仅上送每题「作答 / 答错」次数（如某题作答 3 次错 2 次），用于汇总全站高频错题；不含题目内容与任何个人信息，关闭立即生效且丢弃未上送数据。</div>
+                    <div class="sync-actions">
+                        <el-switch v-model="statsEnabled" active-text="参与共享" inactive-text="已关闭" active-color="#6C5DD3" @change="onStatsToggle" />
+                    </div>
+                </div>
+
+                <div class="info-item">
                     <div class="label">关于项目</div>
                     <div class="text">本项目致力于为广大学生提供一个便捷、高效的思政课刷题平台，涵盖马原、思政、毛概、习概等九个科目。</div>
                 </div>
@@ -86,6 +94,7 @@
 import { useQuestionStore } from '@/stores/question';
 import { ElMessage } from 'element-plus';
 import { encodeAllData, decodeAllData, collectViewedStates, mergeAllData, restoreViewedStates } from '@/utils/favoritesSync';
+import { isStatsEnabled, setStatsEnabled } from '@/utils/wrongStats';
 
 export default {
     setup() { return { store: useQuestionStore() } },
@@ -96,9 +105,14 @@ export default {
             importDialogVisible: false,
             importCode: '',
             importPreview: null,
+            statsEnabled: isStatsEnabled(),
         }
     },
     methods: {
+        onStatsToggle(value) {
+            setStatsEnabled(value);
+            ElMessage.success(value ? '已参与匿名错题统计共享' : '已关闭共享，未上送数据已丢弃');
+        },
         showExportDialog() {
             this.exportCode = '';
             this.exportDialogVisible = true;
