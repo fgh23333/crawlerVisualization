@@ -37,6 +37,7 @@ import { ElMessageBox } from 'element-plus'
 import { ArrowLeft, Timer } from '@element-plus/icons-vue'
 import { useQuestionStore } from '@/stores/question'
 import { loadNcre3Data } from '@/utils/ncre3Loader'
+import { formatShanghaiTime } from '@/utils/statsAggregate'
 import { weightedSample } from '@/utils/quizGenerator'
 import { loadExamSnapshot, clearExamSnapshot, matchesSnapshot, countAnswered } from '@/utils/examSnapshot'
 import examCard from '@/components/examCard.vue'
@@ -68,9 +69,29 @@ function stopTimer() {
   if (timerInterval) { clearInterval(timerInterval); timerInterval = null }
 }
 
+// 整卷成绩落库防重标志（onMounted 复位）：同一张卷只记一次
+let examLogged = false
+
 function onExamStatus(status) {
   examStatus.value = status
-  if (status) stopTimer()
+  if (status) {
+    stopTimer()
+    // 整卷成绩落库（kind='ncre3'，统计页趋势只取 sizheng，此处仅为数据完整）
+    if (!examLogged && store.questionBank.length > 0 && store.score !== null) {
+      examLogged = true
+      const ts = Date.now()
+      store.pushExamHistory({
+        kind: 'ncre3',
+        lesson: 'ncre3',
+        paperId: 'theory',
+        score: store.score,
+        total: store.questionBank.length,
+        durationMs: timerSeconds.value * 1000,
+        ts,
+        date: formatShanghaiTime(ts) // 全站统一 UTC+8
+      })
+    }
+  }
 }
 
 // ── 作答进度快照：防意外退出丢失未提交作答 ──────────────
@@ -113,6 +134,7 @@ onMounted(async () => {
   store.results = []
   store.score = null
   examStatus.value = false
+  examLogged = false
   timerSeconds.value = 0
   startTimer()
 

@@ -59,6 +59,7 @@ import topBar from '@/components/topBar.vue';
 import { useQuestionStore } from '@/stores/question'
 import { loadExamPaper } from '@/utils/loadJson'
 import { loadExamSnapshot, clearExamSnapshot, matchesSnapshot, countAnswered } from '@/utils/examSnapshot'
+import { formatShanghaiTime } from '@/utils/statsAggregate'
 import { ElMessageBox } from 'element-plus'
 import { ArrowLeft, Timer } from '@element-plus/icons-vue'
 
@@ -190,6 +191,21 @@ export default {
             this.examStatus = status
             if (status) {
                 this.stopTimer()
+                // 整卷成绩落库（统计页趋势数据源）：同一张卷只记一次，initExam 复位
+                if (!this._examLogged && this.store.questionBank.length > 0 && this.store.score !== null) {
+                    this._examLogged = true
+                    const ts = Date.now()
+                    this.store.pushExamHistory({
+                        kind: 'sizheng',
+                        lesson: this.$route.params.lesson,
+                        paperId: String(this.$route.params.id),
+                        score: this.store.score,
+                        total: this.store.questionBank.length,
+                        durationMs: this.timerSeconds * 1000,
+                        ts,
+                        date: formatShanghaiTime(ts) // 全站统一 UTC+8
+                    })
+                }
             }
         },
         async getQuiz(type, lesson) {
@@ -250,6 +266,7 @@ export default {
             this.store.score = null;
             this.examStatus = false;
             this.questionList = [];
+            this._examLogged = false;
 
             // Reset timer
             this.stopTimer();

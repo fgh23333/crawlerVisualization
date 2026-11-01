@@ -52,6 +52,14 @@
                     <span class="icon-label">收藏夹</span>
                 </router-link>
 
+                <!-- 数据统计 -->
+                <router-link to="/newHome/stats" class="icon-btn">
+                    <div class="icon-wrap">
+                        <el-icon :size="20"><TrendCharts /></el-icon>
+                    </div>
+                    <span class="icon-label">数据统计</span>
+                </router-link>
+
                 <!-- 其他题库 -->
                 <el-popover
                     placement="top"
@@ -158,7 +166,7 @@
 import modal from '@/components/modal.vue'
 import AIDiagnosisModal from '@/components/AIDiagnosisModal.vue'
 import { ElMessage } from 'element-plus'
-import { Monitor, MagicStick, Star, Grid, Cpu, More, InfoFilled, ChatSquare } from '@element-plus/icons-vue'
+import { Monitor, MagicStick, Star, Grid, Cpu, More, InfoFilled, ChatSquare, TrendCharts } from '@element-plus/icons-vue'
 import { useAiStore } from '@/stores/ai'
 import grapeIcon from '@/assets/icon/grape.svg'
 import juiceIcon from '@/assets/icon/juice.svg'
@@ -246,7 +254,7 @@ export default {
     components: {
         modal,
         AIDiagnosisModal,
-        Monitor, MagicStick, Star, Grid, Cpu, More, InfoFilled, ChatSquare
+        Monitor, MagicStick, Star, Grid, Cpu, More, InfoFilled, ChatSquare, TrendCharts
     }
 }
 </script>

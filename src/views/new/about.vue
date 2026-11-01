@@ -66,6 +66,7 @@
                     <div>错题本: +{{ importPreview.summary.wrongAdded }} 道</div>
                     <div>标记: +{{ importPreview.summary.markAdded }} 道</div>
                     <div>学习记录: {{ importPreview.summary.recordsMerged }} 条</div>
+                    <div>考试记录: +{{ importPreview.summary.examAdded }} 条</div>
                 </el-alert>
             </div>
             <template #footer>
@@ -108,6 +109,7 @@ export default {
                 likeList: this.store.likeList,
                 markList: this.store.markList,
                 userRecords: this.store.userRecords,
+                examHistory: this.store.examHistory,
                 viewedStates: collectViewedStates()
             };
             this.exportCode = encodeAllData(payload);
@@ -138,6 +140,7 @@ export default {
                     likeList: this.store.likeList,
                     markList: this.store.markList,
                     userRecords: this.store.userRecords,
+                    examHistory: this.store.examHistory,
                     viewedStates: collectViewedStates()
                 };
                 const { merged, summary } = mergeAllData(existing, decoded.data);
@@ -153,6 +156,7 @@ export default {
             this.store.likeList = merged.likeList;
             this.store.markList = merged.markList;
             this.store.userRecords = merged.userRecords;
+            this.store.examHistory = merged.examHistory;
             restoreViewedStates(merged.viewedStates);
             ElMessage.success('数据导入成功，请刷新页面以生效');
             this.importDialogVisible = false;

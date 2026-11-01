@@ -52,6 +52,8 @@ function updateUserRecord(userRecords, questionId, isCorrect, meta = {}) {
   const review = nextReview(record, isCorrect)
   record.reviewStage = review.reviewStage
   record.dueAt = review.dueAt
+  // 科目冗余（懒补全）：统计页免 join 即可按科聚合；ncre3 题无科目不写
+  if (meta.subject) record.subject = meta.subject
 }
 
 export const useQuestionStore = defineStore('question', () => {
@@ -65,6 +67,9 @@ export const useQuestionStore = defineStore('question', () => {
   const score = ref(null)
   const fonts = ref(null)
   const userRecords = ref({})
+  // 考试成绩历史（最新在前，上限 200 条）：练习/考试作答计数在 userRecords，
+  // 整卷成绩（得分/满分/用时）此前只弹一次窗即丢，这里持久化供统计页画趋势
+  const examHistory = ref([])
   // 考试单题计时：每题答案区首次/末次写入时间戳（会话态，不持久化，
   // checkAnswer 批量判分时取 last-first 作为该题耗时近似）
   const answerTouches = ref({})
@@ -126,7 +131,8 @@ export const useQuestionStore = defineStore('question', () => {
     if (!question || question.id === undefined || question.id === null) return
     updateUserRecord(userRecords.value, question.id, isCorrect, {
       timeSpentMs,
-      questionType: getType(question)
+      questionType: getType(question),
+      subject: question.abbreviationSubject
     })
     if (!isCorrect) {
       addWrongQuestion(question)
@@ -232,7 +238,8 @@ export const useQuestionStore = defineStore('question', () => {
             const touch = answerTouches.value[index]
             return touch ? clampTimeMs(touch.last - touch.first) : null
           })(),
-          questionType: getType(question)
+          questionType: getType(question),
+          subject: question.abbreviationSubject
         })
 
         results.value.push({ questionId: question.id, isCorrect })
@@ -247,6 +254,18 @@ export const useQuestionStore = defineStore('question', () => {
     clearAnswerTouches()
     // 提交判分即本次考试终结，未提交作答快照随之作废
     clearExamSnapshot()
+  }
+
+  // 记一条整卷成绩（视图层在考试提交完成时调用；非法分数不落库）
+  // 去重键 = kind+lesson+paperId+ts：同一时间戳的重复触发直接忽略
+  function pushExamHistory(entry) {
+    if (!entry || !(entry.total > 0) || !Number.isFinite(entry.score)) return
+    const dup = examHistory.value.some(h =>
+      h.kind === entry.kind && h.lesson === entry.lesson &&
+      h.paperId === entry.paperId && h.ts === entry.ts)
+    if (dup) return
+    examHistory.value.unshift({ ...entry })
+    if (examHistory.value.length > 200) examHistory.value.splice(200)
   }
 
   // ── 考试作答进度快照（防意外退出丢失作答） ──────────
@@ -309,6 +328,7 @@ export const useQuestionStore = defineStore('question', () => {
   return {
     wrongQuestions, answerList, questionBank, results,
     likeList, markList, score, fonts, userRecords,
+    examHistory,
     answerTouches,
     pendingRestore,
     getQuestionsByType, getAllQuestions,
@@ -322,11 +342,11 @@ export const useQuestionStore = defineStore('question', () => {
     isMarked, toggleMark, clearMarkList,
     addFavoriteQuestion, removeFavoriteQuestion,
     clearLikeList, clearWrongQuestions,
-    checkAnswer, generateQuizAction,
+    checkAnswer, generateQuizAction, pushExamHistory,
     exportFavoritesData, importFavoritesData
   }
 }, {
   persist: {
-    pick: ['wrongQuestions', 'likeList', 'markList', 'userRecords']
+    pick: ['wrongQuestions', 'likeList', 'markList', 'userRecords', 'examHistory']
   }
 })

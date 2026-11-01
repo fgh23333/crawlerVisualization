@@ -165,6 +165,24 @@ export function restoreViewedStates(states) {
 }
 
 /**
+ * 合并考试历史：按 kind+lesson+paperId+ts 去重取并集，ts 降序，截 200 条
+ * （与 store.pushExamHistory 同一上限；两侧字段缺失均容错）
+ */
+export function mergeExamHistory(existingList = [], incomingList = []) {
+  const seen = new Set()
+  const merged = []
+  for (const h of [...(existingList || []), ...(incomingList || [])]) {
+    if (!h || !Number.isFinite(h.ts)) continue
+    const key = `${h.kind}|${h.lesson}|${h.paperId}|${h.ts}`
+    if (seen.has(key)) continue
+    seen.add(key)
+    merged.push(h)
+  }
+  merged.sort((a, b) => b.ts - a.ts)
+  return merged.slice(0, 200)
+}
+
+/**
  * 合并全量数据
  * @param {Object} existing - 当前数据
  * @param {Object} incoming - 导入的数据
@@ -176,7 +194,8 @@ export function mergeAllData(existing, incoming) {
     likeList: mergeFavorites(existing.likeList || [], incoming.likeList || []).merged,
     markList: mergeFavorites(existing.markList || [], incoming.markList || []).merged,
     userRecords: { ...(existing.userRecords || {}) },
-    viewedStates: { ...(existing.viewedStates || {}) }
+    viewedStates: { ...(existing.viewedStates || {}) },
+    examHistory: mergeExamHistory(existing.examHistory || [], incoming.examHistory || [])
   }
 
   // 合并 userRecords：计数器保留更大的 attempted 和 errorCount；
@@ -215,7 +234,8 @@ export function mergeAllData(existing, incoming) {
     likeAdded: merged.likeList.length - (existing.likeList || []).length,
     markAdded: merged.markList.length - (existing.markList || []).length,
     recordsMerged: Object.keys(incoming.userRecords || {}).length,
-    statesMerged: Object.keys(incoming.viewedStates || {}).length
+    statesMerged: Object.keys(incoming.viewedStates || {}).length,
+    examAdded: merged.examHistory.length - (existing.examHistory || []).length
   }
 
   return { merged, summary }

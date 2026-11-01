@@ -9,6 +9,7 @@ import {
   collectViewedStates,
   restoreViewedStates,
   mergeAllData,
+  mergeExamHistory,
 } from '../src/utils/favoritesSync'
 
 const q = (id) => ({
@@ -199,5 +200,48 @@ describe('mergeAllData 引擎字段胜者携带', () => {
       lastErrorDate: '2026-09-01',
     })
     expect('mastery' in rec).toBe(false)
+  })
+})
+
+// 考试历史跨设备合并：与 store.pushExamHistory 同一去重键与 200 条上限
+describe('mergeExamHistory 考试历史合并', () => {
+  const h = (ts, lesson = 'Marx', paperId = '1') => ({
+    kind: 'sizheng', lesson, paperId, score: 80, total: 100, ts, date: '2026-11-01 10:00',
+  })
+
+  it('按 kind+lesson+paperId+ts 去重并集，ts 降序', () => {
+    const existing = [h(3000), h(1000)]
+    const incoming = [h(1000), h(2000, 'CMH', 'random'), h(4000)]
+    const merged = mergeExamHistory(existing, incoming)
+    expect(merged.map((x) => x.ts)).toEqual([4000, 3000, 2000, 1000])
+  })
+
+  it('上限 200 条（保留最新），缺失字段容错', () => {
+    const existing = Array.from({ length: 150 }, (_, i) => h(i + 1))
+    const incoming = Array.from({ length: 150 }, (_, i) => h(1000 + i))
+    const merged = mergeExamHistory(existing, incoming)
+    expect(merged).toHaveLength(200)
+    expect(merged[0].ts).toBe(1149) // 最新在前
+    expect(merged.map((x) => x.ts)).not.toContain(1) // 最旧的被挤出
+
+    // 一侧没有考试历史（旧版本同步码）不抛错
+    expect(mergeExamHistory(undefined, [h(5)])).toHaveLength(1)
+    expect(mergeExamHistory([h(5)], null)).toHaveLength(1)
+    // 非法条目（无 ts）剔除
+    expect(mergeExamHistory([{ score: 1 }], [h(7)])).toHaveLength(1)
+  })
+
+  it('mergeAllData 集成：examHistory 进出一致、summary.examAdded 正确', () => {
+    const existing = {
+      wrongQuestions: [], likeList: [], markList: [], userRecords: {}, viewedStates: {},
+      examHistory: [h(1000)],
+    }
+    const incoming = {
+      wrongQuestions: [], likeList: [], markList: [], userRecords: {}, viewedStates: {},
+      examHistory: [h(1000), h(2000)],
+    }
+    const { merged, summary } = mergeAllData(existing, incoming)
+    expect(merged.examHistory.map((x) => x.ts)).toEqual([2000, 1000])
+    expect(summary.examAdded).toBe(1)
   })
 })
