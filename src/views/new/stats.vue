@@ -38,7 +38,7 @@
             <div class="stats-card">
                 <div class="card-head">
                     <span class="card-title">考试成绩趋势</span>
-                    <el-select v-model="trendLesson" size="small" style="width: 130px">
+                    <el-select v-model="trendLesson" size="small" style="width: 130px" :teleported="false">
                         <el-option v-for="opt in subjectOptions" :key="opt.value" :label="opt.label" :value="opt.value" />
                     </el-select>
                 </div>
@@ -111,7 +111,7 @@
                 <div class="stats-card">
                     <div class="card-head">
                         <span class="card-title">正确率最低 TOP10</span>
-                        <el-select :model-value="worstMinAttempts" size="small" style="width: 120px"
+                        <el-select :model-value="worstMinAttempts" size="small" style="width: 120px" :teleported="false"
                             @update:model-value="worstMinAttempts = $event">
                             <el-option :value="3" label="最少 3 次作答" />
                             <el-option :value="5" label="最少 5 次作答" />
@@ -142,7 +142,7 @@
                 <div class="stats-card">
                     <div class="card-head">
                         <span class="card-title">正确率最高 TOP10</span>
-                        <el-select :model-value="bestMinAttempts" size="small" style="width: 120px"
+                        <el-select :model-value="bestMinAttempts" size="small" style="width: 120px" :teleported="false"
                             @update:model-value="bestMinAttempts = $event">
                             <el-option :value="3" label="最少 3 次作答" />
                             <el-option :value="5" label="最少 5 次作答" />
@@ -175,7 +175,7 @@
         <div class="stats-card">
             <div class="card-head">
                 <span class="card-title">全站高频错题（匿名汇总）</span>
-                <el-select v-model="globalSubject" size="small" style="width: 130px" @change="fetchGlobalStats">
+                <el-select v-model="globalSubject" size="small" style="width: 130px" :teleported="false" @change="fetchGlobalStats">
                     <el-option v-for="opt in subjectOptions" :key="'g' + opt.value" :label="opt.label" :value="opt.value" />
                 </el-select>
             </div>

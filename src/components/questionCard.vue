@@ -7,31 +7,33 @@
     <div v-else-if="list == ''">暂无数据</div>
     <div v-else>
       <div class="header">
-        <div class="breadCrumb" v-if="subjectShow.includes(lesson) && !onSearch">
-          {{ subjectList[lesson] }} - {{ questionType[type] }} - 共{{ list.length }}题
-          <span class="progress-chip" v-if="progressInfo">已刷 {{ progressInfo.done }}/{{ progressInfo.total }} 题<template
-              v-if="progressInfo.acc !== null"> · 正确率 {{ Math.round(progressInfo.acc * 100) }}%</template></span>
-        </div>
-        <div class="breadCrumb" v-if="subjectShow.includes(lesson) && onSearch">
-          {{ subjectList[lesson] }} - {{ questionType[type] }} - 搜索结果共{{ showList.length }}题
-        </div>
-        <div class="breadCrumb" v-if="!lesson && !onSearch">
-          <span class="count">共{{ showList.length }}题</span>
-          <span class="subjectSelector">
-            <el-select v-model="subjectFocus" collapse-tags multiple placeholder="请选择">
-              <el-option v-for="(subjectOpt, i) in subjectOpts" :key="i" :label="subjectOpt.label"
-                :value="subjectOpt.value">
-              </el-option>
-            </el-select>
-          </span>
-        </div>
-        <div class="breadCrumb" v-if="!lesson && onSearch">
-          搜索结果共{{ showList.length }}题
+        <div class="breadCrumb">
+          <template v-if="subjectShow.includes(lesson) && !onSearch">
+            <span class="crumb-text">{{ subjectList[lesson] }} - {{ questionType[type] }} - 共{{ list.length }}题</span>
+            <span class="progress-chip" v-if="progressInfo">已刷 {{ progressInfo.done }}/{{ progressInfo.total }} 题<template
+                v-if="progressInfo.acc !== null"> · 正确率 {{ Math.round(progressInfo.acc * 100) }}%</template></span>
+          </template>
+          <template v-else-if="subjectShow.includes(lesson) && onSearch">
+            <span class="crumb-text">{{ subjectList[lesson] }} - {{ questionType[type] }} - 搜索结果共{{ showList.length }}题</span>
+          </template>
+          <template v-else-if="!onSearch">
+            <span class="count">共{{ showList.length }}题</span>
+            <span class="subjectSelector">
+              <el-select v-model="subjectFocus" collapse-tags multiple placeholder="请选择" :teleported="false">
+                <el-option v-for="(subjectOpt, i) in subjectOpts" :key="i" :label="subjectOpt.label"
+                  :value="subjectOpt.value">
+                </el-option>
+              </el-select>
+            </span>
+          </template>
+          <template v-else>
+            <span class="crumb-text">搜索结果共{{ showList.length }}题</span>
+          </template>
         </div>
         <div class="rightplace">
           <!--          背题模式：按标准答案筛选（判断/单选/多选页显示，总题库与收藏夹隐藏）-->
           <el-select v-if="answerOptions.length" v-model="answerFilter" class="answer-filter" size="small" clearable
-            placeholder="背题筛选" style="width: 118px">
+            placeholder="背题筛选" style="width: 118px" :teleported="false">
             <el-option v-for="opt in answerOptions" :key="opt.value" :label="opt.label" :value="opt.value" />
           </el-select>
           <!--          一键显示/隐藏答案开关-->
@@ -42,12 +44,12 @@
           <el-switch v-model="practiceMode" active-text="练习" inactive-text="" active-color="#6C5DD3"
             class="practice-switch">
           </el-switch>
-          <!--          搜索框-->
+          <!--          搜索框：弹性伸展但永不小于 140px——字号放大（body zoom）挤压布局时不再消失-->
           <el-input class="input" placeholder="搜题（回车以搜索）" v-model="searchWord" @change="search" @input="changeInput"
             clearable>
           </el-input>
-          <!--          更多功能-下拉菜单-导出pdf-->
-          <el-dropdown placement="bottom" class="dropdown" @command="handleCommand">
+          <!--          更多功能-下拉菜单-导出pdf（teleported=false 内联渲染，规避 body zoom 下弹层坐标错位）-->
+          <el-dropdown placement="bottom" class="dropdown" :teleported="false" @command="handleCommand">
             <el-button icon="el-icon-s-operation" type="text" size="medium">工具</el-button>
             <template #dropdown>
               <el-dropdown-menu>
@@ -853,42 +855,38 @@ export default {
 }
 
 #questionCard {
+  // 头栏：flex-wrap 自适应。字号档位（body 级 CSS zoom）会放大每个控件的 px 宽度、
+  // 同时压缩容器可用 CSS px，定高/定宽布局会把搜索框挤没了 —— 改为可换行 + 弹性宽度。
   .header {
     display: flex;
-    justify-content: space-between;
-    margin: 10px 20px;
-    //padding-left: 30px;
+    flex-wrap: wrap;
     align-items: center;
-    height: 68px;
-
-    .rightplace {
-      margin-right: 30px;
-      width: 35%;
-      display: flex;
-      flex-shrink: 0;
-
-      .input {
-        margin-right: 10px;
-      }
-    }
+    gap: 6px 16px;
+    margin: 10px 20px;
+    min-height: 68px;
 
     .breadCrumb {
+      flex: 1 1 260px;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px 12px;
       color: #898799;
       font-size: 18px;
       font-weight: 500;
       text-align: left;
-      line-height: 68px;
       font-family: 思源黑体;
-      margin-left: 20px;
-      height: 68px;
-      min-width: 0;
-      overflow: hidden;
+
+      .crumb-text {
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
 
       .subjectSelector {
-        margin-left: 20px;
-
         .el-select {
-          line-height: 40px;
           width: 240px;
         }
       }
@@ -896,8 +894,6 @@ export default {
       // 刷题进度徽标：紧跟在「科目 - 题型 - 共N题」之后
       .progress-chip {
         display: inline-block;
-        vertical-align: middle;
-        margin-left: 12px;
         padding: 2px 12px;
         border-radius: 999px;
         background: #F0F2F5;
@@ -905,6 +901,25 @@ export default {
         font-size: 13px;
         font-weight: 500;
         line-height: 20px;
+        white-space: nowrap;
+      }
+    }
+
+    .rightplace {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      flex: 1 1 460px;
+      min-width: 0;
+      margin-right: 30px;
+
+      // 搜索框：伸展填充剩余空间，但下限 140px 保证任何档位都可用
+      .input {
+        flex: 1 1 160px;
+        min-width: 140px;
+        max-width: 300px;
       }
     }
   }
@@ -930,47 +945,34 @@ export default {
     height: 40px;
   }
 
-  .practice-switch {
-    margin-right: 12px;
-    flex-shrink: 0;
-  }
-
-  // 背题模式答案筛选
-  .answer-filter {
-    margin-right: 12px;
+  .practice-switch,
+  .answer-filter,
+  .dropdown {
     flex-shrink: 0;
   }
 
   // ── Mobile / narrow-screen responsive ──────────────────
   @media (max-width: 767px) {
     .header {
-      height: auto;
-      flex-wrap: wrap;
-      padding: 10px 0;
+      margin: 8px 12px;
+      gap: 6px 8px;
 
       .breadCrumb {
-        width: 100%;
-        margin-left: 0;
-        padding: 0 12px;
-        height: auto;
-        line-height: 40px;
-        box-sizing: border-box;
+        flex-basis: 100%;
+        font-size: 15px;
 
-        .subjectSelector {
-          margin-left: 10px;
-
-          .el-select {
-            width: 180px;
-          }
+        .subjectSelector .el-select {
+          width: 170px;
         }
       }
 
       .rightplace {
-        width: 100%;
+        flex-basis: 100%;
         margin-right: 0;
-        padding: 0 12px;
-        box-sizing: border-box;
-        height: 44px;
+
+        .input {
+          min-width: 120px;
+        }
       }
     }
 

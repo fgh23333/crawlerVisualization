@@ -65,6 +65,7 @@
                     :width="200"
                     trigger="click"
                     popper-class="sidebar-popover"
+                    :teleported="false"
                     v-model:visible="showLibPopover"
                 >
                     <template #default>
@@ -96,6 +97,7 @@
                     :width="180"
                     trigger="click"
                     popper-class="sidebar-popover"
+                    :teleported="false"
                     v-model:visible="showMorePopover"
                 >
                     <template #default>

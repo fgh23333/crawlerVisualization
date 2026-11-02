@@ -3,7 +3,7 @@
         <div class="titleCover">
             <span class="title">收藏夹</span>
             <div class="controls">
-                <el-select v-model="value" placeholder="全部题目" size="small" class="type-select">
+                <el-select v-model="value" placeholder="全部题目" size="small" class="type-select" :teleported="false">
                     <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                     </el-option>
                 </el-select>
