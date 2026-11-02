@@ -596,7 +596,7 @@ export default {
 
     .ai-summary-body {
         min-height: 200px;
-        max-height: 55vh;
+        max-height: calc(55vh / var(--app-zoom, 1));
         overflow-y: auto;
         border: 1px solid #ebeef5;
         border-radius: 8px;

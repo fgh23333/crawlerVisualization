@@ -159,7 +159,7 @@ const categories = [
   .toggle-bar {
     width: 24px;
     cursor: pointer;
-    height: 100vh;
+    height: calc(100vh / var(--app-zoom, 1));
     padding: 0 6px;
     display: flex;
     align-items: center;
@@ -189,7 +189,7 @@ const categories = [
 
   :deep(.el-main) {
     background-color: #FAFBFF;
-    height: 100vh;
+    height: calc(100vh / var(--app-zoom, 1));
     padding: 20px;
     overflow-y: auto;
   }
@@ -197,7 +197,7 @@ const categories = [
   .sidebar {
     transition: width 0.3s ease;
     overflow: hidden;
-    height: 100vh;
+    height: calc(100vh / var(--app-zoom, 1));
     background-color: #fff;
     border-right: 1px solid #f0f0f0;
   }

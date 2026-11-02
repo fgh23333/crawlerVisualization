@@ -45,10 +45,14 @@
 
 <body>
   <script>
-    // 字号档位：渲染前应用 body 级 CSS zoom，避免加载后跳动（与 qb_theme 同思路）
+    // 字号档位：渲染前应用 body 级 CSS zoom，避免加载后跳动（与 qb_theme 同思路）。
+    // 同时挂 --app-zoom：CSS zoom 不缩放 vh/dvh，布局层用它做 calc 除法抵消
     try {
       var z = localStorage.getItem('qb_zoom');
-      if (z === '0.9' || z === '1.15' || z === '1.3') document.body.style.zoom = z;
+      if (z === '0.9' || z === '1.15' || z === '1.3') {
+        document.body.style.zoom = z;
+        document.documentElement.style.setProperty('--app-zoom', z);
+      }
     } catch (e) {}
   </script>
   <noscript>

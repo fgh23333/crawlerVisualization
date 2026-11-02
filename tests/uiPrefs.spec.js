@@ -39,6 +39,15 @@ describe('applyZoom / setZoom / initZoom', () => {
     expect(document.body.style.zoom).toBe('')
   })
 
+  it('同步挂 --app-zoom 变量供 calc(100dvh / var) 抵消 zoom', () => {
+    applyZoom(1.3)
+    expect(document.documentElement.style.getPropertyValue('--app-zoom')).toBe('1.3')
+    applyZoom(0.9)
+    expect(document.documentElement.style.getPropertyValue('--app-zoom')).toBe('0.9')
+    applyZoom(1)
+    expect(document.documentElement.style.getPropertyValue('--app-zoom')).toBe('1')
+  })
+
   it('非档位值一律按标准处理', () => {
     expect(applyZoom(2)).toBe(1)
     expect(applyZoom(undefined)).toBe(1)

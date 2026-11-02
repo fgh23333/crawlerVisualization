@@ -407,8 +407,8 @@ export default {
     .toggle-bar {
         width: 26px;
         cursor: pointer;
-        height: 100vh;
-        height: 100dvh; // 移动端随地址栏收放的动态视口高，兜底防「底部要滚动才可见」
+        height: calc(100vh / var(--app-zoom, 1));
+        height: calc(100dvh / var(--app-zoom, 1)); // 移动端随地址栏收放的动态视口高，兜底防「底部要滚动才可见」
         padding: 0;
         float: left;
         position: relative;
@@ -475,8 +475,8 @@ export default {
         background-color: #FAFBFF;
         color: #333;
         text-align: center;
-        height: 100vh;
-        height: 100dvh;
+        height: calc(100vh / var(--app-zoom, 1));
+        height: calc(100dvh / var(--app-zoom, 1));
         padding: 0;
     }
 
@@ -484,8 +484,8 @@ export default {
         transition: width 0.3s ease, opacity 0.3s ease;
         overflow: hidden;
         position: relative;
-        height: 100vh;
-        height: 100dvh;
+        height: calc(100vh / var(--app-zoom, 1));
+        height: calc(100dvh / var(--app-zoom, 1));
         background-color: #fff;
         border-right: 1px solid #f0f0f0;
     }
@@ -499,8 +499,8 @@ export default {
 
     .el-aside {
         text-align: center;
-        height: 100vh;
-        height: 100dvh;
+        height: calc(100vh / var(--app-zoom, 1));
+        height: calc(100dvh / var(--app-zoom, 1));
         overflow: visible; // Allow menu popups if needed
     }
 
@@ -826,7 +826,7 @@ export default {
             z-index: 100;
             left: 0;
             top: 0;
-            height: 100dvh; // 抽屉精确贴合可视区，底部按钮区不被地址栏遮挡
+            height: calc(100dvh / var(--app-zoom, 1)); // 抽屉精确贴合可视区，底部按钮区不被地址栏遮挡
             box-shadow: 4px 0 20px rgba(0, 0, 0, 0.12);
         }
 

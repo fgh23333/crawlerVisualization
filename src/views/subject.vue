@@ -76,7 +76,7 @@ export default {
 <style lang="scss">
 #subject {
     overflow: hidden;
-    height: calc(100vh - 60px);
+    height: calc((100vh - 60px) / var(--app-zoom, 1));
 
     .el-table {
         height: 100%;

@@ -31,6 +31,9 @@ export function applyZoom(value) {
   const v = VALID.has(String(value)) ? Number(value) : 1
   if (typeof document !== 'undefined' && document.body) {
     document.body.style.zoom = v === 1 ? '' : String(v)
+    // CSS zoom 不缩放 vh/dvh（仍按真实视口算），挂一个档位变量
+    // 供布局层 calc(100dvh / var(--app-zoom, 1)) 抵消，避免留白/被裁
+    document.documentElement.style.setProperty('--app-zoom', String(v))
   }
   return v
 }

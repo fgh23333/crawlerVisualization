@@ -297,7 +297,7 @@ function viewQuestions() {
 <style lang="scss" scoped>
 .kg-wrap {
   position: relative;
-  height: calc(100vh - 240px);
+  height: calc((100vh - 240px) / var(--app-zoom, 1));
   min-height: 520px;
   border-radius: 20px;
   overflow: hidden;
