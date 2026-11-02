@@ -140,6 +140,31 @@ html.dark {
       color: #C7C9D4;
     }
 
+    // 侧栏科目菜单：芯片底/悬停/选中态的浅色全部换暗色
+    //（原选中态带 !important，这里需同级 !important 压制）
+    .el-menu-vertical-demo {
+      background-color: transparent;
+
+      .el-sub-menu .el-sub-menu__title {
+        background-color: #232433;
+        color: #9A9CB0;
+      }
+
+      .el-menu-item.option {
+        color: #9A9CB0;
+
+        &:hover {
+          background-color: #2A2B3E;
+          color: #A78BFA;
+        }
+
+        &.is-active {
+          background-color: #2C2D44 !important;
+          color: #A78BFA !important;
+        }
+      }
+    }
+
     // 移动端抽屉态的悬浮汉堡钮
     .toggle-bar.is-mobile {
       background: rgba(23, 24, 33, 0.95);
