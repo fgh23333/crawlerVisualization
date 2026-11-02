@@ -50,7 +50,9 @@
           </el-input>
           <!--          更多功能-下拉菜单-导出pdf（teleported=false 内联渲染，规避 body zoom 下弹层坐标错位）-->
           <el-dropdown placement="bottom" class="dropdown" :teleported="false" @command="handleCommand">
-            <el-button icon="el-icon-s-operation" type="text" size="medium">工具</el-button>
+            <el-button type="text" size="medium">
+              <el-icon><Operation /></el-icon><span>工具</span>
+            </el-button>
             <template #dropdown>
               <el-dropdown-menu>
                 <el-dropdown-item command="savePDF">导出PDF</el-dropdown-item>
@@ -99,6 +101,7 @@ import Fuse from 'fuse.js';
 import { makePdf } from "@/utils/makePdf";
 import { ElMessage } from 'element-plus'
 import QuestionItem from '@/components/QuestionItem.vue'
+import { Operation } from '@element-plus/icons-vue'
 import { getQuestionType, TYPE_LABEL } from '@/utils/questionType'
 import { answerOptionsFor, filterByAnswer } from '@/utils/answerFilter'
 import { listProgress } from '@/utils/statsAggregate'
@@ -107,7 +110,7 @@ import { sortWrongByDue, clampTimeMs, PRACTICE_TIME_MAX_MS } from '@/utils/maste
 import { isJevEnabled, askDecisions, buildWrongAnswerAnalysis, ERROR_CAUSE_LABELS } from '@/utils/jev'
 
 export default {
-  components: { QuestionItem },
+  components: { QuestionItem, Operation },
   setup() {
     return { store: useQuestionStore(), aiStore: useAiStore() }
   },

@@ -40,7 +40,7 @@
                 <div class="info-item">
                     <div class="label">联系我们</div>
                     <div class="text contact-email">
-                        <i class="el-icon-message"></i> info@635262140.xyz
+                        <el-icon class="el-icon-message"><Message /></el-icon> info@635262140.xyz
                     </div>
                 </div>
             </div>
@@ -95,8 +95,10 @@ import { useQuestionStore } from '@/stores/question';
 import { ElMessage } from 'element-plus';
 import { encodeAllData, decodeAllData, collectViewedStates, mergeAllData, restoreViewedStates } from '@/utils/favoritesSync';
 import { isStatsEnabled, setStatsEnabled } from '@/utils/wrongStats';
+import { Message } from '@element-plus/icons-vue';
 
 export default {
+    components: { Message },
     setup() { return { store: useQuestionStore() } },
     data() {
         return {

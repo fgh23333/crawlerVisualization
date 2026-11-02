@@ -3,7 +3,7 @@
         <topBar>
             <template v-slot:left>
                 <div class="goBack">
-                    <i class="el-icon-arrow-left" @click="goBack()"></i>
+                    <el-icon class="el-icon-arrow-left" @click="goBack()"><ArrowLeft /></el-icon>
                 </div>
             </template>
             <template v-slot:middle>
@@ -69,6 +69,7 @@
 
 <script>
 import topBar from '@/components/topBar.vue'
+import { ArrowLeft } from '@element-plus/icons-vue'
 import { useQuestionStore } from '@/stores/question'
 import { loadExamPaper } from '@/utils/loadJson'
 import { ElMessageBox } from 'element-plus'
@@ -166,7 +167,8 @@ export default {
         }
     },
     components: {
-        topBar
+        topBar,
+        ArrowLeft
     },
     methods: {
         updateUserSelection(questionIndex, optionIndex) {
