@@ -115,7 +115,7 @@ pnpm preview      # 本地预览生产构建
 
 侧边栏在 <768px 时默认折叠（`window.innerWidth < 768`）。
 
-字号档位（问卷呼声「字太小」）：侧栏「更多」弹层内四档 body 级 CSS zoom（小 0.9/标准 1/大 1.15/特大 1.3，`qb_zoom` 持久化），index.html 渲染前引导应用防跳动；EP teleport 弹层随 body 一起缩放。
+字号档位（问卷呼声「字太小」）：侧栏「更多」弹层内四档 body 级 CSS zoom（小 0.9/标准 1/大 1.15/特大 1.3，`qb_zoom` 持久化），index.html 渲染前引导应用防跳动；EP teleport 弹层随 body 一起缩放。**坑：CSS zoom 不缩放 vh/dvh（仍按真实视口算），非标准档会留白/被裁**——applyZoom 同步在 `<html>` 挂 `--app-zoom` 变量，全站定高布局一律写 `calc(100dvh / var(--app-zoom, 1))` 抵消（newHome/ncre3Home/旧视图族/examRecord 均已转换，新增定高时照写）。
 
 ## 科目列表
 
