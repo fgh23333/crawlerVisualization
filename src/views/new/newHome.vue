@@ -285,7 +285,6 @@ export default {
         },
     },
     components: {
-        modal,
         AIDiagnosisModal,
         Monitor, MagicStick, Star, Grid, Cpu, More, InfoFilled, ChatSquare, TrendCharts, MoonNight, Sunny
     }
