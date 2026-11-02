@@ -159,8 +159,9 @@ function accuracy(errors, attempted) {
 }
 
 /**
- * 按科目聚合：{rows: [{subject, label, attempted, errors, accuracy}], uncovered}
- * rows 按作答次数降序；uncovered = 无法归入九科的记录条数（如 ncre3 题）
+ * 按科目聚合：{rows: [{subject, label, attempted, errors, distinct, accuracy}], uncovered}
+ * rows 按作答次数降序；distinct = 已刷过的不同题目数（覆盖率分子）；
+ * uncovered = 无法归入九科的记录条数（如 ncre3 题）
  */
 export function subjectAggregates(userRecords, metaOf) {
   const acc = new Map()
@@ -170,10 +171,11 @@ export function subjectAggregates(userRecords, metaOf) {
     if (attempted <= 0) continue
     const subject = subjectOfRecord(rec, metaOf, qid)
     if (!subject) { uncovered++; continue }
-    if (!acc.has(subject)) acc.set(subject, { subject, attempted: 0, errors: 0 })
+    if (!acc.has(subject)) acc.set(subject, { subject, attempted: 0, errors: 0, distinct: 0 })
     const row = acc.get(subject)
     row.attempted += attempted
     row.errors += rec.errorCount || 0
+    row.distinct += 1
   }
   const rows = [...acc.values()]
     .map(r => ({ ...r, label: SUBJECT_LABELS[r.subject] || r.subject, accuracy: accuracy(r.errors, r.attempted) }))
@@ -183,9 +185,10 @@ export function subjectAggregates(userRecords, metaOf) {
 
 /**
  * 按题型聚合：题型只能来自元数据（题面形状推断），无元数据的记录计入 uncovered
+ * distinct 同科目口径 = 该题型已刷过的不同题目数
  */
 export function typeAggregates(userRecords, metaOf) {
-  const acc = new Map(TYPE_ORDER.map(t => [t, { type: t, attempted: 0, errors: 0 }]))
+  const acc = new Map(TYPE_ORDER.map(t => [t, { type: t, attempted: 0, errors: 0, distinct: 0 }]))
   let uncovered = 0
   for (const [qid, rec] of Object.entries(userRecords || {})) {
     const attempted = rec?.attempted || 0
@@ -198,6 +201,7 @@ export function typeAggregates(userRecords, metaOf) {
     const row = acc.get(type)
     row.attempted += attempted
     row.errors += rec.errorCount || 0
+    row.distinct += 1
   }
   const rows = TYPE_ORDER
     .map(t => {
@@ -206,6 +210,27 @@ export function typeAggregates(userRecords, metaOf) {
     })
     .filter(r => r.attempted > 0)
   return { rows, uncovered }
+}
+
+/**
+ * 列表刷题进度（题目卡头部徽标 / 任意题单的覆盖率）：
+ * @returns null（一题没刷）或 {done, total, acc}——acc 为这些题的累计正确率
+ */
+export function listProgress(list, userRecords) {
+  const arr = Array.isArray(list) ? list : []
+  let done = 0
+  let attempted = 0
+  let errors = 0
+  for (const q of arr) {
+    const rec = userRecords?.[q?.id]
+    if (rec && rec.attempted > 0) {
+      done++
+      attempted += rec.attempted
+      errors += rec.errorCount || 0
+    }
+  }
+  if (!done) return null
+  return { done, total: arr.length, acc: attempted > 0 ? 1 - errors / attempted : null }
 }
 
 /**

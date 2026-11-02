@@ -1,6 +1,5 @@
 <template>
   <div id="home">
-    <modal></modal>
     <el-container>
       <el-header>
         <navMenu></navMenu>
@@ -14,13 +13,11 @@
 
 <script>
 import navMenu from "@/components/navMenu.vue";
-import modal from "@/components/modal.vue";
 
 export default {
   name: 'HomeView',
   components: {
-    navMenu,
-    modal
+    navMenu
   }
 }
 </script>

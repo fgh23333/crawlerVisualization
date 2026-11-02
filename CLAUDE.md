@@ -44,7 +44,6 @@ pnpm preview      # 本地预览生产构建
 ### 组件
 - `src/components/QuestionItem.vue` — 单题渲染组件（判断/填空/单选/多选），props + emit 模式
 - `src/components/questionCard.vue` — 题目列表容器，处理筛选、搜索、快捷键、答案开关
-- `src/components/modal.vue` — 首次访问弹窗（问卷征集）
 
 ### 状态管理
 - `src/stores/question.js` — 思政题库：错题、收藏、标记、学习记录、导入导出
@@ -57,7 +56,9 @@ pnpm preview      # 本地预览生产构建
 - `src/utils/loadJson.js` — 运行时题库加载，从 R2 远程拉取 + localStorage 缓存
 - `src/utils/makePdf.js` — PDF 生成（含答案/无答案，字体走 Cache API 缓存）
 - `src/utils/quizGenerator.js` — 随机组卷
-- `src/utils/statsAggregate.js` — 统计页纯函数聚合（科目/题型/榜单/趋势）
+- `src/utils/statsAggregate.js` — 统计页纯函数聚合（科目/题型/榜单/趋势/列表进度 listProgress）
+- `src/utils/answerFilter.js` — 背题筛选纯函数（answerOptionsFor/filterByAnswer：判断=正确/错误、单选=答案字母、多选=含选项）
+- `src/utils/uiPrefs.js` — 字号档位（ZOOM_GEARS/getStoredZoom/applyZoom/setZoom，body 级 CSS zoom + `qb_zoom`）
 - `src/utils/wrongStats.js` — 匿名错题频率采集（localStorage `wstats_*` 键，绝不带 `qb_` 前缀）
 - `src/utils/theme.js` — 夜间模式：html.dark 类驱动 + `qb_theme` 持久化（未选择跟随系统）；自定义覆盖在 `src/styles/dark.scss`，EP 走官方 dark css-vars
 
@@ -93,22 +94,28 @@ pnpm preview      # 本地预览生产构建
 - `viewed_*_showAll` — 答案全局开关状态
 - `wstats_pending` / `wstats_uuid` / `wstats_seq` / `wstats_enabled` — 匿名错题采集队列与开关（键不带 `qb_`，热更新清缓存不受影响）
 - `qb_theme` — 夜间模式显式选择（dark/light；未设置时跟随系统 prefers-color-scheme）
+- `qb_zoom` — 字号档位显式选择（0.9/1.15/1.3，未设置=标准 1）
 - `qb_wrong_sort` — 错题本排序方式（count 错误次数降序为默认 / due 复习优先 / recent 最近收录）
+- `session_<lesson>_<type>` — 列表练习断点续刷快照（筛选/搜索/练习作答/滚动位置，questionCard 保存与恢复）
 
 ## 交互动效要点
 
 - 考试提交后 examRecord 内常驻「成绩单」卡片（得分/正确率/用时/错题收录去向），不再弹一闪而过的 alert
 - 错题本排序快照：切入 tab 或切换排序时冻结一次（mastery.js sortWrongByDue/sortWrongByCount），练习中列表不重排
 - 夜间模式：index.html 引导脚本渲染前挂 html.dark 防闪白，侧栏「夜间模式」按钮切换
+- 背题筛选：单一题型列表（判断/单选/多选）工具栏出现「背题筛选」下拉，按标准答案过滤；随 session 快照持久化，收藏夹/总题库等混合列表不出现
+- 刷题进度：面包屑「已刷 x/y 题 · 正确率 z%」徽标（listProgress，只统计当前列表）；统计页科目/题型条形值追加「已刷 x/y 题」覆盖（distinct 口径，元数据渐进补全）
 
 ## 视口适配
 
 `index.html` 内联 JS 根据 `screen.width` 动态设置 `initial-scale`：
 - 手机 (<600px) → 0.5
-- 平板 (600-1023px) → 0.75
+- 平板 (600-1023px) → 0.85
 - 桌面 (≥1024px) → 1.0
 
 侧边栏在 <768px 时默认折叠（`window.innerWidth < 768`）。
+
+字号档位（问卷呼声「字太小」）：侧栏「更多」弹层内四档 body 级 CSS zoom（小 0.9/标准 1/大 1.15/特大 1.3，`qb_zoom` 持久化），index.html 渲染前引导应用防跳动；EP teleport 弹层随 body 一起缩放。
 
 ## 科目列表
 

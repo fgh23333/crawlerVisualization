@@ -9,6 +9,8 @@
       <div class="header">
         <div class="breadCrumb" v-if="subjectShow.includes(lesson) && !onSearch">
           {{ subjectList[lesson] }} - {{ questionType[type] }} - 共{{ list.length }}题
+          <span class="progress-chip" v-if="progressInfo">已刷 {{ progressInfo.done }}/{{ progressInfo.total }} 题<template
+              v-if="progressInfo.acc !== null"> · 正确率 {{ Math.round(progressInfo.acc * 100) }}%</template></span>
         </div>
         <div class="breadCrumb" v-if="subjectShow.includes(lesson) && onSearch">
           {{ subjectList[lesson] }} - {{ questionType[type] }} - 搜索结果共{{ showList.length }}题
@@ -27,6 +29,11 @@
           搜索结果共{{ showList.length }}题
         </div>
         <div class="rightplace">
+          <!--          背题模式：按标准答案筛选（判断/单选/多选页显示，总题库与收藏夹隐藏）-->
+          <el-select v-if="answerOptions.length" v-model="answerFilter" class="answer-filter" size="small" clearable
+            placeholder="背题筛选" style="width: 118px">
+            <el-option v-for="opt in answerOptions" :key="opt.value" :label="opt.label" :value="opt.value" />
+          </el-select>
           <!--          一键显示/隐藏答案开关-->
           <el-switch v-model="showAllAnswers" active-text="答案" inactive-text="" active-color="#6C5DD3"
             class="practice-switch" v-if="!practiceMode">
@@ -91,6 +98,8 @@ import { makePdf } from "@/utils/makePdf";
 import { ElMessage } from 'element-plus'
 import QuestionItem from '@/components/QuestionItem.vue'
 import { getQuestionType, TYPE_LABEL } from '@/utils/questionType'
+import { answerOptionsFor, filterByAnswer } from '@/utils/answerFilter'
+import { listProgress } from '@/utils/statsAggregate'
 import { buildQuestionAnalysisPrompt } from '@/utils/builtinAI'
 import { sortWrongByDue, clampTimeMs, PRACTICE_TIME_MAX_MS } from '@/utils/mastery'
 import { isJevEnabled, askDecisions, buildWrongAnswerAnalysis, ERROR_CAUSE_LABELS } from '@/utils/jev'
@@ -116,6 +125,7 @@ export default {
       practiceMode: false,
       practiceAnswers: {},  // { index: answer }
       practiceResults: {},  // { index: { isCorrect, userAnswer } }
+      answerFilter: '',  // 背题模式：按标准答案筛选（'正确'/'错误'/选项字母），空为不过滤
       // 端侧 AI 剖析：按下标与会话对齐（刷新即失，历史结果走 store 的 LRU 缓存）
       aiAnalyses: {},       // { index: 剖析文本（流式回填） }
       aiLoadingMap: {},     // { index: 生成中 }
@@ -215,6 +225,16 @@ export default {
     }
   },
   computed: {
+    // 背题筛选选项：仅单一题型页展示（判断/单选/多选）；总题库、收藏夹隐藏
+    answerOptions() {
+      if (this.$route.path === '/newHome/favorites') return []
+      return answerOptionsFor(this.type, this.list)
+    },
+    // 当前题库的刷题进度（搜索态不显示，进度口径应按整库算）
+    progressInfo() {
+      if (!this.subjectShow.includes(this.lesson) || this.onSearch || !this.list.length) return null
+      return listProgress(this.list, this.store.userRecords)
+    },
     // 开关状态始终与 showAnswers 数组同步：
     // getter — 所有答案都显示时为 true
     // setter — 批量设置所有答案的显示/隐藏
@@ -324,6 +344,7 @@ export default {
       this.showList = [...this.list]
       this.searchWord = ""
       this.onSearch = false
+      this.answerFilter = ""
       this.practiceAnswers = {}
       this.practiceResults = {}
       // 切换题库时中止旧任务并清空剖析状态（下标与旧列表的对应关系已失效）
@@ -354,6 +375,15 @@ export default {
         }
       },
       deep: true,
+    },
+    // 监听背题答案筛选：与搜索/筛选共用重建路径
+    answerFilter() {
+      if (this.onSearch) {
+        this.search();
+      } else {
+        this.updateShowList();
+      }
+      this.debouncedSaveSession();
     },
     // 监听练习模式切换
     practiceMode(val) {
@@ -485,6 +515,7 @@ export default {
         subjectFocus: this.subjectFocus,
         searchWord: this.searchWord,
         onSearch: this.onSearch,
+        answerFilter: this.answerFilter,
         practiceMode: this.practiceMode,
         practiceAnswers: this.practiceAnswers,
         practiceResults: this.practiceResults,
@@ -506,12 +537,16 @@ export default {
       try {
         const s = JSON.parse(raw);
         if (s.subjectFocus) this.subjectFocus = s.subjectFocus;
+        if (s.answerFilter) this.answerFilter = s.answerFilter;
         if (s.searchWord) {
           this.searchWord = s.searchWord;
           this.onSearch = s.onSearch || false;
           if (this.searchWord) {
             const fuse = new Fuse(this.list, { keys: ['questionStem'] });
-            this.showList = fuse.search(this.searchWord).map(r => r.item);
+            let found = fuse.search(this.searchWord).map(r => r.item);
+            // 恢复时同样叠加背题筛选，保证与离开前的列表一致
+            found = this.answerFilter ? filterByAnswer(found, this.answerFilter, this.type) : found;
+            this.showList = found;
           }
         }
         if (typeof s.practiceMode === 'boolean') this.practiceMode = s.practiceMode;
@@ -612,7 +647,12 @@ export default {
         ? filteredByType.filter((question) => validSelectedSubjects.includes(question.abbreviationSubject))
         : filteredByType; // 若未选择科目，保留所有科目
 
-      this.showList = [...filteredBySubject];
+      // 背题模式：按标准答案过滤（题型/科目/答案三者取交集）
+      const filteredByAnswer = this.answerFilter
+        ? filterByAnswer(filteredBySubject, this.answerFilter, this.type)
+        : filteredBySubject;
+
+      this.showList = [...filteredByAnswer];
       this.initShowAnswers();
     },
     handleCommand(e) {
@@ -752,7 +792,7 @@ export default {
     },
     changeInput() {
       if (this.searchWord === "") {
-        this.showList = [...this.list]
+        this.updateShowList()
         this.onSearch = false
         this.currentIndex = -1
       }
@@ -763,6 +803,8 @@ export default {
       };
       const fuse = new Fuse(this.list, fuseOptions);
       let temp = this.searchWord ? fuse.search(this.searchWord).map(result => result.item) : this.list;
+      // 背题筛选与搜索叠加：搜索结果之上再按答案过滤
+      temp = this.answerFilter ? filterByAnswer(temp, this.answerFilter, this.type) : temp;
       this.showList = [...temp]
       this.onSearch = this.searchWord === "" ? false : true
       this.currentIndex = -1
@@ -850,6 +892,20 @@ export default {
           width: 240px;
         }
       }
+
+      // 刷题进度徽标：紧跟在「科目 - 题型 - 共N题」之后
+      .progress-chip {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 12px;
+        padding: 2px 12px;
+        border-radius: 999px;
+        background: #F0F2F5;
+        color: #6C5DD3;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 20px;
+      }
     }
   }
 
@@ -875,6 +931,12 @@ export default {
   }
 
   .practice-switch {
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+
+  // 背题模式答案筛选
+  .answer-filter {
     margin-right: 12px;
     flex-shrink: 0;
   }

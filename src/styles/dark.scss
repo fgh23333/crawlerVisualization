@@ -118,23 +118,8 @@ html.dark {
       }
     }
 
-    // 弹出菜单（其他题库 / 更多）
-    .popover-menu .popover-item {
-      color: #C7C9D4;
-
-      .el-icon {
-        color: #9A9CB0;
-      }
-
-      &:hover {
-        background: #2A2B3E;
-        color: #A78BFA;
-
-        .el-icon {
-          color: #A78BFA;
-        }
-      }
-    }
+    // 弹出菜单（其他题库 / 更多）——注意：popper 默认 teleport 到 body，
+    // #newHome 前缀够不着，真正的暗色覆盖见文件末尾 .sidebar-popover 全局块
 
     .menu .selection .text {
       color: #C7C9D4;
@@ -197,6 +182,12 @@ html.dark {
 
     .breadCrumb {
       color: #9A9CB0;
+
+      // 刷题进度徽标
+      .progress-chip {
+        background: #232433;
+        color: #A78BFA;
+      }
     }
   }
 
@@ -455,6 +446,55 @@ html.dark {
   .testing-table .el-table th {
     background: #232433 !important;
     color: #C7C9D4 !important;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// 侧栏弹出菜单（其他题库 / 更多）：popper teleport 到 body，
+// 不带 #newHome 祖先，须按 popper-class 全局定位
+// ─────────────────────────────────────────────────────────────
+html.dark {
+  .sidebar-popover {
+    background: #232433 !important;
+    border-color: #303145 !important;
+
+    .popover-menu {
+      .popover-title {
+        color: #7A7C8C;
+      }
+
+      .popover-item {
+        color: #C7C9D4;
+
+        .el-icon {
+          color: #9A9CB0;
+        }
+
+        &:hover {
+          background: #2A2B3E;
+          color: #A78BFA;
+
+          .el-icon {
+            color: #A78BFA;
+          }
+        }
+      }
+
+      // 字号档位按钮
+      .zoom-row .zoom-btn {
+        background: #2A2B3E;
+        color: #C7C9D4;
+
+        &:hover {
+          background: #2C2D44;
+        }
+
+        &.active {
+          background: #6C5DD3;
+          color: #fff;
+        }
+      }
+    }
   }
 }
 

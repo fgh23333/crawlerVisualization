@@ -80,7 +80,8 @@
                         <div class="bar-track">
                             <div class="bar-fill" :style="{ width: pct(row.accuracy) }"></div>
                         </div>
-                        <span class="bar-value">{{ accuracyText(row.accuracy) }} · {{ row.attempted }} 次作答</span>
+                        <span class="bar-value">{{ accuracyText(row.accuracy) }} · {{ row.attempted }} 次作答<span
+                            v-if="subjectBankTotals[row.subject]"> · 已刷 {{ row.distinct }}/{{ subjectBankTotals[row.subject] }} 题</span></span>
                     </div>
                 </div>
                 <el-empty v-else description="暂无科目作答数据" :image-size="60" />
@@ -98,7 +99,8 @@
                         <div class="bar-track">
                             <div class="bar-fill" :style="{ width: pct(row.accuracy) }"></div>
                         </div>
-                        <span class="bar-value">{{ accuracyText(row.accuracy) }} · {{ row.attempted }} 次作答</span>
+                        <span class="bar-value">{{ accuracyText(row.accuracy) }} · {{ row.attempted }} 次作答<span
+                            v-if="typeBankTotals[row.type]"> · 已刷 {{ row.distinct }}/{{ typeBankTotals[row.type] }} 题</span></span>
                     </div>
                 </div>
                 <el-empty v-else description="暂无题型作答数据" :image-size="60" />
@@ -227,6 +229,9 @@ export default {
       subjectRows: [],
       subjectUncovered: 0,
       typeRows: [],
+      // 覆盖率分母：元数据索引里各科目/题型的题目总数（未加载过题库的科目不显示分母）
+      subjectBankTotals: {},
+      typeBankTotals: {},
       worstRows: [],
       bestRows: [],
       trendLesson: '',
@@ -315,7 +320,22 @@ export default {
       this.subjectRows = s.rows
       this.subjectUncovered = s.uncovered
       this.typeRows = typeAggregates(records, this.metaOf).rows
+      this.recomputeBankTotals()
       this.recomputeRanks()
+    },
+    // 覆盖率分母来自元数据索引（错题/收藏/标记 + 题库缓存），只统计九科口径
+    recomputeBankTotals() {
+      const subj = {}
+      const type = {}
+      if (this._metaIndex) {
+        for (const meta of this._metaIndex.values()) {
+          if (!meta || !meta.subject) continue
+          subj[meta.subject] = (subj[meta.subject] || 0) + 1
+          if (meta.type) type[meta.type] = (type[meta.type] || 0) + 1
+        }
+      }
+      this.subjectBankTotals = subj
+      this.typeBankTotals = type
     },
     recomputeRanks() {
       this.worstRows = rankQuestions(this.store.userRecords, this.metaOf,

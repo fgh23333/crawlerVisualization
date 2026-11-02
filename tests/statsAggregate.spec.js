@@ -11,6 +11,7 @@ import {
   rankQuestions,
   examTrend,
   overallKpis,
+  listProgress,
 } from '../src/utils/statsAggregate'
 
 // 统计聚合器：统计页的全部数字都出自这里，口径必须在纯函数层锁死
@@ -114,6 +115,17 @@ describe('subjectAggregates 科目聚合', () => {
     expect(rows).toEqual([])
     expect(uncovered).toBe(0)
   })
+
+  it('distinct = 已刷过的不同题目数（覆盖率分子，不随重复作答膨胀）', () => {
+    const records = {
+      a: rec(5, 1, { subject: 'Marx' }),
+      b: rec(1, 0, { subject: 'Marx' }),
+      c: rec(0, 0, { subject: 'Marx' }), // 占位不算
+    }
+    const { rows } = subjectAggregates(records, () => null)
+    expect(rows[0].distinct).toBe(2)
+    expect(rows[0].attempted).toBe(6)
+  })
 })
 
 describe('typeAggregates 题型聚合', () => {
@@ -133,6 +145,40 @@ describe('typeAggregates 题型聚合', () => {
     expect(rows.map(r => r.type)).toEqual(['单选', '填空'])
     expect(rows[0]).toMatchObject({ type: '单选', attempted: 2, accuracy: 1 })
     expect(rows[1].accuracy).toBeCloseTo(1 - 1 / 3)
+  })
+
+  it('distinct 按题型分别计数', () => {
+    const records = {
+      a: rec(2, 0, { subject: 'Marx' }),
+      b: rec(1, 1, { subject: 'Marx' }),
+    }
+    const metaOf = (id) => ({
+      a: { stem: '', subject: 'Marx', type: '单选' },
+      b: { stem: '', subject: 'Marx', type: '填空' },
+    }[id])
+    const { rows } = typeAggregates(records, metaOf)
+    const single = rows.find(r => r.type === '单选')
+    const blank = rows.find(r => r.type === '填空')
+    expect(single.distinct).toBe(1)
+    expect(blank.distinct).toBe(1)
+  })
+})
+
+describe('listProgress 列表刷题进度', () => {
+  const list = [{ id: 'a' }, { id: 'b' }, { id: 'c' }]
+
+  it('done/total/acc：只统计 attempted>0 的题，acc 为累计口径', () => {
+    const records = {
+      a: rec(4, 1), // 75%
+      b: rec(2, 2), // 0%
+    }
+    expect(listProgress(list, records)).toEqual({ done: 2, total: 3, acc: 1 - 3 / 6 })
+  })
+
+  it('一题没刷返回 null；空列表/空记录容错', () => {
+    expect(listProgress(list, {})).toBeNull()
+    expect(listProgress([], { a: rec(1, 0) })).toBeNull()
+    expect(listProgress(null, null)).toBeNull()
   })
 })
 

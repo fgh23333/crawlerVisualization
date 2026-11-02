@@ -10,6 +10,7 @@ import './styles/dark.scss'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import { initWrongStats } from './utils/wrongStats'
 import { initTheme } from './utils/theme'
+import { initZoom } from './utils/uiPrefs'
 
 const app = createApp(App)
 
@@ -23,6 +24,8 @@ app.use(router)
 app.use(ElementPlus)
 // 夜间模式：与 index.html 引导脚本同口径挂 html.dark（未选择时跟随系统）
 initTheme()
+// 字号档位：与 index.html 引导脚本同口径应用 body zoom（未设置为标准）
+initZoom()
 app.mount('#app')
 
 // 匿名错题频率采集（默认开启，关于页可关）：启动/定时/页面隐藏冲刷，全程静默容错

@@ -1,6 +1,5 @@
 <template>
     <div id="newHome" :class="{ 'mobile-mode': isMobile }">
-        <modal></modal>
         <el-container>
     <el-aside :width="isCollapsed ? '0px' : '262px'" class="sidebar" :class="{ 'is-collapsed': isCollapsed }">
         <div class="sidebar-content">
@@ -106,6 +105,14 @@
                                 <el-icon><InfoFilled /></el-icon>
                                 <span>关于</span>
                             </router-link>
+                            <!-- 字号档位：body 级 CSS zoom 等比缩放（问卷 #180） -->
+                            <div class="popover-title">字号</div>
+                            <div class="zoom-row">
+                                <div v-for="g in zoomGears" :key="g.value" class="zoom-btn"
+                                    :class="{ active: currentZoom === g.value }" @click="onPickZoom(g.value)">
+                                    {{ g.label }}
+                                </div>
+                            </div>
                         </div>
                     </template>
                     <template #reference>
@@ -174,12 +181,12 @@
 </template>
 
 <script>
-import modal from '@/components/modal.vue'
 import AIDiagnosisModal from '@/components/AIDiagnosisModal.vue'
 import { ElMessage } from 'element-plus'
 import { Monitor, MagicStick, Star, Grid, Cpu, More, InfoFilled, ChatSquare, TrendCharts, MoonNight, Sunny } from '@element-plus/icons-vue'
 import { useAiStore } from '@/stores/ai'
 import { isDark, toggleTheme } from '@/utils/theme'
+import { ZOOM_GEARS, getStoredZoom, setZoom } from '@/utils/uiPrefs'
 import grapeIcon from '@/assets/icon/grape.svg'
 import juiceIcon from '@/assets/icon/juice.svg'
 import pearIcon from '@/assets/icon/pear.svg'
@@ -221,6 +228,9 @@ export default {
             showMorePopover: false,
             // 夜间模式：初始态由 index.html 引导脚本 + initTheme 决定，这里只读现值
             isDarkMode: isDark(),
+            // 字号档位：初始态由 index.html 引导脚本 + initZoom 决定，这里只读现值
+            zoomGears: ZOOM_GEARS,
+            currentZoom: getStoredZoom() ?? 1,
         }
     },
     mounted() {
@@ -240,6 +250,10 @@ export default {
         onToggleTheme() {
             const next = toggleTheme();
             this.isDarkMode = next === 'dark';
+        },
+        // 字号档位：应用 body zoom 并持久化（utils/uiPrefs）
+        onPickZoom(v) {
+            this.currentZoom = setZoom(v);
         },
         toggleSidebar() {
             this.isCollapsed = !this.isCollapsed;
@@ -325,6 +339,36 @@ export default {
                 color: #6C5DD3;
 
                 .el-icon { color: #6C5DD3; }
+            }
+        }
+
+        // 字号档位（更多弹层内）：四档等宽按钮
+        .zoom-row {
+            display: flex;
+            gap: 6px;
+            padding: 2px 10px 8px;
+
+            .zoom-btn {
+                flex: 1;
+                text-align: center;
+                padding: 6px 0;
+                border-radius: 8px;
+                background: #F0F2F5;
+                color: #666;
+                font-size: 13px;
+                font-weight: 500;
+                cursor: pointer;
+                user-select: none;
+                transition: background 0.15s, color 0.15s;
+
+                &:hover {
+                    background: #e4e2f3;
+                }
+
+                &.active {
+                    background: #6C5DD3;
+                    color: #fff;
+                }
             }
         }
     }
