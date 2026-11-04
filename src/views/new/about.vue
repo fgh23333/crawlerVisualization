@@ -25,6 +25,22 @@
                 </div>
 
                 <div class="info-item">
+                    <div class="label">端侧决策引擎（Chrome 157+ · 预留）</div>
+                    <div class="text">Chrome Decisions API 浏览器本地决策：零上送、免费不限量。当前引擎尚未支持中文，错因分析仍走云端通道；待中文覆盖后本机可直接启用。</div>
+                    <div class="sync-actions">
+                        <el-tag v-if="!engineApi" type="info" size="small">未接入 · 需 Chrome 157+</el-tag>
+                        <template v-else>
+                            <el-tag :type="engineTagType(engineZh)" size="small">中文 · {{ engineText(engineZh) }}</el-tag>
+                            <el-tag :type="engineTagType(engineEn)" size="small">English · {{ engineText(engineEn) }}</el-tag>
+                            <el-button size="small" :loading="engineRunning" :disabled="engineEn !== 'available'" @click="runEngineProbe">
+                                跑一次端侧实测
+                            </el-button>
+                        </template>
+                    </div>
+                    <div v-if="engineResult" class="text probe-line">{{ engineResult }}</div>
+                </div>
+
+                <div class="info-item">
                     <div class="label">匿名错题统计共享</div>
                     <div class="text">默认开启。仅上送每题「作答 / 答错」次数（如某题作答 3 次错 2 次），用于汇总全站高频错题；不含题目内容与任何个人信息，关闭立即生效且丢弃未上送数据。</div>
                     <div class="sync-actions">
@@ -95,6 +111,7 @@ import { useQuestionStore } from '@/stores/question';
 import { ElMessage } from 'element-plus';
 import { encodeAllData, decodeAllData, collectViewedStates, mergeAllData, restoreViewedStates } from '@/utils/favoritesSync';
 import { isStatsEnabled, setStatsEnabled } from '@/utils/wrongStats';
+import { probeChromeDecisions, askDecisionsChrome } from '@/utils/jev';
 import { Message } from '@element-plus/icons-vue';
 
 export default {
@@ -108,9 +125,58 @@ export default {
             importCode: '',
             importPreview: null,
             statsEnabled: isStatsEnabled(),
+            // 端侧决策引擎状态（Chrome 157+ Decisions API，休眠预留通道）
+            engineApi: false,
+            engineZh: 'unavailable',
+            engineEn: 'unavailable',
+            engineRunning: false,
+            engineResult: '',
         }
     },
+    mounted() {
+        // 轻量探测（不触发模型下载），中文绿了就是端侧通道可启用之日
+        probeChromeDecisions({ languages: ['zh'] }).then(r => {
+            this.engineApi = r.api;
+            this.engineZh = r.availability || 'error';
+        });
+        probeChromeDecisions({ languages: ['en'] }).then(r => {
+            this.engineApi = r.api;
+            this.engineEn = r.availability || 'error';
+        });
+    },
     methods: {
+        engineText(v) {
+            return { available: '就绪', downloadable: '待下载', unavailable: '未支持', error: '探测异常' }[v] || v;
+        },
+        engineTagType(v) {
+            return { available: 'success', downloadable: 'warning', unavailable: 'danger', error: 'info' }[v] || 'info';
+        },
+        // 英文小样本双问实测（noul→boolean），弱机可能 30s+，loading 兜住
+        async runEngineProbe() {
+            this.engineRunning = true;
+            this.engineResult = '';
+            const t0 = performance.now();
+            const out = await askDecisionsChrome({
+                state: {
+                    scenario: 'Quiz app user feedback triage (on-device probe)',
+                    feedback: 'The page froze for a few seconds when I submitted the mock exam, but my answers were saved.'
+                },
+                questions: {
+                    is_bug: { type: 'noul', instructions: 'Does this user feedback describe a functional problem (bug) rather than a feature request?' },
+                    urgent: { type: 'noul', instructions: 'Does this problem need urgent attention (data loss or blocking usage)?' }
+                },
+                languages: ['en'],
+                timeoutMs: 120000
+            });
+            const ms = Math.round(performance.now() - t0);
+            this.engineRunning = false;
+            if (!out) {
+                this.engineResult = `实测未完成（${ms}ms，超时或引擎异常）`;
+                return;
+            }
+            const pct = v => (v == null ? '—' : Math.round(v * 100) + '%');
+            this.engineResult = `端侧实测 ${ms}ms · 功能问题 ${pct(out.is_bug && out.is_bug.value)} · 需紧急处理 ${pct(out.urgent && out.urgent.value)}`;
+        },
         onStatsToggle(value) {
             setStatsEnabled(value);
             ElMessage.success(value ? '已参与匿名错题统计共享' : '已关闭共享，未上送数据已丢弃');
@@ -267,6 +333,13 @@ export default {
                     display: flex;
                     flex-wrap: wrap;
                     gap: 8px;
+                    align-items: center;
+                }
+
+                .probe-line {
+                    margin-top: 6px;
+                    font-size: 13px;
+                    color: #888;
                 }
             }
         }

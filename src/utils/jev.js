@@ -23,12 +23,21 @@
  *     显式写过 enabled:false 的老配置仍被尊重
  *   - 只上送单题：state 仅含当前题目与本次作答，不带 userRecords/画像等全量 profile
  *
- * 未来路线（Chrome Decisions API，chromestatus 5155080092385280 目前 Proposed）：
- *   window.DecisionModel 落地后，askDecisions 可加同形态的端侧 transport，业务层无感切换。
+ * 端侧通道（Chrome 157+ Decisions API，2026-11-04 本机实证；休眠、未接主链路）：
+ *   window.DecisionModel 与本契约同构：boolean↔noul / choice↔choice / score↔score，
+ *   一次 decide() 按问题 id 并行返回 label+confidence+probabilities。
+ *   实测三硬伤：①languages:['zh'] 被 availability/create 硬拦（NotSupportedError，en/ja 已就绪）
+ *   ②弱机 create ~7s + decide ~32s；③中文判例质量未达基线 → 不进 askDecisions 主链路。
+ *   本文件只提供探测（probeChromeDecisions）+ 适配层（toChromeSchema/fromChromeResult/
+ *   askDecisionsChrome），中文覆盖落地当天把通道并入 askDecisions 即用（免费不限量/离线/零上送）。
+ *   157 实测校验要点：boolean 问题不得带 options（TypeError）；choice 必须带 options；
+ *   state 对象需自行 JSON.stringify 成文本输入；preference 为 getter（'auto'），引擎不可枚举。
  */
 
 export const CLEF_PROVIDER = 'clef'
 export const OPENROUTER_PROVIDER = 'openrouter'
+// 端侧通道（休眠）：Chrome 157+ window.DecisionModel，中文覆盖落地后并入 askDecisions
+export const CHROME_PROVIDER = 'chrome'
 
 export const JEV_MODEL = 'typesafe/jev-1.13'
 export const JEV_DEFAULT_ENDPOINT = 'https://openrouter.ai/api/alpha/decisions'
@@ -212,4 +221,148 @@ export function buildWrongAnswerAnalysis({ question, userAnswer, timeSpentMs } =
         }
     }
     return { state, questions }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// 端侧通道（Chrome 157+ Decisions API）——休眠适配层，未接 askDecisions 主链路。
+// 契约映射（2026-11-04 Chrome 157 本机实证）：
+//   System One                              Chrome Decisions
+//   noul   {instructions, criteria?}   →   boolean {prompt}（禁带 options）
+//   choice {instructions, criteria对象} →   choice {prompt, options:[{label,description}]}
+//   score  {instructions, criteria数组} →   score  {prompt, options:[{label:'1'..,description}]}
+//   state  对象                         →   decide(JSON.stringify(state))
+//   answers[id].noul/.choice/.score     ←   result[id].label/.probabilities/.expectedScore
+// ═══════════════════════════════════════════════════════════════
+
+const getDecisionModel = () =>
+    (typeof window !== 'undefined' && typeof window.DecisionModel === 'function') ? window.DecisionModel : null
+
+/** System One 问题 → Chrome 问题；不合法（缺 instructions / 类型未知 / criteria 形态不符）返回 null */
+function toChromeQuestion(id, q) {
+    if (!q || typeof q !== 'object' || typeof q.instructions !== 'string' || !q.instructions.trim()) return null
+    const prompt = q.instructions
+    if (q.type === 'noul') {
+        // 157 实测：boolean 问题带 options 直接 TypeError
+        return { id, type: 'boolean', prompt }
+    }
+    if (q.type === 'choice') {
+        const criteria = q.criteria && typeof q.criteria === 'object' && !Array.isArray(q.criteria) ? q.criteria : null
+        if (!criteria) return null
+        return {
+            id, type: 'choice', prompt,
+            options: Object.keys(criteria).map(label => ({ label, description: String(criteria[label]) }))
+        }
+    }
+    if (q.type === 'score') {
+        if (!Array.isArray(q.criteria) || q.criteria.length === 0) return null
+        return {
+            id, type: 'score', prompt,
+            options: q.criteria.map((desc, i) => ({ label: String(i + 1), description: String(desc) }))
+        }
+    }
+    return null
+}
+
+/**
+ * 组装 Chrome Decisions schema（System One 形态 → 端侧形态）。
+ * @param {object} arg.state 同 askDecisions 的 state（scenario 字段优先进 context）
+ * @param {Record<string, object>} arg.questions System One 问题 map
+ * @param {string[]} [arg.languages] 声明输入语言，默认 ['zh']（当前 157 引擎不支持 zh，
+ *   availability 会返回 unavailable —— 这正是休眠不开的原因，中文覆盖后自动变绿）
+ * @returns {object|null} 任一问题不合法即 null（fail-open）
+ */
+export function toChromeSchema({ state, questions, languages = ['zh'] } = {}) {
+    if (!questions || typeof questions !== 'object') return null
+    const ids = Object.keys(questions)
+    if (ids.length === 0) return null
+    const chromeQuestions = ids.map(id => toChromeQuestion(id, questions[id]))
+    if (chromeQuestions.some(q => !q)) return null
+    const context = (state && typeof state.scenario === 'string' && state.scenario)
+        || 'Structured decision making for a quiz practice app'
+    return {
+        context,
+        expectedInputs: [{ type: 'text', languages }],
+        questions: chromeQuestions
+    }
+}
+
+/**
+ * Chrome decide 结果 → askDecisions 同款归一形态 { [id]: { value, probabilities? } }。
+ * 单题粒度校验：boolean 取 probabilities.true（缺失按 label 01 折算）、choice 必须落在
+ * criteria 选项内、score 取 expectedScore；不合法项丢弃，全部无效返回 null。
+ */
+export function fromChromeResult(result, questions) {
+    if (!result || typeof result !== 'object' || !questions) return null
+    const out = {}
+    for (const id of Object.keys(questions)) {
+        const a = result[id]
+        const q = questions[id]
+        if (!a || typeof a !== 'object') continue
+        if (q.type === 'noul') {
+            const p = a.probabilities && typeof a.probabilities.true === 'number'
+                ? a.probabilities.true
+                : (a.label === 'true' ? 1 : a.label === 'false' ? 0 : NaN)
+            if (Number.isFinite(p)) out[id] = { value: p }
+        } else if (q.type === 'choice') {
+            if (typeof a.label !== 'string') continue
+            if (!q.criteria || !(a.label in q.criteria)) continue
+            out[id] = { value: a.label, probabilities: a.probabilities || undefined }
+        } else if (q.type === 'score') {
+            const v = typeof a.expectedScore === 'number' ? a.expectedScore : Number(a.label)
+            if (Number.isFinite(v)) out[id] = { value: v }
+        }
+    }
+    return Object.keys(out).length > 0 ? out : null
+}
+
+/**
+ * 探测端侧决策引擎状态（关于页状态卡用；availability 是轻量查询，不触发下载）。
+ * @returns {Promise<{api:boolean, availability?:string, error?:string}>}
+ *   api:false = 浏览器无 DecisionModel（非 Chrome 157+）；availability ∈ available/downloadable/unavailable
+ */
+export async function probeChromeDecisions({ languages = ['zh'] } = {}) {
+    const DM = getDecisionModel()
+    if (!DM) return { api: false }
+    const schema = {
+        context: 'On-device decision engine capability probe',
+        expectedInputs: [{ type: 'text', languages }],
+        questions: [{ id: 'probe', type: 'boolean', prompt: 'Does this text describe a software bug?' }]
+    }
+    try {
+        return { api: true, availability: await DM.availability(schema) }
+    } catch (e) {
+        return { api: true, availability: 'error', error: String((e && e.message) || e) }
+    }
+}
+
+/**
+ * 端侧 Decisions 调用（休眠通道，语义与 askDecisions 对齐：永不 reject，失败返回 null）。
+ * 仅 availability === 'available' 时继续（downloadable 不自动触发模型下载——休眠通道零副作用）。
+ * 注意：157 中文被引擎硬拦，本函数现阶段只在 en 声明下可用；默认 5s 超时对齐 fail-open 红线，
+ * 弱机实测 decide ~32s 会超时回退 —— 主链路并入时再按硬件分布调参。
+ */
+export async function askDecisionsChrome({ state, questions, languages = ['zh'], timeoutMs = JEV_TIMEOUT_MS } = {}) {
+    const DM = getDecisionModel()
+    if (!DM) return null
+    const schema = toChromeSchema({ state, questions, languages })
+    if (!schema) return null
+    let session = null
+    let timer = null
+    try {
+        if (await DM.availability(schema) !== 'available') return null
+        session = await DM.create(schema)
+        const input = typeof state === 'string' ? state : JSON.stringify(state)
+        const result = await Promise.race([
+            session.decide(input),
+            new Promise((_resolve, reject) => {
+                timer = setTimeout(() => reject(new Error('timeout')), timeoutMs)
+            })
+        ])
+        return fromChromeResult(result, questions)
+    } catch {
+        return null // API 缺失/语言不支持/超时/异常 —— 全部 fail-open
+    } finally {
+        clearTimeout(timer)
+        try { session && session.destroy && session.destroy() } catch { /* destroy 失败静默 */ }
+    }
 }
