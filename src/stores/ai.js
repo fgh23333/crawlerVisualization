@@ -35,6 +35,8 @@ export const useAiStore = defineStore('ai', () => {
   const downloadProgress = ref(0) // 0~1，模型权重静默下载进度
   const summarizerStatus = ref('checking')
   const diagVisible = ref(false)  // 全站唯一自检弹窗开关（newHome 挂载实例）
+  // 题库实时统计文本（聊天页拉 /bankstats 回填，注入端侧手册；空则走手册约数）
+  const bankStatsText = ref('')
 
   // AI native 个性化画像：科目关注计数 / 累计剖析数 / 聊天轮数 / 剖析与归纳缓存（LRU）
   const profile = ref({
@@ -156,7 +158,16 @@ export const useAiStore = defineStore('ai', () => {
 
   /** 个性化人设（含本地画像上下文），会话创建时注入；site=true 附加站点使用指南（仅聊天通道） */
   function personalizedPrompt({ site = false } = {}) {
-    return buildPersonalizedSystemPrompt(GEMMA_SYSTEM_PROMPT, profile.value, { siteManual: site })
+    return buildPersonalizedSystemPrompt(GEMMA_SYSTEM_PROMPT, profile.value, {
+      siteManual: site,
+      bankStatsText: site ? bankStatsText.value : '',
+    })
+  }
+
+  /** 回填题库实时统计（gemma 聊天页 fetch /bankstats 成功后调用；空串忽略防误清） */
+  function setBankStats(text) {
+    const t = String(text || '').trim()
+    if (t) bankStatsText.value = t
   }
 
   // ======================== 会话内部工具 ========================
@@ -282,11 +293,13 @@ export const useAiStore = defineStore('ai', () => {
 
   return {
     // 状态
-    status, downloadProgress, summarizerStatus, diagVisible, profile,
+    status, downloadProgress, summarizerStatus, diagVisible, profile, bankStatsText,
     // 派生
     isReady, isSupported, statusText, dotClass,
     // 检测
     checkEnvironment, openDiagnosis, stopDownloadPolling,
+    // 题库统计
+    setBankStats,
     // 画像
     recordSubjectFocus, getCachedAnalysis, recordAnalysis, getCachedSummary, recordSummary, recordChatTurn,
     // 通道

@@ -198,6 +198,7 @@ export default {
                 "中国式现代化的主要特征有哪些？",
                 "帮我出一组马原单选题并给出解析",
                 "这个网站有哪些实用功能？",
+                "题库一共有多少道题？",
             ],
         };
     },
@@ -228,7 +229,27 @@ export default {
         }
         this.aiStore.resetChatSession();
     },
+    mounted() {
+        this.fetchBankStats();
+    },
     methods: {
+        // 拉取题库实时统计（各科题量/题型分布）注入端侧手册：端侧也能答「题库有多少题」。
+        // 5s 超时静默容错——拿不到就用手册里的约数兜底，绝不影响聊天可用性
+        async fetchBankStats() {
+            if (!API_BASE || this._statsFetched) return;
+            this._statsFetched = true;
+            try {
+                const ctrl = new AbortController();
+                const timer = setTimeout(() => ctrl.abort(), 5000);
+                const res = await fetch(`${API_BASE}/bankstats`, { signal: ctrl.signal });
+                clearTimeout(timer);
+                if (!res.ok) return;
+                const data = await res.json();
+                if (data && data.ok && data.text) this.aiStore.setBankStats(data.text);
+            } catch {
+                // 离线/服务不可用：保持空，走手册约数
+            }
+        },
         scrollToBottom() {
             const el = this.$refs.chatBox;
             if (el) el.scrollTop = el.scrollHeight;

@@ -251,4 +251,30 @@ describe('业务 Prompt 构造', () => {
     // 默认（剖析/归纳任务通道）不注入手册
     expect(buildPersonalizedSystemPrompt(GEMMA_SYSTEM_PROMPT, profile)).not.toContain(SITE_MANUAL_PROMPT)
   })
+
+  it('题库统计块：bankStatsText 追加在手册之后、画像之前；默认与空串不注入', () => {
+    const statsText = '【题库数据】当前快照合计 6044 题（已加载 9/9 科）。整体题型分布：单选 2674、多选 1304、判断 1463、填空 603。'
+    // siteManual + 统计 → 人设 + 手册 + 统计（顺序：统计紧跟手册）
+    const withStats = buildPersonalizedSystemPrompt(GEMMA_SYSTEM_PROMPT, null, { siteManual: true, bankStatsText: statsText })
+    expect(withStats).toBe(`${GEMMA_SYSTEM_PROMPT}\n${SITE_MANUAL_PROMPT}\n${statsText}`)
+
+    // 手册 → 统计 → 画像 的完整顺序
+    const profile = { subjectInterest: { Marx: 3 }, analysisCount: 2 }
+    const full = buildPersonalizedSystemPrompt(GEMMA_SYSTEM_PROMPT, profile, { siteManual: true, bankStatsText: statsText })
+    const iManual = full.indexOf(SITE_MANUAL_PROMPT)
+    const iStats = full.indexOf(statsText)
+    expect(iManual).toBeGreaterThan(-1)
+    expect(iStats).toBeGreaterThan(iManual)
+    expect(iStats).toBeLessThan(full.indexOf('【用户画像'))
+
+    // 空串/空白 → 不追加（离线拿不到统计走手册约数）
+    expect(buildPersonalizedSystemPrompt(GEMMA_SYSTEM_PROMPT, null, { siteManual: true, bankStatsText: '' }))
+      .toBe(`${GEMMA_SYSTEM_PROMPT}\n${SITE_MANUAL_PROMPT}`)
+    expect(buildPersonalizedSystemPrompt(GEMMA_SYSTEM_PROMPT, null, { siteManual: true, bankStatsText: '   ' }))
+      .toBe(`${GEMMA_SYSTEM_PROMPT}\n${SITE_MANUAL_PROMPT}`)
+
+    // 非 siteManual 时统计不注入（任务通道不背额外上下文）
+    expect(buildPersonalizedSystemPrompt(GEMMA_SYSTEM_PROMPT, profile, { bankStatsText: statsText }))
+      .not.toContain('【题库数据】')
+  })
 })
