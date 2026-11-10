@@ -154,9 +154,9 @@ export const useAiStore = defineStore('ai', () => {
     profile.value.chatTurns += 1
   }
 
-  /** 个性化人设（含本地画像上下文），会话创建时注入 */
-  function personalizedPrompt() {
-    return buildPersonalizedSystemPrompt(GEMMA_SYSTEM_PROMPT, profile.value)
+  /** 个性化人设（含本地画像上下文），会话创建时注入；site=true 附加站点使用指南（仅聊天通道） */
+  function personalizedPrompt({ site = false } = {}) {
+    return buildPersonalizedSystemPrompt(GEMMA_SYSTEM_PROMPT, profile.value, { siteManual: site })
   }
 
   // ======================== 会话内部工具 ========================
@@ -197,7 +197,7 @@ export const useAiStore = defineStore('ai', () => {
   function ensureChatSession(signal) {
     if (chatSession) return Promise.resolve(chatSession)
     return createChatSession({
-      systemPrompt: personalizedPrompt(),
+      systemPrompt: personalizedPrompt({ site: true }), // 聊天通道附加站点指南：端侧也能答「网站怎么用」
       signal,
       onDownloadProgress: makeProgressWatcher(),
     }).then((s) => {

@@ -6,7 +6,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import {
   getPromptAPI, getSummarizerAPI, checkPromptAvailability, checkSummarizerAvailability,
   createChatSession, destroySession, streamChat,
-  GEMMA_SYSTEM_PROMPT, buildPersonalizedSystemPrompt,
+  GEMMA_SYSTEM_PROMPT, SITE_MANUAL_PROMPT, buildPersonalizedSystemPrompt,
   buildQuestionAnalysisPrompt, buildFavoritesSummaryPrompt,
 } from '../src/utils/builtinAI'
 
@@ -229,5 +229,26 @@ describe('业务 Prompt 构造', () => {
     // 无有效画像 → 原样返回基础人设
     expect(buildPersonalizedSystemPrompt(GEMMA_SYSTEM_PROMPT, { subjectInterest: {}, analysisCount: 0 }))
       .toBe(GEMMA_SYSTEM_PROMPT)
+  })
+
+  it('站点指南：siteManual=true 注入手册（含画像时叠加），默认不注入（任务通道省上下文）', () => {
+    // 手册覆盖核心功能关键词，站点改版时此用例提醒同步
+    for (const kw of ['夜间模式', '字号', '背题筛选', '快捷键', '续刷', '错题本', 'PDF', '同步码', '模拟考试', '高频错题', 'info@635262140.xyz']) {
+      expect(SITE_MANUAL_PROMPT).toContain(kw)
+    }
+
+    // 无画像 + siteManual → 基础人设 + 手册
+    const withSite = buildPersonalizedSystemPrompt(GEMMA_SYSTEM_PROMPT, null, { siteManual: true })
+    expect(withSite).toBe(`${GEMMA_SYSTEM_PROMPT}\n${SITE_MANUAL_PROMPT}`)
+
+    // 有画像 + siteManual → 手册在前、画像在后
+    const profile = { subjectInterest: { Marx: 3 }, analysisCount: 2 }
+    const both = buildPersonalizedSystemPrompt(GEMMA_SYSTEM_PROMPT, profile, { siteManual: true })
+    expect(both.indexOf(SITE_MANUAL_PROMPT)).toBeGreaterThan(-1)
+    expect(both.indexOf(SITE_MANUAL_PROMPT)).toBeLessThan(both.indexOf('【用户画像'))
+    expect(both).toContain('马原×3')
+
+    // 默认（剖析/归纳任务通道）不注入手册
+    expect(buildPersonalizedSystemPrompt(GEMMA_SYSTEM_PROMPT, profile)).not.toContain(SITE_MANUAL_PROMPT)
   })
 })

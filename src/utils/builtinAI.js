@@ -235,14 +235,30 @@ export const GEMMA_SYSTEM_PROMPT = [
   '不确定的内容如实说明，不编造；回答保持简洁。',
 ].join('');
 
+// 端侧站点使用指南：让端侧模式也能答「网站怎么用」类问题。
+// 事实与站点实际功能对齐（改版需同步）；Gemini Nano 上下文有限，刻意压缩成一屏。
+export const SITE_MANUAL_PROMPT = [
+  '【站点指南】用户问本站（思政刷题网站）功能怎么用时，按以下事实回答，不确定就说不知道：',
+  '侧边栏导航：9 个思政科目（马原/近代史/思政/毛概/习概/社主史/新中国史/党史/改开史）、收藏夹、数据统计、AI 对话、「更多」（内有字号四档）、夜间模式、意见反馈；另有计算机三级、计算机组成原理题库。',
+  '题型：单选/多选/判断/填空，列表页可按题型筛选、关键词搜索；面包屑显示「已刷 x/y 题·正确率」。',
+  '背题筛选：单题型列表工具栏可按标准答案过滤；快捷键：q 显示悬浮题答案、- 上一题、= 下一题、0 切换当前题答案。',
+  '离开列表自动保存进度（筛选/搜索/作答/滚动位置），下次进入可恢复续刷。',
+  '星标=收藏，答错自动进错题本（可按错误次数/复习优先/最近收录排序）；列表页可导出含答案或不含答案的 PDF；「关于」页可生成/导入同步码（含收藏、错题、标记、学习记录、考试记录），换设备迁移用。',
+  '模拟考试从题库随机组卷，交卷后有成绩单卡片，考试历史最多 200 条；数据统计页有 KPI、趋势、榜单和全站高频错题。',
+  '练习答错后有 AI 错因洞察（自动判断错因）；本 AI 对话有在线与端侧离线两种模式。',
+  '联系邮箱 info@635262140.xyz。',
+].join('\n');
+
 /**
  * 基于本地个性化画像生成动态人设（AI native：越用越懂用户）
  * @param {string} basePrompt - GEMMA_SYSTEM_PROMPT 等基础人设
  * @param {Object} profile - { subjectInterest: {Marx: 12,...}, analysisCount: number, chatTurns: number }
- * @returns {string} 无个性化数据时原样返回 basePrompt
+ * @param {Object} [opts] - { siteManual: boolean } 是否附加站点使用指南（聊天通道用；剖析/归纳任务通道不用，省上下文）
+ * @returns {string} 无个性化数据时返回 basePrompt（或附加手册后的版本）
  */
-export function buildPersonalizedSystemPrompt(basePrompt, profile) {
-  if (!profile) return basePrompt;
+export function buildPersonalizedSystemPrompt(basePrompt, profile, { siteManual = false } = {}) {
+  const base = siteManual ? `${basePrompt}\n${SITE_MANUAL_PROMPT}` : basePrompt;
+  if (!profile) return base;
   const interests = Object.entries(profile.subjectInterest || {})
     .filter(([, n]) => Number(n) > 0)
     .sort((a, b) => b[1] - a[1])
@@ -250,9 +266,9 @@ export function buildPersonalizedSystemPrompt(basePrompt, profile) {
     .map(([k, n]) => `${SUBJECT_NAMES[k] || k}×${n}`)
     .join('、');
   const analysisCount = Number(profile.analysisCount) || 0;
-  if (!interests && analysisCount < 1) return basePrompt;
+  if (!interests && analysisCount < 1) return base;
 
-  const lines = [basePrompt, '', '【用户画像（仅存于用户本地浏览器）】'];
+  const lines = [base, '', '【用户画像（仅存于用户本地浏览器）】'];
   if (interests) lines.push(`近期重点关注：${interests}，优先照顾这些科目的讲解深度。`);
   if (analysisCount > 0) lines.push(`已累计为用户解析 ${analysisCount} 道题，请延续此前的讲解风格。`);
   return lines.join('\n');
