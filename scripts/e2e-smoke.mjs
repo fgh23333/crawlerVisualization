@@ -37,8 +37,13 @@ async function run() {
   page.on('console', (msg) => {
     if (msg.type() === 'error') {
       const text = msg.text();
-      // Ignore expected offline/external R2 or /api network errors in isolated preview
-      if (!text.includes('mypan.yutkit.com') && !text.includes('/api/')) {
+      // Ignore expected external CORS/preview-only errors (R2/production APIs allow bank.635262140.xyz, not 127.0.0.1:4173)
+      if (
+        !text.includes('mypan.yutkit.com') &&
+        !text.includes('635262140.xyz') &&
+        !text.includes('/api/') &&
+        !text.includes('Failed to load resource: net::ERR_FAILED')
+      ) {
         consoleErrors.push(`${page.url()}: ${text}`);
       }
     }
