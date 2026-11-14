@@ -71,8 +71,8 @@ jobs:
 
       - name: Install Playwright Chromium (ephemeral)
         run: |
-          npm install --no-save playwright
-          npx playwright install chromium --with-deps
+          npm install --prefix /tmp/pw playwright
+          /tmp/pw/node_modules/.bin/playwright install chromium --with-deps
 
       - name: Run functional E2E smoke test against vite preview
         run: |
@@ -85,4 +85,4 @@ jobs:
             fi
             sleep 1
           done
-          BASE_URL=http://127.0.0.1:4173 node scripts/e2e-smoke.mjs
+          PLAYWRIGHT_PATH=/tmp/pw/node_modules/playwright BASE_URL=http://127.0.0.1:4173 node scripts/e2e-smoke.mjs

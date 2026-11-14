@@ -4,7 +4,10 @@
  *   BASE_URL=http://127.0.0.1:4173 node scripts/e2e-smoke.mjs
  */
 
-import { chromium } from 'playwright';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
+const { chromium } = require(process.env.PLAYWRIGHT_PATH || 'playwright');
 
 const BASE_URL = (process.env.BASE_URL || 'http://127.0.0.1:4173').replace(/\/$/, '');
 
