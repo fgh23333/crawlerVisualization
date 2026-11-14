@@ -1,6 +1,6 @@
 name: CI
 
-# PR 合并检查：装依赖 → 单元测试 → 生产构建，任一步失败则红灯拦截
+# PR 合并检查：装依赖 → 单元测试 → 生产构建 → 真实浏览器功能冒烟，任一步失败则红灯拦截
 on:
   pull_request:
     branches: [main]
@@ -34,3 +34,55 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 1
+
+  e2e-smoke:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Download dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Install Playwright Chromium (ephemeral)
+        run: |
+          npm install --no-save playwright
+          npx playwright install chromium --with-deps
+
+      - name: Run functional E2E smoke test against vite preview
+        run: |
+          pnpm preview --host 127.0.0.1 --port 4173 --strictPort &
+          PREVIEW_PID=$!
+          trap "kill $PREVIEW_PID 2>/dev/null || true" EXIT
+          for i in $(seq 1 30); do
+            if curl -sf http://127.0.0.1:4173/newHome >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          BASE_URL=http://127.0.0.1:4173 node scripts/e2e-smoke.mjs
